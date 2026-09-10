@@ -266,7 +266,7 @@ function a(id,sig,kind,th,unit,pr,st,cons){return{id,sig,kind,th,unit,pr,status:
 function t(id,name,deps){return{id,name,deps,result:"PASS"};}
 const SIG=n=>M.signals.find(x=>x.name===n||x.id===n);
 //================= RUNTIME STATE =================
-const R={running:false,valveOpen:false,pt:6.8,ptMax:10,level:72,flow:0,temp:78,vib:2,fresh:0.4,stale:false,comm:true,t:0,log:[],rev:17,changeOpen:false,regen:false,regr:false,approved:false,ski:0,anom:0};
+const R={running:false,valveOpen:false,pt:6.8,ptMax:10,level:72,flow:0,temp:78,vib:2,fresh:0.4,stale:false,comm:true,t:0,log:[],rev:17,changeOpen:false,regen:false,regr:false,approved:false,ski:0,anom:0,panom:0,hist:{lvl:[],pt:[],flow:[]},runSec:0,thru:0,energy:0,anomSeen:0,starts:0};
 let SCREEN=null,genPhase="idle",hmiSize="M";
 //================= INTENT COMPILER =================
 const LEX=[{re:/level/i,w:"level"},{re:/pressure/i,w:"pressure"},{re:/flow/i,w:"flow"},{re:/temp/i,w:"temp"},{re:/pump/i,w:"pump"},{re:/valve|inlet/i,w:"valve"},{re:/alarm/i,w:"alarms"},{re:/start|stop|control/i,w:"controls"},{re:/trend/i,w:"trend"},{re:/status|overview|operator/i,w:"overview"},{re:/diagnos|abnormal|fault/i,w:"diagnostic"}];
@@ -392,16 +392,39 @@ function vRuntime(m){m.appendChild(el('div','hd',`<div class="crumb">Hero · Ver
  if(R.stale)m.appendChild(el('div','banner r',`<span class="blink">●</span><div><b>CONTROL TRUST LOST — PT401</b> · last valid ${R.fresh.toFixed(1)} s ago · STALE · commands DISABLED</div>`));
  if(!R.comm)m.appendChild(el('div','banner r',`<span class="blink">●</span><div><b>PLC CONNECTION LOST</b> · runtime authority UNAVAILABLE · commands DISABLED</div>`));
  if(!SCREEN){SCREEN=compile(parseIntent("operator overview level pressure pump valve alarms controls"));genPhase="ready";}
- const top=el('div','grid','');top.style.gridTemplateColumns='1.25fr 1fr';top.style.gap='13px';m.appendChild(top);
- top.appendChild(el('div','card',`<div class="h"><h3>Live 3D Process Twin</h3><span class="ts VERIFIED">PLC-authoritative</span></div><div class="b"><div class="twinwrap"><canvas class="twincv" id="rtTwin"></canvas></div></div>`));
+ m.appendChild(el('div','card',`<div class="h"><h3>Operator Assist</h3><span class="ts INFERRED">rule-based guidance · non-authoritative</span></div><div class="b" id="opAssist">${operatorHint()}</div>`));
+ const top=el('div','grid','');top.style.gridTemplateColumns='1.25fr 1fr';top.style.gap='13px';top.style.marginTop='13px';m.appendChild(top);
+ top.appendChild(el('div','card',`<div class="h"><h3>Live 3D Process Twin</h3><span class="ts VERIFIED" id="twinState">${R.running?'RUNNING':'STOPPED'}</span></div><div class="b"><div class="twinwrap"><canvas class="twincv" id="rtTwin"></canvas></div></div>`));
  top.appendChild(el('div','card',`<div class="h"><h3>Generated HMI</h3></div><div class="b" id="rtHost"></div>`));
+ m.appendChild(analyticsCard());
  const bot=el('div','grid','');bot.style.gridTemplateColumns='1fr 1fr';bot.style.gap='13px';bot.style.marginTop='13px';m.appendChild(bot);
  bot.appendChild(el('div','card',`<div class="h"><h3>Command Response Ladder · PLC-authoritative</h3></div><div class="b"><div class="flow" style="font-size:10.5px"><span class="n">REQUEST</span><span class="ar">→</span><span class="n">PERMISSIVE</span><span class="ar">→</span><span class="n">PLC</span><span class="ar">→</span><span class="n">ACT</span><span class="ar">→</span><span class="n">VERIFY</span></div><div id="ladder" style="margin-top:10px">${R.log.length?R.log[R.log.length-1]:'<div class="sub">Press START on the HMI to see the PLC decision.</div>'}</div></div>`));
  bot.appendChild(el('div','card',`<div class="h"><h3>Scenarios &amp; authority</h3></div><div class="b"><div class="kv"><span class="k">Inlet valve XV-401</span><span class="v">${R.valveOpen?'<span class="ts VERIFIED">OPEN</span>':'<span class="ts UNKNOWN">CLOSED</span>'}</span></div><div style="margin:8px 0;display:flex;gap:7px;flex-wrap:wrap"><button class="btn sm" onclick="toggleValve()">${R.valveOpen?'Close':'Open'} inlet valve</button><button class="btn sm" onclick="R.stale=!R.stale;R.fresh=R.stale?4.2:0.4;render()">${R.stale?'Restore fresh data':'Freeze (stale)'}</button><button class="btn sm" onclick="R.comm=!R.comm;render()">${R.comm?'Drop PLC comms':'Restore comms'}</button></div><div class="rec" style="margin-top:2px"><span>▤</span><div>Live values are the real <b>${SKMETA.source}</b> trace — anomalies raise real alarms.</div></div></div>`));
  const c=$('#rtTwin');if(c){rtTwin=makeTwin(c);}renderHMIInto($('#rtHost'));}
-function cmdStart(){if(!R.valveOpen){R.log.push(`<div class="banner r" style="margin:0"><span>✕</span><div><b>START REQUEST → PLC → REJECTED</b><div class="kv"><span class="k">Permissive</span><span class="v mono">XV401_OPEN_FB = FALSE</span></div><div class="kv"><span class="k">PLC decision</span><span class="v" style="color:var(--red)">REJECTED</span></div><div class="kv"><span class="k">HMI bypass</span><span class="v">NOT POSSIBLE</span></div></div></div>`);toast("START rejected by PLC — inlet valve permissive FALSE");render();return;}R.running=true;R.log.push(`<div class="banner g" style="margin:0"><span>✓</span><div><b>START authorized &amp; verified</b><table style="margin-top:4px"><tbody><tr><td>Permissive XV401_OPEN_FB</td><td>✓ TRUE</td></tr><tr><td>PLC authorization</td><td>✓</td></tr><tr><td>P401_RUN_FB feedback</td><td>✓ TRUE</td></tr></tbody></table></div></div>`);toast("START authorized — evidence logged");render();}
+function cmdStart(){if(!R.valveOpen){R.log.push(`<div class="banner r" style="margin:0"><span>✕</span><div><b>START REQUEST → PLC → REJECTED</b><div class="kv"><span class="k">Permissive</span><span class="v mono">XV401_OPEN_FB = FALSE</span></div><div class="kv"><span class="k">PLC decision</span><span class="v" style="color:var(--red)">REJECTED</span></div><div class="kv"><span class="k">HMI bypass</span><span class="v">NOT POSSIBLE</span></div></div></div>`);toast("START rejected by PLC — inlet valve permissive FALSE");render();return;}R.running=true;R.starts++;R.log.push(`<div class="banner g" style="margin:0"><span>✓</span><div><b>START authorized &amp; verified</b><table style="margin-top:4px"><tbody><tr><td>Permissive XV401_OPEN_FB</td><td>✓ TRUE</td></tr><tr><td>PLC authorization</td><td>✓</td></tr><tr><td>P401_RUN_FB feedback</td><td>✓ TRUE</td></tr></tbody></table></div></div>`);toast("START authorized — evidence logged");render();}
 function cmdStop(){R.running=false;R.log.push(`<div class="banner g" style="margin:0"><span>✓</span><div><b>STOP authorized</b> — P401_RUN_FB FALSE, verified.</div></div>`);render();}
 function toggleValve(){R.valveOpen=!R.valveOpen;toast('XV401_OPEN_FB = '+(R.valveOpen?'TRUE':'FALSE'));render();}
+//================= OPERATOR ASSIST + ANALYTICS =================
+function operatorHint(){const pt=R.stale?8:R.pt;let ic='✓',cls='',msg='System nominal — all permissives satisfied.';
+ if(!R.comm){ic='●';cls='err';msg='<b>PLC comms lost.</b> Runtime authority unavailable — commands disabled. Restore comms to continue.';}
+ else if(R.stale){ic='●';cls='err';msg='<b>Data is stale (PT401).</b> Control trust lost — commands disabled. Restore fresh data before operating.';}
+ else if(R.running&&pt>=8){ic='⚠';cls='warn';msg='<b>PT401 HIGH ('+pt.toFixed(1)+' bar).</b> Overpressure risk — reduce discharge demand or verify downstream valve. Consider STOP if it climbs.';}
+ else if(R.running&&R.anom){ic='⚠';cls='warn';msg='<b>Anomaly flagged in live data.</b> The recorded SKAB trace marks this window abnormal — verify readings against the field.';}
+ else if(!R.valveOpen){ic='▸';cls='';msg='<b>Next step:</b> inlet valve XV-401 is CLOSED. Open it — it is a START permissive for P-401.';}
+ else if(R.valveOpen&&!R.running){ic='▸';cls='';msg='<b>Ready to start.</b> Permissive XV401_OPEN_FB = TRUE. You may START P-401.';}
+ else if(R.running){ic='✓';cls='';msg='<b>P-401 running.</b> Level '+R.level.toFixed(0)+'% · flow '+R.flow.toFixed(0)+' m³/h · pressure '+pt.toFixed(1)+' bar. Nominal.';}
+ return `<div class="rec ${cls}" style="margin:0"><span>${ic}</span><div>${msg}</div></div>`;}
+function sparkline(arr,color,mx,anoms){if(!arr.length)return '';const n=arr.length,W=100,H=30;let d='';for(let i=0;i<n;i++){const x=i/(n-1||1)*W,y=H-2-Math.max(0,Math.min(1,arr[i]/mx))*(H-4);d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)+' ';}const ad=(anoms||[]).map((a,i)=>a?`<circle cx="${(i/(n-1||1)*W).toFixed(1)}" cy="${(H-2-Math.max(0,Math.min(1,arr[i]/mx))*(H-4)).toFixed(1)}" r="1.6" fill="#d64533"/>`:'').join('');return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="width:100%;height:34px"><path d="${d}" fill="none" stroke="${color}" stroke-width="1.4"/>${ad}</svg>`;}
+function analyticsCard(){return el('div','card',`<div class="h"><h3>Real-time Analytics · live</h3><span class="ts VERIFIED">SKAB stream</span></div><div class="b" id="analytics">${analyticsInner()}</div>`);}
+function analyticsInner(){const pt=R.stale?8:R.pt;const anrate=R.t?(R.anomSeen/Math.max(1,R.t)*100):0;const mm=Math.floor(R.runSec/60),ss=Math.floor(R.runSec%60);
+ const kpis=[["Pump runtime",`${mm}m ${ss}s`,""],["Throughput",`${R.thru.toFixed(1)} m³`,"b"],["Energy (est.)",`${R.energy.toFixed(2)} kWh`,"a"],["Starts",R.starts,""],["Anomaly rate",`${anrate.toFixed(1)}%`,anrate>20?"r":"g"]];
+ return `<div class="grid g5">${kpis.map(([l,v,c])=>`<div class="tile ${c}"><div class="l">${l}</div><div class="v num" style="font-size:20px">${v}</div></div>`).join('')}</div>
+  <div class="grid g3" style="margin-top:11px">
+   <div><div class="l" style="font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase">LT401 level · ${R.level.toFixed(0)}%</div>${sparkline(R.hist.lvl,'#2b6fb0',100)}</div>
+   <div><div class="l" style="font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase">PT401 pressure · ${pt.toFixed(1)} bar ${pt>=8?'<span class="c-red">HIGH</span>':''}</div>${sparkline(R.hist.pt,pt>=8?'#d64533':'#1c8a3e',R.ptMax,R.hist.pt.map((_,i)=>R.hist.pt[i]>=8?1:0))}</div>
+   <div><div class="l" style="font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase">FT401 flow · ${R.flow.toFixed(0)} m³/h</div>${sparkline(R.hist.flow,'#e08a12',120)}</div>
+  </div>`;}
+function paintAnalytics(){const a=$('#analytics');if(a)a.innerHTML=analyticsInner();const oa=$('#opAssist');if(oa)oa.innerHTML=operatorHint();const ts=$('#twinState');if(ts)ts.textContent=R.running?'RUNNING':'STOPPED';}
 //================= 3D GRAPH =================
 const GN=[{id:"asset:unit:TK-401",t:"TK-401",s:"Unit",x:-.55,y:0,z:0,c:"#1c8a3e",big:1},{id:"signal:pressure:PT401",t:"PT401",s:"Pressure",x:.05,y:-.35,z:.2,c:"#2b6fb0",big:1},{id:"plc:PT401",t:"%MW22",s:"PLC var",x:.6,y:-.65,z:.6,c:"#8a97a0"},{id:"hmi:PT401",t:"HMI",s:"gauge",x:.95,y:-.4,z:.85,c:"#8a97a0"},{id:"alarm:TK401:PT401_HI",t:"PT HI",s:"alarm",x:.55,y:-.05,z:.35,c:"#e08a12"},{id:"alarm:TK401:PT401_LO",t:"PT LO",s:"alarm",x:.9,y:.2,z:.7,c:"#e08a12"},{id:"trend:PT401",t:"TREND",s:"PT401",x:.05,y:.3,z:-.15,c:"#8a97a0"},{id:"test:T05",t:"T05",s:"alarm test",x:.35,y:.7,z:.25,c:"#37a05e"},{id:"test:T07",t:"T07",s:"range test",x:.75,y:.7,z:.55,c:"#37a05e"},{id:"doc:OPR-03",t:"OPR-03",s:"procedure",x:-.1,y:.72,z:-.4,c:"#e08a12"},{id:"signal:level:LT401",t:"LT401",s:"Level",x:-.1,y:-.72,z:-.3,c:"#2b6fb0"},{id:"asset:P-401",t:"P-401",s:"Pump",x:-.75,y:.5,z:-.85,c:"#aeb8bd"}];
 const GE=[["asset:unit:TK-401","signal:pressure:PT401"],["asset:unit:TK-401","signal:level:LT401"],["asset:unit:TK-401","asset:P-401"],["signal:pressure:PT401","plc:PT401"],["plc:PT401","hmi:PT401"],["signal:pressure:PT401","alarm:TK401:PT401_HI"],["signal:pressure:PT401","alarm:TK401:PT401_LO"],["signal:pressure:PT401","trend:PT401"],["signal:pressure:PT401","test:T05"],["signal:pressure:PT401","test:T07"],["signal:pressure:PT401","doc:OPR-03"],["alarm:TK401:PT401_HI","test:T05"]];
@@ -425,11 +448,17 @@ function toast(msg){let t=$('#toast');if(!t){t=el('div');t.id='toast';t.style.cs
 function tick(){R.t++;
  if(SKAB.length&&!R.stale){R.ski=(R.ski+1)%SKAB.length;const s=SKAB[R.ski];R.pt=s.p;R.flow=R.running?s.flow:Math.max(0,s.flow*0.15);R.temp=s.temp;R.vib=s.vib;R.anom=s.anom;}
  if(R.running){R.level=Math.max(8,Math.min(96,R.level+(R.flow>40?0.12:-0.08)));}
+ // live analytics accumulation (concurrent with control)
+ R.hist.lvl.push(R.level);R.hist.pt.push(R.stale?8:R.pt);R.hist.flow.push(R.flow);['lvl','pt','flow'].forEach(k=>{if(R.hist[k].length>90)R.hist[k].shift();});
+ if(R.running&&!R.stale){R.runSec+=0.85;R.thru+=R.flow/3600*0.85;R.energy+=(2.4+R.flow*0.035)/3600*0.85;}
+ if(R.anom&&!R.panom)R.anomSeen++;R.panom=R.anom;
  if(view==='overview'||view==='runtime'){paintGauges();const host=$('#rtHost');if(host&&SCREEN&&genPhase!=='compiling')renderHMIInto(host);const lad=$('#ladder');if(lad&&R.log.length)lad.innerHTML=R.log[R.log.length-1];}
+ if(view==='runtime')paintAnalytics();
  if(view==='generate'&&genPhase==='ready'){const h=$('#hmihost');if(h)renderHMIInto(h);}}
+function seedShot(){R.valveOpen=true;R.running=true;R.starts=1;R.runSec=252;R.thru=6.3;R.energy=0.34;R.anomSeen=7;for(let i=0;i<90;i++){const s=SKAB[i%SKAB.length]||{p:5,flow:80,anom:0};R.hist.pt.push(s.p);R.hist.flow.push(s.flow);R.hist.lvl.push(50+Math.sin(i/8)*22);}R.pt=SKAB[40]?SKAB[40].p:6.8;R.flow=88;R.level=68;}
 window.addEventListener('load',()=>{if(window.THREE)heroTwin=makeTwin($('#heroCanvas'),{dark:true});drawSkab();});
 if(ANIM)setInterval(tick,850);
-if(location.hash){const v=location.hash.slice(1);if(v==='app')launchApp();else if(v.indexOf('app-')===0)launchApp(v.slice(4));}
+if(location.hash){const v=location.hash.slice(1);if(!ANIM&&(v==='app-runtime'))seedShot();if(v==='app')launchApp();else if(v.indexOf('app-')===0)launchApp(v.slice(4));}
 </script>
 </body>
 </html>
