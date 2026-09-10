@@ -565,35 +565,32 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
     <aside class="md-tree" id="mdTree"></aside>
     <main class="md-center">
       <div class="md-hd">
-        <div><h1>Canonical Machine Model</h1><p>A verified engineering representation of TK-401 — how CANON understands the machine.</p></div>
+        <div><h1>Canonical Machine Model</h1><p>A structured engineering representation of TK-401 derived from its connected machine context.</p></div>
         <div class="rt">MODEL STATUS<br><b style="color:var(--green-d)">● READY</b><br>Version&nbsp;<b>1.0</b><div><button class="rb" onclick="toast('Model refreshed from engineering context · v1.0')">Refresh model</button></div></div>
       </div>
       <div class="md-badge"><span class="lead">CANONICAL REPRESENTATION</span><span>Source&nbsp;<b>TK-401 engineering context</b></span><span>Model&nbsp;<b>CANON v1.0</b></span></div>
-      <div class="md-topo"><div class="h"><span>Machine Topology · relationships</span><span style="color:#8a97a0">click any element</span></div>
-        <svg class="topo" viewBox="0 0 640 340">
-          <line x1="320" y1="86" x2="150" y2="156" stroke="#dbe3e7" stroke-width="1.5"/>
-          <line x1="320" y1="86" x2="320" y2="156" stroke="#dbe3e7" stroke-width="1.5"/>
-          <line x1="320" y1="86" x2="500" y2="156" stroke="#dbe3e7" stroke-width="1.5"/>
-          <line x1="320" y1="202" x2="320" y2="262" stroke="#dbe3e7" stroke-width="1.5"/>
-          <text class="relabel" x="228" y="128" text-anchor="middle">LEVEL SIGNAL</text>
-          <text class="relabel" x="332" y="128" text-anchor="middle">PRESSURE SIGNAL</text>
-          <text class="relabel" x="415" y="128" text-anchor="middle">START / STOP</text>
-          <text class="relabel" x="336" y="238" text-anchor="middle">PERMISSIVE</text>
-          <g class="tnode reveal" style="animation-delay:.05s" onclick="mdNode('TK401')"><rect x="240" y="40" width="160" height="48" rx="9"/><circle cx="258" cy="64" r="4" fill="#2FA84F"/><text class="n" x="272" y="61">TK-401</text><text class="s" x="272" y="76">PROCESS TANK</text></g>
-          <g class="tnode reveal" style="animation-delay:.15s" onclick="mdNode('LT401')"><rect x="90" y="156" width="120" height="48" rx="9"/><circle cx="107" cy="176" r="4" fill="#2FA84F"/><text class="n" x="121" y="175">LT401</text><text class="s" x="121" y="189">LEVEL</text><text class="val" x="150" y="224" text-anchor="middle">72 %</text></g>
-          <g class="tnode reveal" style="animation-delay:.25s" onclick="mdNode('PT401')"><rect x="260" y="156" width="120" height="48" rx="9"/><circle cx="277" cy="176" r="4" fill="#2FA84F"/><text class="n" x="291" y="175">PT401</text><text class="s" x="291" y="189">PRESSURE</text><text class="val" x="320" y="224" text-anchor="middle">6.2 bar</text></g>
-          <g class="tnode reveal" style="animation-delay:.35s" onclick="mdNode('P401')"><rect x="440" y="156" width="120" height="48" rx="9"/><circle cx="457" cy="176" r="4" fill="#2FA84F"/><text class="n" x="471" y="175">P401</text><text class="s" x="471" y="189">PUMP</text><text class="val" x="500" y="224" text-anchor="middle">RUNNING</text></g>
-          <g class="tnode reveal" style="animation-delay:.45s" onclick="mdNode('XV401')"><rect x="260" y="262" width="120" height="48" rx="9"/><circle cx="277" cy="282" r="4" fill="#2FA84F"/><text class="n" x="291" y="281">XV401</text><text class="s" x="291" y="295">VALVE</text><text class="val" x="320" y="330" text-anchor="middle">OPEN</text></g>
+      <div class="md-topo"><div class="h"><span>Machine Model · Relationships<span style="color:#9aa7ae;font-weight:600;text-transform:none;letter-spacing:0"> · source-grounded machine representation</span></span><span style="font-size:10px;font-weight:700;color:#5a6b73;letter-spacing:.2px">● VERIFIED&nbsp;&nbsp;&nbsp;○ INFERRED&nbsp;&nbsp;&nbsp;<span style="color:#b9770f">△ REVIEW</span></span></div>
+        <svg class="topo" viewBox="0 0 640 314">
+          <line x1="320" y1="88" x2="150" y2="150" stroke="#dbe3e7" stroke-width="1.5"/>
+          <line x1="320" y1="88" x2="320" y2="150" stroke="#dbe3e7" stroke-width="1.5"/>
+          <line x1="320" y1="88" x2="500" y2="150" stroke="#dbe3e7" stroke-width="1.5"/>
+          <path d="M500 200 V271 H386" fill="none" stroke="#e3c98a" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <text class="relabel" x="470" y="238" text-anchor="end" fill="#b9770f">PERMISSIVE</text>
+          <g class="tnode reveal" onclick="mdNode('TK401')"><rect x="240" y="42" width="160" height="46" rx="9"/><circle cx="258" cy="65" r="4" fill="#2FA84F"/><text class="n" x="272" y="62">TK-401</text><text class="s" x="272" y="77">PROCESS TANK</text></g>
+          <g class="tnode reveal" onclick="mdNode('LT401')"><rect x="84" y="150" width="132" height="50" rx="9"/><circle cx="101" cy="171" r="4" fill="#2FA84F"/><text class="n" x="115" y="170">LT401</text><text class="s" x="115" y="186">MEASURES LEVEL</text><text class="val" x="206" y="177" text-anchor="end">72 %</text></g>
+          <g class="tnode reveal" onclick="mdNode('PT401')"><rect x="254" y="150" width="132" height="50" rx="9"/><circle cx="271" cy="171" r="4" fill="#2FA84F"/><text class="n" x="285" y="170">PT401</text><text class="s" x="285" y="186">MEASURES PRESSURE</text><text class="val" x="376" y="177" text-anchor="end">6.2 bar</text></g>
+          <g class="tnode reveal" onclick="mdNode('P401')"><rect x="434" y="150" width="132" height="50" rx="9"/><circle cx="451" cy="171" r="4" fill="#2FA84F"/><text class="n" x="465" y="170">P401</text><text class="s" x="465" y="186">ACTUATES</text><text class="val" x="556" y="177" text-anchor="end">RUNNING</text></g>
+          <g class="tnode reveal" onclick="mdNode('XV401')"><rect x="254" y="246" width="132" height="50" rx="9"/><circle cx="271" cy="267" r="4" fill="#2FA84F"/><text class="n" x="285" y="266">XV401</text><text class="s" x="285" y="282">VALVE · FLOW PATH</text><text class="val" x="376" y="273" text-anchor="end">OPEN</text></g>
         </svg>
       </div>
       <div class="md-integrity">
-        <span class="it"><b>✓</b> Assets resolved</span><span class="it"><b>✓</b> Signal references</span><span class="it"><b>✓</b> Controller references</span><span class="it"><b>✓</b> Core relationships</span><span class="it"><b>✓</b> Command targets</span>
-        <span class="ov">● MODEL READY</span>
+        <span class="it"><b>✓</b> Assets resolved</span><span class="it"><b>✓</b> Signal references resolved</span><span class="it"><b>✓</b> Commands mapped</span><span class="it"><b>✓</b> Core relationships resolved</span><span class="it" style="color:#b9770f;cursor:pointer" onclick="mdReview()"><b style="color:#b9770f">△</b> 1 reference requires review</span>
+        <span class="ov" style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.25"><span>● MODEL READY</span><span style="font-size:10px;color:#8a97a0;font-weight:600">23 / 24 core references verified · 1 review required</span></span>
       </div>
     </main>
     <aside class="md-insp" id="mdInsp"></aside>
   </div>
-  <div class="dc-cta"><span class="note"><b style="color:var(--green-d)">● MODEL READY</b> — the canonical model is the source of truth for everything that follows.</span><div style="display:flex;gap:10px"><button class="rb" style="border:1px solid #dbe3e7;background:#fff;border-radius:8px;padding:11px 16px;font:800 12px var(--f);cursor:pointer" onclick="launchApp('graph')">View traceability</button><button class="dc-buildbtn" onclick="defineIntent()">Define Engineering Intent →</button></div></div>
+  <div class="dc-cta"><span class="note"><b style="color:var(--green-d)">● MODEL READY</b> · 23 / 24 core references verified · <b style="color:#b9770f">1 review required</b></span><div style="display:flex;gap:10px"><button class="rb" style="border:1px solid #dbe3e7;background:#fff;border-radius:8px;padding:11px 16px;font:800 12px var(--f);cursor:pointer" onclick="mdTrace()">View traceability</button><button class="dc-buildbtn" onclick="defineIntent()">Define Engineering Intent →</button></div></div>
 </div>
 <div id="create">
   <div class="chd"><b>CREATE MACHINE-SPECIFIC HMI</b><div class="steps" id="cSteps"></div><button class="btn sm" onclick="createClose()">✕ Close</button></div>
@@ -932,6 +929,18 @@ function defineIntent(){$('#model').classList.remove('on');launchApp('generate')
 let mdSel='TK401';
 function renderMdTree(){const t=$('#mdTree');if(!t)return;const a=(id,lab,c,sub)=>`<div class="ti ${sub?'sub':''} ${mdSel===id?'on':''}" onclick="mdNode('${id}')">${lab}${c?`<span class="c">${c}</span>`:''}</div>`;
  t.innerHTML=`<div class="tl">Model</div>`+a('TK401','TK-401')+`<div class="grp">Assets</div>`+a('LT401','LT401','',1)+a('PT401','PT401','',1)+a('P401','P401','',1)+a('XV401','XV401','',1)+`<div class="grp">Model elements</div>`+a('SIGNALS','Signals','186')+a('COMMANDS','Commands','4')+a('PERMISSIVES','Permissives','3')+a('ALARMS','Alarms','12')+a('DEPS','Dependencies','');}
+function mdReview(){const d=$('#discDrawer');if(!d)return;d.innerHTML=`<div class="dh"><div><div class="dt">Unresolved Reference</div><h3>PT401.Status</h3></div><span class="x" onclick="discDrawerClose()">✕</span></div>`
+ +`<div class="kv"><span class="k">Status</span><span class="v" style="color:#b9770f">REVIEW REQUIRED</span></div>`
+ +`<div class="kv"><span class="k">Reason</span><span class="v" style="max-width:62%;text-align:right;font-weight:500">No authoritative mapping found in the available engineering context.</span></div>`
+ +`<div class="kv"><span class="k">CANON response</span><span class="v" style="max-width:62%;text-align:right;font-weight:500">Binding not automatically created.</span></div>`
+ +`<div style="display:flex;gap:8px;margin-top:16px"><button class="db" style="flex:1;border-color:#e3c98a;color:#8a5a08;background:#fcf7ea" onclick="toast('PT401.Status marked for engineering review.');discDrawerClose()">Review</button><button class="db" style="flex:1" onclick="toast('Left unresolved — excluded from the model until a source is provided.');discDrawerClose()">Dismiss</button></div>`;
+ d.classList.add('on');}
+function mdTrace(){const d=$('#discDrawer');if(!d)return;const obj=(DISC_NODES[mdSel]&&mdSel!=='TK401'&&mdSel!=='UNRESOLVED')?mdSel:'PT401';
+ const chain=[[obj,'object'],[obj+'.'+(obj==='P401'?'RunFB':'Value'),'signal'],['Modicon M262','source'],['TK-401 · relationship','relationship'],['HMI binding','binding'],['Validation · typed & in range','validation'],['Revision CANON v1.0','revision']];
+ d.innerHTML=`<div class="dh"><div><div class="dt">Traceability</div><h3>${obj}</h3></div><span class="x" onclick="discDrawerClose()">✕</span></div><div style="margin-top:4px">`
+  +chain.map((c,i)=>`<div style="display:flex;gap:11px;align-items:flex-start;padding:9px 0"><div style="display:flex;flex-direction:column;align-items:center"><span style="width:9px;height:9px;border-radius:50%;background:${i===chain.length-1?'#8a97a0':'var(--green)'}"></span>${i<chain.length-1?'<span style="width:1px;flex:1;min-height:16px;background:#dbe3e7;margin-top:2px"></span>':''}</div><div><div style="font-size:9px;color:#9aa7ae;text-transform:uppercase;letter-spacing:.5px">${c[1]}</div><div style="font-size:12.5px;font-weight:700">${c[0]}</div></div></div>`).join('')
+  +`</div><div class="src" style="border-top:1px solid #eef2f4;margin-top:6px;padding-top:12px;color:#5a6b73;font-size:11.5px">Every step is source-grounded — the binding exists only because the chain resolves end-to-end.</div>`;
+ d.classList.add('on');}
 function mdNode(id){mdSel=id||'TK401';renderMdTree();const ins=$('#mdInsp');if(!ins)return;
  const M2={
   LT401:{dt:'LEVEL TRANSMITTER',h:'LT401',status:'● HEALTHY',kv:[['Engineering signal','LT401.Level'],['Type','REAL'],['Unit','%'],['Range','0–100 %'],['Source','Modicon M262']],used:['Level tile','Level trend','Overfill alarm'],rel:['TK-401','Level signal','Alarm','HMI binding']},
@@ -946,7 +955,7 @@ function mdNode(id){mdSel=id||'TK401';renderMdTree();const ins=$('#mdInsp');if(!
  }[mdSel];
  if(!M2){ins.innerHTML=`<div class="dt">Machine Model</div><h3>TK-401 · Process Tank</h3>`
    +`<div class="md-mini"><div class="kv"><span class="k">Assets</span><span class="v">24</span></div><div class="kv"><span class="k">Signals</span><span class="v">186</span></div><div class="kv"><span class="k">I/O Groups</span><span class="v">4</span></div><div class="kv" style="border:none"><span class="k">Alarms</span><span class="v">12</span></div></div>`
-   +`<div class="sec">Model health</div><div style="color:var(--green-d);font-weight:700;font-size:12.5px">● 100% core references resolved</div>`
+   +`<div class="sec">Model health</div><div style="color:var(--green-d);font-weight:700;font-size:12.5px">● 23 / 24 core references verified</div><div style="color:#b9770f;font-weight:700;font-size:12px;margin-top:3px;cursor:pointer" onclick="mdReview()">△ 1 review required</div>`
    +`<div class="sec">Source coverage</div><div style="color:var(--green-d);font-weight:700;font-size:12.5px">● Engineering sources linked</div>`
    +`<div class="sec">Model version</div><div style="font-weight:700">CANON v1.0</div>`
    +`<div class="md-mini" style="border-color:#f0dcae;background:#fcf7ea"><div class="k" style="color:#8a5a08">Held for review</div><div class="v" style="color:#8a5a08;font-weight:600;font-size:11.5px">PT401.Status — UNRESOLVED, excluded until reviewed. CANON will not invent a binding.</div></div>`;return;}
