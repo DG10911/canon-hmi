@@ -285,94 +285,103 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 .readycard{background:#fff;border:1px solid var(--green-b);border-radius:16px;padding:34px;text-align:center;box-shadow:0 20px 60px rgba(28,138,62,.12)}
 .readycard .big{font-size:30px;font-weight:800;letter-spacing:-.5px;margin:8px 0 4px}
 .readycard .ok{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--green-2),var(--green-d));color:#fff;display:grid;place-items:center;font-size:26px;margin:0 auto;box-shadow:0 8px 24px rgba(47,168,79,.4)}
+/* ===== PROJECT HUB (opening screen) ===== */
+#hub{position:fixed;inset:0;z-index:100;background:#fff;color:#1e2a30;display:none;flex-direction:column}
+#hub.on{display:flex}
+.hb-top{height:56px;display:flex;align-items:center;gap:18px;padding:0 24px;border-bottom:1px solid #e6ebee;flex:none}
+.hb-brand{display:flex;align-items:center;gap:11px}
+.hb-m{width:30px;height:30px;border-radius:7px;background:var(--green-d);color:#fff;display:grid;place-items:center;font-weight:900;font-size:15px}
+.hb-brand b{font-size:15px;font-weight:800;letter-spacing:.3px;display:block;line-height:1.1}
+.hb-brand span{font-size:8.5px;letter-spacing:1.6px;color:#8a97a0;font-weight:700}
+.hb-nav{display:flex;gap:4px;margin-left:12px}
+.hb-nav a{font-size:13px;font-weight:600;color:#5a6b73;padding:7px 13px;border-radius:7px;cursor:pointer}
+.hb-nav a:hover{background:#f2f5f6;color:#1e2a30}.hb-nav a.on{color:var(--green-d);background:var(--green-l)}
+.hb-top .sp{flex:1}
+.hb-sys{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;color:#5a6b73;letter-spacing:.5px}
+.hb-sys .d{width:8px;height:8px;border-radius:50%;background:#c2ccd1;transition:.4s}
+.hb-sys .d.ok{background:var(--green);box-shadow:0 0 0 3px rgba(47,168,79,.14)}
+.hb-av{width:30px;height:30px;border-radius:50%;background:#eef2f4;border:1px solid #dbe3e7;display:grid;place-items:center;font-size:11px;font-weight:800;color:#5a6b73}
+.hb-body{flex:1;display:flex;min-height:0}
+.hb-rail{width:186px;flex:none;border-right:1px solid #e6ebee;padding:14px 12px;background:#fbfcfd}
+.hb-rail a{display:flex;align-items:center;gap:10px;padding:8px 11px;border-radius:8px;font-size:13px;font-weight:600;color:#5a6b73;cursor:pointer;margin-bottom:2px}
+.hb-rail a i{opacity:.65;font-style:normal;width:16px;text-align:center}
+.hb-rail a:hover{background:#f2f5f6;color:#1e2a30}.hb-rail a.on{background:var(--green-l);color:var(--green-d);font-weight:700}
+.hb-div{height:1px;background:#e6ebee;margin:14px 4px}
+.hb-slabel{font-size:8.5px;font-weight:800;letter-spacing:1.2px;color:#9aa7ae;text-transform:uppercase;padding:0 8px 7px}
+.hb-sstat{font-size:11.5px;color:#7c8a92;padding:0 8px;line-height:2}.hb-sstat b{color:#1e2a30;font-weight:700}
+.hb-main{flex:1;overflow:auto;padding:26px 34px;background:#fff}
+.hb-hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+.hb-hd h1{font-size:22px;font-weight:800;letter-spacing:-.3px}.hb-hd p{color:#7c8a92;font-size:13px;margin-top:3px;max-width:520px}
+.hb-newbtn{background:var(--green-d);color:#fff;border:none;border-radius:8px;padding:10px 16px;font:800 13px var(--f);cursor:pointer;white-space:nowrap}
+.hb-newbtn:hover{background:#166f31}
+.hb-strip{display:flex;gap:30px;padding:13px 18px;border:1px solid #e6ebee;border-radius:9px;background:#fbfcfd;margin-bottom:20px}
+.hb-strip .s{display:flex;align-items:baseline;gap:8px}.hb-strip .s b{font-size:16px;font-weight:800;font-variant-numeric:tabular-nums}.hb-strip .s span{font-size:9.5px;letter-spacing:.7px;color:#8a97a0;font-weight:700;text-transform:uppercase}
+.prow{display:grid;grid-template-columns:1.5fr 1fr 1.1fr 1.5fr auto;gap:20px;align-items:center;padding:16px 20px;border:1px solid #e6ebee;border-radius:10px;margin-bottom:11px;background:#fff;cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.prow:hover{border-color:#bfe6ca;box-shadow:0 2px 12px rgba(20,45,35,.07)}
+.prow .pn{font-size:16px;font-weight:800}.prow .pt{font-size:10.5px;color:#8a97a0;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.prow .kv2{font-size:10px;color:#9aa7ae;text-transform:uppercase;letter-spacing:.4px}.prow .kv2 b{display:block;color:#1e2a30;font-size:13px;font-weight:700;margin-top:2px;letter-spacing:0;text-transform:none}
+.metrics{display:flex;gap:18px}
+.stt{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700}
+.stt .d{width:8px;height:8px;border-radius:50%}
+.stt.run .d{background:var(--green);box-shadow:0 0 0 3px rgba(47,168,79,.14)}.stt.run{color:var(--green-d)}
+.stt.stop .d{background:#b6c0c6}.stt.stop{color:#7c8a92}
+.stt.off .d{background:var(--red)}.stt.off{color:var(--red)}
+.stt.conn .d{background:var(--green)}.stt.conn{color:#5a6b73}
+.prow .open{font-size:12px;font-weight:800;color:var(--green-d);white-space:nowrap}
+.prow:hover .open{text-decoration:underline}
+.newproj{margin-top:8px;border:1px dashed #cdd8dc;border-radius:10px;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;background:#fbfcfd}
+.newproj b{font-size:14px}.newproj p{color:#7c8a92;font-size:12.5px;margin-top:2px}
+.hbm{position:fixed;inset:0;z-index:130;background:rgba(20,30,26,.32);display:none;align-items:center;justify-content:center}
+.hbm.on{display:flex}
+.hbm-box{width:min(760px,93vw);background:#fff;border-radius:14px;border:1px solid #e6ebee;box-shadow:0 30px 80px rgba(20,45,35,.28);overflow:hidden}
+.hbm-h{padding:18px 22px;border-bottom:1px solid #eef2f4;display:flex;justify-content:space-between;align-items:center}
+.hbm-h b{font-size:16px}.hbm-h p{color:#7c8a92;font-size:12.5px;margin-top:2px}
+.hbm-opts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;padding:22px}
+.hopt{border:1px solid #e6ebee;border-radius:11px;padding:18px;display:flex;flex-direction:column;gap:9px}
+.hopt .oi{width:36px;height:36px;border-radius:9px;background:#eef2f4;display:grid;place-items:center;font-size:17px;color:#5a6b73}
+.hopt.demo .oi{background:var(--green-l);color:var(--green-d)}
+.hopt b{font-size:13.5px}.hopt p{color:#7c8a92;font-size:11.5px;line-height:1.5;flex:1;margin:0}
+.hopt .tag{font-size:8.5px;font-weight:800;color:#b9770f;background:#fcf2e0;padding:2px 7px;border-radius:5px;align-self:flex-start;letter-spacing:.4px}
+.hopt .ob{border:1px solid #dbe3e7;background:#fff;border-radius:8px;padding:9px;font:800 12px var(--f);cursor:pointer;color:#1e2a30}
+.hopt.demo .ob{background:var(--green-d);color:#fff;border-color:transparent}
+.hopt .ob:hover{filter:brightness(.97)}
 </style>
 </head>
 <body>
-<div id="boot">
-  <div class="bw"><span class="m">C</span>CANON</div>
-  <div class="bs">MACHINE CONTEXT → VERIFIED DIGITAL HMI</div>
-  <div class="bsub">Engineering intelligence for machine-specific operator experiences</div>
-  <canvas id="bootcv"></canvas>
-  <div class="bcap" id="bootcap"></div>
-  <div class="bbarw"><div class="bbar" id="bootbar"></div></div>
-  <div class="bcred">TEAM DIGISEVA · SCHNEIDER ELECTRIC HMI HACKATHON 2026 · PS2</div>
-  <div class="skip" onclick="bootDone()">Skip intro →</div>
+<div id="hub">
+  <header class="hb-top">
+    <div class="hb-brand"><span class="hb-m">C</span><div><b>CANON</b><span>ENGINEERING INTELLIGENCE PLATFORM</span></div></div>
+    <nav class="hb-nav"><a class="on" data-h="projects" onclick="hubTab('projects')">Projects</a><a data-h="machines" onclick="hubTab('machines')">Machines</a><a data-h="library" onclick="hubTab('library')">Library</a></nav>
+    <div class="sp"></div>
+    <span class="hb-sys"><span class="d" id="hbSys"></span> SYSTEM OPERATIONAL</span>
+    <span class="hb-av" title="Engineer">DG</span>
+  </header>
+  <div class="hb-body">
+    <aside class="hb-rail">
+      <a class="on" onclick="hubTab('projects')"><i>▦</i>Projects</a>
+      <a onclick="hubTab('machines')"><i>▥</i>Machines</a>
+      <a onclick="hubTab('library')"><i>▤</i>Library</a>
+      <div class="hb-div"></div>
+      <div class="hb-slabel">System status</div>
+      <div class="hb-sstat">Connectivity&nbsp;<b>OPERATIONAL</b><br>Controllers&nbsp;<b>2 online</b><br>Model&nbsp;<b>VALIDATED</b><br>Environment&nbsp;<b>PROTOTYPE</b></div>
+    </aside>
+    <main class="hb-main" id="hubMain"></main>
+  </div>
+</div>
+<div id="hubModal" class="hbm">
+  <div class="hbm-box">
+    <div class="hbm-h"><div><b>New engineering project</b><p>How would you like to begin?</p></div><button class="btn sm" onclick="npClose()">✕ Close</button></div>
+    <div class="hbm-opts">
+      <div class="hopt"><div class="oi">◉</div><b>Live Machine</b><p>Connect to a controller or industrial data source (OPC UA · Modbus TCP · EtherNet/IP).</p><span class="tag">ROADMAP</span><button class="ob" onclick="toast('Live connectivity is on the roadmap — OPC UA/Modbus via the CANON backend.')">Connect machine →</button></div>
+      <div class="hopt"><div class="oi">▤</div><b>Engineering Data</b><p>Import an existing project or structured data (CSV · JSON · OPC UA NodeSet · AutomationML).</p><span class="tag">ROADMAP</span><button class="ob" onclick="toast('Import is on the roadmap — parses PLC export / NodeSet into the canonical model.')">Import data →</button></div>
+      <div class="hopt demo"><div class="oi">▣</div><b>Demo Machine</b><p>Launch the deterministic CANON demonstration machine — TK-401 Process Tank.</p><span class="tag" style="color:var(--green-d);background:var(--green-l)">AVAILABLE</span><button class="ob" onclick="npClose();openProject('tk401')">Open demo →</button></div>
+    </div>
+  </div>
 </div>
 <div id="create">
   <div class="chd"><b>CREATE MACHINE-SPECIFIC HMI</b><div class="steps" id="cSteps"></div><button class="btn sm" onclick="createClose()">✕ Close</button></div>
   <div class="cbody"><div class="cwrap" id="cBody"></div></div>
 </div>
-<!-- ==================== LANDING ==================== -->
-<div id="landing">
- <div class="lnav">
-   <a class="lg" href="#top"><span class="m">C</span> CANON</a>
-   <div class="links"><a href="#how">How it works</a><a href="#features">Features</a><a href="#data">Real data</a><a href="#standards">Standards</a></div>
-   <div class="sp"></div>
-   <button class="lbtn" onclick="launchApp()">Launch CANON ▶</button>
- </div>
- <div class="hero" id="top">
-   <div class="l">
-     <span class="tagpill">● SCHNEIDER HMI HACKATHON 2026 · PS2 · TEAM DIGISEVA</span>
-     <h1>Machine Context →<br><span class="g">Dynamic HMI</span> →<br>Verified Control.</h1>
-     <div class="subh">CANON turns a unified machine model into a validated, PLC-authoritative HMI — generated at runtime, and kept in sync as the machine changes. We don't generate a screen from a prompt; we generate a validated interface from the machine.</div>
-     <div class="cta"><button class="lbtn" onclick="launchApp()">▶ Launch platform</button><a class="lbtn ghost" href="https://github.com/DG10911/canon-hmi" target="_blank">View source</a></div>
-     <div class="chips"><span>ISA-101 informed</span><span>ISA-18.2 alarms</span><span>OPC UA / Modbus</span><span>MTP-inspired</span><span>PLC-authoritative</span><span>Real dataset (SKAB)</span></div>
-   </div>
-   <div class="r"><canvas id="heroCanvas"></canvas><div class="herocap">Interactive 3D twin · drag to orbit · live-bound to the canonical model</div></div>
- </div>
-
- <section id="how">
-   <div class="sec-h"><div class="k">How it works</div><h2>One canonical model. The whole lifecycle.</h2><p>AI proposes. The model defines. The validator checks. The engineer approves. The PLC controls.</p></div>
-   <div class="wrap"><div class="loop">
-     <div class="loopstep"><div class="n">01</div><div class="t">Machine Context</div><div class="d">tags · I/O · alarms · comms · docs</div></div><div class="loopar">→</div>
-     <div class="loopstep"><div class="n">02</div><div class="t">Canonical Model</div><div class="d">typed · stable IDs · provenance</div></div><div class="loopar">→</div>
-     <div class="loopstep"><div class="n">03</div><div class="t">AI Intent</div><div class="d">natural language → proposal</div></div><div class="loopar">→</div>
-     <div class="loopstep"><div class="n">04</div><div class="t">Validate</div><div class="d">typed bindings · ISA-101</div></div><div class="loopar">→</div>
-     <div class="loopstep"><div class="n">05</div><div class="t">Dynamic HMI</div><div class="d">machine-specific · size-independent</div></div><div class="loopar">→</div>
-     <div class="loopstep"><div class="n">06</div><div class="t">PLC Control</div><div class="d">permissive · authoritative</div></div>
-   </div></div>
- </section>
-
- <section id="features" style="background:var(--panel2)">
-   <div class="sec-h"><div class="k">Features</div><h2>Generation + guarantee</h2><p>Not just "AI draws a screen" — machine-context-driven generation with validated bindings, control authority and change continuity.</p></div>
-   <div class="wrap"><div class="fgrid">
-     <div class="fcard"><div class="ic">✦</div><h3>Intent → validated HMI</h3><p>Natural-language intent compiles to a screen whose every widget binds to a real, typed signal. Unresolved requests show UNKNOWN — never invented.</p></div>
-     <div class="fcard"><div class="ic">◉</div><h3>PLC-authoritative control</h3><p>Commands follow defined contracts and permissive checks. START is rejected when a permissive is false — the HMI can't bypass the PLC.</p></div>
-     <div class="fcard"><div class="ic">⇄</div><h3>Change-aware continuity</h3><p>Change a signal range and CANON traces impact across scaling, alarms, trends, tests & docs, then regenerates and re-validates.</p></div>
-     <div class="fcard"><div class="ic">⬡</div><h3>Engineering graph</h3><p>An interactive 3D traceability graph links requirement → asset → I/O → PLC → HMI → alarm → test → doc, and drives the impact engine.</p></div>
-     <div class="fcard"><div class="ic">🛢</div><h3>Live 3D process twin</h3><p>A real WebGL twin of TK-401 — tank, pump, valve, pipes — bound to live values, rotatable, and quality-aware (LIVE / STALE / UNKNOWN).</p></div>
-     <div class="fcard"><div class="ic">▤</div><h3>Real recorded data</h3><p>The runtime replays a real industrial testbed dataset (SKAB, Skoltech) — real pressure, flow, temperature and labelled anomalies drive the HMI.</p></div>
-   </div></div>
- </section>
-
- <section id="data" class="dark">
-   <div class="wrap"><div class="datacard">
-     <div><div class="sec-h" style="text-align:left;margin:0"><div class="k" style="color:var(--green)">Real data</div><h3>Driven by a real industrial dataset</h3><p id="skabTxt">CANON's runtime replays the <b>SKAB — Skoltech Anomaly Benchmark</b> valve testbed trace: real pressure, flow, temperature & vibration with expert-labelled anomalies. When a real anomaly occurs, the HMI raises a real alarm — nothing is faked.</p></div>
-       <div style="margin-top:16px"><button class="lbtn" onclick="launchApp('runtime')">▶ See it live in Runtime</button></div></div>
-     <div><canvas id="skabChart"></canvas><div style="color:#6f9a80;font-size:11px;margin-top:8px;text-align:center" id="skabCap">SKAB pressure trace · red = labelled anomaly</div></div>
-   </div></div>
- </section>
-
- <section class="dark" style="padding-top:20px">
-   <div class="wrap"><div class="statrow">
-     <div class="stat"><div class="v">50–70%</div><div class="l">of HMI lifecycle effort is screen work (per PS2)</div></div>
-     <div class="stat"><div class="v">0</div><div class="l">invented tags — every binding validated</div></div>
-     <div class="stat"><div class="v">240</div><div class="l">real SKAB data points replayed</div></div>
-     <div class="stat"><div class="v">R17→R18</div><div class="l">change → impact → regen → approve</div></div>
-   </div></div>
- </section>
-
- <section id="standards">
-   <div class="sec-h"><div class="k">Industrial credibility</div><h2>Aligned to the standards engineers know</h2><p>Informed by — not claiming certification of — the frameworks that make an HMI trustworthy.</p></div>
-   <div class="wrap"><div class="stdstrip"><span>ISA-101 HMI</span><span>ISA-18.2 / IEC 62682 alarms</span><span>OPC UA information model</span><span>NAMUR MTP</span><span>AutomationML</span><span>PackML / OMAC</span><span>ISA-95 / ISA-88</span></div></div>
- </section>
-
- <section class="ctaband">
-   <div class="wrap"><h2>Type the machine. Get a verified interface.</h2><p>Launch the live prototype — generate, control, change, and watch it stay in sync.</p><button class="lbtn" onclick="launchApp()" style="font-size:15px;padding:13px 26px">▶ Launch CANON</button></div>
- </section>
- <div class="lfoot"><div><b>CANON</b> · Machine Context → Dynamic HMI → Verified Control</div><div>Team DigiSeva · Devansh Goenka · Panshul Arora · Tanmay Singh</div><div>Schneider Electric HMI Hackathon 2026 · PS2</div></div>
-</div>
-
 <!-- ==================== APP ==================== -->
 <div id="app">
   <div class="tbar">
@@ -687,8 +696,34 @@ function demoBadTag(){const t=$('#trace');if(!t){view='generate';render();return
  t.innerHTML=stages.map((st,i)=>`<div class="genstep ${i<3?'done':''}"><span class="dotc">${i<3?'✓':'✕'}</span>${st[0]}<span style="margin-left:auto;color:${i<3?'var(--muted)':'var(--red)'};font-size:10px">${st[1]}</span></div>`).join('')+`<div class="banner r" style="margin-top:8px"><span>✕</span><div><b>PROPOSAL REJECTED</b> — <span class="mono">MADE_UP_TAG</span> does not exist in the canonical model.</div></div>`;
  const host=$('#hmihost');if(host)host.innerHTML='<div class="sub" style="padding:26px;text-align:center;color:var(--red)">Binding rejected — awaiting AI revision…</div>';
  setTimeout(()=>{const tt=$('#trace');if(tt)tt.innerHTML+=`<div class="banner g" style="margin-top:8px"><span>✓</span><div><b>AI revised proposal</b> — corrected <span class="mono">MADE_UP_TAG</span> → <span class="mono">PT401</span> · ✓ VALIDATED.</div></div>`;SCREEN=compile(parseIntent($('#intent')?$('#intent').value:'overview'));genPhase='ready';renderHMIInto($('#hmihost'));},1500);}
-function launchApp(v){$('#landing').style.display='none';$('#app').classList.add('on');if(v)view=v;render();}
-function backSite(){if(rtTwin&&rtTwin.stop)rtTwin.stop();rtTwin=null;$('#app').classList.remove('on');$('#landing').style.display='block';drawSkab();}
+//================= PROJECT HUB (opening screen) =================
+const PROJECTS=[
+ {id:'tk401',name:'TK-401',type:'Process Tank',state:'run',ctrl:'Modicon M262',assets:24,signals:186,alarms:12,sync:'12 sec ago'},
+ {id:'pack07',name:'PACK-07',type:'Packaging Line',state:'run',ctrl:'Modicon M580',assets:148,signals:1240,alarms:36,sync:'8 sec ago'},
+ {id:'mix02',name:'MIX-02',type:'Mixing Station',state:'stop',ctrl:'Modicon M241',assets:31,signals:224,alarms:18,sync:'2 min ago'},
+];
+let hubResolved=false;
+function openHub(){$('#hub').classList.add('on');hubResolved=!ANIM;renderHub();const s=$('#hbSys');if(s)s.classList.toggle('ok',hubResolved);
+ if(ANIM){setTimeout(()=>{hubResolved=true;const d=$('#hbSys');if(d)d.classList.add('ok');renderHub();},550);}}
+function hubTab(t){if(t==='machines'){launchApp('devices');return;}if(t==='library'){launchApp('library');return;}renderHub();}
+function openProject(id){launchApp('overview');}
+function npOpen(){$('#hubModal').classList.add('on');}
+function npClose(){$('#hubModal').classList.remove('on');}
+function renderHub(){document.querySelectorAll('.hb-nav a').forEach(a=>a.classList.toggle('on',a.dataset.h==='projects'));
+ const conn=PROJECTS.length,running=PROJECTS.filter(p=>p.state==='run').length,stopped=PROJECTS.filter(p=>p.state==='stop').length;const p2=n=>String(n).padStart(2,'0');
+ const rows=PROJECTS.map(p=>{const cls=!hubResolved?'stop':p.state==='run'?'run':'stop';const stxt=!hubResolved?'RESOLVING…':p.state==='run'?'RUNNING':'STOPPED';
+  return `<div class="prow" onclick="openProject('${p.id}')"><div><div class="pn">${p.name}</div><div class="pt">${p.type}</div></div>`
+   +`<div><span class="stt ${cls}"><span class="d"></span>${stxt}</span><div style="margin-top:7px"><span class="stt conn"><span class="d"></span>CONNECTED</span></div></div>`
+   +`<div class="kv2">Controller<b>${p.ctrl}</b></div>`
+   +`<div class="metrics"><div class="kv2">Assets<b>${p.assets.toLocaleString()}</b></div><div class="kv2">Signals<b>${p.signals.toLocaleString()}</b></div><div class="kv2">Alarms<b>${p.alarms}</b></div><div class="kv2">Synced<b>${p.sync}</b></div></div>`
+   +`<div class="open">OPEN PROJECT →</div></div>`;}).join('');
+ const m=$('#hubMain');if(!m)return;
+ m.innerHTML=`<div class="hb-hd"><div><h1>Engineering Projects</h1><p>Manage connected machines, engineering models and generated operator experiences.</p></div><button class="hb-newbtn" onclick="npOpen()">+ New Project</button></div>`
+  +`<div class="hb-strip"><div class="s"><b>${p2(conn)}</b><span>Projects</span></div><div class="s"><b>${p2(hubResolved?conn:0)}</b><span>Connected</span></div><div class="s"><b>${p2(hubResolved?running:0)}</b><span>Running</span></div><div class="s"><b>${p2(hubResolved?stopped:0)}</b><span>Stopped</span></div></div>`
+  +rows
+  +`<div class="newproj"><div><b>Start new engineering project</b><p>Connect a machine or import existing engineering information.</p></div><button class="hb-newbtn" onclick="npOpen()">+ Create Project</button></div>`;}
+function launchApp(v){$('#hub').classList.remove('on');npClose();$('#app').classList.add('on');if(v)view=v;render();}
+function backSite(){if(rtTwin&&rtTwin.stop)rtTwin.stop();rtTwin=null;$('#app').classList.remove('on');openHub();}
 document.querySelectorAll('#nav a').forEach(a=>a.onclick=()=>{view=a.dataset.v;graph3D.run=false;if(rtTwin&&rtTwin.stop){rtTwin.stop();rtTwin=null;}render();});
 function render(){document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===view));
  const q=qOf();const tq=$('#tqual'),tqt=$('#tqualT');if(tq){tq.className='d '+(q==='LIVE'?'':q==='STALE'?'a':'r');tqt.textContent=R.comm?(R.stale?'STALE':'LIVE'):'COMM LOSS';}
@@ -913,7 +948,7 @@ function tick(){R.t++;
  if(view==='devices')paintPid();
  if(view==='generate'&&genPhase==='ready'){const h=$('#hmihost');if(h)renderHMIInto(h);}}
 function seedShot(){R.valveOpen=true;R.running=true;R.starts=1;R.runSec=252;R.thru=6.3;R.energy=0.34;R.anomSeen=7;for(let i=0;i<90;i++){const s=SKAB[i%SKAB.length]||{p:5,flow:80,anom:0};R.hist.pt.push(s.p);R.hist.flow.push(s.flow);R.hist.lvl.push(50+Math.sin(i/8)*22);}R.pt=SKAB[40]?SKAB[40].p:6.8;R.flow=88;R.level=68;}
-window.addEventListener('load',()=>{if(window.THREE)heroTwin=makeTwin($('#heroCanvas'),{dark:true});drawSkab();if(ANIM)bootRun();else bootDone();});
+window.addEventListener('load',()=>{if(!$('#app').classList.contains('on'))openHub();});
 addEventListener('keydown',e=>{if($('#create').classList.contains('on')&&e.key==='Escape'){createClose();return;}
  if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();$('#palette').classList.contains('on')?paletteClose():paletteOpen();}
  else if(e.key==='Escape'){paletteClose();}
