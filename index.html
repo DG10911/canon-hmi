@@ -285,6 +285,21 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 .readycard{background:#fff;border:1px solid var(--green-b);border-radius:16px;padding:34px;text-align:center;box-shadow:0 20px 60px rgba(28,138,62,.12)}
 .readycard .big{font-size:30px;font-weight:800;letter-spacing:-.5px;margin:8px 0 4px}
 .readycard .ok{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--green-2),var(--green-d));color:#fff;display:grid;place-items:center;font-size:26px;margin:0 auto;box-shadow:0 8px 24px rgba(47,168,79,.4)}
+/* ===== LAUNCH / INITIALIZATION ===== */
+#launch{position:fixed;inset:0;z-index:140;background:#fff;color:#1e2a30;display:none;flex-direction:column;align-items:center;justify-content:center;transition:opacity .5s}
+#launch.on{display:flex}#launch.fade{opacity:0}
+#launch .lk{width:56px;height:56px;border-radius:14px;background:var(--green-d);color:#fff;display:grid;place-items:center;font-weight:900;font-size:28px;box-shadow:0 6px 22px rgba(28,138,62,.20)}
+#launch .lw{font-size:30px;font-weight:800;letter-spacing:6px;margin-top:18px}
+#launch .lp{font-size:9.5px;letter-spacing:3px;color:#8a97a0;font-weight:700;margin-top:9px}
+#launch .lt{font-size:11px;letter-spacing:1.4px;color:var(--green-d);font-weight:700;margin-top:15px}
+#launch .lsteps{margin-top:26px;display:flex;flex-direction:column;gap:9px;width:284px}
+#launch .lrow{display:flex;align-items:center;gap:10px;font-size:12px;color:#9aa7ae;opacity:.45;transition:.3s}
+#launch .lrow.on{opacity:1;color:#3a4952}
+#launch .lrow .d{width:8px;height:8px;border-radius:50%;background:#c2ccd1;transition:.3s;flex:none}
+#launch .lrow.on .d{background:var(--green);box-shadow:0 0 0 3px rgba(47,168,79,.14)}
+#launch .lrow .rr{margin-left:auto;font-size:10px;font-weight:800;color:var(--green-d);opacity:0;transition:.3s;letter-spacing:.5px}
+#launch .lrow.on .rr{opacity:1}
+#launch .lstat{font-size:10.5px;letter-spacing:1.4px;color:#9aa7ae;font-weight:700;margin-top:24px;height:14px}
 /* ===== PROJECT HUB (opening screen) ===== */
 #hub{position:fixed;inset:0;z-index:100;background:#fff;color:#1e2a30;display:none;flex-direction:column}
 #hub.on{display:flex}
@@ -436,10 +451,22 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 </style>
 </head>
 <body>
+<div id="launch">
+  <div class="lk">C</div>
+  <div class="lw">CANON</div>
+  <div class="lp">ENGINEERING INTELLIGENCE PLATFORM</div>
+  <div class="lt">ENGINEERING INTENT → VERIFIED AUTOMATION</div>
+  <div class="lsteps">
+    <div class="lrow" id="ls0"><span class="d"></span>Connectivity<span class="rr">CONNECTED</span></div>
+    <div class="lrow" id="ls1"><span class="d"></span>Machine context<span class="rr">READY</span></div>
+    <div class="lrow" id="ls2"><span class="d"></span>Engineering model<span class="rr">READY</span></div>
+  </div>
+  <div class="lstat" id="lstat">INITIALIZING ENGINEERING ENVIRONMENT…</div>
+</div>
 <div id="hub">
   <header class="hb-top">
     <div class="hb-brand"><span class="hb-m">C</span><div><b>CANON</b><span>ENGINEERING INTELLIGENCE PLATFORM</span></div></div>
-    <nav class="hb-nav"><a class="on" data-h="projects" onclick="hubTab('projects')">Projects</a><a data-h="machines" onclick="hubTab('machines')">Machines</a><a data-h="library" onclick="hubTab('library')">Library</a></nav>
+    <nav class="hb-nav"><a class="on" data-h="projects" onclick="hubTab('projects')">Projects</a></nav>
     <div class="sp"></div>
     <span class="hb-sys"><span class="d" id="hbSys"></span> SYSTEM OPERATIONAL</span>
     <span class="hb-av" title="Engineer">DG</span>
@@ -447,11 +474,9 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
   <div class="hb-body">
     <aside class="hb-rail">
       <a class="on" onclick="hubTab('projects')"><i>▦</i>Projects</a>
-      <a onclick="hubTab('machines')"><i>▥</i>Machines</a>
-      <a onclick="hubTab('library')"><i>▤</i>Library</a>
       <div class="hb-div"></div>
       <div class="hb-slabel">System status</div>
-      <div class="hb-sstat">Connectivity&nbsp;<b>OPERATIONAL</b><br>Controllers&nbsp;<b>2 online</b><br>Model&nbsp;<b>VALIDATED</b><br>Environment&nbsp;<b>PROTOTYPE</b></div>
+      <div class="hb-sstat">Connectivity&nbsp;<b>OPERATIONAL</b><br>Controllers&nbsp;<b>2 online</b><br>Projects&nbsp;<b>3</b><br>Environment&nbsp;<b>PROTOTYPE</b></div>
     </aside>
     <main class="hb-main" id="hubMain"></main>
   </div>
@@ -470,7 +495,7 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 <div id="disc">
   <header class="hb-top">
     <div class="hb-brand"><span class="hb-m">C</span><div><b>CANON</b><span>ENGINEERING INTELLIGENCE PLATFORM</span></div></div>
-    <nav class="hb-nav"><a onclick="discBack()">Projects</a><a onclick="launchApp('devices')">Machines</a><a onclick="launchApp('library')">Library</a></nav>
+    <nav class="hb-nav"><a onclick="discBack()">Projects</a></nav>
     <div class="sp"></div>
     <span class="hb-sys"><span class="d ok"></span> SYSTEM OPERATIONAL</span>
     <span class="hb-av" title="Engineer">DG</span>
@@ -546,7 +571,7 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 <div id="model">
   <header class="hb-top">
     <div class="hb-brand"><span class="hb-m">C</span><div><b>CANON</b><span>ENGINEERING INTELLIGENCE PLATFORM</span></div></div>
-    <nav class="hb-nav"><a onclick="mdBack()">Projects</a><a onclick="launchApp('devices')">Machines</a><a onclick="launchApp('library')">Library</a></nav>
+    <nav class="hb-nav"><a onclick="mdBack()">Projects</a></nav>
     <div class="sp"></div>
     <span class="hb-sys"><span class="d ok"></span> SYSTEM OPERATIONAL</span>
     <span class="hb-av" title="Engineer">DG</span>
@@ -1219,7 +1244,14 @@ function tick(){R.t++;
  if(view==='devices')paintPid();
  if(view==='generate'&&genPhase==='ready'){const h=$('#hmihost');if(h)renderHMIInto(h);}}
 function seedShot(){R.valveOpen=true;R.running=true;R.starts=1;R.runSec=252;R.thru=6.3;R.energy=0.34;R.anomSeen=7;for(let i=0;i<90;i++){const s=SKAB[i%SKAB.length]||{p:5,flow:80,anom:0};R.hist.pt.push(s.p);R.hist.flow.push(s.flow);R.hist.lvl.push(50+Math.sin(i/8)*22);}R.pt=SKAB[40]?SKAB[40].p:6.8;R.flow=88;R.level=68;}
-window.addEventListener('load',()=>{if(!$('#app').classList.contains('on'))openHub();});
+function runLaunch(cb){const L=$('#launch');if(!L||!ANIM){cb();return;}L.classList.add('on');
+ setTimeout(()=>$('#ls0').classList.add('on'),450);
+ setTimeout(()=>$('#ls1').classList.add('on'),850);
+ setTimeout(()=>$('#ls2').classList.add('on'),1250);
+ setTimeout(()=>{const s=$('#lstat');if(s)s.textContent='OPENING ENGINEERING PROJECTS…';},1550);
+ setTimeout(()=>L.classList.add('fade'),1900);
+ setTimeout(()=>{L.classList.remove('on');L.classList.remove('fade');cb();},2350);}
+window.addEventListener('load',()=>{const busy=$('#app').classList.contains('on')||$('#disc').classList.contains('on')||$('#model').classList.contains('on');if(!busy)runLaunch(openHub);});
 addEventListener('keydown',e=>{if($('#create').classList.contains('on')&&e.key==='Escape'){createClose();return;}
  if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();$('#palette').classList.contains('on')?paletteClose():paletteOpen();}
  else if(e.key==='Escape'){paletteClose();}
@@ -1227,7 +1259,8 @@ addEventListener('keydown',e=>{if($('#create').classList.contains('on')&&e.key==
 $('#palInput')&&($('#palInput').oninput=e=>palRender(e.target.value));
 if(ANIM)setInterval(tick,850);
 if(location.hash){const v=location.hash.slice(1);
- if(v==='disc'){openProject('tk401');}
+ if(v==='launch'){const L=$('#launch');L.classList.add('on');['ls0','ls1','ls2'].forEach(id=>$('#'+id).classList.add('on'));$('#lstat').textContent='OPENING ENGINEERING PROJECTS…';}
+ else if(v==='disc'){openProject('tk401');}
  else if(v==='model3'){openModel();}
  else{if(!ANIM&&v==='app-runtime')seedShot();
   if(v.indexOf('create-')===0){launchApp('overview');createOpen(parseInt(v.slice(7))||0);}
