@@ -392,7 +392,7 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
       <div class="navsec">Workspace</div>
       <a data-v="overview" class="on"><span class="ic">▦</span>Overview</a><a data-v="library"><span class="ic">▤</span>Machine Library</a><a data-v="devices"><span class="ic">▥</span>Equipment</a>
       <div class="navsec">Engineering</div>
-      <a data-v="model"><span class="ic">◈</span>Canonical Model</a><a data-v="context"><span class="ic">◱</span>Machine Context</a><a data-v="generate"><span class="ic">✦</span>HMI Studio</a><a data-v="validation"><span class="ic">✓</span>Validation</a><a data-v="impact"><span class="ic">⇄</span>Change Impact<span class="bdg r" id="impBdg" style="display:none">!</span></a><a data-v="baselines"><span class="ic">⚑</span>Baselines</a><a data-v="audit"><span class="ic">☰</span>Audit Trail</a>
+      <a data-v="model"><span class="ic">◈</span>Canonical Model</a><a data-v="context"><span class="ic">◱</span>Machine Context</a><a data-v="corpus"><span class="ic">▤</span>Schneider Corpus</a><a data-v="generate"><span class="ic">✦</span>HMI Studio</a><a data-v="graph"><span class="ic">⬡</span>Traceability 3D</a><a data-v="validation"><span class="ic">✓</span>Validation</a><a data-v="impact"><span class="ic">⇄</span>Change Impact<span class="bdg r" id="impBdg" style="display:none">!</span></a><a data-v="baselines"><span class="ic">⚑</span>Baselines</a><a data-v="audit"><span class="ic">☰</span>Audit Trail</a>
       <div class="navsec">Operations</div>
       <a data-v="runtime"><span class="ic">◉</span>Runtime</a><a data-v="alarms"><span class="ic">▲</span>Alarms<span class="bdg r" id="almBdg" style="display:none">0</span></a><a data-v="trends"><span class="ic">∿</span>Trends</a><a data-v="analytics"><span class="ic">📈</span>Analytics</a>
       <div class="navsec">System</div>
@@ -409,6 +409,7 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 <script src="three.min.js"></script>
 <script src="data.js"></script>
 <script src="equipment.js"></script>
+<script src="corpus.js"></script>
 <script>
 const ANIM=!location.search.includes('shot');
 const SKAB=window.SKAB||[], SKMETA=window.SKAB_META||{source:'SKAB',rows:0,anomalies:0};
@@ -544,6 +545,30 @@ function vAnalytics(m){m.appendChild(el('div','hd',`<div class="crumb">Operation
  m.appendChild(el('div','card',`<div class="h"><h3>Operator Assist</h3><span class="ts INFERRED">rule-based · non-authoritative</span></div><div class="b" id="opAssist">${operatorHint()}</div>`));
  const c=analyticsCard();c.style.marginTop='13px';m.appendChild(c);
  const tr=el('div','card','');tr.style.marginTop='13px';tr.innerHTML=`<div class="h"><h3>PT401 pressure trend · SKAB · high alarm 8 bar</h3><span class="ts VERIFIED">LIVE</span></div><div class="b">${trendSVG()}</div>`;m.appendChild(tr);}
+function vCorpus(m){const C=window.SE_CORPUS;
+ if(!C){m.appendChild(el('div','card','<div class="b">Corpus not loaded.</div>'));return;}
+ const tb=(t)=>`<span class="ts ${t==='VERIFIED'?'VERIFIED':t==='PROPOSED'?'PROPOSED':t==='ROADMAP'?'INFERRED':t==='VERIFY'?'PROPOSED':'UNKNOWN'}">${t}</span>`;
+ m.appendChild(el('div','hd',`<div class="crumb">Engineering · Knowledge Corpus</div><h1 class="pg">Schneider Electric Corpus</h1><div class="sub">${C._meta.disclaimer}</div>`));
+ // KPIs
+ const g=el('div','grid g5');m.appendChild(g);[["Families",C.families.length,""],["Controllers",C.controllers.length,"b"],["Software",C.software.length,""],["HMI ranges",C.hmi.length,"b"],["Standards",C.standards.length,"a"]].forEach(([l,v,c])=>g.appendChild(el('div','tile '+c,`<div class="l">${l}</div><div class="v num">${v}</div>`)));
+ // legend
+ m.appendChild(el('div','rec info',`<span>ℹ</span><div><b>Truth status:</b> ${Object.entries(C._meta.legend).map(([k,v])=>`${tb(k)} ${v}`).join(' · ')}</div>`)).style.marginTop='13px';
+ // Product families
+ const fam=el('div','card','');fam.style.marginTop='13px';fam.innerHTML=`<div class="h"><h3>Product families</h3><span class="ts VERIFIED">public product line</span></div>`;
+ const fb=el('div','b','');C.families.forEach(f=>fb.appendChild(el('div',null,`<div style="padding:9px 0;border-bottom:1px solid var(--line2)"><div style="display:flex;gap:9px;align-items:center"><b style="min-width:120px">${f.name}</b><span class="sub" style="flex:1">${f.category}</span>${tb(f.truth)}</div><div class="sub" style="font-size:11px;margin-top:3px">e.g. ${f.examples.slice(0,6).join(' · ')} · <b>SW:</b> ${f.software.join(', ')} · <b>Comm:</b> ${f.comm.join(', ')}</div></div>`)));fam.appendChild(fb);m.appendChild(fam);
+ // Controllers + Software side by side
+ const row=el('div','grid g2','');row.style.marginTop='13px';m.appendChild(row);
+ const ctl=el('div','card',`<div class="h"><h3>Modicon controllers</h3></div>`);const ct=el('table',null,'<thead><tr><th>Controller</th><th>Role</th><th>OPC UA</th><th>Status</th><th>Truth</th></tr></thead>');const cb=el('tbody');C.controllers.forEach(c=>cb.appendChild(el('tr',null,`<td><b>${c.name}</b></td><td class="sub">${c.role}</td><td>${c.comm.some(x=>/OPC/.test(x))?'✓':'—'}</td><td><span class="ts ${c.status==='current'?'VERIFIED':'UNKNOWN'}">${c.status}</span></td><td>${tb(c.truth)}</td>`)));ct.appendChild(cb);ctl.appendChild(ct);row.appendChild(ctl);
+ const sw=el('div','card',`<div class="h"><h3>EcoStruxure software</h3></div>`);const swb=el('div','b','');C.software.forEach(s=>swb.appendChild(el('div',null,`<div style="padding:6px 0;border-bottom:1px solid var(--line2)"><div style="display:flex;gap:8px"><b style="flex:1;font-size:12px">${s.name}</b>${tb(s.truth)}</div><div class="sub" style="font-size:11px">${s.purpose}${s.note?' · <i>'+s.note+'</i>':''}</div></div>`)));sw.appendChild(swb);row.appendChild(sw);
+ // Standards + Capability matrix
+ const row2=el('div','grid g2','');row2.style.marginTop='13px';m.appendChild(row2);
+ const std=el('div','card',`<div class="h"><h3>Standards &amp; frameworks</h3><span class="ts INFERRED">informed by / aligned to</span></div>`);const sb=el('div','b','');C.standards.forEach(s=>sb.appendChild(el('div',null,`<div style="padding:6px 0;border-bottom:1px solid var(--line2);display:flex;gap:8px;align-items:center"><b style="min-width:150px">${s.name}</b><span class="sub" style="flex:1">${s.relevance}</span><span class="ts INFERRED">${s.canon}</span></div>`)));std.appendChild(sb);row2.appendChild(std);
+ const cap=el('div','card',`<div class="h"><h3>CANON capability · current vs roadmap</h3></div>`);const capb=el('div','b','');C.capability.forEach(c=>capb.appendChild(el('div',null,`<div class="kv"><span class="k">${c.cap}</span><span class="v"><span class="ts ${c.status==='CURRENT'?'VERIFIED':'INFERRED'}">${c.status}</span></span></div>`)));cap.appendChild(capb);row2.appendChild(cap);
+ // hierarchy + mapping
+ const row3=el('div','grid g2','');row3.style.marginTop='13px';m.appendChild(row3);
+ row3.appendChild(el('div','card',`<div class="h"><h3>Machine hierarchy (normalisation target)</h3></div><div class="b"><div class="flow" style="font-size:11px">${C.hierarchy.map(h=>`<span class="n">${h}</span>`).join('<span class="ar">→</span>')}</div><div class="rec" style="margin-top:9px"><span>ℹ</span><div>Generic engineering structure CANON normalises any source to — not a Schneider-specific claim.</div></div></div>`));
+ const map=el('div','card',`<div class="h"><h3>Semantic → HMI mapping <span class="ts PROPOSED" style="vertical-align:middle">CANON rules</span></h3></div>`);const mb=el('div','b','');C.mapping.forEach(x=>mb.appendChild(el('div',null,`<div class="kv"><span class="k">${x.sem}</span><span class="v" style="max-width:60%;text-align:right;font-weight:500">${x.hmi}</span></div>`)));map.appendChild(mb);row3.appendChild(map);
+}
 function vAIEngine(m){m.appendChild(el('div','hd',`<div class="crumb">System · AI Engine</div><h1 class="pg">AI Engine</h1><div class="sub">AI is infrastructure inside CANON — it proposes; the deterministic validator and the PLC hold authority.</div>`));
  m.appendChild(el('div','card',`<div class="h"><h3>Engine status</h3><span class="ts VERIFIED">● ACTIVE</span></div><div class="b"><div class="grid g4"><div class="tile"><div class="l">Compiler</div><div class="v" style="font-size:14px">DETERMINISTIC</div></div><div class="tile b"><div class="l">Output contract</div><div class="v" style="font-size:14px">Structured widgets</div></div><div class="tile"><div class="l">Schema</div><div class="v" style="font-size:14px">CANON HMI v1</div></div><div class="tile g"><div class="l">Data boundary</div><div class="v" style="font-size:14px">LOCAL ONLY</div></div></div>
   <div class="rec" style="margin-top:11px"><span>⛨</span><div>The engine produces a <b>structured widget proposal</b> — never arbitrary UI code, never control logic. Every binding is validated against the canonical model before render, and every command still passes the PLC permissive gate.</div></div>
@@ -669,7 +694,7 @@ function render(){document.querySelectorAll('#nav a').forEach(a=>a.classList.tog
  const q=qOf();const tq=$('#tqual'),tqt=$('#tqualT');if(tq){tq.className='d '+(q==='LIVE'?'':q==='STALE'?'a':'r');tqt.textContent=R.comm?(R.stale?'STALE':'LIVE'):'COMM LOSS';}
  const tm=$('#tmodel');if(tm)tm.textContent=R.rev>17?'v1.2.4':'v1.2.3';const ib=$('#impBdg');if(ib)ib.style.display=(R.changeOpen&&!R.approved)?'inline-block':'none';
  const alm=activeAlarms().length;const ab=$('#almBdg');if(ab){ab.textContent=alm;ab.style.display=alm?'inline-block':'none';}
- const V={overview:vOverview,library:vLibrary,context:vContext,model:vModel,devices:vEquipment,generate:vGenerate,graph:vGraph,runtime:vRuntime,alarms:vAlarms,trends:vTrends,analytics:vAnalytics,impact:vImpact,validation:vValidation,baselines:vBaselines,audit:vAudit,governance:vBaselines,aiengine:vAIEngine};const m=$('#main');m.innerHTML='';(V[view]||vOverview)(m);if(view==='graph')startGraph3D();paintInspector();}
+ const V={overview:vOverview,library:vLibrary,context:vContext,corpus:vCorpus,model:vModel,devices:vEquipment,generate:vGenerate,graph:vGraph,runtime:vRuntime,alarms:vAlarms,trends:vTrends,analytics:vAnalytics,impact:vImpact,validation:vValidation,baselines:vBaselines,audit:vAudit,governance:vBaselines,aiengine:vAIEngine};const m=$('#main');m.innerHTML='';(V[view]||vOverview)(m);if(view==='graph')startGraph3D();paintInspector();}
 //================= OVERVIEW =================
 function vOverview(m){
  const hd=el('div','hd','');hd.style.display='flex';hd.style.justifyContent='space-between';hd.style.alignItems='flex-end';
