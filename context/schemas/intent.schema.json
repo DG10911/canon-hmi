@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IntentRevision",
+  "type": "object",
+  "required": [
+    "intentId",
+    "naturalLanguage",
+    "targets",
+    "status"
+  ],
+  "properties": {
+    "intentId": {
+      "type": "string"
+    },
+    "sessionId": {
+      "type": "string"
+    },
+    "user": {
+      "type": "string"
+    },
+    "role": {
+      "enum": [
+        "viewer",
+        "operator",
+        "engineer"
+      ]
+    },
+    "naturalLanguage": {
+      "type": "string"
+    },
+    "normalizedIntent": {
+      "type": "object"
+    },
+    "targets": {
+      "type": "array"
+    },
+    "requiredSignals": {
+      "type": "array"
+    },
+    "requiredCommands": {
+      "type": "array"
+    },
+    "hmiRequirements": {
+      "type": "object"
+    },
+    "constraints": {
+      "type": "object"
+    },
+    "contextRevision": {
+      "type": "string"
+    },
+    "parentIntent": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string"
+    }
+  }
+}

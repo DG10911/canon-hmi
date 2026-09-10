@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Relationship",
+  "relationshipTypes": [
+    "CONTAINS",
+    "MEASURES",
+    "ACTUATES",
+    "CONTROLS",
+    "FEEDS",
+    "RECEIVES",
+    "REQUIRES",
+    "DEPENDS_ON",
+    "INTERLOCKED_WITH",
+    "ALARMS_ON",
+    "COMMANDED_BY",
+    "FEEDBACK_FROM",
+    "BINDS_TO",
+    "PART_OF",
+    "LOCATED_IN"
+  ],
+  "record": {
+    "type": "object",
+    "required": [
+      "source",
+      "target",
+      "type",
+      "evidence",
+      "status",
+      "authority"
+    ],
+    "properties": {
+      "source": {
+        "type": "string"
+      },
+      "target": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string"
+      },
+      "evidence": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "status": {
+        "type": "string"
+      },
+      "authority": {
+        "type": "string"
+      },
+      "revision": {
+        "type": "string"
+      }
+    }
+  }
+}

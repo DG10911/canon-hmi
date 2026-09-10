@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CanonMachineModel",
+  "entities": {
+    "machine": [
+      "machineId",
+      "name",
+      "type",
+      "plant",
+      "area",
+      "line",
+      "unit",
+      "controller",
+      "revision",
+      "status"
+    ],
+    "asset": [
+      "assetId",
+      "parent",
+      "children",
+      "class",
+      "type",
+      "role",
+      "signals",
+      "commands",
+      "alarms",
+      "relationships",
+      "evidence",
+      "status",
+      "revision"
+    ],
+    "signal": [
+      "signalId",
+      "tag",
+      "name",
+      "desc",
+      "datatype",
+      "meaning",
+      "source",
+      "address",
+      "opcuaNode",
+      "modbus",
+      "direction",
+      "unit",
+      "engRange",
+      "rawRange",
+      "scaling",
+      "quality",
+      "timestamp",
+      "evidence",
+      "status"
+    ],
+    "command": [
+      "commandId",
+      "request",
+      "feedback",
+      "permissives",
+      "interlocks",
+      "timeout",
+      "failure",
+      "authority",
+      "evidence",
+      "status"
+    ],
+    "permissive": [
+      "id",
+      "source",
+      "condition",
+      "expected",
+      "blocking",
+      "explanation",
+      "evidence",
+      "authority"
+    ],
+    "interlock": [
+      "id",
+      "trigger",
+      "affected",
+      "action",
+      "latch",
+      "reset",
+      "severity",
+      "evidence"
+    ],
+    "alarm": [
+      "id",
+      "source",
+      "condition",
+      "severity",
+      "priority",
+      "limit",
+      "deadband",
+      "delay",
+      "ack",
+      "latching",
+      "consequence",
+      "evidence"
+    ],
+    "relationship": [
+      "source",
+      "target",
+      "type",
+      "evidence",
+      "status",
+      "authority"
+    ],
+    "unresolvedReference": [
+      "ref",
+      "reason",
+      "candidates",
+      "status"
+    ],
+    "conflict": [
+      "factType",
+      "entity",
+      "sources",
+      "status",
+      "action"
+    ],
+    "revision": [
+      "rev",
+      "note",
+      "timestamp",
+      "author"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RevisionSet",
+  "tracks": [
+    "sourceRevision",
+    "modelRevision",
+    "intentRevision",
+    "hmiRevision",
+    "bindingRevision",
+    "validationRevision"
+  ],
+  "record": {
+    "rev": "string",
+    "scope": "model|source|intent|hmi|binding|validation",
+    "note": "string",
+    "author": "string",
+    "timestamp": "string",
+    "affects": [
+      "entityIds"
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EvidenceRecord",
+  "type": "object",
+  "required": [
+    "evidenceId",
+    "factId",
+    "sourceType",
+    "authority",
+    "status"
+  ],
+  "properties": {
+    "evidenceId": {
+      "type": "string"
+    },
+    "factId": {
+      "type": "string"
+    },
+    "sourceType": {
+      "enum": [
+        "plc_config",
+        "opcua",
+        "modbus",
+        "engineering_doc",
+        "schneider_doc",
+        "standard",
+        "hmi_artifact",
+        "engineer",
+        "simulator"
+      ]
+    },
+    "sourceId": {
+      "type": "string"
+    },
+    "sourceURI": {
+      "type": "string"
+    },
+    "document": {
+      "type": "string"
+    },
+    "page": {
+      "type": "integer"
+    },
+    "section": {
+      "type": "string"
+    },
+    "revision": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "extractedText": {
+      "type": "string"
+    },
+    "structuredValue": {},
+    "authority": {
+      "type": "string",
+      "description": "A0–A8"
+    },
+    "status": {
+      "type": "string",
+      "description": "see status_model"
+    },
+    "hash": {
+      "type": "string"
+    },
+    "extractionMethod": {
+      "type": "string"
+    }
+  }
+}

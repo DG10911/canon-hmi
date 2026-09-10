@@ -1,0 +1,53 @@
+{
+  "_meta": {
+    "note": "CANON context dataset catalog. All demo datasets are fixture/simulator — not a real Schneider deployment. No invented Schneider product facts."
+  },
+  "schemas": [
+    "context_pack.schema.json",
+    "evidence.schema.json",
+    "intent.schema.json",
+    "machine_model.schema.json",
+    "relationship.schema.json",
+    "revision.schema.json",
+    "source_authority.json",
+    "status_model.json"
+  ],
+  "datasets": [
+    {
+      "name": "tk401.canon.json",
+      "purpose": "Golden TK-401 canonical model with evidence/status",
+      "authority": "fixture (simulator)",
+      "status": "VERIFIED (fixture)",
+      "entities": [
+        "machine",
+        "assets",
+        "signals",
+        "commands",
+        "permissives",
+        "alarms",
+        "relationships",
+        "unresolved",
+        "conflicts",
+        "runtime",
+        "dependencies",
+        "evidence"
+      ],
+      "samples": 1
+    },
+    {
+      "name": "tk401.change.json",
+      "purpose": "Golden change-impact fixture (PT401 0-10 -> 0-16 bar)",
+      "status": "fixture"
+    }
+  ],
+  "goldenCases": {
+    "unresolved": "PT401.Status (no authoritative mapping)",
+    "conflict": "PT401 range 0-10 (PLC/A1) vs 0-16 (doc/A3)",
+    "change": "PT401 range 0-10 -> 0-16 bar"
+  },
+  "relatedArtifacts": {
+    "corpus": "../corpus.js (Schneider families/standards, truth-tagged)",
+    "backend": "../server/server.py (validator + LLM adapter)",
+    "brain": "../brain/ (QLoRA fine-tune)"
+  }
+}
