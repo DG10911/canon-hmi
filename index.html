@@ -179,14 +179,25 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 .bind{display:flex;align-items:center;gap:7px;font-size:11px;padding:4px 0;border-bottom:1px solid var(--line2)}.bind:last-child{border:none}.bind .ok{color:var(--green-d);font-weight:800}.bind .no{color:var(--red);font-weight:800}
 @media(max-width:1280px){.insp{display:none}}
 /* boot */
-#boot{position:fixed;inset:0;z-index:200;background:radial-gradient(900px 600px at 50% 40%,#0c1c14,#050d09);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#eafff0;transition:opacity .6s}
+#boot{position:fixed;inset:0;z-index:200;background:radial-gradient(1100px 700px at 50% 36%,#0d2117,#061009 70%,#040b07);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#eafff0;transition:opacity .6s;overflow:hidden}
+#boot::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(61,205,88,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(61,205,88,.05) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(circle at 50% 42%,#000 30%,transparent 75%)}
+#boot::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 220px rgba(0,0,0,.75);pointer-events:none}
+#boot>*{position:relative;z-index:2}
 #boot.hide{opacity:0;pointer-events:none}
-#boot .bw{font-size:44px;font-weight:800;letter-spacing:4px;color:#fff;display:flex;align-items:center;gap:14px}
-#boot .bw .m{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--green),var(--green-d));display:grid;place-items:center;color:#04160d;box-shadow:0 0 30px rgba(61,205,88,.6)}
-#boot .bs{color:var(--green);font-size:12px;letter-spacing:3px;margin-top:14px;font-weight:700}
-#boot canvas{margin-top:26px}
-#boot .bcap{height:22px;margin-top:18px;color:#a9c9b6;font-size:13px;font-weight:600;letter-spacing:.5px}
-#boot .skip{position:absolute;bottom:26px;right:30px;color:#6f9a80;font-size:12px;cursor:pointer;border:1px solid var(--dkln);border-radius:7px;padding:6px 13px}
+#boot .bw{font-size:50px;font-weight:800;letter-spacing:6px;color:#fff;display:flex;align-items:center;gap:18px;animation:bootin .8s cubic-bezier(.2,.7,.2,1) both}
+#boot .bw .m{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--green),var(--green-d));display:grid;place-items:center;color:#04160d;font-size:26px;box-shadow:0 0 44px rgba(61,205,88,.55),inset 0 1px 0 rgba(255,255,255,.35)}
+#boot .bs{color:var(--green);font-size:12.5px;letter-spacing:4.5px;margin-top:16px;font-weight:800;animation:bootin .8s .12s cubic-bezier(.2,.7,.2,1) both}
+#boot .bsub{color:#7fa48d;font-size:12.5px;margin-top:9px;letter-spacing:.4px;animation:bootin .8s .22s cubic-bezier(.2,.7,.2,1) both}
+@keyframes bootin{from{opacity:0;transform:translateY(14px)}}
+#boot canvas{margin-top:22px;animation:bootin .8s .3s both}
+#boot .bcap{height:24px;margin-top:14px;color:#bfe3cc;font-size:13.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
+#boot .bcap.sw{animation:capfade .45s cubic-bezier(.2,.7,.2,1) both}
+@keyframes capfade{from{opacity:0;transform:translateY(7px)}}
+#boot .bbarw{width:340px;height:3px;border-radius:3px;background:rgba(255,255,255,.08);margin-top:16px;overflow:hidden}
+#boot .bbar{height:100%;width:0%;border-radius:3px;background:linear-gradient(90deg,var(--green-d),var(--green));box-shadow:0 0 12px rgba(61,205,88,.7)}
+#boot .bcred{position:absolute;bottom:26px;left:30px;color:#557a63;font-size:11px;letter-spacing:.6px}
+#boot .skip{position:absolute;bottom:26px;right:30px;color:#7fa48d;font-size:12px;cursor:pointer;border:1px solid var(--dkln);border-radius:8px;padding:7px 14px;transition:.15s}
+#boot .skip:hover{color:#fff;border-color:var(--green)}
 /* command palette */
 #palette{position:fixed;inset:0;z-index:180;background:rgba(6,17,12,.55);display:none;align-items:flex-start;justify-content:center;padding-top:12vh}
 #palette.on{display:flex}
@@ -280,8 +291,11 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 <div id="boot">
   <div class="bw"><span class="m">C</span>CANON</div>
   <div class="bs">MACHINE CONTEXT → VERIFIED DIGITAL HMI</div>
-  <canvas id="bootcv" width="560" height="150"></canvas>
+  <div class="bsub">Engineering intelligence for machine-specific operator experiences</div>
+  <canvas id="bootcv"></canvas>
   <div class="bcap" id="bootcap"></div>
+  <div class="bbarw"><div class="bbar" id="bootbar"></div></div>
+  <div class="bcred">TEAM DIGISEVA · SCHNEIDER ELECTRIC HMI HACKATHON 2026 · PS2</div>
   <div class="skip" onclick="bootDone()">Skip intro →</div>
 </div>
 <div id="story">
@@ -546,11 +560,42 @@ function vAIEngine(m){m.appendChild(el('div','hd',`<div class="crumb">System · 
  updateLLMBadge();}
 //================= BOOT / PALETTE / DEMO / BAD-TAG =================
 function bootDone(){const b=$('#boot');if(b){b.classList.add('hide');setTimeout(()=>{b.style.display='none';},650);}}
-function bootRun(){const cap=$('#bootcap'),cv=$('#bootcv');if(!cv||!cv.getContext){bootDone();return;}const cx=cv.getContext('2d');const caps=["Assembling machine context…","Building canonical model…","The machine model is the source of truth","Intent → propose → validate → compile → bind → render","AI proposes · engineering truth defines · PLC controls"];cap.textContent=caps[0];
- const nodes=[["PLC",280,18],["I/O",110,52],["TAGS",210,52],["ALARMS",345,52],["CMDS",450,52],["DOCS",60,90],["MODEL",280,120]];const t0=performance.now();
- function fr(now){const p=Math.min(1,(now-t0)/3200);cx.clearRect(0,0,560,150);cx.strokeStyle='rgba(61,205,88,.4)';cx.lineWidth=1.3;nodes.forEach((n,k)=>{if(k===6)return;const a=Math.min(1,p*2-k*0.09);if(a<=0)return;cx.globalAlpha=a*0.7;cx.beginPath();cx.moveTo(n[1],n[2]);cx.lineTo(280,120);cx.stroke();});cx.globalAlpha=1;
-  nodes.forEach((n,k)=>{const a=Math.min(1,p*2-k*0.09);if(a<=0)return;cx.globalAlpha=Math.max(0,a);const w=n[0].length*7+18;cx.fillStyle=k===6?'#3DCD58':'#0e2417';cx.strokeStyle='#3DCD58';cx.lineWidth=1.4;if(cx.roundRect){cx.beginPath();cx.roundRect(n[1]-w/2,n[2]-11,w,22,6);cx.fill();cx.stroke();}else{cx.fillRect(n[1]-w/2,n[2]-11,w,22);cx.strokeRect(n[1]-w/2,n[2]-11,w,22);}cx.fillStyle=k===6?'#04160d':'#dff3e6';cx.font='700 11px Inter,sans-serif';cx.textAlign='center';cx.textBaseline='middle';cx.fillText(n[0],n[1],n[2]);});cx.globalAlpha=1;
-  cap.textContent=caps[Math.min(caps.length-1,Math.floor(p*caps.length))];if(p<1)requestAnimationFrame(fr);else setTimeout(bootDone,750);}
+function bootRun(){const cap=$('#bootcap'),cv=$('#bootcv'),bar=$('#bootbar');if(!cv||!cv.getContext){bootDone();return;}
+ const W=760,H=260,dpr=Math.min(2,devicePixelRatio||1);cv.style.width=W+'px';cv.style.height=H+'px';cv.width=W*dpr;cv.height=H*dpr;
+ const cx=cv.getContext('2d');cx.scale(dpr,dpr);
+ const caps=["Assembling machine context","Building canonical model","The machine model is the source of truth","Intent → propose → validate → compile → bind → render","AI proposes · the model defines · the PLC controls"];
+ let lastCap=-1;
+ const nodes=[["PLC",380,30],["TAGS",258,48],["ALARMS",506,48],["I/O",158,84],["CMDS",606,84],["PERMISSIVES",96,146],["DOCS",666,146]];
+ const MX=380,MY=210;const t0=performance.now(),DUR=4200;
+ const ease=t=>t<0?0:t>1?1:1-Math.pow(1-t,3);
+ function quad(ax,ay,cx2,cy2,bx,by,t){const u=1-t;return[u*u*ax+2*u*t*cx2+t*t*bx,u*u*ay+2*u*t*cy2+t*t*by];}
+ function rr(x,y,w,h,r){cx.beginPath();cx.moveTo(x+r,y);cx.arcTo(x+w,y,x+w,y+h,r);cx.arcTo(x+w,y+h,x,y+h,r);cx.arcTo(x,y+h,x,y,r);cx.arcTo(x,y,x+w,y,r);cx.closePath();}
+ function fr(now){const p=Math.min(1,(now-t0)/DUR);cx.clearRect(0,0,W,H);
+  // curved signal edges + flowing particles
+  nodes.forEach((n,k)=>{const a=ease(p*2.4-k*0.13);if(a<=0)return;
+   const ax=n[1],ay=n[2]+15,c1x=(ax+MX)/2,c1y=(ay+MY)/2+34;
+   cx.globalAlpha=a;cx.strokeStyle='rgba(61,205,88,.30)';cx.lineWidth=1.4;
+   cx.beginPath();cx.moveTo(ax,ay);cx.quadraticCurveTo(c1x,c1y,MX,MY-18);cx.stroke();
+   if(a>=1){for(let d=0;d<2;d++){const t=((now/1150)+k*0.15+d*0.5)%1;const[px,py]=quad(ax,ay,c1x,c1y,MX,MY-18,t);
+    cx.fillStyle='#3DCD58';cx.shadowColor='#3DCD58';cx.shadowBlur=9;cx.beginPath();cx.arc(px,py,2.1,0,7);cx.fill();cx.shadowBlur=0;}}
+   cx.globalAlpha=1;});
+  // context nodes
+  cx.font='800 11px Inter,sans-serif';cx.textAlign='center';cx.textBaseline='middle';
+  nodes.forEach((n,k)=>{const a=ease(p*2.4-k*0.13);if(a<=0)return;const w=cx.measureText(n[0]).width+26,x=n[1]-w/2,y=n[2]-13+(1-a)*10;
+   cx.globalAlpha=a;cx.fillStyle='rgba(61,205,88,.08)';cx.strokeStyle='rgba(61,205,88,.75)';cx.lineWidth=1.3;
+   rr(x,y,w,26,8);cx.fill();cx.stroke();cx.fillStyle='#d8f2e0';cx.fillText(n[0],n[1],y+13);cx.globalAlpha=1;});
+  // MODEL — pulsing source of truth
+  const ma=ease(p*3-0.7);if(ma>0){const pulse=3+Math.sin(now/260)*2;const w=118,x=MX-w/2,y=MY-16;
+   cx.globalAlpha=ma;cx.shadowColor='#3DCD58';cx.shadowBlur=(16+pulse*3)*ma;
+   const g=cx.createLinearGradient(x,y,x,y+32);g.addColorStop(0,'#46d565');g.addColorStop(1,'#1c8a3e');cx.fillStyle=g;
+   rr(x,y,w,32,9);cx.fill();cx.shadowBlur=0;
+   cx.fillStyle='#04160d';cx.font='900 12.5px Inter,sans-serif';cx.fillText('MODEL',MX,y+16);
+   cx.fillStyle='rgba(216,242,224,'+(0.8*ma)+')';cx.font='700 8.5px Inter,sans-serif';cx.fillText('S O U R C E   O F   T R U T H',MX,y+44);cx.globalAlpha=1;}
+  // captions + progress
+  const ci=Math.min(caps.length-1,Math.floor(p*caps.length));
+  if(ci!==lastCap){lastCap=ci;cap.textContent=caps[ci];cap.classList.remove('sw');void cap.offsetWidth;cap.classList.add('sw');}
+  if(bar)bar.style.width=(p*100).toFixed(1)+'%';
+  if(p<1)requestAnimationFrame(fr);else setTimeout(bootDone,700);}
  requestAnimationFrame(fr);}
 //================= STORY MODE (page-by-page pitch) =================
 function storyTank(){return `<svg viewBox="0 0 360 250" style="width:100%;max-width:420px"><defs><linearGradient id="scyl" x1="0" x2="1"><stop offset="0" stop-color="#20465a"/><stop offset=".5" stop-color="#2b93c8"/><stop offset="1" stop-color="#16506e"/></linearGradient></defs><ellipse cx="180" cy="216" rx="96" ry="16" fill="rgba(61,205,88,.10)"/><path d="M120 74 L120 194 A60 18 0 0 0 240 194 L240 74" fill="url(#scyl)"/><ellipse cx="180" cy="74" rx="60" ry="18" fill="#3aa0cf"/><ellipse cx="180" cy="194" rx="60" ry="18" fill="#123b52"/><text x="180" y="140" text-anchor="middle" font-size="28" font-weight="800" fill="#eafff0">72%</text><text x="180" y="56" text-anchor="middle" font-size="12" font-weight="800" fill="#9fc4ac">TK-401</text><path d="M40 100 H120" stroke="#4c5f68" stroke-width="6"/><g transform="translate(300,150)"><circle r="24" fill="none" stroke="#3DCD58" stroke-width="3"/><path d="M0 0 L0 -17 M0 0 L15 9 M0 0 L-15 9" stroke="#3DCD58" stroke-width="3" stroke-linecap="round"/></g><path d="M240 150 H276" stroke="#4c5f68" stroke-width="6"/><text x="300" y="192" text-anchor="middle" font-size="11" fill="#9fc4ac" font-weight="700">P-401 · RUNNING</text></svg>`;}
