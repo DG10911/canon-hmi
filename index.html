@@ -374,8 +374,7 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 .tnode rect{fill:#fff;stroke:#cfd8dc;stroke-width:1.5;transition:.15s}
 .tnode:hover rect{stroke:var(--green);fill:#f6fbf8}
 .tnode text.n{font:800 13px var(--f);fill:#1e2a30}.tnode text.s{font:700 8.5px var(--f);fill:#8a97a0;letter-spacing:.5px}
-.tnode.reveal{animation:dcIn .5s both}
-@keyframes dcIn{from{opacity:0;transform:translateY(6px)}}
+.tnode.reveal{opacity:1}
 .src{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px solid #eef2f4}.src:last-child{border:none}
 .src .si{width:30px;height:30px;border-radius:7px;background:#eef2f4;display:grid;place-items:center;font-size:13px;color:#5a6b73;flex:none}
 .src .k{font-size:9px;color:#9aa7ae;text-transform:uppercase;letter-spacing:.5px}.src .v{font-size:12.5px;font-weight:700}
@@ -398,6 +397,42 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 .dc-drawer .x{cursor:pointer;color:#8a97a0;border:1px solid #e6ebee;border-radius:7px;padding:5px 9px;font-size:12px}
 .dc-drawer .kv{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #eef2f4;font-size:12.5px}.dc-drawer .kv .k{color:#8a97a0}.dc-drawer .kv .v{font-weight:700}
 .dc-drawer .db{margin-top:16px;width:100%;border:1px solid #dbe3e7;background:#fff;border-radius:8px;padding:10px;font:800 12px var(--f);cursor:pointer}
+/* ===== SCREEN 03 · CANONICAL MACHINE MODEL ===== */
+#model{position:fixed;inset:0;z-index:106;background:#fff;color:#1e2a30;display:none;flex-direction:column}
+#model.on{display:flex}
+.md-body{flex:1;display:grid;grid-template-columns:236px 1fr 348px;min-height:0}
+.md-tree{border-right:1px solid #e6ebee;background:#fbfcfd;overflow:auto;padding:16px 12px}
+.md-tree .tl{font-size:8.5px;font-weight:800;letter-spacing:1px;color:#9aa7ae;text-transform:uppercase;padding:0 8px 8px}
+.md-tree .ti{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;border-radius:7px;font-size:12.5px;cursor:pointer;color:#3a4952}
+.md-tree .ti:hover{background:#eef2f4}.md-tree .ti.on{background:var(--green-l);color:var(--green-d);font-weight:700}
+.md-tree .ti.sub{padding-left:24px;font-size:12px;color:#5a6b73}
+.md-tree .ti .c{font-size:11px;color:#9aa7ae;font-variant-numeric:tabular-nums}
+.md-tree .grp{font-size:9px;font-weight:800;letter-spacing:.6px;color:#8a97a0;text-transform:uppercase;padding:12px 10px 4px}
+.md-center{overflow:auto;padding:20px 26px}
+.md-hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+.md-hd h1{font-size:21px;font-weight:800;letter-spacing:-.3px}.md-hd p{color:#7c8a92;font-size:12.5px;margin-top:3px}
+.md-hd .rt{text-align:right;font-size:10px;color:#9aa7ae;text-transform:uppercase;letter-spacing:.5px;line-height:1.7}
+.md-hd .rt b{color:#1e2a30;font-size:12px;letter-spacing:0;text-transform:none}
+.md-hd .rt .rb{margin-top:6px;border:1px solid #dbe3e7;background:#fff;border-radius:7px;padding:6px 11px;font:800 11px var(--f);cursor:pointer;color:#1e2a30}
+.md-badge{display:inline-flex;gap:16px;align-items:center;border:1px solid #e6ebee;background:#fbfcfd;border-radius:8px;padding:8px 14px;margin:8px 0 16px;font-size:10px;color:#9aa7ae;text-transform:uppercase;letter-spacing:.5px}
+.md-badge b{color:#1e2a30;text-transform:none;letter-spacing:0;font-size:12px;font-weight:700}
+.md-badge .lead{color:var(--green-d);font-weight:800;letter-spacing:.6px}
+.md-topo{border:1px solid #e6ebee;border-radius:11px;background:#fff;padding:8px}
+.md-topo .h{padding:10px 12px;font-size:10px;font-weight:800;letter-spacing:.8px;color:#5a6b73;text-transform:uppercase;display:flex;justify-content:space-between}
+.tnode text.val{font:800 11px var(--f);fill:var(--green-d)}
+.relabel{font:700 8px var(--f);fill:#9aa7ae;letter-spacing:.3px}
+.md-integrity{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:16px;border:1px solid #e6ebee;border-radius:9px;background:#fbfcfd;padding:13px 18px}
+.md-integrity .it{font-size:12px;color:#3a4952}.md-integrity .it b{color:var(--green-d)}
+.md-integrity .ov{margin-left:auto;font-size:12px;font-weight:800;color:var(--green-d)}
+.md-insp{border-left:1px solid #e6ebee;background:#fff;overflow:auto;padding:18px}
+.md-insp .dt{font-size:9px;font-weight:800;letter-spacing:.8px;color:#8a97a0;text-transform:uppercase}
+.md-insp h3{font-size:18px;font-weight:800;margin-top:2px}
+.md-insp .kv{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #eef2f4;font-size:12.5px}.md-insp .kv .k{color:#8a97a0}.md-insp .kv .v{font-weight:700;text-align:right}
+.md-insp .sec{font-size:9px;font-weight:800;letter-spacing:.7px;color:#9aa7ae;text-transform:uppercase;margin:16px 0 6px}
+.md-insp .chiprow span{display:inline-block;font-size:11px;background:#eef2f4;border-radius:6px;padding:4px 9px;margin:0 5px 5px 0;color:#3a4952}
+.md-insp .ev{margin-top:14px;width:100%;border:1px solid #dbe3e7;background:#fff;border-radius:8px;padding:9px;font:800 12px var(--f);cursor:pointer}
+.md-mini{border:1px solid #e6ebee;border-radius:9px;padding:12px 14px;margin-top:12px}
+.md-mini .k{font-size:9px;color:#9aa7ae;text-transform:uppercase;letter-spacing:.5px}.md-mini .v{font-size:13px;font-weight:700;margin-top:2px}
 </style>
 </head>
 <body>
@@ -507,6 +542,59 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
   <div class="dc-cta"><span class="note">CANON discovered the machine — one reference left unresolved rather than invented. Next: construct the canonical machine model.</span><button class="dc-buildbtn" onclick="buildModel()">Build Machine Model →</button></div>
 </div>
 <div class="dc-drawer" id="discDrawer"></div>
+<!-- ==================== SCREEN 03 · CANONICAL MACHINE MODEL ==================== -->
+<div id="model">
+  <header class="hb-top">
+    <div class="hb-brand"><span class="hb-m">C</span><div><b>CANON</b><span>ENGINEERING INTELLIGENCE PLATFORM</span></div></div>
+    <nav class="hb-nav"><a onclick="mdBack()">Projects</a><a onclick="launchApp('devices')">Machines</a><a onclick="launchApp('library')">Library</a></nav>
+    <div class="sp"></div>
+    <span class="hb-sys"><span class="d ok"></span> SYSTEM OPERATIONAL</span>
+    <span class="hb-av" title="Engineer">DG</span>
+  </header>
+  <div class="dc-ctx">
+    <span class="back" onclick="mdBack()">← Context</span>
+    <span class="nm">TK-401</span><span class="ty">Process Tank</span>
+    <span class="stt conn" style="margin-left:6px"><span class="d"></span>CONNECTED</span>
+    <div class="sp"></div>
+    <span class="meta">Controller&nbsp;<b>Modicon M262</b></span>
+  </div>
+  <div class="dc-flow">
+    <span class="st on" style="color:var(--green-d)">✓ CONTEXT</span><span class="ar">→</span><span class="st on">MODEL</span><span class="ar">→</span><span class="st">INTENT</span><span class="ar">→</span><span class="st">VALIDATE</span><span class="ar">→</span><span class="st">RUNTIME</span><span class="ar">→</span><span class="st">CHANGE</span>
+  </div>
+  <div class="md-body">
+    <aside class="md-tree" id="mdTree"></aside>
+    <main class="md-center">
+      <div class="md-hd">
+        <div><h1>Canonical Machine Model</h1><p>A verified engineering representation of TK-401 — how CANON understands the machine.</p></div>
+        <div class="rt">MODEL STATUS<br><b style="color:var(--green-d)">● READY</b><br>Version&nbsp;<b>1.0</b><div><button class="rb" onclick="toast('Model refreshed from engineering context · v1.0')">Refresh model</button></div></div>
+      </div>
+      <div class="md-badge"><span class="lead">CANONICAL REPRESENTATION</span><span>Source&nbsp;<b>TK-401 engineering context</b></span><span>Model&nbsp;<b>CANON v1.0</b></span></div>
+      <div class="md-topo"><div class="h"><span>Machine Topology · relationships</span><span style="color:#8a97a0">click any element</span></div>
+        <svg class="topo" viewBox="0 0 640 340">
+          <line x1="320" y1="86" x2="150" y2="156" stroke="#dbe3e7" stroke-width="1.5"/>
+          <line x1="320" y1="86" x2="320" y2="156" stroke="#dbe3e7" stroke-width="1.5"/>
+          <line x1="320" y1="86" x2="500" y2="156" stroke="#dbe3e7" stroke-width="1.5"/>
+          <line x1="320" y1="202" x2="320" y2="262" stroke="#dbe3e7" stroke-width="1.5"/>
+          <text class="relabel" x="228" y="128" text-anchor="middle">LEVEL SIGNAL</text>
+          <text class="relabel" x="332" y="128" text-anchor="middle">PRESSURE SIGNAL</text>
+          <text class="relabel" x="415" y="128" text-anchor="middle">START / STOP</text>
+          <text class="relabel" x="336" y="238" text-anchor="middle">PERMISSIVE</text>
+          <g class="tnode reveal" style="animation-delay:.05s" onclick="mdNode('TK401')"><rect x="240" y="40" width="160" height="48" rx="9"/><circle cx="258" cy="64" r="4" fill="#2FA84F"/><text class="n" x="272" y="61">TK-401</text><text class="s" x="272" y="76">PROCESS TANK</text></g>
+          <g class="tnode reveal" style="animation-delay:.15s" onclick="mdNode('LT401')"><rect x="90" y="156" width="120" height="48" rx="9"/><circle cx="107" cy="176" r="4" fill="#2FA84F"/><text class="n" x="121" y="175">LT401</text><text class="s" x="121" y="189">LEVEL</text><text class="val" x="150" y="224" text-anchor="middle">72 %</text></g>
+          <g class="tnode reveal" style="animation-delay:.25s" onclick="mdNode('PT401')"><rect x="260" y="156" width="120" height="48" rx="9"/><circle cx="277" cy="176" r="4" fill="#2FA84F"/><text class="n" x="291" y="175">PT401</text><text class="s" x="291" y="189">PRESSURE</text><text class="val" x="320" y="224" text-anchor="middle">6.2 bar</text></g>
+          <g class="tnode reveal" style="animation-delay:.35s" onclick="mdNode('P401')"><rect x="440" y="156" width="120" height="48" rx="9"/><circle cx="457" cy="176" r="4" fill="#2FA84F"/><text class="n" x="471" y="175">P401</text><text class="s" x="471" y="189">PUMP</text><text class="val" x="500" y="224" text-anchor="middle">RUNNING</text></g>
+          <g class="tnode reveal" style="animation-delay:.45s" onclick="mdNode('XV401')"><rect x="260" y="262" width="120" height="48" rx="9"/><circle cx="277" cy="282" r="4" fill="#2FA84F"/><text class="n" x="291" y="281">XV401</text><text class="s" x="291" y="295">VALVE</text><text class="val" x="320" y="330" text-anchor="middle">OPEN</text></g>
+        </svg>
+      </div>
+      <div class="md-integrity">
+        <span class="it"><b>✓</b> Assets resolved</span><span class="it"><b>✓</b> Signal references</span><span class="it"><b>✓</b> Controller references</span><span class="it"><b>✓</b> Core relationships</span><span class="it"><b>✓</b> Command targets</span>
+        <span class="ov">● MODEL READY</span>
+      </div>
+    </main>
+    <aside class="md-insp" id="mdInsp"></aside>
+  </div>
+  <div class="dc-cta"><span class="note"><b style="color:var(--green-d)">● MODEL READY</b> — the canonical model is the source of truth for everything that follows.</span><div style="display:flex;gap:10px"><button class="rb" style="border:1px solid #dbe3e7;background:#fff;border-radius:8px;padding:11px 16px;font:800 12px var(--f);cursor:pointer" onclick="launchApp('graph')">View traceability</button><button class="dc-buildbtn" onclick="defineIntent()">Define Engineering Intent →</button></div></div>
+</div>
 <div id="create">
   <div class="chd"><b>CREATE MACHINE-SPECIFIC HMI</b><div class="steps" id="cSteps"></div><button class="btn sm" onclick="createClose()">✕ Close</button></div>
   <div class="cbody"><div class="cwrap" id="cBody"></div></div>
@@ -837,7 +925,36 @@ function openHub(){$('#hub').classList.add('on');hubResolved=!ANIM;renderHub();c
 function hubTab(t){if(t==='machines'){launchApp('devices');return;}if(t==='library'){launchApp('library');return;}renderHub();}
 function openProject(id){if(id&&id!=='tk401'){launchApp('overview');return;}$('#hub').classList.remove('on');npClose();$('#disc').classList.add('on');discDrawerClose();}
 function discBack(){$('#disc').classList.remove('on');discDrawerClose();openHub();}
-function buildModel(){$('#disc').classList.remove('on');discDrawerClose();launchApp('model');}
+function buildModel(){$('#disc').classList.remove('on');discDrawerClose();openModel();}
+function openModel(){$('#hub').classList.remove('on');$('#model').classList.add('on');renderMdTree();mdNode(null);}
+function mdBack(){$('#model').classList.remove('on');openProject('tk401');}
+function defineIntent(){$('#model').classList.remove('on');launchApp('generate');}
+let mdSel='TK401';
+function renderMdTree(){const t=$('#mdTree');if(!t)return;const a=(id,lab,c,sub)=>`<div class="ti ${sub?'sub':''} ${mdSel===id?'on':''}" onclick="mdNode('${id}')">${lab}${c?`<span class="c">${c}</span>`:''}</div>`;
+ t.innerHTML=`<div class="tl">Model</div>`+a('TK401','TK-401')+`<div class="grp">Assets</div>`+a('LT401','LT401','',1)+a('PT401','PT401','',1)+a('P401','P401','',1)+a('XV401','XV401','',1)+`<div class="grp">Model elements</div>`+a('SIGNALS','Signals','186')+a('COMMANDS','Commands','4')+a('PERMISSIVES','Permissives','3')+a('ALARMS','Alarms','12')+a('DEPS','Dependencies','');}
+function mdNode(id){mdSel=id||'TK401';renderMdTree();const ins=$('#mdInsp');if(!ins)return;
+ const M2={
+  LT401:{dt:'LEVEL TRANSMITTER',h:'LT401',status:'● HEALTHY',kv:[['Engineering signal','LT401.Level'],['Type','REAL'],['Unit','%'],['Range','0–100 %'],['Source','Modicon M262']],used:['Level tile','Level trend','Overfill alarm'],rel:['TK-401','Level signal','Alarm','HMI binding']},
+  PT401:{dt:'PRESSURE TRANSMITTER',h:'PT401',status:'● HEALTHY',kv:[['Engineering signal','PT401.Pressure'],['Type','REAL'],['Unit','bar'],['Range','0–10 bar'],['Source','Modicon M262']],used:['Pressure gauge','Pressure trend','High-pressure alarm'],rel:['TK-401','Pressure signal','Alarm','HMI binding']},
+  P401:{dt:'PUMP',h:'P401',status:'● RUNNING',kv:[['Commands','START · STOP'],['Feedback','P401_RUNNING'],['Permissive','XV401_OPEN'],['Source','Modicon M262']],used:['Pump symbol','Start/Stop control'],rel:['PLC','Command contract','Permissive','HMI binding']},
+  XV401:{dt:'INLET VALVE',h:'XV401',status:'● OPEN',kv:[['Feedback','XV401_OPEN_FB'],['Command','XV401_OPEN'],['Type','Discrete'],['Source','Modicon M262']],used:['Valve symbol','Permissive of P401'],rel:['TK-401','Permissive','HMI binding']},
+  SIGNALS:{dt:'MODEL ELEMENT',h:'Signals',status:'● 186 resolved',kv:[['Typed & in range','186 / 186'],['Analog / discrete','mixed'],['Unresolved (core)','0'],['Held for review','1 (PT401.Status)']]},
+  COMMANDS:{dt:'MODEL ELEMENT',h:'Commands',status:'● 4 contracts',kv:[['P401','START · STOP'],['XV401','OPEN'],['Contract','request · permissive · feedback']]},
+  PERMISSIVES:{dt:'MODEL ELEMENT',h:'Permissives',status:'● 3 defined',kv:[['P401 START','XV401_OPEN'],['P401 START','LEVEL < 97%'],['P401 START','NO FAULT']]},
+  ALARMS:{dt:'MODEL ELEMENT',h:'Alarms',status:'● 12 defined',kv:[['Level','HI / LO'],['Pressure','HI / LO'],['Framework','ISA-18.2-informed']]},
+  DEPS:{dt:'MODEL ELEMENT',h:'Dependencies',status:'● analyzed',kv:[['Edges','asset → signal → PLC → HMI'],['Drives','change-impact engine']],cta:['Open traceability graph',"launchApp('graph')"]},
+ }[mdSel];
+ if(!M2){ins.innerHTML=`<div class="dt">Machine Model</div><h3>TK-401 · Process Tank</h3>`
+   +`<div class="md-mini"><div class="kv"><span class="k">Assets</span><span class="v">24</span></div><div class="kv"><span class="k">Signals</span><span class="v">186</span></div><div class="kv"><span class="k">I/O Groups</span><span class="v">4</span></div><div class="kv" style="border:none"><span class="k">Alarms</span><span class="v">12</span></div></div>`
+   +`<div class="sec">Model health</div><div style="color:var(--green-d);font-weight:700;font-size:12.5px">● 100% core references resolved</div>`
+   +`<div class="sec">Source coverage</div><div style="color:var(--green-d);font-weight:700;font-size:12.5px">● Engineering sources linked</div>`
+   +`<div class="sec">Model version</div><div style="font-weight:700">CANON v1.0</div>`
+   +`<div class="md-mini" style="border-color:#f0dcae;background:#fcf7ea"><div class="k" style="color:#8a5a08">Held for review</div><div class="v" style="color:#8a5a08;font-weight:600;font-size:11.5px">PT401.Status — UNRESOLVED, excluded until reviewed. CANON will not invent a binding.</div></div>`;return;}
+ ins.innerHTML=`<div class="dt">${M2.dt}</div><h3>${M2.h}</h3><div style="color:var(--green-d);font-weight:800;font-size:12px;margin:4px 0 8px">${M2.status}</div>`
+  +M2.kv.map(r=>`<div class="kv"><span class="k">${r[0]}</span><span class="v">${r[1]}</span></div>`).join('')
+  +(M2.used?`<div class="sec">Used by</div><div class="chiprow">${M2.used.map(u=>`<span>${u}</span>`).join('')}</div>`:'')
+  +(M2.rel?`<div class="sec">Relationships</div><div class="chiprow">${M2.rel.map(u=>`<span>${u}</span>`).join('')}</div>`:'')
+  +(M2.cta?`<button class="ev" onclick="${M2.cta[1]}">${M2.cta[0]}</button>`:`<button class="ev" onclick="toast('Evidence · Source: PLC / Modicon M262 · ${M2.h} · VERIFIED')">View evidence</button>`);}
 const DISC_NODES={
  TK401:{t:'PROCESS TANK',h:'TK-401',rows:[['Type','Process Tank Unit'],['Assets','24 discovered'],['Controller','Modicon M262'],['Status','● VERIFIED']]},
  LT401:{t:'LEVEL TRANSMITTER',h:'LT401',rows:[['Signal','LT401.Level'],['Type','REAL'],['Unit','%'],['Source','PLC / M262'],['Status','● VERIFIED']]},
@@ -1102,6 +1219,7 @@ $('#palInput')&&($('#palInput').oninput=e=>palRender(e.target.value));
 if(ANIM)setInterval(tick,850);
 if(location.hash){const v=location.hash.slice(1);
  if(v==='disc'){openProject('tk401');}
+ else if(v==='model3'){openModel();}
  else{if(!ANIM&&v==='app-runtime')seedShot();
   if(v.indexOf('create-')===0){launchApp('overview');createOpen(parseInt(v.slice(7))||0);}
   else if(v==='app')launchApp();
