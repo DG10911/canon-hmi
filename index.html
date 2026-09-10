@@ -345,6 +345,59 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 .hopt .ob{border:1px solid #dbe3e7;background:#fff;border-radius:8px;padding:9px;font:800 12px var(--f);cursor:pointer;color:#1e2a30}
 .hopt.demo .ob{background:var(--green-d);color:#fff;border-color:transparent}
 .hopt .ob:hover{filter:brightness(.97)}
+/* ===== SCREEN 02 · MACHINE CONTEXT / DISCOVERY ===== */
+#disc{position:fixed;inset:0;z-index:105;background:#fff;color:#1e2a30;display:none;flex-direction:column}
+#disc.on{display:flex}
+.dc-ctx{display:flex;align-items:center;gap:14px;padding:11px 24px;border-bottom:1px solid #e6ebee;background:#fbfcfd;flex:none}
+.dc-ctx .back{font-size:12px;color:#5a6b73;cursor:pointer;font-weight:700;padding:5px 9px;border-radius:7px}.dc-ctx .back:hover{background:#eef2f4;color:#1e2a30}
+.dc-ctx .nm{font-size:15px;font-weight:800}.dc-ctx .ty{font-size:11px;color:#8a97a0;margin-left:2px}
+.dc-ctx .sp{flex:1}
+.dc-ctx .meta{font-size:11px;color:#7c8a92}.dc-ctx .meta b{color:#1e2a30;font-weight:700}
+.dc-flow{display:flex;align-items:center;gap:9px;padding:9px 24px;border-bottom:1px solid #eef2f4;font-size:10.5px;font-weight:800;letter-spacing:.7px;flex:none}
+.dc-flow .st{color:#b6c0c6}.dc-flow .st.on{color:var(--green-d)}.dc-flow .ar{color:#cdd8dc}
+.dc-body{flex:1;overflow:auto;padding:22px 30px}
+.dc-hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+.dc-hd h1{font-size:22px;font-weight:800;letter-spacing:-.3px}.dc-hd p{color:#7c8a92;font-size:13px;margin-top:3px}
+.dc-live{display:flex;align-items:center;gap:12px;font-size:11.5px;font-weight:700;color:var(--green-d)}
+.dc-live .d{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(47,168,79,.14)}
+.dc-live .sb{border:1px solid #dbe3e7;background:#fff;color:#1e2a30;border-radius:7px;padding:6px 12px;font:800 11px var(--f);cursor:pointer}
+.dc-metrics{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #e6ebee;border-radius:9px;background:#fbfcfd;margin-bottom:20px;overflow:hidden}
+.dc-metrics .mm{padding:14px 18px;border-right:1px solid #e6ebee}.dc-metrics .mm:last-child{border:none}
+.dc-metrics .mm b{font-size:24px;font-weight:800;font-variant-numeric:tabular-nums}
+.dc-metrics .mm .l{font-size:10px;letter-spacing:.6px;color:#5a6b73;font-weight:700;text-transform:uppercase;margin-top:1px}
+.dc-metrics .mm .s{font-size:8.5px;color:#9aa7ae;text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+.dc-grid{display:grid;grid-template-columns:1fr 340px;gap:20px;align-items:start}
+.dc-card{border:1px solid #e6ebee;border-radius:11px;background:#fff}
+.dc-card>.h{padding:12px 16px;border-bottom:1px solid #eef2f4;font-size:10px;font-weight:800;letter-spacing:.8px;color:#5a6b73;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.dc-card>.b{padding:18px}
+.topo{width:100%;height:auto;display:block}
+.tnode rect{fill:#fff;stroke:#cfd8dc;stroke-width:1.5;transition:.15s}
+.tnode:hover rect{stroke:var(--green);fill:#f6fbf8}
+.tnode text.n{font:800 13px var(--f);fill:#1e2a30}.tnode text.s{font:700 8.5px var(--f);fill:#8a97a0;letter-spacing:.5px}
+.tnode.reveal{animation:dcIn .5s both}
+@keyframes dcIn{from{opacity:0;transform:translateY(6px)}}
+.src{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px solid #eef2f4}.src:last-child{border:none}
+.src .si{width:30px;height:30px;border-radius:7px;background:#eef2f4;display:grid;place-items:center;font-size:13px;color:#5a6b73;flex:none}
+.src .k{font-size:9px;color:#9aa7ae;text-transform:uppercase;letter-spacing:.5px}.src .v{font-size:12.5px;font-weight:700}
+.src .st{font-size:9px;font-weight:800;color:var(--green-d);margin-left:auto;white-space:nowrap}
+.dstat .row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #eef2f4;font-size:12px}.dstat .row:last-child{border:none}
+.dstat .ok{color:var(--green-d);font-weight:700}.dstat .nxt{color:#b9770f;font-weight:700}
+.dstat .ready{margin-top:11px;background:var(--green-l);border:1px solid var(--green-b);color:var(--green-d);border-radius:8px;padding:10px 12px;font-weight:800;text-align:center;font-size:12.5px;letter-spacing:.4px}
+.unres{margin-top:13px;border:1px solid #f0dcae;background:#fcf7ea;border-radius:9px;padding:12px 14px;display:flex;align-items:center;gap:10px}
+.unres .ic{color:#b9770f;font-size:15px}.unres b{color:#8a5a08}.unres .tx{font-size:11.5px;color:#8a5a08}.unres .rv{margin-left:auto;border:1px solid #e3c98a;background:#fff;color:#8a5a08;border-radius:7px;padding:6px 12px;font:800 11px var(--f);cursor:pointer}
+.dc-strip{display:flex;gap:30px;margin-top:18px;padding:13px 18px;border:1px solid #e6ebee;border-radius:9px;background:#fbfcfd}
+.dc-strip .s .k{font-size:9px;color:#9aa7ae;text-transform:uppercase;letter-spacing:.5px}.dc-strip .s .v{font-size:13px;font-weight:700;margin-top:2px;display:flex;align-items:center;gap:6px}
+.dc-cta{display:flex;justify-content:space-between;align-items:center;padding:14px 30px;border-top:1px solid #e6ebee;background:#fff;flex:none}
+.dc-cta .note{font-size:11.5px;color:#8a97a0}
+.dc-buildbtn{background:var(--green-d);color:#fff;border:none;border-radius:8px;padding:11px 22px;font:800 13px var(--f);cursor:pointer}.dc-buildbtn:hover{background:#166f31}
+.dc-drawer{position:fixed;top:0;right:-400px;bottom:0;width:372px;background:#fff;border-left:1px solid #e6ebee;box-shadow:-10px 0 34px rgba(20,45,35,.14);z-index:118;transition:right .22s;padding:22px;overflow:auto}
+.dc-drawer.on{right:0}
+.dc-drawer .dh{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+.dc-drawer .dt{font-size:9px;font-weight:800;letter-spacing:.8px;color:#8a97a0;text-transform:uppercase}
+.dc-drawer h3{font-size:19px;font-weight:800;margin-top:2px}
+.dc-drawer .x{cursor:pointer;color:#8a97a0;border:1px solid #e6ebee;border-radius:7px;padding:5px 9px;font-size:12px}
+.dc-drawer .kv{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #eef2f4;font-size:12.5px}.dc-drawer .kv .k{color:#8a97a0}.dc-drawer .kv .v{font-weight:700}
+.dc-drawer .db{margin-top:16px;width:100%;border:1px solid #dbe3e7;background:#fff;border-radius:8px;padding:10px;font:800 12px var(--f);cursor:pointer}
 </style>
 </head>
 <body>
@@ -378,6 +431,82 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
     </div>
   </div>
 </div>
+<!-- ==================== SCREEN 02 · MACHINE CONTEXT ==================== -->
+<div id="disc">
+  <header class="hb-top">
+    <div class="hb-brand"><span class="hb-m">C</span><div><b>CANON</b><span>ENGINEERING INTELLIGENCE PLATFORM</span></div></div>
+    <nav class="hb-nav"><a onclick="discBack()">Projects</a><a onclick="launchApp('devices')">Machines</a><a onclick="launchApp('library')">Library</a></nav>
+    <div class="sp"></div>
+    <span class="hb-sys"><span class="d ok"></span> SYSTEM OPERATIONAL</span>
+    <span class="hb-av" title="Engineer">DG</span>
+  </header>
+  <div class="dc-ctx">
+    <span class="back" onclick="discBack()">← Projects</span>
+    <span class="nm">TK-401</span><span class="ty">Process Tank</span>
+    <span class="stt conn" style="margin-left:6px"><span class="d"></span>CONNECTED</span>
+    <div class="sp"></div>
+    <span class="meta">Controller&nbsp;<b>Modicon M262</b></span>
+    <span class="meta">Synced&nbsp;<b>12 sec ago</b></span>
+  </div>
+  <div class="dc-flow">
+    <span class="st on">CONTEXT</span><span class="ar">→</span><span class="st">MODEL</span><span class="ar">→</span><span class="st">INTENT</span><span class="ar">→</span><span class="st">VALIDATE</span><span class="ar">→</span><span class="st">RUNTIME</span><span class="ar">→</span><span class="st">CHANGE</span>
+  </div>
+  <div class="dc-body">
+    <div class="dc-hd">
+      <div><h1>Machine Context</h1><p>Discovering the machine's engineering reality before generating an operator experience.</p></div>
+      <div class="dc-live"><span class="d"></span> LIVE CONNECTION <button class="sb" onclick="toast('Re-synchronised with TK-401 · 24 assets · 186 signals')">Sync now</button></div>
+    </div>
+    <div class="dc-metrics">
+      <div class="mm"><b>24</b><div class="l">Assets</div><div class="s">Discovered</div></div>
+      <div class="mm"><b>186</b><div class="l">Signals</div><div class="s">Discovered</div></div>
+      <div class="mm"><b>4</b><div class="l">I/O Groups</div><div class="s">Discovered</div></div>
+      <div class="mm"><b>12</b><div class="l">Alarms</div><div class="s">Discovered</div></div>
+    </div>
+    <div class="dc-grid">
+      <div class="dc-card"><div class="h"><span>Discovered Machine Elements</span><span style="color:#8a97a0">click an element</span></div><div class="b">
+        <svg class="topo" viewBox="0 0 620 320">
+          <line x1="310" y1="80" x2="155" y2="150" stroke="#dbe3e7" stroke-width="1.5"/>
+          <line x1="310" y1="80" x2="320" y2="150" stroke="#dbe3e7" stroke-width="1.5"/>
+          <line x1="310" y1="80" x2="485" y2="150" stroke="#dbe3e7" stroke-width="1.5"/>
+          <line x1="320" y1="194" x2="320" y2="255" stroke="#dbe3e7" stroke-width="1.5"/>
+          <g class="tnode reveal" style="animation-delay:.05s" onclick="discNode('TK401')"><rect x="235" y="34" width="150" height="46" rx="9"/><circle cx="252" cy="57" r="4" fill="#2FA84F"/><text class="n" x="266" y="54">TK-401</text><text class="s" x="266" y="69">PROCESS TANK</text></g>
+          <g class="tnode reveal" style="animation-delay:.15s" onclick="discNode('LT401')"><rect x="95" y="150" width="120" height="44" rx="9"/><circle cx="112" cy="172" r="4" fill="#2FA84F"/><text class="n" x="126" y="169">LT401</text><text class="s" x="126" y="183">LEVEL</text></g>
+          <g class="tnode reveal" style="animation-delay:.25s" onclick="discNode('PT401')"><rect x="260" y="150" width="120" height="44" rx="9"/><circle cx="277" cy="172" r="4" fill="#2FA84F"/><text class="n" x="291" y="169">PT401</text><text class="s" x="291" y="183">PRESSURE</text></g>
+          <g class="tnode reveal" style="animation-delay:.35s" onclick="discNode('P401')"><rect x="425" y="150" width="120" height="44" rx="9"/><circle cx="442" cy="172" r="4" fill="#2FA84F"/><text class="n" x="456" y="169">P401</text><text class="s" x="456" y="183">PUMP</text></g>
+          <g class="tnode reveal" style="animation-delay:.45s" onclick="discNode('XV401')"><rect x="260" y="255" width="120" height="44" rx="9"/><circle cx="277" cy="277" r="4" fill="#8a97a0"/><text class="n" x="291" y="274">XV401</text><text class="s" x="291" y="288">VALVE</text></g>
+        </svg>
+        <div style="display:flex;gap:16px;justify-content:center;margin-top:6px;font-size:10.5px;color:#7c8a92;font-weight:700"><span>● DISCOVERED</span><span>● CONNECTED</span><span>● VERIFIED</span></div>
+      </div></div>
+      <div>
+        <div class="dc-card"><div class="h"><span>Engineering Sources</span></div><div class="b" style="padding:14px 16px">
+          <div class="src"><span class="si">◈</span><div><div class="k">Source 01 · PLC / Controller</div><div class="v">Modicon M262</div></div><span class="st">● CONNECTED</span></div>
+          <div class="src"><span class="si">◉</span><div><div class="k">Source 02 · OPC UA</div><div class="v">Embedded server</div></div><span class="st">● CONNECTED</span></div>
+          <div class="src"><span class="si">▥</span><div><div class="k">Source 03 · I/O Configuration</div><div class="v">4 I/O groups</div></div><span class="st">● SYNCED</span></div>
+          <div class="src"><span class="si">▲</span><div><div class="k">Source 04 · Alarm Definitions</div><div class="v">12 alarms</div></div><span class="st">● SYNCED</span></div>
+          <div class="src"><span class="si">▤</span><div><div class="k">Source 05 · Engineering Docs</div><div class="v">3 documents</div></div><span class="st">● INDEXED</span></div>
+        </div></div>
+        <div class="dc-card" style="margin-top:16px"><div class="h"><span>Engineering Discovery</span></div><div class="b dstat" style="padding:14px 16px">
+          <div class="row"><span>Controller</span><span class="ok">✓ Connected</span></div>
+          <div class="row"><span>I/O</span><span class="ok">✓ Discovered</span></div>
+          <div class="row"><span>Signals</span><span class="ok">✓ Indexed</span></div>
+          <div class="row"><span>Alarms</span><span class="ok">✓ Indexed</span></div>
+          <div class="row"><span>Relationships</span><span class="ok">✓ Analyzed</span></div>
+          <div class="row"><span>Machine Model</span><span class="nxt">→ Ready to build</span></div>
+          <div class="ready">READY FOR MACHINE MODEL</div>
+          <div class="unres"><span class="ic">⚠</span><div><b>1 unresolved reference</b><div class="tx">A signal reference could not be confidently mapped.</div></div><button class="rv" onclick="discNode('UNRESOLVED')">Review</button></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="dc-strip">
+      <div class="s"><div class="k">Last sync</div><div class="v">12 sec ago</div></div>
+      <div class="s"><div class="k">Data source</div><div class="v">Live machine</div></div>
+      <div class="s"><div class="k">Discovery mode</div><div class="v">Read / Analyze</div></div>
+      <div class="s"><div class="k">Machine state</div><div class="v"><span class="stt run"><span class="d"></span>RUNNING</span></div></div>
+    </div>
+  </div>
+  <div class="dc-cta"><span class="note">CANON discovered the machine — one reference left unresolved rather than invented. Next: construct the canonical machine model.</span><button class="dc-buildbtn" onclick="buildModel()">Build Machine Model →</button></div>
+</div>
+<div class="dc-drawer" id="discDrawer"></div>
 <div id="create">
   <div class="chd"><b>CREATE MACHINE-SPECIFIC HMI</b><div class="steps" id="cSteps"></div><button class="btn sm" onclick="createClose()">✕ Close</button></div>
   <div class="cbody"><div class="cwrap" id="cBody"></div></div>
@@ -706,7 +835,23 @@ let hubResolved=false;
 function openHub(){$('#hub').classList.add('on');hubResolved=!ANIM;renderHub();const s=$('#hbSys');if(s)s.classList.toggle('ok',hubResolved);
  if(ANIM){setTimeout(()=>{hubResolved=true;const d=$('#hbSys');if(d)d.classList.add('ok');renderHub();},550);}}
 function hubTab(t){if(t==='machines'){launchApp('devices');return;}if(t==='library'){launchApp('library');return;}renderHub();}
-function openProject(id){launchApp('overview');}
+function openProject(id){if(id&&id!=='tk401'){launchApp('overview');return;}$('#hub').classList.remove('on');npClose();$('#disc').classList.add('on');discDrawerClose();}
+function discBack(){$('#disc').classList.remove('on');discDrawerClose();openHub();}
+function buildModel(){$('#disc').classList.remove('on');discDrawerClose();launchApp('model');}
+const DISC_NODES={
+ TK401:{t:'PROCESS TANK',h:'TK-401',rows:[['Type','Process Tank Unit'],['Assets','24 discovered'],['Controller','Modicon M262'],['Status','● VERIFIED']]},
+ LT401:{t:'LEVEL TRANSMITTER',h:'LT401',rows:[['Signal','LT401.Level'],['Type','REAL'],['Unit','%'],['Source','PLC / M262'],['Status','● VERIFIED']]},
+ PT401:{t:'PRESSURE TRANSMITTER',h:'PT401',rows:[['Signal','PT401.Pressure'],['Type','REAL'],['Unit','bar'],['Range','0–10 bar'],['Source','PLC / M262'],['Status','● VERIFIED']]},
+ P401:{t:'PUMP',h:'P401',rows:[['Commands','START · STOP'],['Feedback','P401_RUNNING'],['Permissive','XV401_OPEN'],['Source','PLC / M262'],['Status','● RUNNING']]},
+ XV401:{t:'INLET VALVE',h:'XV401',rows:[['Feedback','XV401_OPEN_FB'],['Command','XV401_OPEN'],['Type','Discrete'],['Source','PLC / M262'],['Status','● DISCOVERED']]},
+ UNRESOLVED:{t:'UNRESOLVED REFERENCE',h:'PT401.Status',warn:true,rows:[['Status','UNKNOWN'],['Reason','No authoritative mapping found in the connected engineering sources.'],['Policy','CANON will not invent a binding.']]},
+};
+function discNode(id){const n=DISC_NODES[id];if(!n)return;const d=$('#discDrawer');
+ d.innerHTML=`<div class="dh"><div><div class="dt">${n.t}</div><h3>${n.h}</h3></div><span class="x" onclick="discDrawerClose()">✕</span></div>`
+  +n.rows.map(r=>`<div class="kv"><span class="k">${r[0]}</span><span class="v" style="${/UNKNOWN/.test(r[1])?'color:#b9770f':''}">${r[1]}</span></div>`).join('')
+  +(n.warn?`<button class="db" style="border-color:#e3c98a;color:#8a5a08;background:#fcf7ea" onclick="toast('Marked PT401.Status for engineering review — excluded from bindings until resolved.');discDrawerClose()">Mark for review</button>`:`<button class="db" onclick="toast('${n.h} is part of the discovered machine — it will be included in the canonical model.');discDrawerClose()">Include in model</button>`);
+ d.classList.add('on');}
+function discDrawerClose(){const d=$('#discDrawer');if(d)d.classList.remove('on');}
 function npOpen(){$('#hubModal').classList.add('on');}
 function npClose(){$('#hubModal').classList.remove('on');}
 function renderHub(){document.querySelectorAll('.hb-nav a').forEach(a=>a.classList.toggle('on',a.dataset.h==='projects'));
@@ -955,7 +1100,12 @@ addEventListener('keydown',e=>{if($('#create').classList.contains('on')&&e.key==
  else if($('#palette').classList.contains('on')){if(e.key==='ArrowDown'){e.preventDefault();palHover(Math.min(palItems.length-1,palSel+1));}else if(e.key==='ArrowUp'){e.preventDefault();palHover(Math.max(0,palSel-1));}else if(e.key==='Enter'){e.preventDefault();palGo(palSel);}}});
 $('#palInput')&&($('#palInput').oninput=e=>palRender(e.target.value));
 if(ANIM)setInterval(tick,850);
-if(location.hash){const v=location.hash.slice(1);if(!ANIM&&(v==='app-runtime'))seedShot();if(v.indexOf('create-')===0){launchApp('overview');createOpen(parseInt(v.slice(7))||0);}else if(v==='app')launchApp();else if(v.indexOf('app-')===0)launchApp(v.slice(4));}
+if(location.hash){const v=location.hash.slice(1);
+ if(v==='disc'){openProject('tk401');}
+ else{if(!ANIM&&v==='app-runtime')seedShot();
+  if(v.indexOf('create-')===0){launchApp('overview');createOpen(parseInt(v.slice(7))||0);}
+  else if(v==='app')launchApp();
+  else if(v.indexOf('app-')===0)launchApp(v.slice(4));}}
 </script>
 </body>
 </html>
