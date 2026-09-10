@@ -94,6 +94,17 @@ window.SE_EQUIP = [
   ],
  },
  {
+  id:"se:xvu", brand:"Schneider Electric", family:"Harmony", model:"XVU Signal Tower",
+  kind:"Stack Light / Tower Lamp", proto:"Discrete DO (24 V) / IO-Link variant",
+  role:"Machine-state signalling — CANON drives it from validated machine state (run / warning / alarm).",
+  note:"Lamp outputs are plain DOs; IO-Link variants report diagnostics.",
+  signals:[
+   {name:"XVU_GRN",desc:"Green lamp · running / normal",io:"DO",addr:"%Q1.1"},
+   {name:"XVU_AMB",desc:"Amber lamp · warning / anomaly",io:"DO",addr:"%Q1.2"},
+   {name:"XVU_RED",desc:"Red lamp · active alarm",io:"DO",addr:"%Q1.3"},
+  ],
+ },
+ {
   id:"se:harmony", brand:"Schneider Electric", family:"Harmony", model:"Harmony GTU / Magelis",
   kind:"HMI Panel (render target)", proto:"Vijeo Designer / EcoStruxure Operator Terminal Expert",
   role:"The physical panel CANON's generated HMI is designed to render on.",
