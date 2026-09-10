@@ -149,8 +149,8 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 /* ===== CANON v5 — engineering platform shell ===== */
 #app.on{display:flex}
 .tbar{display:flex;align-items:center;gap:14px;height:52px;padding:0 16px;background:linear-gradient(180deg,#0b1712,#0a140f);border-bottom:1px solid var(--dkln);flex:none;color:#dff3e6;z-index:5}
-.tbar .m{width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,var(--green),var(--green-d));display:grid;place-items:center;color:#04160d;font-weight:900;font-size:15px}
-.tbar b.nm{font-size:14px;font-weight:800;letter-spacing:.4px;color:#fff}
+.tbar .m{width:32px;height:32px;border-radius:8px;background:var(--green-d);display:grid;place-items:center;color:#fff;font-weight:900;font-size:17px;line-height:1}
+.tbar b.nm{font-size:15px;font-weight:800;letter-spacing:.2px;color:#fff}
 .tbar .ws{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.05);border:1px solid var(--dkln);border-radius:8px;padding:5px 11px;font-size:12px;font-weight:600;color:#bfe9cf;cursor:pointer}
 .tbar .sp{flex:1}
 .tstat{display:flex;align-items:center;gap:6px;font-size:11px;color:#9fc4ac;padding:0 4px}
@@ -288,9 +288,9 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 /* ===== LAUNCH / INITIALIZATION ===== */
 #launch{position:fixed;inset:0;z-index:140;background:#fff;color:#1e2a30;display:none;flex-direction:column;align-items:center;justify-content:center;transition:opacity .5s}
 #launch.on{display:flex}#launch.fade{opacity:0}
-#launch .lk{width:56px;height:56px;border-radius:14px;background:var(--green-d);color:#fff;display:grid;place-items:center;font-weight:900;font-size:28px;box-shadow:0 6px 22px rgba(28,138,62,.20)}
-#launch .lw{font-size:30px;font-weight:800;letter-spacing:6px;margin-top:18px}
-#launch .lp{font-size:9.5px;letter-spacing:3px;color:#8a97a0;font-weight:700;margin-top:9px}
+#launch .lk{width:52px;height:52px;border-radius:13px;background:var(--green-d);color:#fff;display:grid;place-items:center;font-weight:900;font-size:27px;line-height:1}
+#launch .lw{font-size:29px;font-weight:800;letter-spacing:2.5px;margin-top:16px}
+#launch .lp{font-size:9.5px;letter-spacing:2.4px;color:#8a97a0;font-weight:700;margin-top:9px}
 #launch .lt{font-size:11px;letter-spacing:1.4px;color:var(--green-d);font-weight:700;margin-top:15px}
 #launch .lsteps{margin-top:26px;display:flex;flex-direction:column;gap:9px;width:284px}
 #launch .lrow{display:flex;align-items:center;gap:10px;font-size:12px;color:#9aa7ae;opacity:.45;transition:.3s}
@@ -304,10 +304,10 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 #hub{position:fixed;inset:0;z-index:100;background:#fff;color:#1e2a30;display:none;flex-direction:column}
 #hub.on{display:flex}
 .hb-top{height:56px;display:flex;align-items:center;gap:18px;padding:0 24px;border-bottom:1px solid #e6ebee;flex:none}
-.hb-brand{display:flex;align-items:center;gap:11px}
-.hb-m{width:30px;height:30px;border-radius:7px;background:var(--green-d);color:#fff;display:grid;place-items:center;font-weight:900;font-size:15px}
-.hb-brand b{font-size:15px;font-weight:800;letter-spacing:.3px;display:block;line-height:1.1}
-.hb-brand span{font-size:8.5px;letter-spacing:1.6px;color:#8a97a0;font-weight:700}
+.hb-brand{display:flex;align-items:center;gap:10px}
+.hb-m{width:34px;height:34px;border-radius:9px;background:var(--green-d);color:#fff;display:grid;place-items:center;font-weight:900;font-size:18px;line-height:1;letter-spacing:0}
+.hb-brand b{font-size:16px;font-weight:800;letter-spacing:.2px;display:block;line-height:1.15}
+.hb-brand span{font-size:9px;letter-spacing:1.4px;color:#8a97a0;font-weight:700;display:block;line-height:1.2;margin-top:1px}
 .hb-nav{display:flex;gap:4px;margin-left:12px}
 .hb-nav a{font-size:13px;font-weight:600;color:#5a6b73;padding:7px 13px;border-radius:7px;cursor:pointer}
 .hb-nav a:hover{background:#f2f5f6;color:#1e2a30}.hb-nav a.on{color:var(--green-d);background:var(--green-l)}
@@ -411,7 +411,22 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 .dc-drawer h3{font-size:19px;font-weight:800;margin-top:2px}
 .dc-drawer .x{cursor:pointer;color:#8a97a0;border:1px solid #e6ebee;border-radius:7px;padding:5px 9px;font-size:12px}
 .dc-drawer .kv{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #eef2f4;font-size:12.5px}.dc-drawer .kv .k{color:#8a97a0}.dc-drawer .kv .v{font-weight:700}
-.dc-drawer .db{margin-top:16px;width:100%;border:1px solid #dbe3e7;background:#fff;border-radius:8px;padding:10px;font:800 12px var(--f);cursor:pointer}
+.dc-drawer .db{margin-top:16px;width:100%;border:1px solid #dbe3e7;background:#fff;border-radius:8px;padding:10px;font:800 12px var(--f);cursor:pointer}.dc-drawer .db:hover{border-color:#bfe6ca;background:#f6fbf8}
+.dc-drawer .dstatus{font-size:9px;font-weight:800;letter-spacing:.7px;color:#9aa7ae;text-transform:uppercase;margin:2px 0 3px}
+.dc-drawer .dverified{color:var(--green-d);font-weight:800;font-size:12.5px;margin-bottom:9px}
+/* ===== BUILD MACHINE MODEL — deterministic sequence ===== */
+.bseq{position:fixed;inset:0;z-index:125;background:rgba(248,250,251,.86);backdrop-filter:blur(2px);display:none;align-items:center;justify-content:center}
+.bseq.on{display:flex}
+.bseq-box{width:min(440px,92vw);background:#fff;border:1px solid #e6ebee;border-radius:14px;box-shadow:0 24px 70px rgba(20,45,35,.18);padding:26px 28px}
+.bseq-h{font-size:11px;font-weight:800;letter-spacing:.8px;color:#5a6b73;text-transform:uppercase}
+.bseq-sub{font-size:13px;font-weight:800;color:#1e2a30;margin:3px 0 16px}
+.bseq-steps{display:flex;flex-direction:column;gap:9px}
+.bseq-step{display:flex;align-items:center;gap:10px;font-size:13px;color:#b6c0c6;font-weight:600;transition:color .2s}
+.bseq-step .ck{width:18px;height:18px;border-radius:50%;border:1.5px solid #dbe3e7;display:grid;place-items:center;font-size:11px;color:#b6c0c6;flex:none}
+.bseq-step.done{color:#1e2a30}.bseq-step.done .ck{border-color:var(--green);background:var(--green-l);color:var(--green-d)}
+.bseq-done{margin-top:16px;min-height:0}
+.bseq-ready{font-size:12.5px;font-weight:700;color:var(--green-d)}
+.bseq-badge{margin-top:6px;background:var(--green-l);border:1px solid var(--green-b);color:var(--green-d);border-radius:8px;padding:9px 12px;font-weight:800;text-align:center;font-size:12.5px;letter-spacing:.3px}
 /* ===== SCREEN 03 · CANONICAL MACHINE MODEL ===== */
 #model{position:fixed;inset:0;z-index:106;background:#fff;color:#1e2a30;display:none;flex-direction:column}
 #model.on{display:flex}
@@ -494,6 +509,7 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 <!-- ==================== SCREEN 02 · MACHINE CONTEXT ==================== -->
 <div id="disc"></div>
 <div class="dc-drawer" id="discDrawer"></div>
+<div class="bseq" id="buildSeq"></div>
 <!-- ==================== SCREEN 03 · CANONICAL MACHINE MODEL ==================== -->
 <div id="model"></div>
 <div id="create">
@@ -1124,7 +1140,7 @@ function tick(){R.t++;
  if(view==='generate'&&genPhase==='ready'){const h=$('#hmihost');if(h)renderHMIInto(h);}}
 function seedShot(){R.valveOpen=true;R.running=true;R.starts=1;R.runSec=252;R.thru=6.3;R.energy=0.34;R.anomSeen=7;for(let i=0;i<90;i++){const s=SKAB[i%SKAB.length]||{p:5,flow:80,anom:0};R.hist.pt.push(s.p);R.hist.flow.push(s.flow);R.hist.lvl.push(50+Math.sin(i/8)*22);}R.pt=SKAB[40]?SKAB[40].p:6.8;R.flow=88;R.level=68;}
 //================= MULTI-PROJECT (isolated machine data) =================
-let currentProject='tk401';
+let currentProject='tk401';let syncing=false;
 const PROJDATA={
  tk401:{name:'TK-401',type:'Process Tank',ctrl:'Modicon M262',sync:'12 sec ago',modelVer:'CANON v1.0',
   metrics:[['24','Assets'],['186','Signals'],['4','I/O Groups'],['12','Alarms']],
@@ -1169,7 +1185,7 @@ function canonTop(back){return `<header class="hb-top"><div class="hb-brand"><sp
 function flowBar(active){const st=['CONTEXT','MODEL','INTENT','VALIDATE','RUNTIME','CHANGE'];const ai=st.indexOf(active);return `<div class="dc-flow">`+st.map((s,i)=>`<span class="st${i<=ai?' on':''}">${i<ai?'✓ ':''}${s}</span>`).join('<span class="ar">→</span>')+`</div>`;}
 function topoSVG(p,fn){const ch=p.children,n=ch.length,nodeW=118,W=Math.max(600,n*(nodeW+22)+22),cx=W/2,gap=(W-n*nodeW)/(n+1);const x0=[];for(let i=0;i<n;i++)x0.push(gap+i*(nodeW+gap));const rootW=170,rootX=cx-rootW/2;
  let lines=ch.map((c,i)=>`<line x1="${cx.toFixed(0)}" y1="88" x2="${(x0[i]+nodeW/2).toFixed(0)}" y2="150" stroke="#dbe3e7" stroke-width="1.5"/>`).join('');
- let perm='';if(p.perm){const a=ch.findIndex(c=>c.id===p.perm[0]),b=ch.findIndex(c=>c.id===p.perm[1]);if(a>=0&&b>=0){const ax=x0[a]+nodeW/2,bx=x0[b]+nodeW/2;perm=`<path d="M${ax.toFixed(0)} 200 V216 H${bx.toFixed(0)} V200" fill="none" stroke="#e3c98a" stroke-width="1.5" stroke-dasharray="4 4"/><text class="relabel" x="${((ax+bx)/2).toFixed(0)}" y="212" text-anchor="middle" fill="#b9770f">PERMISSIVE</text>`;}}
+ let perm='';if(p.perm&&fn==='mdNode'){const a=ch.findIndex(c=>c.id===p.perm[0]),b=ch.findIndex(c=>c.id===p.perm[1]);if(a>=0&&b>=0){const ax=x0[a]+nodeW/2,bx=x0[b]+nodeW/2;perm=`<path d="M${ax.toFixed(0)} 200 V216 H${bx.toFixed(0)} V200" fill="none" stroke="#e3c98a" stroke-width="1.5" stroke-dasharray="4 4"/><text class="relabel" x="${((ax+bx)/2).toFixed(0)}" y="212" text-anchor="middle" fill="#b9770f">PERMISSIVE</text>`;}}
  let root=`<g class="tnode reveal" onclick="${fn}('${p.root.id}')"><rect x="${rootX.toFixed(0)}" y="42" width="${rootW}" height="46" rx="9"/><circle cx="${(rootX+18).toFixed(0)}" cy="65" r="4" fill="#2FA84F"/><text class="n" x="${(rootX+32).toFixed(0)}" y="62">${p.root.name}</text><text class="s" x="${(rootX+32).toFixed(0)}" y="77">${p.root.sub}</text></g>`;
  let nodes=ch.map((c,i)=>{const x=x0[i],dot=c.dot||'#2FA84F';return `<g class="tnode reveal" onclick="${fn}('${c.id}')"><rect x="${x.toFixed(0)}" y="150" width="${nodeW}" height="50" rx="9"/><circle cx="${(x+16).toFixed(0)}" cy="171" r="4" fill="${dot}"/><text class="n" x="${(x+30).toFixed(0)}" y="169" style="font-size:12px">${c.name}</text><text class="s" x="${(x+30).toFixed(0)}" y="185">${c.sub}</text>${c.val?`<text class="val" x="${(x+nodeW-8).toFixed(0)}" y="177" text-anchor="end" style="font-size:9px">${c.val}</text>`:''}</g>`;}).join('');
  return `<svg class="topo" viewBox="0 0 ${W.toFixed(0)} 214" style="max-height:300px">${lines}${perm}${root}${nodes}</svg>`;}
@@ -1179,17 +1195,36 @@ function renderDisc(){const p=PROJDATA[currentProject];const c=$('#disc');if(!c)
  c.innerHTML=canonTop('discBack')
  +`<div class="dc-ctx"><span class="back" onclick="discBack()">← Projects</span><span class="nm">${p.name}</span><span class="ty">${p.type}</span><span class="stt conn" style="margin-left:6px"><span class="d"></span>CONNECTED</span><div class="sp"></div><span class="meta">Controller&nbsp;<b>${p.ctrl}</b></span><span class="meta">Synced&nbsp;<b>${p.sync}</b></span></div>`
  +flowBar('CONTEXT')
- +`<div class="dc-body"><div class="dc-hd"><div><h1>Machine Context</h1><p>Discovering the machine's engineering reality before generating an operator experience.</p></div><div class="dc-live"><span class="d"></span> LIVE CONNECTION <button class="sb" onclick="toast('Re-synchronised with ${p.name}')">Sync now</button></div></div>`
+ +`<div class="dc-body"><div class="dc-hd"><div><h1>Machine Context</h1><p>Discovering the machine's engineering reality before generating an operator experience.</p></div>${dcLiveHTML()}</div>`
  +`<div class="dc-metrics">${p.metrics.map(m=>`<div class="mm"><b>${m[0]}</b><div class="l">${m[1]}</div><div class="s">Discovered</div></div>`).join('')}</div>`
  +`<div class="dc-grid"><div class="dc-card"><div class="h"><span>Discovered Machine Elements</span><span style="color:#8a97a0">click an element</span></div><div class="b">${topoSVG(p,'discNode')}<div style="display:flex;gap:16px;justify-content:center;margin-top:6px;font-size:10.5px;color:#7c8a92;font-weight:700"><span>● DISCOVERED</span><span>● CONNECTED</span><span>● VERIFIED</span></div></div></div>`
  +`<div><div class="dc-card"><div class="h"><span>Engineering Sources</span></div><div class="b" style="padding:10px 16px">${p.sources.map(s=>`<div class="src"><span class="si">${s[0]}</span><div><div class="k">${s[1]}</div><div class="v">${s[2]}</div></div><span class="st">● ${s[3]}</span></div>`).join('')}</div></div>`
- +`<div class="dc-card" style="margin-top:12px"><div class="h"><span>Engineering Discovery</span></div><div class="b dstat" style="padding:10px 16px"><div class="row"><span>Controller</span><span class="ok">✓ Connected</span></div><div class="row"><span>I/O</span><span class="ok">✓ Discovered</span></div><div class="row"><span>Signals</span><span class="ok">✓ Indexed</span></div><div class="row"><span>Alarms</span><span class="ok">✓ Indexed</span></div><div class="row"><span>Relationships</span><span class="ok">✓ Analyzed</span></div><div class="row"><span>Machine Model</span><span class="nxt">→ Ready to build</span></div><div class="unres"><span class="ic">⚠</span><div><b>1 unresolved reference</b><div class="tx">A signal reference could not be confidently mapped.</div></div><button class="rv" onclick="discNode('UNRESOLVED')">Review</button></div></div></div></div></div></div>`
- +`<div class="dc-cta"><span class="note">CANON discovered ${p.name} — one reference left unresolved rather than invented. Next: construct the canonical machine model.</span><button class="dc-buildbtn" onclick="buildModel()">Build Machine Model →</button></div>`;}
+ +`<div class="dc-card" style="margin-top:12px"><div class="h"><span>Engineering Discovery</span></div><div class="b dstat" style="padding:10px 16px"><div class="row"><span>Controller</span><span class="ok">✓ Connected</span></div><div class="row"><span>I/O</span><span class="ok">✓ Discovered</span></div><div class="row"><span>Signals</span><span class="ok">✓ Indexed</span></div><div class="row"><span>Alarms</span><span class="ok">✓ Indexed</span></div><div class="row"><span>Relationships</span><span class="ok">✓ Analyzed</span></div><div class="row"><span>Machine Model</span><span class="nxt">→ Ready to build</span></div>${p.unresolved?`<div class="unres"><span class="ic">△</span><div><b>${p.integrity[2]} unresolved reference</b><div class="tx">A signal reference could not be confidently mapped.</div></div><button class="rv" onclick="discNode('UNRESOLVED')">Review</button></div>`:`<div class="unres" style="border-color:var(--green-b);background:var(--green-l)"><span class="ic" style="color:var(--green-d)">✓</span><div><b style="color:var(--green-d)">All references resolved</b><div class="tx" style="color:var(--green-d)">Engineering context is ready for model construction.</div></div></div>`}</div></div></div></div></div></div>`
+ +`<div class="dc-cta"><span class="note">${p.unresolved?`CANON discovered ${p.name} — one reference left unresolved rather than invented. Next: construct the canonical machine model.`:`CANON discovered ${p.name}. Engineering context is ready for model construction.`}</span><button class="dc-buildbtn" onclick="buildModel()">Build Machine Model →</button></div>`;}
+function dcLiveHTML(){return syncing
+ ?`<div class="dc-live" id="dcLive" style="color:#8a6d1f"><span class="d" style="background:#e3c98a;box-shadow:none"></span> SYNCING ENGINEERING CONTEXT…</div>`
+ :`<div class="dc-live" id="dcLive"><span class="d"></span> LIVE CONNECTION <button class="sb" onclick="syncNow()">Sync now</button></div>`;}
+function syncNow(){if(syncing)return;const p=PROJDATA[currentProject];syncing=true;renderDisc();if(!ANIM){syncing=false;p.sync='just now';renderDisc();return;}
+ setTimeout(()=>{syncing=false;p.sync='just now';renderDisc();toast('Engineering context re-synchronised · '+p.name+' (simulated · CANON demo)');},1000);}
 function discNode(id){const p=PROJDATA[currentProject];const d=$('#discDrawer');if(!d)return;
  if(id==='UNRESOLVED'){d.innerHTML=`<div class="dh"><div><div class="dt">Unresolved Reference</div><h3>${p.unresolved.ref}</h3></div><span class="x" onclick="discDrawerClose()">✕</span></div><div class="kv"><span class="k">Status</span><span class="v" style="color:#b9770f">REVIEW REQUIRED</span></div><div class="kv"><span class="k">Reason</span><span class="v" style="max-width:62%;text-align:right;font-weight:500">${p.unresolved.reason}</span></div><div class="kv"><span class="k">CANON response</span><span class="v" style="max-width:62%;text-align:right;font-weight:500">Binding not automatically created.</span></div><div style="display:flex;gap:8px;margin-top:16px"><button class="db" style="flex:1;border-color:#e3c98a;color:#8a5a08;background:#fcf7ea" onclick="toast('${p.unresolved.ref} marked for review.');discDrawerClose()">Review</button><button class="db" style="flex:1" onclick="toast('Left unresolved — excluded until a source is provided.');discDrawerClose()">Dismiss</button></div>`;d.classList.add('on');return;}
- const nd=id===p.root.id?{name:p.root.name,kind:p.type,rows:[['Assets',p.metrics[0][0]],['Controller',p.ctrl],['Status','● CONNECTED']]}:p.children.find(x=>x.id===id);if(!nd)return;
- const rows=nd.rows||nodeRows(nd,p);
- d.innerHTML=`<div class="dh"><div><div class="dt">${nd.kind||nd.sub||''}</div><h3>${nd.name}</h3></div><span class="x" onclick="discDrawerClose()">✕</span></div>`+rows.map(r=>`<div class="kv"><span class="k">${r[0]}</span><span class="v">${r[1]}</span></div>`).join('')+`<button class="db" onclick="toast('${nd.name} is part of the discovered machine.');discDrawerClose()">Include in model</button>`;d.classList.add('on');}
+ let nd,rows;
+ if(id===p.root.id){nd={name:p.root.name,kind:p.type};rows=[['Type',p.type],['Assets',p.metrics[0][0]+' discovered'],['Controller',p.ctrl],['Source','Live machine']];}
+ else{nd=p.children.find(x=>x.id===id);if(!nd)return;rows=discRows(nd,p);}
+ d.innerHTML=`<div class="dh"><div><div class="dt">${nd.kind||nd.sub||''}</div><h3>${nd.name}</h3></div><span class="x" onclick="discDrawerClose()">✕</span></div>`
+  +`<div class="dstatus">Discovery status</div><div class="dverified">● VERIFIED</div>`
+  +rows.map(r=>`<div class="kv"><span class="k">${r[0]}</span><span class="v">${r[1]}</span></div>`).join('')
+  +`<button class="db" onclick="evidence('${id}')">View evidence</button>`;d.classList.add('on');}
+function discRows(ch,p){const r=[];if(ch.sig){r.push(['Engineering signal',ch.sig]);if(ch.type)r.push(['Type',ch.type]);if(ch.unit)r.push(['Unit',ch.unit]);if(ch.range)r.push(['Range',ch.range]);}else if(ch.cmd||ch.fb){if(ch.cmd)r.push(['Relevant command',ch.cmd]);if(ch.fb)r.push(['Relevant feedback',ch.fb]);}else{r.push(['Type',ch.kind||'—']);}r.push(['Source',p.ctrl]);return r;}
+function evidence(id){const p=PROJDATA[currentProject];const d=$('#discDrawer');if(!d)return;const ch=id===p.root.id?p.root:p.children.find(x=>x.id===id);if(!ch)return;const sig=ch.sig||ch.fb||ch.cmd||'—';
+ d.innerHTML=`<div class="dh"><div><div class="dt">Evidence</div><h3>${ch.name}</h3></div><span class="x" onclick="discNode('${id}')">✕</span></div>`
+  +`<div class="kv"><span class="k">Element</span><span class="v">${ch.name}</span></div>`
+  +`<div class="kv"><span class="k">Signal</span><span class="v">${sig}</span></div>`
+  +`<div class="kv"><span class="k">Source</span><span class="v">${p.ctrl}</span></div>`
+  +`<div class="kv"><span class="k">Discovery status</span><span class="v" style="color:var(--green-d)">● VERIFIED</span></div>`
+  +`<div class="kv"><span class="k">Source reference</span><span class="v">${p.modelVer}</span></div>`
+  +`<div style="margin-top:13px;font-size:11.5px;color:#5a6b73;line-height:1.55">CANON believes <b>${ch.name}</b> exists because it was found in the connected engineering sources — PLC configuration and OPC UA node set — with a resolved signal reference and matching I/O configuration. It was discovered, not inferred or invented.</div>`;
+ d.classList.add('on');}
 function discBack(){$('#disc').classList.remove('on');discDrawerClose();openHub();}
 function openProject(id){currentProject=PROJDATA[id]?id:'tk401';$('#hub').classList.remove('on');npClose();discDrawerClose();$('#disc').classList.add('on');renderDisc();}
 //------ Canonical Machine Model ------
@@ -1203,12 +1238,23 @@ function mdNode(id){const p=PROJDATA[currentProject];mdSel=id||p.root.id;renderM
    +`<div class="md-mini" style="border-color:#f0dcae;background:#fcf7ea"><div class="k" style="color:#8a5a08">Held for review</div><div class="v" style="color:#8a5a08;font-weight:600;font-size:11.5px">${p.unresolved.ref} — UNRESOLVED, excluded until reviewed. CANON will not invent a binding.</div></div>`;return;}
  if(id.indexOf('G_')===0){const key=id.slice(2);const row=p.tree.find(x=>x[0]===key);ins.innerHTML=`<div class="dt">Model Element</div><h3>${key}</h3><div class="md-mini"><div class="kv" style="border:none"><span class="k">${key} in model</span><span class="v">${row?row[1]:'analyzed'}</span></div></div><div class="sec">Note</div><div style="font-size:12px;color:#5a6b73">Derived from ${p.name} engineering context; validated against the canonical model.</div>`;return;}
  const ch=p.children.find(x=>x.id===id);if(!ch)return;const rows=nodeRows(ch,p);
- ins.innerHTML=`<div class="dt">${ch.kind||ch.sub}</div><h3>${ch.name}</h3><div style="color:var(--green-d);font-weight:800;font-size:12px;margin:4px 0 8px">● ${ch.val||'HEALTHY'}</div>`+rows.slice(0,-1).map(r=>`<div class="kv"><span class="k">${r[0]}</span><span class="v">${r[1]}</span></div>`).join('')+`<div class="sec">Relationships</div><div class="chiprow"><span>${p.name}</span><span>${ch.cmd?'Command':'Signal'}</span><span>HMI binding</span></div><button class="ev" onclick="toast('Evidence · Source: ${p.ctrl} · ${ch.name} · VERIFIED')">View evidence</button>`;}
+ ins.innerHTML=`<div class="dt">${ch.kind||ch.sub}</div><h3>${ch.name}</h3><div style="color:var(--green-d);font-weight:800;font-size:12px;margin:4px 0 8px">● ${ch.val||'HEALTHY'}</div>`+rows.slice(0,-1).map(r=>`<div class="kv"><span class="k">${r[0]}</span><span class="v">${r[1]}</span></div>`).join('')+`<div class="sec">Relationships</div><div class="chiprow"><span>${p.name}</span><span>${ch.cmd?'Command':'Signal'}</span><span>HMI binding</span></div><button class="ev" onclick="evidence('${ch.id}')">View evidence</button>`;}
 function mdReview(){const p=PROJDATA[currentProject];const d=$('#discDrawer');if(!d)return;d.innerHTML=`<div class="dh"><div><div class="dt">Unresolved Reference</div><h3>${p.unresolved.ref}</h3></div><span class="x" onclick="discDrawerClose()">✕</span></div><div class="kv"><span class="k">Status</span><span class="v" style="color:#b9770f">REVIEW REQUIRED</span></div><div class="kv"><span class="k">Reason</span><span class="v" style="max-width:62%;text-align:right;font-weight:500">${p.unresolved.reason}</span></div><div class="kv"><span class="k">CANON response</span><span class="v" style="max-width:62%;text-align:right;font-weight:500">Binding not automatically created.</span></div><div style="display:flex;gap:8px;margin-top:16px"><button class="db" style="flex:1;border-color:#e3c98a;color:#8a5a08;background:#fcf7ea" onclick="toast('Marked for review.');discDrawerClose()">Review</button><button class="db" style="flex:1" onclick="toast('Left unresolved.');discDrawerClose()">Dismiss</button></div>`;d.classList.add('on');}
 function mdTrace(){const p=PROJDATA[currentProject];const d=$('#discDrawer');if(!d)return;const obj=(p.children.find(c=>c.id===mdSel)||p.children[0]);const chain=[[obj.name,'object'],[obj.sig||obj.fb||obj.name+'.Signal','signal'],[p.ctrl,'source'],[p.name+' · relationship','relationship'],['HMI binding','binding'],['Validation · typed & in range','validation'],[obj===p.children[0]?p.modelVer:p.modelVer,'revision']];
  d.innerHTML=`<div class="dh"><div><div class="dt">Traceability</div><h3>${obj.name}</h3></div><span class="x" onclick="discDrawerClose()">✕</span></div>`+chain.map((c,i)=>`<div style="display:flex;gap:11px;align-items:flex-start;padding:9px 0"><div style="display:flex;flex-direction:column;align-items:center"><span style="width:9px;height:9px;border-radius:50%;background:${i===chain.length-1?'#8a97a0':'var(--green)'}"></span>${i<chain.length-1?'<span style="width:1px;flex:1;min-height:16px;background:#dbe3e7;margin-top:2px"></span>':''}</div><div><div style="font-size:9px;color:#9aa7ae;text-transform:uppercase;letter-spacing:.5px">${c[1]}</div><div style="font-size:12.5px;font-weight:700">${c[0]}</div></div></div>`).join('')+`<div style="border-top:1px solid #eef2f4;margin-top:6px;padding-top:12px;color:#5a6b73;font-size:11.5px">Every step is source-grounded — the binding exists only because the chain resolves end-to-end.</div>`;d.classList.add('on');}
-function buildModel(){$('#disc').classList.remove('on');discDrawerClose();$('#model').classList.add('on');renderModel();}
-function openModel(){buildModel();}
+function showModel(){$('#hub').classList.remove('on');$('#disc').classList.remove('on');$('#model').classList.add('on');renderModel();}
+function openModel(){showModel();}
+function buildModel(){const p=PROJDATA[currentProject];discDrawerClose();
+ if(!ANIM){showModel();return;}
+ const ov=$('#buildSeq');if(!ov){showModel();return;}
+ const steps=['Assets resolved','Signal references mapped','I/O relationships resolved','Commands identified','Alarms linked','Dependencies analyzed'];
+ ov.innerHTML=`<div class="bseq-box"><div class="bseq-h">Building canonical machine model</div><div class="bseq-sub">${p.name} · ${p.type}</div><div class="bseq-steps">${steps.map((s,i)=>`<div class="bseq-step" id="bs${i}"><span class="ck">○</span> ${s}</div>`).join('')}</div><div class="bseq-done" id="bseqDone"></div></div>`;
+ ov.classList.add('on');
+ let i=0;const iv=p.integrity;
+ const tick=()=>{if(i<steps.length){const e=$('#bs'+i);if(e){e.classList.add('done');e.querySelector('.ck').textContent='✓';}i++;setTimeout(tick,240);}
+  else{$('#bseqDone').innerHTML=`<div class="bseq-ready">${iv[0]} / ${iv[1]} core references verified</div><div class="bseq-badge">● MODEL READY · ${p.modelVer}</div>`;
+   setTimeout(()=>{ov.classList.remove('on');showModel();},950);}};
+ setTimeout(tick,320);}
 function mdBack(){$('#model').classList.remove('on');discDrawerClose();openProject(currentProject);}
 function defineIntent(){if(currentProject==='tk401'){$('#model').classList.remove('on');launchApp('generate');}else{toast(PROJDATA[currentProject].name+' · engineering intent captured — full generate / runtime / change flow is demonstrated on the TK-401 hero in this prototype build.');}}
 function renderModel(){const p=PROJDATA[currentProject];const c=$('#model');if(!c)return;const iv=p.integrity;
