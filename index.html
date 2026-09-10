@@ -407,7 +407,7 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 const ANIM=!location.search.includes('shot');
 const SKAB=window.SKAB||[], SKMETA=window.SKAB_META||{source:'SKAB',rows:0,anomalies:0};
 const SE_EQUIP=window.SE_EQUIP||[];
-// real LLM backend (runs on your DGX A100). Empty endpoint => deterministic fallback.
+// optional local LLM adapter. Empty endpoint => deterministic compiler.
 const LLM={endpoint:localStorage.getItem('canon_llm')||'',status:'offline',model:'',lastPrompt:'',lastMs:0,lastRationale:''};
 //================= CANONICAL MODEL =================
 const M={unit:{id:"asset:unit:TK-401",name:"TK-401",type:"Process Tank Unit",rev:17},
@@ -698,7 +698,7 @@ function vDevices(m){m.appendChild(el('div','hd',`<div class="crumb">Equipment L
  SE_EQUIP.forEach(dv=>{const sig=(dv.signals||[]).map(s=>`<tr><td><b>${s.name}</b></td><td>${s.desc}</td><td class="mono id">${s.io||'—'}</td><td class="num">${s.unit?(s.min+'–'+s.max+' '+s.unit):'—'}</td><td class="mono id">${s.addr}</td></tr>`).join('');
   const cmd=(dv.commands||[]).map(c=>`<span class="chip"><b>${c.name}</b>&nbsp;<span class="mono id">${c.addr}</span> · ${c.desc}</span>`).join('');
   const c=el('div','card',`<div class="h"><h3>${dv.family} · ${dv.model}</h3><span class="ts INFERRED">${dv.kind}</span></div><div class="b"><div class="sub" style="margin-bottom:6px">${dv.role}</div><div class="kv"><span class="k">Protocol</span><span class="v">${dv.proto}</span></div>${sig?`<table style="margin-top:6px"><thead><tr><th>Point</th><th>Description</th><th>I/O</th><th>Range</th><th>Address</th></tr></thead><tbody>${sig}</tbody></table>`:'<div class="sub" style="margin-top:6px">Render target — no process points.</div>'}${cmd?`<div style="margin-top:8px">${cmd}</div>`:''}<div class="rec" style="margin-top:8px"><span>ℹ</span><div>${dv.note}</div></div><div style="margin-top:8px"><button class="btn sm" onclick="view='generate';render()">✦ Generate HMI for a unit built from these →</button></div></div>`);g.appendChild(c);});}
-//================= LLM (real backend on DGX) =================
+//================= optional local LLM adapter =================
 async function checkLLM(ep){ep=(ep!==undefined?ep:LLM.endpoint);if(!ep){LLM.status='offline';LLM.model='';if(view==='generate')updateLLMBadge();return;}
  try{const r=await fetch(ep.replace(/\/$/,'')+'/health',{cache:'no-store'});const j=await r.json();LLM.status=(j.llm==='up')?'up':'reachable';LLM.model=j.model||'';}catch(e){LLM.status='offline';}
  if(view==='generate')updateLLMBadge();}
