@@ -300,6 +300,23 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 #launch .lrow .rr{margin-left:auto;font-size:10px;font-weight:800;color:var(--green-d);opacity:0;transition:.3s;letter-spacing:.5px}
 #launch .lrow.on .rr{opacity:1}
 #launch .lstat{font-size:10.5px;letter-spacing:1.4px;color:#9aa7ae;font-weight:700;margin-top:24px;height:14px}
+/* Context v4 */
+.dc-ready{display:flex;align-items:center;gap:18px;flex-wrap:wrap;border:1px solid #e6ebee;background:#fbfcfd;border-radius:9px;padding:9px 16px;margin:0 0 14px}
+.dc-ready .rl{font-size:9px;font-weight:800;letter-spacing:.9px;color:#9aa7ae;text-transform:uppercase}
+.dc-ready .ri{font-size:12px;color:#5a6b73}.dc-ready .ri b{color:#1e2a30;font-weight:800;font-variant-numeric:tabular-nums}
+.dc-ready .ri.amber b{color:#b9770f}
+.dc-ready .rk{margin-left:auto;font-size:10px;color:#9aa7ae;letter-spacing:.3px}
+.srcchev{color:#c2ccd1;font-size:16px;margin-left:6px}
+.src:hover .srcchev{color:var(--green-d)}
+.csec{font-size:9px;font-weight:800;letter-spacing:.8px;color:#9aa7ae;text-transform:uppercase;margin:16px 0 8px;display:flex;align-items:center;gap:8px}
+.csec .cun{color:#b9770f;background:#fcf7ea;border:1px solid #f0dcae;border-radius:5px;padding:1px 6px;font-size:8.5px;letter-spacing:.4px}
+.candrow{display:flex;align-items:center;gap:11px;padding:9px 11px;border:1px solid #e6ebee;border-radius:9px;margin-bottom:7px;cursor:pointer;transition:.14s}
+.candrow:hover{border-color:#cfdad0}
+.candrow.sel{border-color:var(--green);background:var(--green-l)}
+.candrow .cdot{width:14px;height:14px;border-radius:50%;border:2px solid #cfd8dc;flex:none}
+.candrow.sel .cdot{border-color:var(--green-d);background:radial-gradient(circle,var(--green-d) 0 4px,#fff 5px)}
+.candrow .cn{font-size:12.5px;font-weight:700}.candrow .cs{font-size:10.5px;color:#8a97a0}
+.candrow .ctag{font-size:8px;font-weight:800;color:#8a5a08;background:#fcf7ea;border:1px solid #f0dcae;border-radius:5px;padding:2px 6px;letter-spacing:.4px}
 /* ===== PROJECT HUB (opening screen) ===== */
 #hub{position:fixed;inset:0;z-index:100;background:#fff;color:#1e2a30;display:none;flex-direction:column}
 #hub.on{display:flex}
@@ -1197,10 +1214,10 @@ function renderDisc(){const p=PROJDATA[currentProject];const c=$('#disc');if(!c)
  +flowBar('CONTEXT')
  +`<div class="dc-body"><div class="dc-hd"><div><h1>Machine Context</h1><p>Discovering the machine's engineering reality before generating an operator experience.</p></div>${dcLiveHTML()}</div>`
  +`<div class="dc-metrics">${p.metrics.map(m=>`<div class="mm"><b>${m[0]}</b><div class="l">${m[1]}</div><div class="s">Discovered</div></div>`).join('')}</div>`
- +`<div class="dc-grid"><div class="dc-card"><div class="h"><span>Discovered Machine Elements</span><span style="color:#8a97a0">click an element</span></div><div class="b">${topoSVG(p,'discNode')}<div style="display:flex;gap:16px;justify-content:center;margin-top:6px;font-size:10.5px;color:#7c8a92;font-weight:700"><span>● DISCOVERED</span><span>● CONNECTED</span><span>● VERIFIED</span></div></div></div>`
- +`<div><div class="dc-card"><div class="h"><span>Engineering Sources</span></div><div class="b" style="padding:10px 16px">${p.sources.map(s=>`<div class="src"><span class="si">${s[0]}</span><div><div class="k">${s[1]}</div><div class="v">${s[2]}</div></div><span class="st">● ${s[3]}</span></div>`).join('')}</div></div>`
- +`<div class="dc-card" style="margin-top:12px"><div class="h"><span>Engineering Discovery</span></div><div class="b dstat" style="padding:10px 16px"><div class="row"><span>Controller</span><span class="ok">✓ Connected</span></div><div class="row"><span>I/O</span><span class="ok">✓ Discovered</span></div><div class="row"><span>Signals</span><span class="ok">✓ Indexed</span></div><div class="row"><span>Alarms</span><span class="ok">✓ Indexed</span></div><div class="row"><span>Relationships</span><span class="ok">✓ Analyzed</span></div><div class="row"><span>Machine Model</span><span class="nxt">→ Ready to build</span></div>${p.unresolved?`<div class="unres"><span class="ic">△</span><div><b>${p.integrity[2]} unresolved reference</b><div class="tx">A signal reference could not be confidently mapped.</div></div><button class="rv" onclick="discNode('UNRESOLVED')">Review</button></div>`:`<div class="unres" style="border-color:var(--green-b);background:var(--green-l)"><span class="ic" style="color:var(--green-d)">✓</span><div><b style="color:var(--green-d)">All references resolved</b><div class="tx" style="color:var(--green-d)">Engineering context is ready for model construction.</div></div></div>`}</div></div></div></div></div></div>`
- +`<div class="dc-cta"><span class="note">${p.unresolved?`CANON discovered ${p.name} — one reference left unresolved rather than invented. Next: construct the canonical machine model.`:`CANON discovered ${p.name}. Engineering context is ready for model construction.`}</span><button class="dc-buildbtn" onclick="buildModel()">Build Machine Model →</button></div>`;}
+ +readinessStrip(p)+`<div class="dc-grid"><div class="dc-card"><div class="h"><span>Discovered Machine Elements</span><span style="color:#8a97a0">click an element</span></div><div class="b">${topoSVG(p,'discNode')}<div style="display:flex;gap:16px;justify-content:center;margin-top:6px;font-size:10.5px;color:#7c8a92;font-weight:700"><span>● DISCOVERED</span><span>● CONNECTED</span><span>● VERIFIED</span></div></div></div>`
+ +`<div><div class="dc-card"><div class="h"><span>Engineering Sources</span></div><div class="b" style="padding:10px 16px">${p.sources.map((s,i)=>`<div class="src" style="cursor:pointer" onclick="srcDetail(${i})"><span class="si">${s[0]}</span><div style="flex:1"><div class="k">${s[1]}</div><div class="v">${s[2]}</div></div><span class="st">● ${s[3]}</span><span class="srcchev">›</span></div>`).join('')}</div></div>`
+ +`<div class="dc-card" style="margin-top:12px"><div class="h"><span>Engineering Discovery</span></div><div class="b dstat" style="padding:10px 16px"><div class="row"><span>Controller</span><span class="ok">✓ Connected</span></div><div class="row"><span>I/O</span><span class="ok">✓ Discovered</span></div><div class="row"><span>Signals</span><span class="ok">✓ Indexed</span></div><div class="row"><span>Alarms</span><span class="ok">✓ Indexed</span></div><div class="row"><span>Relationships</span><span class="ok">✓ Analyzed</span></div>${p.unresolved?'<div class="row"><span>References</span><span style="color:#b9770f;font-weight:700">△ '+p.integrity[2]+' unresolved</span></div>':'<div class="row"><span>References</span><span class="ok">✓ Resolved</span></div>'}<div class="row"><span>Machine Model</span><span class="nxt">→ Ready to build</span></div>${p.unresolved?`<div class="unres"><span class="ic">△</span><div><b>${p.integrity[2]} unresolved reference</b><div class="tx">A signal reference could not be confidently mapped.</div></div><button class="rv" onclick="reviewRef()">Review</button></div>`:`<div class="unres" style="border-color:var(--green-b);background:var(--green-l)"><span class="ic" style="color:var(--green-d)">✓</span><div><b style="color:var(--green-d)">All references resolved</b><div class="tx" style="color:var(--green-d)">Engineering context is ready for model construction.</div></div></div>`}</div></div></div></div></div></div>`
+ +`<div class="dc-cta"><span class="note">${p.unresolved?`CANON discovered ${p.name}. ${p.integrity[0]}/${p.integrity[1]} references verified · ${p.integrity[2]} remains unresolved rather than invented. Next: construct the canonical machine model.`:`CANON discovered ${p.name}. ${p.integrity[0]}/${p.integrity[1]} references verified. Next: construct the canonical machine model.`}</span><button class="dc-buildbtn" onclick="buildModel()">Build Machine Model →</button></div>`;}
 function dcLiveHTML(){return syncing
  ?`<div class="dc-live" id="dcLive" style="color:#8a6d1f"><span class="d" style="background:#e3c98a;box-shadow:none"></span> SYNCING ENGINEERING CONTEXT…</div>`
  :`<div class="dc-live" id="dcLive"><span class="d"></span> LIVE CONNECTION <button class="sb" onclick="syncNow()">Sync now</button></div>`;}
@@ -1269,6 +1286,36 @@ function renderModel(){const p=PROJDATA[currentProject];const c=$('#model');if(!
  +`</main><aside class="md-insp" id="mdInsp"></aside></div>`
  +`<div class="dc-cta"><span class="note"><b style="color:var(--green-d)">● MODEL READY</b> · ${iv[0]} / ${iv[1]} core references verified${iv[2]?` · <b style="color:#b9770f">${iv[2]} review required</b>`:''}</span><div style="display:flex;gap:10px"><button class="rb" style="border:1px solid #dbe3e7;background:#fff;border-radius:8px;padding:11px 16px;font:800 12px var(--f);cursor:pointer" onclick="mdTrace()">View traceability</button><button class="dc-buildbtn" onclick="defineIntent()">Define Engineering Intent →</button></div></div>`;
  renderMdTree();mdNode(null);}
+
+//------ Context v4 additions (build on peer's renderDisc/discDrawer) ------
+function readinessStrip(p){const iv=p.integrity;return `<div class="dc-ready"><span class="rl">Model readiness</span><span class="ri"><b>${iv[0]} / ${iv[1]}</b> references verified</span>${iv[2]?`<span class="ri amber"><b>${iv[2]}</b> requires review</span>`:`<span class="ri"><b>0</b> pending review</span>`}<span class="ri"><b>0</b> invented bindings</span><span class="rk">deterministic · from machine sources</span></div>`;}
+function srcDetail(i){const p=PROJDATA[currentProject];const d=$('#discDrawer');if(!d)return;const s=p.sources[i];if(!s)return;
+ const extra=[['Reference',s[1]],['Value',s[2]],['State','● '+s[3]],['Controller',p.ctrl],['Last sync',p.sync],['Signals discovered',p.metrics[1][0]]];
+ d.innerHTML=`<div class="dh"><div><div class="dt">Engineering Source</div><h3>${s[1].replace(/^Source \d+ · /,'')}</h3></div><span class="x" onclick="discDrawerClose()">✕</span></div>`
+  +extra.map(r=>`<div class="kv"><span class="k">${r[0]}</span><span class="v">${r[1]}</span></div>`).join('')
+  +`<div style="margin-top:13px;font-size:11.5px;color:#5a6b73;line-height:1.55">CANON reads this source read-only to discover engineering reality. Facts are attributed to it; nothing is written back, and no binding is created without an authoritative match.</div>`;
+ d.classList.add('on');}
+let refSel='none';
+function reviewRef(){const p=PROJDATA[currentProject];const d=$('#discDrawer');if(!d||!p.unresolved)return;refSel='none';const base=p.unresolved.ref.split('.')[0];
+ const cands=[['none','Leave unresolved','Default — no authoritative match','DEFAULT'],['plc',base+'_Status','PLC configuration · candidate','CANDIDATE'],['opc','ns=2;s='+base+'/Status','OPC UA node · candidate','CANDIDATE']];
+ d.innerHTML=`<div class="dh"><div><div class="dt">Unresolved Reference</div><h3>${p.unresolved.ref}</h3></div><span class="x" onclick="discDrawerClose()">✕</span></div>`
+  +`<div class="kv"><span class="k">Status</span><span class="v" style="color:#b9770f">REVIEW REQUIRED</span></div>`
+  +`<div class="kv"><span class="k">Reason</span><span class="v" style="max-width:60%;text-align:right;font-weight:500">${p.unresolved.reason}</span></div>`
+  +`<div class="kv"><span class="k">CANON response</span><span class="v" style="max-width:60%;text-align:right;font-weight:500">Binding not automatically created.</span></div>`
+  +`<div class="csec">Candidate evidence <span class="cun">unconfirmed</span></div>`
+  +cands.map((c,i)=>`<label class="candrow${i===0?' sel':''}" onclick="refSel='${c[0]}';document.querySelectorAll('.candrow').forEach(e=>e.classList.remove('sel'));this.classList.add('sel')"><span class="cdot"></span><div style="flex:1"><div class="cn">${c[1]}</div><div class="cs">${c[2]}</div></div>${c[3]==='CANDIDATE'?'<span class="ctag">CANDIDATE</span>':''}</label>`).join('')
+  +`<div style="display:flex;gap:8px;margin-top:14px"><button class="db" style="flex:1;border-color:var(--green-b);color:var(--green-d);background:var(--green-l)" onclick="confirmBinding()">Confirm mapping</button><button class="db" style="flex:1" onclick="toast('${p.unresolved.ref} kept unresolved.');discDrawerClose()">Keep unresolved</button></div>`
+  +`<div style="margin-top:10px;font-size:10px;color:#9aa7ae;line-height:1.5">Candidate references are unconfirmed search hits shown for the review workflow. CANON creates an authoritative binding only on explicit engineer confirmation. (CANON demo)</div>`;
+ d.classList.add('on');}
+function confirmBinding(){const p=PROJDATA[currentProject];if(refSel==='none'){toast('Select a candidate mapping, or keep it unresolved.');return;}const d=$('#discDrawer');const base=p.unresolved.ref.split('.')[0];const tgt=refSel==='plc'?base+'_Status':'ns=2;s='+base+'/Status';
+ d.innerHTML=`<div class="dh"><div><div class="dt">Establish Binding</div><h3>${p.unresolved.ref}</h3></div><span class="x" onclick="reviewRef()">✕</span></div>`
+  +`<div class="rec warn" style="margin:0 0 12px"><span>⚠</span><div>You are establishing an <b>authoritative CANON binding</b>. This requires engineer approval and is recorded in the audit trail.</div></div>`
+  +`<div class="kv"><span class="k">Binding</span><span class="v" style="max-width:60%;text-align:right">${p.unresolved.ref} → ${tgt}</span></div>`
+  +`<div class="kv"><span class="k">Approved by</span><span class="v">Engineer (role)</span></div>`
+  +`<div class="kv"><span class="k">New revision</span><span class="v">CANON v1.1</span></div>`
+  +`<div style="display:flex;gap:8px;margin-top:14px"><button class="db" style="flex:1;border-color:var(--green-b);color:var(--green-d);background:var(--green-l)" onclick="toast('Binding created &amp; audited · ${p.unresolved.ref} → ${tgt} · Engineer · CANON v1.1 (demo)');discDrawerClose()">Confirm &amp; audit</button><button class="db" style="flex:1" onclick="reviewRef()">Cancel</button></div>`;
+ d.classList.add('on');}
+function mdReview(){reviewRef();}
 
 function runLaunch(cb){const L=$('#launch');if(!L||!ANIM){cb();return;}L.classList.add('on');
  setTimeout(()=>$('#ls0').classList.add('on'),450);
