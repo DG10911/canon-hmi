@@ -145,8 +145,81 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 ::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:#cdd6db;border-radius:6px}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:90px}.hero .r{height:340px}.fgrid,.g5,.g4,.g3,.statrow{grid-template-columns:1fr 1fr}.datacard{grid-template-columns:1fr}}
 </style>
+<style id="v5">
+/* ===== CANON v5 — engineering platform shell ===== */
+#app.on{display:flex}
+.tbar{display:flex;align-items:center;gap:14px;height:52px;padding:0 16px;background:linear-gradient(180deg,#0b1712,#0a140f);border-bottom:1px solid var(--dkln);flex:none;color:#dff3e6;z-index:5}
+.tbar .m{width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,var(--green),var(--green-d));display:grid;place-items:center;color:#04160d;font-weight:900;font-size:15px}
+.tbar b.nm{font-size:14px;font-weight:800;letter-spacing:.4px;color:#fff}
+.tbar .ws{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.05);border:1px solid var(--dkln);border-radius:8px;padding:5px 11px;font-size:12px;font-weight:600;color:#bfe9cf;cursor:pointer}
+.tbar .sp{flex:1}
+.tstat{display:flex;align-items:center;gap:6px;font-size:11px;color:#9fc4ac;padding:0 4px}
+.tstat b{color:#eafff0;font-weight:700}
+.tstat .d{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+.tstat .d.a{background:var(--amber);box-shadow:0 0 8px var(--amber)}.tstat .d.r{background:var(--red)}
+.tbar .kbtn{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid var(--dkln);border-radius:8px;padding:6px 11px;font-size:12px;color:#9fc4ac;cursor:pointer;min-width:170px}
+.tbar .kbtn kbd{margin-left:auto;background:rgba(255,255,255,.08);border-radius:4px;padding:1px 6px;font-size:10px;font-family:var(--mono)}
+.tbar .tb{background:transparent;border:1px solid var(--green);color:#dff3e6;border-radius:8px;padding:6px 12px;font:700 12px var(--f);cursor:pointer}
+.tbar .tb.go{background:linear-gradient(135deg,var(--green),var(--green-2));color:#04160d;border-color:transparent}
+.tbar .tb:hover{filter:brightness(1.08)}
+.nav2{width:212px;flex:none;background:#0a140f;border-right:1px solid var(--dkln);overflow:auto;padding:8px 8px 20px;color:#bfe9cf}
+.nav2 .navsec{padding:13px 10px 5px;font-size:8.5px;font-weight:800;letter-spacing:1.2px;color:#5f8570;text-transform:uppercase}
+.nav2 a{display:flex;align-items:center;gap:10px;padding:8px 11px;color:#a9c9b6;cursor:pointer;font-size:12.5px;font-weight:500;border-radius:8px;margin-bottom:1px;transition:.14s;position:relative}
+.nav2 a .ic{width:16px;text-align:center;opacity:.8;font-size:13px}
+.nav2 a:hover{background:rgba(255,255,255,.05);color:#fff}
+.nav2 a.on{background:linear-gradient(90deg,rgba(61,205,88,.16),rgba(61,205,88,.02));color:#fff;font-weight:700}
+.nav2 a.on::before{content:"";position:absolute;left:-1px;top:7px;bottom:7px;width:3px;border-radius:3px;background:var(--green);box-shadow:0 0 10px var(--green)}
+.nav2 a .bdg{margin-left:auto;font-size:9px;font-weight:800;background:rgba(61,205,88,.16);color:var(--green);padding:1px 6px;border-radius:8px}
+.nav2 a .bdg.r{background:rgba(214,69,51,.18);color:#ff8b7a}
+.insp{width:296px;flex:none;background:rgba(255,255,255,.72);backdrop-filter:blur(8px);border-left:1px solid var(--line);overflow:auto;padding:14px}
+.insp .ih{font-size:9px;font-weight:800;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin:2px 0 9px}
+.insp .icard{background:#fff;border:1px solid var(--line);border-radius:11px;padding:12px;margin-bottom:11px;box-shadow:var(--sh)}
+.insp .icard h4{font-size:12.5px;font-weight:800;margin-bottom:2px}
+.insp .icard .ty{font-size:10.5px;color:var(--muted);margin-bottom:8px}
+.bind{display:flex;align-items:center;gap:7px;font-size:11px;padding:4px 0;border-bottom:1px solid var(--line2)}.bind:last-child{border:none}.bind .ok{color:var(--green-d);font-weight:800}.bind .no{color:var(--red);font-weight:800}
+@media(max-width:1280px){.insp{display:none}}
+/* boot */
+#boot{position:fixed;inset:0;z-index:200;background:radial-gradient(900px 600px at 50% 40%,#0c1c14,#050d09);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#eafff0;transition:opacity .6s}
+#boot.hide{opacity:0;pointer-events:none}
+#boot .bw{font-size:44px;font-weight:800;letter-spacing:4px;color:#fff;display:flex;align-items:center;gap:14px}
+#boot .bw .m{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--green),var(--green-d));display:grid;place-items:center;color:#04160d;box-shadow:0 0 30px rgba(61,205,88,.6)}
+#boot .bs{color:var(--green);font-size:12px;letter-spacing:3px;margin-top:14px;font-weight:700}
+#boot canvas{margin-top:26px}
+#boot .bcap{height:22px;margin-top:18px;color:#a9c9b6;font-size:13px;font-weight:600;letter-spacing:.5px}
+#boot .skip{position:absolute;bottom:26px;right:30px;color:#6f9a80;font-size:12px;cursor:pointer;border:1px solid var(--dkln);border-radius:7px;padding:6px 13px}
+/* command palette */
+#palette{position:fixed;inset:0;z-index:180;background:rgba(6,17,12,.55);display:none;align-items:flex-start;justify-content:center;padding-top:12vh}
+#palette.on{display:flex}
+#palette .pbox{width:min(620px,92vw);background:#0e1c15;border:1px solid var(--dkln);border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.5);overflow:hidden}
+#palette input{width:100%;background:transparent;border:none;border-bottom:1px solid var(--dkln);color:#fff;padding:16px 18px;font:600 15px var(--f)}
+#palette input:focus{outline:none}
+#palette .plist{max-height:52vh;overflow:auto;padding:6px}
+#palette .pi{display:flex;align-items:center;gap:11px;padding:10px 13px;border-radius:9px;color:#bfe9cf;cursor:pointer;font-size:13px}
+#palette .pi.sel,#palette .pi:hover{background:rgba(61,205,88,.14);color:#fff}
+#palette .pi .grp{margin-left:auto;font-size:10px;color:#5f8570}
+/* demo banner + control trace */
+#demoBar{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:120;background:#0e1c15;border:1px solid var(--green);color:#eafff0;border-radius:12px;padding:12px 18px;display:none;align-items:center;gap:14px;box-shadow:0 16px 44px rgba(0,0,0,.4);max-width:760px}
+#demoBar.on{display:flex}
+#demoBar .step{font-size:9px;font-weight:800;letter-spacing:1px;color:var(--green)}
+#demoBar b{color:#fff}
+#demoBar .x{margin-left:6px;cursor:pointer;color:#7f9a88;border:1px solid var(--dkln);border-radius:6px;padding:3px 9px;font-size:11px}
+.ctrace{display:flex;flex-direction:column;gap:0}
+.ctrace .cs{display:flex;align-items:center;gap:10px;padding:6px 0;opacity:.35;transition:opacity .25s}
+.ctrace .cs.on{opacity:1}
+.ctrace .cs .cd{width:16px;height:16px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:9px;color:#fff;flex:none}
+.ctrace .cs.on .cd{background:var(--green);border-color:var(--green);box-shadow:0 0 8px rgba(61,205,88,.5)}
+.ctrace .cs .cl{font-size:11.5px;font-weight:700}.ctrace .cs .cv{margin-left:auto;font-size:10.5px;color:var(--muted)}
+.ctrace .cs.rej .cd{background:var(--red);border-color:var(--red)}
+</style>
 </head>
 <body>
+<div id="boot">
+  <div class="bw"><span class="m">C</span>CANON</div>
+  <div class="bs">MACHINE CONTEXT → VERIFIED DIGITAL HMI</div>
+  <canvas id="bootcv" width="560" height="150"></canvas>
+  <div class="bcap" id="bootcap"></div>
+  <div class="skip" onclick="bootDone()">Skip intro →</div>
+</div>
 <!-- ==================== LANDING ==================== -->
 <div id="landing">
  <div class="lnav">
@@ -220,27 +293,36 @@ textarea,input[type=text]{width:100%;background:#fff;border:1px solid var(--line
 
 <!-- ==================== APP ==================== -->
 <div id="app">
-  <div class="rail">
-    <div class="logo"><div class="m">C</div><div><b>CANON</b><div class="t">Machine Context → Dynamic HMI → Verified Control</div></div></div>
+  <div class="tbar">
+    <div class="m">C</div><b class="nm">CANON</b>
+    <div class="ws" onclick="paletteOpen()">TK-401 · Process Skid ▾</div>
+    <div class="tstat"><span class="d" id="tqual"></span><b id="tqualT">LIVE</b></div>
+    <div class="tstat">PLC&nbsp;<b>CONNECTED</b></div>
+    <div class="tstat">MODEL&nbsp;<b id="tmodel">v1.2.3</b></div>
+    <div class="tstat">VALIDATED&nbsp;<b id="tval">10:24:17</b></div>
     <div class="sp"></div>
-    <div class="pill"><span class="k">Unit</span>&nbsp;<b>TK-401</b></div>
-    <div class="pill"><span class="k">Data</span>&nbsp;<b id="rSrc">SKAB replay</b></div>
-    <div class="pill"><span class="k">Rev</span>&nbsp;<b id="rRev">R17</b></div>
-    <div class="pill"><span class="dot sim" id="rDot"></span><b id="rMode">SIMULATED</b></div>
+    <div class="kbtn" onclick="paletteOpen()">Search machines, tags, HMIs… <kbd>⌘K</kbd></div>
+    <button class="tb go" onclick="demoStart()">▶ Run Demo</button>
+    <button class="tb" onclick="backSite()">← Site</button>
   </div>
   <div class="abody">
-    <div class="nav" id="nav">
-      <div class="back" onclick="backSite()">← Back to site</div>
-      <div class="grp">Engineering</div>
-      <a data-v="overview" class="on">▦ Overview</a><a data-v="context">◱ Machine Context</a><a data-v="model">◈ Canonical Model</a><a data-v="devices">▤ Schneider Devices</a><a data-v="generate">✦ Generate HMI</a><a data-v="graph">⬡ 3D Graph</a>
-      <div class="grp">Verify &amp; Run</div>
-      <a data-v="runtime">◉ Runtime / HMI</a><a data-v="impact">⇄ Change Impact</a><a data-v="validation">✓ Validation</a><a data-v="governance">⚑ Governance</a>
+    <div class="nav2" id="nav">
+      <div class="navsec">Workspace</div>
+      <a data-v="overview" class="on"><span class="ic">▦</span>Overview</a><a data-v="library"><span class="ic">▤</span>Machine Library</a><a data-v="devices"><span class="ic">▥</span>Equipment</a>
+      <div class="navsec">Engineering</div>
+      <a data-v="model"><span class="ic">◈</span>Canonical Model</a><a data-v="context"><span class="ic">◱</span>Machine Context</a><a data-v="generate"><span class="ic">✦</span>HMI Studio</a><a data-v="graph"><span class="ic">⬡</span>Traceability 3D</a><a data-v="validation"><span class="ic">✓</span>Validation</a><a data-v="impact"><span class="ic">⇄</span>Change Impact<span class="bdg r" id="impBdg" style="display:none">!</span></a><a data-v="governance"><span class="ic">⚑</span>Baselines &amp; Audit</a>
+      <div class="navsec">Operations</div>
+      <a data-v="runtime"><span class="ic">◉</span>Runtime</a><a data-v="analytics"><span class="ic">📈</span>Analytics</a>
+      <div class="navsec">System</div>
+      <a data-v="aiengine"><span class="ic">◆</span>AI Engine</a>
     </div>
     <div class="main" id="main"></div>
+    <div class="insp" id="inspector"></div>
   </div>
-  <div class="afoot"><span>PLC&nbsp;<span class="dot sim"></span>&nbsp;<b>SIMULATED</b></span><span>Data&nbsp;<span class="dot"></span>&nbsp;<b>SKAB (Skoltech) replay</b></span><span>Model&nbsp;<span class="dot"></span>&nbsp;<b>VALIDATED</b></span><span class="sp"></span><span>⛨ AI proposes · model defines · validator checks · engineer approves · <b>PLC controls</b>. Not safety-rated.</span></div>
 </div>
 <div id="pop" class="popover" style="display:none"></div>
+<div id="palette"><div class="pbox"><input id="palInput" placeholder="Type a command or screen… (Machine, HMI, Runtime, Validation, Demo)"/><div class="plist" id="palList"></div></div></div>
+<div id="demoBar"><div><div class="step" id="demoStep">DEMO · STEP 1/12</div><span id="demoCap"><b>Starting…</b></span></div><div class="x" onclick="demoStop()">Stop demo</div></div>
 
 <script src="three.min.js"></script>
 <script src="data.js"></script>
@@ -328,19 +410,110 @@ let heroTwin=null,rtTwin=null;
 function drawSkab(){const cv=$('#skabChart');if(!cv||!SKAB.length)return;const dpr=devicePixelRatio||1;cv.width=cv.clientWidth*dpr;cv.height=cv.clientHeight*dpr;const ctx=cv.getContext('2d');ctx.scale(dpr,dpr);const W=cv.clientWidth,H=cv.clientHeight;ctx.clearRect(0,0,W,H);ctx.strokeStyle='rgba(61,205,88,.12)';for(let i=0;i<=4;i++){const y=H*i/4;ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}ctx.beginPath();SKAB.forEach((s,i)=>{const x=i/(SKAB.length-1)*W,y=H-8-s.p/10*(H-16);i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.strokeStyle='#3DCD58';ctx.lineWidth=1.6;ctx.stroke();SKAB.forEach((s,i)=>{if(s.anom){const x=i/(SKAB.length-1)*W,y=H-8-s.p/10*(H-16);ctx.fillStyle='rgba(214,69,51,.9)';ctx.beginPath();ctx.arc(x,y,2.2,0,7);ctx.fill();}});const cap=$('#skabCap');if(cap)cap.textContent=SKMETA.source+' · '+SKMETA.rows+' pts · '+SKMETA.anomalies+' labelled anomalies';}
 //================= NAV / LAUNCH =================
 let view="overview";
+//================= INSPECTOR =================
+function paintInspector(){const ins=$('#inspector');if(!ins)return;const q=qOf();
+ if(view==='runtime'||view==='analytics'){const on=R.running&&!R.stale&&R.comm;const rpm=on?Math.round(1350+R.flow*1.1):0;const kw=on?(2.4+R.flow*0.18).toFixed(1):'0.0';const pt=R.stale?8:R.pt;
+  ins.innerHTML=`<div class="ih">Inspector · Equipment</div>
+   <div class="icard"><h4>P-401</h4><div class="ty">Feed pump · motor-driven</div>
+     <div class="kv"><span class="k">State</span><span class="v ${on?'c-green':'c-grey'}">${on?'RUNNING':'STOPPED'}</span></div>
+     <div class="kv"><span class="k">Speed</span><span class="v num">${rpm} rpm</span></div>
+     <div class="kv"><span class="k">Flow</span><span class="v num">${R.flow.toFixed(1)} m³/h</span></div>
+     <div class="kv"><span class="k">Power (est.)</span><span class="v num">${kw} kW</span></div>
+     <div class="kv"><span class="k">Discharge</span><span class="v num ${pt>=8?'c-red':''}">${pt.toFixed(1)} bar</span></div>
+     <div style="display:flex;gap:7px;margin-top:9px"><button class="btn go sm" onclick="cmdStart()" ${on?'disabled':''}>▶ START</button><button class="btn sm" onclick="cmdStop()" ${on?'':'disabled'}>■ STOP</button></div></div>
+   <div class="icard"><h4>Permissives · START</h4>
+     <div class="bind"><span class="${R.valveOpen?'ok':'no'}">${R.valveOpen?'✓':'✕'}</span> XV401_OPEN_FB = ${R.valveOpen}</div>
+     <div class="bind"><span class="ok">✓</span> P401_FAULT_FB = false</div>
+     <div class="bind"><span class="${R.level<97?'ok':'no'}">${R.level<97?'✓':'✕'}</span> TANK_LEVEL &lt; 97%</div></div>
+   <div class="icard"><h4>Data quality</h4><div class="bind"><span class="${q==='LIVE'?'ok':'no'}">●</span> ${q} · source SKAB (Skoltech)</div><div class="bind"><span class="ok">✓</span> PLC ${R.comm?'CONNECTED':'LOST'}</div></div>`;
+ } else {
+  ins.innerHTML=`<div class="ih">Inspector · Machine</div>
+   <div class="icard"><h4>TK-401</h4><div class="ty">Process Tank Unit · Skid 04</div>
+     <div class="kv"><span class="k">Model</span><span class="v">v1.2.3 · source of truth</span></div>
+     <div class="kv"><span class="k">Controller</span><span class="v">M580 · CONNECTED</span></div>
+     <div class="kv"><span class="k">State</span><span class="v ${R.running?'c-green':''}">${R.running?'RUNNING · AUTO':'STOPPED'}</span></div></div>
+   <div class="icard"><h4>Engineering health</h4>
+     <div class="kv"><span class="k">Tags</span><span class="v num">${M.signals.length}</span></div>
+     <div class="kv"><span class="k">Commands</span><span class="v num">${M.commands.length}</span></div>
+     <div class="kv"><span class="k">Alarms</span><span class="v num">${M.alarms.length}</span></div>
+     <div class="kv"><span class="k">Broken bindings</span><span class="v c-green">0</span></div>
+     <div class="kv"><span class="k">Validation</span><span class="v c-green">PASS ${M.tests.length}/${M.tests.length}</span></div></div>
+   <div class="icard"><h4>Key bindings</h4>
+     <div class="bind"><span class="ok">✓</span> P401_RUN_FB <span class="mono id" style="margin-left:auto">%I0.1</span></div>
+     <div class="bind"><span class="ok">✓</span> P401_START_CMD <span class="mono id" style="margin-left:auto">%Q0.1</span></div>
+     <div class="bind"><span class="ok">✓</span> PT401 <span class="mono id" style="margin-left:auto">0–${R.ptMax} bar</span></div></div>
+   <div class="icard"><h4>Trust chain</h4><div style="font-size:11px;line-height:1.8;color:var(--ink2)">AI <b>proposes</b> · model <b>defines</b> · validator <b>checks</b> · engineer <b>approves</b> · PLC <b>controls</b>.</div></div>`;
+ }}
+//================= LIBRARY / ANALYTICS / AI ENGINE =================
+function vLibrary(m){m.appendChild(el('div','hd',`<div class="crumb">Workspace · Library</div><h1 class="pg">Machine &amp; HMI Library</h1><div class="sub">CANON is also an HMI management environment — open, duplicate, compare, or generate a variant from one model.</div>`));
+ m.appendChild(el('div','card',`<div class="b" style="display:flex;gap:10px;align-items:center"><input type="text" placeholder="Search HMIs, equipment, tags, models…" onkeydown="if(event.key==='Enter')paletteOpen()"/><button class="btn go" onclick="view='generate';render()">+ Create HMI</button></div>`));
+ const items=[["TK-401 Operator","Process overview","v1.2.3","VERIFIED","overview"],["Pump Skid Control","Control faceplate","v2.1.0","VERIFIED","runtime"],["ATV630 Motor Faceplate","Drive control","v4.0.2","VERIFIED","devices"],["Energy Overview","PM8000 dashboard","v1.0.1","VERIFIED","devices"],["Alarm Overview","ISA-18.2","v1.1.0","VERIFIED","runtime"],["Maintenance Screen","Diagnostics","v0.9 draft","DRAFT","generate"]];
+ const g=el('div','grid g3');g.style.marginTop='13px';m.appendChild(g);
+ items.forEach(([nm,ty,ver,st,go])=>g.appendChild(el('div','card',`<div class="b"><div style="height:92px;border-radius:9px;background:linear-gradient(135deg,#eef4f1,#e3ecec);border:1px solid var(--line);display:grid;place-items:center;color:#9aa8b0;font-size:12px;font-weight:700">${nm}</div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:9px"><b style="font-size:13px">${nm}</b><span class="ts ${st==='VERIFIED'?'VERIFIED':'PROPOSED'}">${st}</span></div><div class="sub" style="font-size:11px">${ty} · ${ver}</div><div style="display:flex;gap:6px;margin-top:8px"><button class="btn sm" onclick="view='${go}';render()">Open</button><button class="btn sm" onclick="view='generate';render()">Variant</button><button class="btn sm" onclick="view='model';render()">Model</button></div></div>`)));}
+function vAnalytics(m){m.appendChild(el('div','hd',`<div class="crumb">Operations · Analytics</div><h1 class="pg">Real-time Analytics</h1><div class="sub">Grounded in the live SKAB stream — press START in Runtime to accumulate. CURRENT · 24H · 7D · EVENT.</div>`));
+ if(!SCREEN){SCREEN=compile(parseIntent("overview"));genPhase="ready";}
+ m.appendChild(el('div','card',`<div class="h"><h3>Operator Assist</h3><span class="ts INFERRED">rule-based · non-authoritative</span></div><div class="b" id="opAssist">${operatorHint()}</div>`));
+ const c=analyticsCard();c.style.marginTop='13px';m.appendChild(c);
+ const tr=el('div','card','');tr.style.marginTop='13px';tr.innerHTML=`<div class="h"><h3>PT401 pressure trend · SKAB · high alarm 8 bar</h3><span class="ts VERIFIED">LIVE</span></div><div class="b">${trendSVG()}</div>`;m.appendChild(tr);}
+function vAIEngine(m){m.appendChild(el('div','hd',`<div class="crumb">System · AI Engine</div><h1 class="pg">AI Engine</h1><div class="sub">Local inference — your engineering data stays inside your controlled environment. AI proposes; the validator guarantees.</div>`));
+ m.appendChild(el('div','card',`<div class="h"><h3>Inference endpoint</h3><span class="ts PROPOSED" id="llmBadge">checking…</span></div><div class="b"><div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><input type="text" id="llmEp" value="${LLM.endpoint}" placeholder="http://your-dgx-a100:8088"/><button class="btn" onclick="setLLM()">Connect &amp; test</button></div>
+  <div class="grid g4" style="margin-top:11px"><div class="tile"><div class="l">Model</div><div class="v" style="font-size:13px">${LLM.model||'Qwen2.5-Coder-32B'}</div></div><div class="tile b"><div class="l">Mode</div><div class="v" style="font-size:13px">LOCAL INFERENCE</div></div><div class="tile"><div class="l">Last latency</div><div class="v num" style="font-size:13px">${LLM.lastMs||0} ms</div></div><div class="tile g"><div class="l">Output</div><div class="v" style="font-size:13px">json_schema v1</div></div></div>
+  <div class="rec info" style="margin-top:11px"><span>◆</span><div>Serve a local model on your DGX A100 (vLLM/Ollama) and run <span class="mono">server/server.py</span>. When connected, HMI Studio generates via your own model — nothing leaves your network. Offline → deterministic compiler (same guarantees).</div></div>
+  <div class="rec" style="margin-top:8px"><span>⛨</span><div>AI produces a <b>structured widget proposal</b> (JSON), never arbitrary UI code. Every binding is validated against the canonical model before render.</div></div></div>`));
+ updateLLMBadge();checkLLM();}
+//================= BOOT / PALETTE / DEMO / BAD-TAG =================
+function bootDone(){const b=$('#boot');if(b){b.classList.add('hide');setTimeout(()=>{b.style.display='none';},650);}}
+function bootRun(){const cap=$('#bootcap'),cv=$('#bootcv');if(!cv||!cv.getContext){bootDone();return;}const cx=cv.getContext('2d');const caps=["Assembling machine context…","Building canonical model…","The machine model is the source of truth","Intent → propose → validate → compile → bind → render","AI proposes · engineering truth defines · PLC controls"];cap.textContent=caps[0];
+ const nodes=[["PLC",280,18],["I/O",110,52],["TAGS",210,52],["ALARMS",345,52],["CMDS",450,52],["DOCS",60,90],["MODEL",280,120]];const t0=performance.now();
+ function fr(now){const p=Math.min(1,(now-t0)/3200);cx.clearRect(0,0,560,150);cx.strokeStyle='rgba(61,205,88,.4)';cx.lineWidth=1.3;nodes.forEach((n,k)=>{if(k===6)return;const a=Math.min(1,p*2-k*0.09);if(a<=0)return;cx.globalAlpha=a*0.7;cx.beginPath();cx.moveTo(n[1],n[2]);cx.lineTo(280,120);cx.stroke();});cx.globalAlpha=1;
+  nodes.forEach((n,k)=>{const a=Math.min(1,p*2-k*0.09);if(a<=0)return;cx.globalAlpha=Math.max(0,a);const w=n[0].length*7+18;cx.fillStyle=k===6?'#3DCD58':'#0e2417';cx.strokeStyle='#3DCD58';cx.lineWidth=1.4;if(cx.roundRect){cx.beginPath();cx.roundRect(n[1]-w/2,n[2]-11,w,22,6);cx.fill();cx.stroke();}else{cx.fillRect(n[1]-w/2,n[2]-11,w,22);cx.strokeRect(n[1]-w/2,n[2]-11,w,22);}cx.fillStyle=k===6?'#04160d':'#dff3e6';cx.font='700 11px Inter,sans-serif';cx.textAlign='center';cx.textBaseline='middle';cx.fillText(n[0],n[1],n[2]);});cx.globalAlpha=1;
+  cap.textContent=caps[Math.min(caps.length-1,Math.floor(p*caps.length))];if(p<1)requestAnimationFrame(fr);else setTimeout(bootDone,750);}
+ requestAnimationFrame(fr);}
+const PAL=[["Overview","overview","Workspace"],["Machine Library","library","Workspace"],["Equipment · Schneider","devices","Workspace"],["Canonical Model","model","Engineering"],["Machine Context","context","Engineering"],["HMI Studio · Create HMI","generate","Engineering"],["Traceability 3D Graph","graph","Engineering"],["Validation Center","validation","Engineering"],["Change Impact","impact","Engineering"],["Baselines & Audit","governance","Engineering"],["Runtime HMI","runtime","Operations"],["Analytics","analytics","Operations"],["AI Engine · settings","aiengine","System"],["▶ Run guided Demo","__demo","Action"],["← Back to site","__site","Action"]];
+let palItems=[],palSel=0;
+function paletteOpen(){if(!$('#app').classList.contains('on'))launchApp();$('#palette').classList.add('on');const i=$('#palInput');i.value='';palRender('');setTimeout(()=>i.focus(),30);}
+function paletteClose(){$('#palette').classList.remove('on');}
+function palRender(q){q=(q||'').toLowerCase();palItems=PAL.filter(p=>p[0].toLowerCase().includes(q));palSel=0;const L=$('#palList');L.innerHTML=palItems.length?palItems.map((p,i)=>`<div class="pi ${i===0?'sel':''}" onmouseover="palHover(${i})" onclick="palGo(${i})"><span>${p[0]}</span><span class="grp">${p[2]}</span></div>`).join(''):'<div class="pi">No matches</div>';}
+function palHover(i){palSel=i;document.querySelectorAll('#palList .pi').forEach((e,k)=>e.classList.toggle('sel',k===i));}
+function palGo(i){const p=palItems[i];if(!p)return;paletteClose();if(p[1]==='__demo')demoStart();else if(p[1]==='__site')backSite();else{view=p[1];render();}}
+let demoT=null,demoI=0;
+const DEMO=[["Select machine","Opening the TK-401 command center.",()=>{demoStop2();view='overview';render();}],
+ ["Inspect model","Canonical model — the single source of truth.",()=>{view='model';render();}],
+ ["Create HMI","Engineer describes intent in HMI Studio.",()=>{view='generate';render();}],
+ ["AI proposal + validation","AI proposes; the validator catches an invalid binding.",()=>{view='generate';render();setTimeout(demoBadTag,350);}],
+ ["Runtime","HMI compiled — live 3D digital twin.",()=>{R.valveOpen=false;R.running=false;view='runtime';render();}],
+ ["Permissive","Open inlet valve XV-401 (a START permissive).",()=>{R.valveOpen=true;render();}],
+ ["Start pump","Operator STARTs — PLC authorizes; pump spins in 3D.",()=>{cmdStart();}],
+ ["Analytics","Live analytics accumulate from the SKAB stream.",()=>{view='analytics';render();}],
+ ["Change impact","Engineering change: PT401 range 0–10 → 0–16 bar.",()=>{view='impact';R.changeOpen=true;render();}],
+ ["Regenerate","Regenerate affected interfaces.",()=>{R.regen=true;R.ptMax=16;render();}],
+ ["Regression","Regression 8/8 pass.",()=>{R.regr=true;render();}],
+ ["Approve baseline","New approved baseline — engineering continuity.",()=>{approve();}]];
+function demoStop2(){}
+function demoStart(){demoStop();if(!$('#app').classList.contains('on'))launchApp();demoI=0;$('#demoBar').classList.add('on');demoStep();}
+function demoStep(){if(demoI>=DEMO.length){demoStop();toast('Demo complete — engineering continuity established');return;}const[s,c,fn]=DEMO[demoI];$('#demoStep').textContent='DEMO · STEP '+(demoI+1)+'/'+DEMO.length;$('#demoCap').innerHTML='<b>'+s+'</b> — '+c;try{fn();}catch(e){}demoI++;demoT=setTimeout(demoStep,2900);}
+function demoStop(){if(demoT)clearTimeout(demoT);demoT=null;const b=$('#demoBar');if(b)b.classList.remove('on');}
+function demoBadTag(){const t=$('#trace');if(!t){view='generate';render();return;}genPhase='compiling';const stages=[["Ingest context","✓ "+M.signals.length+" tags"],["Resolve intent","✓ requirements"],["Propose widgets","incl. MADE_UP_TAG"],["Validate binding","✕ not in model"]];
+ t.innerHTML=stages.map((st,i)=>`<div class="genstep ${i<3?'done':''}"><span class="dotc">${i<3?'✓':'✕'}</span>${st[0]}<span style="margin-left:auto;color:${i<3?'var(--muted)':'var(--red)'};font-size:10px">${st[1]}</span></div>`).join('')+`<div class="banner r" style="margin-top:8px"><span>✕</span><div><b>PROPOSAL REJECTED</b> — <span class="mono">MADE_UP_TAG</span> does not exist in the canonical model.</div></div>`;
+ const host=$('#hmihost');if(host)host.innerHTML='<div class="sub" style="padding:26px;text-align:center;color:var(--red)">Binding rejected — awaiting AI revision…</div>';
+ setTimeout(()=>{const tt=$('#trace');if(tt)tt.innerHTML+=`<div class="banner g" style="margin-top:8px"><span>✓</span><div><b>AI revised proposal</b> — corrected <span class="mono">MADE_UP_TAG</span> → <span class="mono">PT401</span> · ✓ VALIDATED.</div></div>`;SCREEN=compile(parseIntent($('#intent')?$('#intent').value:'overview'));genPhase='ready';renderHMIInto($('#hmihost'));},1500);}
 function launchApp(v){$('#landing').style.display='none';$('#app').classList.add('on');if(v)view=v;render();}
 function backSite(){if(rtTwin&&rtTwin.stop)rtTwin.stop();rtTwin=null;$('#app').classList.remove('on');$('#landing').style.display='block';drawSkab();}
 document.querySelectorAll('#nav a').forEach(a=>a.onclick=()=>{view=a.dataset.v;graph3D.run=false;if(rtTwin&&rtTwin.stop){rtTwin.stop();rtTwin=null;}render();});
-function render(){document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===view));$('#rRev').textContent="R"+R.rev;$('#rDot').className='dot '+(R.comm?'sim':'bad');$('#rMode').textContent=R.comm?'SIMULATED':'COMM LOSS';const V={overview:vOverview,context:vContext,model:vModel,devices:vDevices,generate:vGenerate,graph:vGraph,runtime:vRuntime,impact:vImpact,validation:vValidation,governance:vGovernance};const m=$('#main');m.innerHTML='';(V[view]||vOverview)(m);if(view==='graph')startGraph3D();}
+function render(){document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===view));
+ const q=qOf();const tq=$('#tqual'),tqt=$('#tqualT');if(tq){tq.className='d '+(q==='LIVE'?'':q==='STALE'?'a':'r');tqt.textContent=R.comm?(R.stale?'STALE':'LIVE'):'COMM LOSS';}
+ const tm=$('#tmodel');if(tm)tm.textContent=R.rev>17?'v1.2.4':'v1.2.3';const ib=$('#impBdg');if(ib)ib.style.display=(R.changeOpen&&!R.approved)?'inline-block':'none';
+ const V={overview:vOverview,library:vLibrary,context:vContext,model:vModel,devices:vDevices,generate:vGenerate,graph:vGraph,runtime:vRuntime,analytics:vAnalytics,impact:vImpact,validation:vValidation,governance:vGovernance,aiengine:vAIEngine};const m=$('#main');m.innerHTML='';(V[view]||vOverview)(m);if(view==='graph')startGraph3D();paintInspector();}
 //================= OVERVIEW =================
 function vOverview(m){
- m.appendChild(el('div','hd',`<div class="crumb">Project Command Center · PS2</div><h1 class="pg">TK-401 — Process Tank Unit</h1><div class="sub">One canonical machine model → dynamic, validated, PLC-authoritative HMI · driven by real SKAB data.</div>`));
- const g=el('div','grid g5');m.appendChild(g);[["Signals",M.signals.length,""],["Commands",M.commands.length,"b"],["Alarms",M.alarms.length,"a"],["Tests",M.tests.length,""],["Open issues",1,"r"]].forEach(([l,v,c])=>g.appendChild(el('div','tile '+c,`<div class="l">${l}</div><div class="v num">${v}</div>`)));
- const row=el('div','grid','');row.style.gridTemplateColumns='1.3fr 1fr';row.style.marginTop='13px';m.appendChild(row);
- const twin=el('div','card',`<div class="h"><h3>Live 3D Process Twin · TK-401</h3><span class="ts VERIFIED">bound to canonical model</span></div><div class="b"><div class="twinwrap"><canvas class="twincv" id="ovTwin"></canvas></div><div class="grid g2" style="margin-top:10px"><div id="gP"></div><div id="gL"></div></div></div>`);row.appendChild(twin);
+ const hd=el('div','hd','');hd.style.display='flex';hd.style.justifyContent='space-between';hd.style.alignItems='flex-end';
+ hd.innerHTML=`<div><div class="crumb">CANON Engineering Workspace</div><h1 class="pg">TK-401 · Process Tank</h1><div class="sub">● LIVE · PLC CONNECTED · MODEL v1.2.3 · last validated 10:24:17</div></div><div style="display:flex;gap:8px"><button class="btn go" onclick="view='generate';render()">+ Create HMI</button><button class="btn" onclick="view='library';render()">Open existing</button></div>`;m.appendChild(hd);
+ const g=el('div','grid g5');m.appendChild(g);[["Model","VALID","","c-green"],["Tags",M.signals.length,"",""],["Commands",M.commands.length,"b",""],["Alarms",M.alarms.length,"a",""],["Broken bindings",0,"","c-green"]].forEach(([l,v,c,cc])=>g.appendChild(el('div','tile '+c,`<div class="l">${l}</div><div class="v num ${cc||''}">${v}</div>`)));
+ const row=el('div','grid','');row.style.gridTemplateColumns='1.35fr 1fr';row.style.marginTop='13px';m.appendChild(row);
+ const twin=el('div','card',`<div class="h"><h3>Machine Status · Digital Twin</h3><span class="ts VERIFIED">${R.running?'RUNNING · AUTO':'STOPPED'}</span></div><div class="b"><div class="twinwrap"><canvas class="twincv" id="ovTwin"></canvas></div><div class="grid g2" style="margin-top:10px"><div id="gP"></div><div id="gL"></div></div></div>`);row.appendChild(twin);
  const right=el('div');
- right.appendChild(el('div','card',`<div class="h"><h3>The CANON loop</h3></div><div class="b"><div class="flow"><span class="n">MACHINE CONTEXT</span><span class="ar">→</span><span class="n">CANONICAL MODEL</span><span class="ar">→</span><span class="n">AI INTENT</span><span class="ar">→</span><span class="n">VALIDATION</span><span class="ar">→</span><span class="n">DYNAMIC HMI</span><span class="ar">→</span><span class="n">PLC CONTROL</span></div><div class="rec info" style="margin-top:11px"><span>ℹ</span><div><b>The machine model is the source of truth.</b> AI proposes; the compiler validates every binding — it cannot invent a tag.</div></div><div style="margin-top:10px"><button class="btn go" onclick="view='generate';render()">✦ Generate an HMI from intent →</button></div></div>`));
- const auth=el('div','card','');auth.style.marginTop='13px';auth.innerHTML=`<div class="h"><h3>Live data · SKAB</h3></div><div class="b"><div class="rec"><span>▤</span><div>Runtime replays <b>${SKMETA.source}</b> — ${SKMETA.rows} real points, ${SKMETA.anomalies} labelled anomalies.</div></div><div class="authstrip" style="margin-top:8px"><div class="a"><b>AI</b><span>proposes</span></div><div class="a"><b>MODEL</b><span>truth</span></div><div class="a"><b>VALIDATOR</b><span>checks</span></div><div class="a"><b>PLC</b><span>controls</span></div></div></div>`;right.appendChild(auth);row.appendChild(right);
+ right.appendChild(el('div','card',`<div class="h"><h3>HMI Status</h3></div><div class="b"><div class="kv"><span class="k">Current runtime</span><span class="v">TK-401 Operator HMI</span></div><div class="kv"><span class="k">State</span><span class="v"><span class="ts VERIFIED">VERIFIED</span></span></div><div class="kv"><span class="k">Data quality</span><span class="v"><span class="ts ${R.stale?'PROPOSED':'VERIFIED'}">${qOf()}</span></span></div><div class="kv"><span class="k">Change status</span><span class="v">${R.changeOpen&&!R.approved?'<span class="ts PROPOSED">3 impacted · awaiting regen</span>':'No pending changes'}</span></div><div style="margin-top:9px"><button class="btn sm go" onclick="view='runtime';render()">Open runtime →</button></div></div>`));
+ const act=el('div','card','');act.style.marginTop='13px';act.innerHTML=`<div class="h"><h3>Recent Activity</h3></div><div class="b">${[["10:24:17","ENGINEER","Approved HMI v1.2.3"],["10:23:52","VALIDATOR","47 bindings validated"],["10:23:48","CANON","Generated PT401 widgets"],["10:22:11","MODEL","PT401 range reviewed"],["10:21:08","PLC","P401_RUNNING = TRUE"]].map(a=>`<div style="display:flex;gap:9px;padding:5px 0;border-bottom:1px solid var(--line2);font-size:11.5px"><span class="mono id">${a[0]}</span><b style="color:var(--green-d);min-width:78px">${a[1]}</b><span>${a[2]}</span></div>`).join('')}</div>`;right.appendChild(act);row.appendChild(right);
  const c=$('#ovTwin');if(c){rtTwin=makeTwin(c);}paintGauges();
 }
 function paintGauges(){const gp=$('#gP');if(gp)gp.innerHTML=arcGauge(R.stale?8:R.pt,0,R.ptMax,'bar','PT-401 PRESSURE',8);const gl=$('#gL');if(gl)gl.innerHTML=arcGauge(R.level,0,100,'%','LT-401 LEVEL',90);}
@@ -366,7 +539,7 @@ function updateLLMBadge(){const b=$('#llmBadge');if(!b)return;const up=LLM.statu
 //================= GENERATE =================
 function vGenerate(m){m.appendChild(el('div','hd',`<div class="crumb">Hero · Intent → Compile → Validate → HMI</div><h1 class="pg">Generate a machine-specific HMI</h1><div class="sub">Natural-language intent → model (real, on your DGX A100) or deterministic fallback → schema-constrained JSON → validated against the canonical model. The model proposes; the validator guarantees.</div>`));
  m.appendChild(el('div','card',`<div class="h"><h3>LLM backend</h3><span class="ts PROPOSED" id="llmBadge">checking…</span></div><div class="b"><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><input type="text" id="llmEp" placeholder="http://your-dgx-a100:8088  (leave blank for deterministic)" value="${LLM.endpoint}" style="flex:1;min-width:280px"/><button class="btn" onclick="setLLM()">Connect &amp; test</button></div><div class="rec info" style="margin-top:9px"><span>▤</span><div>Point this at the CANON backend (<span class="mono">server/server.py</span>) serving a local model via vLLM/Ollama. When live, generation is real — you'll see the exact prompt, model name, latency &amp; validation. Offline → deterministic compiler (same guarantees).</div></div></div>`));
- m.appendChild(el('div','card',`<div class="h"><h3>Operator / engineer intent</h3></div><div class="b"><textarea id="intent" rows="2">Create an operator HMI for TK-401 with level, pressure, pump status, inlet valve status, alarms and Start/Stop controls.</textarea><div style="margin-top:10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap"><button class="btn go" onclick="runGenerate()">✦ Generate HMI</button>${["Show diagnostics for the current abnormal condition","Compact pump + pressure view","Add a pressure trend"].map(x=>`<span class="chip" onclick="document.getElementById('intent').value='${x}';runGenerate()">${x}</span>`).join('')}<span style="flex:1"></span><span style="font-size:11px;color:var(--muted)">HMI size</span><span class="seg" id="segSize"><button data-v="S" class="${hmiSize==='S'?'on':''}">Small</button><button data-v="M" class="${hmiSize==='M'?'on':''}">Medium</button><button data-v="L" class="${hmiSize==='L'?'on':''}">Large</button></span></div></div>`));
+ m.appendChild(el('div','card',`<div class="h"><h3>Operator / engineer intent</h3></div><div class="b"><textarea id="intent" rows="2">Create an operator HMI for TK-401 with level, pressure, pump status, inlet valve status, alarms and Start/Stop controls.</textarea><div style="margin-top:10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap"><button class="btn go" onclick="runGenerate()">✦ Generate HMI</button><button class="btn" onclick="demoBadTag()" title="Validation catching an invalid AI binding">▷ Demo: reject a bad binding</button>${["Show diagnostics for the current abnormal condition","Compact pump + pressure view","Add a pressure trend"].map(x=>`<span class="chip" onclick="document.getElementById('intent').value='${x}';runGenerate()">${x}</span>`).join('')}<span style="flex:1"></span><span style="font-size:11px;color:var(--muted)">HMI size</span><span class="seg" id="segSize"><button data-v="S" class="${hmiSize==='S'?'on':''}">Small</button><button data-v="M" class="${hmiSize==='M'?'on':''}">Medium</button><button data-v="L" class="${hmiSize==='L'?'on':''}">Large</button></span></div></div>`));
  document.querySelectorAll('#segSize button').forEach(b=>b.onclick=()=>{hmiSize=b.dataset.v;render();});
  const out=el('div','grid','');out.style.marginTop='13px';out.style.gridTemplateColumns='320px 1fr';m.appendChild(out);out.appendChild(el('div','card',`<div class="h"><h3>Compilation</h3></div><div class="b" id="trace"></div>`));out.appendChild(el('div','card',`<div class="h"><h3>Generated HMI ${SCREEN?'· '+M.unit.name:''}</h3>${SCREEN?'<span class="ts VERIFIED">validated · bound</span>':''}</div><div class="b" id="hmihost"></div>`));renderTrace();renderHMIInto($('#hmihost'));updateLLMBadge();checkLLM();}
 function runGenerate(){if(LLM.endpoint&&LLM.status==='up'){generateLLM();return;}const intent=parseIntent($('#intent').value);SCREEN=compile(intent);genPhase="compiling";renderTrace(true);const host=$('#hmihost');if(host)host.innerHTML='<div class="sub" style="padding:20px;text-align:center">Compiling…</div>';const steps=7;if(!ANIM){genPhase="ready";renderTrace();renderHMIInto($('#hmihost'));return;}let i=0;const iv=setInterval(()=>{i++;renderTrace(false,i);if(i>=steps){clearInterval(iv);genPhase="ready";renderTrace();renderHMIInto($('#hmihost'));}},210);}
@@ -401,8 +574,9 @@ function vRuntime(m){m.appendChild(el('div','hd',`<div class="crumb">Hero · Ver
  bot.appendChild(el('div','card',`<div class="h"><h3>Command Response Ladder · PLC-authoritative</h3></div><div class="b"><div class="flow" style="font-size:10.5px"><span class="n">REQUEST</span><span class="ar">→</span><span class="n">PERMISSIVE</span><span class="ar">→</span><span class="n">PLC</span><span class="ar">→</span><span class="n">ACT</span><span class="ar">→</span><span class="n">VERIFY</span></div><div id="ladder" style="margin-top:10px">${R.log.length?R.log[R.log.length-1]:'<div class="sub">Press START on the HMI to see the PLC decision.</div>'}</div></div>`));
  bot.appendChild(el('div','card',`<div class="h"><h3>Scenarios &amp; authority</h3></div><div class="b"><div class="kv"><span class="k">Inlet valve XV-401</span><span class="v">${R.valveOpen?'<span class="ts VERIFIED">OPEN</span>':'<span class="ts UNKNOWN">CLOSED</span>'}</span></div><div style="margin:8px 0;display:flex;gap:7px;flex-wrap:wrap"><button class="btn sm" onclick="toggleValve()">${R.valveOpen?'Close':'Open'} inlet valve</button><button class="btn sm" onclick="R.stale=!R.stale;R.fresh=R.stale?4.2:0.4;render()">${R.stale?'Restore fresh data':'Freeze (stale)'}</button><button class="btn sm" onclick="R.comm=!R.comm;render()">${R.comm?'Drop PLC comms':'Restore comms'}</button></div><div class="rec" style="margin-top:2px"><span>▤</span><div>Live values are the real <b>${SKMETA.source}</b> trace — anomalies raise real alarms.</div></div></div>`));
  const c=$('#rtTwin');if(c){rtTwin=makeTwin(c);}renderHMIInto($('#rtHost'));}
-function cmdStart(){if(!R.valveOpen){R.log.push(`<div class="banner r" style="margin:0"><span>✕</span><div><b>START REQUEST → PLC → REJECTED</b><div class="kv"><span class="k">Permissive</span><span class="v mono">XV401_OPEN_FB = FALSE</span></div><div class="kv"><span class="k">PLC decision</span><span class="v" style="color:var(--red)">REJECTED</span></div><div class="kv"><span class="k">HMI bypass</span><span class="v">NOT POSSIBLE</span></div></div></div>`);toast("START rejected by PLC — inlet valve permissive FALSE");render();return;}R.running=true;R.starts++;R.log.push(`<div class="banner g" style="margin:0"><span>✓</span><div><b>START authorized &amp; verified</b><table style="margin-top:4px"><tbody><tr><td>Permissive XV401_OPEN_FB</td><td>✓ TRUE</td></tr><tr><td>PLC authorization</td><td>✓</td></tr><tr><td>P401_RUN_FB feedback</td><td>✓ TRUE</td></tr></tbody></table></div></div>`);toast("START authorized — evidence logged");render();}
-function cmdStop(){R.running=false;R.log.push(`<div class="banner g" style="margin:0"><span>✓</span><div><b>STOP authorized</b> — P401_RUN_FB FALSE, verified.</div></div>`);render();}
+function ctrace(rows){return `<div class="ctrace">${rows.map(([l,v,c])=>`<div class="cs on ${c==='rej'?'rej':''}"><span class="cd">${c==='rej'?'✕':'✓'}</span><span class="cl">${l}</span><span class="cv">${v}</span></div>`).join('')}</div>`;}
+function cmdStart(){if(!R.valveOpen){R.log.push(ctrace([["Operator","P401.START requested","on"],["HMI command","P401.START","on"],["Command contract","opened","on"],["Permissive check","XV401_OPEN_FB = FALSE","rej"],["Authorization","REJECTED — permissive not met","rej"],["PLC","command not issued","rej"]]));toast("START rejected by PLC — inlet valve permissive FALSE");render();return;}R.running=true;R.starts++;R.log.push(ctrace([["Operator","P401.START requested","on"],["HMI command","P401.START","on"],["Command contract","opened","on"],["Permissive check","XV401 ✓ · level<97% ✓ · no fault ✓","on"],["Authorization","COMMAND AUTHORIZED","on"],["PLC","COMMAND ACCEPTED","on"],["Machine","P401 STARTING","on"],["Feedback","P401_RUNNING = TRUE","on"],["Result","P401 RUNNING","on"]]));toast("START authorized — evidence logged to audit trail");render();}
+function cmdStop(){R.running=false;R.log.push(ctrace([["Operator","P401.STOP requested","on"],["Command contract","opened","on"],["PLC","COMMAND ACCEPTED","on"],["Feedback","P401_RUNNING = FALSE","on"],["Result","P401 STOPPED","on"]]));render();}
 function toggleValve(){R.valveOpen=!R.valveOpen;toast('XV401_OPEN_FB = '+(R.valveOpen?'TRUE':'FALSE'));render();}
 //================= OPERATOR ASSIST + ANALYTICS =================
 function operatorHint(){const pt=R.stale?8:R.pt;let ic='✓',cls='',msg='System nominal — all permissives satisfied.';
@@ -453,10 +627,15 @@ function tick(){R.t++;
  if(R.running&&!R.stale){R.runSec+=0.85;R.thru+=R.flow/3600*0.85;R.energy+=(2.4+R.flow*0.035)/3600*0.85;}
  if(R.anom&&!R.panom)R.anomSeen++;R.panom=R.anom;
  if(view==='overview'||view==='runtime'){paintGauges();const host=$('#rtHost');if(host&&SCREEN&&genPhase!=='compiling')renderHMIInto(host);const lad=$('#ladder');if(lad&&R.log.length)lad.innerHTML=R.log[R.log.length-1];}
- if(view==='runtime')paintAnalytics();
+ if(view==='runtime'||view==='analytics')paintAnalytics();
+ if(view==='runtime'||view==='overview')paintInspector();
  if(view==='generate'&&genPhase==='ready'){const h=$('#hmihost');if(h)renderHMIInto(h);}}
 function seedShot(){R.valveOpen=true;R.running=true;R.starts=1;R.runSec=252;R.thru=6.3;R.energy=0.34;R.anomSeen=7;for(let i=0;i<90;i++){const s=SKAB[i%SKAB.length]||{p:5,flow:80,anom:0};R.hist.pt.push(s.p);R.hist.flow.push(s.flow);R.hist.lvl.push(50+Math.sin(i/8)*22);}R.pt=SKAB[40]?SKAB[40].p:6.8;R.flow=88;R.level=68;}
-window.addEventListener('load',()=>{if(window.THREE)heroTwin=makeTwin($('#heroCanvas'),{dark:true});drawSkab();});
+window.addEventListener('load',()=>{if(window.THREE)heroTwin=makeTwin($('#heroCanvas'),{dark:true});drawSkab();if(ANIM)bootRun();else bootDone();});
+addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();$('#palette').classList.contains('on')?paletteClose():paletteOpen();}
+ else if(e.key==='Escape'){paletteClose();}
+ else if($('#palette').classList.contains('on')){if(e.key==='ArrowDown'){e.preventDefault();palHover(Math.min(palItems.length-1,palSel+1));}else if(e.key==='ArrowUp'){e.preventDefault();palHover(Math.max(0,palSel-1));}else if(e.key==='Enter'){e.preventDefault();palGo(palSel);}}});
+$('#palInput')&&($('#palInput').oninput=e=>palRender(e.target.value));
 if(ANIM)setInterval(tick,850);
 if(location.hash){const v=location.hash.slice(1);if(!ANIM&&(v==='app-runtime'))seedShot();if(v==='app')launchApp();else if(v.indexOf('app-')===0)launchApp(v.slice(4));}
 </script>
