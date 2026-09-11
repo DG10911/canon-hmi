@@ -1,0 +1,2712 @@
+CANON
+ENGINEERING INTELLIGENCE → VERIFIED REAL-TIME OPERATOR EXPERIENCE
+
+MASTER BUILD / IMPLEMENTATION PROMPT
+VERSION 11.0 — REAL ENGINEERING SYSTEM / NO MOCK DEMO
+
+============================================================
+0. NON-NEGOTIABLE MISSION
+============================================================
+
+Upgrade the existing CANON application into a genuinely working
+industrial engineering intelligence and operator-experience platform.
+
+THIS IS NOT A UI MOCKUP.
+
+THIS IS NOT A DESIGN CONCEPT.
+
+THIS IS NOT A FAKE AI DEMO.
+
+THIS IS NOT A COLLECTION OF STATIC SCREENS.
+
+EVERY CORE FEATURE MUST BE IMPLEMENTED AND CONNECTED TO THE REAL
+CANON DATA MODEL, REAL CANON BRAIN, REAL VALIDATOR, REAL DATABASE,
+REAL SIMULATOR/PROTOCOL LAYER WHERE AVAILABLE, REAL WEBSOCKET
+RUNTIME FEEDBACK, AND REAL HMI RENDERING PIPELINE.
+
+The system must be capable of taking real engineering inputs,
+constructing the canonical engineering model, generating a realistic
+industrial HMI from that model, running that HMI against live runtime
+data, accepting natural-language HMI refinement requests, validating
+those changes, applying them as revisions, and showing real runtime
+feedback.
+
+The primary principle is:
+
+    ENGINEERING REALITY
+            ↓
+       ACQUISITION
+            ↓
+      EVIDENCE / FACTS
+            ↓
+      CANONICAL MODEL
+            ↓
+       CANON BRAIN
+            ↓
+      HMI EXPERIENCE PLAN
+            ↓
+    DETERMINISTIC ASSEMBLER
+            ↓
+        VALIDATOR
+            ↓
+      REAL HMI RENDERING
+            ↓
+     REAL RUNTIME FEEDBACK
+            ↓
+   ENGINEER NATURAL LANGUAGE
+            ↓
+      CHANGE PROPOSAL
+            ↓
+        VALIDATOR
+            ↓
+     ENGINEER APPROVAL
+            ↓
+       HMI REVISION
+
+
+============================================================
+1. ABSOLUTE "NO FAKE" RULE
+============================================================
+
+DO NOT fabricate any of the following:
+
+- PLC tags
+- signals
+- assets
+- I/O
+- alarms
+- commands
+- permissives
+- interlocks
+- engineering values
+- documents
+- evidence
+- runtime values
+- protocol status
+- HMI bindings
+- component capabilities
+- Schneider capabilities
+- source citations
+- validation results
+- AI results
+- machine states
+
+If something is unavailable, display:
+
+UNKNOWN
+
+NOT CONNECTED
+
+NOT AVAILABLE
+
+AWAITING INPUT
+
+REVIEW REQUIRED
+
+or
+
+SIMULATION
+
+depending on the actual condition.
+
+Never display a fake successful state.
+
+Never display "LIVE" unless there is an actual live runtime connection.
+
+Never display "VERIFIED" unless CANON has actually verified it.
+
+Never display an invented engineering value merely to make the UI
+look complete.
+
+
+============================================================
+2. FIRST ACTION — FULL REPOSITORY AUDIT
+============================================================
+
+Before changing anything, inspect the complete repository.
+
+Identify the actual implementation of:
+
+- Projects
+- New Project
+- file ingestion
+- acquisition
+- CANON Context
+- Context Pack
+- evidence
+- canonical model
+- database
+- entity resolution
+- relationship extraction
+- CANON Brain
+- trained model
+- GGUF
+- inference server
+- structured output
+- validator
+- HMI renderer
+- component registry
+- simulator
+- OPC UA
+- Modbus
+- WebSocket
+- runtime state
+- command contracts
+- change impact
+- HMI revisions
+- evaluation
+- tests
+
+Create:
+
+IMPLEMENTATION_STATUS.md
+
+with:
+
+WORKING
+PARTIAL
+MISSING
+BROKEN
+REQUIRES INTEGRATION
+
+DO NOT rebuild working systems.
+
+DO NOT create duplicate architecture.
+
+============================================================
+3. CANONICAL MODEL IS THE SOURCE OF TRUTH
+============================================================
+
+Everything must ultimately map into the CANON canonical engineering model.
+
+The model must represent, at minimum:
+
+PROJECT
+
+PLANT
+
+AREA
+
+MACHINE
+
+ASSET
+
+EQUIPMENT
+
+CONTROLLER
+
+PLC
+
+MODULE
+
+I/O
+
+SIGNAL
+
+INSTRUMENT
+
+MOTOR
+
+DRIVE
+
+VALVE
+
+PUMP
+
+TANK
+
+PROCESS UNIT
+
+COMMAND
+
+COMMAND CONTRACT
+
+PERMISSIVE
+
+INTERLOCK
+
+ALARM
+
+ALARM LIMIT
+
+STATE
+
+MODE
+
+SEQUENCE
+
+PROCESS RELATIONSHIP
+
+ELECTRICAL RELATIONSHIP
+
+CONTROL RELATIONSHIP
+
+HMI SCREEN
+
+HMI COMPONENT
+
+HMI BINDING
+
+HMI ACTION
+
+HMI REVISION
+
+DOCUMENT
+
+SOURCE
+
+EVIDENCE
+
+FACT
+
+CONFLICT
+
+UNKNOWN
+
+REVISION
+
+CHANGE
+
+DEPENDENCY
+
+RUNTIME STATE
+
+QUALITY
+
+TIMESTAMP
+
+
+============================================================
+4. EVERY HMI ELEMENT MUST MAP TO CANONICAL DATA
+============================================================
+
+THIS IS CRITICAL.
+
+No HMI component may exist merely because the AI thought it looked good.
+
+Every HMI component must have a traceable mapping:
+
+HMI COMPONENT
+    ↓
+CANON ENTITY
+    ↓
+CANON SIGNAL / COMMAND / RELATIONSHIP
+    ↓
+ENGINEERING FACT
+    ↓
+EVIDENCE
+    ↓
+SOURCE
+
+Example:
+
+Pressure display
+    ↓
+PT401
+    ↓
+PT401_PRESSURE
+    ↓
+Pressure transmitter associated with TK-401
+    ↓
+Machine configuration
+    ↓
+source/evidence pointer
+
+
+If a component has no valid engineering binding:
+
+DO NOT RENDER IT AS VERIFIED.
+
+The component must be:
+
+UNBOUND
+
+or
+
+REVIEW REQUIRED
+
+or
+
+BLOCKED
+
+
+============================================================
+5. ENGINEERING INPUT SYSTEM
+============================================================
+
+The New Project workflow must accept real engineering inputs.
+
+Support, where applicable:
+
+PLC project files
+
+PLC exports
+
+XEF
+
+ZEF
+
+XML
+
+PLCopenXML
+
+CSV
+
+XLSX
+
+JSON
+
+TXT
+
+PDF
+
+SVG
+
+PNG
+
+JPG
+
+HMI/SCADA exports
+
+existing HMI screenshots
+
+instrument lists
+
+alarm databases
+
+I/O lists
+
+tag databases
+
+P&ID
+
+electrical drawings
+
+control narratives
+
+sequence documents
+
+engineering standards
+
+vendor documentation
+
+runtime configuration
+
+
+Do not force the user to manually classify every file.
+
+CANON should automatically determine likely document type and route
+it through the appropriate ingestion pipeline.
+
+Allow manual correction if classification is uncertain.
+
+
+============================================================
+6. PROJECT INPUT UX
+============================================================
+
+New Project must provide:
+
+PROJECT INFORMATION
+
+Project Name
+Project ID
+Plant
+Area
+Machine
+Description
+
+
+Then:
+
+ENGINEERING INPUTS
+
+Primary action:
+
+    UPLOAD ENGINEERING PACKAGE
+
+Supported:
+
+ZIP / folder package
+
+Also:
+
+    + ADD FILES
+
+The engineer should be able to provide an entire engineering project
+rather than constructing database records manually.
+
+
+============================================================
+7. REAL INGESTION
+============================================================
+
+When files are uploaded:
+
+actually parse them.
+
+Do not fake parsing progress.
+
+Show actual status:
+
+QUEUED
+PROCESSING
+PARSED
+PARTIALLY PARSED
+FAILED
+REVIEW REQUIRED
+
+For every file show:
+
+filename
+type
+size
+revision
+source
+parser
+status
+entities found
+facts found
+evidence count
+errors/warnings
+
+
+============================================================
+8. DOCUMENT PARSING
+============================================================
+
+For PDFs, preserve:
+
+document
+page
+section
+table
+row
+column
+figure
+heading
+revision
+
+For CSV/XLSX:
+
+file
+sheet
+row
+column
+value
+
+For XML:
+
+file
+element path
+attribute
+value
+
+For images:
+
+image
+region
+detected object
+review status
+
+For PLC exports:
+
+file
+program
+variable
+function block
+address
+data type
+reference
+
+Every extracted fact must retain provenance.
+
+
+============================================================
+9. CONTEXT ANALYSIS
+============================================================
+
+Context analysis must be TOP-TIER.
+
+It must not merely summarize documents.
+
+It must build an engineering understanding.
+
+Determine:
+
+WHAT EXISTS
+
+WHAT DOES IT REPRESENT
+
+WHERE IS IT
+
+WHAT IS IT CONNECTED TO
+
+WHAT MEASURES WHAT
+
+WHAT CONTROLS WHAT
+
+WHAT COMMANDS EXIST
+
+WHAT CONDITIONS ARE REQUIRED
+
+WHAT INTERLOCKS EXIST
+
+WHAT ALARMS EXIST
+
+WHAT STATES EXIST
+
+WHAT MODES EXIST
+
+WHAT SEQUENCES EXIST
+
+WHAT DEPENDENCIES EXIST
+
+WHAT IS AUTHORITATIVE
+
+WHAT IS INFERRED
+
+WHAT IS UNKNOWN
+
+WHAT CONFLICTS
+
+WHAT IS STALE
+
+WHAT CHANGED
+
+
+============================================================
+10. ENTITY RESOLUTION
+============================================================
+
+Resolve real-world engineering references.
+
+Example:
+
+PT401
+PT-401
+Pressure Transmitter 401
+TK401_PT401
+
+may represent the same entity.
+
+Use:
+
+identifier similarity
+description
+location
+asset hierarchy
+signal mapping
+P&ID evidence
+PLC evidence
+documentation
+relationships
+
+Do not merge based solely on string similarity.
+
+If ambiguous:
+
+AMBIGUOUS
+
+and require review.
+
+
+============================================================
+11. RELATIONSHIP UNDERSTANDING
+============================================================
+
+This is mandatory.
+
+CANON must construct semantic relationships.
+
+Examples:
+
+PT401
+MEASURES
+TK401
+
+LT401
+MEASURES
+TK401
+
+P401
+ASSOCIATED_WITH
+TK401
+
+P401
+REQUIRES
+XV401_OPEN
+
+XV401
+CONTROLS_FLOW
+TK401
+
+PT401
+FEEDS
+PRESSURE_ALARM
+
+P401
+HAS_STATE
+RUNNING
+
+
+These relationships must drive HMI generation.
+
+Do not use decorative topology.
+
+
+============================================================
+12. CONTROL LOGIC UNDERSTANDING
+============================================================
+
+Understand:
+
+commands
+permissives
+interlocks
+state machines
+modes
+sequences
+timeouts
+faults
+reset conditions
+
+Example:
+
+START P401
+
+requires:
+
+XV401_OPEN = TRUE
+LT401_LEVEL < HH
+P401_FAULT = FALSE
+
+
+The HMI must expose the actual readiness conditions where appropriate.
+
+
+============================================================
+13. CANON BRAIN
+============================================================
+
+Connect the REAL trained CANON Brain.
+
+Do not replace it with hard-coded responses.
+
+The Brain receives a structured Context Pack containing relevant
+canonical facts.
+
+The Brain may perform:
+
+semantic interpretation
+
+fuzzy language understanding
+
+entity resolution assistance
+
+HMI recommendations
+
+screen planning
+
+component selection proposals
+
+natural-language HMI modification
+
+engineering-language interpretation
+
+explanation drafting
+
+recommendations
+
+
+The Brain does NOT establish truth.
+
+The Brain does NOT directly write the database as authoritative truth.
+
+The Brain does NOT directly control PLCs.
+
+The Brain produces structured proposals.
+
+
+============================================================
+14. BRAIN → DETERMINISTIC SYSTEM
+============================================================
+
+Every Brain output must pass through:
+
+STRUCTURED OUTPUT
+        ↓
+SCHEMA VALIDATION
+        ↓
+CANON ENTITY RESOLUTION
+        ↓
+CANON RULE VALIDATION
+        ↓
+BINDING VALIDATION
+        ↓
+HMI COMPONENT REGISTRY
+        ↓
+FINAL HMI PLAN
+
+
+If the Brain says:
+
+PT401
+
+CANON must verify PT401 exists.
+
+If the Brain says:
+
+add trend
+
+the registry must verify a trend component exists.
+
+If the Brain proposes:
+
+FT999
+
+and FT999 does not exist:
+
+BLOCK IT.
+
+
+============================================================
+15. AUTOMATIC HMI GENERATION
+============================================================
+
+The first HMI must be generated WITHOUT requiring the engineer to
+describe the screen manually.
+
+Input:
+
+engineering reality
+
+Output:
+
+operator experience
+
+The system must infer:
+
+screen hierarchy
+
+navigation
+
+process overview
+
+asset detail
+
+measurements
+
+controls
+
+states
+
+alarms
+
+trends
+
+diagnostics
+
+permissives
+
+relevant relationships
+
+
+============================================================
+16. REALISTIC INDUSTRIAL HMI
+============================================================
+
+The generated HMI must look and behave like a serious modern
+industrial HMI/SCADA/operator interface.
+
+Do NOT produce:
+
+- generic SaaS dashboards
+- AI chatbot cards
+- marketing cards
+- fake futuristic controls
+- decorative graphs
+- random gauges
+- meaningless KPIs
+- oversized consumer UI
+
+Use realistic industrial patterns:
+
+PROCESS OVERVIEW
+
+EQUIPMENT FACEPLATES
+
+PUMP CONTROL
+
+VALVE CONTROL
+
+MOTOR STATUS
+
+LEVEL INDICATOR
+
+PRESSURE INDICATOR
+
+FLOW INDICATOR
+
+TEMPERATURE INDICATOR
+
+TREND CHART
+
+ALARM SUMMARY
+
+ALARM DETAILS
+
+PERMISSIVE PANEL
+
+INTERLOCK PANEL
+
+SEQUENCE STATUS
+
+MODE SELECTOR
+
+COMMAND PANEL
+
+DIAGNOSTIC PANEL
+
+MAINTENANCE STATUS
+
+EVENT LOG
+
+DEVICE STATUS
+
+COMMUNICATION STATUS
+
+
+============================================================
+17. REAL HMI CONTROLS
+============================================================
+
+Buttons must be functional.
+
+Examples:
+
+START
+
+STOP
+
+OPEN
+
+CLOSE
+
+ACKNOWLEDGE
+
+RESET
+
+AUTO
+
+MANUAL
+
+DETAIL
+
+TREND
+
+ALARM
+
+DIAGNOSTICS
+
+NAVIGATE
+
+EXPAND
+
+COLLAPSE
+
+SELECT
+
+FILTER
+
+TIME RANGE
+
+PAUSE
+
+RESUME
+
+Each control must have a real defined action.
+
+If an action is not implemented:
+
+DO NOT pretend it works.
+
+Display:
+
+NOT AVAILABLE
+
+instead.
+
+
+============================================================
+18. PUMP FACEPLATE
+============================================================
+
+A generated pump faceplate should realistically contain:
+
+P401
+
+RUNNING / STOPPED
+
+FAULT
+
+MODE
+
+START
+
+STOP
+
+RUN FEEDBACK
+
+FAULT STATUS
+
+PERMISSIVES
+
+INTERLOCKS
+
+COMMAND STATUS
+
+LAST STATE CHANGE
+
+Relevant runtime values
+
+
+START must use the actual command contract.
+
+It must not simply change a React boolean.
+
+
+============================================================
+19. VALVE FACEPLATE
+============================================================
+
+Example:
+
+XV401
+
+OPEN / CLOSED / MOVING / FAULT
+
+OPEN
+
+CLOSE
+
+COMMAND STATUS
+
+OPEN FEEDBACK
+
+CLOSE FEEDBACK
+
+TIMEOUT
+
+INTERLOCKS
+
+PERMISSIVES
+
+
+The buttons must call the actual command pipeline.
+
+============================================================
+20. REAL COMMAND PIPELINE
+============================================================
+
+Machine command:
+
+HMI
+ ↓
+API
+ ↓
+RBAC
+ ↓
+COMMAND CONTRACT
+ ↓
+CANON VALIDATOR
+ ↓
+PERMISSIVES
+ ↓
+INTERLOCKS
+ ↓
+ENGINEER APPROVAL if required
+ ↓
+OPC UA / Modbus / simulator adapter
+ ↓
+PLC or simulator
+ ↓
+RUNTIME FEEDBACK
+ ↓
+WEBSOCKET
+ ↓
+HMI
+
+
+NEVER:
+
+HMI → raw PLC
+
+Brain → PLC
+
+Prompt → PLC
+
+
+============================================================
+21. REAL-TIME HMI
+============================================================
+
+The HMI must use real runtime state.
+
+Use the existing:
+
+OPC UA
+Modbus TCP
+simulator
+WebSocket
+
+architecture.
+
+Values must update from actual runtime events.
+
+Each live value should have:
+
+value
+unit
+timestamp
+quality
+stale status
+
+
+Example:
+
+PT401
+5.82 bar
+
+Updated:
+10:42:17
+
+Quality:
+GOOD
+
+Connection:
+LIVE
+
+
+If stale:
+
+STALE
+
+Do not continue displaying stale data as live.
+
+
+============================================================
+22. REALISTIC RUNTIME BEHAVIOR
+============================================================
+
+TK-401 simulation must be deterministic and physically coherent.
+
+Example:
+
+XV401 CLOSED
+
+P401 START request
+
+→ validator rejects because permissive is false.
+
+Open XV401.
+
+Then:
+
+P401 START
+
+→ simulator transitions:
+
+STOPPED
+→ STARTING
+→ RUNNING
+
+Then process values change according to the simulator.
+
+HMI receives real updates.
+
+Pressure/level trends change based on runtime state.
+
+The graphics must react to actual state.
+
+
+============================================================
+23. ALARMS
+============================================================
+
+Alarm system must be functional.
+
+Each alarm should have:
+
+ID
+description
+severity
+source
+timestamp
+state
+acknowledged
+active
+cleared
+reset condition
+
+Actions:
+
+ACKNOWLEDGE
+DETAIL
+FILTER
+SORT
+
+Only expose RESET where the actual command exists.
+
+
+============================================================
+24. TRENDS
+============================================================
+
+Trends must use real runtime history.
+
+Do not draw fake random lines.
+
+Example:
+
+PT401_PRESSURE
+
+30 min
+1 hr
+4 hr
+
+Historical samples come from the runtime data store.
+
+If historical data is unavailable:
+
+NO HISTORICAL DATA
+
+Do not fabricate a trend.
+
+
+============================================================
+25. HMI RECOMMENDATIONS
+============================================================
+
+After generation, CANON must explain useful recommendations.
+
+Example:
+
+RECOMMENDATION
+
+Place XV401 status near P401 controls.
+
+Reason:
+
+P401 START requires XV401_OPEN.
+
+Evidence:
+
+Command contract:
+P401_START
+
+Relationship:
+
+P401 REQUIRES XV401_OPEN
+
+
+Another:
+
+RECOMMENDATION
+
+Prominently display PT401 pressure.
+
+Reason:
+
+Primary pressure measurement associated with TK-401.
+
+
+Recommendations must be based on canonical facts.
+
+
+============================================================
+26. HMI "WHY?"
+============================================================
+
+Every important component should have:
+
+WHY IS THIS HERE?
+
+Example:
+
+PT401 PRESSURE
+
+Reason:
+
+PT401_PRESSURE is an authoritative process signal associated with
+TK-401.
+
+Source:
+
+TK401 signal inventory
+
+Evidence:
+
+row 42
+
+Canonical entity:
+
+PT401
+
+Status:
+
+VERIFIED
+
+
+============================================================
+27. NATURAL LANGUAGE HMI EDITING
+============================================================
+
+After HMI generation, provide:
+
+REFINE OPERATOR EXPERIENCE
+
+Placeholder:
+
+Describe what you want to change...
+
+
+Examples:
+
+"Make pressure more prominent."
+
+"Show the last 30 minutes of pressure."
+
+"Put P401 controls next to the pump."
+
+"Show XV401 permissives when selected."
+
+"Add a diagnostic panel for P401."
+
+"Make the tank level the primary value."
+
+"Move alarms to the right side."
+
+
+============================================================
+28. NATURAL LANGUAGE → REAL HMI CHANGE
+============================================================
+
+Engineer:
+
+"Show the last 30 minutes of pressure."
+
+Brain:
+
+interprets intent.
+
+CANON resolves:
+
+PT401_PRESSURE
+
+Validator verifies.
+
+HMI change proposal:
+
+ADD TREND
+
+Signal:
+PT401_PRESSURE
+
+Window:
+30 minutes
+
+Unit:
+bar
+
+Component:
+Trend
+
+
+Then:
+
+PREVIEW
+
+APPLY
+
+CANCEL
+
+
+After Apply:
+
+HMI REVISION v2
+
+
+============================================================
+29. REAL HMI EDITING
+============================================================
+
+When a change is approved, actually modify the HMI JSON/UI schema.
+
+Do NOT regenerate a fake screenshot.
+
+The rendered interface must actually change.
+
+The updated HMI must remain connected to the same real canonical
+bindings.
+
+Example:
+
+Before:
+
+PT401
+5.8 bar
+
+After:
+
+PT401
+5.8 bar
+
+30-MINUTE PRESSURE TREND
+[actual historical/runtime data]
+
+
+============================================================
+30. HMI REVISION CONTROL
+============================================================
+
+Every change creates a real revision.
+
+v1
+Generated from engineering context
+
+v2
+Added pressure trend
+
+v3
+Repositioned P401 controls
+
+Store:
+
+prompt
+intent
+proposal
+validation
+approval
+timestamp
+changed components
+old schema
+new schema
+
+
+Allow:
+
+COMPARE
+
+RESTORE
+
+VIEW IMPACT
+
+
+============================================================
+31. CHANGE IMPACT
+============================================================
+
+If engineering reality changes:
+
+PT401
+
+OLD:
+0–10 bar
+
+NEW:
+0–16 bar
+
+
+CANON must identify actual dependencies:
+
+pressure display
+gauge
+trend
+alarm thresholds
+scaling
+engineering limits
+HMI components
+
+
+Show:
+
+CHANGE DETECTED
+
+AFFECTED COMPONENTS
+
+Then:
+
+REVIEW
+
+REGENERATE
+
+
+The regenerated HMI must use the updated canonical value.
+
+
+============================================================
+32. CONFLICTS
+============================================================
+
+If sources disagree:
+
+DO NOT silently resolve.
+
+Example:
+
+Source A:
+PT401 = 0–10 bar
+
+Machine configuration:
+PT401 = 0–16 bar
+
+Show:
+
+CONFLICT DETECTED
+
+Machine Reality:
+0–16 bar
+
+Document:
+0–10 bar
+
+Authority:
+Machine Reality
+
+Status:
+REVIEW REQUIRED
+
+
+============================================================
+33. CONTEXT → HMI TRACEABILITY
+============================================================
+
+Implement clickable traceability.
+
+Example:
+
+HMI PRESSURE DISPLAY
+
+↓
+
+PT401
+
+↓
+
+PT401_PRESSURE
+
+↓
+
+Engineering fact
+
+↓
+
+Evidence
+
+↓
+
+Source
+
+
+An engineer should be able to understand why the HMI contains every
+important element.
+
+
+============================================================
+34. REALISTIC SCREEN SET
+============================================================
+
+Generate only screens supported by the engineering model.
+
+Possible screens:
+
+01 PROCESS OVERVIEW
+
+02 ASSET DETAIL
+
+03 EQUIPMENT FACEPLATE
+
+04 ALARMS
+
+05 TRENDS
+
+06 DIAGNOSTICS
+
+07 SEQUENCE
+
+08 I/O / DEVICE STATUS
+
+09 ENGINEERING CONTEXT
+
+10 CHANGE IMPACT
+
+Do not create empty screens just to increase screen count.
+
+
+============================================================
+35. PROCESS OVERVIEW
+============================================================
+
+The process overview should show:
+
+real assets
+
+real process relationships
+
+real process values
+
+real equipment states
+
+real alarms
+
+real commands where appropriate
+
+real navigation
+
+The process graphic must be generated from the canonical relationship
+model.
+
+Do not draw arbitrary connections.
+
+
+============================================================
+36. HMI VISUAL QUALITY
+============================================================
+
+The interface must feel like professional industrial software.
+
+Prioritize:
+
+clear hierarchy
+
+high information density
+
+operator readability
+
+status visibility
+
+consistent units
+
+consistent state language
+
+alarm visibility
+
+usable controls
+
+realistic faceplates
+
+clear command feedback
+
+strong selected-state indication
+
+safe command affordances
+
+responsive layouts
+
+desktop engineering workstation usability
+
+
+Avoid:
+
+excessive rounded cards
+
+marketing aesthetics
+
+giant empty spaces
+
+random animations
+
+AI chat styling
+
+neon graphics
+
+unnecessary decoration
+
+
+============================================================
+37. COMMAND FEEDBACK
+============================================================
+
+When an operator presses START:
+
+Do not simply show:
+
+RUNNING
+
+Instead show actual state progression:
+
+COMMAND REQUESTED
+
+VALIDATING
+
+PERMISSIVES CHECK
+
+SENT
+
+ACKNOWLEDGED
+
+STARTING
+
+RUNNING
+
+
+If rejected:
+
+COMMAND BLOCKED
+
+Reason:
+
+XV401_OPEN = FALSE
+
+
+This must come from the real validator/runtime.
+
+
+============================================================
+38. ENGINEER APPROVAL
+============================================================
+
+For consequential changes:
+
+SHOW PROPOSAL
+
+SHOW IMPACT
+
+SHOW VALIDATION
+
+ENGINEER APPROVES
+
+THEN APPLY
+
+
+Never silently modify important engineering behavior.
+
+
+============================================================
+39. CONTEXT QUALITY
+============================================================
+
+The Context screen must show actual counts.
+
+Example:
+
+Assets:
+24
+
+Signals:
+186
+
+I/O:
+42
+
+Commands:
+7
+
+Permissives:
+11
+
+Interlocks:
+5
+
+Alarms:
+12
+
+Evidence-linked facts:
+117
+
+Relationships:
+118
+
+Conflicts:
+1
+
+Unknowns:
+1
+
+Review required:
+1
+
+
+These numbers must come from the database.
+
+Never hard-code them.
+
+
+============================================================
+40. HMI READINESS
+============================================================
+
+Calculate readiness from actual conditions.
+
+Possible statuses:
+
+BLOCKED
+
+READY WITH REVIEW
+
+READY
+
+Example rules:
+
+BLOCKED if critical bindings are missing.
+
+READY WITH REVIEW if unresolved non-critical items remain.
+
+READY if all required bindings and validations pass.
+
+
+============================================================
+41. RUNTIME STATUS
+============================================================
+
+Never fake:
+
+LIVE
+
+CONNECTED
+
+SYNCED
+
+HEALTHY
+
+GOOD QUALITY
+
+
+These must be calculated from actual runtime connection state.
+
+
+============================================================
+42. SIMULATOR
+============================================================
+
+The simulator is allowed ONLY as an explicit deterministic runtime
+when real PLC hardware is unavailable.
+
+Label it:
+
+SIMULATOR
+
+not:
+
+LIVE PLC
+
+
+The simulator must implement the same command contracts and signal
+semantics as the real adapter.
+
+It must provide:
+
+OPC UA
+and/or
+Modbus TCP
+
+according to the existing architecture.
+
+HMI must consume the same canonical runtime abstraction regardless of
+whether the source is simulator or real PLC.
+
+
+============================================================
+43. REAL MODEL TEST
+============================================================
+
+The primary test must use actual TK-401 data already present in the
+repository.
+
+Do not construct a separate fake TK-401 dataset unless a missing
+artifact genuinely needs a test fixture.
+
+Use the existing:
+
+CANON_ACQUISITION
+
+CANON_RESEARCH
+
+TK-401 machine reality
+
+existing Context
+
+existing model
+
+existing evidence
+
+existing simulator
+
+existing trained Brain
+
+
+============================================================
+44. FULL END-TO-END TEST
+============================================================
+
+The following must actually work:
+
+1.
+
+Create project:
+
+TK-401
+
+2.
+
+Upload engineering package.
+
+3.
+
+Real ingestion begins.
+
+4.
+
+Real extraction occurs.
+
+5.
+
+Facts and evidence are stored.
+
+6.
+
+Entities are resolved.
+
+7.
+
+Relationships are constructed.
+
+8.
+
+Conflicts/unknowns are detected.
+
+9.
+
+Canonical model is built.
+
+10.
+
+Context readiness is calculated.
+
+11.
+
+Structured Context Pack is created.
+
+12.
+
+Real CANON Brain is invoked.
+
+13.
+
+Brain returns structured HMI proposal.
+
+14.
+
+Validator validates proposal.
+
+15.
+
+HMI assembler creates real JSON UI.
+
+16.
+
+React renderer renders it.
+
+17.
+
+All displayed values are bound to canonical entities.
+
+18.
+
+Simulator/runtime starts.
+
+19.
+
+HMI receives actual runtime values.
+
+20.
+
+Operator interacts with real buttons.
+
+21.
+
+Command pipeline executes.
+
+22.
+
+Permissive rejection works.
+
+23.
+
+Successful command works.
+
+24.
+
+Runtime feedback changes HMI.
+
+25.
+
+Engineer enters:
+
+"Show the last 30 minutes of pressure."
+
+26.
+
+Brain resolves PT401.
+
+27.
+
+Proposal generated.
+
+28.
+
+Validator checks proposal.
+
+29.
+
+Engineer approves.
+
+30.
+
+HMI revision changes.
+
+31.
+
+Trend uses real runtime/history data.
+
+32.
+
+Engineer enters:
+
+"Add FT999."
+
+33.
+
+CANON rejects it.
+
+34.
+
+Engineer changes PT401 range.
+
+35.
+
+Change impact is calculated.
+
+36.
+
+Affected HMI components are identified.
+
+37.
+
+Engineer approves regeneration.
+
+38.
+
+HMI updates to new engineering range.
+
+
+============================================================
+45. REAL HMI ACCEPTANCE CRITERIA
+============================================================
+
+The generated HMI is NOT considered complete if it is merely visually
+convincing.
+
+It must satisfy:
+
+EVERY VALUE:
+has a real data binding.
+
+EVERY BUTTON:
+has a real action or is explicitly disabled/unavailable.
+
+EVERY ALARM:
+comes from the canonical alarm model/runtime.
+
+EVERY TREND:
+uses real stored/runtime data.
+
+EVERY FACEPLATE:
+maps to a real asset.
+
+EVERY COMMAND:
+maps to a real command contract.
+
+EVERY PERMISSIVE:
+maps to a real condition.
+
+EVERY ENGINEERING LIMIT:
+maps to canonical data.
+
+EVERY HMI CHANGE:
+creates a real revision.
+
+EVERY AI PROPOSAL:
+passes deterministic validation.
+
+EVERY UNKNOWN:
+remains UNKNOWN.
+
+EVERY CONFLICT:
+remains visible until resolved.
+
+============================================================
+46. DEMO MODE RULE
+============================================================
+
+There must be NO hidden fake demo data.
+
+If the system is running against the deterministic simulator,
+explicitly display:
+
+RUNTIME:
+SIMULATOR
+
+If running against real OPC UA:
+
+RUNTIME:
+OPC UA — CONNECTED
+
+If Modbus:
+
+RUNTIME:
+MODBUS TCP — CONNECTED
+
+The UI must always tell the truth about its runtime source.
+
+
+============================================================
+47. FINAL PROJECT EXPERIENCE
+============================================================
+
+The final New Project flow must feel like:
+
+------------------------------------------------------------
+CREATE ENGINEERING PROJECT
+------------------------------------------------------------
+
+PROJECT
+
+TK-401 Process Tank
+
+
+ENGINEERING INPUTS
+
+[ Upload Engineering Package ]
+
+15 files detected
+
+PLC              ✓
+Signals          ✓
+I/O               ✓
+P&ID              ✓
+Control           ✓
+Alarms            ✓
+HMI               ✓
+Documentation     ✓
+
+
+[ UNDERSTAND ENGINEERING SYSTEM ]
+
+
+Then:
+
+------------------------------------------------------------
+CANON ENGINEERING CONTEXT
+------------------------------------------------------------
+
+Assets
+24
+
+Signals
+186
+
+Relationships
+118
+
+Evidence
+117
+
+Review Required
+1
+
+
+[ VIEW MODEL ]
+
+[ VIEW EVIDENCE ]
+
+[ GENERATE OPERATOR EXPERIENCE ]
+
+
+Then:
+
+------------------------------------------------------------
+GENERATED OPERATOR EXPERIENCE
+------------------------------------------------------------
+
+TK-401
+
+REALISTIC INDUSTRIAL HMI
+
+Tank
+Level
+Pressure
+Pump
+Valve
+Alarms
+Trends
+Diagnostics
+Permissives
+
+
+RUNTIME:
+SIMULATOR / OPC UA / MODBUS
+
+STATUS:
+ACTUAL
+
+
+Then:
+
+------------------------------------------------------------
+REFINE OPERATOR EXPERIENCE
+------------------------------------------------------------
+
+[ Describe an engineering change... ]
+
+[ PROPOSE CHANGE ]
+
+
+============================================================
+48. FINAL NAVIGATION
+============================================================
+
+CONTEXT
+
+MODEL
+
+HMI
+
+INTENT
+
+VALIDATION
+
+RUNTIME
+
+CHANGES
+
+EVIDENCE
+
+
+All screens must use the same underlying project ID and canonical
+model.
+
+No isolated mock data per screen.
+
+
+============================================================
+49. ENGINEERING GRAPH
+============================================================
+
+Represent the machine as an actual engineering graph.
+
+Example:
+
+TK401
+ ├── contains → LT401
+ ├── contains → PT401
+ ├── associated_with → P401
+ ├── controlled_by → XV401
+ │
+ P401
+ ├── requires → XV401_OPEN
+ ├── has_state → RUNNING
+ ├── has_alarm → P401_FAULT
+ │
+ PT401
+ ├── measures → TK401
+ ├── signal → PT401_PRESSURE
+ ├── range → 0–16 bar
+
+
+HMI generation must consume this graph/model.
+
+
+============================================================
+50. RECOMMENDATION QUALITY
+============================================================
+
+Recommendations must be actionable and engineering-specific.
+
+Bad:
+
+"Consider improving your dashboard."
+
+Good:
+
+"Place XV401 state adjacent to P401 controls because the P401 START
+command requires XV401_OPEN."
+
+Bad:
+
+"Add a pressure chart."
+
+Good:
+
+"Add a PT401 pressure trend because PT401_PRESSURE is an analog process
+signal with verified engineering units and runtime history."
+
+
+============================================================
+51. MODEL / BRAIN EVALUATION
+============================================================
+
+Keep the existing evaluation framework.
+
+Measure:
+
+JSON validity
+
+zero invented tag rate
+
+unknown rejection
+
+entity resolution
+
+intent classification
+
+HMI proposal validity
+
+binding validity
+
+component registry compliance
+
+change proposal validity
+
+refusal behavior
+
+
+Do not optimize only for language quality.
+
+Engineering correctness is the primary metric.
+
+
+============================================================
+52. TEST AUTOMATION
+============================================================
+
+Implement:
+
+unit tests
+
+integration tests
+
+API tests
+
+validator tests
+
+Brain structured-output tests
+
+HMI rendering tests
+
+runtime tests
+
+WebSocket tests
+
+simulation tests
+
+Playwright end-to-end tests
+
+
+At minimum test:
+
+valid HMI
+
+unknown tag
+
+invalid binding
+
+invalid component
+
+permissive rejection
+
+successful command
+
+runtime update
+
+HMI refinement
+
+HMI revision
+
+PT401 change impact
+
+stale data
+
+conflict
+
+
+============================================================
+53. PERFORMANCE
+============================================================
+
+Use:
+
+incremental ingestion
+
+cached Context
+
+structured Context Packs
+
+local inference
+
+async processing
+
+WebSocket runtime
+
+database indexing
+
+efficient HMI rendering
+
+
+Do not regenerate the entire Context when one HMI layout change occurs.
+
+Do not regenerate the entire HMI when only one component changes.
+
+
+============================================================
+54. SECURITY
+============================================================
+
+Maintain:
+
+RBAC
+
+audit log
+
+engineer approval
+
+command contracts
+
+validator
+
+source provenance
+
+revision history
+
+
+Natural-language prompting must NEVER bypass these layers.
+
+
+============================================================
+55. FINAL ARCHITECTURAL TRUTH
+============================================================
+
+The system must embody:
+
+AI INTERPRETS.
+
+CANON MODELS.
+
+EVIDENCE SUPPORTS.
+
+VALIDATOR CHECKS.
+
+ENGINEER APPROVES.
+
+PLC/SIMULATOR EXECUTES.
+
+HMI OBSERVES.
+
+CHANGE IMPACT PROPAGATES.
+
+This is the architecture to demonstrate to Schneider.
+
+
+============================================================
+56. SCHNEIDER-LEVEL DEMONSTRATION
+============================================================
+
+The demonstration must not be:
+
+"Look, AI generated a nice screen."
+
+It must be:
+
+"Here is real engineering input."
+
+↓
+
+"CANON acquired and analyzed it."
+
+↓
+
+"Here is the resulting engineering context."
+
+↓
+
+"Every important fact has provenance."
+
+↓
+
+"Here is the canonical model."
+
+↓
+
+"CANON Brain interpreted the engineering context."
+
+↓
+
+"Here is the automatically generated operator experience."
+
+↓
+
+"Every HMI element is mapped to the canonical model."
+
+↓
+
+"Here is the actual runtime."
+
+↓
+
+"The controls actually work."
+
+↓
+
+"The permissive actually blocks the command."
+
+↓
+
+"The successful command changes actual runtime state."
+
+↓
+
+"The HMI receives that feedback."
+
+↓
+
+"Now the engineer asks for an HMI modification in natural language."
+
+↓
+
+"CANON understands the request."
+
+↓
+
+"CANON produces a structured proposal."
+
+↓
+
+"Validator checks it."
+
+↓
+
+"Engineer approves."
+
+↓
+
+"The actual HMI changes."
+
+↓
+
+"Now engineering reality changes."
+
+↓
+
+"CANON calculates impact."
+
+↓
+
+"The affected HMI is regenerated."
+
+
+============================================================
+57. MOST IMPORTANT PRODUCT DIFFERENTIATOR
+============================================================
+
+Do NOT market the system as:
+
+AI HMI GENERATOR.
+
+Use:
+
+ENGINEERING INTELLIGENCE → VERIFIED OPERATOR EXPERIENCE
+
+
+Core statement:
+
+    GIVE CANON THE ENGINEERING REALITY.
+    CANON UNDERSTANDS THE SYSTEM.
+    CANON BUILDS THE OPERATOR EXPERIENCE.
+
+
+Secondary:
+
+    AI PROVIDES SEMANTIC INTELLIGENCE.
+    CANON PROVIDES ENGINEERING TRUTH.
+    VALIDATION PROVIDES CONTROL.
+
+
+============================================================
+58. DEFINITION OF DONE
+============================================================
+
+DONE means:
+
+A real engineering project can be entered.
+
+Real files can be ingested.
+
+Real engineering facts are extracted.
+
+Real evidence is retained.
+
+Real entities are resolved.
+
+Real relationships are constructed.
+
+Real canonical model is created.
+
+Real CANON Brain is invoked.
+
+Real HMI plan is generated.
+
+Real HMI JSON is generated.
+
+Real HMI React components render.
+
+Real bindings exist.
+
+Real buttons work.
+
+Real commands go through the validator.
+
+Real permissives work.
+
+Real alarms work.
+
+Real trends use real runtime/history.
+
+Real simulator/OPC UA/Modbus runtime feeds the HMI.
+
+Natural language HMI refinement works.
+
+Changes are proposed.
+
+Changes are validated.
+
+Changes require approval where appropriate.
+
+HMI revisions are stored.
+
+Change impact works.
+
+Unknowns remain unknown.
+
+Conflicts remain visible.
+
+No invented engineering data survives.
+
+No fake runtime status exists.
+
+No fake HMI behavior exists.
+
+No direct Brain → PLC path exists.
+
+
+============================================================
+59. IMPLEMENTATION ORDER
+============================================================
+
+Implement in this order:
+
+P0
+
+1. Repository audit
+2. Input package ingestion
+3. Acquisition
+4. Evidence
+5. Canonical model
+6. Context quality
+7. Context → Brain integration
+8. HMI plan
+9. HMI JSON schema
+10. Component registry
+11. Deterministic HMI assembler
+12. Real HMI renderer
+13. Runtime binding
+14. Simulator integration
+15. WebSocket updates
+16. Real controls
+17. Validator
+18. HMI refinement
+19. HMI revisions
+
+P1
+
+20. Recommendations
+21. Why/evidence traceability
+22. Change impact
+23. PT401 range change
+24. Advanced alarms
+25. Advanced trends
+26. Existing HMI comparison
+
+P2
+
+27. More industrial file formats
+28. Additional machine types
+29. Additional protocols
+30. Advanced engineering knowledge
+
+
+============================================================
+60. FINAL COMMAND
+============================================================
+
+START BY INSPECTING THE EXISTING REPOSITORY.
+
+DO NOT WRITE MOCK UI FIRST.
+
+DO NOT CREATE FAKE DATA.
+
+DO NOT HARD-CODE TK-401 HMI.
+
+DO NOT BUILD A CHATBOT.
+
+DO NOT BYPASS THE CANONICAL MODEL.
+
+DO NOT BYPASS THE VALIDATOR.
+
+DO NOT CONNECT THE BRAIN DIRECTLY TO PLC CONTROL.
+
+DO NOT CLAIM A FEATURE WORKS UNTIL IT ACTUALLY WORKS.
+
+Reuse existing working CANON infrastructure.
+
+Connect every layer.
+
+Then build the complete executable chain:
+
+REAL ENGINEERING INPUT
+→ REAL ACQUISITION
+→ REAL CONTEXT
+→ REAL CANONICAL MODEL
+→ REAL CANON BRAIN
+→ REAL HMI PLAN
+→ REAL VALIDATION
+→ REAL HMI
+→ REAL RUNTIME
+→ REAL SIMULATION / OPC UA / MODBUS
+→ REAL NATURAL LANGUAGE REFINEMENT
+→ REAL HMI PROPOSAL
+→ REAL VALIDATION
+→ REAL HMI REVISION
+→ REAL CHANGE IMPACT
+
+THE FINAL APPLICATION MUST BE DEMONSTRABLE END-TO-END.
+
+NO FAKE.
+
+NO STATIC MOCK.
+
+NO PLACEHOLDER SUCCESS STATES.
+
+NO INVENTED ENGINEERING TRUTH.
+
+BUILD THE REAL CANON SYSTEM.

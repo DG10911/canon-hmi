@@ -1,0 +1,1565 @@
+CANON — SCHNEIDER ELECTRIC INDUSTRIAL ENGINEERING KNOWLEDGE CORPUS
+MASTER DATASET ACQUISITION + NORMALIZATION PROMPT
+VERSION 1.0
+
+MISSION
+=======
+
+You are the lead industrial automation data architect and research engineer for CANON:
+
+CANON
+Machine Context → Dynamic HMI → Verified Control
+
+We are building a PS2 prototype for a Schneider Electric HMI innovation challenge.
+
+The objective is NOT to create a generic AI knowledge base.
+
+The objective is to construct a high-quality, source-grounded Schneider Electric industrial engineering corpus that CANON can use to demonstrate:
+
+ENGINEERING CONTEXT
+→ CANONICAL MACHINE MODEL
+→ AI INTENT
+→ DETERMINISTIC VALIDATION
+→ DYNAMIC HMI
+→ PLC-AUTHORITATIVE CONTROL
+→ ENGINEERING CHANGE CONTINUITY
+
+IMPORTANT:
+Do NOT invent Schneider products, tags, specifications, libraries, HMI objects, standards relationships, PLC capabilities, APIs, datasets, integrations, or product relationships.
+
+Every factual Schneider-specific record must have a source.
+
+If something cannot be verified from an authoritative source, mark it:
+
+UNKNOWN
+
+or
+
+NOT FOUND
+
+or
+
+ROADMAP / INFERENCE
+
+Never fabricate it.
+
+
+============================================================
+0. SOURCE AUTHORITY POLICY
+============================================================
+
+PRIORITY 1 — OFFICIAL SCHNEIDER ELECTRIC SOURCES
+------------------------------------------------
+
+Use Schneider Electric official domains wherever possible:
+
+*.se.com
+*.schneider-electric.com
+official Schneider Electric documentation/download repositories
+official Schneider Electric product pages
+official Schneider Electric catalogs
+official Schneider Electric software documentation
+official Schneider Electric EDS/device libraries
+official Schneider Electric application/library downloads
+
+PRIORITY 2 — OFFICIAL STANDARDS SOURCES
+---------------------------------------
+
+For standards, use authoritative sources such as:
+
+IEC
+ISA
+ISO
+NAMUR
+VDI/VDE
+OPC Foundation
+OMAC
+
+Do NOT treat Schneider marketing pages as the authoritative definition of an external standard.
+
+PRIORITY 3 — SECONDARY SOURCES
+------------------------------
+
+Use distributors, manuals mirrors, forums, GitHub, videos, blogs, etc. ONLY when necessary to discover a source.
+
+Do NOT use them as the primary authority for Schneider specifications when an official source exists.
+
+Clearly label secondary-source information.
+
+============================================================
+1. FIRST PRINCIPLE — DO NOT CLAIM TO HAVE “THE WHOLE
+SCHNEIDER DATABASE”
+============================================================
+
+There may not be one publicly accessible Schneider Electric master database containing every product, PLC, HMI object, engineering library, machine, sensor, hierarchy, standard, application template and historical product.
+
+Therefore:
+
+DO NOT SAY:
+
+“Complete Schneider database downloaded.”
+
+Instead build:
+
+SCHNEIDER INDUSTRIAL ENGINEERING CORPUS
+
+consisting of all relevant publicly accessible authoritative datasets and documents we can actually retrieve.
+
+Track:
+
+SOURCE
+DOCUMENT
+VERSION
+DATE
+PRODUCT FAMILY
+PRODUCT
+PART NUMBER
+DOMAIN
+CAPABILITY
+RELATIONSHIPS
+EVIDENCE
+LICENSE/ACCESS STATUS
+
+
+============================================================
+2. TARGET CORPUS — PRODUCT MASTER
+============================================================
+
+Build a comprehensive Schneider product taxonomy.
+
+At minimum investigate:
+
+A. CONTROLLERS / PLC / PAC
+--------------------------------
+
+Modicon:
+
+M221
+M241
+M251
+M258
+M262
+M340
+M580
+M580 ePAC
+M580 Safety
+X80
+related controller families
+legacy controller families where still documented
+
+Also investigate:
+
+Zelio Logic
+PacDrive
+motion controllers
+edge controllers
+distributed controllers
+safety controllers
+
+For every product/family capture:
+
+product family
+exact product name
+part number/reference
+generation
+status
+application
+CPU characteristics
+I/O capacity
+communication
+Ethernet
+Modbus
+OPC UA where applicable
+motion capability
+safety capability
+redundancy
+supported software
+supported I/O
+supported expansion
+supported libraries
+documentation URLs
+official catalog URL
+
+
+B. I/O
+-------
+
+Capture:
+
+Modicon X80
+TM3
+TM5
+TM7
+distributed I/O
+digital input
+digital output
+analog input
+analog output
+temperature
+high-speed counter
+motion
+communication
+expert modules
+safety I/O
+
+For each:
+
+part number
+type
+channels
+signal type
+electrical characteristics
+compatible controller families
+communication
+physical form
+diagnostics
+official documentation
+
+
+C. HMI
+-------
+
+Investigate:
+
+EcoStruxure Operator Terminal Expert
+Harmony ST6
+Harmony STM6
+Harmony P6
+GTU
+GTUX
+STO
+STU
+Magelis families where officially documented
+EcoStruxure Machine SCADA Expert
+other Schneider HMI/SCADA products
+
+Capture:
+
+HMI family
+runtime
+engineering software
+supported hardware
+objects
+compound objects
+templates
+libraries
+communication
+OPC UA
+supported PLCs
+screen capabilities
+responsive/scalable behavior
+official examples
+official downloadable templates
+official compound objects
+
+
+D. DRIVES
+---------
+
+Investigate:
+
+Altivar
+ATV320
+ATV340
+ATV630
+ATV930
+ATV212
+Altivar Process
+Altivar Machine
+Altivar HVAC
+other current relevant families
+
+Capture:
+
+drive family
+part number
+power range
+motor type
+control mode
+communication
+feedback
+diagnostics
+alarms
+parameters
+supported controllers
+application
+HMI-relevant information
+
+
+E. MOTION
+---------
+
+Investigate:
+
+Lexium
+PacDrive
+servo drives
+servo motors
+motion controllers
+robotics
+multi-axis systems
+
+Capture:
+
+controller
+drive
+motor
+axis
+feedback
+motion functions
+supported software
+communication
+diagnostics
+alarms
+HMI-relevant state variables
+
+
+F. MOTOR CONTROL
+----------------
+
+Investigate:
+
+TeSys
+motor starters
+contactors
+overload protection
+motor management
+soft starters
+
+Capture:
+
+device
+function
+ratings
+control signals
+status signals
+fault signals
+auxiliary contacts
+communication
+PLC integration
+HMI-relevant states
+
+
+G. SENSORS / DETECTION
+----------------------
+
+Investigate Schneider Electric sensor/detection offerings where publicly documented.
+
+Capture:
+
+proximity
+photoelectric
+pressure
+temperature
+level
+flow
+position
+safety detection
+encoders
+measurement devices
+
+IMPORTANT:
+
+Do not pretend Schneider manufactures every industrial sensor category.
+
+If a sensor is commonly integrated into Schneider systems but not a Schneider product, classify it as:
+
+THIRD-PARTY / INTEGRATED DEVICE
+
+rather than Schneider product.
+
+
+H. SAFETY
+---------
+
+Investigate:
+
+safety PLC
+safety I/O
+safety relays
+emergency stop
+guard switches
+light curtains
+safety controllers
+machine safety devices
+
+Capture:
+
+safety function
+device
+inputs
+outputs
+diagnostics
+reset behavior
+PLC/controller compatibility
+engineering software
+HMI visualization implications
+
+
+I. INDUSTRIAL NETWORKING
+------------------------
+
+Investigate:
+
+Ethernet
+EtherNet/IP
+Modbus TCP
+Modbus RTU
+CANopen
+PROFINET where supported
+OPC UA
+industrial Ethernet
+remote I/O networking
+wireless/industrial networking
+
+For every protocol:
+
+Schneider support
+supported products
+role
+configuration software
+runtime data
+diagnostics
+limitations
+official source
+
+
+J. POWER / CONTROL PANEL
+------------------------
+
+Investigate:
+
+Harmony pushbuttons
+selector switches
+pilot lights
+signaling
+relays
+power supplies
+circuit protection
+enclosures
+PanelSeT
+control components
+safety components
+
+Use the current Schneider Automation & Control catalog as a major source.
+
+
+============================================================
+3. SOFTWARE ECOSYSTEM CORPUS
+============================================================
+
+Build a separate software dataset.
+
+Investigate:
+
+EcoStruxure Machine Expert
+EcoStruxure Control Expert
+EcoStruxure Automation Expert
+EcoStruxure Operator Terminal Expert
+EcoStruxure Machine SCADA Expert
+EcoStruxure Process Expert
+EcoStruxure OPC UA Server Expert
+EcoStruxure engineering tools
+Modicon libraries
+HMI libraries
+device libraries
+application libraries
+AI assistants/copilots
+engineering agents
+configuration tools
+
+For every software product:
+
+name
+version
+release date
+purpose
+engineering phase
+runtime phase
+supported hardware
+supported PLCs
+HMI capability
+libraries
+APIs
+export/import
+OPC UA
+communication
+AI capabilities
+official documentation
+official downloads
+
+
+============================================================
+4. HMI OBJECT / TEMPLATE CORPUS
+============================================================
+
+THIS IS EXTREMELY IMPORTANT FOR CANON.
+
+Find every publicly accessible official Schneider source containing:
+
+HMI objects
+compound objects
+templates
+screen examples
+sample projects
+faceplates
+icons
+symbols
+graphics
+controls
+navigation objects
+alarm objects
+trend objects
+gauges
+meters
+buttons
+switches
+valves
+pumps
+motors
+tanks
+pipes
+process graphics
+diagnostic objects
+status indicators
+recipes
+tables
+charts
+historian objects
+SCADA objects
+
+For each object/template capture:
+
+object name
+software
+version
+category
+purpose
+inputs
+outputs
+properties
+states
+alarms
+tags
+bindings
+visual behavior
+parameters
+source
+download availability
+
+CRITICAL:
+
+Do not claim to have extracted proprietary/internal Schneider libraries unless they are publicly accessible and legally downloadable.
+
+
+============================================================
+5. ENGINEERING LIBRARY CORPUS
+============================================================
+
+Search specifically for:
+
+Schneider Electric libraries
+Modicon libraries
+EOTE compound objects
+EOTE templates
+Machine Expert device libraries
+Automation Expert libraries
+Process Expert segment libraries
+application libraries
+function blocks
+control libraries
+diagnostic libraries
+process libraries
+
+For every library:
+
+library name
+version
+software
+supported hardware
+objects
+function blocks
+engineering purpose
+HMI implications
+download
+source
+license/access status
+
+
+============================================================
+6. MACHINE / ASSET MODEL CORPUS
+============================================================
+
+CANON needs to understand MACHINE STRUCTURE.
+
+Create a machine taxonomy such as:
+
+PLANT
+→ AREA
+→ LINE
+→ MACHINE
+→ UNIT
+→ ASSET
+→ DEVICE
+→ SENSOR
+→ ACTUATOR
+→ SIGNAL
+→ COMMAND
+→ ALARM
+→ INTERLOCK
+→ HMI VIEW
+
+Investigate official Schneider application examples and documentation showing:
+
+machines
+lines
+processes
+equipment
+pumps
+valves
+tanks
+motors
+conveyors
+robots
+drives
+sensors
+actuators
+safety devices
+energy systems
+
+DO NOT invent a Schneider-specific hierarchy if the source doesn't establish it.
+
+Instead distinguish:
+
+SOURCE-DERIVED HIERARCHY
+vs
+CANON INTERNAL CANONICAL HIERARCHY.
+
+
+============================================================
+7. DEVICE → SIGNAL → PLC → HMI RELATIONSHIPS
+============================================================
+
+This is the most important dataset for CANON.
+
+Construct relationship records such as:
+
+DEVICE
+→ SIGNAL
+→ I/O
+→ PLC VARIABLE
+→ CONTROL LOGIC
+→ ALARM
+→ HMI BINDING
+
+Example structure:
+
+{
+  "asset": "PT401",
+  "assetType": "PressureTransmitter",
+  "signal": "Pressure",
+  "signalType": "AnalogInput",
+  "unit": "bar",
+  "engineeringRange": [0,10],
+  "controller": "...",
+  "plcVariable": "...",
+  "hmiRepresentation": "PressureValue",
+  "alarmReferences": [],
+  "source": "...",
+  "confidence": "VERIFIED"
+}
+
+ONLY populate fields actually supported by sources.
+
+Do not fabricate a PLC variable merely because a product page exists.
+
+
+============================================================
+8. COMMAND / CONTROL CORPUS
+============================================================
+
+Investigate official examples of:
+
+START
+STOP
+OPEN
+CLOSE
+RESET
+ENABLE
+DISABLE
+ACKNOWLEDGE
+SETPOINT
+MODE CHANGE
+AUTO/MANUAL
+JOG
+HOME
+MOVE
+SPEED
+POSITION
+
+For each command identify:
+
+command name
+device
+request
+feedback
+permissives
+interlocks
+faults
+timeout
+expected state
+source
+
+Distinguish:
+
+DOCUMENTED
+INFERRED
+CANON DEMO MODEL
+
+Never present a CANON-created demo command as an official Schneider command.
+
+
+============================================================
+9. ALARM CORPUS
+============================================================
+
+Investigate official Schneider alarm functionality and application examples.
+
+Capture:
+
+alarm
+priority
+severity
+condition
+message
+acknowledgement
+reset
+shelving if documented
+timestamp
+quality
+state
+history
+HMI representation
+
+Also research external standards separately:
+
+ISA-18.2
+IEC 62682
+EEMUA 191
+
+Do not claim Schneider-specific compliance unless an authoritative source establishes it.
+
+
+============================================================
+10. HMI DESIGN / STANDARDS CORPUS
+============================================================
+
+Research:
+
+ISA-101
+ISA-18.2
+IEC 62682
+EEMUA 191
+IEC 61131
+IEC 61499
+OPC UA
+PackML / OMAC
+MTP
+AutomationML / IEC 62714
+AAS / IEC 63278
+
+For each standard/framework:
+
+purpose
+scope
+relevant concepts
+HMI relevance
+machine-model relevance
+alarm relevance
+data-model relevance
+official source
+
+IMPORTANT:
+
+Do not say CANON is “compliant” unless compliance has actually been assessed.
+
+Use:
+
+aligned with
+informed by
+inspired by
+compatible conceptually
+
+where appropriate.
+
+
+============================================================
+11. SCHNEIDER PRODUCT → SOFTWARE → LIBRARY GRAPH
+============================================================
+
+Build a graph.
+
+Example:
+
+Modicon M580
+├── EcoStruxure Control Expert
+├── X80 I/O
+├── OPC UA / communication options
+├── libraries
+└── HMI integration
+
+EcoStruxure Operator Terminal Expert
+├── Harmony hardware
+├── 650+ built-in objects/templates/libraries
+├── compound objects
+├── OPC UA
+└── custom libraries
+
+EcoStruxure Automation Expert
+├── Build Time
+├── HMI
+├── libraries
+├── Soft dPAC
+├── Modicon controllers
+└── engineering artifacts
+
+Every graph edge must have evidence.
+
+
+============================================================
+12. PRODUCT FAMILY DATASET
+============================================================
+
+Create:
+
+schneider_product_families.json
+
+Fields:
+
+{
+  "familyId": "",
+  "familyName": "",
+  "category": "",
+  "subCategory": "",
+  "products": [],
+  "software": [],
+  "libraries": [],
+  "communication": [],
+  "applicationDomains": [],
+  "officialSources": []
+}
+
+
+============================================================
+13. PRODUCT DATASET
+============================================================
+
+Create:
+
+schneider_products.json
+
+Fields:
+
+{
+  "productId": "",
+  "productName": "",
+  "commercialReference": "",
+  "family": "",
+  "status": "current|legacy|obsolete|unknown",
+  "function": "",
+  "technicalCharacteristics": {},
+  "compatibleProducts": [],
+  "supportedSoftware": [],
+  "supportedLibraries": [],
+  "communication": [],
+  "documents": [],
+  "officialSources": [],
+  "lastVerified": ""
+}
+
+
+============================================================
+14. HMI COMPONENT DATASET
+============================================================
+
+Create:
+
+schneider_hmi_components.json
+
+Fields:
+
+{
+  "componentId": "",
+  "name": "",
+  "software": "",
+  "category": "",
+  "purpose": "",
+  "properties": {},
+  "states": [],
+  "bindings": [],
+  "alarmCapabilities": [],
+  "responsiveCapabilities": [],
+  "source": "",
+  "version": ""
+}
+
+
+============================================================
+15. ENGINEERING DOCUMENT DATASET
+============================================================
+
+Create:
+
+schneider_documents.json
+
+Fields:
+
+documentId
+title
+documentType
+product
+version
+date
+language
+sourceURL
+downloadURL
+pageCount
+topics
+productsMentioned
+engineeringConcepts
+HMIConcepts
+PLCConcepts
+sourceAuthority
+
+
+============================================================
+16. SOURCE EVIDENCE DATASET
+============================================================
+
+EVERY IMPORTANT RECORD MUST HAVE EVIDENCE.
+
+Create:
+
+evidence.json
+
+Example:
+
+{
+  "claim": "EcoStruxure Operator Terminal Expert provides 650+ customizable objects, templates and reusable libraries.",
+  "source": "official Schneider product page",
+  "url": "...",
+  "dateAccessed": "...",
+  "evidenceType": "official_product_page",
+  "confidence": "HIGH"
+}
+
+No source = no verified claim.
+
+
+============================================================
+17. TRUTH STATUS
+============================================================
+
+Every record MUST have one of:
+
+VERIFIED
+INFERRED
+PROPOSED
+UNKNOWN
+ROADMAP
+
+Definitions:
+
+VERIFIED
+Directly supported by authoritative source.
+
+INFERRED
+Derived from multiple verified records.
+
+PROPOSED
+CANON-created architecture/demo concept.
+
+UNKNOWN
+Insufficient evidence.
+
+ROADMAP
+Future CANON capability or integration.
+
+NEVER silently convert INFERRED into VERIFIED.
+
+
+============================================================
+18. CURRENT VS ROADMAP
+============================================================
+
+Create an explicit capability matrix:
+
+CAPABILITY
+CURRENT
+ROADMAP
+NOT FOUND
+
+Example:
+
+OPC UA context ingestion → CURRENT if actually implemented
+PLC export ingestion → CURRENT if actually implemented
+MTP import → ROADMAP
+AutomationML import → ROADMAP
+AAS import → ROADMAP
+
+Do not claim implementation merely because a standard exists.
+
+
+============================================================
+19. SEARCH STRATEGY
+============================================================
+
+Perform deep searches across official Schneider sources.
+
+Search patterns:
+
+site:se.com Schneider Electric product catalog
+site:se.com Modicon PLC catalog
+site:se.com Harmony HMI catalog
+site:se.com EcoStruxure Operator Terminal Expert templates
+site:se.com EcoStruxure Operator Terminal Expert compound objects
+site:se.com EcoStruxure Machine Expert libraries
+site:se.com EcoStruxure Automation Expert libraries
+site:se.com EcoStruxure Process Expert libraries
+site:se.com Modicon libraries
+site:se.com Schneider EDS device library
+site:se.com Schneider application library
+site:se.com Schneider function block library
+site:se.com Schneider HMI sample project
+site:se.com Schneider machine example
+site:se.com Schneider OPC UA
+site:se.com Schneider Modbus
+site:se.com Schneider MTP
+site:se.com Schneider AutomationML
+site:se.com Schneider AAS
+
+Also search regional Schneider sites:
+
+se.com/in
+se.com/us
+se.com/uk
+se.com/fr
+se.com/de
+se.com/ie
+etc.
+
+Prefer the newest authoritative version.
+
+
+============================================================
+20. DOCUMENT DOWNLOAD STRATEGY
+============================================================
+
+When an official PDF/catalog/download exists:
+
+1. Record the URL.
+2. Download only if publicly accessible.
+3. Extract metadata.
+4. Extract relevant tables.
+5. Extract product references.
+6. Extract library names.
+7. Extract relationships.
+8. Preserve document/version.
+9. Link every extracted record to the source document.
+10. Do not redistribute copyrighted documents unnecessarily.
+
+Build a source index before attempting exhaustive extraction.
+
+
+============================================================
+21. DO NOT SCRAPE ILLEGALLY OR BYPASS ACCESS CONTROLS
+============================================================
+
+Do NOT:
+
+bypass authentication
+circumvent paywalls
+circumvent license controls
+reverse engineer protected software
+download private Schneider repositories
+access credentials
+scrape restricted customer portals
+extract proprietary/internal datasets
+claim access to Schneider internal systems
+
+Only use publicly accessible sources or authorized resources.
+
+
+============================================================
+22. DEDUPLICATION
+============================================================
+
+The same product may appear in:
+
+catalog
+product page
+manual
+regional page
+EDS
+software documentation
+
+Deduplicate using:
+
+commercial reference
+product family
+document reference
+version
+source
+
+Do not create five fake products from five documents.
+
+
+============================================================
+23. LEGACY PRODUCT HANDLING
+============================================================
+
+Schneider has legacy product families.
+
+Do not mix:
+
+CURRENT
+LEGACY
+OBSOLETE
+UNKNOWN
+
+into one product list.
+
+Every product should have lifecycle status when supported.
+
+If status cannot be verified:
+
+UNKNOWN
+
+
+============================================================
+24. BUILD CANON'S MACHINE KNOWLEDGE GRAPH
+============================================================
+
+Create a graph with nodes:
+
+PLANT
+AREA
+LINE
+MACHINE
+UNIT
+ASSET
+DEVICE
+CONTROLLER
+I/O
+SIGNAL
+COMMAND
+PERMISSIVE
+INTERLOCK
+ALARM
+HMI_COMPONENT
+HMI_SCREEN
+SOFTWARE
+LIBRARY
+DOCUMENT
+STANDARD
+TEST
+REVISION
+
+Edges:
+
+CONTAINS
+CONNECTED_TO
+CONTROLLED_BY
+READS
+WRITES
+BINDS_TO
+HAS_ALARM
+HAS_PERMISSIVE
+USES_LIBRARY
+SUPPORTED_BY
+DOCUMENTED_BY
+AFFECTS
+DEPENDS_ON
+GENERATED_FROM
+VALIDATED_BY
+
+
+============================================================
+25. CANON DEMO MACHINE DATASET
+============================================================
+
+After building the Schneider corpus, create a separate:
+
+CANON DEMO DATASET
+
+Do NOT mix it with verified Schneider product data.
+
+Use:
+
+TK-401
+LT401
+PT401
+P401
+XV401
+
+Create:
+
+assets
+signals
+I/O
+commands
+permissives
+alarms
+runtime data
+dependencies
+revisions
+tests
+HMI component mappings
+
+Clearly mark:
+
+CANON DEMO / SIMULATED
+
+This prevents fictional demo data from being mistaken for Schneider product data.
+
+
+============================================================
+26. HMI GENERATION DATASET
+============================================================
+
+Create mappings:
+
+machine semantic
+→ HMI component
+
+Examples:
+
+Pressure
+→ pressure value
+→ range bar
+→ trend
+→ alarm indicator
+
+Level
+→ tank level
+→ value tile
+→ level indicator
+
+Pump
+→ pump symbol
+→ state badge
+→ START/STOP request
+
+Valve
+→ valve symbol
+→ OPEN/CLOSED state
+
+Alarm
+→ alarm banner/list
+
+These mappings should be CANON rules unless directly supported by an official Schneider source.
+
+
+============================================================
+27. AI RETRIEVAL LAYER
+============================================================
+
+Design the corpus so CANON can perform:
+
+QUERY
+→ RETRIEVE VERIFIED CONTEXT
+→ BUILD MACHINE CONTEXT
+→ AI INTENT
+→ STRUCTURED PROPOSAL
+→ VALIDATE
+
+Example query:
+
+“Create an HMI for a pump station.”
+
+The retrieval system should return:
+
+relevant pump products
+controllers
+I/O
+communication
+HMI objects
+libraries
+alarm concepts
+commands
+engineering examples
+
+But NEVER allow generic product information to automatically become an actual machine binding.
+
+Machine-specific bindings must come from the actual machine model.
+
+
+============================================================
+28. FINAL OUTPUT DATASET STRUCTURE
+============================================================
+
+Produce a folder:
+
+CANON_SCHNEIDER_CORPUS/
+
+01_sources/
+02_documents/
+03_products/
+04_product_families/
+05_controllers/
+06_io/
+07_hmi/
+08_drives/
+09_motion/
+10_motor_control/
+11_safety/
+12_networking/
+13_sensors/
+14_software/
+15_libraries/
+16_hmi_components/
+17_machine_models/
+18_commands/
+19_permissives/
+20_alarms/
+21_standards/
+22_relationships/
+23_evidence/
+24_lifecycle/
+25_canon_demo/
+26_tests/
+27_change_impact/
+28_unknowns/
+29_roadmap/
+
+
+============================================================
+29. REQUIRED JSON FILES
+============================================================
+
+At minimum produce:
+
+schneider_products.json
+schneider_product_families.json
+schneider_controllers.json
+schneider_io.json
+schneider_hmi.json
+schneider_drives.json
+schneider_motion.json
+schneider_motor_control.json
+schneider_safety.json
+schneider_networking.json
+schneider_sensors.json
+schneider_software.json
+schneider_libraries.json
+schneider_hmi_components.json
+schneider_documents.json
+schneider_machine_patterns.json
+schneider_commands.json
+schneider_alarms.json
+schneider_standards.json
+schneider_relationships.json
+schneider_evidence.json
+schneider_lifecycle.json
+canon_demo_machine.json
+canon_demo_signals.json
+canon_demo_commands.json
+canon_demo_permissives.json
+canon_demo_alarms.json
+canon_demo_runtime.json
+canon_demo_revisions.json
+canon_demo_dependencies.json
+canon_demo_tests.json
+
+
+============================================================
+30. QUALITY CONTROL
+============================================================
+
+Before finalizing:
+
+CHECK 1
+Every Schneider-specific factual claim has a source.
+
+CHECK 2
+Every product has a source.
+
+CHECK 3
+Every part number has a source.
+
+CHECK 4
+Every library has a source.
+
+CHECK 5
+Every HMI object has a source if claimed to be Schneider-provided.
+
+CHECK 6
+Current vs roadmap is explicit.
+
+CHECK 7
+Legacy vs current is explicit.
+
+CHECK 8
+No invented PLC variables.
+
+CHECK 9
+No invented machine hierarchy presented as Schneider fact.
+
+CHECK 10
+No invented HMI screens presented as Schneider screens.
+
+CHECK 11
+No invented standards compliance.
+
+CHECK 12
+No proprietary/internal data claimed.
+
+CHECK 13
+No duplicate products.
+
+CHECK 14
+Every relationship has evidence or is marked INFERRED/PROPOSED.
+
+CHECK 15
+CANON-created demo data is clearly separated from Schneider-source data.
+
+
+============================================================
+31. FINAL RESEARCH REPORT
+============================================================
+
+After dataset creation, produce:
+
+A. Executive summary
+
+B. Source inventory
+
+C. Product-family coverage
+
+D. Controller coverage
+
+E. I/O coverage
+
+F. HMI coverage
+
+G. HMI object/template coverage
+
+H. Software coverage
+
+I. Library coverage
+
+J. Machine-context coverage
+
+K. Standards coverage
+
+L. Communication coverage
+
+M. Engineering relationships
+
+N. Current vs roadmap
+
+O. Unknowns / missing data
+
+P. Data quality report
+
+Q. CANON canonical-model proposal
+
+R. Recommended retrieval architecture
+
+S. Recommended demo dataset
+
+T. Limitations and licensing/access notes
+
+
+============================================================
+32. FINAL OBJECTIVE
+============================================================
+
+The final corpus must allow CANON to answer:
+
+“What does this machine contain?”
+
+“What signals exist?”
+
+“What equipment exists?”
+
+“What controller is involved?”
+
+“What I/O is connected?”
+
+“What HMI components are available?”
+
+“What commands exist?”
+
+“What alarms exist?”
+
+“What permissives exist?”
+
+“What engineering software supports this?”
+
+“What Schneider libraries are relevant?”
+
+“What HMI templates/objects exist?”
+
+“What communication methods are supported?”
+
+“What changes affect this asset?”
+
+“What evidence supports this fact?”
+
+“What is verified versus inferred?”
+
+“What is implemented versus roadmap?”
+
+The system must NOT answer these by hallucination.
+
+It must retrieve evidence-backed information.
+
+FINAL PRINCIPLE:
+
+============================================================
+
+CANON DOES NOT NEED “ALL SCHNEIDER DATA.”
+
+CANON NEEDS THE RIGHT ENGINEERING CONTEXT,
+WITH PROVENANCE, STRUCTURE, RELATIONSHIPS AND TRUTH STATUS.
+
+ENGINEERING SOURCE
+        ↓
+INGEST
+        ↓
+NORMALIZE
+        ↓
+CANONICAL MODEL
+        ↓
+RETRIEVE VERIFIED CONTEXT
+        ↓
+AI INTENT
+        ↓
+DETERMINISTIC VALIDATION
+        ↓
+DYNAMIC HMI
+        ↓
+PLC-AUTHORITATIVE CONTROL
+        ↓
+FEEDBACK
+        ↓
+ENGINEERING CONTINUITY
+
+============================================================
+
+DO NOT STOP AFTER FINDING A FEW PRODUCT PAGES.
+
+SYSTEMATICALLY BUILD THE SOURCE INDEX,
+FOLLOW OFFICIAL DOWNLOADS,
+FOLLOW RELATED DOCUMENTS,
+FOLLOW PRODUCT FAMILIES,
+FOLLOW LIBRARIES,
+FOLLOW HMI TEMPLATE/OBJECT DOWNLOADS,
+FOLLOW SOFTWARE DOCUMENTATION,
+FOLLOW ENGINEERING RELATIONSHIPS,
+AND REPORT WHAT WAS ACTUALLY FOUND.
+
+DO NOT INVENT WHAT WAS NOT FOUND.
+
+START NOW.

@@ -1,0 +1,2130 @@
+ASSETFLOW / CANON
+
+PS2 — DYNAMIC HMI AT RUNTIME + MACHINE CONTROL VIA HMI
+
+MASTER SYSTEM BUILD PROMPT
+
+Competition-Grade Industrial AI + Dynamic HMI + Machine Context + Verified Machine Interaction
+
+⸻
+
+0. NON-NEGOTIABLE COMPETITION TARGET
+
+Build ASSETFLOW / CANON specifically to solve the following official problem statement:
+
+PS2 — Dynamic screen at runtime and control of machines via HMI
+
+Problem Statement
+
+HMI engineering is heavily dependent on the manual creation and maintenance of screens, navigation, and visualization logic.
+
+As industrial systems evolve, engineers spend significant effort updating HMI assets to reflect changes in:
+
+* machine configurations
+* PLC tags
+* alarms
+* process requirements
+* I/O
+* asset structures
+* communication configurations
+* engineering documentation
+
+Approximately 50–70% of total HMI lifecycle effort is consumed by screen creation, maintenance, and enhancement activities, resulting in:
+
+* increased engineering cost
+* longer delivery cycles
+* repetitive engineering work
+* slower commissioning
+* difficult change propagation
+* increased maintenance effort
+
+⸻
+
+1. OFFICIAL PS2 EXPECTATION
+
+CANON MUST directly demonstrate all of the following.
+
+1.1 MACHINE CONTEXT CREATION
+
+Build a unified and standardized machine representation/context using engineering artifacts and configuration data, including:
+
+* PLC/controller tags
+* I/O configuration
+* asset hierarchies
+* alarm definitions
+* communication configurations
+* machine documentation
+* machine states
+* commands
+* permissives
+* interlocks where available
+* engineering units
+* scaling
+* setpoints
+* HMI-relevant metadata
+
+⸻
+
+1.2 CONTEXT INTERPRETATION
+
+Use AI + model-driven automation to interpret machine context and determine what the operator experience should contain.
+
+The AI must reason from available machine context.
+
+It must NOT simply hallucinate a screen from a prompt.
+
+The architecture must be:
+
+USER INTENT
+      ↓
+AI INTERPRETATION
+      ↓
+MACHINE CONTEXT
+      ↓
+CANONICAL ENGINEERING MODEL
+      ↓
+VALIDATION
+      ↓
+HMI GENERATION
+
+⸻
+
+1.3 DYNAMIC SCREEN GENERATION
+
+Generate machine-specific HMI screens dynamically at runtime based on operator/engineer prompts.
+
+Input may be:
+
+* text
+* speech, where supported
+* structured commands
+* contextual operator requests
+
+Examples:
+
+“Show me the current status of Pump P101.”
+
+“Create a screen for Tank TK-401 with level, pressure, valve status and pump controls.”
+
+“Show the diagnostics for the current abnormal condition.”
+
+“Give me a compact overview of this machine.”
+
+“Show the pressure trend and active alarms for PT401.”
+
+The system must dynamically compose the appropriate HMI from machine context.
+
+⸻
+
+1.4 MACHINE CONTROL VIA HMI
+
+The generated HMI must not be merely visual.
+
+It must support controlled interaction with the machine through the HMI.
+
+Example:
+
+OPERATOR
+   ↓
+DYNAMIC HMI
+   ↓
+COMMAND CONTRACT
+   ↓
+PERMISSIVE / AUTHORITY CHECK
+   ↓
+PLC
+   ↓
+MACHINE / SIMULATOR
+   ↓
+FEEDBACK
+   ↓
+DYNAMIC HMI
+
+The PLC remains the authoritative runtime control layer.
+
+CANON must never bypass the PLC’s established control authority.
+
+⸻
+
+1.5 ADAPTATION TO MACHINE CHANGES
+
+When machine engineering context changes, the generated HMI must be able to adapt.
+
+Example:
+
+PT101
+0–10 bar
+    ↓
+0–16 bar
+
+CANON must identify affected:
+
+* PLC scaling
+* HMI visualization
+* engineering range
+* alarm thresholds
+* trends
+* simulation
+* tests
+* documentation
+
+and communicate the required regeneration/validation.
+
+⸻
+
+2. THE CENTRAL PRODUCT THESIS
+
+THE HMI IS NOT THE SOURCE OF TRUTH.
+
+THE MACHINE MODEL IS.
+
+Traditional HMI engineering:
+
+ENGINEER
+   ↓
+MANUALLY DESIGN SCREEN
+   ↓
+MANUALLY BIND TAGS
+   ↓
+MANUALLY CONFIGURE ALARMS
+   ↓
+MANUALLY MAINTAIN
+
+CANON:
+
+ENGINEERING ARTIFACTS
+        ↓
+MACHINE CONTEXT
+        ↓
+CANONICAL MACHINE MODEL
+        ↓
+AI CONTEXT INTERPRETATION
+        ↓
+VALIDATION
+        ↓
+DYNAMIC HMI
+        ↓
+VALIDATED MACHINE INTERACTION
+
+The generated HMI is a projection of machine reality.
+
+⸻
+
+3. THE CORE PROMISE
+
+Describe the machine once.
+
+Generate the right interface from its context.
+
+Control through the HMI using authoritative PLC logic.
+
+When the machine changes, the interface adapts.
+
+⸻
+
+4. WHAT CANON IS
+
+CANON is a:
+
+Machine-Context-Driven Dynamic HMI Generation and Machine Interaction Engine.
+
+It combines:
+
+* AI
+* machine context
+* canonical engineering models
+* dynamic UI composition
+* validated data binding
+* command contracts
+* PLC authority
+* runtime simulation
+* engineering dependency analysis
+* change-aware regeneration
+* regression verification
+
+into one coherent workflow.
+
+⸻
+
+5. WHAT CANON IS NOT
+
+Do NOT build the product as:
+
+* a generic SaaS dashboard
+* a chatbot
+* a generic AI screen generator
+* a fake digital twin
+* a consumer UI
+* a colorful AI startup interface
+* a cyberpunk interface
+* an autonomous PLC
+* an AI actuator controller
+* a replacement for Schneider EcoStruxure
+* a replacement for EOTE
+* a safety PLC
+* a safety-certified system
+* a cloud-only concept disconnected from machine engineering
+
+The product must feel like professional industrial engineering software.
+
+⸻
+
+6. MACHINE CONTEXT CREATION
+
+Create a unified machine context layer.
+
+The context must combine the following.
+
+⸻
+
+6.1 PLC / CONTROLLER TAGS
+
+Represent variables exposed by PLCs/controllers that represent:
+
+* machine state
+* commands
+* measurements
+* setpoints
+* status
+* feedback
+* modes
+* faults
+
+Examples:
+
+Motor_1_RunStatus
+Tank_Level
+Temperature_PV
+Conveyor_Speed_SP
+Pump_Start_Cmd
+Pump_Stop_Cmd
+Valve_Open_FB
+Pressure_PV
+
+These become available for:
+
+* real-time visualization
+* controls
+* trends
+* diagnostics
+* status indicators
+* contextual screens
+
+⸻
+
+6.2 I/O CONFIGURATION
+
+Represent physical machine inputs and outputs.
+
+Examples:
+
+Digital Inputs
+
+Emergency_Stop
+Door_Switch
+Motor_Run_FB
+Valve_Open_FB
+
+Digital Outputs
+
+Motor_Start
+Alarm_Horn
+Valve_Open_Cmd
+
+Analog Inputs
+
+Pressure_Sensor
+Temperature_Sensor
+Level_Sensor
+
+Analog Outputs
+
+Speed_Reference
+Valve_Position
+
+I/O information helps determine:
+
+* available machine capabilities
+* device states
+* actuator relationships
+* sensor availability
+* machine controls
+* diagnostics
+
+⸻
+
+6.3 ASSET HIERARCHIES
+
+Build an explicit hierarchy.
+
+Example:
+
+PLANT
+ └── AREA
+      └── UNIT
+           └── TK-401
+                ├── LT-401
+                ├── PT-401
+                ├── P-401
+                └── XV-401
+
+Each asset must have:
+
+* stable ID
+* type
+* name
+* parent
+* children
+* associated signals
+* commands
+* alarms
+* documentation
+* dependencies
+* revision
+* provenance
+
+⸻
+
+6.4 ALARM DEFINITIONS
+
+Represent alarms as structured engineering objects.
+
+Examples:
+
+HIGH_TEMPERATURE
+Priority: CRITICAL
+LOW_PRESSURE
+Priority: WARNING
+MOTOR_TRIP
+Priority: HIGH
+HIGH_LEVEL
+Priority: HIGH
+
+Each alarm should support:
+
+* identity
+* source asset
+* condition
+* priority
+* message
+* current state
+* acknowledgement
+* timestamp
+* engineering source
+* HMI representation
+* related documentation
+* related tests
+
+Use industrial alarm-management principles.
+
+Do not claim formal certification.
+
+⸻
+
+6.5 COMMUNICATION CONFIGURATION
+
+Represent available communication context.
+
+Examples:
+
+PLC
+Protocol: Modbus TCP
+Address: 10.10.1.20
+Status: CONNECTED
+
+or:
+
+PLC
+Protocol: OPC UA
+Endpoint: documented/project configured endpoint
+Status: SIMULATED
+
+Communication information can help establish:
+
+* source
+* device identity
+* data origin
+* connection status
+* data quality
+* runtime availability
+
+Never expose or invent real credentials.
+
+Never fabricate connectivity.
+
+⸻
+
+6.6 MACHINE DOCUMENTATION
+
+Machine context may include:
+
+* manuals
+* operating procedures
+* datasheets
+* engineering specifications
+* I/O lists
+* alarm philosophy
+* control descriptions
+* commissioning documents
+* maintenance instructions
+
+Documentation must be traceable.
+
+AI must distinguish:
+
+documented fact vs inference vs proposal.
+
+⸻
+
+7. CANONICAL MACHINE MODEL
+
+Create a structured model connecting:
+
+Requirement
+    ↓
+Asset Type
+    ↓
+Asset Instance
+    ↓
+Device
+    ↓
+Terminal
+    ↓
+I/O
+    ↓
+PLC Variable
+    ↓
+Control Logic
+    ↓
+HMI Variable
+    ↓
+Alarm
+    ↓
+Trend
+    ↓
+Command
+    ↓
+Permissive
+    ↓
+Test
+    ↓
+Simulation
+    ↓
+Documentation
+
+Every object should use stable IDs.
+
+Example:
+
+asset:pump:P101
+signal:pressure:PT101
+plc-variable:P101:DischargePressure
+hmi-tag:P101:DischargePressure
+alarm:P101:HIGH_PRESSURE
+command:P101:START
+test:FAT:T04
+simulation:S02
+revision:17
+
+⸻
+
+8. ENGINEERING TRUTH MODEL
+
+Every important engineering fact must have one of four states.
+
+State	Meaning
+VERIFIED	Supported by authoritative evidence
+INFERRED	Derived from available context
+PROPOSED	AI-generated suggestion requiring review
+UNKNOWN	Evidence insufficient
+
+ABSOLUTE RULE
+
+No evidence = UNKNOWN.
+
+Never fabricate:
+
+* PLC tags
+* alarms
+* machine states
+* commands
+* communication
+* engineering limits
+* safety conditions
+
+⸻
+
+9. NATURAL-LANGUAGE INTENT COMPILER
+
+Build an Intent Compiler.
+
+Input:
+
+“Create a compact operator screen for P101.”
+
+The system should interpret:
+
+TARGET:
+P101
+PURPOSE:
+Operator overview
+REQUIRED:
+• Running status
+• Pressure
+• Flow
+• Start
+• Stop
+• Active alarms
+CONSTRAINTS:
+• Existing signals only
+• Existing commands only
+• Validated bindings required
+
+The UI should visibly show the interpretation.
+
+Do not hide important engineering decisions inside an opaque AI response.
+
+⸻
+
+10. CONTEXT-AWARE SCREEN GENERATION
+
+The HMI compiler must use:
+
+MACHINE CONTEXT
++
+OPERATOR INTENT
++
+ASSET TYPE
++
+AVAILABLE SIGNALS
++
+COMMAND CONTRACTS
++
+ALARM DEFINITIONS
++
+HMI DESIGN RULES
+
+to create the screen.
+
+⸻
+
+11. NO PREDEFINED STATIC SCREEN REQUIREMENT
+
+The hero demonstration must explicitly prove the PS2 concept:
+
+NO PRE-DESIGNED MACHINE-SPECIFIC SCREEN IS REQUIRED FOR THE HERO FLOW.
+
+The system dynamically composes the requested interface from available machine context.
+
+Reusable visual components may be used internally.
+
+However, the final screen must be generated from the current machine model and request, not merely reveal a manually prebuilt static screen.
+
+Be honest about implementation.
+
+⸻
+
+12. SCREEN INDEPENDENCE FROM HMI SIZE
+
+The generated HMI must adapt to available display dimensions.
+
+Support conceptual layouts for:
+
+Small HMI
+Medium HMI
+Large HMI
+Desktop
+Wide Engineering Display
+
+The machine context remains the same.
+
+Only the presentation projection changes.
+
+Example:
+
+SAME MACHINE MODEL
+        ↓
+┌─────────────┐
+│ SMALL HMI   │
+└─────────────┘
+        ↓
+┌─────────────────────────┐
+│ MEDIUM HMI              │
+└─────────────────────────┘
+        ↓
+┌──────────────────────────────────────────┐
+│ LARGE INDUSTRIAL HMI                     │
+└──────────────────────────────────────────┘
+
+⸻
+
+13. DYNAMIC OPERATOR EXPERIENCE
+
+The interface should adapt not only to display size but also to machine context.
+
+Examples:
+
+Pump
+
+Show:
+
+* run state
+* pressure
+* flow
+* speed
+* commands
+* permissives
+* alarms
+
+Tank
+
+Show:
+
+* level
+* pressure
+* temperature
+* inlet/outlet valves
+* alarms
+* trends
+
+Conveyor
+
+Show:
+
+* running state
+* speed
+* motor state
+* sensors
+* faults
+* controls
+
+The HMI should be machine-specific, not a generic dashboard.
+
+⸻
+
+14. DYNAMIC DIAGNOSTIC SCREEN
+
+Operator:
+
+“Show diagnostics for the current abnormal condition.”
+
+CANON determines:
+
+CURRENT MACHINE
+      ↓
+ACTIVE ABNORMAL CONDITION
+      ↓
+RELEVANT ASSETS
+      ↓
+RELEVANT SIGNALS
+      ↓
+RELATED ALARMS
+      ↓
+AVAILABLE COMMANDS
+      ↓
+DIAGNOSTIC HMI
+
+Generate a contextual diagnostic view.
+
+⸻
+
+15. MACHINE CONTROL
+
+Generated HMI controls must reference canonical command contracts.
+
+Example:
+
+command:P101:START
+
+The HMI must not invent an arbitrary actuator action.
+
+⸻
+
+16. COMMAND CONTRACT
+
+Each command should define:
+
+Command ID
+Target Asset
+PLC Mapping
+Required Mode
+Permissives
+Interlocks
+Authority
+Expected Feedback
+Timeout
+Failure State
+Evidence
+
+Example:
+
+P101_START
+Target:
+P101
+PLC:
+P101.StartCmd
+Required Mode:
+AUTO/MANUAL according to project definition
+Permissives:
+• Emergency Stop Healthy
+• Inlet Valve Open
+• Pump Available
+Feedback:
+P101.RunStatus
+
+⸻
+
+17. CONTROL AUTHORITY
+
+The architecture must enforce:
+
+AI
+ ↓
+INTERPRET / PROPOSE
+HMI
+ ↓
+REQUEST COMMAND
+CANONICAL COMMAND CONTRACT
+ ↓
+VALIDATE
+PLC
+ ↓
+AUTHORIZE / CONTROL
+MACHINE
+ ↓
+ACT
+FEEDBACK
+ ↓
+VERIFY
+
+AI is never the direct control authority.
+
+⸻
+
+18. PERMISSIVE FAILURE HERO MOMENT
+
+The demo MUST intentionally show a rejected command.
+
+Example:
+
+OPERATOR PRESSES START
+
+System detects:
+
+XV101_OPEN_FB = FALSE
+
+HMI displays:
+
+START REJECTED
+PERMISSIVE NOT SATISFIED
+Inlet Valve Open:
+FALSE
+PLC Authority:
+ACTIVE
+Required:
+XV101_OPEN_FB = TRUE
+
+This demonstrates real machine-control logic rather than a fake button animation.
+
+⸻
+
+19. COMMAND VERIFICATION
+
+After an accepted command:
+
+COMMAND REQUEST
+      ↓
+PLC ACCEPTED
+      ↓
+ACTUATION
+      ↓
+RUN FEEDBACK
+      ↓
+HMI VERIFIED
+
+Never display “RUNNING” merely because the Start button was clicked.
+
+The state should come from feedback.
+
+⸻
+
+20. DATA QUALITY
+
+Every live value should have a quality state.
+
+LIVE
+DEGRADED
+STALE
+UNKNOWN
+SIMULATED
+DISCONNECTED
+
+If data becomes stale:
+
+PRESSURE
+UNKNOWN
+DATA STALE
+CONTROL:
+BLOCKED
+
+Do not treat old values as current machine truth.
+
+⸻
+
+21. ENGINEERING CHANGE PROPAGATION
+
+Example:
+
+PT101
+0–10 bar
+
+Engineer changes it to:
+
+0–16 bar
+
+CANON analyzes dependencies.
+
+Show:
+
+CHANGE IMPACT
+✓ PLC Scaling
+✓ HMI Range
+✓ High Pressure Alarm
+✓ High-High Alarm
+✓ Trend
+✓ Simulation
+✓ Test Case
+✓ Documentation
+
+Then:
+
+CHANGE
+ ↓
+IMPACT ANALYSIS
+ ↓
+REGENERATION
+ ↓
+VALIDATION
+ ↓
+REGRESSION
+ ↓
+ENGINEER APPROVAL
+ ↓
+NEW BASELINE
+
+⸻
+
+22. HMI REGENERATION
+
+After a model change:
+
+OLD MACHINE MODEL
+      ↓
+ENGINEERING CHANGE
+      ↓
+NEW MACHINE MODEL
+      ↓
+HMI DEPENDENCY DETECTION
+      ↓
+REGENERATE
+      ↓
+VALIDATE
+      ↓
+NEW HMI
+
+The HMI must remain linked to the machine model.
+
+⸻
+
+23. ENGINEERING GRAPH
+
+Provide an interactive engineering graph.
+
+Example:
+
+PT101
+ │
+ ├── Physical Device
+ │
+ ├── I/O Channel
+ │
+ ├── PLC Variable
+ │
+ ├── Engineering Range
+ │
+ ├── HMI Binding
+ │
+ ├── Alarm
+ │
+ ├── Trend
+ │
+ ├── Simulation
+ │
+ ├── Test
+ │
+ └── Documentation
+
+Selecting any object should reveal relationships.
+
+⸻
+
+24. VALIDATED HMI BINDING
+
+Example:
+
+HMI PRESSURE GAUGE
+        ↓
+signal:pressure:PT101
+        ↓
+PLC:P101.DischargePressure
+        ↓
+Range: 0–16 bar
+        ↓
+Unit: bar
+        ↓
+Quality: LIVE
+        ↓
+Revision: R18
+
+The HMI compiler must resolve bindings from the canonical model.
+
+AI must not hallucinate the tag.
+
+⸻
+
+25. AI ENGINEERING GUARD
+
+The AI must operate under explicit constraints.
+
+AI MAY:
+
+* interpret intent
+* propose screens
+* propose layouts
+* explain machine context
+* identify relevant signals
+* identify relevant alarms
+* suggest diagnostics
+* propose tests
+* explain engineering changes
+
+AI MAY NOT:
+
+* directly control actuators
+* bypass PLC authority
+* bypass permissives
+* invent tags
+* invent machine states
+* approve its own changes
+* silently modify approved engineering
+* deploy unapproved changes
+* convert UNKNOWN into VERIFIED
+
+⸻
+
+26. APPROVAL WORKFLOW
+
+Use:
+
+AI DRAFT
+   ↓
+VALIDATED
+   ↓
+SIMULATED
+   ↓
+ENGINEER REVIEW
+   ↓
+APPROVED
+   ↓
+RELEASE CANDIDATE
+   ↓
+DEPLOY
+
+Never:
+
+AI → DEPLOY
+
+⸻
+
+27. INDUSTRIAL HMI DESIGN
+
+The HMI must feel like professional industrial engineering software.
+
+Use ISA-101-informed HMI design principles.
+
+Prioritize:
+
+* hierarchy
+* consistency
+* operator awareness
+* clear navigation
+* meaningful state representation
+* abnormal-condition visibility
+* alarm clarity
+* predictable controls
+* restrained color
+* readable typography
+* dense but understandable information
+* clear command feedback
+
+Do not claim formal ISA-101 compliance unless independently assessed.
+
+⸻
+
+28. ALARM MANAGEMENT
+
+Use principles informed by:
+
+* ISA-18.2
+* IEC 62682
+* EEMUA 191
+
+Support:
+
+* alarm priority
+* active/cleared state
+* acknowledgement
+* timestamp
+* source asset
+* alarm condition
+* diagnostic context
+* alarm banner
+* alarm summary
+
+Never claim certification merely because these standards are referenced.
+
+⸻
+
+29. VISUAL DESIGN SYSTEM
+
+The application must look like:
+
+premium industrial engineering software.
+
+NOT:
+
+* generic SaaS
+* chatbot
+* gaming UI
+* cyberpunk
+* neon
+* glassmorphism
+* cryptocurrency dashboard
+* consumer mobile app
+
+Use:
+
+* light engineering workspace
+* dark technical surfaces selectively
+* restrained industrial blue
+* neutral engineering gray
+* orange for AI proposals/change
+* green for verified/live/pass
+* amber for warning/degraded/proposed
+* red for critical/blocker/stale-critical
+* neutral for unknown/unavailable/simulated
+
+Never use color as the only state indicator.
+
+⸻
+
+30. PRIMARY APPLICATION STRUCTURE
+
+Create:
+
+OVERVIEW
+AI COPILOT
+INTENT
+MACHINE CONTEXT
+ENGINEERING MODEL
+ASSETS
+I/O
+PLC
+HMI
+ALARMS
+TRENDS
+SIMULATION
+RUNTIME
+TESTS
+REGRESSION
+ENGINEERING GUARD
+ENGINEERING GRAPH
+CHANGE IMPACT
+PROJECT X-RAY
+DOCUMENTS
+APPROVALS
+AUDIT TRAIL
+REVISIONS
+INTEGRATIONS
+EOTE WORKFLOW
+
+PS2 must remain the visible center of gravity.
+
+Do not allow secondary engineering features to overwhelm the dynamic HMI story.
+
+⸻
+
+31. HERO SCREEN — DYNAMIC HMI
+
+The most visually impressive screen must be the generated HMI itself.
+
+Example:
+
+┌──────────────────────────────────────────────────────┐
+│ TK-401                         LIVE ●     REV R18     │
+├──────────────────────────────────────────────────────┤
+│                                                      │
+│ LEVEL                    PRESSURE                    │
+│ 72 %                     6.8 bar                     │
+│                                                      │
+│ INLET VALVE              PUMP                        │
+│ OPEN                     RUNNING                     │
+│                                                      │
+│ [ START ]               [ STOP ]                     │
+│                                                      │
+│ ACTIVE ALARMS: 0                                    │
+│                                                      │
+└──────────────────────────────────────────────────────┘
+
+But this screen must be generated from actual machine context.
+
+⸻
+
+32. RUNTIME GENERATION EXPERIENCE
+
+Show the judge:
+
+PROMPT
+ ↓
+INTERPRETING
+ ↓
+RESOLVING MACHINE CONTEXT
+ ↓
+VALIDATING SIGNALS
+ ↓
+RESOLVING COMMANDS
+ ↓
+COMPOSING HMI
+ ↓
+BINDING
+ ↓
+READY
+
+Then reveal the screen.
+
+This should be the first major “wow” moment.
+
+⸻
+
+33. SECOND WOW — CONTROL
+
+Show:
+
+START
+ ↓
+PERMISSIVE CHECK
+ ↓
+PLC
+ ↓
+MACHINE
+ ↓
+FEEDBACK
+
+Then intentionally fail a permissive.
+
+This proves machine interaction.
+
+⸻
+
+34. THIRD WOW — ADAPTATION
+
+Change:
+
+PT101
+0–10 bar
+
+to:
+
+PT101
+0–16 bar
+
+Show:
+
+IMPACT DETECTED
+
+Then regenerate the HMI.
+
+This proves the screen is derived from machine context rather than being a static mockup.
+
+⸻
+
+35. FOURTH WOW — CONTEXTUAL SCREEN
+
+Ask:
+
+“Show me diagnostics for the current abnormal condition.”
+
+CANON generates a new contextual view.
+
+This demonstrates runtime adaptability.
+
+⸻
+
+36. OPERATOR COPILOT
+
+Include a small evidence-grounded assistant.
+
+Example:
+
+Why was the pump start rejected?
+
+Answer:
+
+START REJECTED
+Reason:
+Inlet valve open feedback is FALSE.
+Evidence:
+Command: P101_START
+Permissive: XV101_OPEN_FB
+Current: FALSE
+PLC Authority: ACTIVE
+Data Quality: LIVE
+
+Do not make the chatbot the main product.
+
+The HMI generation engine is the headline.
+
+⸻
+
+37. SIMULATOR
+
+Create a deterministic:
+
+AssetFlow Behaviour Simulator
+
+It should simulate:
+
+* normal operation
+* start
+* stop
+* permissive failure
+* alarm activation
+* alarm clearing
+* sensor change
+* stale data
+* machine state transitions
+
+The simulator is a demonstration environment.
+
+Do not claim it is a full digital twin.
+
+⸻
+
+38. DEMONSTRATION MACHINE
+
+Use one deep machine vertical slice.
+
+Example:
+
+P101 / TK-401 PROCESS UNIT
+
+Include:
+
+TK-401
+ ├── LT-401
+ ├── PT-401
+ ├── P-401
+ └── XV-401
+
+Use actual canonical data throughout the application.
+
+No screen may display values that contradict the underlying model.
+
+⸻
+
+39. SINGLE SOURCE OF DEMO TRUTH
+
+Create one machine dataset.
+
+Every feature must consume it.
+
+The following must NOT independently invent values:
+
+* HMI
+* simulator
+* graph
+* alarms
+* tests
+* copilot
+* impact analysis
+* PLC page
+
+All must resolve from the same canonical model.
+
+⸻
+
+40. DEMO DATA EXAMPLE
+
+Example:
+
+Asset:
+P101
+Pressure:
+PT101
+Range:
+0–10 bar
+Current:
+6.8 bar
+Pump:
+RUNNING
+Inlet Valve:
+OPEN
+Alarm:
+NONE
+
+After engineering change:
+
+Pressure:
+PT101
+Range:
+0–16 bar
+
+The system must update dependent representations.
+
+⸻
+
+41. PROJECT X-RAY
+
+Provide one-screen visibility into:
+
+MACHINE
+ ↓
+PLC
+ ↓
+I/O
+ ↓
+HMI
+ ↓
+ALARMS
+ ↓
+TESTS
+ ↓
+DOCUMENTATION
+
+This is an engineering credibility feature.
+
+⸻
+
+42. REGRESSION
+
+Generated HMI changes should trigger relevant checks.
+
+Examples:
+
+Binding valid?
+Command valid?
+Range valid?
+Alarm visible?
+Trend valid?
+Simulation valid?
+Control feedback valid?
+
+Display real generated results.
+
+Never fabricate test numbers.
+
+⸻
+
+43. ENGINEERING EVIDENCE
+
+For important objects provide:
+
+WHAT
+WHY
+SOURCE
+EVIDENCE STRENGTH
+VALIDATION
+APPROVAL
+IMPACT
+REVISION
+
+Example:
+
+PT101 Range
+Value:
+0–16 bar
+Source:
+Engineering configuration
+Evidence:
+VERIFIED
+Affected:
+HMI + PLC scaling + alarms + trend
+Revision:
+R18
+
+⸻
+
+44. TRUST ARCHITECTURE
+
+Use five explicit authorities:
+
+AI
+INTERPRET / PROPOSE / EXPLAIN
+CANONICAL MODEL
+ENGINEERING SOURCE OF TRUTH
+ENGINEERING GUARD
+VALIDATION AUTHORITY
+ENGINEER
+APPROVAL AUTHORITY
+PLC
+RUNTIME CONTROL AUTHORITY
+
+This architecture must be visible in the product.
+
+⸻
+
+45. RUNTIME TRUST BANNER
+
+At runtime always show:
+
+● LIVE
+
+or:
+
+△ DEGRADED
+
+or:
+
+! STALE
+
+or:
+
+? UNKNOWN
+
+Also show:
+
+SIMULATED
+
+when using the simulator.
+
+The judge must always know whether the displayed machine is live, simulated, disconnected or unknown.
+
+⸻
+
+46. ERROR CONTRACT
+
+If AI fails:
+
+UNKNOWN
+
+No engineering change.
+
+If machine context is incomplete:
+
+INSUFFICIENT CONTEXT
+
+Ask for clarification or show unknown.
+
+If PLC is disconnected:
+
+CONTROL AUTHORITY UNAVAILABLE
+
+Disable consequential controls.
+
+If data is stale:
+
+MACHINE STATE UNKNOWN
+
+Do not pretend the old value is current.
+
+If validation fails:
+
+BLOCKED
+
+Do not generate a falsely verified result.
+
+⸻
+
+47. RESPONSIBLE INDUSTRIAL AI
+
+The system must explicitly communicate:
+
+AI assists engineering and operator understanding; it does not replace control authority or required engineering approval.
+
+No claims of:
+
+* autonomous plant control
+* safety certification
+* SIL certification
+* zero engineering
+* zero errors
+* guaranteed compliance
+* fully autonomous deployment
+
+⸻
+
+48. SCHNEIDER ECOSYSTEM POSITIONING
+
+Position CANON as an intelligence/model-driven layer around industrial engineering and HMI workflows, not as a replacement for EcoStruxure.
+
+Where appropriate, represent integration states as:
+
+CONNECTED
+SIMULATED
+DOCUMENTED
+DISCONNECTED
+UNAVAILABLE
+
+Never fake an EOTE/EcoStruxure API connection.
+
+If actual integration is not implemented:
+
+INTEGRATION STATUS:
+ARCHITECTURE-READY / SIMULATED
+
+Do not claim otherwise.
+
+⸻
+
+49. EOTE POSITIONING
+
+Treat EOTE as a potential HMI engineering/runtime target or ecosystem component.
+
+CANON’s role:
+
+ENGINEERING CONTEXT
+       ↓
+CANONICAL MODEL
+       ↓
+HMI PROJECTION
+       ↓
+EOTE / OTHER RUNTIME TARGET
+
+Do not claim proprietary API integration unless actually implemented.
+
+⸻
+
+50. COMPETITIVE DIFFERENTIATION
+
+Never claim:
+
+“Nobody else can generate HMI with AI.”
+
+Instead say:
+
+“Our differentiation is not AI-generated graphics. Our differentiation is machine-context-driven HMI generation with canonical engineering relationships, validated bindings, controlled machine interaction and change-aware regeneration.”
+
+⸻
+
+51. THE DEFENSIBLE MOAT
+
+The moat is:
+
+MACHINE CONTEXT
+      +
+CANONICAL MODEL
+      +
+STABLE IDENTITIES
+      +
+VALIDATED BINDINGS
+      +
+COMMAND CONTRACTS
+      +
+ENGINEERING GRAPH
+      +
+CHANGE IMPACT
+      +
+REGRESSION
+      +
+PROVENANCE
+      +
+REVISION HISTORY
+
+Not merely the LLM.
+
+⸻
+
+52. MASTER USER JOURNEY
+
+The complete user journey must be:
+
+1. SELECT MACHINE
+2. LOAD MACHINE CONTEXT
+3. REVIEW ENGINEERING MODEL
+4. ENTER NATURAL-LANGUAGE INTENT
+5. AI INTERPRETS INTENT
+6. CONTEXT RESOLUTION
+7. ENGINEERING VALIDATION
+8. DYNAMIC HMI GENERATION
+9. LIVE / SIMULATED DATA
+10. OPERATOR CONTROL
+11. PLC AUTHORITY
+12. FEEDBACK VERIFICATION
+13. ABNORMAL CONDITION
+14. CONTEXTUAL DIAGNOSTIC SCREEN
+15. ENGINEERING CHANGE
+16. IMPACT ANALYSIS
+17. HMI REGENERATION
+18. REGRESSION
+19. ENGINEER APPROVAL
+20. NEW BASELINE
+
+This is the product.
+
+⸻
+
+53. JUDGE EXPERIENCE
+
+The judge should understand the innovation within the first 30 seconds.
+
+Opening:
+
+“Today, HMI engineering starts with the screen. We start with the machine.”
+
+Then:
+
+“Give CANON an engineering context and an operator request, and it dynamically generates the appropriate HMI at runtime.”
+
+Then immediately demonstrate it.
+
+⸻
+
+54. FIVE-MINUTE WINNING DEMO
+
+0:00–0:30 — PROBLEM
+
+Show fragmented:
+
+PLC
+I/O
+ALARMS
+ASSETS
+DOCUMENTS
+
+Then say:
+
+“Today these engineering artifacts contain the machine knowledge, but the HMI is still manually assembled around them.”
+
+⸻
+
+0:30–1:00 — MACHINE CONTEXT
+
+Select:
+
+TK-401
+
+Show:
+
+LT401
+PT401
+P401
+XV401
+ALARMS
+COMMANDS
+PLC TAGS
+
+⸻
+
+1:00–1:30 — NATURAL LANGUAGE
+
+Enter:
+
+“Create an operator HMI for TK-401 with level, pressure, pump status, inlet valve status, alarms and Start/Stop controls.”
+
+⸻
+
+1:30–2:00 — DYNAMIC GENERATION
+
+Show:
+
+INTENT
+ ↓
+CONTEXT
+ ↓
+VALIDATION
+ ↓
+HMI COMPILER
+
+Then dynamically reveal the generated HMI.
+
+⸻
+
+2:00–2:40 — MACHINE CONTROL
+
+Press:
+
+START
+
+Show:
+
+PERMISSIVE CHECK
+ ↓
+PLC
+ ↓
+PUMP
+ ↓
+RUN FEEDBACK
+
+Then deliberately make:
+
+XV401_OPEN_FB = FALSE
+
+Press Start again.
+
+Show:
+
+START REJECTED
+INLET VALVE OPEN PERMISSIVE FALSE
+
+⸻
+
+2:40–3:10 — ABNORMAL CONDITION
+
+Ask:
+
+“Show diagnostics for the current abnormal condition.”
+
+Generate a contextual diagnostic HMI.
+
+⸻
+
+3:10–3:50 — ENGINEERING CHANGE
+
+Change:
+
+PT401
+0–10 bar
+
+to:
+
+0–16 bar
+
+Show:
+
+IMPACT DETECTED
+PLC
+HMI
+ALARMS
+TREND
+TEST
+SIMULATION
+
+⸻
+
+3:50–4:20 — REGENERATION
+
+Regenerate.
+
+The HMI now reflects:
+
+0–16 bar
+
+⸻
+
+4:20–4:40 — VERIFICATION
+
+Show:
+
+BINDINGS VERIFIED
+COMMAND CONTRACT VERIFIED
+REGRESSION PASS
+BLOCKERS 0
+
+Use real prototype-derived values.
+
+⸻
+
+4:40–5:00 — FINAL LINE
+
+“The screen is no longer an isolated engineering artifact. It is a projection of the machine.”
+
+Pause.
+
+“We don’t generate a screen from a prompt. We generate an interface from the machine.”
+
+⸻
+
+55. REQUIRED HERO FEATURES
+
+The final prototype must prioritize these over breadth:
+
+MUST HAVE
+
+1. Machine Context
+2. Natural Language Intent
+3. Dynamic Runtime HMI Generation
+4. Machine-Specific Screen
+5. Real/Simulated Live Values
+6. HMI Control
+7. PLC-authoritative command path
+8. Permissive validation
+9. Rejected-command explanation
+10. Dynamic contextual diagnostic screen
+11. Engineering Change
+12. Change Impact
+13. HMI Regeneration
+14. Binding Validation
+15. Regression
+16. Truth States
+17. Runtime Data Quality
+18. Clear SIMULATED state
+
+SHOULD HAVE
+
+19. Engineering Graph
+20. Project X-Ray
+21. Documentation provenance
+22. Audit trail
+23. Approval workflow
+24. Operator copilot
+
+FUTURE
+
+25. Multi-machine scaling
+26. Additional runtime targets
+27. Deeper EOTE integration
+28. Broader engineering artifact ingestion
+29. Expanded engineering automation
+
+⸻
+
+56. FEASIBILITY RULE
+
+Do not attempt to build an entire industrial automation platform.
+
+Build one extremely deep machine vertical slice.
+
+The judge must see:
+
+CONTEXT
+ ↓
+INTENT
+ ↓
+HMI
+ ↓
+CONTROL
+ ↓
+FEEDBACK
+ ↓
+CHANGE
+ ↓
+REGENERATION
+ ↓
+VERIFICATION
+
+A complete working loop beats dozens of disconnected features.
+
+⸻
+
+57. DATA CONSISTENCY RULE
+
+There must be one canonical source of demo truth.
+
+If:
+
+PT101 = 6.8 bar
+
+then:
+
+* HMI
+* graph
+* trend
+* simulator
+* copilot
+* engineering model
+* tests
+
+must not disagree.
+
+⸻
+
+58. UI QUALITY GATE
+
+Before considering the prototype complete, verify:
+
+Visual
+
+* professional industrial appearance
+* no generic SaaS look
+* no excessive cards
+* no neon
+* no random gradients
+* no decorative graphics
+* readable typography
+* consistent spacing
+* realistic HMI
+
+Functional
+
+* dynamic screen genuinely changes based on intent/context
+* signals are bound
+* controls work
+* feedback works
+* permissive rejection works
+* diagnostics work
+* engineering changes propagate
+* validation works
+* regression works
+
+Trust
+
+* simulated state clearly labelled
+* unknown state handled
+* stale data handled
+* no fake connectivity
+* no invented engineering facts
+* no AI direct actuator authority
+
+⸻
+
+59. INDUSTRIAL CREDIBILITY GATE
+
+Before final submission ask:
+
+Can we prove the screen came from machine context?
+
+YES.
+
+Can we prove the data binding?
+
+YES.
+
+Can we prove the control path?
+
+YES.
+
+Can we show a failed permissive?
+
+YES.
+
+Can we show machine change affecting HMI?
+
+YES.
+
+Can we show dynamic regeneration?
+
+YES.
+
+Can we show verification?
+
+YES.
+
+Can we distinguish simulated from real?
+
+YES.
+
+If any answer is NO, fix that before adding another feature.
+
+⸻
+
+60. COMPETITION SCORECARD
+
+Design the final product to maximize:
+
+Category	Target
+Direct PS2 Alignment	10/10
+Dynamic Runtime Generation	10/10
+Machine Control via HMI	10/10
+Machine Context	10/10
+Demo Wow Factor	10/10
+Industrial Credibility	10/10
+Technical Depth	9.5/10
+Feasibility	9.5/10
+AI Relevance	9.5/10
+HMI/UX Quality	10/10
+Safety/Authority Boundary	10/10
+Engineering Traceability	10/10
+Change Adaptation	10/10
+Differentiation	9.5/10
+Schneider Ecosystem Fit	9.5/10
+Scalability	9.5/10
+Judge Clarity	10/10
+Overall Competition Target	97–99/100
+
+Do not falsely claim 100/100.
+
+Build something that makes a 97–99 evaluation credible.
+
+⸻
+
+61. FINAL COMPETITION POSITIONING
+
+THE OLD WAY
+
+ENGINEER
+ ↓
+CREATE SCREEN
+ ↓
+BIND TAGS
+ ↓
+CONFIGURE ALARMS
+ ↓
+MAINTAIN SCREEN
+ ↓
+REPEAT AFTER EVERY CHANGE
+
+THE CANON WAY
+
+MACHINE CONTEXT
+       ↓
+NATURAL LANGUAGE INTENT
+       ↓
+AI INTERPRETATION
+       ↓
+CANONICAL ENGINEERING MODEL
+       ↓
+VALIDATION
+       ↓
+DYNAMIC HMI
+       ↓
+PLC-AUTHORITATIVE CONTROL
+       ↓
+LIVE FEEDBACK
+       ↓
+ENGINEERING CHANGE
+       ↓
+IMPACT ANALYSIS
+       ↓
+HMI REGENERATION
+       ↓
+REGRESSION
+
+⸻
+
+62. FINAL PRODUCT STATEMENT
+
+CANON transforms HMI engineering from manually maintained screens into machine-context-driven dynamic interfaces.
+
+It creates a unified machine context from PLC/controller tags, I/O configuration, asset hierarchies, alarm definitions, communication configurations and machine documentation.
+
+AI interprets operator intent against that context.
+
+A canonical engineering model determines what machine objects, signals and commands actually exist.
+
+A deterministic validation layer verifies bindings and command contracts.
+
+A dynamic HMI compiler generates the appropriate machine-specific interface at runtime.
+
+Operators can interact with the machine through that HMI while the PLC remains the authoritative control layer.
+
+When engineering changes occur, CANON identifies downstream dependencies, regenerates affected HMI representations and supports regression verification.
+
+⸻
+
+63. FINAL ONE-LINER
+
+Describe the machine once. CANON dynamically generates the right HMI from its engineering context, enables controlled machine interaction through the HMI, and keeps the interface aligned as the machine evolves.
+
+⸻
+
+64. FINAL TAGLINE
+
+ENGINEERING CONTEXT → DYNAMIC HMI → VERIFIED MACHINE INTERACTION
+
+⸻
+
+65. FINAL JUDGE CLOSING
+
+“Most HMI systems start with a screen and connect it to the machine. CANON starts with the machine and generates the screen from it.”
+
+“We don’t generate a screen from a prompt. We generate an interface from the machine.”

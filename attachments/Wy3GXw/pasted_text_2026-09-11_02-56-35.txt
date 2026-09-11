@@ -1,0 +1,100 @@
+batch_reactor_RX-05 Modicon M241
+Ingested from uploaded document · canonical model v1 — the source of truth
+5ASSETS
+21SIGNALS
+8COMMANDS
+7ALARMS
+2PERMISSIVES
+model
+HMI Studio
+Generate HMI from a prompt
+e.g. operator page for the pump  ·  show me the whole line  ·  tank level
+Generate
+Whole lineRX-501AGT-501P-501XV-501XV-502
+✓ deterministic → scope machine (overview keyword) · 1 ms · v1
+batch_reactor_RX-05 — overview
+VALIDATED · 13 widgets · 12 w/ evidence RUNTIME · SIMULATOR
+◆ What this screen shows
+This is a line overview. It has 13 widgets — 2× numeric readings, 2× pressure gauges, 2× motor start/stop controls, 2× permissive gates, 2× valve open/close controls, 1× KPI status header, 1× alarm banner, 1× level gauge — bound to 13 real signals with 22 evidence links. Operators can command AGT-501_START, AGT-501_STOP, P-501_START, P-501_STOP, XV-501_CLOSE, XV-501_OPEN, XV-502_CLOSE, XV-502_OPEN, each gated by its permissive contract. Every binding was validated against the canonical model — nothing is invented.
+batch_reactor_RX-05
+Modicon M241
+5
+ASSETS
+7
+ALARM SRC
+8
+COMMANDS
+System
+Alarms ● SIMULATOR
+◔ 7 sources · none active
+evidence ×7
+RX-501 · tank
+Level
+LT-501 · 39.0 %
+range [0, 100] · evidence ×1
+Value
+TT-501
+57.2 degC
+evidence ×1
+Pressure
+PT-501 · 0.4 bar
+range [0, 10] · evidence ×1
+AGT-501 · motor
+Motor
+stopped · AGT-501
+▶ START■ STOP
+ AGT-501_FAULT · evidence ×2
+Value
+AGT-501_SPEED
+0.0 rpm
+evidence ×1
+Permissive gate
+AGT-501_START
+AGT-501_FAULT
+evidence ×1
+P-501 · pump
+Motor
+stopped · P-501
+▶ START■ STOP
+ P-501_FAULT · evidence ×2
+Pressure
+PT-502 · 0.2 bar
+range [0, 6] · evidence ×1
+Permissive gate
+P-501_START
+P-501_FAULT
+evidence ×1
+XV-501 · valve
+Valve
+closed · XV-501
+OPENCLOSE
+evidence ×2
+XV-502 · valve
+Valve
+closed · XV-502
+OPENCLOSE
+evidence ×2
+Refine with a prompt copilot
+add a trend for … · add value for … · remove alarms · remove pressure
+Apply edit
+Try: add trend for LT-501remove alarmsremove pressure
+Change impact engineering reality → HMI
+Change a signal's engineering range. CANON finds the affected components and regenerates at the new range (a reviewable revision).
+
+AGT-501_SPEED · 0–590 rpm
+new max
+Apply change
+✓ AGT-501_SPEED range 600→590 · rev v2 (review required)
+Affected components:
+• AlarmBanner — binds AGT-501_SPEED — gauge range / scaling updates to new span
+• NumericValue — binds AGT-501_SPEED — gauge range / scaling updates to new span
+• ALM_AGT-501_SPEED_HH — threshold must be re-rationalised against the new span
+HMI revisions
+v1
+02:55:07
+generated · show me the whole line
+approved
+restore
+v2
+02:55:24
+change-impact · AGT-501_SPEED max 600.0→590

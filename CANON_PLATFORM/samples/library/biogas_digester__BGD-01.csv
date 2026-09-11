@@ -1,0 +1,49 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+TK-101,tank,LT-101,analog-in,%,0,100,90,80,20,10,level
+TK-101,tank,TT-101,analog-in,degC,0,200,150,130,,,temp
+TK-101,tank,PT-101,analog-in,mbar,0,100,90,80,,,gas-pressure
+TK-102,tank,LT-102,analog-in,%,0,100,90,80,20,10,level
+TK-102,tank,TT-102,analog-in,degC,0,200,150,130,,,temp
+TK-102,tank,PT-102,analog-in,mbar,0,100,90,80,,,gas-pressure
+TK-103,tank,LT-103,analog-in,%,0,100,90,80,20,10,level
+TK-103,tank,TT-103,analog-in,degC,0,200,150,130,,,temp
+TK-103,tank,PT-103,analog-in,mbar,0,100,90,80,,,gas-pressure
+TK-104,tank,LT-104,analog-in,%,0,100,90,80,20,10,level
+TK-104,tank,TT-104,analog-in,degC,0,200,150,130,,,temp
+TK-104,tank,PT-104,analog-in,mbar,0,100,90,80,,,gas-pressure
+TK-105,tank,LT-105,analog-in,%,0,100,90,80,20,10,level
+TK-105,tank,TT-105,analog-in,degC,0,200,150,130,,,temp
+TK-105,tank,PT-105,analog-in,mbar,0,100,90,80,,,gas-pressure
+P-101,pump,FT-101,analog-in,m3/h,0,300,,,,10,flow
+P-101,pump,P-101_RUNNING,discrete-in,,,,,,,,running
+P-101,pump,P-101_FAULT,discrete-in,,,,,,,,fault
+P-101,pump,P-101_START_REQ,discrete-out,,,,,,,,start
+P-101,pump,P-101_STOP_REQ,discrete-out,,,,,,,,stop
+XV-101,valve,XV-101_OPEN,discrete-in,,,,,,,,open limit
+XV-101,valve,XV-101_CLOSED,discrete-in,,,,,,,,closed limit
+XV-101,valve,XV-101_OPEN_REQ,discrete-out,,,,,,,,open
+XV-101,valve,XV-101_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-102,valve,XV-102_OPEN,discrete-in,,,,,,,,open limit
+XV-102,valve,XV-102_CLOSED,discrete-in,,,,,,,,closed limit
+XV-102,valve,XV-102_OPEN_REQ,discrete-out,,,,,,,,open
+XV-102,valve,XV-102_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-103,valve,XV-103_OPEN,discrete-in,,,,,,,,open limit
+XV-103,valve,XV-103_CLOSED,discrete-in,,,,,,,,closed limit
+XV-103,valve,XV-103_OPEN_REQ,discrete-out,,,,,,,,open
+XV-103,valve,XV-103_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-104,valve,XV-104_OPEN,discrete-in,,,,,,,,open limit
+XV-104,valve,XV-104_CLOSED,discrete-in,,,,,,,,closed limit
+XV-104,valve,XV-104_OPEN_REQ,discrete-out,,,,,,,,open
+XV-104,valve,XV-104_CLOSE_REQ,discrete-out,,,,,,,,close
+M-101,motor,M-101_RUNNING,discrete-in,,,,,,,,running
+M-101,motor,M-101_FAULT,discrete-in,,,,,,,,fault
+M-101,motor,M-101_START_REQ,discrete-out,,,,,,,,start
+M-101,motor,M-101_STOP_REQ,discrete-out,,,,,,,,stop
+M-102,motor,M-102_RUNNING,discrete-in,,,,,,,,running
+M-102,motor,M-102_FAULT,discrete-in,,,,,,,,fault
+M-102,motor,M-102_START_REQ,discrete-out,,,,,,,,start
+M-102,motor,M-102_STOP_REQ,discrete-out,,,,,,,,stop
+M-103,motor,M-103_RUNNING,discrete-in,,,,,,,,running
+M-103,motor,M-103_FAULT,discrete-in,,,,,,,,fault
+M-103,motor,M-103_START_REQ,discrete-out,,,,,,,,start
+M-103,motor,M-103_STOP_REQ,discrete-out,,,,,,,,stop

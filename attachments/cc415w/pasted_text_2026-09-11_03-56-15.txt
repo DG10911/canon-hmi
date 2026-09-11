@@ -1,0 +1,1428 @@
+CANON — SCHNEIDER ELECTRIC HACKATHON 2026
+INTERACTIVE JUDGE PRESENTATION / PRODUCT STORY
+MASTER BUILD PROMPT
+VERSION 1.0
+
+============================================================
+MISSION
+============================================================
+
+Build a spectacular, premium, interactive PRESENTATION.HTML for CANON.
+
+CANON:
+ENGINEERING INTENT → VERIFIED AUTOMATION
+
+This is NOT a normal presentation.
+This is NOT a landing page.
+This is NOT a marketing website.
+This is NOT a collection of screenshots.
+
+It is an interactive technical product narrative designed specifically for
+Schneider Electric judges.
+
+The judge should be able to understand CANON in approximately 3–5 minutes
+without a presenter explaining every detail.
+
+The presentation must make the following realization happen:
+
+"CANON doesn't just generate an HMI.
+CANON understands engineering reality, creates a canonical engineering model,
+uses AI to understand human intent, validates everything deterministically,
+generates the operator experience, connects it to runtime, and tracks
+engineering changes back into the HMI."
+
+The presentation must feel like a product that could credibly become part
+of the next generation of the EcoStruxure ecosystem.
+
+============================================================
+ABSOLUTE RULE — NO FAKE CLAIMS
+============================================================
+
+Use ONLY facts, numbers, screens, capabilities, datasets, architecture,
+models, and prototype behavior that actually exist in the current repository.
+
+DO NOT invent:
+
+- customers
+- deployments
+- revenue
+- performance numbers
+- PLC capabilities
+- Schneider integrations that are not implemented
+- AI accuracy percentages
+- latency numbers that were not measured
+- production readiness
+- live PLC connectivity
+- OPC UA connectivity if not actually running
+- Modbus connectivity if not actually running
+- real-world business results
+- fake testimonials
+- fake logos
+- fake benchmark scores
+
+If something is simulator-based, explicitly label:
+
+SIMULATOR
+
+If something is Brain-powered, show:
+
+CANON-BRAIN
+
+If something is deterministic, show:
+
+DETERMINISTIC CANON ENGINE
+
+The presentation must be impressive BECAUSE IT IS HONEST.
+
+============================================================
+FIRST ACTION — AUDIT THE REPOSITORY
+============================================================
+
+Before designing anything:
+
+1. Inspect the complete repository.
+2. Find the existing CANON platform.
+3. Find all existing HMI screens.
+4. Find canonical model data.
+5. Find acquisition data.
+6. Find evidence data.
+7. Find Brain integration.
+8. Find Brain evaluation results.
+9. Find validator.
+10. Find simulator.
+11. Find runtime implementation.
+12. Find change-impact implementation.
+13. Find revision history.
+14. Find tests.
+15. Find screenshots/assets already generated.
+16. Find exact current metrics.
+
+DO NOT guess values.
+
+Build the presentation from the actual implementation.
+
+============================================================
+DESIGN LANGUAGE
+============================================================
+
+The visual language must feel like:
+
+SCHNEIDER ELECTRIC
++
+ADVANCED INDUSTRIAL AUTOMATION
++
+ENGINEERING SOFTWARE
++
+AI INTELLIGENCE
++
+MISSION-CRITICAL CONTROL
+
+Avoid:
+
+- generic SaaS dashboards
+- startup gradients everywhere
+- excessive glassmorphism
+- cartoon AI graphics
+- giant meaningless 3D objects
+- stock photography
+- fake factory imagery
+- crypto-style neon
+- excessive rounded cards
+- decorative graphs with fake data
+
+Use:
+
+- dark industrial interface
+- precise grids
+- technical typography
+- subtle engineering-blue/green accents
+- high information density
+- thin dividers
+- topology lines
+- signal paths
+- system diagrams
+- evidence indicators
+- status lights
+- terminal-style technical details
+- restrained motion
+- strong hierarchy
+
+The UI should feel like an engineering workstation.
+
+============================================================
+PRESENTATION STRUCTURE
+============================================================
+
+Create approximately 10–12 interactive sections.
+
+Navigation should be extremely smooth.
+
+Suggested sequence:
+
+01 — THE PROBLEM
+02 — THE IDEA
+03 — THE CANON LOOP
+04 — ENGINEERING INPUTS
+05 — CONTEXT ENGINE
+06 — CANONICAL MODEL
+07 — CANON-BRAIN
+08 — AUTOMATIC HMI
+09 — REAL RUNTIME
+10 — ENGINEERING CHANGE IMPACT
+11 — WHY CANON IS DIFFERENT
+12 — SCHNEIDER OPPORTUNITY
+13 — FINAL ONE-LINE VISION
+
+============================================================
+SECTION 01 — OPENING
+============================================================
+
+Full-screen cinematic opening.
+
+Minimal text.
+
+CANON
+
+ENGINEERING INTENT
+→
+VERIFIED AUTOMATION
+
+Small subtitle:
+
+AI-assisted engineering intelligence for industrial automation.
+
+Then animate a subtle engineering signal path:
+
+DOCUMENTS
+PLC
+I/O
+TAGS
+P&ID
+HMI
+RUNTIME
+ENGINEERING KNOWLEDGE
+
+↓
+
+CANON
+
+↓
+
+MODEL
+INTENT
+VALIDATION
+HMI
+RUNTIME
+CHANGE
+
+Do NOT make this look like a generic AI startup.
+
+Make it look like an industrial engineering system coming online.
+
+============================================================
+SECTION 02 — THE PROBLEM
+============================================================
+
+Title:
+
+THE INDUSTRIAL ENGINEERING GAP
+
+Show the traditional workflow:
+
+ENGINEER
+↓
+READ PLC PROJECT
+↓
+UNDERSTAND TAGS
+↓
+READ P&ID
+↓
+UNDERSTAND INTERLOCKS
+↓
+BUILD HMI
+↓
+MAP TAGS
+↓
+VALIDATE
+↓
+TEST
+↓
+CHANGE ENGINEERING
+↓
+UPDATE HMI AGAIN
+
+Show fragmentation:
+
+PLC PROJECT
+P&ID
+I/O LIST
+ALARMS
+MANUALS
+EXISTING HMI
+ENGINEERING NOTES
+
+Then:
+
+"Human expertise is forced to manually connect all of this."
+
+Do not claim exact time savings unless measured.
+
+============================================================
+SECTION 03 — THE CANON IDEA
+============================================================
+
+Large statement:
+
+WHAT IF THE MACHINE
+COULD BE UNDERSTOOD
+BEFORE THE HMI WAS BUILT?
+
+Animate:
+
+ENGINEERING INPUTS
+↓
+CANON
+↓
+ENGINEERING CONTEXT
+↓
+CANONICAL MODEL
+↓
+VERIFIED HMI
+↓
+RUNTIME
+↓
+CHANGE IMPACT
+
+Then introduce the core principle:
+
+AI interprets engineering intent.
+
+CANON establishes engineering truth.
+
+============================================================
+SECTION 04 — THE FULL CANON LOOP
+============================================================
+
+Create a beautiful interactive architecture diagram.
+
+Show:
+
+ENGINEERING INPUTS
+        ↓
+INGESTION
+        ↓
+NORMALIZATION
+        ↓
+ENTITY RESOLUTION
+        ↓
+RELATIONSHIP UNDERSTANDING
+        ↓
+CONTROL UNDERSTANDING
+        ↓
+EVIDENCE + PROVENANCE
+        ↓
+CONFLICT + UNCERTAINTY
+        ↓
+CANONICAL ENGINEERING MODEL
+        ↓
+CANON-BRAIN
+        ↓
+STRUCTURED PROPOSAL
+        ↓
+DETERMINISTIC VALIDATOR
+        ↓
+HMI ASSEMBLER
+        ↓
+RUNTIME
+        ↓
+FEEDBACK
+        ↓
+CHANGE IMPACT
+        ↺
+
+Make each node clickable.
+
+Clicking a node opens a compact explanation.
+
+============================================================
+SECTION 05 — ENGINEERING INPUTS
+============================================================
+
+Show the breadth of information CANON can reason over.
+
+Create an animated ingestion wall:
+
+PLC PROJECT
+TAGS
+I/O
+ASSET HIERARCHY
+P&ID
+ELECTRICAL DOCUMENTS
+INSTRUMENTATION
+MOTORS
+DRIVES
+VALVES
+COMMANDS
+PERMISSIVES
+INTERLOCKS
+ALARMS
+STATES
+MODES
+SEQUENCES
+EXISTING HMI
+HMI SCREENSHOTS
+VENDOR DOCUMENTATION
+PROTOCOL INFORMATION
+ENGINEERING CONVENTIONS
+
+Then collapse them into:
+
+ONE ENGINEERING CONTEXT
+
+Important:
+
+Do not claim every format is currently implemented unless the repository
+actually supports it.
+
+Distinguish:
+
+SUPPORTED NOW
+vs
+ROADMAP
+
+============================================================
+SECTION 06 — CONTEXT ENGINE
+============================================================
+
+This is one of the most important sections.
+
+Show the actual prototype Context screen.
+
+DO NOT recreate it as a fake illustration if the real UI can be embedded.
+
+Show actual metrics from the implementation.
+
+For example, if current project data actually says:
+
+5 ASSETS
+21 SIGNALS
+8 COMMANDS
+7 ALARMS
+2 PERMISSIVES
+
+show those exact numbers.
+
+Animate:
+
+SOURCE
+→
+EVIDENCE
+→
+FACT
+→
+ENTITY
+→
+RELATIONSHIP
+→
+CANONICAL MODEL
+
+Explain:
+
+CANON does not simply extract tags.
+
+It constructs an engineering context.
+
+Show statuses:
+
+VERIFIED
+REVIEW REQUIRED
+UNKNOWN
+CONFLICTED
+STALE
+
+Highlight the principle:
+
+UNKNOWN ≠ KNOWN
+
+============================================================
+SECTION 07 — CANONICAL MODEL
+============================================================
+
+Show a beautiful interactive machine model.
+
+Use an actual current project such as:
+
+batch_reactor_RX-05
+
+or whichever real model exists in the repository.
+
+Show:
+
+RX-501
+AGT-501
+P-501
+XV-501
+XV-502
+
+Then show relationships:
+
+TT-501
+LT-501
+PT-501
+PT-502
+AGT-501_SPEED
+P-501_FLOW
+
+Commands:
+
+AGT-501_START
+AGT-501_STOP
+P-501_START
+P-501_STOP
+XV-501_OPEN
+XV-501_CLOSE
+XV-502_OPEN
+XV-502_CLOSE
+
+Permissives and alarms should be shown only if actually present.
+
+Make the model visually feel like:
+
+DIGITAL ENGINEERING CONTEXT
+
+Not a generic graph database.
+
+============================================================
+SECTION 08 — THE BRAIN
+============================================================
+
+This is the AI reveal.
+
+Title:
+
+THE BRAIN DOES NOT INVENT THE MACHINE.
+
+It understands the engineer.
+
+Show:
+
+ENGINEER
+
+"Keep an eye on the reactor temperature
+and make the agitator easier to control."
+
+↓
+
+CANON-BRAIN
+
+↓
+
+STRUCTURED INTENT
+
+temperature_monitor
++
+agitator_operator_control
+
+↓
+
+CANON MODEL
+
+TT-501
+AGT-501
+
+↓
+
+VALIDATOR
+
+VERIFIED
+
+↓
+
+HMI
+
+Then explicitly explain the architecture:
+
+BRAIN:
+language understanding
+semantic resolution
+intent interpretation
+recommendations
+explanation
+
+DETERMINISTIC CANON:
+engineering truth
+bindings
+contracts
+validation
+assembly
+provenance
+change impact
+
+PLC / RUNTIME:
+final authority
+
+This distinction must be visually obvious.
+
+============================================================
+SECTION 09 — LIVE BRAIN DEMONSTRATION
+============================================================
+
+If the actual Brain is available locally, make this section interactive.
+
+Include a prompt input:
+
+"Keep an eye on the reactor temperature."
+
+When submitted:
+
+show:
+
+CANON-BRAIN
+CONNECTED
+
+↓
+
+intent interpreted
+
+↓
+
+TT-501 resolved
+
+↓
+
+canonical validation
+
+↓
+
+HMI proposal
+
+↓
+
+validated widget
+
+Use actual model output where possible.
+
+Then provide additional test prompts:
+
+"Show me the whole reactor."
+
+"Make the agitator easier to operate."
+
+"Show the two pressures."
+
+"Add a trend for reactor temperature."
+
+Show the actual result.
+
+IMPORTANT:
+
+If Brain is unavailable, DO NOT simulate a Brain response.
+
+Show:
+
+BRAIN OFFLINE
+
+and explain that the deterministic engineering layer remains available.
+
+============================================================
+SECTION 10 — AUTOMATIC HMI
+============================================================
+
+This is the hero section.
+
+Embed the actual HMI Studio prototype if possible.
+
+Show the real generated screen.
+
+Include actual metrics:
+
+VALIDATED
+X WIDGETS
+X BINDINGS
+X EVIDENCE LINKS
+
+Use the exact current values.
+
+Show:
+
+ASSETS
+SIGNALS
+COMMANDS
+ALARMS
+PERMISSIVES
+
+Then visually trace:
+
+CANONICAL SIGNAL
+↓
+HMI WIDGET
+↓
+EVIDENCE
+
+Clicking a widget should reveal:
+
+SOURCE
+SIGNAL
+UNIT
+RANGE
+EVIDENCE
+VALIDATION STATUS
+
+This demonstrates:
+
+Nothing is merely decorative.
+
+============================================================
+SECTION 11 — OPERATOR EXPERIENCE
+============================================================
+
+Show actual industrial HMI components:
+
+- motor faceplate
+- pump controls
+- valve controls
+- pressure gauge
+- level gauge
+- temperature
+- alarm banner
+- permissive gates
+- trends
+- status indicators
+
+Use only components that actually exist in the platform.
+
+Demonstrate:
+
+START
+STOP
+OPEN
+CLOSE
+
+Then show:
+
+COMMAND
+↓
+CONTRACT
+↓
+PERMISSIVE
+↓
+VALIDATOR
+↓
+RUNTIME
+
+Make it obvious that the Brain cannot directly control equipment.
+
+============================================================
+SECTION 12 — RUNTIME
+============================================================
+
+Title:
+
+FROM GENERATED HMI
+TO RUNNING MACHINE MODEL
+
+Show:
+
+HMI
+↓
+CANON API
+↓
+COMMAND CONTRACT
+↓
+VALIDATOR
+↓
+SIMULATOR / OPC UA / MODBUS
+↓
+MACHINE STATE
+↓
+WEBSOCKET
+↓
+HMI
+
+If current runtime is simulator-based:
+
+Show:
+
+RUNTIME · SIMULATOR
+
+Never call it LIVE PLC.
+
+Show actual changing runtime values only if they are genuinely coming from
+the server-side runtime.
+
+Show a small live telemetry panel:
+
+TEMPERATURE
+PRESSURE
+LEVEL
+FLOW
+MOTOR STATE
+VALVE STATE
+
+Include:
+
+last update timestamp
+connection state
+quality/state
+
+============================================================
+SECTION 13 — CHANGE IMPACT
+============================================================
+
+This should be a major WOW moment.
+
+Show actual current change-impact UI.
+
+Example:
+
+AGT-501_SPEED
+
+CURRENT
+0–600 rpm
+
+↓
+
+PROPOSED
+0–590 rpm
+
+↓
+
+CANON
+
+finds affected components.
+
+Show:
+
+NumericValue
+AlarmBanner
+Alarm threshold requiring review
+
+Then:
+
+REVISION
+v1 → v2
+
+STATUS:
+REVIEW REQUIRED
+
+Explain:
+
+Engineering reality changed.
+
+CANON identifies what the change affects.
+
+The HMI does not silently drift away from the engineering model.
+
+This is a core differentiator.
+
+============================================================
+SECTION 14 — EVIDENCE / TRUST
+============================================================
+
+Show:
+
+WHY CANON IS TRUSTWORTHY
+
+Every important engineering binding can be traced through:
+
+HMI ELEMENT
+↓
+CANONICAL SIGNAL
+↓
+FACT
+↓
+EVIDENCE
+↓
+SOURCE
+
+Show example:
+
+TT-501
+↓
+temperature signal
+↓
+canonical fact
+↓
+source/evidence
+
+Include:
+
+UNKNOWN
+REVIEW REQUIRED
+CONFLICTED
+
+as first-class states.
+
+Strong statement:
+
+"CANON does not hide uncertainty."
+
+============================================================
+SECTION 15 — SAFETY / AUTHORITY
+============================================================
+
+Make this extremely clear.
+
+Three columns:
+
+AI
+
+UNDERSTANDS
+PROPOSES
+EXPLAINS
+
+CANON
+
+VALIDATES
+BINDS
+ASSEMBLES
+TRACKS CHANGE
+
+PLC / RUNTIME
+
+AUTHORIZES
+EXECUTES
+REPORTS ACTUAL STATE
+
+Then large text:
+
+AI NEVER BYPASSES THE ENGINEERING AUTHORITY.
+
+Show rejected example:
+
+User:
+
+"Start FT-999"
+
+↓
+
+CANON-BRAIN
+
+proposes FT-999
+
+↓
+
+CANON MODEL
+
+FT-999 NOT FOUND
+
+↓
+
+VALIDATOR
+
+REJECTED
+
+↓
+
+NOT RENDERED
+NOT EXECUTED
+
+This is an excellent judge-facing demonstration.
+
+============================================================
+SECTION 16 — WHY THIS IS DIFFERENT
+============================================================
+
+Do NOT say:
+
+"AI HMI generator."
+
+Instead compare:
+
+TRADITIONAL HMI GENERATION
+
+Manual engineering
+Manual tag mapping
+Manual screen design
+Manual validation
+Manual updates
+
+GENERIC AI HMI
+
+Prompt
+→
+LLM
+→
+UI
+
+CANON
+
+Engineering reality
+→
+Evidence
+→
+Canonical model
+→
+Brain
+→
+Structured intent
+→
+Validation
+→
+HMI
+→
+Runtime
+→
+Change impact
+
+Highlight:
+
+THE DIFFERENCE IS THE ENGINEERING MODEL.
+
+============================================================
+SECTION 17 — SCHNEIDER OPPORTUNITY
+============================================================
+
+Do not claim partnership or official endorsement.
+
+Frame this as:
+
+WHERE CANON COULD EXTEND THE ECOSTRUXURE ECOSYSTEM
+
+Show possible integration surfaces only where technically justified:
+
+Engineering project data
+OPC UA
+Modbus
+Machine Expert / Control Expert artifacts
+HMI / SCADA workflows
+Schneider equipment knowledge
+Industrial standards
+
+Then:
+
+INPUT
+→
+CANON
+→
+ENGINEERING INTELLIGENCE
+→
+OPERATOR EXPERIENCE
+
+Potential future directions:
+
+• faster engineering context creation
+• assisted HMI generation
+• engineering change impact
+• evidence-backed operator interfaces
+• natural-language engineering workflows
+• cross-project knowledge reuse
+
+Label roadmap items:
+
+ROADMAP
+
+============================================================
+SECTION 18 — CURRENT PROTOTYPE SCORECARD
+============================================================
+
+Show REAL implementation metrics only.
+
+Example categories:
+
+CANON MODEL
+assets
+signals
+commands
+alarms
+permissives
+
+HMI
+widgets
+bindings
+evidence links
+validated status
+
+ACQUISITION
+sources
+entities
+facts
+relationships
+conflicts
+unknowns
+
+AI
+model
+evaluation size
+JSON validity
+invented-tag rate
+other measured metrics
+
+RUNTIME
+SIMULATOR
+protocol status
+WebSocket status
+
+TESTING
+Pytest
+Playwright
+golden cases
+
+DO NOT invent percentages.
+
+If a metric is not measured:
+
+NOT MEASURED
+
+This is much more credible than fake 99.9% claims.
+
+============================================================
+SECTION 19 — THE COMPLETE PRODUCT LOOP
+============================================================
+
+Create one final giant animated loop:
+
+ENGINEERING PACKAGE
+        ↓
+UNDERSTAND
+        ↓
+CANONICALIZE
+        ↓
+EVIDENCE
+        ↓
+MODEL
+        ↓
+ASK
+        ↓
+CANON-BRAIN
+        ↓
+PROPOSE
+        ↓
+VALIDATE
+        ↓
+GENERATE HMI
+        ↓
+RUN
+        ↓
+OBSERVE
+        ↓
+CHANGE ENGINEERING
+        ↓
+IMPACT ANALYSIS
+        ↓
+REGENERATE
+        ↺
+
+Animate the loop continuously.
+
+This should be the visual climax.
+
+============================================================
+SECTION 20 — FINAL STATEMENT
+============================================================
+
+Black/dark screen.
+
+Large:
+
+CANON
+
+ENGINEERING INTENT
+→
+VERIFIED AUTOMATION
+
+Then:
+
+"AI can understand what an engineer means.
+
+CANON makes sure what becomes real
+is grounded in engineering reality."
+
+Then:
+
+CONTEXT
+MODEL
+BRAIN
+VALIDATOR
+HMI
+RUNTIME
+CHANGE
+
+Final small line:
+
+Built for the next generation of industrial engineering.
+
+============================================================
+INTERACTION DESIGN
+============================================================
+
+The presentation should support:
+
+- scroll-driven storytelling
+- keyboard arrow navigation
+- progress indicator
+- section navigation
+- clickable architecture nodes
+- expandable technical details
+- real HMI screen interaction where possible
+- live Brain prompt if actually available
+- animated data flow
+- hover states
+- evidence drill-down
+- model entity inspection
+- change-impact interaction
+
+Keyboard:
+
+← previous
+→ next
+Space next
+Esc overview
+
+============================================================
+MOTION
+============================================================
+
+Motion should feel like industrial instrumentation.
+
+Use:
+
+- signal pulses
+- data-flow lines
+- subtle status transitions
+- model node activation
+- evidence tracing
+- progressive assembly
+- smooth section transitions
+
+Avoid:
+
+- excessive bouncing
+- flashy particle effects
+- gaming animations
+- unnecessary parallax
+- distracting motion
+
+The motion should communicate SYSTEM BEHAVIOR.
+
+============================================================
+REAL PROTOTYPE INTEGRATION
+============================================================
+
+If the existing CANON platform is running locally, embed or link to actual
+screens/components rather than recreating fake screenshots.
+
+Where possible:
+
+presentation
+→ actual Context
+→ actual Model
+→ actual HMI Studio
+→ actual Brain flow
+→ actual Runtime
+→ actual Change Impact
+
+The presentation should feel like:
+
+THE PRESENTATION IS A WINDOW INTO THE PRODUCT.
+
+Not:
+
+THE PRESENTATION IS A SEPARATE MOCKUP.
+
+============================================================
+TECHNICAL IMPLEMENTATION
+============================================================
+
+Build as a self-contained:
+
+presentation.html
+
+with supporting assets only if required.
+
+Prefer:
+
+HTML
+CSS
+JavaScript
+SVG
+
+Use external libraries only if already available or necessary.
+
+The result must run locally.
+
+Provide:
+
+presentation.html
+
+and, if needed:
+
+/assets
+/data
+
+Do not require a build pipeline just to open the presentation unless the
+existing application architecture requires it.
+
+============================================================
+RESPONSIVE DESIGN
+============================================================
+
+Must work on:
+
+1920×1080
+1440×900
+1280×800
+MacBook display
+projector presentation
+
+Primary target:
+
+16:9 landscape.
+
+============================================================
+VISUAL HIERARCHY
+============================================================
+
+Every section must answer ONE question.
+
+01:
+What is CANON?
+
+02:
+Why does the problem matter?
+
+03:
+What is the architecture?
+
+04:
+What engineering information does CANON understand?
+
+05:
+How does CANON build context?
+
+06:
+What is the canonical model?
+
+07:
+What does the Brain actually do?
+
+08:
+How does it generate an HMI?
+
+09:
+Does it actually run?
+
+10:
+What happens when engineering changes?
+
+11:
+Why is it trustworthy?
+
+12:
+Why could Schneider care?
+
+============================================================
+JUDGE PSYCHOLOGY
+============================================================
+
+Design specifically for a technical judge.
+
+Within the first 30 seconds they should understand:
+
+1. The problem.
+2. The CANON idea.
+3. The engineering model.
+
+Within 90 seconds:
+
+4. AI/Brain architecture.
+5. Automatic HMI.
+6. Validation.
+
+Within 3 minutes:
+
+7. Runtime.
+8. Change impact.
+9. Evidence/trust.
+
+Within 5 minutes:
+
+10. Why this is strategically interesting for Schneider.
+
+============================================================
+IMPORTANT — DO NOT OVERSELL
+============================================================
+
+Use language such as:
+
+"prototype"
+"demonstrates"
+"currently implemented"
+"simulator"
+"roadmap"
+
+where appropriate.
+
+Do NOT say:
+
+"production ready"
+"fully autonomous"
+"zero engineering required"
+"100% accurate"
+"Schneider approved"
+"official Schneider integration"
+
+unless the repository contains authoritative evidence for that exact claim.
+
+============================================================
+FINAL QUALITY BAR
+============================================================
+
+Before finishing, ask:
+
+Could a Schneider automation engineer understand this?
+
+Could a technical judge verify what is real?
+
+Does the presentation demonstrate rather than merely claim?
+
+Does the Brain have a clear role?
+
+Is engineering truth clearly separated from AI interpretation?
+
+Can the judge see the canonical model?
+
+Can the judge see evidence?
+
+Can the judge see validation?
+
+Can the judge see runtime?
+
+Can the judge see change impact?
+
+Can the judge understand why this is more than an AI-generated HMI?
+
+If any answer is NO, improve the presentation.
+
+============================================================
+FINAL DELIVERABLE
+============================================================
+
+Create the actual presentation.
+
+Do not return a design proposal.
+
+Do not give me a wireframe.
+
+Do not describe what you would build.
+
+BUILD IT.
+
+At completion provide:
+
+1. presentation.html
+2. any required assets
+3. exact run/open instructions
+4. actual metrics used
+5. list of repository features demonstrated
+6. list of features explicitly labeled roadmap/not implemented
+
+MOST IMPORTANT:
+
+The final experience should leave the judge thinking:
+
+"Most AI systems generate screens."
+
+"CANON understands the engineering system behind the screen."
+
+That is the story.

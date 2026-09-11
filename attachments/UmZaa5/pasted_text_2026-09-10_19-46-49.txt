@@ -1,0 +1,749 @@
+CANON — SCHNEIDER ELECTRIC INDUSTRIAL ENGINEERING PLATFORM
+OPENING SCREEN / PROJECT HUB
+MASTER UI GENERATION PROMPT — PREMIUM ENTERPRISE INDUSTRIAL SOFTWARE
+
+============================================================
+0. CORE DIRECTIVE
+============================================================
+
+Design the FIRST SCREEN of CANON as if Schneider Electric itself
+were launching CANON as a serious next-generation industrial
+engineering application.
+
+This is NOT a marketing landing page.
+
+This is NOT a generic SaaS dashboard.
+
+This is NOT a ChatGPT interface.
+
+This is NOT a colorful AI startup.
+
+This is the actual opening workspace an industrial automation
+engineer would see after launching the application.
+
+The first impression must communicate:
+
+ENGINEERING
+INDUSTRIAL AUTOMATION
+MACHINE CONNECTIVITY
+TRUST
+PRECISION
+CONTINUITY
+PROFESSIONAL SOFTWARE
+SCHNEIDER-QUALITY PRODUCT DESIGN
+
+The product should feel credible enough that a Schneider Electric
+engineer could imagine this becoming a future engineering layer
+around the EcoStruxure ecosystem.
+
+============================================================
+1. PRODUCT IDENTITY
+============================================================
+
+Product name:
+
+CANON
+
+Subtitle:
+
+ENGINEERING INTELLIGENCE PLATFORM
+
+Core philosophy:
+
+ENGINEERING INTENT → VERIFIED AUTOMATION
+
+Primary narrative:
+
+Connect machines.
+Understand machine context.
+Build a canonical machine model.
+Generate validated operator experiences.
+Maintain engineering continuity as machines change.
+
+The opening screen should immediately communicate that CANON
+manages REAL ENGINEERING PROJECTS.
+
+============================================================
+2. VISUAL LANGUAGE
+============================================================
+
+Create a premium Schneider-inspired industrial software aesthetic.
+
+Use:
+
+- clean white / very light neutral workspace
+- graphite / near-black typography
+- subtle Schneider-inspired green accents
+- restrained gray borders
+- extremely clean spacing
+- precise alignment
+- technical typography
+- compact enterprise controls
+- thin dividers
+- subtle status indicators
+- minimal shadows
+- restrained corner radius
+- high information density without visual clutter
+
+Use green ONLY for:
+
+- healthy
+- connected
+- running
+- successful
+- primary confirmation
+
+Use amber for:
+
+- warning
+- attention
+
+Use red only for:
+
+- fault
+- disconnected
+- critical condition
+
+Do NOT use:
+
+- gradients
+- neon
+- glassmorphism
+- excessive rounded cards
+- giant floating cards
+- colorful backgrounds
+- glowing effects
+- AI robot graphics
+- decorative 3D objects
+- futuristic cyberpunk styling
+- excessive animations
+- generic startup illustrations
+
+The interface must feel engineered rather than decorated.
+
+============================================================
+3. FIRST IMPRESSION
+============================================================
+
+When the application opens, the engineer should immediately think:
+
+"I am inside a serious industrial engineering environment."
+
+NOT:
+
+"I am inside an AI chatbot."
+
+NOT:
+
+"This is a marketing website."
+
+The screen should resemble the quality and seriousness of a
+professional industrial engineering workstation.
+
+============================================================
+4. APPLICATION SHELL
+============================================================
+
+Create a persistent professional application shell.
+
+TOP HEADER:
+
+CANON
+
+ENGINEERING INTELLIGENCE PLATFORM
+
+Left:
+
+CANON logo / wordmark
+
+Center or navigation area:
+
+PROJECTS
+MACHINES
+LIBRARY
+
+Right:
+
+● SYSTEM OPERATIONAL
+
+Engineer avatar / profile icon
+
+Do NOT overload the header.
+
+Keep it extremely clean.
+
+============================================================
+5. LEFT NAVIGATION
+============================================================
+
+Use a narrow, elegant engineering navigation rail.
+
+Items:
+
+PROJECTS
+MACHINES
+LIBRARY
+
+Divider
+
+SYSTEM STATUS
+
+The PROJECTS item is active.
+
+Keep icons extremely subtle and technical.
+
+No giant sidebar.
+
+No excessive menu hierarchy.
+
+============================================================
+6. MAIN SCREEN
+============================================================
+
+Page title:
+
+ENGINEERING PROJECTS
+
+Small supporting text:
+
+Manage connected machines, engineering models and generated
+operator experiences.
+
+Top-right:
+
++ NEW PROJECT
+
+This is the primary action.
+
+============================================================
+7. PROJECT STATUS STRIP
+============================================================
+
+Immediately below the title, add a very restrained status summary.
+
+Example:
+
+03 PROJECTS
+02 CONNECTED
+02 RUNNING
+01 OFFLINE
+
+Do not make these huge dashboard KPI cards.
+
+They should feel like compact engineering status indicators.
+
+============================================================
+8. EXISTING PROJECTS
+============================================================
+
+The central focus of the screen is the engineer's existing
+machine projects.
+
+Use large horizontal project rows/cards rather than generic
+startup-style cards.
+
+Each project should communicate:
+
+PROJECT NAME
+MACHINE TYPE
+CONNECTION STATUS
+CONTROLLER
+ASSET COUNT
+SIGNAL COUNT
+ALARM COUNT
+LAST SYNCHRONIZATION
+CURRENT MACHINE STATE
+
+============================================================
+9. PROJECT 01 — HERO PROJECT
+============================================================
+
+Display:
+
+TK-401
+
+PROCESS TANK
+
+Status:
+
+● RUNNING
+
+Connection:
+
+● CONNECTED
+
+Controller:
+
+Modicon M262
+
+Last synchronization:
+
+12 sec ago
+
+Engineering information:
+
+24 ASSETS
+186 SIGNALS
+12 ALARMS
+
+Primary action:
+
+OPEN PROJECT →
+
+The project should visually feel like a real industrial asset,
+not a decorative dashboard card.
+
+============================================================
+10. PROJECT 02
+============================================================
+
+Display:
+
+PACK-07
+
+PACKAGING LINE
+
+Status:
+
+● RUNNING
+
+Connection:
+
+● CONNECTED
+
+Controller:
+
+Modicon M580
+
+Engineering information:
+
+148 ASSETS
+1,240 SIGNALS
+36 ALARMS
+
+Last synchronization:
+
+8 sec ago
+
+Action:
+
+OPEN PROJECT →
+
+============================================================
+11. PROJECT 03
+============================================================
+
+Display:
+
+MIX-02
+
+MIXING STATION
+
+Status:
+
+○ STOPPED
+
+Connection:
+
+● CONNECTED
+
+Controller:
+
+Modicon M241
+
+Engineering information:
+
+31 ASSETS
+224 SIGNALS
+18 ALARMS
+
+Last synchronization:
+
+2 min ago
+
+Action:
+
+OPEN PROJECT →
+
+============================================================
+12. NEW PROJECT — IMPORTANT
+============================================================
+
+Create a visually distinct but extremely restrained section
+for creating a new engineering project.
+
+Title:
+
+START NEW ENGINEERING PROJECT
+
+Description:
+
+Connect a machine or import existing engineering information.
+
+Primary button:
+
++ CREATE PROJECT
+
+When clicked, this should lead to the next screen where the
+engineer chooses:
+
+LIVE MACHINE
+ENGINEERING DATA
+DEMO MACHINE
+
+Do NOT put all those options permanently on the opening screen.
+
+Keep the opening screen simple.
+
+============================================================
+13. NEW PROJECT INTERACTION
+============================================================
+
+When "+ CREATE PROJECT" is clicked, open a clean transition
+or modal containing:
+
+NEW ENGINEERING PROJECT
+
+"How would you like to begin?"
+
+OPTION 01
+
+LIVE MACHINE
+
+Connect to a controller or industrial data source.
+
+OPC UA
+Modbus TCP
+EtherNet/IP
+
+BUTTON:
+
+CONNECT MACHINE →
+
+OPTION 02
+
+ENGINEERING DATA
+
+Import an existing engineering project or structured data.
+
+BUTTON:
+
+IMPORT DATA →
+
+OPTION 03
+
+DEMO MACHINE
+
+Launch a deterministic CANON demonstration machine.
+
+TK-401 PROCESS TANK
+
+BUTTON:
+
+OPEN DEMO →
+
+The demo option must be clearly available for the prototype.
+
+============================================================
+14. PROJECT ROW INTERACTION
+============================================================
+
+Hovering over a project should produce a very subtle interaction.
+
+Do NOT create flashy animations.
+
+Show:
+
+OPEN PROJECT →
+
+The row should feel clickable and engineered.
+
+Clicking TK-401 transitions into:
+
+MACHINE CONTEXT
+
+The transition should feel like moving deeper into the same
+engineering environment.
+
+============================================================
+15. MICRO STATUS DETAILS
+============================================================
+
+Use realistic industrial status language.
+
+Examples:
+
+● CONNECTED
+● RUNNING
+○ STOPPED
+△ ATTENTION
+× OFFLINE
+
+Use timestamps:
+
+Synced 12 sec ago
+Synced 8 sec ago
+Synced 2 min ago
+
+Never use fake social-product language such as:
+
+"Great!"
+"Your AI is ready!"
+"Let's build!"
+"Welcome back, Devansh!"
+
+This is professional engineering software.
+
+============================================================
+16. BRANDING
+============================================================
+
+CANON must have its own identity.
+
+Do NOT copy Schneider Electric's logo.
+
+Do NOT falsely present CANON as an official Schneider Electric
+product.
+
+Instead use:
+
+CANON
+
+ENGINEERING INTELLIGENCE PLATFORM
+
+and visually communicate compatibility with industrial
+automation ecosystems through the interface language.
+
+If appropriate, use a small neutral label:
+
+INDUSTRIAL AUTOMATION ENGINEERING
+
+Do not place "Official Schneider Electric" anywhere.
+
+============================================================
+17. TYPOGRAPHY
+============================================================
+
+Typography must be highly disciplined.
+
+Use:
+
+- strong technical page titles
+- compact uppercase section labels
+- highly readable body text
+- tabular-looking numeric values
+- restrained font weights
+
+Hierarchy:
+
+CANON
+↓
+ENGINEERING PROJECTS
+↓
+PROJECT NAME
+↓
+Machine metadata
+↓
+Status / engineering counts
+
+Avoid oversized typography.
+
+============================================================
+18. GRID AND ALIGNMENT
+============================================================
+
+Everything must align to a strict engineering grid.
+
+Use:
+
+- consistent left edge
+- consistent horizontal spacing
+- consistent row heights
+- aligned numerical columns
+- aligned status indicators
+- generous whitespace around major sections
+- dense but readable project information
+
+No randomly floating elements.
+
+No asymmetrical decorative layouts.
+
+============================================================
+19. MOTION
+============================================================
+
+Use only subtle professional motion.
+
+On application launch:
+
+1. CANON shell appears
+2. system status initializes
+3. project data resolves
+4. running indicators become active
+
+Very subtle.
+
+No cinematic startup animation.
+
+No particle effects.
+
+No zooming camera.
+
+No flashy transitions.
+
+The software should feel fast.
+
+============================================================
+20. EMPTY / LOADING / OFFLINE STATES
+============================================================
+
+Design realistic states even if they are not the primary demo.
+
+Loading:
+
+LOADING ENGINEERING PROJECTS...
+
+Connected:
+
+● SYSTEM OPERATIONAL
+
+Offline:
+
+× CONNECTION LOST
+
+Empty state:
+
+NO ENGINEERING PROJECTS
+
+Create your first project by connecting a machine or importing
+engineering data.
+
+These states must feel like enterprise engineering software.
+
+============================================================
+21. RESPONSIVE BEHAVIOR
+============================================================
+
+The primary target is a desktop engineering workstation.
+
+Optimize for:
+
+1440 × 900
+1920 × 1080
+
+Do not design primarily for mobile.
+
+The interface should use the screen efficiently without feeling
+crowded.
+
+============================================================
+22. VISUAL PRIORITY
+============================================================
+
+Priority order:
+
+1. CANON identity
+2. Engineering Projects
+3. Existing machines
+4. Machine health / connection state
+5. Open Project
+6. New Project
+
+Do NOT prioritize analytics.
+
+Do NOT prioritize AI.
+
+Do NOT prioritize decorative graphics.
+
+The machine projects are the hero.
+
+============================================================
+23. CRITICAL PRODUCT STORY
+============================================================
+
+The first screen must silently communicate:
+
+"CANON knows there are already machines in the engineering
+environment."
+
+Then:
+
+"If I need to work on an existing machine, I open it."
+
+"If I need to onboard a new machine, I create a project."
+
+This establishes CANON as an ENGINEERING PLATFORM rather than
+merely an HMI generator.
+
+============================================================
+24. TRANSITION TO THE REST OF CANON
+============================================================
+
+Opening project TK-401 should lead to:
+
+MACHINE CONTEXT
+↓
+MACHINE MODEL
+↓
+ENGINEERING INTENT
+↓
+VALIDATION
+↓
+GENERATED HMI
+↓
+LIVE CONTROL
+↓
+ENGINEERING CHANGE
+↓
+REGENERATION
+
+The opening screen must visually belong to the exact same
+design system as every subsequent CANON screen.
+
+============================================================
+25. FINAL QUALITY BAR
+============================================================
+
+Make this look like a product that could plausibly sit beside
+professional industrial engineering software.
+
+It must feel:
+
+PRECISE
+QUIET
+TECHNICAL
+TRUSTWORTHY
+INDUSTRIAL
+FAST
+ENGINEER-CENTRIC
+ENTERPRISE-GRADE
+
+The judge should understand the product within 5 seconds.
+
+They should see:
+
+CANON
+ENGINEERING PROJECTS
+TK-401 — RUNNING
+PACK-07 — RUNNING
+MIX-02 — STOPPED
++ NEW PROJECT
+
+and immediately understand:
+
+"This is an engineering environment managing connected
+industrial machines."
+
+FINAL DESIGN PRINCIPLE:
+
+LESS UI.
+MORE ENGINEERING.
+
+Do not add features simply to fill space.
+
+Every element must justify its existence.
+
+The final result should look like a premium industrial
+engineering application, with Schneider-level restraint,
+precision and information hierarchy, while remaining an
+original CANON product identity.

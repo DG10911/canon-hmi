@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ContextPack",
+  "description": "The ONLY thing the AI receives. Never raw DB rows. Scoped to the active intent.",
+  "type": "object",
+  "required": [
+    "machine",
+    "controller",
+    "assets",
+    "signals",
+    "revision"
+  ],
+  "properties": {
+    "machine": {
+      "type": "object"
+    },
+    "controller": {
+      "type": "string"
+    },
+    "assets": {
+      "type": "array"
+    },
+    "signals": {
+      "type": "array"
+    },
+    "commands": {
+      "type": "array"
+    },
+    "permissives": {
+      "type": "array"
+    },
+    "relationships": {
+      "type": "array"
+    },
+    "unresolved": {
+      "type": "array"
+    },
+    "conflicts": {
+      "type": "array"
+    },
+    "runtime": {
+      "type": "object"
+    },
+    "evidenceRefs": {
+      "type": "array"
+    },
+    "revision": {
+      "type": "string"
+    },
+    "intent": {
+      "type": "object"
+    },
+    "allowedComponents": {
+      "type": "array",
+      "description": "registry enum — AI may only reference these"
+    }
+  }
+}

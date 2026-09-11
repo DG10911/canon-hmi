@@ -1,0 +1,61 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+M-101,motor,ST-101,analog-in,rpm,0,3000,2900,2800,,,speed
+M-101,motor,TT-101,analog-in,degC,0,200,150,130,,,temp
+M-101,motor,M-101_RUNNING,discrete-in,,,,,,,,running
+M-101,motor,M-101_FAULT,discrete-in,,,,,,,,fault
+M-101,motor,M-101_START_REQ,discrete-out,,,,,,,,start
+M-101,motor,M-101_STOP_REQ,discrete-out,,,,,,,,stop
+M-102,motor,ST-102,analog-in,rpm,0,3000,2900,2800,,,speed
+M-102,motor,TT-102,analog-in,degC,0,200,150,130,,,temp
+M-102,motor,M-102_RUNNING,discrete-in,,,,,,,,running
+M-102,motor,M-102_FAULT,discrete-in,,,,,,,,fault
+M-102,motor,M-102_START_REQ,discrete-out,,,,,,,,start
+M-102,motor,M-102_STOP_REQ,discrete-out,,,,,,,,stop
+M-103,motor,ST-103,analog-in,rpm,0,3000,2900,2800,,,speed
+M-103,motor,TT-103,analog-in,degC,0,200,150,130,,,temp
+M-103,motor,M-103_RUNNING,discrete-in,,,,,,,,running
+M-103,motor,M-103_FAULT,discrete-in,,,,,,,,fault
+M-103,motor,M-103_START_REQ,discrete-out,,,,,,,,start
+M-103,motor,M-103_STOP_REQ,discrete-out,,,,,,,,stop
+M-104,motor,ST-104,analog-in,rpm,0,3000,2900,2800,,,speed
+M-104,motor,TT-104,analog-in,degC,0,200,150,130,,,temp
+M-104,motor,M-104_RUNNING,discrete-in,,,,,,,,running
+M-104,motor,M-104_FAULT,discrete-in,,,,,,,,fault
+M-104,motor,M-104_START_REQ,discrete-out,,,,,,,,start
+M-104,motor,M-104_STOP_REQ,discrete-out,,,,,,,,stop
+M-105,motor,ST-105,analog-in,rpm,0,3000,2900,2800,,,speed
+M-105,motor,TT-105,analog-in,degC,0,200,150,130,,,temp
+M-105,motor,M-105_RUNNING,discrete-in,,,,,,,,running
+M-105,motor,M-105_FAULT,discrete-in,,,,,,,,fault
+M-105,motor,M-105_START_REQ,discrete-out,,,,,,,,start
+M-105,motor,M-105_STOP_REQ,discrete-out,,,,,,,,stop
+M-106,motor,ST-106,analog-in,rpm,0,3000,2900,2800,,,speed
+M-106,motor,TT-106,analog-in,degC,0,200,150,130,,,temp
+M-106,motor,M-106_RUNNING,discrete-in,,,,,,,,running
+M-106,motor,M-106_FAULT,discrete-in,,,,,,,,fault
+M-106,motor,M-106_START_REQ,discrete-out,,,,,,,,start
+M-106,motor,M-106_STOP_REQ,discrete-out,,,,,,,,stop
+XV-101,valve,XV-101_OPEN,discrete-in,,,,,,,,open limit
+XV-101,valve,XV-101_CLOSED,discrete-in,,,,,,,,closed limit
+XV-101,valve,XV-101_OPEN_REQ,discrete-out,,,,,,,,open
+XV-101,valve,XV-101_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-102,valve,XV-102_OPEN,discrete-in,,,,,,,,open limit
+XV-102,valve,XV-102_CLOSED,discrete-in,,,,,,,,closed limit
+XV-102,valve,XV-102_OPEN_REQ,discrete-out,,,,,,,,open
+XV-102,valve,XV-102_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-103,valve,XV-103_OPEN,discrete-in,,,,,,,,open limit
+XV-103,valve,XV-103_CLOSED,discrete-in,,,,,,,,closed limit
+XV-103,valve,XV-103_OPEN_REQ,discrete-out,,,,,,,,open
+XV-103,valve,XV-103_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-104,valve,XV-104_OPEN,discrete-in,,,,,,,,open limit
+XV-104,valve,XV-104_CLOSED,discrete-in,,,,,,,,closed limit
+XV-104,valve,XV-104_OPEN_REQ,discrete-out,,,,,,,,open
+XV-104,valve,XV-104_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-105,valve,XV-105_OPEN,discrete-in,,,,,,,,open limit
+XV-105,valve,XV-105_CLOSED,discrete-in,,,,,,,,closed limit
+XV-105,valve,XV-105_OPEN_REQ,discrete-out,,,,,,,,open
+XV-105,valve,XV-105_CLOSE_REQ,discrete-out,,,,,,,,close
+TK-101,tank,LT-101,analog-in,%,0,100,90,80,20,10,silo-level
+TK-102,tank,LT-102,analog-in,%,0,100,90,80,20,10,silo-level
+TK-103,tank,LT-103,analog-in,%,0,100,90,80,20,10,silo-level
+TK-104,tank,LT-104,analog-in,%,0,100,90,80,20,10,silo-level

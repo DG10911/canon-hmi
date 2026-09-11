@@ -1,0 +1,31 @@
+{
+  "$schema": "canon.validation_rules.v2",
+  "generated": "2026-09-10",
+  "authority": "PROPOSED — deterministic rules. No rule calls an LLM. The LLM may only explain a failure after the code decides it.",
+  "pipeline": ["schema", "referential", "type_unit_range", "command_contract", "hmi_component", "plc_contract", "test_presence", "result"],
+  "rules": [
+    {"ruleId": "TAG_MISSING", "stage": "referential", "check": "binding.signalId in model.signals", "appliesTo": ["*"], "impl": "assert_signal_exists"},
+    {"ruleId": "SIGNAL_MISSING", "stage": "referential", "check": "referenced signal present", "appliesTo": ["*"], "impl": "assert_signal_exists"},
+    {"ruleId": "TYPE_MISMATCH", "stage": "type_unit_range", "check": "signal.dataType compatible with component.valueType", "appliesTo": ["PressureGauge", "TankLevel", "NumericValue", "Trend"], "impl": "compare_value_type"},
+    {"ruleId": "RANGE_MISMATCH", "stage": "type_unit_range", "check": "widget.range == signal.[engMin,engMax] unless override flagged", "appliesTo": ["PressureGauge", "TankLevel", "Trend"], "impl": "compare_widget_range_to_signal_eng_units"},
+    {"ruleId": "UNIT_MISMATCH", "stage": "type_unit_range", "check": "widget.unit == signal.engUnit or converter present", "appliesTo": ["PressureGauge", "TankLevel", "NumericValue"], "impl": "compare_units"},
+    {"ruleId": "COMMAND_MISSING", "stage": "command_contract", "check": "command in model.commands", "appliesTo": ["MotorStarter", "ValveStatus", "PermissivePanel"], "impl": "assert_command_exists"},
+    {"ruleId": "COMMAND_TARGET_MISSING", "stage": "command_contract", "check": "command.target in model.assets", "appliesTo": ["MotorStarter", "ValveStatus"], "impl": "assert_target_exists"},
+    {"ruleId": "PERMISSIVE_MISSING", "stage": "command_contract", "check": "each contract permissive signal exists", "appliesTo": ["*command*"], "impl": "assert_permissive_signals_exist"},
+    {"ruleId": "INTERLOCK_MISSING", "stage": "command_contract", "check": "each required interlock modeled", "appliesTo": ["*command*"], "impl": "assert_interlocks_modeled"},
+    {"ruleId": "ALARM_MISSING", "stage": "referential", "check": "faceplate-claimed alarm exists", "appliesTo": ["AlarmBanner", "AlarmList"], "impl": "assert_alarm_exists"},
+    {"ruleId": "BINDING_INVALID", "stage": "plc_contract", "check": "write binding only on access=request signal", "appliesTo": ["MotorStarter", "ValveStatus"], "impl": "assert_write_access"},
+    {"ruleId": "COMPONENT_UNKNOWN", "stage": "hmi_component", "check": "component in registry", "appliesTo": ["*"], "impl": "assert_component_in_registry"},
+    {"ruleId": "COMPONENT_SCHEMA_INVALID", "stage": "hmi_component", "check": "props valid against component propsSchema", "appliesTo": ["*"], "impl": "validate_props_schema"},
+    {"ruleId": "PLC_CONTRACT_INVALID", "stage": "plc_contract", "check": "I/O map entry exists for written request", "appliesTo": ["*command*"], "impl": "assert_io_map_entry"},
+    {"ruleId": "REVISION_STALE", "stage": "schema", "check": "proposal.revisionBase == model.revision", "appliesTo": ["*"], "impl": "assert_revision_current"},
+    {"ruleId": "EVIDENCE_MISSING", "stage": "referential", "check": "Layer A capability claim has evidenceId", "appliesTo": ["*schneider-claim*"], "impl": "assert_evidence_id"},
+    {"ruleId": "TRUTH_STATUS_BLOCK", "stage": "referential", "check": "UNKNOWN identifier not used as VERIFIED", "appliesTo": ["*"], "impl": "assert_truth_status"}
+  ],
+  "resultObjectExample": {
+    "proposalId": "prop_demo_01", "revisionBase": "rev-17", "ok": false,
+    "errors": [{"code": "PERMISSIVE_MISSING", "path": "commands[P401_START].permissives[XV401_OPEN]", "expected": "signal:XV401_OPEN", "found": null}],
+    "warnings": [], "dropped": []
+  },
+  "policy": {"blockOnAnyError": true, "partialHmiRequires": "engineer explicitly accepts droppedWidgets[]"}
+}

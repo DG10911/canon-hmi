@@ -1,0 +1,29 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+M-301,motor,ST-301,analog-in,rpm,0,3000,2900,2800,,,speed
+M-301,motor,JT-301,analog-in,kW,0,2000,1900,1800,,,power
+M-301,motor,TT-301,analog-in,degC,0,200,150,130,,,temp
+M-301,motor,M-301_RUNNING,discrete-in,,,,,,,,running
+M-301,motor,M-301_FAULT,discrete-in,,,,,,,,fault
+M-301,motor,M-301_START_REQ,discrete-out,,,,,,,,start
+M-301,motor,M-301_STOP_REQ,discrete-out,,,,,,,,stop
+M-302,motor,ST-302,analog-in,rpm,0,3000,2900,2800,,,speed
+M-302,motor,JT-302,analog-in,kW,0,2000,1900,1800,,,power
+M-302,motor,TT-302,analog-in,degC,0,200,150,130,,,temp
+M-302,motor,M-302_RUNNING,discrete-in,,,,,,,,running
+M-302,motor,M-302_FAULT,discrete-in,,,,,,,,fault
+M-302,motor,M-302_START_REQ,discrete-out,,,,,,,,start
+M-302,motor,M-302_STOP_REQ,discrete-out,,,,,,,,stop
+TK-301,tank,LT-301,analog-in,%,0,100,90,80,20,10,fuel
+TK-301,tank,PT-301,analog-in,bar,0,16,14,12,,2,oil
+XV-301,valve,XV-301_OPEN,discrete-in,,,,,,,,open limit
+XV-301,valve,XV-301_CLOSED,discrete-in,,,,,,,,closed limit
+XV-301,valve,XV-301_OPEN_REQ,discrete-out,,,,,,,,open
+XV-301,valve,XV-301_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-302,valve,XV-302_OPEN,discrete-in,,,,,,,,open limit
+XV-302,valve,XV-302_CLOSED,discrete-in,,,,,,,,closed limit
+XV-302,valve,XV-302_OPEN_REQ,discrete-out,,,,,,,,open
+XV-302,valve,XV-302_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-303,valve,XV-303_OPEN,discrete-in,,,,,,,,open limit
+XV-303,valve,XV-303_CLOSED,discrete-in,,,,,,,,closed limit
+XV-303,valve,XV-303_OPEN_REQ,discrete-out,,,,,,,,open
+XV-303,valve,XV-303_CLOSE_REQ,discrete-out,,,,,,,,close

@@ -1,0 +1,10 @@
+{"device":"pump","machine":"mch_tk401_line","packmlMapping":"Idle","source":"SRC-TK401-STATEMODELS","state":"Idle","state_id":"STATE_pump_Idle"}
+{"device":"pump","machine":"mch_tk401_line","packmlMapping":"Starting","source":"SRC-TK401-STATEMODELS","state":"Starting","state_id":"STATE_pump_Starting"}
+{"device":"pump","machine":"mch_tk401_line","packmlMapping":"Execute","source":"SRC-TK401-STATEMODELS","state":"Running","state_id":"STATE_pump_Running"}
+{"device":"pump","machine":"mch_tk401_line","packmlMapping":"Stopping","source":"SRC-TK401-STATEMODELS","state":"Stopping","state_id":"STATE_pump_Stopping"}
+{"device":"pump","machine":"mch_tk401_line","packmlMapping":"Aborted","source":"SRC-TK401-STATEMODELS","state":"Faulted","state_id":"STATE_pump_Faulted"}
+{"device":"valve","machine":"mch_tk401_line","packmlMapping":null,"source":"SRC-TK401-STATEMODELS","state":"Closed","state_id":"STATE_valve_Closed"}
+{"device":"valve","machine":"mch_tk401_line","packmlMapping":null,"source":"SRC-TK401-STATEMODELS","state":"Opening","state_id":"STATE_valve_Opening"}
+{"device":"valve","machine":"mch_tk401_line","packmlMapping":null,"source":"SRC-TK401-STATEMODELS","state":"Open","state_id":"STATE_valve_Open"}
+{"device":"valve","machine":"mch_tk401_line","packmlMapping":null,"source":"SRC-TK401-STATEMODELS","state":"Closing","state_id":"STATE_valve_Closing"}
+{"device":"valve","machine":"mch_tk401_line","packmlMapping":null,"source":"SRC-TK401-STATEMODELS","state":"Fault","state_id":"STATE_valve_Fault"}

@@ -1,0 +1,6 @@
+{"dependency_id":"dep_c64c3711f5a9","edge_type":"BINDS","from_entity":"signal:PT401","revision_id":"rev-17","to_entity":"hmi_binding:w.pt401"}
+{"dependency_id":"dep_894cfd1b4047","edge_type":"ALARMS","from_entity":"signal:PT401","revision_id":"rev-17","to_entity":"alarm:ALM_PT401_HH"}
+{"dependency_id":"dep_072ad64fd0e4","edge_type":"SCALES","from_entity":"signal:PT401","revision_id":"rev-17","to_entity":"io:PT401@holding0"}
+{"dependency_id":"dep_648b88dc4e2c","edge_type":"READS","from_entity":"signal:PT401","revision_id":"rev-17","to_entity":"trend:default_pressure"}
+{"dependency_id":"dep_a2589cfbe5f6","edge_type":"TESTS","from_entity":"signal:PT401","revision_id":"rev-17","to_entity":"test:tc_pt401_range"}
+{"dependency_id":"dep_d215c2c3c808","edge_type":"DOCUMENTS","from_entity":"signal:PT401","revision_id":"rev-17","to_entity":"doc:PT401_datasheet_ref"}

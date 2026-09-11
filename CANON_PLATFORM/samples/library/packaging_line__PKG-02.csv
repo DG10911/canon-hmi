@@ -1,0 +1,40 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+M-201,motor,ST-201,analog-in,rpm,0,3000,2900,2800,,,speed
+M-201,motor,M-201_RUNNING,discrete-in,,,,,,,,running
+M-201,motor,M-201_FAULT,discrete-in,,,,,,,,fault
+M-201,motor,M-201_START_REQ,discrete-out,,,,,,,,start
+M-201,motor,M-201_STOP_REQ,discrete-out,,,,,,,,stop
+M-202,motor,ST-202,analog-in,rpm,0,3000,2900,2800,,,speed
+M-202,motor,M-202_RUNNING,discrete-in,,,,,,,,running
+M-202,motor,M-202_FAULT,discrete-in,,,,,,,,fault
+M-202,motor,M-202_START_REQ,discrete-out,,,,,,,,start
+M-202,motor,M-202_STOP_REQ,discrete-out,,,,,,,,stop
+M-203,motor,ST-203,analog-in,rpm,0,3000,2900,2800,,,speed
+M-203,motor,M-203_RUNNING,discrete-in,,,,,,,,running
+M-203,motor,M-203_FAULT,discrete-in,,,,,,,,fault
+M-203,motor,M-203_START_REQ,discrete-out,,,,,,,,start
+M-203,motor,M-203_STOP_REQ,discrete-out,,,,,,,,stop
+M-204,motor,ST-204,analog-in,rpm,0,3000,2900,2800,,,speed
+M-204,motor,M-204_RUNNING,discrete-in,,,,,,,,running
+M-204,motor,M-204_FAULT,discrete-in,,,,,,,,fault
+M-204,motor,M-204_START_REQ,discrete-out,,,,,,,,start
+M-204,motor,M-204_STOP_REQ,discrete-out,,,,,,,,stop
+M-205,motor,ST-205,analog-in,rpm,0,3000,2900,2800,,,speed
+M-205,motor,M-205_RUNNING,discrete-in,,,,,,,,running
+M-205,motor,M-205_FAULT,discrete-in,,,,,,,,fault
+M-205,motor,M-205_START_REQ,discrete-out,,,,,,,,start
+M-205,motor,M-205_STOP_REQ,discrete-out,,,,,,,,stop
+M-206,motor,ST-206,analog-in,rpm,0,3000,2900,2800,,,speed
+M-206,motor,M-206_RUNNING,discrete-in,,,,,,,,running
+M-206,motor,M-206_FAULT,discrete-in,,,,,,,,fault
+M-206,motor,M-206_START_REQ,discrete-out,,,,,,,,start
+M-206,motor,M-206_STOP_REQ,discrete-out,,,,,,,,stop
+XV-201,valve,XV-201_OPEN,discrete-in,,,,,,,,open limit
+XV-201,valve,XV-201_CLOSED,discrete-in,,,,,,,,closed limit
+XV-201,valve,XV-201_OPEN_REQ,discrete-out,,,,,,,,open
+XV-201,valve,XV-201_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-202,valve,XV-202_OPEN,discrete-in,,,,,,,,open limit
+XV-202,valve,XV-202_CLOSED,discrete-in,,,,,,,,closed limit
+XV-202,valve,XV-202_OPEN_REQ,discrete-out,,,,,,,,open
+XV-202,valve,XV-202_CLOSE_REQ,discrete-out,,,,,,,,close
+TK-201,tank,LT-201,analog-in,%,0,100,90,80,20,10,level

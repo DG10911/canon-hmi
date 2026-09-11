@@ -1,0 +1,48 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+P-301,pump,PT-301,analog-in,bar,0,16,14,12,,2,pressure
+P-301,pump,FT-301,analog-in,m3/h,0,300,,,,10,flow
+P-301,pump,P-301_RUNNING,discrete-in,,,,,,,,running
+P-301,pump,P-301_FAULT,discrete-in,,,,,,,,fault
+P-301,pump,P-301_START_REQ,discrete-out,,,,,,,,start
+P-301,pump,P-301_STOP_REQ,discrete-out,,,,,,,,stop
+P-302,pump,PT-302,analog-in,bar,0,16,14,12,,2,pressure
+P-302,pump,FT-302,analog-in,m3/h,0,300,,,,10,flow
+P-302,pump,P-302_RUNNING,discrete-in,,,,,,,,running
+P-302,pump,P-302_FAULT,discrete-in,,,,,,,,fault
+P-302,pump,P-302_START_REQ,discrete-out,,,,,,,,start
+P-302,pump,P-302_STOP_REQ,discrete-out,,,,,,,,stop
+P-303,pump,PT-303,analog-in,bar,0,16,14,12,,2,pressure
+P-303,pump,FT-303,analog-in,m3/h,0,300,,,,10,flow
+P-303,pump,P-303_RUNNING,discrete-in,,,,,,,,running
+P-303,pump,P-303_FAULT,discrete-in,,,,,,,,fault
+P-303,pump,P-303_START_REQ,discrete-out,,,,,,,,start
+P-303,pump,P-303_STOP_REQ,discrete-out,,,,,,,,stop
+P-304,pump,PT-304,analog-in,bar,0,16,14,12,,2,pressure
+P-304,pump,FT-304,analog-in,m3/h,0,300,,,,10,flow
+P-304,pump,P-304_RUNNING,discrete-in,,,,,,,,running
+P-304,pump,P-304_FAULT,discrete-in,,,,,,,,fault
+P-304,pump,P-304_START_REQ,discrete-out,,,,,,,,start
+P-304,pump,P-304_STOP_REQ,discrete-out,,,,,,,,stop
+TK-301,tank,LT-301,analog-in,%,0,100,90,80,20,10,wet-well
+TK-302,tank,LT-302,analog-in,%,0,100,90,80,20,10,wet-well
+TK-303,tank,LT-303,analog-in,%,0,100,90,80,20,10,wet-well
+XV-301,valve,XV-301_OPEN,discrete-in,,,,,,,,open limit
+XV-301,valve,XV-301_CLOSED,discrete-in,,,,,,,,closed limit
+XV-301,valve,XV-301_OPEN_REQ,discrete-out,,,,,,,,open
+XV-301,valve,XV-301_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-302,valve,XV-302_OPEN,discrete-in,,,,,,,,open limit
+XV-302,valve,XV-302_CLOSED,discrete-in,,,,,,,,closed limit
+XV-302,valve,XV-302_OPEN_REQ,discrete-out,,,,,,,,open
+XV-302,valve,XV-302_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-303,valve,XV-303_OPEN,discrete-in,,,,,,,,open limit
+XV-303,valve,XV-303_CLOSED,discrete-in,,,,,,,,closed limit
+XV-303,valve,XV-303_OPEN_REQ,discrete-out,,,,,,,,open
+XV-303,valve,XV-303_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-304,valve,XV-304_OPEN,discrete-in,,,,,,,,open limit
+XV-304,valve,XV-304_CLOSED,discrete-in,,,,,,,,closed limit
+XV-304,valve,XV-304_OPEN_REQ,discrete-out,,,,,,,,open
+XV-304,valve,XV-304_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-305,valve,XV-305_OPEN,discrete-in,,,,,,,,open limit
+XV-305,valve,XV-305_CLOSED,discrete-in,,,,,,,,closed limit
+XV-305,valve,XV-305_OPEN_REQ,discrete-out,,,,,,,,open
+XV-305,valve,XV-305_CLOSE_REQ,discrete-out,,,,,,,,close

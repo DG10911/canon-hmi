@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CANON · Engineering Intelligence Platform</title>
+<style>
+:root{--g:#2e8b57;--g2:#256e46;--gl:#eaf4ee;--ink:#1f2a30;--mut:#7c8a92;--line:#e4e9ec;--line2:#eef2f4;--bg:#f6f8f9;--card:#fff;--warn:#c47f17;--bad:#c0392b;--radius:12px}
+*{box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);font-size:14px}
+a{color:inherit;text-decoration:none}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+header{height:60px;background:var(--card);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;padding:0 22px;position:sticky;top:0;z-index:10}
+.logo{width:30px;height:30px;border-radius:8px;background:var(--g);display:inline-block}
+.brand b{font-size:15px;letter-spacing:.2px}
+.brand span{display:block;font-size:9.5px;letter-spacing:2px;color:var(--mut);font-weight:700}
+.pill{background:var(--gl);color:var(--g2);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.right{margin-left:auto;display:flex;align-items:center;gap:14px;color:var(--mut);font-size:12px;font-weight:600}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--g);display:inline-block;margin-right:6px}
+.dot.off{background:#c9ced1}.dot.red{background:var(--bad)}
+.av{width:30px;height:30px;border-radius:50%;background:#dfe7e3;display:grid;place-items:center;font-size:11px;font-weight:800;color:var(--g2)}
+.wrap{display:flex}
+aside{width:220px;min-height:calc(100vh - 60px);border-right:1px solid var(--line);background:var(--card);padding:16px 12px}
+aside .nav{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:9px;font-weight:600;color:#41525b;cursor:pointer}
+aside .nav.on{background:var(--gl);color:var(--g2)}
+aside .lbl{font-size:10px;letter-spacing:1.5px;color:var(--mut);font-weight:800;margin:16px 11px 6px}
+aside .st{font-size:12px;color:#55636b;padding:5px 11px;display:flex;justify-content:space-between}
+aside .st b{color:var(--ink)}
+main{flex:1;padding:26px 30px;max-width:1200px}
+h1{font-size:24px;margin:0 0 3px}
+.sub{color:var(--mut);font-size:13px}
+.btn{background:var(--g);color:#fff;border:none;padding:10px 16px;border-radius:9px;font-weight:700;font-size:13px;cursor:pointer}
+.btn.o{background:#fff;color:var(--g2);border:1px solid var(--line)}
+.btn.sm{padding:7px 12px;font-size:12px}
+.row{display:flex;align-items:center}
+.bar{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px;display:flex;gap:34px;margin:18px 0;font-size:13px}
+.bar b{font-size:19px;margin-right:7px}
+.bar .k{color:var(--mut);font-size:11px;letter-spacing:1px;font-weight:700}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;display:grid;grid-template-columns:200px 150px 180px repeat(4,80px) 130px;align-items:center;gap:14px;margin-bottom:14px;cursor:pointer;transition:.12s}
+.pcard:hover{border-color:var(--g);box-shadow:0 2px 14px rgba(46,139,87,.08)}
+.pcard h3{margin:0;font-size:17px}.pcard .t{font-size:12px;color:var(--mut)}
+.stt{font-size:12px;font-weight:700}.stt .l{display:block}
+.k2{font-size:9.5px;letter-spacing:.6px;color:var(--mut);font-weight:700}
+.v2{font-size:14px;font-weight:700}
+.open{color:var(--g2);font-weight:800;font-size:12px;text-align:right}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px}
+.card h3{margin:0 0 12px;font-size:14px}
+.grid{display:grid;gap:12px}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+.tile{background:var(--bg);border:1px solid var(--line2);border-radius:10px;padding:12px 14px}
+.tile .l{font-size:10px;letter-spacing:.8px;color:var(--mut);font-weight:700}
+.tile .n{font-size:22px;font-weight:800}
+.inp{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:9px;font-size:14px;outline:none}
+.inp:focus{border-color:var(--g)}
+.tabs{display:flex;gap:6px;margin:6px 0 16px}
+.tab{padding:8px 14px;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;color:#55636b}
+.tab.on{background:var(--g);color:#fff}
+.hmi{background:linear-gradient(#0f1720,#0b1118);border-radius:14px;padding:16px;min-height:200px;color:#dfe8ee}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.w{background:#16212c;border:1px solid #223140;border-radius:11px;padding:13px 14px}
+.w .wt{font-size:10px;letter-spacing:1px;color:#7fb7d8;font-weight:800;text-transform:uppercase}
+.w .wm{font-size:13px;margin-top:3px;font-weight:700}
+.w .ev{font-size:9.5px;color:#5f7385;margin-top:8px}
+.gauge{height:8px;background:#0c141c;border-radius:6px;margin:10px 0 4px;overflow:hidden}
+.gauge i{display:block;height:100%;background:linear-gradient(90deg,#2e8b57,#43b57e)}
+.led{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:6px}
+.led.ok{background:#43b57e}.led.g{background:#4aa3df}
+.cmd{display:inline-block;background:#0c141c;border:1px solid #26384a;color:#bcd;padding:5px 10px;border-radius:7px;font-size:11px;margin:6px 6px 0 0;font-weight:700}
+.abar{background:#1d1114;border:1px solid #4a2027;color:#e8a; padding:9px 12px;border-radius:9px;font-size:12px;font-weight:700}
+.abar.clear{background:#0f1a14;border-color:#204d38;color:#7fd3a3}
+.perm{font-size:11.5px;color:#c7d3dd;padding:4px 0;border-bottom:1px solid #1c2833}
+.trace{font-size:12px}
+.trace div{padding:3px 0;color:#4b5a63}
+.ok{color:var(--g2);font-weight:700}.rej{color:var(--bad);font-weight:700}
+.msg{font-size:12px;color:var(--mut);margin-top:8px}
+.badge{font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;background:var(--gl);color:var(--g2)}
+.empty{color:var(--mut);text-align:center;padding:40px}
+.hbtn{background:#12303f;border:1px solid #2a4a5e;color:#cfe3f0;padding:6px 12px;border-radius:7px;font-size:11px;font-weight:800;cursor:pointer;margin-right:6px}
+.hbtn.start{background:#124a2f;border-color:#1f7a4d;color:#7fe0a8}.hbtn.start:hover{background:#1a6b43}
+.hbtn.stop{background:#3a1b1f;border-color:#6b2b32;color:#e79aa2}.hbtn.stop:hover{background:#5a262d}
+.hbtn.open,.hbtn.close{background:#12303f}.hbtn:hover{filter:brightness(1.2)}
+.trend{display:block;margin-top:6px;background:#0c141c;border-radius:6px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#16212c;color:#dfe8ee;border:1px solid #2a4a5e;padding:10px 16px;border-radius:9px;font-size:13px;z-index:50;box-shadow:0 6px 20px rgba(0,0,0,.3);opacity:0;transition:.2s}
+.toast.on{opacity:1}
+.live{font-size:9px;color:#5fd39b;font-weight:800;letter-spacing:1px}
+.up{border:2px dashed var(--line);border-radius:12px;padding:26px;text-align:center;color:var(--mut);font-size:13px}
+/* ---- industrial HMI global objects (ISA-101 style) ---- */
+.hmiwrap{display:flex;justify-content:center;margin:8px 0 2px}
+.gsvg{width:100%;max-width:172px;height:auto}
+.gcap{font-size:8.5px;font-weight:800;fill:#6f8496;letter-spacing:.3px}
+.gval{fill:#eaf2f8}.gunit{fill:#8fa6b6;font-weight:700}
+.needle{stroke:#eaf2f8;stroke-width:2.2;stroke-linecap:round}
+.tanksvg{width:100%;max-width:150px;height:auto;display:block;margin:0 auto}
+.symsvg{width:66px;height:66px;display:block;margin:8px auto 2px}
+.spin{animation:hmispin 1.5s linear infinite;transform-origin:30px 30px}
+@keyframes hmispin{to{transform:rotate(360deg)}}
+.trendbox{background:#0b1219;border:1px solid #1c2833;border-radius:8px;padding:6px 6px 2px;margin-top:8px}
+.gridln{stroke:#17222c;stroke-width:1}
+.thln{stroke:#c47f17;stroke-width:1;stroke-dasharray:3 3}
+.axlbl{font-size:8px;font-weight:700;fill:#5f7385}
+</style>
+</head>
+<body>
+<header>
+  <span class="logo"></span>
+  <span class="brand"><b>CANON</b><span>ENGINEERING INTELLIGENCE PLATFORM</span></span>
+  <span class="pill" style="margin-left:10px">Projects</span>
+  <div class="right"><span><span class="dot"></span>SYSTEM OPERATIONAL</span><span class="av">DG</span></div>
+</header>
+<div class="wrap">
+  <aside>
+    <div class="nav on" onclick="go('projects')">▦ Projects</div>
+    <div class="lbl">SYSTEM STATUS</div>
+    <div class="st"><span>Connectivity</span><b>OPERATIONAL</b></div>
+    <div class="st"><span>Controllers</span><b id="s_ctl">—</b></div>
+    <div class="st"><span>Projects</span><b id="s_proj">—</b></div>
+    <div class="st"><span>Environment</span><b>PROTOTYPE</b></div>
+    <div class="lbl">CANON RUNTIME</div>
+    <div id="brainbox"><div class="st"><span>Brain</span><b>—</b></div></div>
+  </aside>
+  <main id="main"><div class="empty">Loading…</div></main>
+</div>
+
+<script>
+const API = location.origin;
+let PROJECTS = [], CUR = null, SCREEN = null, EXPLAIN = '', HELP = null;
+let SIG = {}, SIM = {val:{},run:{},hist:{}}, SIMT = null, REVS = [], BRAIN = null;
+
+async function api(path, opts){ const r = await fetch(API+path, opts); if(!r.ok) throw new Error((await r.json()).detail||r.statusText); return r.json(); }
+const el = (t, c, h) => { const e=document.createElement(t); if(c)e.className=c; if(h!=null)e.innerHTML=h; return e; };
+const esc = s => (s==null?'':String(s)).replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
+
+async function boot(){ await refreshProjects(); refreshBrain(); go('projects'); setInterval(refreshBrain, 8000); }
+async function refreshBrain(){ try{ BRAIN=await api('/api/brain/status'); }catch(e){ BRAIN=null; } renderBrainStatus(); }
+function renderBrainStatus(){ const b=document.getElementById('brainbox'); if(!b)return; if(!BRAIN){b.innerHTML='<div class="st"><span>Brain</span><b>—</b></div>';return;}
+  const line=(k,v,on)=>`<div class="st"><span>${k}</span><b style="${on===false?'color:#c47f17':''}">${v}</b></div>`;
+  b.innerHTML=line('Brain', BRAIN.connected?'● CONNECTED':(BRAIN.configured?'○ OFFLINE':'○ off'), BRAIN.connected)
+    + line('Model', esc(BRAIN.model||'—'))
+    + line('Interpreter', esc(BRAIN.interpreter), BRAIN.connected)
+    + line('Validator', '● '+esc(BRAIN.validator), true)
+    + line('Runtime', '● '+esc(BRAIN.runtime), true);
+}
+async function refreshProjects(){ PROJECTS = await api('/api/projects');
+  document.getElementById('s_proj').textContent = PROJECTS.length;
+  document.getElementById('s_ctl').textContent = PROJECTS.filter(p=>p.connected).length+' online'; }
+
+function go(view, arg){ stopSim(); const m=document.getElementById('main'); m.innerHTML='';
+  if(view==='projects') return renderProjects(m);
+  if(view==='project') return renderProject(m, arg);
+}
+
+/* ---------------- DASHBOARD ---------------- */
+function renderProjects(m){
+  const hd=el('div','row'); hd.style.justifyContent='space-between';
+  hd.appendChild(el('div',null,`<h1>Engineering Projects</h1><div class="sub">Manage connected machines, engineering models and generated operator experiences.</div>`));
+  const nb=el('button','btn','+ New Project'); nb.onclick=openNew; hd.appendChild(nb); m.appendChild(hd);
+  const run=PROJECTS.filter(p=>p.status==='RUNNING').length, stop=PROJECTS.length-run;
+  m.appendChild(el('div','bar',
+    `<span><b>${String(PROJECTS.length).padStart(2,'0')}</b><span class="k">PROJECTS</span></span>
+     <span><b>${String(PROJECTS.filter(p=>p.connected).length).padStart(2,'0')}</b><span class="k">CONNECTED</span></span>
+     <span><b>${String(run).padStart(2,'0')}</b><span class="k">RUNNING</span></span>
+     <span><b>${String(stop).padStart(2,'0')}</b><span class="k">STOPPED</span></span>`));
+  const nn=el('div',null,''); m.appendChild(nn); nn.id='newbox';
+  PROJECTS.forEach(p=>{
+    const c=el('div','pcard');
+    c.innerHTML=`<div><h3>${esc(p.name)}</h3><div class="t">${esc(p.subtitle||'')}</div></div>
+      <div class="stt"><span class="l"><span class="dot ${p.status==='RUNNING'?'':'off'}"></span>${p.status||'STOPPED'}</span>
+        <span class="l"><span class="dot ${p.connected?'':'off'}"></span>${p.connected?'CONNECTED':'OFFLINE'}</span></div>
+      <div><div class="k2">CONTROLLER</div><div class="v2">${esc(p.controller)}</div></div>
+      <div><div class="k2">ASSETS</div><div class="v2">${p.counts.assets}</div></div>
+      <div><div class="k2">SIGNALS</div><div class="v2">${p.counts.signals.toLocaleString()}</div></div>
+      <div><div class="k2">ALARMS</div><div class="v2">${p.counts.alarms}</div></div>
+      <div><div class="k2">MODEL</div><div class="v2">v1</div></div>
+      <div class="open">OPEN PROJECT →</div>`;
+    c.onclick=()=>go('project',p.projectId); m.appendChild(c);
+  });
+}
+
+async function openNew(){ const box=document.getElementById('newbox'); if(box.innerHTML){box.innerHTML='';return;}
+  box.innerHTML=`<div class="card"><h3>New Project</h3>
+    <div style="font-weight:700;font-size:12px;margin-bottom:6px">Pick from the machine library — 100 machines · 25 sectors</div>
+    <div class="row" style="gap:8px"><select class="inp" id="lib"><option>loading…</option></select><button class="btn" onclick="loadSample()">Load →</button></div>
+    <div style="margin:18px 0 10px;color:var(--mut);font-size:12px;text-align:center">— or upload your own document —</div>
+    <div class="up" id="drop">Drop or choose <b>.csv · .xlsx · .xml · .pdf · .json</b><br>
+      <span style="font-size:11px">tag list columns: asset · type · signal · kind · unit · min · max · hh · h · l · ll · desc</span><br><br>
+      <input type="file" id="file" accept=".csv,.xlsx,.xlsm,.xml,.pdf,.json"/></div>
+    <div class="msg" id="upmsg"></div></div>`;
+  document.getElementById('file').onchange=uploadFile;
+  const samples=await api('/api/samples'); const sel=document.getElementById('lib'); sel.innerHTML='';
+  const bySec={}; samples.forEach(s=>{(bySec[s.sector]=bySec[s.sector]||[]).push(s);});
+  Object.keys(bySec).sort().forEach(sec=>{ const og=document.createElement('optgroup'); og.label=sec.toUpperCase();
+    bySec[sec].forEach(s=>{const o=document.createElement('option'); o.value=s.file; o.textContent=sec+' · '+s.label; og.appendChild(o);}); sel.appendChild(og);});
+}
+async function loadSample(){ const file=document.getElementById('lib').value; if(!file)return;
+  document.getElementById('upmsg').innerHTML='Ingesting <b>'+esc(file)+'</b> — building canonical model…';
+  try{ const r=await api('/api/projects/from-sample',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({file})});
+    await refreshProjects(); go('project',r.projectId);
+  }catch(e){ document.getElementById('upmsg').innerHTML='<span class="rej">'+esc(e.message)+'</span>'; } }
+async function uploadFile(e){ const f=e.target.files[0]; if(!f)return; const fd=new FormData(); fd.append('file',f);
+  document.getElementById('upmsg').textContent='Ingesting '+f.name+' …';
+  try{ const r=await api('/api/projects/upload',{method:'POST',body:fd});
+    document.getElementById('upmsg').innerHTML=`<span class="ok">✓ ${r.projectId}</span> — ${r.counts.assets} assets · ${r.counts.signals} signals · ${r.counts.alarms} alarms`;
+    await refreshProjects(); setTimeout(()=>go('project',r.projectId),700);
+  }catch(err){ document.getElementById('upmsg').innerHTML='<span class="rej">'+esc(err.message)+'</span>'; } }
+async function synth(){ const name=prompt('Machine name?','SKID-09'); if(!name)return;
+  const r=await api('/api/projects/synth',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,controller:'Modicon M251',n_assets:20})});
+  await refreshProjects(); go('project',r.projectId); }
+
+/* ---------------- PROJECT ---------------- */
+let TAB='model';
+async function renderProject(m, pid){ CUR = await api('/api/projects/'+pid); SCREEN=null; TAB='model';
+  SIG={}; (CUR.signals||[]).forEach(s=>SIG[s.signalId]=s);
+  const hd=el('div','row'); hd.style.justifyContent='space-between';
+  hd.appendChild(el('div',null,`<div class="sub" style="cursor:pointer" onclick="go('projects')">← Projects</div>
+    <h1>${esc(CUR.name)} <span class="badge">${esc(CUR.controller)}</span></h1><div class="sub">${esc(CUR.subtitle||'')} · canonical model v1 — the source of truth</div>`));
+  m.appendChild(hd);
+  m.appendChild(el('div','bar',
+    `<span><b>${CUR.counts.assets}</b><span class="k">ASSETS</span></span>
+     <span><b>${CUR.counts.signals.toLocaleString()}</b><span class="k">SIGNALS</span></span>
+     <span><b>${CUR.commands.length}</b><span class="k">COMMANDS</span></span>
+     <span><b>${CUR.counts.alarms}</b><span class="k">ALARMS</span></span>
+     <span><b>${CUR.permissives.length}</b><span class="k">PERMISSIVES</span></span>`));
+  const tabs=el('div','tabs'); ['model','HMI Studio'].forEach(t=>{ const key=t==='model'?'model':'studio';
+    const b=el('div','tab'+(TAB===key?' on':''),t); b.onclick=()=>{TAB=key;paint();}; tabs.appendChild(b); });
+  m.appendChild(tabs); const body=el('div',null,''); body.id='pbody'; m.appendChild(body); paint();
+}
+function paint(){ document.querySelectorAll('.tab').forEach((b,i)=>b.classList.toggle('on',(i===0&&TAB==='model')||(i===1&&TAB==='studio')));
+  const b=document.getElementById('pbody'); b.innerHTML=''; TAB==='model'?paintModel(b):paintStudio(b); }
+
+function paintModel(b){
+  b.appendChild(el('div','card','<h3>Context · what this document means</h3><div id="cxbody" class="sub">Reading the uploaded document…</div>'));
+  api('/api/projects/'+CUR.projectId+'/context').then(renderContext).catch(()=>{});
+  const mk=(title,items)=>{ const c=el('div','card',`<h3>${title}</h3>`); const g=el('div',null,'');
+    items.slice(0,60).forEach(it=>g.appendChild(el('div',null,`<div class="mono" style="font-size:11.5px;padding:3px 0;border-bottom:1px solid var(--line2)">${it}</div>`)));
+    if(items.length>60)g.appendChild(el('div','sub','… +'+(items.length-60)+' more')); c.appendChild(g); return c; };
+  const g=el('div','grid g3'); b.appendChild(g);
+  g.appendChild(mk('Assets', CUR.assets.map(a=>`${a.asset_id} · ${a.type}`)));
+  g.appendChild(mk('Signals', CUR.signals.map(s=>`${s.signalId}${s.engUnit?' · '+s.engUnit:''}${s.engMax!=null?' · '+s.engMin+'–'+s.engMax:''}`)));
+  g.appendChild(mk('Commands & permissives', CUR.commands.map(c=>`${c.command_id} → ${c.target_asset}`).concat(CUR.permissives.map(p=>`${p.command} requires ${p.signal} ${p.expected}`))));
+}
+
+function renderContext(cx){ const t=document.getElementById('cxbody'); if(!t)return;
+  t.innerHTML=`<div style="color:var(--ink);font-size:13.5px;line-height:1.55">${esc(cx.narrative)}</div>
+    <div class="grid g4" style="margin-top:14px">
+      <div class="tile"><div class="l">ASSETS</div><div class="n">${cx.counts.assets}</div></div>
+      <div class="tile"><div class="l">SIGNALS</div><div class="n">${cx.counts.signals}</div></div>
+      <div class="tile"><div class="l">COMMANDS</div><div class="n">${cx.control.commands}</div></div>
+      <div class="tile"><div class="l">ALARMS</div><div class="n">${cx.counts.alarms}</div></div></div>
+    <div style="margin-top:12px;font-size:12.5px"><b>Asset breakdown</b> · ${Object.entries(cx.asset_breakdown).map(([k,v])=>v+' '+k).join(' · ')}</div>
+    <div style="margin-top:5px;font-size:12.5px"><b>Instrumentation</b> · ${cx.instrumentation.join(' · ')||'discrete states only'}</div>
+    <div style="margin-top:5px;font-size:12.5px"><b>Control</b> · ${cx.control.starts} motor start/stop · ${cx.control.valves} valve open/close · ${cx.control.permissives} permissives · ${cx.control.interlocks} interlocks</div>
+    ${(cx.operator_needs&&cx.operator_needs.length)?`<div style="margin-top:9px;font-size:12.5px"><b>Operators need to</b> · ${cx.operator_needs.map(esc).join(' · ')}</div>`:''}
+    ${(cx.recommended_screens&&cx.recommended_screens.length)?`<div style="margin-top:9px;font-size:12.5px"><b>Recommended screens</b><div style="margin-top:5px">${cx.recommended_screens.map(r=>`<span class="cmd" style="cursor:pointer;color:var(--g2);background:var(--gl);border-color:var(--gl)" onclick="TAB='studio';paint();setTimeout(()=>doGen('${esc(r.screen).replace(/'/g,'')}'),50)">${esc(r.screen)}</span>`).join('')}</div></div>`:''}`;
+}
+function paintStudio(b){
+  const chips=CUR.assets.slice(0,6).map(a=>`<button class="btn o sm" style="margin:4px 4px 0 0" onclick="doGen('page for ${a.asset_id}')">${a.asset_id}</button>`).join('');
+  b.innerHTML=`<div class="card"><h3>Generate HMI from a prompt</h3>
+    <div class="row" style="gap:8px"><input class="inp" id="gp" placeholder="e.g. operator page for the pump  ·  show me the whole line  ·  tank level"/>
+      <button class="btn" onclick="doGen()">Generate</button></div>
+    <div style="margin-top:8px"><button class="btn o sm" style="margin:4px 4px 0 0" onclick="doGen('show me the whole line')">Whole line</button>${chips}</div>
+    <div class="msg" id="ga">Generating overview…</div></div>
+    <div id="screenBox"></div>`;
+  document.getElementById('gp').addEventListener('keydown',e=>{if(e.key==='Enter')doGen();});
+  doGen('show me the whole line');   // auto-show a screen immediately
+}
+async function doGen(override){ const req=(override!==undefined?override:document.getElementById('gp').value.trim()); if(!req)return;
+  if(document.getElementById('gp'))document.getElementById('gp').value=override&&override!=='show me the whole line'?override:document.getElementById('gp').value;
+  document.getElementById('ga').textContent='Analyzing machine context…';
+  window.LASTGEN=req;
+  const r=await api('/api/projects/'+CUR.projectId+'/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({request:req})});
+  if(r.brain_offline){ SCREEN=null; const sb=document.getElementById('screenBox'); if(sb)sb.innerHTML='';
+    document.getElementById('ga').innerHTML=`<span class="rej">⚠ BRAIN OFFLINE</span> — ${esc(r.message||'')} <button class="btn o sm" onclick="refreshBrain();doGen(window.LASTGEN)">Retry</button>`;
+    BRAIN=r.brain||BRAIN; renderBrainStatus(); return; }
+  SCREEN=r.screen; EXPLAIN=r.explanation; HELP=r.help; REVS=r.revisions||REVS;
+  const chain=(r.steps||[]).join(' → ');
+  document.getElementById('ga').innerHTML=`<span class="ok">✓</span> <b>${esc(r.engine||'deterministic')}</b> · ${esc(chain)} · scope <b>${esc(r.analysis.scope)}</b> · ${r.latency_ms} ms · <b>${esc(r.rev||'')}</b>`;
+  renderScreen();
+}
+function chips(list){ return (list||[]).map(x=>`<span class="cmd" style="cursor:pointer;color:var(--g2);background:var(--gl);border-color:var(--gl)" onclick="document.getElementById('ep').value='${esc(x)}';doEdit()">${esc(x)}</span>`).join(''); }
+function renderScreen(){ const box=document.getElementById('screenBox'); if(!SCREEN){box.innerHTML='';return;}
+  const v=SCREEN.validation;
+  const addChips=(HELP&&HELP.can_add_signals||[]).map(s=>'add value for '+s);
+  box.innerHTML=`<div class="card"><div class="row" style="justify-content:space-between"><h3>${esc(SCREEN.pageTitle)}</h3>
+      <span><span class="badge">${v.ok?'VALIDATED':'SANITIZED'} · ${v.widgets} widgets · ${v.with_evidence} w/ evidence</span> <span class="badge" style="background:#3a2a12;color:#e0a83e">RUNTIME · SIMULATOR</span></span></div>
+      <div style="background:var(--gl);border-radius:9px;padding:11px 13px;font-size:12.5px;color:var(--ink);margin-bottom:12px">
+        <b style="color:var(--g2)">◆ What this screen shows</b><br>${esc(EXPLAIN||SCREEN.assembledBy)}</div>
+      <div class="hmi" id="wg"></div></div>
+      <div class="card"><h3>Refine with a prompt <span class="badge">copilot</span></h3>
+        <div class="row" style="gap:8px"><input class="inp" id="ep" placeholder="add a trend for … · add value for … · remove alarms · remove pressure"/>
+        <button class="btn" onclick="doEdit()">Apply edit</button></div>
+        <div class="msg" id="ea"></div>
+        <div style="margin-top:10px;font-size:12px"><b>Try:</b> ${chips((HELP&&HELP.examples)||[])}</div>
+        ${addChips.length?`<div style="margin-top:6px;font-size:12px"><b>You can add these readings:</b> ${chips(addChips)}</div>`:''}
+      </div>
+      <div class="card"><h3>Change impact <span class="badge">engineering reality → HMI</span></h3>
+        <div class="sub" style="margin-bottom:8px">Change a signal's engineering range. CANON finds the affected components and regenerates at the new range (a reviewable revision).</div>
+        <div class="row" style="gap:8px"><select class="inp" id="ciSig" style="max-width:280px">${[...new Set(SCREEN.widgets.flatMap(w=>w.boundSignals||[]))].filter(s=>SIG[s]&&SIG[s].kind==='analog-in').map(s=>`<option value="${esc(s)}">${esc(s)} · ${SIG[s].engMin}–${SIG[s].engMax} ${esc(SIG[s].engUnit||'')}</option>`).join('')}</select>
+          <input class="inp" id="ciMax" style="max-width:120px" placeholder="new max"/><button class="btn" onclick="doChangeImpact()">Apply change</button></div>
+        <div class="msg" id="cia"></div></div>
+      <div class="card"><h3>HMI revisions</h3><div id="revbox" class="sub">no revisions yet</div></div>`;
+  const wg=document.getElementById('wg');
+  const sh=SCREEN.widgets.find(w=>w.component==='StatusHeader'); if(sh)wg.appendChild(statusHeader(sh));
+  const secs={}, order=[];
+  SCREEN.widgets.filter(w=>w.component!=='StatusHeader').forEach(w=>{ const s=w.section||'System';
+    if(!secs[s]){secs[s]=[];order.push(s);} secs[s].push(w); });
+  order.forEach(sec=>{ wg.appendChild(el('div',null,`<div style="color:#7fa3bd;font-size:10px;letter-spacing:1.6px;font-weight:800;margin:12px 2px 6px;text-transform:uppercase">${esc(sec)}</div>`));
+    const g=el('div','wgrid',''); secs[sec].forEach(w=>g.appendChild(widget(w))); wg.appendChild(g); });
+  document.getElementById('ep').addEventListener('keydown',e=>{if(e.key==='Enter')doEdit();});
+  renderRevs();
+  document.querySelectorAll('[data-gauge],[data-val]').forEach(e=>{ const sig=e.getAttribute('data-gauge')||e.getAttribute('data-val'); e.style.cursor='pointer'; e.title='Why is this here? (traceability)'; e.onclick=()=>whyWidget(sig); });
+  startSim();   // bring the screen to life — live SIMULATOR values, working commands, alarms
+}
+function renderRevs(){ const b=document.getElementById('revbox'); if(!b)return; if(!REVS||!REVS.length){b.textContent='no revisions yet';return;}
+  b.innerHTML=REVS.map(r=>`<div style="display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--line2)">
+    <b style="width:34px">${esc(r.rev)}</b><span style="color:var(--mut);font-size:11px;width:130px">${esc(r.ts.split(' ').pop())}</span>
+    <span style="flex:1;font-size:12px">${esc(r.note)}</span>
+    <span class="badge" style="${r.approved?'':'background:#3a2a12;color:#e0a83e'}">${r.approved?'approved':'review required'}</span>
+    <button class="btn o sm" onclick="doRestore('${esc(r.rev)}')">restore</button></div>`).join('');
+}
+async function doRestore(rev){ const r=await api('/api/projects/'+CUR.projectId+'/restore',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({rev})});
+  SCREEN=r.screen; REVS=r.revisions; renderScreen(); toast('Restored '+rev+' → '+r.rev); }
+async function doChangeImpact(){ const sig=document.getElementById('ciSig').value; const mx=parseFloat(document.getElementById('ciMax').value);
+  if(!sig||isNaN(mx)){document.getElementById('cia').innerHTML='<span class="rej">enter a numeric new max</span>';return;}
+  const r=await api('/api/projects/'+CUR.projectId+'/change-impact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({signalId:sig,engMax:mx})});
+  SIG[sig].engMax=r.new; SCREEN=r.screen; REVS=r.revisions;
+  const aff=r.affected.map(a=>'• '+(a.component||a.id)+' — '+a.reason).join('<br>');
+  renderScreen();
+  document.getElementById('cia').innerHTML=`<span class="ok">✓ ${esc(sig)} range ${r.old}→${r.new}</span> · rev ${esc(r.rev)} (review required)<br><b>Affected components:</b><br>${aff}`;
+}
+async function whyWidget(sig){ const w=await api('/api/projects/'+CUR.projectId+'/why?signal='+encodeURIComponent(sig));
+  if(w.status==='UNKNOWN'){ toast(sig+' — UNKNOWN · not in the canonical model'); return; }
+  toast('WHY '+sig+': '+w.fact+' · evidence '+w.evidence_id+' · source: '+w.source+' · '+w.status);
+}
+function statusHeader(w){ const p=w.props||{};
+  return el('div',null,`<div style="display:flex;gap:26px;align-items:center;background:#0c141c;border:1px solid #223140;border-radius:11px;padding:12px 16px;margin-bottom:6px">
+    <div><div style="font-size:15px;font-weight:800;color:#eaf2f8">${esc(p.machine)}</div><div style="font-size:11px;color:#6f8496">${esc(p.controller||'')}</div></div>
+    <div style="display:flex;gap:22px;margin-left:auto;text-align:center">
+      <div><div style="font-size:19px;font-weight:800;color:#eaf2f8">${p.assets}</div><div style="font-size:9px;letter-spacing:1px;color:#6f8496">ASSETS</div></div>
+      <div><div style="font-size:19px;font-weight:800;color:#f0b35b">${p.alarmSources}</div><div style="font-size:9px;letter-spacing:1px;color:#6f8496">ALARM SRC</div></div>
+      <div><div style="font-size:19px;font-weight:800;color:#5fd39b">${p.commands}</div><div style="font-size:9px;letter-spacing:1px;color:#6f8496">COMMANDS</div></div></div></div>`);
+}
+/* ---- SVG global-object builders (deterministic; live values driven by pollRuntime) ---- */
+const TAU=6.28318530718;
+function cssid(s){ return String(s).replace(/[^A-Za-z0-9_]/g,'_'); }
+function polar(cx,cy,r,deg){ const a=deg*Math.PI/180; return [cx+r*Math.cos(a),cy+r*Math.sin(a)]; }
+function radialGauge(sig,mn,mx,unit,s){
+  const cx=75,cy=72,R=44,SW=12,ARC=0.72,C=TAU*R,arcLen=C*ARC,START=129,SPAN=ARC*360;
+  const marks=[];
+  const addMark=(val,col)=>{ if(val==null)return; const f=Math.max(0,Math.min(1,(val-mn)/((mx-mn)||1))); const ang=START+f*SPAN;
+    const a=polar(cx,cy,R-9,ang),b=polar(cx,cy,R+9,ang);
+    marks.push(`<line x1="${a[0].toFixed(1)}" y1="${a[1].toFixed(1)}" x2="${b[0].toFixed(1)}" y2="${b[1].toFixed(1)}" stroke="${col}" stroke-width="2.4" stroke-linecap="round"/>`); };
+  if(s){ addMark(s.hh,'#e0554e'); addMark(s.h,'#e0a83e'); addMark(s.l,'#e0a83e'); addMark(s.ll,'#e0554e'); }
+  return `<svg class="gsvg" viewBox="0 0 150 150">
+   <circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="#24333f" stroke-width="${SW}" stroke-linecap="round" transform="rotate(${START} ${cx} ${cy})" stroke-dasharray="${arcLen.toFixed(1)} ${C.toFixed(1)}"/>
+   <circle data-gauge="${esc(sig)}" data-shape="radial" data-arc="${arcLen.toFixed(1)}" data-c="${C.toFixed(1)}" data-min="${mn}" data-max="${mx}" cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="#43b57e" stroke-width="${SW}" stroke-linecap="round" transform="rotate(${START} ${cx} ${cy})" stroke-dasharray="0 ${C.toFixed(1)}" style="transition:stroke-dasharray .5s,stroke .3s"/>
+   ${marks.join('')}
+   <g data-needle="${esc(sig)}" data-min="${mn}" data-max="${mx}" data-span="${SPAN}" data-start="${START}" transform="rotate(${(90+START).toFixed(1)} ${cx} ${cy})" style="transition:transform .5s"><line class="needle" x1="${cx}" y1="${cy-R-5}" x2="${cx}" y2="${cy-R+11}"/></g>
+   <text x="${cx}" y="${cy+3}" text-anchor="middle" font-size="22" font-weight="800" class="gval"><tspan data-val="${esc(sig)}">—</tspan></text>
+   <text x="${cx}" y="${cy+17}" text-anchor="middle" font-size="9" class="gunit">${esc(unit||'')}</text>
+   <text x="${cx-R-1}" y="${cy+40}" text-anchor="middle" class="gcap">${mn}</text>
+   <text x="${cx+R+1}" y="${cy+40}" text-anchor="middle" class="gcap">${mx}</text>
+  </svg>`;
+}
+function tankMimic(sig,mn,mx,unit,s){
+  const W=122,H=120,x=26,y=10,w=60,h=98,id=cssid(sig);
+  const my=v=>{ const f=Math.max(0,Math.min(1,(v-mn)/((mx-mn)||1))); return y+h-f*h; };
+  const marks=[];
+  const addMark=(val,col,lab)=>{ if(val==null)return; const yy=my(val);
+    marks.push(`<line x1="${x-3}" y1="${yy.toFixed(1)}" x2="${x+w+3}" y2="${yy.toFixed(1)}" stroke="${col}" stroke-width="1" stroke-dasharray="3 2"/><text x="${x+w+6}" y="${(yy+3).toFixed(1)}" class="gcap" fill="${col}" text-anchor="start">${lab}</text>`); };
+  if(s){ addMark(s.hh,'#e0554e','HH'); addMark(s.h,'#e0a83e','H'); addMark(s.l,'#e0a83e','L'); addMark(s.ll,'#e0554e','LL'); }
+  return `<svg class="tanksvg" viewBox="0 0 ${W} ${H}">
+   <defs><clipPath id="clip_${id}"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="9"/></clipPath></defs>
+   <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="9" fill="#0c141c" stroke="#33475a" stroke-width="2"/>
+   <rect data-gauge="${esc(sig)}" data-shape="tank" data-x="${x}" data-y="${y}" data-h="${h}" data-min="${mn}" data-max="${mx}" x="${x}" y="${y+h}" width="${w}" height="0" fill="#2e8b57" clip-path="url(#clip_${id})" style="transition:y .5s,height .5s,fill .3s"/>
+   ${marks.join('')}
+   <text x="${x+w/2}" y="${y+h/2}" text-anchor="middle" font-size="17" font-weight="800" class="gval"><tspan data-val="${esc(sig)}">—</tspan></text>
+   <text x="${x+w/2}" y="${y+h/2+13}" text-anchor="middle" font-size="8" class="gunit">${esc(unit||'')}</text>
+  </svg>`;
+}
+function pumpSymbol(run){ return `<svg class="symsvg" viewBox="0 0 60 60" data-motor="${esc(run||'')}">
+   <circle cx="30" cy="30" r="21" fill="#0c141c" stroke="#3a4a56" stroke-width="3" data-motorring/>
+   <g data-impeller><path d="M30 30 L30 11 M30 30 L46 40 M30 30 L14 40" stroke="#6f8496" stroke-width="3" stroke-linecap="round" fill="none" data-motorvane/></g>
+   <circle cx="30" cy="30" r="3.6" fill="#8fa6b6"/></svg>`; }
+function valveSymbol(op,cl){ return `<svg class="symsvg" viewBox="0 0 60 60" data-valvesym="${esc(op||'')}|${esc(cl||'')}">
+   <path d="M8 18 L30 30 L8 42 Z" fill="#3a4a56" data-vbody/><path d="M52 18 L30 30 L52 42 Z" fill="#3a4a56" data-vbody/>
+   <line x1="30" y1="30" x2="30" y2="14" stroke="#3a4a56" stroke-width="3" data-vstem/><rect x="21" y="8" width="18" height="6" rx="2" fill="#3a4a56" data-vstem/></svg>`; }
+function trendSvg(series){ const id=series[0]||''; const grid=[13,27,41].map(yy=>`<line class="gridln" x1="0" y1="${yy}" x2="220" y2="${yy}"/>`).join('');
+  const s=SIG[id]||{}; const th=(s.h!=null)?`<line class="thln" x1="0" x2="220" y1="0" y2="0" data-thline data-sig="${esc(id)}"/>`:'';
+  return `<div class="trendbox"><svg class="trend" data-trend="${series.join(',')}" width="100%" height="60" viewBox="0 0 220 60" preserveAspectRatio="none">
+     ${grid}${th}<polyline data-tarea points="" fill="rgba(67,181,126,.12)" stroke="none"/><polyline data-tline points="" fill="none" stroke="#43b57e" stroke-width="2"/></svg>
+   <div style="display:flex;justify-content:space-between"><span class="axlbl" style="fill:none;color:#5f7385;font-size:8px">${s.engMin==null?0:s.engMin}</span><span class="axlbl" style="color:#5f7385;font-size:8px">${s.engMax==null?100:s.engMax} ${esc(s.engUnit||'')}</span></div></div>`;
+}
+
+function widget(w){ const p=w.props||{}; const ev=(w.usedEvidenceIds||[]).length; const evl=`<div class="ev">evidence ×${ev}</div>`;
+  if(w.component==='AlarmBanner'){ return el('div','w',`<div class="wt">Alarms <span class="live">● SIMULATOR</span></div>
+     <div class="abar clear" data-alarm data-sigs="${(w.boundSignals||[]).join(',')}">◔ ${(w.boundSignals||[]).length} sources · <span data-alarmtext>none active</span></div>${evl}`); }
+  if(w.component==='TankLevel'){ const sig=p.binding||''; const r=p.range||[0,100];
+    return el('div','w',`<div class="wt">Level · ${esc(sig)}</div>
+      <div class="hmiwrap">${tankMimic(sig,r[0],r[1],p.unit||'',SIG[sig])}</div>
+      <div class="ev">range [${r[0]}, ${r[1]}] · evidence ×${ev}</div>`); }
+  if(w.component==='PressureGauge'){ const sig=p.binding||''; const r=p.range||[0,10];
+    return el('div','w',`<div class="wt">Pressure · ${esc(sig)}</div>
+      <div class="hmiwrap">${radialGauge(sig,r[0],r[1],p.unit||'',SIG[sig])}</div>
+      <div class="ev">range [${r[0]}, ${r[1]}] · evidence ×${ev}</div>`); }
+  if(w.component==='NumericValue'){ const sig=p.binding||''; const s=SIG[sig]||{};
+    const hasRange=(s.engMin!=null&&s.engMax!=null);
+    return el('div','w',`<div class="wt">Value · ${esc(sig)}</div>
+      <div class="hmiwrap">${hasRange?radialGauge(sig,s.engMin,s.engMax,p.unit||s.engUnit||'',s)
+        :`<div style="font-size:30px;font-weight:800;margin:10px 0 2px;text-align:center;width:100%"><span data-val="${esc(sig)}">—</span> <span style="font-size:13px" class="gunit">${esc(p.unit||'')}</span></div>`}</div>${evl}`); }
+  if(w.component==='MotorStarter'){ const run=p.running||'', flt=p.fault||'';
+    return el('div','w',`<div class="wt">Motor · ${esc(p.target)}</div>
+      ${pumpSymbol(run)}
+      <div class="wm" style="text-align:center"><span class="led" data-led="${esc(run)}"></span><span data-state="${esc(run)}">stopped</span></div>
+      <div style="margin-top:9px;text-align:center">${p.startCommand?`<button class="hbtn start" onclick="doCommand('${esc(p.startCommand)}')">▶ START</button>`:''}${p.stopCommand?`<button class="hbtn stop" onclick="doCommand('${esc(p.stopCommand)}')">■ STOP</button>`:''}</div>
+      ${flt?`<div class="ev" style="text-align:center"><span class="led" data-led="${esc(flt)}" data-inv></span> ${esc(flt)} · evidence ×${ev}</div>`:evl}`); }
+  if(w.component==='ValveStatus'){ const op=p.open||'', cl=p.closed||'';
+    return el('div','w',`<div class="wt">Valve · ${esc(p.target)}</div>
+      ${valveSymbol(op,cl)}
+      <div class="wm" style="text-align:center"><span data-valve="${esc(op)}|${esc(cl)}">closed</span></div>
+      <div style="margin-top:9px;text-align:center">${p.openCommand?`<button class="hbtn open" onclick="doCommand('${esc(p.openCommand)}')">OPEN</button>`:''}${p.closeCommand?`<button class="hbtn close" onclick="doCommand('${esc(p.closeCommand)}')">CLOSE</button>`:''}</div>${evl}`); }
+  if(w.component==='PermissivePanel'){ return el('div','w',`<div class="wt">Permissive gate</div><div class="wm">${esc(p.command)}</div>
+      ${(w.boundSignals||[]).map(s=>`<div class="perm"><span class="led" data-led="${esc(s)}"></span>${esc(s)}</div>`).join('')}${evl}`); }
+  if(w.component==='Trend'){ const series=(p.series||[]);
+    return el('div','w',`<div class="wt">Trend <span class="live">● SIMULATOR</span></div><div class="wm" style="font-size:11px">${series.join(', ')}</div>
+      ${trendSvg(series)}${evl}`); }
+  return el('div','w',`<div class="wt">${esc(w.component)}</div>`);
+}
+
+/* ---------- REAL RUNTIME (server-side deterministic SIMULATOR) ---------- */
+function toast(msg){ let t=document.getElementById('toast'); if(!t){t=el('div','toast','');t.id='toast';document.body.appendChild(t);} t.textContent=msg; t.classList.add('on'); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('on'),2800); }
+function stopSim(){ if(SIMT){clearInterval(SIMT);SIMT=null;} }
+async function startSim(){ stopSim(); SIM={hist:{}}; await pollRuntime(); SIMT=setInterval(pollRuntime,1200); }
+function gcolor(id,v){ const s=SIG[id]; if(s){ if((s.hh!=null&&v>=s.hh)||(s.ll!=null&&v<=s.ll))return 'linear-gradient(90deg,#c0392b,#e0554e)'; if(s.h!=null&&v>=s.h)return 'linear-gradient(90deg,#c47f17,#e0a83e)'; } return 'linear-gradient(90deg,#2e8b57,#43b57e)'; }
+function gsolid(id,v){ const m=gcolor(id,v).match(/#[0-9a-f]{6}/ig)||[]; return m[m.length-1]||'#43b57e'; }
+function breachRT(id,sig){ const s=SIG[id],c=sig[id],v=c&&c.value; if(!s)return false; if(typeof v!=='number')return id.endsWith('_FAULT')&&!!v; if(s.hh!=null&&v>=s.hh)return true; if(s.ll!=null&&v<=s.ll)return true; return false; }
+async function pollRuntime(){ if(!CUR)return; let r; try{ r=await api('/api/projects/'+CUR.projectId+'/runtime'); }catch(e){ return; } const sig=r.signals||{};
+  document.querySelectorAll('[data-gauge]').forEach(e=>{ const id=e.getAttribute('data-gauge'),mn=+e.getAttribute('data-min'),mx=+e.getAttribute('data-max'),shape=e.getAttribute('data-shape'),c=sig[id],v=c&&c.value; if(typeof v!=='number')return; const f=Math.max(0,Math.min(1,(v-mn)/((mx-mn)||1)));
+    if(shape==='radial'){ const arc=+e.getAttribute('data-arc'),C=+e.getAttribute('data-c'); e.setAttribute('stroke-dasharray',(arc*f).toFixed(1)+' '+C.toFixed(1)); e.setAttribute('stroke',gsolid(id,v)); }
+    else if(shape==='tank'){ const y0=+e.getAttribute('data-y'),hh=+e.getAttribute('data-h'),fill=hh*f; e.setAttribute('height',fill.toFixed(1)); e.setAttribute('y',(y0+hh-fill).toFixed(1)); e.setAttribute('fill',gsolid(id,v)); }
+    else { e.style.width=Math.max(2,Math.min(100,f*100))+'%'; e.style.background=gcolor(id,v); } });
+  document.querySelectorAll('[data-needle]').forEach(e=>{ const id=e.getAttribute('data-needle'),mn=+e.getAttribute('data-min'),mx=+e.getAttribute('data-max'),span=+e.getAttribute('data-span'),start=+e.getAttribute('data-start'),c=sig[id],v=c&&c.value; if(typeof v!=='number')return; const f=Math.max(0,Math.min(1,(v-mn)/((mx-mn)||1))); e.setAttribute('transform','rotate('+(90+start+f*span).toFixed(1)+' 75 72)'); });
+  document.querySelectorAll('[data-motor]').forEach(svg=>{ const c=sig[svg.getAttribute('data-motor')],on=!!(c&&c.value),col=on?'#43b57e':'#6f8496'; const g=svg.querySelector('[data-impeller]'); if(g)g.classList.toggle('spin',on); svg.querySelectorAll('[data-motorvane]').forEach(p=>p.setAttribute('stroke',col)); const ring=svg.querySelector('[data-motorring]'); if(ring)ring.setAttribute('stroke',on?'#1f7a4d':'#3a4a56'); });
+  document.querySelectorAll('[data-valvesym]').forEach(svg=>{ const parts=svg.getAttribute('data-valvesym').split('|'),isOpen=!!(sig[parts[0]]&&sig[parts[0]].value),isClosed=!!(sig[parts[1]]&&sig[parts[1]].value),col=isOpen?'#43b57e':(isClosed?'#e0554e':'#c47f17'); svg.querySelectorAll('[data-vbody]').forEach(p=>p.setAttribute('fill',col)); svg.querySelectorAll('[data-vstem]').forEach(p=>{p.setAttribute('fill',col);p.setAttribute('stroke',col);}); });
+  document.querySelectorAll('[data-val]').forEach(e=>{ const c=sig[e.getAttribute('data-val')],v=c&&c.value; if(typeof v==='number')e.textContent=v.toFixed(1); });
+  document.querySelectorAll('[data-led]').forEach(e=>{ const c=sig[e.getAttribute('data-led')],on=!!(c&&c.value),inv=e.hasAttribute('data-inv'); e.style.background=inv?(on?'#e0554e':'#3a4a56'):(on?'#43b57e':'#3a4a56'); });
+  document.querySelectorAll('[data-state]').forEach(e=>{ const c=sig[e.getAttribute('data-state')]; e.textContent=(c&&c.value)?'running':'stopped'; });
+  document.querySelectorAll('[data-valve]').forEach(e=>{ const parts=e.getAttribute('data-valve').split('|'),op=parts[0],cl=parts[1]; e.textContent=(sig[op]&&sig[op].value)?'open':((sig[cl]&&sig[cl].value)?'closed':'moving'); });
+  document.querySelectorAll('[data-alarm]').forEach(e=>{ const ss=(e.getAttribute('data-sigs')||'').split(',').filter(Boolean).filter(id=>breachRT(id,sig)); e.className='abar '+(ss.length?'':'clear'); const t=e.querySelector('[data-alarmtext]'); if(t)t.textContent=ss.length?(ss.length+' ACTIVE: '+ss.slice(0,3).join(', ')):'none active'; });
+  document.querySelectorAll('[data-trend]').forEach(svg=>{ const id=svg.getAttribute('data-trend').split(',')[0]; const s=SIG[id]; if(!s)return; const mn=(s.engMin==null?0:s.engMin),mx=(s.engMax==null?100:s.engMax),c=sig[id],v=c&&c.value; if(typeof v==='number'){ (SIM.hist[id]=SIM.hist[id]||[]).push((v-mn)/((mx-mn)||1)); if(SIM.hist[id].length>44)SIM.hist[id].shift(); } const h=SIM.hist[id]||[]; const Y=y=>(54-y*48).toFixed(1); const pts=h.map((y,i)=>(i/43*220).toFixed(1)+','+Y(y)).join(' '); const line=svg.querySelector('[data-tline]'),area=svg.querySelector('[data-tarea]'),th=svg.querySelector('[data-thline]'); if(line)line.setAttribute('points',pts); if(area&&h.length)area.setAttribute('points','0,54 '+pts+' '+((h.length-1)/43*220).toFixed(1)+',54'); const breach=typeof v==='number'&&breachRT(id,sig); if(line)line.setAttribute('stroke',breach?'#e0554e':'#43b57e'); if(th&&s.h!=null){ const ty=Y(Math.max(0,Math.min(1,(s.h-mn)/((mx-mn)||1)))); th.setAttribute('y1',ty); th.setAttribute('y2',ty); } });
+}
+async function doCommand(cid){ if(!cid)return; let r; try{ r=await api('/api/projects/'+CUR.projectId+'/command',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({command_id:cid})}); }catch(e){ toast('command failed'); return; }
+  if(r.ok){ toast('OK '+cid+' - '+(r.progression||[]).slice(-1)[0]); } else { toast('BLOCKED - '+(r.reason||'permissive not met')); }
+  pollRuntime();
+}
+async function doEdit(){ const prompt=document.getElementById('ep').value.trim(); if(!prompt)return;
+  const r=await api('/api/projects/'+CUR.projectId+'/edit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({screen:SCREEN,prompt})});
+  if(r.brain_offline){ document.getElementById('ea').innerHTML=`<span class="rej">⚠ BRAIN OFFLINE — ${esc(r.message||'natural-language interpretation unavailable')}</span>`; BRAIN=r.brain||BRAIN; renderBrainStatus(); return; }
+  SCREEN=r.screen; EXPLAIN=r.explanation||EXPLAIN; HELP=r.help||HELP; REVS=r.revisions||REVS; renderScreen();
+  const parts=[];
+  if(r.applied&&r.applied.length)parts.push('<span class="ok">✓ '+r.applied.map(esc).join(' · ')+'</span>');
+  if(r.rejected&&r.rejected.length)parts.push('<span class="rej">✕ '+r.rejected.map(esc).join(' · ')+'</span>');
+  if(r.why)parts.push('<span style="color:var(--mut)">💡 '+esc(r.why)+'</span>');
+  document.getElementById('ea').innerHTML=parts.join('<br>')||'✓ done';
+}
+boot();
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+P-101,pump,PT-101,analog-in,bar,0,16,14,12,,2,pressure
+P-101,pump,FT-101,analog-in,m3/h,0,300,,,,10,flow
+P-101,pump,P-101_RUNNING,discrete-in,,,,,,,,running
+P-101,pump,P-101_FAULT,discrete-in,,,,,,,,fault
+P-101,pump,P-101_START_REQ,discrete-out,,,,,,,,start
+P-101,pump,P-101_STOP_REQ,discrete-out,,,,,,,,stop
+P-102,pump,PT-102,analog-in,bar,0,16,14,12,,2,pressure
+P-102,pump,FT-102,analog-in,m3/h,0,300,,,,10,flow
+P-102,pump,P-102_RUNNING,discrete-in,,,,,,,,running
+P-102,pump,P-102_FAULT,discrete-in,,,,,,,,fault
+P-102,pump,P-102_START_REQ,discrete-out,,,,,,,,start
+P-102,pump,P-102_STOP_REQ,discrete-out,,,,,,,,stop
+P-103,pump,PT-103,analog-in,bar,0,16,14,12,,2,pressure
+P-103,pump,FT-103,analog-in,m3/h,0,300,,,,10,flow
+P-103,pump,P-103_RUNNING,discrete-in,,,,,,,,running
+P-103,pump,P-103_FAULT,discrete-in,,,,,,,,fault
+P-103,pump,P-103_START_REQ,discrete-out,,,,,,,,start
+P-103,pump,P-103_STOP_REQ,discrete-out,,,,,,,,stop
+P-104,pump,PT-104,analog-in,bar,0,16,14,12,,2,pressure
+P-104,pump,FT-104,analog-in,m3/h,0,300,,,,10,flow
+P-104,pump,P-104_RUNNING,discrete-in,,,,,,,,running
+P-104,pump,P-104_FAULT,discrete-in,,,,,,,,fault
+P-104,pump,P-104_START_REQ,discrete-out,,,,,,,,start
+P-104,pump,P-104_STOP_REQ,discrete-out,,,,,,,,stop
+P-105,pump,PT-105,analog-in,bar,0,16,14,12,,2,pressure
+P-105,pump,FT-105,analog-in,m3/h,0,300,,,,10,flow
+P-105,pump,P-105_RUNNING,discrete-in,,,,,,,,running
+P-105,pump,P-105_FAULT,discrete-in,,,,,,,,fault
+P-105,pump,P-105_START_REQ,discrete-out,,,,,,,,start
+P-105,pump,P-105_STOP_REQ,discrete-out,,,,,,,,stop
+P-106,pump,PT-106,analog-in,bar,0,16,14,12,,2,pressure
+P-106,pump,FT-106,analog-in,m3/h,0,300,,,,10,flow
+P-106,pump,P-106_RUNNING,discrete-in,,,,,,,,running
+P-106,pump,P-106_FAULT,discrete-in,,,,,,,,fault
+P-106,pump,P-106_START_REQ,discrete-out,,,,,,,,start
+P-106,pump,P-106_STOP_REQ,discrete-out,,,,,,,,stop
+P-107,pump,PT-107,analog-in,bar,0,16,14,12,,2,pressure
+P-107,pump,FT-107,analog-in,m3/h,0,300,,,,10,flow
+P-107,pump,P-107_RUNNING,discrete-in,,,,,,,,running
+P-107,pump,P-107_FAULT,discrete-in,,,,,,,,fault
+P-107,pump,P-107_START_REQ,discrete-out,,,,,,,,start
+P-107,pump,P-107_STOP_REQ,discrete-out,,,,,,,,stop
+TK-101,tank,LT-101,analog-in,%,0,100,90,80,20,10,wet-well
+TK-102,tank,LT-102,analog-in,%,0,100,90,80,20,10,wet-well
+TK-103,tank,LT-103,analog-in,%,0,100,90,80,20,10,wet-well
+XV-101,valve,XV-101_OPEN,discrete-in,,,,,,,,open limit
+XV-101,valve,XV-101_CLOSED,discrete-in,,,,,,,,closed limit
+XV-101,valve,XV-101_OPEN_REQ,discrete-out,,,,,,,,open
+XV-101,valve,XV-101_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-102,valve,XV-102_OPEN,discrete-in,,,,,,,,open limit
+XV-102,valve,XV-102_CLOSED,discrete-in,,,,,,,,closed limit
+XV-102,valve,XV-102_OPEN_REQ,discrete-out,,,,,,,,open
+XV-102,valve,XV-102_CLOSE_REQ,discrete-out,,,,,,,,close

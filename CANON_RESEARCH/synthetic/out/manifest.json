@@ -1,0 +1,47 @@
+{
+  "generated": "2026-09-10",
+  "seed": 401,
+  "authority": "PROPOSED / synthetic / correct-by-construction",
+  "counts": {
+    "machines": 1200,
+    "intents_total": 23298,
+    "intents_train": 20969,
+    "intents_eval": 2329,
+    "signals_total": 12818,
+    "commands_total": 4740,
+    "alarms_total": 2519,
+    "runtime_traces": 1200
+  },
+  "label_balance": {
+    "accept": 16219,
+    "reject_expected": 2279,
+    "refuse": 4800
+  },
+  "intentType_balance": {
+    "command_request": 9402,
+    "generate_hmi": 9222,
+    "change_impact": 2155,
+    "explain_alarm": 2519
+  },
+  "archetype_balance": {
+    "pump_station": 240,
+    "heat_exchanger": 257,
+    "mixer": 227,
+    "transfer_line": 214,
+    "packaging_line": 262
+  },
+  "files": {
+    "machines.jsonl": 4722625,
+    "intents_train.jsonl": 7598766,
+    "intents_eval.jsonl": 840137,
+    "runtime_traces.jsonl": 2822140
+  },
+  "guarantee": "Every 'accept' pair binds only to signals present in its machine model. Every 'refuse' pair references a tag/command absent from the model and returns UNKNOWN. No pair invents a Schneider capability.",
+  "verifiedControllerFamilies": [
+    "M262",
+    "M580",
+    "M241",
+    "M251",
+    "M340"
+  ]
+}

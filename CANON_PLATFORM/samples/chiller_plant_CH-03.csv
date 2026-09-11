@@ -1,0 +1,22 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+CH-401,motor,CH-401_SPEED,analog-in,rpm,0,3000,2900,2800,,,Chiller compressor speed
+CH-401,motor,TT-401,analog-in,degC,-10,20,12,8,,,Chilled water supply temp
+CH-401,motor,PT-401,analog-in,bar,0,16,15,14,,2,Refrigerant pressure
+CH-401,motor,CH-401_RUNNING,discrete-in,,,,,,,,Chiller running
+CH-401,motor,CH-401_FAULT,discrete-in,,,,,,,,Chiller fault
+CH-401,motor,CH-401_START_REQ,discrete-out,,,,,,,,Chiller start
+CH-401,motor,CH-401_STOP_REQ,discrete-out,,,,,,,,Chiller stop
+P-401,pump,P-401_FLOW,analog-in,m3/h,0,200,,,,20,Chilled water flow
+P-401,pump,P-401_RUNNING,discrete-in,,,,,,,,CHW pump running
+P-401,pump,P-401_FAULT,discrete-in,,,,,,,,CHW pump fault
+P-401,pump,P-401_START_REQ,discrete-out,,,,,,,,CHW pump start
+P-401,pump,P-401_STOP_REQ,discrete-out,,,,,,,,CHW pump stop
+P-402,pump,P-402_FLOW,analog-in,m3/h,0,200,,,,20,Condenser water flow
+P-402,pump,P-402_RUNNING,discrete-in,,,,,,,,CW pump running
+P-402,pump,P-402_FAULT,discrete-in,,,,,,,,CW pump fault
+P-402,pump,P-402_START_REQ,discrete-out,,,,,,,,CW pump start
+P-402,pump,P-402_STOP_REQ,discrete-out,,,,,,,,CW pump stop
+XV-401,valve,XV-401_OPEN,discrete-in,,,,,,,,Bypass valve open
+XV-401,valve,XV-401_CLOSED,discrete-in,,,,,,,,Bypass valve closed
+XV-401,valve,XV-401_OPEN_REQ,discrete-out,,,,,,,,Bypass valve open
+XV-401,valve,XV-401_CLOSE_REQ,discrete-out,,,,,,,,Bypass valve close

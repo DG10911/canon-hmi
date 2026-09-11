@@ -1,0 +1,3 @@
+{"asset_id":"TK-401","capacityLiters":5000,"geometry":{"diameterMm":1500,"heightMm":3000},"machine":"mch_tk401_line","name":"Source Tank TK-401","truth_status":"PROPOSED","type":"tank"}
+{"asset_id":"P401","machine":"mch_tk401_line","name":"Transfer Pump P401","type":"pump"}
+{"asset_id":"XV401","machine":"mch_tk401_line","name":"Discharge Valve XV401","type":"valve"}

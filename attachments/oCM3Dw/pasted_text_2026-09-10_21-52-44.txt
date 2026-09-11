@@ -1,0 +1,2605 @@
+============================================================
+CANON
+ENGINEERING INTELLIGENCE → VERIFIED AUTOMATION
+============================================================
+
+SYSTEM:
+AUTONOMOUS ENGINEERING SOURCE ACQUISITION + CORPUS BUILDER
+
+MISSION:
+Build the most comprehensive legitimate engineering knowledge
+acquisition system possible for CANON.
+
+CANON must be able to understand industrial machines, PLCs,
+I/O, instrumentation, control logic, process relationships,
+equipment, alarms, sequences, HMI conventions, protocols,
+Schneider Electric ecosystems, industrial standards, and
+operator workflows.
+
+DO NOT build a generic web scraper.
+
+Build an evidence-first engineering knowledge acquisition
+system capable of discovering, collecting, parsing, classifying,
+deduplicating, versioning, indexing and structurally extracting
+industrial engineering knowledge.
+
+The final output must become the knowledge foundation for:
+
+INPUTS
+→ SOURCE DISCOVERY
+→ SOURCE ACQUISITION
+→ DOCUMENT INGESTION
+→ STRUCTURAL EXTRACTION
+→ ENGINEERING FACT EXTRACTION
+→ ENTITY RESOLUTION
+→ RELATIONSHIP EXTRACTION
+→ CONTROL-LOGIC EXTRACTION
+→ PROCESS UNDERSTANDING
+→ HMI KNOWLEDGE
+→ EVIDENCE GRAPH
+→ CANON CONTEXT MODEL
+→ HMI SYNTHESIS
+→ VALIDATION
+→ ENGINEER APPROVAL
+
+
+============================================================
+0. NON-NEGOTIABLE PRINCIPLES
+============================================================
+
+1. PUBLIC / AUTHORIZED DATA ONLY
+
+Only acquire data from:
+
+- public official documentation
+- authorized APIs
+- authorized downloads
+- user-provided project files
+- customer-provided engineering files
+- licensed datasets
+- openly licensed standards/material
+- legitimate public technical resources
+
+NEVER bypass:
+- authentication
+- paywalls
+- DRM
+- license restrictions
+- robots/security controls
+- private portals
+- rate limits
+- access controls
+
+Do not scrape content that is clearly prohibited by the
+publisher.
+
+Respect copyright and licensing.
+
+Store metadata, facts, citations and extracted knowledge
+where redistribution of the original document is not permitted.
+
+Do not blindly mirror entire copyrighted document repositories.
+
+
+============================================================
+1. PRIMARY OBJECTIVE
+============================================================
+
+Automatically discover the maximum useful engineering sources
+for CANON.
+
+The system should answer:
+
+"What information could help CANON understand this machine,
+its controls, its process, its equipment, its operator interface,
+its vendor ecosystem, and its engineering constraints?"
+
+Then discover legitimate sources for each information class.
+
+
+============================================================
+2. SOURCE PRIORITY HIERARCHY
+============================================================
+
+Every source MUST receive a trust tier.
+
+TIER 0 — AUTHORITATIVE MACHINE REALITY
+
+Highest priority:
+
+- live OPC UA
+- live Modbus TCP
+- PLC project exports
+- controller configuration
+- I/O configuration
+- PLC tag databases
+- machine-provided APIs
+- engineering project files
+- customer-provided machine documentation
+- authoritative runtime metadata
+
+Examples:
+
+XEF
+ZEF
+PLCopenXML
+Machine Expert project/export
+Machine Expert XML
+controller configuration
+I/O exports
+tag exports
+alarm exports
+HMI project exports
+SCADA exports
+OPC UA namespace
+OPC UA NodeSet
+Modbus register maps
+
+
+TIER 1 — OFFICIAL VENDOR ENGINEERING KNOWLEDGE
+
+Examples:
+
+Schneider Electric official documentation
+Modicon manuals
+EcoStruxure documentation
+Machine Expert documentation
+Control Expert documentation
+Automation Expert documentation
+Operator Terminal Expert documentation
+Machine SCADA Expert documentation
+product datasheets
+catalogs
+installation manuals
+programming guides
+reference manuals
+communication guides
+application guides
+function block documentation
+library documentation
+firmware documentation
+compatibility documentation
+migration documentation
+release notes
+
+
+TIER 2 — OFFICIAL STANDARDS / PROTOCOL SOURCES
+
+Examples:
+
+OPC Foundation
+Modbus Organization
+IEC
+ISO
+ISA
+NAMUR
+EEMUA
+PLCopen
+AutomationML
+Asset Administration Shell
+other legitimate standards organizations
+
+
+TIER 3 — AUTHORIZED TECHNICAL SOURCES
+
+Examples:
+
+official distributor technical documentation
+official application notes
+official engineering guides
+official training resources
+official integration guides
+
+
+TIER 4 — HIGH-QUALITY SECONDARY SOURCES
+
+Examples:
+
+technical papers
+university publications
+peer-reviewed papers
+conference papers
+engineering articles
+application examples
+
+These NEVER override Tier 0–2 facts.
+
+
+TIER 5 — COMMUNITY / DISCUSSION SOURCES
+
+Examples:
+
+forums
+GitHub
+Stack Overflow
+Reddit
+engineering communities
+
+Use primarily for:
+
+- discovery
+- terminology
+- troubleshooting hints
+- locating official documentation
+
+NEVER treat community claims as authoritative machine facts.
+
+
+============================================================
+3. SCHNEIDER ELECTRIC CORPUS
+============================================================
+
+Create a dedicated Schneider Electric knowledge acquisition
+pipeline.
+
+Search official Schneider sources for:
+
+SCHNEIDER ELECTRIC
+├── Modicon
+│   ├── M340
+│   ├── M580
+│   ├── M221
+│   ├── M241
+│   ├── M251
+│   ├── M262
+│   ├── M258
+│   ├── Premium
+│   ├── Quantum
+│   └── other relevant controllers
+│
+├── EcoStruxure
+│   ├── Control Expert
+│   ├── Machine Expert
+│   ├── Automation Expert
+│   ├── Operator Terminal Expert
+│   ├── Machine SCADA Expert
+│   ├── Machine Expert Twin
+│   ├── OPC UA Server Expert
+│   └── related engineering software
+│
+├── Harmony
+│   ├── HMIs
+│   ├── panels
+│   ├── terminals
+│   └── operator devices
+│
+├── Altivar
+│   ├── drives
+│   ├── VFDs
+│   └── motor control
+│
+├── TeSys
+│   ├── contactors
+│   ├── motor starters
+│   └── motor management
+│
+├── Modicon I/O
+│   ├── remote I/O
+│   ├── distributed I/O
+│   └── analog/digital modules
+│
+├── instrumentation
+├── sensors
+├── pressure
+├── temperature
+├── flow
+├── level
+├── safety
+├── power
+├── MCC
+├── electrical protection
+└── industrial networking
+
+
+============================================================
+4. SCHNEIDER DOCUMENT TYPES TO DISCOVER
+============================================================
+
+Search for:
+
+- User Guides
+- Programming Guides
+- Reference Manuals
+- Installation Manuals
+- Hardware Manuals
+- Configuration Guides
+- Application Guides
+- Function Block Guides
+- Library Guides
+- Communication Guides
+- Network Guides
+- OPC UA Guides
+- Modbus Guides
+- Migration Guides
+- Compatibility Guides
+- Firmware documentation
+- Release Notes
+- Product Datasheets
+- Product Catalogs
+- Selection Guides
+- Wiring Guides
+- Commissioning Guides
+- Diagnostics Guides
+- Troubleshooting Guides
+- Cybersecurity Guides
+- HMI design guides
+- alarm management guides
+- architecture guides
+- application examples
+- training material
+- FAQ / knowledge-base articles
+- official examples
+- official code examples
+- official templates
+
+
+============================================================
+5. MACHINE ENGINEERING FILE CORPUS
+============================================================
+
+Build parsers/discovery for:
+
+PLC PROJECTS
+- XEF
+- ZEF
+- PLCopenXML
+- XML
+- project archives
+- controller configuration
+- variable exports
+- symbol exports
+- data type exports
+- function block exports
+- task configuration
+- program sections
+- structured text
+- ladder representations
+- FBD
+- SFC
+- configuration exports
+
+MACHINE EXPERT
+- project files
+- exported XML
+- variable lists
+- device trees
+- application trees
+- library references
+- I/O configuration
+- communication configuration
+- symbol configuration
+
+CONTROL EXPERT
+- project exports
+- variables
+- sections
+- derived data types
+- function blocks
+- tasks
+- I/O configuration
+- controller configuration
+
+HMI / SCADA
+- HMI project exports
+- screen definitions
+- tags
+- alarms
+- recipes
+- navigation
+- faceplates
+- templates
+- scripts
+- animations
+- trends
+- historical tags
+- operator actions
+
+
+============================================================
+6. PLC DATA TO EXTRACT
+============================================================
+
+For every PLC/project source extract:
+
+IDENTITY
+- controller family
+- controller model
+- firmware
+- project version
+- engineering software
+- software version
+- project name
+- machine name
+- plant
+- author
+- revision
+- timestamp
+
+PROGRAM STRUCTURE
+- tasks
+- programs
+- sections
+- routines
+- function blocks
+- functions
+- derived types
+- structures
+- arrays
+- state machines
+
+VARIABLES
+- variable name
+- namespace
+- address
+- data type
+- engineering type
+- unit
+- range
+- scaling
+- description
+- comment
+- initial value
+- retain/persistent status
+- read/write capability
+- source location
+
+LOGIC
+- boolean relationships
+- comparisons
+- timers
+- counters
+- state transitions
+- permissives
+- interlocks
+- sequences
+- command logic
+- reset logic
+- fault logic
+- alarm logic
+- startup logic
+- shutdown logic
+- recovery logic
+
+IMPORTANT:
+
+Never treat an inferred relationship as authoritative unless
+supported by actual engineering evidence.
+
+
+============================================================
+7. I/O CORPUS
+============================================================
+
+Extract:
+
+DIGITAL INPUTS
+DIGITAL OUTPUTS
+ANALOG INPUTS
+ANALOG OUTPUTS
+HIGH-SPEED I/O
+SAFETY I/O
+REMOTE I/O
+NETWORK I/O
+
+For each point:
+
+- tag
+- address
+- channel
+- module
+- rack
+- slot
+- controller
+- type
+- signal type
+- engineering unit
+- range
+- scaling
+- description
+- connected device
+- device class
+- source
+- confidence
+- evidence
+
+
+============================================================
+8. EQUIPMENT / ASSET CORPUS
+============================================================
+
+Identify:
+
+- tanks
+- vessels
+- pumps
+- motors
+- valves
+- actuators
+- conveyors
+- fans
+- compressors
+- mixers
+- heaters
+- chillers
+- boilers
+- reactors
+- filters
+- heat exchangers
+- robots
+- machines
+- production cells
+- skids
+- utilities
+- sensors
+- drives
+- controllers
+- panels
+- electrical equipment
+
+For each asset derive:
+
+asset_id
+name
+type
+manufacturer
+model
+serial/reference if provided
+parent
+children
+location
+purpose
+process role
+control role
+signals
+commands
+states
+alarms
+permissives
+interlocks
+dependencies
+documentation
+evidence
+revision
+
+
+============================================================
+9. INSTRUMENTATION CORPUS
+============================================================
+
+Identify:
+
+- pressure
+- temperature
+- level
+- flow
+- position
+- speed
+- vibration
+- current
+- voltage
+- power
+- torque
+- humidity
+- proximity
+- photoelectric
+- load cells
+- encoders
+- switches
+- transmitters
+- analyzers
+
+Extract:
+
+TAG
+TYPE
+UNIT
+RANGE
+SIGNAL
+LOCATION
+ASSET
+PROCESS VARIABLE
+RAW VALUE
+ENGINEERING VALUE
+SCALING
+ALARM LIMITS
+NORMAL RANGE
+SOURCE
+EVIDENCE
+
+
+============================================================
+10. MOTOR / DRIVE CORPUS
+============================================================
+
+Extract:
+
+- motor
+- drive
+- starter
+- contactor
+- VFD
+- speed command
+- speed feedback
+- current
+- torque
+- run status
+- ready
+- fault
+- local/remote
+- auto/manual
+- start command
+- stop command
+- reset
+- permissives
+- interlocks
+- trip conditions
+
+
+============================================================
+11. VALVE / ACTUATOR CORPUS
+============================================================
+
+Extract:
+
+- valve tag
+- valve type
+- actuator
+- open command
+- close command
+- open feedback
+- close feedback
+- position feedback
+- fail state
+- permissives
+- interlocks
+- timeout
+- fault
+- manual mode
+- automatic mode
+
+
+============================================================
+12. COMMAND CONTRACT CORPUS
+============================================================
+
+Discover every machine action.
+
+Examples:
+
+START
+STOP
+RESET
+OPEN
+CLOSE
+ENABLE
+DISABLE
+ACKNOWLEDGE
+JOG
+HOME
+SETPOINT
+MODE CHANGE
+AUTO
+MANUAL
+LOCAL
+REMOTE
+RECOVER
+
+For every command extract:
+
+command_id
+target_asset
+command_type
+request_signal
+feedback_signal
+required_state
+permissives
+interlocks
+timeout
+success_condition
+failure_condition
+reset_condition
+authority
+source
+evidence
+
+Generate a command contract.
+
+NEVER invent a command merely because a device appears to
+support it.
+
+
+============================================================
+13. PERMISSIVE / INTERLOCK CORPUS
+============================================================
+
+Extract:
+
+- permissives
+- interlocks
+- trips
+- inhibits
+- safety conditions
+- startup conditions
+- shutdown conditions
+- restart conditions
+- reset conditions
+- mutual exclusions
+
+Represent each as:
+
+IF
+condition
+THEN
+allowed / blocked
+
+Example:
+
+P401 START
+requires:
+XV401_OPEN
+LT401 < HH
+P401_FAULT = FALSE
+
+
+============================================================
+14. ALARM CORPUS
+============================================================
+
+Extract:
+
+- alarm tag
+- alarm description
+- trigger
+- priority
+- severity
+- threshold
+- deadband
+- delay
+- acknowledgment
+- reset
+- consequence
+- operator response
+- source
+- evidence
+
+Also identify:
+
+- alarms
+- warnings
+- trips
+- events
+- notifications
+- diagnostics
+
+Do not fabricate alarm priorities.
+
+
+============================================================
+15. STATE / MODE CORPUS
+============================================================
+
+Discover:
+
+- OFF
+- STOPPED
+- STARTING
+- RUNNING
+- STOPPING
+- FAULT
+- TRIPPED
+- RESETTING
+- INITIALIZING
+- AUTO
+- MANUAL
+- LOCAL
+- REMOTE
+- MAINTENANCE
+- SERVICE
+- EMERGENCY
+- HOLD
+- COMPLETE
+
+Infer state machines only when evidence supports them.
+
+Represent:
+
+state
+entry condition
+exit condition
+transition
+action
+fault
+operator meaning
+evidence
+
+
+============================================================
+16. SEQUENCE CORPUS
+============================================================
+
+Extract machine sequences from:
+
+- SFC
+- state machines
+- ladder
+- structured text
+- function blocks
+- recipes
+- procedures
+- HMI workflows
+- operator manuals
+
+Represent:
+
+sequence
+steps
+conditions
+actions
+transitions
+timeouts
+faults
+recovery
+operator actions
+
+
+============================================================
+17. PROCESS CORPUS
+============================================================
+
+Acquire:
+
+- P&IDs
+- process descriptions
+- process flow diagrams
+- equipment diagrams
+- process narratives
+- operating procedures
+- batch procedures
+- recipes
+- commissioning documents
+- operating manuals
+
+Extract:
+
+process units
+flows
+inputs
+outputs
+material relationships
+energy relationships
+equipment relationships
+instrument relationships
+control loops
+process variables
+constraints
+normal operating ranges
+
+
+============================================================
+18. ELECTRICAL ENGINEERING CORPUS
+============================================================
+
+Acquire where authorized:
+
+- electrical schematics
+- single-line diagrams
+- wiring diagrams
+- panel drawings
+- MCC drawings
+- motor schedules
+- I/O drawings
+- cable schedules
+- terminal schedules
+- power distribution
+- control panel layouts
+
+Extract:
+
+panel
+device
+breaker
+contactor
+motor
+drive
+I/O
+terminal
+cable
+power source
+control source
+relationship
+
+
+============================================================
+19. EXISTING HMI / SCADA CORPUS
+============================================================
+
+Acquire:
+
+- HMI project files
+- SCADA project files
+- screenshots
+- screen exports
+- tag databases
+- alarm configuration
+- trends
+- recipes
+- faceplates
+- navigation
+- operator workflows
+- scripts
+- animations
+- symbols
+- graphics libraries
+
+Understand:
+
+WHAT OPERATORS CURRENTLY SEE
+WHAT OPERATORS CURRENTLY CONTROL
+WHAT INFORMATION IS PRIORITIZED
+WHAT ALARMS ARE SHOWN
+HOW NAVIGATION WORKS
+WHAT STATES ARE VISIBLE
+WHAT COMMANDS ARE AVAILABLE
+
+
+============================================================
+20. HMI SCREEN INTELLIGENCE
+============================================================
+
+For every screen identify:
+
+screen_id
+purpose
+asset_scope
+operator_role
+navigation_parent
+navigation_children
+visible_assets
+visible_signals
+commands
+alarms
+trends
+KPIs
+faceplates
+dialogs
+acknowledgments
+status indicators
+controls
+historical information
+
+Extract design conventions:
+
+- layout
+- hierarchy
+- colors
+- alarm conventions
+- state visualization
+- trends
+- navigation
+- command confirmation
+- acknowledgment
+- faceplate structure
+
+
+============================================================
+21. ENGINEERING DOCUMENT CORPUS
+============================================================
+
+Search for:
+
+- URS
+- FDS
+- SDS
+- design specifications
+- functional specifications
+- control narratives
+- cause & effect
+- FAT documents
+- SAT documents
+- commissioning reports
+- test procedures
+- validation documents
+- maintenance manuals
+- operating procedures
+- SOPs
+- work instructions
+- troubleshooting guides
+- engineering change notices
+- revision histories
+
+
+============================================================
+22. PRODUCT / COMPONENT KNOWLEDGE
+============================================================
+
+Build a normalized product catalog.
+
+For each component:
+
+manufacturer
+family
+model
+SKU
+category
+function
+electrical characteristics
+communication
+protocols
+I/O
+supported features
+firmware
+compatibility
+limitations
+documentation
+official source
+revision
+
+
+IMPORTANT:
+
+Never invent product capabilities.
+
+If capability cannot be verified:
+
+capability_status = UNKNOWN
+
+
+============================================================
+23. PROTOCOL CORPUS
+============================================================
+
+Acquire legitimate technical documentation for:
+
+OPC UA
+Modbus TCP
+Modbus RTU
+IEC 61131-3
+MQTT
+EtherNet/IP
+PROFINET
+EtherCAT
+CANopen
+BACnet
+REST
+WebSocket
+OPC UA PubSub
+industrial Ethernet
+other relevant protocols
+
+For each protocol extract:
+
+architecture
+transport
+data model
+addressing
+types
+read/write semantics
+subscriptions
+events
+security
+authentication
+diagnostics
+limitations
+vendor-specific behavior
+
+
+============================================================
+24. OPC UA CORPUS
+============================================================
+
+Specifically understand:
+
+- namespace
+- NodeId
+- BrowseName
+- DisplayName
+- DataType
+- Value
+- AccessLevel
+- UserAccessLevel
+- Historizing
+- EngineeringUnit
+- EURange
+- InstrumentRange
+- HasComponent
+- HasProperty
+- HasTypeDefinition
+- relationships
+- methods
+- alarms
+- events
+
+Support ingestion of:
+
+OPC UA server metadata
+OPC UA NodeSets
+OPC UA companion specifications
+OPC UA namespace dumps
+OPC UA runtime discovery
+
+
+============================================================
+25. MODBUS CORPUS
+============================================================
+
+Understand:
+
+- coils
+- discrete inputs
+- input registers
+- holding registers
+- function codes
+- address conventions
+- byte order
+- word order
+- scaling
+- signed/unsigned
+- bit fields
+- register maps
+
+Never assume register semantics without evidence.
+
+
+============================================================
+26. INDUSTRIAL STANDARDS CORPUS
+============================================================
+
+Discover legitimate information around:
+
+IEC 61131-3
+IEC 62541 / OPC UA
+ISA-101
+ISA-18.2
+IEC 62682
+ISA-95
+ISA-88
+IEC 62443
+PackML
+AutomationML
+Asset Administration Shell
+NAMUR recommendations
+EEMUA guidance
+
+IMPORTANT:
+
+Do not illegally reproduce copyrighted standards.
+
+Store:
+
+standard_id
+title
+version
+publisher
+scope
+relevant concepts
+source URL
+license/access status
+applicability
+engineering interpretation
+
+Store only legally usable extracted information.
+
+
+============================================================
+27. SCHNEIDER HMI / OPERATOR KNOWLEDGE
+============================================================
+
+Acquire official information for:
+
+- Harmony HMI
+- Operator Terminal Expert
+- Machine SCADA Expert
+- EcoStruxure HMI ecosystem
+- faceplates
+- navigation
+- alarms
+- trends
+- recipes
+- operator interaction
+- screen architecture
+- visualization capabilities
+- supported protocols
+- engineering workflows
+
+DO NOT acquire proprietary restricted libraries illegally.
+
+DO NOT pretend CANON owns Schneider proprietary runtime
+objects.
+
+CANON may model compatible engineering concepts without
+redistributing proprietary assets.
+
+
+============================================================
+28. ACADEMIC / RESEARCH CORPUS
+============================================================
+
+Search legitimate sources for:
+
+industrial HMI research
+operator cognition
+alarm management
+situational awareness
+industrial AI
+human factors
+control-room design
+industrial digital twins
+semantic asset models
+knowledge graphs
+industrial ontology
+machine reasoning
+process control
+predictive maintenance
+industrial cybersecurity
+HMI usability
+operator workload
+
+
+============================================================
+29. COMMUNITY DISCOVERY CORPUS
+============================================================
+
+Search:
+
+GitHub
+Stack Overflow
+Reddit
+vendor forums
+engineering communities
+technical blogs
+
+ONLY use these for:
+
+- terminology discovery
+- troubleshooting
+- locating official documentation
+- identifying undocumented patterns
+- finding examples
+
+Never allow community information to override
+authoritative evidence.
+
+
+============================================================
+30. SOURCE DISCOVERY STRATEGY
+============================================================
+
+For every domain:
+
+1. Identify official organization.
+2. Identify official documentation portal.
+3. Identify product families.
+4. Identify documentation categories.
+5. Enumerate relevant documents.
+6. Discover related documents.
+7. Follow official references.
+8. Find newer revisions.
+9. Find superseded revisions.
+10. Detect duplicates.
+11. Download legitimate accessible versions.
+12. Extract metadata.
+13. Parse content.
+14. Extract engineering facts.
+15. Link facts to entities.
+16. Link facts to sources.
+17. Assign trust.
+18. Detect conflicts.
+19. Store revision history.
+
+
+============================================================
+31. SEARCH QUERY GENERATION
+============================================================
+
+Do NOT perform one generic search.
+
+Generate query families.
+
+Example:
+
+"Schneider Electric M580 programming guide"
+
+"Schneider Electric M580 hardware manual"
+
+"Schneider Electric M580 OPC UA"
+
+"Schneider Electric M580 communication"
+
+"Schneider Electric Control Expert variables"
+
+"Schneider Electric Control Expert XEF"
+
+"Schneider Electric Machine Expert XML"
+
+"Schneider Electric Operator Terminal Expert guide"
+
+"Schneider Electric Harmony HMI manual"
+
+"Schneider Electric Altivar programming guide"
+
+"Schneider Electric TeSys communication"
+
+"Schneider Electric Modicon analog input scaling"
+
+etc.
+
+Generate queries dynamically for:
+
+vendor
+product
+family
+model
+software
+protocol
+feature
+document type
+revision
+application
+
+
+============================================================
+32. SOURCE METADATA SCHEMA
+============================================================
+
+Every source must have:
+
+source_id
+source_url
+canonical_url
+publisher
+manufacturer
+title
+document_type
+product_family
+product_model
+version
+revision
+publication_date
+last_updated
+language
+region
+access_type
+license
+trust_tier
+retrieval_timestamp
+content_hash
+mime_type
+file_size
+parser
+parser_version
+status
+
+
+============================================================
+33. ENGINEERING FACT SCHEMA
+============================================================
+
+Every extracted fact:
+
+fact_id
+subject
+predicate
+object
+value
+unit
+source_id
+source_location
+page
+section
+table
+paragraph
+evidence_text
+confidence
+trust_tier
+extraction_method
+created_at
+revision
+valid_from
+valid_to
+
+
+Example:
+
+subject:
+PT401
+
+predicate:
+engineering_range
+
+object:
+0-10 bar
+
+source:
+machine_project_001
+
+evidence:
+PLC scaling configuration
+
+confidence:
+AUTHORITATIVE
+
+
+============================================================
+34. EVIDENCE MODEL
+============================================================
+
+EVERY IMPORTANT CANON FACT MUST HAVE PROVENANCE.
+
+Represent:
+
+ENTITY
+↓
+FACT
+↓
+SOURCE
+↓
+EVIDENCE
+↓
+REVISION
+↓
+TRUST
+
+
+No source = no authoritative fact.
+
+No evidence = unresolved.
+
+Conflicting evidence = conflict state.
+
+
+============================================================
+35. CONFLICT ENGINE
+============================================================
+
+When two sources disagree:
+
+DO NOT choose silently.
+
+Create:
+
+CONFLICT
+
+subject
+property
+value_A
+source_A
+value_B
+source_B
+source_trust_A
+source_trust_B
+revision_A
+revision_B
+resolution_status
+
+Possible status:
+
+UNRESOLVED
+RESOLVED_AUTHORITATIVE
+RESOLVED_REVISION
+RESOLVED_ENGINEER
+STALE_SOURCE
+
+
+============================================================
+36. REVISION ENGINE
+============================================================
+
+Detect:
+
+- duplicate documents
+- newer revisions
+- obsolete revisions
+- renamed documents
+- changed URLs
+- changed product models
+- firmware changes
+- compatibility changes
+- project changes
+
+Never mix facts from incompatible revisions without recording
+the relationship.
+
+
+============================================================
+37. ENTITY RESOLUTION
+============================================================
+
+Map:
+
+PT401
+PT-401
+PressureTransmitter401
+Pressure_401
+AI_401
+Pressure Sensor Tank 401
+
+into candidate same entity.
+
+But:
+
+NEVER automatically merge ambiguous entities without sufficient
+evidence.
+
+Maintain:
+
+canonical_entity
+aliases
+evidence
+confidence
+resolution_status
+
+
+============================================================
+38. ENGINEERING ONTOLOGY
+============================================================
+
+Build normalized categories:
+
+PLANT
+AREA
+CELL
+MACHINE
+UNIT
+ASSET
+EQUIPMENT
+CONTROLLER
+MODULE
+I/O
+SIGNAL
+INSTRUMENT
+MOTOR
+DRIVE
+VALVE
+ACTUATOR
+PROCESS_VARIABLE
+COMMAND
+STATE
+MODE
+ALARM
+EVENT
+PERMISSIVE
+INTERLOCK
+SEQUENCE
+SCREEN
+FACEPLATE
+PROCEDURE
+DOCUMENT
+STANDARD
+PROTOCOL
+PRODUCT
+VENDOR
+
+
+============================================================
+39. RELATIONSHIP EXTRACTION
+============================================================
+
+Discover relationships:
+
+CONTAINS
+CONNECTED_TO
+MEASURES
+CONTROLS
+ACTUATES
+FEEDS
+PUMPS
+OPENS
+CLOSES
+STARTS
+STOPS
+REQUIRES
+BLOCKED_BY
+PROTECTED_BY
+HAS_ALARM
+HAS_STATE
+HAS_COMMAND
+HAS_PERMISSIVE
+HAS_INTERLOCK
+USES_PROTOCOL
+USES_CONTROLLER
+DISPLAYED_ON
+DOCUMENTED_BY
+DEFINED_BY
+SUPPORTED_BY
+DEPENDS_ON
+PRECEDES
+FOLLOWS
+PARENT_OF
+CHILD_OF
+
+
+============================================================
+40. CANON CONTEXT PACK
+============================================================
+
+After acquisition, generate:
+
+CANON CONTEXT PACK
+
+including:
+
+machine identity
+plant hierarchy
+asset hierarchy
+controller topology
+I/O topology
+signal dictionary
+process model
+equipment model
+instrumentation model
+command model
+permissive model
+interlock model
+alarm model
+state model
+mode model
+sequence model
+HMI model
+protocol model
+vendor model
+standards model
+document model
+evidence model
+revision model
+conflict model
+uncertainty model
+
+
+============================================================
+41. AUTOMATIC CONTEXT COVERAGE
+============================================================
+
+Calculate:
+
+Machine Identity Coverage
+Controller Coverage
+I/O Coverage
+Signal Coverage
+Asset Coverage
+Process Coverage
+Command Coverage
+Permissive Coverage
+Interlock Coverage
+Alarm Coverage
+State Coverage
+Sequence Coverage
+HMI Coverage
+Documentation Coverage
+Evidence Coverage
+Revision Coverage
+
+Example:
+
+MACHINE            100%
+CONTROLLER          100%
+I/O                  96%
+ASSETS               91%
+COMMANDS             84%
+PERMISSIVES          77%
+ALARMS               88%
+HMI                  73%
+EVIDENCE             94%
+
+Never manufacture missing percentages.
+
+Calculate them from actual corpus completeness.
+
+
+============================================================
+42. AUTOMATIC HMI READINESS
+============================================================
+
+Determine:
+
+Can CANON safely synthesize an HMI?
+
+Evaluate:
+
+identity_complete
+assets_resolved
+signals_resolved
+commands_resolved
+permissives_resolved
+alarms_resolved
+states_resolved
+process_relationships_resolved
+evidence_available
+conflicts_resolved
+revision_consistent
+
+Output:
+
+HMI_READINESS
+
+READY
+READY_WITH_REVIEW
+PARTIAL
+BLOCKED
+
+
+============================================================
+43. SOURCE QUALITY SCORING
+============================================================
+
+Score sources using:
+
+authority
+recency
+specificity
+engineering relevance
+document completeness
+revision certainty
+machine specificity
+provenance quality
+
+Do NOT use generic "AI confidence" as a substitute for evidence.
+
+
+============================================================
+44. DOCUMENT PROCESSING PIPELINE
+============================================================
+
+For each document:
+
+DOWNLOAD
+↓
+HASH
+↓
+METADATA
+↓
+FILE TYPE
+↓
+TEXT EXTRACTION
+↓
+TABLE EXTRACTION
+↓
+IMAGE / DIAGRAM DETECTION
+↓
+OCR IF LEGITIMATELY REQUIRED
+↓
+SECTION SEGMENTATION
+↓
+CHUNKING
+↓
+ENTITY EXTRACTION
+↓
+FACT EXTRACTION
+↓
+RELATIONSHIP EXTRACTION
+↓
+ENGINEERING CLASSIFICATION
+↓
+EVIDENCE LINKING
+↓
+REVISION LINKING
+↓
+VECTOR INDEX
+↓
+STRUCTURED CANON MODEL
+
+
+============================================================
+45. PDF INTELLIGENCE
+============================================================
+
+Extract:
+
+- text
+- tables
+- headings
+- captions
+- figures
+- diagrams
+- page references
+- document metadata
+- revision information
+
+Preserve page-level provenance.
+
+Never lose the source location of a fact.
+
+
+============================================================
+46. DRAWING INTELLIGENCE
+============================================================
+
+For:
+
+P&IDs
+electrical drawings
+single-line diagrams
+wiring diagrams
+schematics
+HMI screenshots
+architecture diagrams
+
+extract:
+
+symbols
+tags
+labels
+connections
+arrows
+equipment
+instruments
+relationships
+text
+coordinates
+page
+drawing number
+revision
+
+Do NOT turn visual inference into authoritative machine truth
+without validation.
+
+
+============================================================
+47. CODE INTELLIGENCE
+============================================================
+
+For PLC code:
+
+parse where possible.
+
+Extract:
+
+variables
+functions
+function blocks
+conditions
+branches
+timers
+comparisons
+state machines
+sequencers
+commands
+permissives
+interlocks
+alarms
+data flow
+
+Preserve:
+
+file
+program
+section
+line/block/location
+
+
+============================================================
+48. LIVE PROTOCOL INTELLIGENCE
+============================================================
+
+When authorized machine connectivity exists:
+
+OPC UA:
+- discover namespace
+- browse nodes
+- inspect types
+- inspect relationships
+- inspect access
+- inspect values
+- inspect engineering units
+- inspect alarms/events
+- subscribe to changes
+
+Modbus:
+- discover configured registers only
+- inspect register map
+- decode known mappings
+- validate values against engineering documentation
+
+NEVER perform uncontrolled writes.
+
+CANON discovery is read-only by default.
+
+
+============================================================
+49. USER-PROVIDED MACHINE CORPUS
+============================================================
+
+Support upload of:
+
+ZIP
+PDF
+DOCX
+XLSX
+CSV
+XML
+JSON
+YAML
+TXT
+images
+drawings
+PLC exports
+HMI exports
+SCADA exports
+project archives
+
+Automatically classify every file.
+
+Example:
+
+machine_project.zip
+→ PLC
+→ HMI
+→ I/O
+→ documentation
+→ configuration
+→ unknown
+
+
+============================================================
+50. UNKNOWN FILE HANDLING
+============================================================
+
+Never discard unknown files.
+
+Create:
+
+UNKNOWN_SOURCE
+
+filename
+mime
+hash
+size
+detected_structure
+possible_type
+reason
+review_required
+
+
+============================================================
+51. DUPLICATE DETECTION
+============================================================
+
+Detect:
+
+exact duplicates
+renamed duplicates
+revised duplicates
+partial duplicates
+mirrors
+
+Use:
+
+content hash
+metadata
+document title
+revision
+semantic similarity
+
+Keep provenance.
+
+
+============================================================
+52. VECTOR INDEX
+============================================================
+
+Embed useful engineering knowledge.
+
+Index:
+
+document chunks
+facts
+entities
+relationships
+procedures
+alarms
+commands
+product knowledge
+protocol concepts
+HMI patterns
+
+Metadata filters:
+
+vendor
+product
+model
+revision
+document_type
+trust_tier
+machine
+asset
+protocol
+standard
+
+
+============================================================
+53. GRAPH MODEL
+============================================================
+
+Build graph:
+
+Entity
+→ Relationship
+→ Entity
+
+and:
+
+Entity
+→ Fact
+→ Evidence
+→ Source
+
+Use PostgreSQL adjacency tables initially.
+
+Do not require Neo4j for P0.
+
+
+============================================================
+54. SEARCH SYSTEM
+============================================================
+
+Support:
+
+keyword search
+semantic search
+exact tag search
+document search
+entity search
+relationship search
+source search
+revision search
+evidence search
+
+Examples:
+
+"PT401"
+
+"all pressure transmitters"
+
+"what starts P401?"
+
+"what blocks P401?"
+
+"show all alarms for TK401"
+
+"which screen displays XV401?"
+
+"which document defines PT401?"
+
+"what Schneider device supports this protocol?"
+
+"what changed between revisions?"
+
+
+============================================================
+55. NO-HALLUCINATION POLICY
+============================================================
+
+The system MUST distinguish:
+
+KNOWN
+SUPPORTED
+INFERRED
+AMBIGUOUS
+UNKNOWN
+CONFLICTED
+STALE
+
+Never convert:
+
+UNKNOWN → KNOWN
+
+just because an LLM thinks it is likely.
+
+
+============================================================
+56. AI ROLE
+============================================================
+
+AI may:
+
+classify documents
+extract entities
+summarize
+propose relationships
+identify terminology
+detect possible duplicates
+identify missing information
+propose HMI concepts
+interpret engineering language
+map synonyms
+find relevant evidence
+
+AI may NOT:
+
+invent tags
+invent PLC capabilities
+invent commands
+invent permissives
+invent alarms
+invent wiring
+invent Schneider features
+declare unsupported facts authoritative
+write directly to PLC
+bypass validation
+override evidence
+
+
+============================================================
+57. OUTPUT DATASET
+============================================================
+
+Produce these datasets:
+
+01_sources
+02_documents
+03_document_revisions
+04_entities
+05_entity_aliases
+06_signals
+07_io
+08_assets
+09_controllers
+10_modules
+11_instruments
+12_motors
+13_drives
+14_valves
+15_commands
+16_permissives
+17_interlocks
+18_alarms
+19_states
+20_modes
+21_sequences
+22_process_relationships
+23_hmi_screens
+24_hmi_components
+25_protocols
+26_products
+27_standards
+28_procedures
+29_facts
+30_relationships
+31_evidence
+32_conflicts
+33_unknowns
+34_dependencies
+35_change_history
+36_context_packs
+37_embeddings
+
+
+============================================================
+58. REQUIRED MANIFEST
+============================================================
+
+Generate:
+
+corpus_manifest.json
+
+containing:
+
+collection_timestamp
+sources_discovered
+sources_acquired
+sources_failed
+documents_processed
+documents_skipped
+duplicates
+revisions
+entities
+facts
+relationships
+conflicts
+unknowns
+coverage
+licenses
+errors
+
+
+============================================================
+59. SOURCE REGISTRY
+============================================================
+
+Create:
+
+source_registry.json
+
+Example:
+
+{
+  "source_id": "SE-M580-UG-001",
+  "publisher": "Schneider Electric",
+  "title": "...",
+  "url": "...",
+  "document_type": "USER_GUIDE",
+  "product_family": "Modicon M580",
+  "revision": "...",
+  "publication_date": "...",
+  "trust_tier": 1,
+  "access": "PUBLIC",
+  "retrieved_at": "...",
+  "hash": "...",
+  "status": "VERIFIED"
+}
+
+
+============================================================
+60. AUTOMATIC SOURCE DISCOVERY LOOP
+============================================================
+
+Run:
+
+DISCOVER
+→ CLASSIFY
+→ RANK
+→ ACQUIRE
+→ PARSE
+→ EXTRACT
+→ LINK
+→ VERIFY
+→ DEDUPLICATE
+→ VERSION
+→ INDEX
+→ UPDATE CANON
+
+Then repeat.
+
+New sources should be compared against the existing corpus.
+
+Do not blindly duplicate existing knowledge.
+
+
+============================================================
+61. CHANGE DETECTION
+============================================================
+
+On future runs detect:
+
+NEW SOURCE
+UPDATED SOURCE
+REMOVED SOURCE
+NEW REVISION
+CHANGED FACT
+NEW PRODUCT
+DISCONTINUED PRODUCT
+CHANGED CAPABILITY
+NEW PROTOCOL SUPPORT
+NEW DOCUMENT
+NEW MACHINE PROJECT
+NEW PLC TAG
+NEW HMI SCREEN
+NEW ALARM
+NEW COMMAND
+
+
+============================================================
+62. MACHINE-SPECIFIC INGESTION HAS PRIORITY
+============================================================
+
+When a real machine project is supplied:
+
+MACHINE REALITY
+must dominate generic vendor knowledge.
+
+Example:
+
+Generic Schneider documentation says:
+"Device supports capability X."
+
+But machine project says:
+"Device configuration does not enable X."
+
+CANON must represent:
+
+GENERIC_CAPABILITY = SUPPORTED
+MACHINE_CAPABILITY = NOT_CONFIGURED
+
+Never confuse the two.
+
+
+============================================================
+63. GOLDEN TK-401 DATASET
+============================================================
+
+Create a complete demonstration corpus:
+
+TK-401
+├── Tank
+├── LT401
+├── PT401
+├── P401
+├── XV401
+├── PLC
+├── I/O
+├── Commands
+├── Permissives
+├── Interlocks
+├── Alarms
+├── States
+├── Sequence
+├── P&ID
+├── Electrical
+├── HMI
+└── Evidence
+
+Example:
+
+P401 START
+requires:
+XV401_OPEN
+LT401 < HH
+P401_FAULT = FALSE
+
+PT401:
+pressure measurement
+
+LT401:
+level measurement
+
+XV401:
+tank inlet/outlet valve
+
+The final corpus should allow CANON to reconstruct this machine
+without requiring the engineer to manually explain every asset.
+
+
+============================================================
+64. ZERO-PROMPT TEST
+============================================================
+
+Input only:
+
+PLC project
++
+OPC UA metadata
++
+I/O configuration
++
+available documentation
++
+HMI project
+
+Then ask:
+
+"Build the operator experience."
+
+CANON should automatically:
+
+identify machine
+identify assets
+identify signals
+identify process relationships
+identify states
+identify commands
+identify permissives
+identify alarms
+identify sequences
+identify existing HMI structure
+identify missing information
+construct Context Model
+construct HMI Plan
+select approved components
+generate HMI proposal
+attach evidence to every important binding
+flag unresolved references
+prepare engineer review
+
+
+============================================================
+65. FINAL OUTPUT
+============================================================
+
+The acquisition system must produce:
+
+A. ENGINEERING CORPUS
+B. CANON MACHINE MODEL
+C. EVIDENCE GRAPH
+D. DOCUMENT INDEX
+E. PRODUCT KNOWLEDGE BASE
+F. PROTOCOL KNOWLEDGE BASE
+G. STANDARDS KNOWLEDGE BASE
+H. HMI KNOWLEDGE BASE
+I. SOURCE REGISTRY
+J. REVISION GRAPH
+K. CONFLICT REGISTER
+L. UNKNOWN REGISTER
+M. COVERAGE REPORT
+N. HMI READINESS REPORT
+O. CHANGE IMPACT DATA
+
+
+============================================================
+66. UI FOR SOURCE ACQUISITION
+============================================================
+
+Create an engineering-grade interface.
+
+Screens:
+
+SOURCE DISCOVERY
+DOCUMENT LIBRARY
+CORPUS HEALTH
+ENGINEERING ENTITIES
+EVIDENCE
+CONFLICTS
+UNKNOWN REFERENCES
+REVISIONS
+COVERAGE
+MACHINE CONTEXT
+HMI READINESS
+
+Show:
+
+Sources Found
+Documents
+Verified Facts
+Entities
+Relationships
+Evidence Coverage
+Conflicts
+Unknowns
+Stale Sources
+Machine Coverage
+
+
+============================================================
+67. DO NOT CREATE FAKE DATA
+============================================================
+
+No fake:
+
+sources
+URLs
+documents
+product capabilities
+Schneider SKUs
+PLC tags
+machine relationships
+standards
+measurements
+alarms
+commands
+citations
+
+If unavailable:
+
+UNKNOWN
+
+
+============================================================
+68. SECURITY
+============================================================
+
+Default acquisition mode:
+
+READ ONLY.
+
+Never:
+
+execute PLC writes
+change PLC configuration
+change HMI configuration
+modify machine projects
+upload code
+deploy logic
+bypass RBAC
+execute arbitrary downloaded files
+
+Treat downloaded engineering files as untrusted.
+
+
+============================================================
+69. IMPLEMENTATION ARCHITECTURE
+============================================================
+
+Recommended:
+
+Python
+FastAPI
+PostgreSQL
+pgvector
+Pydantic
+asyncua
+pymodbus
+Docling
+pypdf
+pdfplumber
+OCR only when necessary
+object storage
+structured extraction workers
+LLM structured outputs
+embedding model
+background job queue
+
+Initial architecture:
+
+SOURCE CONNECTORS
+        ↓
+INGESTION
+        ↓
+DOCUMENT PROCESSORS
+        ↓
+ENGINEERING EXTRACTORS
+        ↓
+ENTITY RESOLUTION
+        ↓
+EVIDENCE ENGINE
+        ↓
+CANON MODEL
+        ↓
+POSTGRES + PGVECTOR
+        ↓
+CONTEXT API
+        ↓
+AI REASONING
+        ↓
+HMI SYNTHESIS
+
+
+============================================================
+70. ACCEPTANCE TEST
+============================================================
+
+The system passes only if it can:
+
+1. Discover official sources.
+2. Acquire legitimate accessible documents.
+3. Parse engineering documents.
+4. Extract structured engineering facts.
+5. Preserve provenance.
+6. Track revisions.
+7. Detect conflicts.
+8. Detect unknowns.
+9. Resolve engineering entities.
+10. Build machine hierarchy.
+11. Build signal model.
+12. Build control model.
+13. Build process model.
+14. Build HMI knowledge model.
+15. Build evidence graph.
+16. Calculate corpus coverage.
+17. Calculate HMI readiness.
+18. Update knowledge when new documents arrive.
+19. Never invent unsupported engineering facts.
+20. Never directly control a PLC.
+
+============================================================
+71. FINAL PRINCIPLE
+============================================================
+
+CANON IS NOT A DOCUMENT SEARCH ENGINE.
+
+CANON IS AN ENGINEERING CONTEXT ENGINE.
+
+The objective is not:
+
+"Find a PDF."
+
+The objective is:
+
+"Understand what this engineering evidence means,
+what machine entity it describes,
+how that entity relates to the rest of the machine,
+what control behavior it establishes,
+what the operator needs to see,
+what the operator is allowed to do,
+and how confidently CANON knows it."
+
+Every important conclusion must be traceable:
+
+HMI ELEMENT
+↓
+SEMANTIC REQUIREMENT
+↓
+CANON ENTITY
+↓
+SIGNAL / COMMAND
+↓
+ENGINEERING FACT
+↓
+EVIDENCE
+↓
+SOURCE
+↓
+REVISION
+↓
+AUTHORITY
+
+Build this as the foundation of CANON's
+AUTONOMOUS ENGINEERING CONTEXT INTELLIGENCE.
+============================================================

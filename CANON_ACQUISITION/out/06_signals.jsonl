@@ -1,0 +1,11 @@
+{"access":"read","asset":"TK-401","dataType":"REAL","description":"Tank level transmitter","engMax":100,"engMin":0,"engUnit":"%","h":85,"hh":95,"kind":"analog-in","l":15,"ll":5,"machine":"mch_tk401_line","signalId":"LT401","truthStatus":"PROPOSED"}
+{"access":"read","asset":"P401","dataType":"REAL","description":"Discharge pressure transmitter (baseline range 0-10 bar)","engMax":10,"engMin":0,"engUnit":"bar","h":8.0,"hh":9.0,"kind":"analog-in","l":null,"ll":null,"machine":"mch_tk401_line","signalId":"PT401","truthStatus":"PROPOSED"}
+{"access":"read","asset":"P401","dataType":"BOOL","description":"Pump running feedback","kind":"discrete-in","machine":"mch_tk401_line","signalId":"P401_RUNNING","truthStatus":"PROPOSED"}
+{"access":"read","asset":"P401","dataType":"BOOL","description":"Pump fault / motor overload","kind":"discrete-in","machine":"mch_tk401_line","signalId":"P401_FAULT","truthStatus":"PROPOSED"}
+{"access":"read","asset":"P401","dataType":"BOOL","description":"E-stop circuit healthy (interlock)","kind":"discrete-in","machine":"mch_tk401_line","signalId":"P401_ESTOP_OK","truthStatus":"PROPOSED"}
+{"access":"request","asset":"P401","dataType":"BOOL","description":"Start request coil","kind":"discrete-out","machine":"mch_tk401_line","signalId":"P401_START_REQ","truthStatus":"PROPOSED"}
+{"access":"request","asset":"P401","dataType":"BOOL","description":"Stop request coil","kind":"discrete-out","machine":"mch_tk401_line","signalId":"P401_STOP_REQ","truthStatus":"PROPOSED"}
+{"access":"read","asset":"XV401","dataType":"BOOL","description":"Valve open limit switch","kind":"discrete-in","machine":"mch_tk401_line","signalId":"XV401_OPEN","truthStatus":"PROPOSED"}
+{"access":"read","asset":"XV401","dataType":"BOOL","description":"Valve closed limit switch","kind":"discrete-in","machine":"mch_tk401_line","signalId":"XV401_CLOSED","truthStatus":"PROPOSED"}
+{"access":"request","asset":"XV401","dataType":"BOOL","description":"Valve open request coil","kind":"discrete-out","machine":"mch_tk401_line","signalId":"XV401_OPEN_REQ","truthStatus":"PROPOSED"}
+{"access":"request","asset":"XV401","dataType":"BOOL","description":"Valve close request coil","kind":"discrete-out","machine":"mch_tk401_line","signalId":"XV401_CLOSE_REQ","truthStatus":"PROPOSED"}

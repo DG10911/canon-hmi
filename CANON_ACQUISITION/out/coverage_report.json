@@ -1,0 +1,19 @@
+{
+  "Alarm": 100.0,
+  "Asset": 100.0,
+  "Command": 100.0,
+  "Controller": 100.0,
+  "Documentation": 100.0,
+  "Evidence": 100.0,
+  "HMI": 100.0,
+  "IO": 100.0,
+  "Interlock": 100.0,
+  "MachineIdentity": 100.0,
+  "Permissive": 100.0,
+  "Process": 100.0,
+  "Revision": 100.0,
+  "Sequence": 100.0,
+  "Signal": 100.0,
+  "State": 100.0,
+  "_overall": 100.0
+}

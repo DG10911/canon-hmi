@@ -1,0 +1,71 @@
+{
+  "catalogVersion": "2.0",
+  "generated": "2026-09-10",
+  "rule": "Datasets listed as FOUND contain schemas and seed content to be authored by CANON. Schneider-sourced datasets contain metadata and cited facts only unless a public license-clear file was obtained.",
+  "datasets": {
+    "SCHNEIDER_KNOWLEDGE": [
+      {"file": "schneider_products.json", "status": "PARTIALLY_FOUND", "priority": "P1", "redistributeDocs": false},
+      {"file": "schneider_product_families.json", "status": "PARTIALLY_FOUND", "priority": "P1"},
+      {"file": "schneider_controllers.json", "status": "PARTIALLY_FOUND", "priority": "P1", "verifiedExamples": ["M580+BMENUA0100 OPC UA", "M262 embedded OPC UA", "M340 via Server Expert"]},
+      {"file": "schneider_io.json", "status": "UNKNOWN_DETAIL", "priority": "P2", "note": "Do not invent module SKUs."},
+      {"file": "schneider_hmi.json", "status": "FOUND_METADATA", "priority": "P1", "sources": ["DIA5ED1161001EN", "DIA5ED2140703EN"]},
+      {"file": "schneider_drives.json", "status": "FOUND_FAMILY_NAMES", "priority": "P2"},
+      {"file": "schneider_motion.json", "status": "PARTIALLY_FOUND", "priority": "P2"},
+      {"file": "schneider_motor_control.json", "status": "FOUND_FAMILY_NAMES", "priority": "P2"},
+      {"file": "schneider_safety.json", "status": "UNKNOWN_DETAIL", "priority": "P3", "note": "Server Expert: read-only M580 Safety symbols. No safety control path in PS2."},
+      {"file": "schneider_networking.json", "status": "FOUND_METADATA", "priority": "P0"},
+      {"file": "schneider_sensors.json", "status": "NOT_ACQUIRED", "priority": "P3"},
+      {"file": "schneider_software.json", "status": "FOUND_METADATA", "priority": "P1"},
+      {"file": "schneider_libraries.json", "status": "PARTIALLY_FOUND", "priority": "P1", "restricted": ["EOTE_Compound_Object"]},
+      {"file": "schneider_hmi_components.json", "status": "INFERRED_FROM_CATALOG", "priority": "P1", "note": "Categories only. extractable=false."},
+      {"file": "schneider_documents.json", "status": "FOUND", "priority": "P0", "source": "04_CANON_SCHNEIDER_SOURCE_INDEX.csv"},
+      {"file": "schneider_machine_patterns.json", "status": "PROPOSED", "priority": "P0"},
+      {"file": "schneider_commands.json", "status": "NOT_EXTRACTED", "priority": "P2"},
+      {"file": "schneider_alarms.json", "status": "PROPOSED", "priority": "P1"},
+      {"file": "schneider_standards.json", "status": "FOUND_METADATA", "priority": "P1"},
+      {"file": "schneider_relationships.json", "status": "PARTIALLY_FOUND", "priority": "P1"},
+      {"file": "schneider_evidence.json", "status": "PARTIALLY_FOUND", "priority": "P0"},
+      {"file": "schneider_lifecycle.json", "status": "INFERRED", "priority": "P1"}
+    ],
+    "CANON_MACHINE": [
+      {"file": "canon_demo_machine.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "canon_demo_assets.json", "status": "TO_AUTHOR", "priority": "P0", "contents": ["TK-401", "P401", "XV401", "PLC-DEMO"]},
+      {"file": "canon_demo_signals.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "canon_demo_io.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "canon_demo_commands.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "canon_demo_permissives.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "canon_demo_interlocks.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "canon_demo_alarms.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "canon_demo_runtime.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "canon_demo_revisions.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "canon_demo_dependencies.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "canon_demo_tests.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "canon_demo_hmi.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "canon_demo_bindings.json", "status": "TO_AUTHOR", "priority": "P0"}
+    ],
+    "CANON_ENGINE": [
+      {"file": "canon_component_registry.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "canon_validation_rules.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "canon_command_contracts.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "canon_state_models.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "canon_change_rules.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "canon_truth_status.json", "status": "TO_AUTHOR", "priority": "P0", "enum": ["VERIFIED", "INFERRED", "PROPOSED", "UNKNOWN", "ROADMAP"]}
+    ],
+    "AI": [
+      {"file": "ai_models.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "embedding_models.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "rerank_models.json", "status": "TO_AUTHOR", "priority": "P2", "default": "NONE"},
+      {"file": "prompt_templates.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "retrieval_config.json", "status": "TO_AUTHOR", "priority": "P1"}
+    ],
+    "INFRASTRUCTURE": [
+      {"file": "api_registry.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "protocol_registry.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "software_registry.json", "status": "TO_AUTHOR", "priority": "P1"},
+      {"file": "sdk_registry.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "parser_registry.json", "status": "TO_AUTHOR", "priority": "P1"},
+      {"file": "simulator_registry.json", "status": "TO_AUTHOR", "priority": "P0"},
+      {"file": "database_registry.json", "status": "TO_AUTHOR", "priority": "P0"}
+    ]
+  }
+}

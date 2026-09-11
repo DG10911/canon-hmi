@@ -1,0 +1,31 @@
+{
+  "$schema": "canon.protocol_registry.v2",
+  "generated": "2026-09-10",
+  "verifiedAsOf": "2026-09 web verification (OPC Foundation, modbus.org)",
+  "protocols": [
+    {
+      "id": "opcua", "name": "OPC UA", "standard": "IEC 62541 (Part 1 updated 2026 ed.)", "defaultPort": 4840, "transport": "opc.tcp",
+      "features": ["client/server", "subscriptions (MonitoredItems)", "pub/sub (Part 14)", "typed address space"],
+      "security": ["X.509 app certs", "SecurityPolicies (sign/encrypt)", "user tokens: anonymous/user-pass/cert"],
+      "access": "OPC Foundation full text FREE (reference.opcfoundation.org; PDFs after free registration). IEC-published copy is paid.",
+      "canonUse": "read, subscribe, write REQUEST nodes only; never browser->PLC",
+      "schneiderRelevance": "VERIFIED: OPC UA Server Expert (M340/M580); M580 BMENUA0100 (PHA83350 v07 2026-07); M262/M241/M251 embedded server; Machine Expert OpcUaHandling client FBs (EIO0000004021 v06)",
+      "library": "asyncua 1.1.8 (LGPL-3.0-or-later)", "status": "VERIFIED"
+    },
+    {
+      "id": "modbus_tcp", "name": "Modbus TCP", "standard": "Modbus Application Protocol V1.1b + Messaging on TCP/IP Impl. Guide V1.0b", "defaultPort": 502,
+      "functionCodes": {"1": "Read Coils", "2": "Read Discrete Inputs", "3": "Read Holding Registers", "4": "Read Input Registers", "5": "Write Single Coil", "6": "Write Single Register", "15": "Write Multiple Coils", "16": "Write Multiple Registers"},
+      "dataModel": ["Discrete Inputs (1-bit RO)", "Coils (1-bit RW)", "Input Registers (16-bit RO)", "Holding Registers (16-bit RW)"],
+      "security": "none in classic protocol; optional 'Modbus Security' (TLS+X.509v3) add-on spec exists",
+      "access": "FREE PDFs at modbus.org",
+      "canonUse": "read holding/input; write REQUEST coils/registers only; explicit dtype in io map, no auto-guess; never expose 502 to browser",
+      "library": "pymodbus 3.13.0 (BSD-3-Clause)", "status": "VERIFIED"
+    },
+    {"id": "ethernet_ip", "name": "EtherNet/IP", "status": "ROADMAP P3", "note": "do not claim SE product support without CPU comms manual"},
+    {"id": "profinet", "name": "PROFINET", "status": "ROADMAP P3"},
+    {"id": "canopen", "name": "CANopen", "status": "P3", "note": "common on machine controllers/drives; not needed for TK-401"},
+    {"id": "mqtt", "name": "MQTT", "status": "P2", "note": "plant telemetry bus, NOT the HMI pipe"},
+    {"id": "websocket", "name": "WebSocket", "status": "PROPOSED P0", "note": "CANON API <-> HMI only; payload {signalId,value,quality,ts}"},
+    {"id": "rest", "name": "REST", "status": "PROPOSED", "note": "CANON's own API is REST. No public Schneider PLC REST write API exists (NOT FOUND)."}
+  ]
+}

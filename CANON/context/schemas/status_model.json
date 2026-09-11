@@ -1,0 +1,40 @@
+{
+  "statuses": [
+    {
+      "id": "DISCOVERED",
+      "def": "Found in a source."
+    },
+    {
+      "id": "CONNECTED",
+      "def": "Source successfully communicated."
+    },
+    {
+      "id": "CANDIDATE",
+      "def": "Potential mapping identified; not confirmed."
+    },
+    {
+      "id": "VERIFIED",
+      "def": "Authoritative evidence confirms it."
+    },
+    {
+      "id": "UNRESOLVED",
+      "def": "Insufficient evidence; CANON will not invent a binding."
+    },
+    {
+      "id": "CONFLICT",
+      "def": "Authoritative sources disagree; engineer review required."
+    },
+    {
+      "id": "STALE",
+      "def": "A previously verified source changed."
+    },
+    {
+      "id": "REJECTED",
+      "def": "Engineer explicitly rejected."
+    },
+    {
+      "id": "BLOCKED",
+      "def": "Cannot safely proceed."
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+(voxshield) srmist2@dgxa100:~/CANON_ACQUISITION/model$ cd ~/CANON_ACQUISITION/model
+python3 canon_hmi.py --request "build the operator page for the pump"
+python3 canon_hmi.py --request "show me the whole line"
+python3 canon_hmi.py --request "I need to monitor tank level"
+python3 canon_hmi.py --request "build the pump page" --full     # --full = the complete screen JSON the app renders
+=== CONTEXT ANALYSIS ===
+request      : build the operator page for the pump
+assets known : ['TK-401(tank)', 'P401(pump)', 'XV401(valve)']
+matched      : ['P401']
+decision     : scope = P401 (type 'pump' referenced)
+
+=== GENERATED SCREEN ===
+page   : P401 faceplate
+layout : deterministic: alarms top, analog faceplates left, commands right, grouped by asset
+  - AlarmBanner     signals=['LT401', 'P401_FAULT', 'P401_START_REQ', 'PT401'] commands=['ack'] evidence=4
+  - MotorStarter    signals=['P401_RUNNING', 'P401_FAULT'] commands=['P401_START', 'P401_STOP'] evidence=2
+  - PressureGauge   signals=['PT401'] commands=- evidence=1
+  - PermissivePanel signals=['XV401_OPEN', 'LT401', 'LT401', 'P401_FAULT'] commands=- evidence=3
+validation: ok=True dropped=none widgets=4 with_evidence=4
+=== CONTEXT ANALYSIS ===
+request      : show me the whole line
+assets known : ['TK-401(tank)', 'P401(pump)', 'XV401(valve)']
+matched      : none
+decision     : scope = WHOLE MACHINE (overview keyword)
+
+=== GENERATED SCREEN ===
+page   : mch_tk401_line — line overview
+layout : deterministic: alarms top, analog faceplates left, commands right, grouped by asset
+  - AlarmBanner     signals=['LT401', 'P401_FAULT', 'P401_START_REQ', 'PT401'] commands=['ack'] evidence=4
+  - TankLevel       signals=['LT401'] commands=- evidence=1
+  - MotorStarter    signals=['P401_RUNNING', 'P401_FAULT'] commands=['P401_START', 'P401_STOP'] evidence=2
+  - PressureGauge   signals=['PT401'] commands=- evidence=1
+  - PermissivePanel signals=['XV401_OPEN', 'LT401', 'LT401', 'P401_FAULT'] commands=- evidence=3
+  - ValveStatus     signals=['XV401_OPEN', 'XV401_CLOSED'] commands=['XV401_OPEN', 'XV401_CLOSE'] evidence=2
+  - PermissivePanel signals=['P401_RUNNING'] commands=- evidence=1
+validation: ok=True dropped=none widgets=7 with_evidence=7
+=== CONTEXT ANALYSIS ===
+request      : I need to monitor tank level
+assets known : ['TK-401(tank)', 'P401(pump)', 'XV401(valve)']
+matched      : ['TK-401']
+decision     : scope = TK-401 (type 'tank' referenced)
+
+=== GENERATED SCREEN ===
+page   : TK-401 faceplate
+layout : deterministic: alarms top, analog faceplates left, commands right, grouped by asset
+  - AlarmBanner     signals=['LT401', 'P401_FAULT', 'P401_START_REQ', 'PT401'] commands=['ack'] evidence=4
+  - TankLevel       signals=['LT401'] commands=- evidence=1
+validation: ok=True dropped=none widgets=2 with_evidence=2
+=== CONTEXT ANALYSIS ===
+request      : build the pump page
+assets known : ['TK-401(tank)', 'P401(pump)', 'XV401(valve)']
+matched      : ['P401']
+decision     : scope = P401 (type 'pump' referenced)
+
+=== GENERATED SCREEN ===
+page   : P401 faceplate
+layout : deterministic: alarms top, analog faceplates left, commands right, grouped by asset
+  - AlarmBanner     signals=['LT401', 'P401_FAULT', 'P401_START_REQ', 'PT401'] commands=['ack'] evidence=4
+  - MotorStarter    signals=['P401_RUNNING', 'P401_FAULT'] commands=['P401_START', 'P401_STOP'] evidence=2
+  - PressureGauge   signals=['PT401'] commands=- evidence=1
+  - PermissivePanel signals=['XV401_OPEN', 'LT401', 'LT401', 'P401_FAULT'] commands=- evidence=3
+validation: ok=True dropped=none widgets=4 with_evidence=4
+
+=== FULL SCREEN JSON ===
+{
+  "$schema": "canon.hmi_screen.v1",
+  "pageId": "scr_P401",
+  "pageTitle": "P401 faceplate",
+  "machine": "mch_tk401_line",
+  "scope": "P401",
+  "layoutAlgorithm": "deterministic: alarms top, analog faceplates left, commands right, grouped by asset",
+  "assembledBy": "deterministic-code (NOT a model) \u2014 every binding is a real signal/command with evidence (\u00a756/\u00a767)",
+  "widgets": [
+    {
+      "component": "AlarmBanner",
+      "props": {
+        "scope": "asset",
+        "target": "P401"
+      },
+      "boundSignals": [
+        "LT401",
+        "P401_FAULT",
+        "P401_START_REQ",
+        "PT401"
+      ],
+      "boundCommands": [
+        "ack"
+      ],
+      "usedEvidenceIds": [
+        "ev_0b4fb8fe3388",
+        "ev_2d78627dab6b",
+        "ev_5cfbe67011e1",
+        "ev_9809f1fc1020"
+      ]
+    },
+    {
+      "component": "MotorStarter",
+      "props": {
+        "target": "P401",
+        "running": "P401_RUNNING",
+        "fault": "P401_FAULT",
+        "startCommand": "P401_START",
+        "stopCommand": "P401_STOP"
+      },
+      "boundSignals": [
+        "P401_RUNNING",
+        "P401_FAULT"
+      ],
+      "boundCommands": [
+        "P401_START",
+        "P401_STOP"
+      ],
+      "usedEvidenceIds": [
+        "ev_3ee654c7bce6",
+        "ev_9809f1fc1020"
+      ]
+    },
+    {
+      "component": "PressureGauge",
+      "props": {
+        "binding": "PT401",
+        "unit": "bar",
+        "range": [
+          0,
+          10
+        ]
+      },
+      "boundSignals": [
+        "PT401"
+      ],
+      "boundCommands": [],
+      "usedEvidenceIds": [
+        "ev_2d78627dab6b"
+      ]
+    },
+    {
+      "component": "PermissivePanel",
+      "props": {
+        "command": "P401_START",
+        "showInterlocks": true
+      },
+      "boundSignals": [
+        "XV401_OPEN",
+        "LT401",
+        "LT401",
+        "P401_FAULT"
+      ],
+      "boundCommands": [],
+      "usedEvidenceIds": [
+        "ev_0b4fb8fe3388",
+        "ev_9809f1fc1020",
+        "ev_c088c82e5163"
+      ]
+    }
+  ],
+  "validation": {
+    "ok": true,
+    "dropped_invalid_bindings": [],
+    "total_widgets": 4,
+    "bindings_with_evidence": 4
+  }
+}
+(voxshield) srmist2@dgxa100:~/CANON_ACQUISITION/model$ 

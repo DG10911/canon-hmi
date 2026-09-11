@@ -1,0 +1,593 @@
+01 — CANON Resource Architecture
+
+Status: Implementation blueprint for the CANON PS2 prototype
+Authority model: VERIFIED = official source cited · INFERRED = reasoned from official sources · PROPOSED = CANON-created · UNKNOWN / NOT FOUND = not claimed as fact
+Date of research: 2026-09-10
+
+
+
+EXECUTIVE ARCHITECTURE
+
+CANON is not an AI dashboard. It is an engineering product with a hard authority split:
+
+Machine Context  →  Canonical Machine Model  →  AI Intent
+        →  Deterministic Validation  →  Dynamic HMI
+        →  PLC-Authoritative Control  →  Feedback
+        →  Engineering Change Impact  →  Regeneration
+
+                         CANON
+                           │
+             ┌─────────────┼─────────────┐
+             ▼             ▼             ▼
+        MACHINE DATA   KNOWLEDGE        AI
+             │             │             │
+         OPC UA        Schneider        LLM
+         Modbus        Documents        Embeddings
+         PLC Export    Catalogs         (optional rerank)
+         Simulator     Standards        Structured intent
+             │             │             │
+             └─────────────┼─────────────┘
+                           ▼
+                  CANON MACHINE MODEL
+                           │
+                           ▼
+                  DETERMINISTIC ENGINE
+                      │           │
+                      ▼           ▼
+                  HMI ENGINE    CONTROL
+                      │           │
+                      ▼           ▼
+                     HMI          PLC / SIM
+                                   │
+                                   ▼
+                                MACHINE
+                                   │
+                                   ▼
+                                FEEDBACK
+                                   │
+                                   ▼
+                            CHANGE IMPACT
+                                   │
+                                   ▼
+                              REGENERATION
+
+Authority rule (non-negotiable)
+
+
+
+
+
+
+
+Actor
+
+
+
+May do
+
+
+
+Must not do
+
+
+
+
+
+LLM
+
+
+
+Propose structured intent, retrieve evidence, explain
+
+
+
+Invent tags, invent Schneider capabilities, write PLC, bypass validator
+
+
+
+
+
+CANON model
+
+
+
+Define assets, signals, commands, bindings, revisions
+
+
+
+Silently mutate runtime without revision
+
+
+
+
+
+Validator
+
+
+
+Accept / reject proposals against schema + machine truth
+
+
+
+Call an LLM to “judge” validity
+
+
+
+
+
+Engineer
+
+
+
+Approve proposals, apply revisions
+
+
+
+None (human is the gate)
+
+
+
+
+
+PLC / simulator
+
+
+
+Evaluate permissives, execute commands, publish feedback
+
+
+
+Be written by the browser
+
+
+
+
+
+HMI
+
+
+
+Render validated bindings, send command requests
+
+
+
+Bind unvalidated tags, write raw PLC addresses
+
+Four knowledge layers
+
+Layer A — External engineering knowledge. Schneider catalogs, manuals, software docs, OPC Foundation, IEC/ISA. Stored as evidence records with URL, document number, version, date, product family, and truth status. Never treated as live machine truth.
+
+Layer B — Machine context. What this machine actually contains: PLC identity, tags, I/O, assets, signals, alarms, commands, permissives, runtime values. Sourced from PLC export, OPC UA browse, Modbus map, or a curated demo machine file.
+
+Layer C — CANON engineering model. Normalized entities: Asset, Signal, Controller, I/O, Command, Permissive, Interlock, Alarm, HMIBinding, Dependency, Revision, Evidence, Test. This is the source of truth for generation and validation.
+
+Layer D — AI / generation. Natural language → structured intent JSON. Retrieval over Layer A (and approved Layer C excerpts). Never a source of truth.
+
+
+
+1. Why this resource architecture exists
+
+The prototype must demonstrate a closed industrial loop in a hackathon window:
+
+
+
+
+
+Import machine context
+
+
+
+Build the canonical model
+
+
+
+Operator request in natural language
+
+
+
+LLM structured intent
+
+
+
+Retrieved Schneider / standards evidence
+
+
+
+Deterministic validation
+
+
+
+Dynamic HMI from a component registry
+
+
+
+START P401 request
+
+
+
+Simulator evaluates permissives
+
+
+
+Pump starts; HMI shows RUNNING
+
+
+
+Close XV401
+
+
+
+START rejected
+
+
+
+Change PT401 range 0–10 → 0–16 bar
+
+
+
+Change-impact lists affected gauges, alarms, tests, docs
+
+
+
+HMI regenerates
+
+
+
+Regression tests pass
+
+If any of those steps requires a proprietary Schneider SDK that is account-gated, the prototype must mock that layer and keep the official document as evidence, not as a fake integration.
+
+
+
+2. Component map and required resources
+
+2.1 Machine connectivity
+
+
+
+
+
+
+
+Need
+
+
+
+Resource
+
+
+
+Priority
+
+
+
+Status
+
+
+
+
+
+Industrial read/subscribe
+
+
+
+OPC UA client (asyncua)
+
+
+
+P0
+
+
+
+VERIFIED library
+
+
+
+
+
+Schneider-relevant protocol
+
+
+
+Modbus TCP client (pymodbus)
+
+
+
+P0
+
+
+
+VERIFIED library
+
+
+
+
+
+Live HMI updates
+
+
+
+WebSocket from CANON API
+
+
+
+P0
+
+
+
+PROPOSED
+
+
+
+
+
+Browser → PLC write
+
+
+
+Forbidden
+
+
+
+—
+
+
+
+Architectural ban
+
+
+
+
+
+EtherNet/IP, PROFINET, CANopen runtime
+
+
+
+Not required for PS2 demo machine
+
+
+
+P3
+
+
+
+ROADMAP
+
+
+
+
+
+MQTT
+
+
+
+Optional telemetry sidecar
+
+
+
+P2
+
+
+
+ROADMAP
+
+Schneider OPC UA — VERIFIED (official se.com / product-help):
+
+
+
+
+
+EcoStruxure OPC UA Server Expert maps Modicon controllers and Modbus/TCP devices to OPC UA clients. Supported devices listed on the product page include Modicon M340, M580 and Modbus/TCP devices. Demo mode is documented as 72 hours. User guide MFR53158.03 (Aug 2025).
+
+
+
+Modicon M580 BMENUA0100 is an embedded OPC UA module (guide PHA83350).
+
+
+
+Modicon M262 has an onboard OPC UA server configuration tab in EcoStruxure Machine Expert (product-help). Default port 4840.
+
+
+
+EcoStruxure Machine Expert OpcUaHandling library provides OPC UA client function blocks on the controller (EIO0000004021).
+
+
+
+Harmony / Operator Terminal Expert marketing pages claim OPC UA server on supported Harmony targets and OPC UA client from v4.4 — treat as product-family capability, not a public API CANON can call.
+
+Do not claim: a public Schneider REST API that writes PLC tags. NOT FOUND.
+
+2.2 Knowledge ingestion
+
+
+
+
+
+
+
+Need
+
+
+
+Resource
+
+
+
+Priority
+
+
+
+
+
+Official document index
+
+
+
+04_CANON_SCHNEIDER_SOURCE_INDEX.csv
+
+
+
+P0
+
+
+
+
+
+PDF text + tables
+
+
+
+Docling (primary), pdfplumber (tables), pypdf (fallback)
+
+
+
+P0
+
+
+
+
+
+Catalog / product facts
+
+
+
+Hand-curated JSON extracted from official pages
+
+
+
+P0
+
+
+
+
+
+Proprietary software libraries
+
+
+
+Do not scrape; cite catalogs only
+
+
+
+—
+
+
+
+
+
+PLC application export
+
+
+
+Control Expert .XEF/.ZEF; Machine Expert .export / PLCopenXML
+
+
+
+P1 (demo uses curated JSON)
+
+
+
+
+
+Device description files
+
+
+
+EDS / GSDML / IODD / OPC UA NodeSet
+
+
+
+P2
+
+OCR: not required for the prototype. Official Schneider PDFs used as evidence are digital. Add Tesseract/PaddleOCR only if a scanned page is actually ingested.
+
+2.3 Canonical model store
+
+PostgreSQL holds every Layer B/C entity, revisions, evidence pointers, validation results, users/projects. Graph relationships are adjacency tables + recursive CTEs. Vectors live in pgvector in the same database.
+
+2.4 AI stack
+
+Small, curated corpus (hundreds to low thousands of chunks). Hybrid retrieval: tsvector + pgvector. Structured output via JSON Schema. No agent that can write tags.
+
+2.5 HMI engine
+
+A component registry plus JSON UI schema. The LLM emits component specifications, never React source. Runtime binds only to signals that exist in the approved model.
+
+2.6 Control path
+
+Browser
+  → CANON API (authn/authz)
+    → Command contract lookup
+      → Validator (tag, type, permissive presence, role)
+        → PLC interface adapter (OPC UA write or Modbus write of *request* coil/register)
+          → PLC / simulator evaluates permissives
+            → Feedback published on subscription
+              → WebSocket → HMI
+
+2.7 Change impact
+
+Every entity has revisionId, content hash, and explicit dependency edges. A range change on PT401 walks edges to gauges, trends, alarms, tests, docs, bindings.
+
+
+
+3. What will not be in the prototype
+
+
+
+
+
+A real Modicon CPU on the bench (optional stretch; simulator is the demo authority).
+
+
+
+EcoStruxure Operator Terminal Expert runtime embedded in CANON. That software is licensed, Windows-hosted, and not an embeddable SDK. CANON’s HMI is a separate industrial-style renderer that cites Harmony object categories.
+
+
+
+Redistribution of Schneider manuals. Store metadata + extracted facts + citations.
+
+
+
+EtherNet/IP or PROFINET stacks.
+
+
+
+Neo4j, Milvus, Pinecone, Kafka, Kubernetes.
+
+
+
+An unconstrained “chat that controls the plant.”
+
+
+
+4. Success criterion
+
+The architecture succeeds if, with the recommended resources, CANON can:
+
+
+
+
+
+Understand a machine from structured context + cited evidence.
+
+
+
+Generate a useful operator HMI from a validated component schema.
+
+
+
+Prove bindings against the machine model.
+
+
+
+Request actions without the browser talking to the PLC.
+
+
+
+Show live feedback.
+
+
+
+Survive an engineering change without a stale HMI.
+
+That is the only optimization target.

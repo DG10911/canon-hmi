@@ -1,0 +1,43 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+M-401,motor,ST-401,analog-in,rpm,0,3000,2900,2800,,,speed
+M-401,motor,TT-401,analog-in,degC,0,200,150,130,,,temp
+M-401,motor,M-401_RUNNING,discrete-in,,,,,,,,running
+M-401,motor,M-401_FAULT,discrete-in,,,,,,,,fault
+M-401,motor,M-401_START_REQ,discrete-out,,,,,,,,start
+M-401,motor,M-401_STOP_REQ,discrete-out,,,,,,,,stop
+M-402,motor,ST-402,analog-in,rpm,0,3000,2900,2800,,,speed
+M-402,motor,TT-402,analog-in,degC,0,200,150,130,,,temp
+M-402,motor,M-402_RUNNING,discrete-in,,,,,,,,running
+M-402,motor,M-402_FAULT,discrete-in,,,,,,,,fault
+M-402,motor,M-402_START_REQ,discrete-out,,,,,,,,start
+M-402,motor,M-402_STOP_REQ,discrete-out,,,,,,,,stop
+M-403,motor,ST-403,analog-in,rpm,0,3000,2900,2800,,,speed
+M-403,motor,TT-403,analog-in,degC,0,200,150,130,,,temp
+M-403,motor,M-403_RUNNING,discrete-in,,,,,,,,running
+M-403,motor,M-403_FAULT,discrete-in,,,,,,,,fault
+M-403,motor,M-403_START_REQ,discrete-out,,,,,,,,start
+M-403,motor,M-403_STOP_REQ,discrete-out,,,,,,,,stop
+M-404,motor,ST-404,analog-in,rpm,0,3000,2900,2800,,,speed
+M-404,motor,TT-404,analog-in,degC,0,200,150,130,,,temp
+M-404,motor,M-404_RUNNING,discrete-in,,,,,,,,running
+M-404,motor,M-404_FAULT,discrete-in,,,,,,,,fault
+M-404,motor,M-404_START_REQ,discrete-out,,,,,,,,start
+M-404,motor,M-404_STOP_REQ,discrete-out,,,,,,,,stop
+M-405,motor,ST-405,analog-in,rpm,0,3000,2900,2800,,,speed
+M-405,motor,TT-405,analog-in,degC,0,200,150,130,,,temp
+M-405,motor,M-405_RUNNING,discrete-in,,,,,,,,running
+M-405,motor,M-405_FAULT,discrete-in,,,,,,,,fault
+M-405,motor,M-405_START_REQ,discrete-out,,,,,,,,start
+M-405,motor,M-405_STOP_REQ,discrete-out,,,,,,,,stop
+XV-401,valve,XV-401_OPEN,discrete-in,,,,,,,,open limit
+XV-401,valve,XV-401_CLOSED,discrete-in,,,,,,,,closed limit
+XV-401,valve,XV-401_OPEN_REQ,discrete-out,,,,,,,,open
+XV-401,valve,XV-401_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-402,valve,XV-402_OPEN,discrete-in,,,,,,,,open limit
+XV-402,valve,XV-402_CLOSED,discrete-in,,,,,,,,closed limit
+XV-402,valve,XV-402_OPEN_REQ,discrete-out,,,,,,,,open
+XV-402,valve,XV-402_CLOSE_REQ,discrete-out,,,,,,,,close
+TK-401,tank,LT-401,analog-in,%,0,100,90,80,20,10,silo-level
+TK-402,tank,LT-402,analog-in,%,0,100,90,80,20,10,silo-level
+TK-403,tank,LT-403,analog-in,%,0,100,90,80,20,10,silo-level
+TK-404,tank,LT-404,analog-in,%,0,100,90,80,20,10,silo-level

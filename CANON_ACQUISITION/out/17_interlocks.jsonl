@@ -1,0 +1,3 @@
+{"command":"P401_START","expected":true,"interlock_id":"IL_P401_START_0","machine":"mch_tk401_line","message":"E-stop circuit must be healthy.","rejectCode":"IL_ESTOP","signal":"P401_ESTOP_OK","source":"SRC-TK401-CMDCONTRACTS","type":"command-gate"}
+{"command":"XV401_OPEN","expected":true,"interlock_id":"IL_XV401_OPEN_0","machine":"mch_tk401_line","message":"E-stop circuit must be healthy.","rejectCode":"IL_ESTOP","signal":"P401_ESTOP_OK","source":"SRC-TK401-CMDCONTRACTS","type":"command-gate"}
+{"appliesTo":"P401","interlock_id":"IL_P401_ESTOP","machine":"mch_tk401_line","onFail":"block-start-and-stop-running","signal":"P401_ESTOP_OK","source":"SRC-TK401-MACHINE","truth_status":"PROPOSED","type":"hard"}

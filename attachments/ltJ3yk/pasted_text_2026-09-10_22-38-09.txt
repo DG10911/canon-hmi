@@ -1,0 +1,178 @@
+Last login: Thu Sep 10 18:00:57 on ttys000
+devanshgoenka@Devanshs-Laptop-5 ~ % ssh dgx
+Welcome to NVIDIA DGX Server Version 7.5.0 (GNU/Linux 6.8.0-137-generic x86_64)
+
+ System information as of Thu Sep 10 22:20:39 IST 2026
+
+  System load:  96.96            Temperature:                    58.0 C
+  Usage of /:   7.3% of 1.72TB   Processes:                      2738
+  Memory usage: 5%               Users logged in:                3
+  Swap usage:   0%               IPv4 address for enp225s0f0np0: 172.16.0.32
+
+The system has 0 critical alerts and 10 warnings. Use 'sudo nvsm show alerts' for more details.
+
+Last login: Thu Sep 10 12:36:14 2026 from 10.9.135.66
+(voxshield) srmist2@dgxa100:~$ cd .context/CANON_ACQUISITION/model
+-bash: cd: .context/CANON_ACQUISITION/model: No such file or directory
+(voxshield) srmist2@dgxa100:~$ cd datasets
+./pull_datasets.sh ./downloads 
+-bash: cd: datasets: No such file or directory
+-bash: ./pull_datasets.sh: No such file or directory
+(voxshield) srmist2@dgxa100:~$ cd ~/CANON_ACQUISITION/model
+LLAMA_CPP=$HOME/llama.cpp ./run_on_dgx.sh
+-bash: ./run_on_dgx.sh: Permission denied
+(voxshield) srmist2@dgxa100:~/CANON_ACQUISITION/model$ git clone https://github.com/ggml-org/llama.cpp ~/llama.cpp
+cmake -B ~/llama.cpp/build ~/llama.cpp && cmake --build ~/llama.cpp/build -j
+fatal: destination path '/home/faculty/srmist2/llama.cpp' already exists and is not an empty directory.
+-- llama.cpp version: 0.3.0-dev
+CMAKE_BUILD_TYPE=Release
+-- Warning: ccache not found - consider installing it for faster compilation or disable this warning with GGML_CCACHE=OFF
+-- CMAKE_SYSTEM_PROCESSOR: x86_64
+-- GGML_SYSTEM_ARCH: x86
+-- Including CPU backend
+-- x86 detected
+-- Adding CPU backend variant ggml-cpu: -march=native 
+-- ggml version: 0.22.0
+-- ggml commit:  0eadefe
+-- OpenSSL found: 3.0.13
+-- Generating embedded license file for target: llama-app
+-- Configuring done (0.7s)
+-- Generating done (0.3s)
+-- Build files have been written to: /home/faculty/srmist2/llama.cpp/build
+[  0%] Built target llama-common-base
+[  1%] Built target vendor-hash
+[  1%] Built target cpp-httplib
+[  2%] Built target llama-ui-embed
+[  2%] Built target llama-llava-cli
+[  3%] Built target llama-qwen2vl-cli
+[  3%] Built target llama-minicpmv-cli
+[  3%] Built target llama-gemma3-cli
+[  5%] Built target ggml-base
+[  5%] Provisioning UI assets
+-- UI: downloading from b1: https://huggingface.co/buckets/ggml-org/llama-ui/resolve/b1/dist.tar.gz
+[  8%] Built target ggml-cpu
+[  8%] Built target ggml
+[  8%] Built target llama-gguf-hash
+[  8%] Built target llama-gguf
+[ 42%] Built target llama
+[ 42%] Built target test-c
+[ 42%] Built target llama-simple
+[ 42%] Built target llama-simple-chat
+[ 49%] Built target llama-common
+[ 58%] Built target mtmd
+[ 58%] Built target test-tokenizer-0
+[ 59%] Built target test-unicode
+[ 59%] Built target test-sampling
+[ 59%] Built target test-recurrent-state-rollback
+[ 59%] Built target test-reasoning-budget
+[ 60%] Built target test-save-load-state
+[ 60%] Built target test-grammar-parser
+[ 60%] Built target test-grammar-integration
+[ 60%] Built target test-llama-grammar
+[ 61%] Built target test-batch-alloc
+[ 62%] Built target test-tokenizer-1-bpe
+[ 62%] Built target test-tokenizer-1-spm
+[ 62%] Built target test-json-schema-to-grammar
+[ 62%] Built target test-gbnf-validator
+[ 63%] Built target test-quantize-stats
+[ 64%] Built target test-log
+[ 65%] Built target test-llama-archs
+[ 65%] Built target test-jinja
+[ 65%] Built target test-chat-auto-parser
+[ 66%] Built target test-chat-peg-parser
+[ 67%] Built target test-chat-analysis
+[ 67%] Built target test-chat-template
+[ 67%] Built target test-arg-parser
+[ 67%] Built target test-thread-safety
+[ 67%] Built target test-opt
+[ 68%] Built target test-backend-ops
+[ 68%] Built target test-model-resolution
+[ 68%] Built target test-model-load-cancel
+[ 68%] Built target test-autorelease
+[ 68%] Built target test-backend-sampler
+[ 69%] Built target test-state-restore-fragmented
+[ 69%] Built target test-barrier
+[ 70%] Built target test-quantize-fns
+[ 72%] Built target test-peg-parser
+[ 73%] Built target test-rope
+[ 74%] Built target test-col2im-1d
+[ 75%] Built target test-mtmd-c-api
+[ 75%] Built target test-quantize-perf
+[ 75%] Built target test-mtmd-impl
+[ 76%] Built target test-gguf
+[ 77%] Built target test-alloc
+[ 79%] Built target llama-batched
+[ 79%] Built target gguf-model-data
+[ 79%] Built target llama-debug
+[ 79%] Built target llama-embedding
+[ 79%] Built target llama-eval-callback
+[ 79%] Built target llama-lookahead
+[ 80%] Built target llama-lookup
+[ 80%] Built target llama-idle
+[ 80%] Built target llama-lookup-merge
+[ 80%] Built target llama-lookup-create
+[ 82%] Built target llama-passkey
+[ 82%] Built target llama-lookup-stats
+[ 82%] Built target llama-parallel
+[ 83%] Built target llama-retrieval
+[ 84%] Built target llama-speculative
+[ 84%] Built target llama-speculative-simple
+[ 85%] Built target llama-gen-docs
+[ 85%] Built target llama-convert-llama2c-to-ggml
+[ 85%] Built target llama-diffusion
+[ 85%] Built target llama-finetune
+[ 85%] Built target llama-vdot
+[ 86%] Built target llama-q8dot
+[ 86%] Built target llama-batched-bench-impl
+[ 87%] Built target llama-gguf-split
+[ 88%] Built target llama-imatrix
+[ 88%] Built target llama-bench-impl
+[ 88%] Built target llama-perplexity-impl
+[ 88%] Built target llama-quantize-impl
+[ 88%] Built target llama-tokenize
+[ 88%] Built target llama-completion-impl
+[ 88%] Built target llama-mtmd-cli
+[ 89%] Built target llama-tts
+[ 90%] Built target llama-mtmd-debug
+[ 92%] Built target llama-cvector-generator
+[ 92%] Built target llama-export-lora
+[ 92%] Built target llama-fit-params-impl
+[ 92%] Built target llama-results
+[ 92%] Built target test-gguf-model-data
+[ 92%] Built target test-quant-type-selection
+[ 92%] Built target test-export-graph-ops
+[ 93%] Built target llama-batched-bench
+[ 93%] Built target llama-diffusion-cli
+[ 94%] Built target llama-bench
+[ 96%] Built target server-context
+[ 96%] Built target llama-perplexity
+[ 96%] Built target llama-quantize
+[ 97%] Built target llama-completion
+[ 98%] Built target llama-fit-params
+-- UI: download dist.tar.gz from b1 failed: "HTTP response code said error"
+-- UI: downloading from latest: https://huggingface.co/buckets/ggml-org/llama-ui/resolve/latest/dist.tar.gz
+[ 98%] Built target test-chat
+-- UI: archive verified and extracted
+-- UI: HF download succeeded, stamp updated (latest)
+-- UI: gzip compression applied (/home/faculty/srmist2/llama.cpp/build/tools/ui/dist/_gzip)
+embed: write output file /home/faculty/srmist2/llama.cpp/build/tools/ui/ui.cpp
+[ 98%] Built target llama-ui-assets
+[ 98%] Building CXX object tools/ui/CMakeFiles/llama-ui.dir/ui.cpp.o
+[ 98%] Linking CXX static library libllama-ui.a
+[ 98%] Built target llama-ui
+[ 99%] Linking CXX shared library ../../bin/libllama-server-impl.so
+[ 99%] Built target llama-server-impl
+[ 99%] Linking CXX executable ../../bin/llama-server
+[ 99%] Linking CXX shared library ../../bin/libllama-cli-impl.so
+[ 99%] Built target llama-cli-impl
+[ 99%] Built target llama-server
+[100%] Linking CXX executable ../../bin/llama-cli
+[100%] Building CXX object app/CMakeFiles/llama-app.dir/__/license.cpp.o
+[100%] Linking CXX executable ../bin/llama
+[100%] Built target llama-cli
+[100%] Built target llama-app
+(voxshield) srmist2@dgxa100:~/CANON_ACQUISITION/model$ chmod +x run_on_dgx.sh
+LLAMA_CPP=$HOME/llama.cpp bash run_on_dgx.sh
+== 0. deps (once) ==
+run_on_dgx.sh: line 12: /home/faculty/srmist2/miniconda3/envs/voxshield/bin/pip: cannot execute: required file not found
+(voxshield) srmist2@dgxa100:~/CANON_ACQUISITION/model$ 

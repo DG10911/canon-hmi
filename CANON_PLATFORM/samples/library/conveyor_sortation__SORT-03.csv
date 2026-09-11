@@ -1,0 +1,51 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+M-301,motor,ST-301,analog-in,rpm,0,3000,2900,2800,,,speed
+M-301,motor,IT-301,analog-in,A,0,400,380,350,,,current
+M-301,motor,M-301_RUNNING,discrete-in,,,,,,,,running
+M-301,motor,M-301_FAULT,discrete-in,,,,,,,,fault
+M-301,motor,M-301_START_REQ,discrete-out,,,,,,,,start
+M-301,motor,M-301_STOP_REQ,discrete-out,,,,,,,,stop
+M-302,motor,ST-302,analog-in,rpm,0,3000,2900,2800,,,speed
+M-302,motor,IT-302,analog-in,A,0,400,380,350,,,current
+M-302,motor,M-302_RUNNING,discrete-in,,,,,,,,running
+M-302,motor,M-302_FAULT,discrete-in,,,,,,,,fault
+M-302,motor,M-302_START_REQ,discrete-out,,,,,,,,start
+M-302,motor,M-302_STOP_REQ,discrete-out,,,,,,,,stop
+M-303,motor,ST-303,analog-in,rpm,0,3000,2900,2800,,,speed
+M-303,motor,IT-303,analog-in,A,0,400,380,350,,,current
+M-303,motor,M-303_RUNNING,discrete-in,,,,,,,,running
+M-303,motor,M-303_FAULT,discrete-in,,,,,,,,fault
+M-303,motor,M-303_START_REQ,discrete-out,,,,,,,,start
+M-303,motor,M-303_STOP_REQ,discrete-out,,,,,,,,stop
+M-304,motor,ST-304,analog-in,rpm,0,3000,2900,2800,,,speed
+M-304,motor,IT-304,analog-in,A,0,400,380,350,,,current
+M-304,motor,M-304_RUNNING,discrete-in,,,,,,,,running
+M-304,motor,M-304_FAULT,discrete-in,,,,,,,,fault
+M-304,motor,M-304_START_REQ,discrete-out,,,,,,,,start
+M-304,motor,M-304_STOP_REQ,discrete-out,,,,,,,,stop
+M-305,motor,ST-305,analog-in,rpm,0,3000,2900,2800,,,speed
+M-305,motor,IT-305,analog-in,A,0,400,380,350,,,current
+M-305,motor,M-305_RUNNING,discrete-in,,,,,,,,running
+M-305,motor,M-305_FAULT,discrete-in,,,,,,,,fault
+M-305,motor,M-305_START_REQ,discrete-out,,,,,,,,start
+M-305,motor,M-305_STOP_REQ,discrete-out,,,,,,,,stop
+M-306,motor,ST-306,analog-in,rpm,0,3000,2900,2800,,,speed
+M-306,motor,IT-306,analog-in,A,0,400,380,350,,,current
+M-306,motor,M-306_RUNNING,discrete-in,,,,,,,,running
+M-306,motor,M-306_FAULT,discrete-in,,,,,,,,fault
+M-306,motor,M-306_START_REQ,discrete-out,,,,,,,,start
+M-306,motor,M-306_STOP_REQ,discrete-out,,,,,,,,stop
+M-307,motor,ST-307,analog-in,rpm,0,3000,2900,2800,,,speed
+M-307,motor,IT-307,analog-in,A,0,400,380,350,,,current
+M-307,motor,M-307_RUNNING,discrete-in,,,,,,,,running
+M-307,motor,M-307_FAULT,discrete-in,,,,,,,,fault
+M-307,motor,M-307_START_REQ,discrete-out,,,,,,,,start
+M-307,motor,M-307_STOP_REQ,discrete-out,,,,,,,,stop
+XV-301,valve,XV-301_OPEN,discrete-in,,,,,,,,open limit
+XV-301,valve,XV-301_CLOSED,discrete-in,,,,,,,,closed limit
+XV-301,valve,XV-301_OPEN_REQ,discrete-out,,,,,,,,open
+XV-301,valve,XV-301_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-302,valve,XV-302_OPEN,discrete-in,,,,,,,,open limit
+XV-302,valve,XV-302_CLOSED,discrete-in,,,,,,,,closed limit
+XV-302,valve,XV-302_OPEN_REQ,discrete-out,,,,,,,,open
+XV-302,valve,XV-302_CLOSE_REQ,discrete-out,,,,,,,,close

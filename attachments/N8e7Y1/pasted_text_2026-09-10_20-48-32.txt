@@ -1,0 +1,1424 @@
+CANON — PROJECT HUB + MACHINE CONTEXT
+FINAL INTERACTION, BUTTON, STATE & UI CONSISTENCY PASS
+
+============================================================
+MASTER DIRECTIVE
+============================================================
+
+You are editing the EXISTING CANON prototype.
+
+This is a FINAL PRODUCT POLISH + INTERACTION PASS.
+
+DO NOT redesign the visual identity.
+
+DO NOT introduce a new design system.
+
+DO NOT add unnecessary features.
+
+DO NOT create additional screens unless explicitly required
+for an existing interaction.
+
+Preserve the current premium industrial engineering aesthetic.
+
+Your job is to make EVERY existing button, row, panel,
+navigation item, status and interaction behave logically.
+
+The result must feel like a real engineering application,
+not a static visual mockup.
+
+============================================================
+CORE CANON WORKFLOW
+============================================================
+
+The product workflow is:
+
+PROJECTS
+↓
+MACHINE CONTEXT
+↓
+CANONICAL MACHINE MODEL
+↓
+ENGINEERING INTENT
+↓
+VALIDATION
+↓
+GENERATED HMI
+↓
+RUNTIME / CONTROL
+↓
+ENGINEERING CHANGE
+↓
+REGENERATION
+
+The first two screens being refined here are:
+
+1. ENGINEERING PROJECTS
+2. MACHINE CONTEXT
+
+Do not mix their responsibilities.
+
+============================================================
+PART 01 — PROJECT HUB
+============================================================
+
+SCREEN:
+
+ENGINEERING PROJECTS
+
+Purpose:
+
+Show the engineer's existing engineering projects and provide
+one clear entry point for creating a new project.
+
+============================================================
+PROJECT HUB NAVIGATION
+============================================================
+
+Top application navigation:
+
+CANON
+
+Projects
+
+Right:
+
+● SYSTEM OPERATIONAL
+DG
+
+Do NOT show:
+
+Machines
+Library
+
+Do NOT add:
+
+Dashboard
+Analytics
+Settings
+Notifications
+AI Chat
+
+The Project Hub should remain focused.
+
+============================================================
+PROJECT HUB — PRIMARY ACTION
+============================================================
+
+Keep exactly ONE project creation action:
+
++ NEW PROJECT
+
+Position:
+
+Top-right of Engineering Projects header.
+
+This is the only primary creation CTA on the page.
+
+============================================================
+REMOVE DUPLICATE CREATE ACTION
+============================================================
+
+REMOVE COMPLETELY:
+
+START NEW ENGINEERING PROJECT
+
++ CREATE PROJECT
+
+The bottom project-creation panel must not exist.
+
+There must be no second Create Project CTA.
+
+============================================================
+PROJECT SUMMARY
+============================================================
+
+Keep:
+
+03 PROJECTS
+03 CONNECTED
+02 RUNNING
+01 STOPPED
+
+These are summary values.
+
+They are not buttons.
+
+Do not make them appear clickable unless filtering is explicitly
+implemented.
+
+============================================================
+PROJECT ROWS
+============================================================
+
+Each project row is interactive.
+
+Projects:
+
+TK-401
+PACK-07
+MIX-02
+
+Each row must have:
+
+Project name
+Machine type
+Runtime state
+Connection state
+Controller
+Asset count
+Signal count
+Alarm count
+Last synchronization
+OPEN PROJECT →
+
+============================================================
+PROJECT ROW CLICK
+============================================================
+
+Clicking anywhere on a project row should open that project.
+
+The explicit:
+
+OPEN PROJECT →
+
+button must also open the same project.
+
+Both interactions must perform exactly the same action.
+
+Do NOT create different behavior between row click and button click.
+
+============================================================
+PROJECT 01 — TK-401
+============================================================
+
+PROJECT:
+
+TK-401
+
+TYPE:
+
+PROCESS TANK
+
+CONTROLLER:
+
+Modicon M262
+
+STATE:
+
+● RUNNING
+
+CONNECTION:
+
+● CONNECTED
+
+DATA:
+
+24 assets
+186 signals
+12 alarms
+
+SYNC:
+
+12 sec ago
+
+Click:
+
+OPEN PROJECT →
+
+must open:
+
+MACHINE CONTEXT
+
+for TK-401.
+
+============================================================
+PROJECT 02 — PACK-07
+============================================================
+
+PROJECT:
+
+PACK-07
+
+TYPE:
+
+PACKAGING LINE
+
+CONTROLLER:
+
+Modicon M580
+
+STATE:
+
+● RUNNING
+
+CONNECTION:
+
+● CONNECTED
+
+DATA:
+
+148 assets
+1,240 signals
+36 alarms
+
+SYNC:
+
+8 sec ago
+
+Click:
+
+OPEN PROJECT →
+
+must open:
+
+MACHINE CONTEXT
+
+for PACK-07.
+
+It must NOT show TK-401 data.
+
+============================================================
+PROJECT 03 — MIX-02
+============================================================
+
+PROJECT:
+
+MIX-02
+
+TYPE:
+
+MIXING STATION
+
+CONTROLLER:
+
+Modicon M241
+
+STATE:
+
+● STOPPED
+
+CONNECTION:
+
+● CONNECTED
+
+DATA:
+
+31 assets
+224 signals
+18 alarms
+
+SYNC:
+
+2 min ago
+
+Click:
+
+OPEN PROJECT →
+
+must open:
+
+MACHINE CONTEXT
+
+for MIX-02.
+
+It must NOT show TK-401 or PACK-07 data.
+
+============================================================
+PROJECT DATA ISOLATION
+============================================================
+
+CRITICAL.
+
+Every project must have independent state.
+
+If the user opens TK-401:
+
+all data = TK-401.
+
+If the user returns to Projects and opens PACK-07:
+
+all data = PACK-07.
+
+If the user returns and opens MIX-02:
+
+all data = MIX-02.
+
+Never reuse TK-401 data as generic placeholder data.
+
+The selected project must be the single source of UI context.
+
+============================================================
+BACK TO PROJECTS
+============================================================
+
+Inside every project screen:
+
+← Projects
+
+must return to:
+
+ENGINEERING PROJECTS
+
+Do not reset project state.
+
+Do not create a new project.
+
+Do not reload the application.
+
+============================================================
+NEW PROJECT BUTTON
+============================================================
+
+Click:
+
++ NEW PROJECT
+
+Open the existing New Engineering Project experience.
+
+Provide exactly:
+
+LIVE MACHINE
+
+ENGINEERING DATA
+
+DEMO MACHINE
+
+============================================================
+LIVE MACHINE
+============================================================
+
+Purpose:
+
+Connect a real machine/data source.
+
+Show options such as:
+
+OPC UA
+Modbus TCP
+EtherNet/IP
+
+This is an entry point.
+
+Do not claim a connection has occurred until it actually has.
+
+Button:
+
+CONNECT MACHINE →
+
+============================================================
+ENGINEERING DATA
+============================================================
+
+Purpose:
+
+Import engineering information.
+
+Button:
+
+IMPORT DATA →
+
+Do not imply that data has been imported before the user does so.
+
+============================================================
+DEMO MACHINE
+============================================================
+
+Purpose:
+
+Provide deterministic CANON demonstration data.
+
+Button:
+
+OPEN DEMO →
+
+Clearly label demo content as:
+
+CANON DEMO
+
+Do not imply it is an official Schneider Electric machine.
+
+============================================================
+PART 02 — MACHINE CONTEXT
+============================================================
+
+SCREEN:
+
+MACHINE CONTEXT
+
+Purpose:
+
+Show what CANON discovered from the selected machine.
+
+This is NOT yet the canonical machine model.
+
+The distinction is essential.
+
+============================================================
+MACHINE CONTEXT HEADER
+============================================================
+
+Show:
+
+← Projects
+
+TK-401
+
+Process Tank
+
+● CONNECTED
+
+Right:
+
+Controller
+Modicon M262
+
+Synced
+12 sec ago
+
+These values must update according to the selected project.
+
+============================================================
+WORKFLOW
+============================================================
+
+Show:
+
+CONTEXT → MODEL → INTENT → VALIDATE → RUNTIME → CHANGE
+
+CONTEXT is active.
+
+The later stages are inactive/subdued.
+
+Do not make them clickable if the previous stage is not complete.
+
+============================================================
+MACHINE CONTEXT TITLE
+============================================================
+
+Show:
+
+MACHINE CONTEXT
+
+Subtitle:
+
+Discovering the machine's engineering reality before generating
+an operator experience.
+
+Right:
+
+● LIVE CONNECTION
+
+[ Sync now ]
+
+============================================================
+SYNC NOW BUTTON
+============================================================
+
+Click:
+
+SYNC NOW
+
+Behavior:
+
+1. Show:
+
+SYNCING ENGINEERING CONTEXT...
+
+2. Brief progress state.
+
+3. Refresh:
+
+assets
+signals
+I/O
+alarms
+engineering sources
+
+4. Return to:
+
+● LIVE CONNECTION
+
+5. Update:
+
+Synced X sec ago
+
+Do NOT fake a new connection.
+
+If this is demo mode, clearly treat the operation as simulated.
+
+============================================================
+DISCOVERY METRICS
+============================================================
+
+Show:
+
+24 ASSETS
+186 SIGNALS
+4 I/O GROUPS
+12 ALARMS
+
+For TK-401.
+
+For other projects, use their own values.
+
+These are informational metrics.
+
+Do NOT make them buttons.
+
+============================================================
+DISCOVERED MACHINE ELEMENTS
+============================================================
+
+Show:
+
+DISCOVERED MACHINE ELEMENTS
+
+Right:
+
+CLICK AN ELEMENT
+
+The topology represents discovered machine entities.
+
+============================================================
+TK-401 TOPOLOGY
+============================================================
+
+Show:
+
+                         TK-401
+                      PROCESS TANK
+
+              ┌──────────┼──────────┐
+              │          │          │
+            LT401      PT401       P401
+            LEVEL     PRESSURE      PUMP
+
+                         XV401
+                          VALVE
+
+IMPORTANT:
+
+DO NOT draw a misleading:
+
+PT401
+  │
+  ↓
+XV401
+
+relationship.
+
+Do not imply that PT401 directly controls XV401.
+
+This is the CONTEXT screen.
+
+Detailed engineering relationships belong in:
+
+CANONICAL MACHINE MODEL.
+
+============================================================
+TOPOLOGY SEMANTICS
+============================================================
+
+Machine Context answers:
+
+"WHAT DID CANON DISCOVER?"
+
+Therefore the topology should primarily show:
+
+membership
+presence
+identity
+discovery state
+
+Do not over-model the machine here.
+
+============================================================
+ASSET CLICK BEHAVIOR
+============================================================
+
+When clicking:
+
+TK-401
+LT401
+PT401
+P401
+XV401
+
+open a compact right-side inspector drawer.
+
+The drawer is an INSPECTION view.
+
+It is NOT a model-editing workflow.
+
+============================================================
+REMOVE "INCLUDE IN MODEL"
+============================================================
+
+CRITICAL.
+
+REMOVE:
+
+INCLUDE IN MODEL
+
+from normal discovered asset inspection.
+
+Do NOT require the engineer to manually include:
+
+TK-401
+LT401
+PT401
+P401
+XV401
+
+one by one.
+
+This would make CANON unnecessarily manual.
+
+============================================================
+WHY
+============================================================
+
+The intended workflow is:
+
+CANON DISCOVERS
+↓
+CANON IDENTIFIES
+↓
+CANON VALIDATES DISCOVERY
+↓
+CANON BUILDS MODEL
+
+The engineer should not have to manually promote every
+discovered asset.
+
+============================================================
+ASSET INSPECTOR
+============================================================
+
+When selecting TK-401, show:
+
+PROCESS TANK
+
+TK-401
+
+DISCOVERY STATUS
+● VERIFIED
+
+Type
+Process Tank Unit
+
+Assets
+24 discovered
+
+Controller
+Modicon M262
+
+Source
+Live machine
+
+Then:
+
+[ View evidence ]
+
+Close:
+
+×
+
+============================================================
+ASSET INSPECTOR — LT401
+============================================================
+
+Show:
+
+LEVEL TRANSMITTER
+
+LT401
+
+DISCOVERY STATUS
+● VERIFIED
+
+Engineering signal
+LT401.Level
+
+Type
+REAL
+
+Unit
+%
+
+Range
+0–100 %
+
+Source
+Modicon M262
+
+[ View evidence ]
+
+Do NOT show:
+
+Include in model
+
+============================================================
+ASSET INSPECTOR — PT401
+============================================================
+
+Show:
+
+PRESSURE TRANSMITTER
+
+PT401
+
+DISCOVERY STATUS
+● VERIFIED
+
+Engineering signal
+PT401.Pressure
+
+Type
+REAL
+
+Unit
+bar
+
+Source
+Modicon M262
+
+[ View evidence ]
+
+============================================================
+ASSET INSPECTOR — P401
+============================================================
+
+Show:
+
+PUMP
+
+P401
+
+DISCOVERY STATUS
+● VERIFIED
+
+Relevant command
+P401.Start
+
+Relevant feedback
+P401.Running
+
+Source
+Modicon M262
+
+[ View evidence ]
+
+============================================================
+ASSET INSPECTOR — XV401
+============================================================
+
+Show:
+
+VALVE
+
+XV401
+
+DISCOVERY STATUS
+● VERIFIED
+
+Relevant command
+XV401.Open
+
+Relevant feedback
+XV401.Open_FB
+
+Source
+Modicon M262
+
+[ View evidence ]
+
+============================================================
+UNKNOWN / UNRESOLVED ELEMENT
+============================================================
+
+If an element cannot be confidently mapped:
+
+Show:
+
+△ REVIEW REQUIRED
+
+UNKNOWN / UNRESOLVED
+
+Do NOT mark it verified.
+
+Do NOT invent a signal name.
+
+Do NOT invent a type.
+
+Do NOT invent a command.
+
+Show:
+
+A signal reference could not be confidently mapped.
+
+[ Review ]
+
+This is the only situation where an explicit review action
+should be prominent.
+
+============================================================
+ENGINEERING SOURCES
+============================================================
+
+Keep:
+
+ENGINEERING SOURCES
+
+Show:
+
+SOURCE 01 · PLC / CONTROLLER
+Modicon M262
+● CONNECTED
+
+SOURCE 02 · OPC UA
+Embedded server
+● CONNECTED
+
+SOURCE 03 · I/O CONFIGURATION
+4 I/O groups
+● SYNCED
+
+SOURCE 04 · ALARM DEFINITIONS
+12 alarms
+● SYNCED
+
+SOURCE 05 · ENGINEERING DOCS
+3 documents
+● INDEXED
+
+All rows should be aligned.
+
+============================================================
+ENGINEERING DISCOVERY
+============================================================
+
+Show:
+
+ENGINEERING DISCOVERY
+
+Controller        ✓ Connected
+I/O               ✓ Discovered
+Signals           ✓ Indexed
+Alarms            ✓ Indexed
+Relationships     ✓ Analyzed
+Machine Model     → Ready to build
+
+Then:
+
+△ 1 unresolved reference
+
+A signal reference could not be confidently mapped.
+
+[ Review ]
+
+============================================================
+DO NOT CLAIM EVERYTHING IS VERIFIED
+============================================================
+
+The presence of:
+
+1 unresolved reference
+
+must remain visible.
+
+Do NOT show:
+
+100% verified
+
+Do NOT show:
+
+Everything verified
+
+Do NOT silently convert UNKNOWN into VERIFIED.
+
+CANON's credibility depends on this behavior.
+
+============================================================
+VIEW EVIDENCE BUTTON
+============================================================
+
+Click:
+
+VIEW EVIDENCE
+
+Open a compact contextual evidence view.
+
+Show:
+
+Element
+Signal
+Source
+Discovery status
+Evidence
+Revision / source reference where available
+
+The evidence should explain WHY CANON believes the item exists.
+
+Do not make this a giant document browser.
+
+============================================================
+BUILD MACHINE MODEL
+============================================================
+
+This is the PRIMARY ACTION.
+
+Keep:
+
+BUILD MACHINE MODEL →
+
+in the fixed bottom action bar.
+
+This is the only main progression action.
+
+============================================================
+BUILD MACHINE MODEL BEHAVIOR
+============================================================
+
+When clicked:
+
+Show a short deterministic build sequence:
+
+BUILDING CANONICAL MACHINE MODEL
+
+✓ Assets resolved
+✓ Signal references mapped
+✓ I/O relationships resolved
+✓ Commands identified
+✓ Alarms linked
+✓ Dependencies analyzed
+
+Then:
+
+23 / 24 core references verified
+
+MODEL READY
+
+CANON v1.0
+
+Then transition to:
+
+CANONICAL MACHINE MODEL
+
+============================================================
+IMPORTANT — DO NOT REQUIRE MANUAL INCLUSION
+============================================================
+
+The user should NOT have to:
+
+select TK-401
+click Include
+select LT401
+click Include
+select PT401
+click Include
+select P401
+click Include
+select XV401
+click Include
+
+That is too much manual work.
+
+Instead:
+
+DISCOVERY
++
+VALIDATION
++
+ENGINEERING REVIEW WHERE REQUIRED
+↓
+BUILD MACHINE MODEL
+
+============================================================
+BOTTOM STATUS BAR
+============================================================
+
+Keep:
+
+CANON discovered the machine —
+one reference left unresolved rather than invented.
+
+Right:
+
+BUILD MACHINE MODEL →
+
+The message should update according to the project.
+
+For a project with no unresolved references:
+
+CANON discovered the machine.
+Engineering context is ready for model construction.
+
+============================================================
+BUTTON STATES
+============================================================
+
+Every button must have a meaningful state.
+
+PRIMARY:
+
+BUILD MACHINE MODEL →
+
+SECONDARY:
+
+SYNC NOW
+
+VIEW EVIDENCE
+
+REVIEW
+
+NAVIGATION:
+
+← Projects
+
+Do NOT create buttons that do nothing.
+
+Do NOT create buttons that only show a toast saying
+"Coming soon."
+
+If a feature is not implemented, hide the button rather than
+displaying a fake interaction.
+
+============================================================
+DISABLED STATES
+============================================================
+
+If Machine Context is not ready:
+
+BUILD MACHINE MODEL
+
+should be disabled.
+
+Show why:
+
+Waiting for engineering context.
+
+If there is an unresolved reference:
+
+BUILD MACHINE MODEL
+
+may remain enabled if CANON's defined workflow permits
+construction with the unresolved reference isolated.
+
+Show:
+
+23 / 24 verified · 1 review required
+
+The user should understand the consequence.
+
+============================================================
+RESPONSIVE BEHAVIOR
+============================================================
+
+Desktop is the primary target.
+
+Optimize for:
+
+1440 × 900
+
+1920 × 1080
+
+Avoid unnecessary scrolling.
+
+Keep the primary machine topology visible.
+
+Keep the bottom CTA visible.
+
+Avoid nested scroll containers.
+
+============================================================
+VISUAL CONSISTENCY
+============================================================
+
+All buttons must use:
+
+same height system
+same corner radius
+same typography
+same padding
+same hover behavior
+
+Primary action:
+
+green
+
+Secondary action:
+
+white / neutral
+
+Review:
+
+subtle amber
+
+Do not introduce additional colors.
+
+============================================================
+MOTION
+============================================================
+
+Use subtle motion only.
+
+Project opening:
+
+fast fade / slide.
+
+Drawer:
+
+smooth slide from right.
+
+Sync:
+
+short progress transition.
+
+Build Model:
+
+short deterministic progress sequence.
+
+Do NOT use:
+
+particle effects
+glow
+neon
+large animations
+3D transitions
+AI-style effects
+
+============================================================
+PROJECT SWITCHING
+============================================================
+
+Test:
+
+Projects
+↓
+TK-401
+↓
+Machine Context
+
+Back:
+
+← Projects
+
+↓
+PACK-07
+↓
+Machine Context
+
+Back:
+
+← Projects
+
+↓
+MIX-02
+↓
+Machine Context
+
+Every screen must update to the selected project.
+
+============================================================
+DATA CONSISTENCY TEST
+============================================================
+
+TK-401:
+
+Process Tank
+Modicon M262
+24 assets
+186 signals
+12 alarms
+LT401
+PT401
+P401
+XV401
+
+PACK-07:
+
+Packaging Line
+Modicon M580
+148 assets
+1,240 signals
+36 alarms
+packaging-specific assets
+
+MIX-02:
+
+Mixing Station
+Modicon M241
+31 assets
+224 signals
+18 alarms
+mixing-specific assets
+
+Never display TK-401 topology while PACK-07 is selected.
+
+Never display TK-401 signals while MIX-02 is selected.
+
+============================================================
+FINAL UX TEST
+============================================================
+
+The complete interaction should work like this:
+
+OPEN CANON
+
+↓
+
+ENGINEERING PROJECTS
+
+↓
+
+Select TK-401
+
+↓
+
+MACHINE CONTEXT
+
+↓
+
+Inspect LT401
+
+↓
+
+View evidence
+
+↓
+
+Close inspector
+
+↓
+
+Inspect PT401
+
+↓
+
+Close inspector
+
+↓
+
+Review unresolved reference
+
+↓
+
+Return to main screen
+
+↓
+
+BUILD MACHINE MODEL →
+
+↓
+
+CANONICAL MACHINE MODEL
+
+No unnecessary manual inclusion steps.
+
+============================================================
+FINAL INFORMATION ARCHITECTURE
+============================================================
+
+PROJECT HUB
+
+"What projects do I have?"
+
+MACHINE CONTEXT
+
+"What did CANON discover?"
+
+CANONICAL MACHINE MODEL
+
+"How does CANON understand the machine?"
+
+ENGINEERING INTENT
+
+"What operator experience do I want?"
+
+VALIDATION
+
+"Is the proposed experience engineering-valid?"
+
+RUNTIME
+
+"Can the generated HMI operate safely through the control
+contract?"
+
+CHANGE
+
+"What changes when engineering reality changes?"
+
+============================================================
+FINAL QUALITY CHECK
+============================================================
+
+Before finishing:
+
+✓ Remove bottom Create Project panel
+✓ Keep only + New Project
+✓ Remove Include in model
+✓ Do not require manual asset inclusion
+✓ Make every existing button functional
+✓ Make every project open correctly
+✓ Isolate project data
+✓ Fix PT401 → XV401 misleading connector
+✓ Keep unresolved reference honest
+✓ Keep View Evidence contextual
+✓ Keep Build Machine Model as primary progression
+✓ Keep bottom CTA fixed
+✓ Avoid unnecessary scrolling
+✓ Keep topology visible
+✓ Keep drawer compact
+✓ Keep visual alignment consistent
+✓ Keep industrial aesthetic
+✓ No fake buttons
+✓ No dead interactions
+✓ No unnecessary features
+
+============================================================
+FINAL PRODUCT PRINCIPLE
+============================================================
+
+CANON SHOULD FEEL AUTOMATIC WHERE IT CAN BE AUTOMATIC,
+AND EXPLICIT WHERE ENGINEERING JUDGMENT IS REQUIRED.
+
+The engineer should NOT spend time manually tagging
+every discovered object.
+
+CANON discovers.
+
+CANON structures.
+
+CANON validates.
+
+The engineer reviews exceptions.
+
+Then:
+
+BUILD MACHINE MODEL →
+
+This is the intended experience.
+
+FINAL INSTRUCTION:
+
+DO NOT REDESIGN.
+
+DO NOT ADD FEATURES.
+
+DO NOT ADD MANUAL "INCLUDE" WORKFLOWS.
+
+FIX EVERY BUTTON.
+
+FIX EVERY INTERACTION.
+
+FIX EVERY STATE.
+
+MAKE PROJECTS TRULY PROJECT-SPECIFIC.
+
+MAKE MACHINE CONTEXT A DISCOVERY EXPERIENCE.
+
+MAKE BUILD MACHINE MODEL THE SINGLE CLEAR NEXT STEP.
+
+MAKE THE ENTIRE EXPERIENCE FEEL LIKE A REAL PROFESSIONAL
+INDUSTRIAL ENGINEERING PRODUCT.

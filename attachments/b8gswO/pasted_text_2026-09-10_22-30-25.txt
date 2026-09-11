@@ -1,0 +1,173 @@
+Last login: Thu Sep 10 22:15:28 on ttys000
+devanshgoenka@Devanshs-Laptop-5 ~ % rsync -avz --progress \
+  "/Users/devanshgoenka/conductor/workspaces/dgrfrfeerf/santo-domingo/.context/CANON_ACQUISITION" \
+  dgx:~/
+Transfer starting: 86 files
+CANON_ACQUISITION/
+CANON_ACQUISITION/DESIGN.md
+          10961 100%    7.55MB/s   00:00:00 (xfer#1, to-check=1/86)
+CANON_ACQUISITION/README.md
+           3410 100%    3.78MB/s   00:00:00 (xfer#2, to-check=2/86)
+CANON_ACQUISITION/requirements.txt
+           1157 100%    1.12MB/s   00:00:00 (xfer#3, to-check=3/86)
+CANON_ACQUISITION/run_all.py
+           4734 100%    5.43MB/s   00:00:00 (xfer#4, to-check=4/86)
+CANON_ACQUISITION/canon_acq/
+CANON_ACQUISITION/canon_acq/__init__.py
+            443 100%  551.03KB/s   00:00:00 (xfer#5, to-check=6/86)
+CANON_ACQUISITION/canon_acq/classify.py
+           1981 100%    3.18MB/s   00:00:00 (xfer#6, to-check=7/86)
+CANON_ACQUISITION/canon_acq/context_pack.py
+           3182 100%    4.94MB/s   00:00:00 (xfer#7, to-check=8/86)
+CANON_ACQUISITION/canon_acq/discovery.py
+           5125 100%    7.77MB/s   00:00:00 (xfer#8, to-check=9/86)
+CANON_ACQUISITION/canon_acq/embeddings.py
+           1119 100%    2.60MB/s   00:00:00 (xfer#9, to-check=10/86)
+CANON_ACQUISITION/canon_acq/engines.py
+           9380 100%   18.18MB/s   00:00:00 (xfer#10, to-check=11/86)
+CANON_ACQUISITION/canon_acq/enums.py
+           3995 100%    7.61MB/s   00:00:00 (xfer#11, to-check=12/86)
+CANON_ACQUISITION/canon_acq/ids.py
+           1481 100%    3.61MB/s   00:00:00 (xfer#12, to-check=13/86)
+CANON_ACQUISITION/canon_acq/ingest_tk401.py
+          27298 100%   24.29MB/s   00:00:00 (xfer#13, to-check=14/86)
+CANON_ACQUISITION/canon_acq/models.py
+           6016 100%    8.15MB/s   00:00:00 (xfer#14, to-check=15/86)
+CANON_ACQUISITION/canon_acq/store.py
+           5501 100%    6.77MB/s   00:00:00 (xfer#15, to-check=16/86)
+CANON_ACQUISITION/canon_acq/web_ingest.py
+           4344 100%    8.68MB/s   00:00:00 (xfer#16, to-check=17/86)
+CANON_ACQUISITION/datasets/
+CANON_ACQUISITION/datasets/README.md
+           3217 100%    5.78MB/s   00:00:00 (xfer#17, to-check=19/86)
+CANON_ACQUISITION/datasets/consolidate.py
+           4284 100%    9.35MB/s   00:00:00 (xfer#18, to-check=20/86)
+CANON_ACQUISITION/datasets/dataset_registry.json
+          57841 100%   14.21MB/s   00:00:00 (xfer#19, to-check=21/86)
+CANON_ACQUISITION/datasets/github_datasets.json
+          16114 100%   22.27MB/s   00:00:00 (xfer#20, to-check=22/86)
+CANON_ACQUISITION/datasets/hf_datasets.json
+          18284 100%   23.06MB/s   00:00:00 (xfer#21, to-check=23/86)
+CANON_ACQUISITION/datasets/kaggle_datasets.json
+          19688 100%   27.65MB/s   00:00:00 (xfer#22, to-check=24/86)
+CANON_ACQUISITION/datasets/pull_datasets.sh
+          11679 100%   22.91MB/s   00:00:00 (xfer#23, to-check=25/86)
+CANON_ACQUISITION/db/
+CANON_ACQUISITION/db/schema.sql
+          11506 100%   19.53MB/s   00:00:00 (xfer#24, to-check=27/86)
+CANON_ACQUISITION/model/
+CANON_ACQUISITION/model/README.md
+           3479 100%    7.68MB/s   00:00:00 (xfer#25, to-check=29/86)
+CANON_ACQUISITION/model/SETUP_DGX.md
+           2049 100%    7.91MB/s   00:00:00 (xfer#26, to-check=30/86)
+CANON_ACQUISITION/model/build_dataset.py
+          10015 100%   19.46MB/s   00:00:00 (xfer#27, to-check=31/86)
+CANON_ACQUISITION/model/eval.py
+           4558 100%   10.11MB/s   00:00:00 (xfer#28, to-check=32/86)
+CANON_ACQUISITION/model/export_gguf.py
+           3689 100%    7.75MB/s   00:00:00 (xfer#29, to-check=33/86)
+CANON_ACQUISITION/model/requirements.txt
+            531 100%    2.41MB/s   00:00:00 (xfer#30, to-check=34/86)
+CANON_ACQUISITION/model/run_on_dgx.sh
+           2055 100%    7.97MB/s   00:00:00 (xfer#31, to-check=35/86)
+CANON_ACQUISITION/model/train_qlora.py
+           3507 100%   12.39MB/s   00:00:00 (xfer#32, to-check=36/86)
+CANON_ACQUISITION/model/data/
+CANON_ACQUISITION/model/data/eval.jsonl
+        3134971 100%   50.21MB/s   00:00:00 (xfer#33, to-check=38/86)
+CANON_ACQUISITION/model/data/train.jsonl
+       61030196 100%   49.62MB/s   00:00:01 (xfer#34, to-check=39/86)
+CANON_ACQUISITION/out/
+CANON_ACQUISITION/out/01_sources.jsonl
+          49013 100%   24.29MB/s   00:00:00 (xfer#35, to-check=41/86)
+CANON_ACQUISITION/out/02_documents.jsonl
+          31712 100%   42.72MB/s   00:00:00 (xfer#36, to-check=42/86)
+CANON_ACQUISITION/out/03_document_revisions.jsonl
+            203 100%    1.28MB/s   00:00:00 (xfer#37, to-check=43/86)
+CANON_ACQUISITION/out/04_entities.jsonl
+          44586 100%   55.15MB/s   00:00:00 (xfer#38, to-check=44/86)
+CANON_ACQUISITION/out/05_entity_aliases.jsonl
+          32754 100%   91.56MB/s   00:00:00 (xfer#39, to-check=45/86)
+CANON_ACQUISITION/out/06_signals.jsonl
+           2278 100%   14.19MB/s   00:00:00 (xfer#40, to-check=46/86)
+CANON_ACQUISITION/out/07_io.jsonl
+           1787 100%   17.56MB/s   00:00:00 (xfer#41, to-check=47/86)
+CANON_ACQUISITION/out/08_assets.jsonl
+            369 100%    1.78MB/s   00:00:00 (xfer#42, to-check=48/86)
+CANON_ACQUISITION/out/09_controllers.jsonl
+            330 100%    3.93MB/s   00:00:00 (xfer#43, to-check=49/86)
+CANON_ACQUISITION/out/10_modules.jsonl
+              0 nan%   00:00:00 (xfer#44, to-check=50/86)
+CANON_ACQUISITION/out/11_instruments.jsonl
+            408 100%    5.26MB/s   00:00:00 (xfer#45, to-check=51/86)
+CANON_ACQUISITION/out/12_motors.jsonl
+            161 100%    2.52MB/s   00:00:00 (xfer#46, to-check=52/86)
+CANON_ACQUISITION/out/13_drives.jsonl
+              0 nan%   00:00:00 (xfer#47, to-check=53/86)
+CANON_ACQUISITION/out/14_valves.jsonl
+            166 100%    2.41MB/s   00:00:00 (xfer#48, to-check=54/86)
+CANON_ACQUISITION/out/15_commands.jsonl
+            968 100%   14.24MB/s   00:00:00 (xfer#49, to-check=55/86)
+CANON_ACQUISITION/out/16_permissives.jsonl
+           1257 100%   15.38MB/s   00:00:00 (xfer#50, to-check=56/86)
+CANON_ACQUISITION/out/17_interlocks.jsonl
+            713 100%   10.01MB/s   00:00:00 (xfer#51, to-check=57/86)
+CANON_ACQUISITION/out/18_alarms.jsonl
+           1380 100%    8.67MB/s   00:00:00 (xfer#52, to-check=58/86)
+CANON_ACQUISITION/out/19_states.jsonl
+           1510 100%    6.55MB/s   00:00:00 (xfer#53, to-check=59/86)
+CANON_ACQUISITION/out/20_modes.jsonl
+            822 100%    6.94MB/s   00:00:00 (xfer#54, to-check=60/86)
+CANON_ACQUISITION/out/21_sequences.jsonl
+           2920 100%    4.62MB/s   00:00:00 (xfer#55, to-check=61/86)
+CANON_ACQUISITION/out/22_process_relationships.jsonl
+            693 100%    4.21MB/s   00:00:00 (xfer#56, to-check=62/86)
+CANON_ACQUISITION/out/23_hmi_screens.jsonl
+            414 100%    3.21MB/s   00:00:00 (xfer#57, to-check=63/86)
+CANON_ACQUISITION/out/24_hmi_components.jsonl
+           2611 100%    5.11MB/s   00:00:00 (xfer#58, to-check=64/86)
+CANON_ACQUISITION/out/25_protocols.jsonl
+           2547 100%   24.79MB/s   00:00:00 (xfer#59, to-check=65/86)
+CANON_ACQUISITION/out/26_products.jsonl
+          12561 100%   97.37MB/s   00:00:00 (xfer#60, to-check=66/86)
+CANON_ACQUISITION/out/27_standards.jsonl
+           8643 100%   38.54MB/s   00:00:00 (xfer#61, to-check=67/86)
+CANON_ACQUISITION/out/28_procedures.jsonl
+              0 nan%   00:00:00 (xfer#62, to-check=68/86)
+CANON_ACQUISITION/out/29_facts.jsonl
+          65265 100%   35.79MB/s   00:00:00 (xfer#63, to-check=69/86)
+CANON_ACQUISITION/out/30_relationships.jsonl
+          26957 100%   75.35MB/s   00:00:00 (xfer#64, to-check=70/86)
+CANON_ACQUISITION/out/31_evidence.jsonl
+          44943 100%   66.36MB/s   00:00:00 (xfer#65, to-check=71/86)
+CANON_ACQUISITION/out/32_conflicts.jsonl
+            533 100%    4.39MB/s   00:00:00 (xfer#66, to-check=72/86)
+CANON_ACQUISITION/out/33_unknowns.jsonl
+            249 100%  371.82KB/s   00:00:00 (xfer#67, to-check=73/86)
+CANON_ACQUISITION/out/34_dependencies.jsonl
+            868 100%   12.53MB/s   00:00:00 (xfer#68, to-check=74/86)
+CANON_ACQUISITION/out/35_change_history.jsonl
+           1515 100%   19.80MB/s   00:00:00 (xfer#69, to-check=75/86)
+CANON_ACQUISITION/out/36_context_packs.jsonl
+          31496 100%   50.31MB/s   00:00:00 (xfer#70, to-check=76/86)
+CANON_ACQUISITION/out/37_embeddings.jsonl
+          58867 100%   24.04MB/s   00:00:00 (xfer#71, to-check=77/86)
+CANON_ACQUISITION/out/context_pack.tk401.json
+          42308 100%   36.81MB/s   00:00:00 (xfer#72, to-check=78/86)
+CANON_ACQUISITION/out/corpus_manifest.json
+           3033 100%   13.91MB/s   00:00:00 (xfer#73, to-check=79/86)
+CANON_ACQUISITION/out/coverage_report.json
+            352 100%  634.03KB/s   00:00:00 (xfer#74, to-check=80/86)
+CANON_ACQUISITION/out/hmi_readiness.json
+            484 100%    6.41MB/s   00:00:00 (xfer#75, to-check=81/86)
+CANON_ACQUISITION/out/no_hallucination_audit.json
+            211 100%    1.50MB/s   00:00:00 (xfer#76, to-check=82/86)
+CANON_ACQUISITION/out/source_registry.json
+          60857 100%   25.87MB/s   00:00:00 (xfer#77, to-check=83/86)
+CANON_ACQUISITION/sources/
+CANON_ACQUISITION/sources/source_registry.seed.json
+          54843 100%   55.47MB/s   00:00:00 (xfer#78, to-check=85/86)
+
+sent 5621393 bytes  received 1784 bytes  4341886 bytes/sec
+total size is 65021377  speedup is 11.56
+devanshgoenka@Devanshs-Laptop-5 ~ % 

@@ -1,0 +1,199 @@
+Wo got ps  now these check with our prompt ,1 ai powered runtime copilot for industrial hmi-Problem Statement
+
+Industrial operators are increasingly challenged by excessive alarms and large volumes of operational data, making it difficult to quickly identify, interpret, and respond to critical events. This information overload leads to slower decision-making, increased downtime, and reduced operational efficiency. At the same time, new operators often lack the contextual knowledge needed to handle complex situations, while critical expertise remains dependent on undocumented knowledge held by experienced personnel.
+
+The absence of embedded, real-time guidance within existing operator workflows creates Inconsistencies in alarm response and operational execution, impacting safety, compliance, and business performance. Organizations need an intelligent, workflow-integrated solution that delivers contextual insights and operational guidance to improve response times, reduce downtime, and drive measurable cost savings. Use Cases and Benefits of solving this problem
+
+Alarm Explanation & Contextual Guidance
+
+Root Cause Investigation
+
+Shift Handover Assistance
+
+Operational Decision Support
+
+Knowledge Retrieval & Standard Operating Procedure Assistance
+
+Note: The Al solution must be optimized for deployment on low-end HMI hardware platforms as well. Data Sources (References)
+
+Key Data Sources The Copilot Learns From:
+
+Alarm Logs Data
+
+Alarm logs capture abnormal conditions and safety events with timestamps and priorities to identify recurring issues.
+
+Process Data Logs
+
+estamps N
+
+Process data logs record continuous values like temperature and pressure, providing operational context around events.
+
+Operator Action Logs
+
+se lemperor
+
+actions Operator logs track user interactions such as setpoint changes and manual interventions for event reconstruction.
+
+Runtime Context
+
+Active screens,
+Ps 2  Dynamic screen at runtime and control of machines via hmi  Problem Statement
+
+HMI engineering is heavily dependent on the manual creation and maintenance of screens, navigation, and visualization logic. As industrial systems evolve, engineers spend significant effort updating HMI assets to reflect changes in machine configurations, PLC tags, alarms, and process requirements. Approximately 50-70% of the total HMI lifecycle effort is consumed by screen creation, maintenance, and enhancement activities, resulting in increased costs, longer delivery cycles, and reduced engineering efficiency.
+
+Expectation:
+
+Machine Context Creation - building a unified and standardized machine representation/context using engineering artifacts and configuration data such as PLC/Controller Tags, I/O Configuration, Asset Hierarchies, Alarm Definitions, and Communication Configurations, Machine Documentation etc.
+
+Context Interpretation - leverage Al and model-driven automation which in turn use this machine context to dynamically generate HMI screens & optimize operator experiences at runtime reducing dependence on manual screen engineering and the need for predefined static screens at buildtime.
+
+Dynamic Screen Generation - generate machine specific screens based on prompts(text/speech) from the Coperator thereby reducing engineering effort and lifecycle costs while improving consistency, scalability, and project delivery speed across HMI applications. Use Cases and Benefits of solving this problem
+
+1
+
+No predesigned screens
+
+Screens independent of the size of HMI
+
+Automatic adaptation for Machine changes
+
+Machine-specific operator experience
+
+Reduced engineering effort
+
+Faster commissioning
+
+CON Data Sources (References)
+
+PLC/Controller Tags
+
+Variables exposed by PLCs and controllers that represent machine states, commands, measurements, and setpoints.
+
+Examples:
+
+Motor_1_RunStatus
+
+Tank_Level
+
+Temperature_PV
+
+Conveyor_Speed_SP
+
+=> Used by HMI screens to display real-time values, animations, controls, and trends.
+
+Alarm Definitions
+
+associated Repository of alarm conditions, priorities, and messages a with machine assets.
+
+Examples:
+
+High Temperature (Critical)
+
+Low Pressure (Warning)
+
+Motor Trip (High)
+
+=>Enables automatic generation of alarm summaries, alarm banners, and diagnostic views.
+
+1/O Configuration
+
+Definition of the machine's physical inputs and outputs connected to the controller.
+
+Examples:
+
+Digital Input Emergency Stop, Door Switch
+
+Digital Gulput Motor Start, Alarm Horn
+
+Analog Input Pressure Sensor, Temperature Sensor
+
+Analog Output: Speed Reference, Valve Position
+
+=>Helps Al understand available sensors, actuators, and control points for screen generation.
+
+Asset Hierarchies
+
+Communication Configurations
+
+Defines how devices communicate within the automation
+
+system.
+
+Examples:
+
+PLCI Modbus TCP 10.10.1.20
+3.Ai in hmi build time software 
+
+
+VFDI EtherNet/IP 10.10.130
+
+SCADA OPC UA Server
+
+=>Helps generate communication diagnostics and device health monitoring screens.
+
+2020 Schneider Doc
+
+Problem Statement
+
+The current engineering workflow relies heavily on manual screen development, expert-driven configuration, and complex tag integration activities. This creates a steep learning curve for new engineers, increases the likelihood of human errors, delays validation and commissioning, and ultimately impacts engineering productivity, project timelines, and
+
+consistency in delivering standardized, high-quality solutions. Use Cases and Benefits of solving this problem
+
+Al Navigation Builder
+
+Al-Assisted HMI Project Generation
+
+Al Script Generator
+
+Al Design Copilot
+
+Al Engineering Mentor
+
+Intelligent Project Validation & Quality Assurance
+
+Al Project Review Assistant
+
+Knowledge-Based Engineering Assistant
+
+Al Migration Assistant
+
+Al Screen Generator
+
+Al-Based HMI System Log Analyzer
+
+Im Log Analyzer
+
+Al Tag Mapping Assistant
+
+Minimize failure analysis time
+
+Al Alarm Configuration Generator
+
+Data Sources (References)
+
+Existing HMI project files
+
+Asset Library/Templates
+Ps 4 lightweight hmi runtimeProblem Statement
+
+Currently, HMI runsmes lace challenges such as limited memory capacity and the need to manage large volumes of data. As the amount of data grows, memory consumption Increases, leading to performance degradation, these memory and pertam constraints are particularly significant in lower spec bit hardware, resulting in reduced efficiency and higher overall costs.
+
+DE shoF
+
+The proposed HMI Runtime solution support Linux and Windows platforms. It must provide efficient graphics rendering capab capabilities on compact Linux hardware Potential graphics frameworks and rendering options include LVGL, OpenGL, HTML-Canvas, SVO and others with a strong preference for open-source solutions.Use Cases and Benefits of solving this problem
+
+Industrial machine visualization and control on low-cost HMI panels.
+
+Lower hardware requirements and improved scalability.
+
+Improved graphics rendering and performance of data communication. / dolo commun
+
+Low power devices through reduced CPU utilization.
+
+Low resource usage, high
+
+reliability.Data Sources (References)
+
+HMI Runtime Architecture.
+
+Embedded Systems Architecture.

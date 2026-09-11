@@ -1,0 +1,2199 @@
+============================================================
+CANON — COMPLETE LOCAL END-TO-END SYSTEM BUILD
+MASTER EXECUTION PROMPT
+VERSION 7.0
+============================================================
+
+ROLE
+
+You are the principal engineer responsible for integrating the
+entire CANON prototype into ONE WORKING END-TO-END PRODUCT.
+
+Do not merely explain what should be built.
+
+Inspect the existing repository, understand what already exists,
+reuse working components, repair broken components, implement
+missing pieces, connect everything, run tests, and leave the
+system runnable locally on macOS.
+
+The goal is a REAL WORKING DEMO, not a collection of disconnected
+scripts.
+
+============================================================
+1. CORE PRODUCT
+============================================================
+
+CANON
+
+Engineering Reality
+        ↓
+Engineering Context
+        ↓
+AI Understanding
+        ↓
+Automatic HMI Synthesis
+        ↓
+Deterministic Validation
+        ↓
+Engineer Review
+        ↓
+Machine / Simulator
+        ↓
+Runtime Feedback
+        ↓
+Context Update
+        ↓
+Change Impact
+        ↓
+HMI Regeneration
+
+The central thesis:
+
+"Give CANON the engineering reality.
+CANON understands the machine.
+CANON determines what the operator needs.
+CANON generates the HMI.
+The engineer can refine it naturally.
+Every binding is validated against canonical machine reality.
+Runtime feedback continuously updates the context."
+
+Natural-language prompting is OPTIONAL refinement.
+
+The initial HMI must be capable of being generated WITHOUT the
+engineer manually describing every screen.
+
+
+============================================================
+2. FIRST ACTION — INSPECT EVERYTHING
+============================================================
+
+Before writing substantial code:
+
+1. Inspect the complete repository.
+2. Inspect all existing CANON modules.
+3. Inspect CANON_ACQUISITION.
+4. Inspect CANON_RESEARCH.
+5. Inspect existing HMI frontend.
+6. Inspect backend.
+7. Inspect validator.
+8. Inspect simulator.
+9. Inspect canon_infer.py.
+10. Inspect train_qlora.py.
+11. Inspect export_gguf.py.
+12. Inspect eval.py.
+13. Inspect all schemas.
+14. Inspect all tests.
+15. Inspect requirements.
+16. Inspect Docker configuration.
+17. Inspect all existing datasets.
+18. Inspect existing generated outputs.
+
+Do NOT rebuild working components unnecessarily.
+
+Create:
+
+IMPLEMENTATION_STATUS.md
+
+with:
+
+WORKING
+PARTIAL
+BROKEN
+MISSING
+DUPLICATED
+UNUSED
+NEEDS_INTEGRATION
+
+Then proceed with implementation.
+
+
+============================================================
+3. MAC-FIRST DEPLOYMENT
+============================================================
+
+The final demo must run locally on my Mac.
+
+Assume:
+
+macOS
+Apple Silicon
+local CPU
+optional Apple GPU / Metal acceleration
+external Kioxia SSD
+
+The system must NOT require the DGX/A100 for runtime.
+
+The A100 is for:
+
+TRAINING
+OPTIONAL MODEL BENCHMARKING
+
+The Mac is for:
+
+RUNTIME
+DEMO
+HMI
+CANON API
+CANON CONTEXT
+LOCAL MODEL
+SIMULATOR
+DATABASE
+CORPUS
+VALIDATOR
+
+
+============================================================
+4. KIOXIA SSD — SINGLE DATA ROOT
+============================================================
+
+I have an external Kioxia SSD containing the datasets, models,
+research corpus and potentially large engineering files.
+
+DO NOT scatter large files across the Mac.
+
+Create configurable:
+
+CANON_DATA_ROOT
+
+Example:
+
+/Volumes/<KIOXIA_VOLUME>/CANON/
+
+Do NOT hard-code the volume name.
+
+Provide:
+
+.env.example
+
+with:
+
+CANON_DATA_ROOT=
+CANON_CORPUS_ROOT=
+CANON_MODEL_ROOT=
+CANON_CACHE_ROOT=
+CANON_OUTPUT_ROOT=
+
+The application must detect whether the configured SSD exists.
+
+If the SSD is unavailable:
+
+show a clear error:
+
+CANON DATA ROOT NOT AVAILABLE
+
+Do not silently create a fake empty corpus.
+
+Small application code may live in the repository.
+
+Large assets MUST be stored on the external SSD:
+
+- datasets
+- embeddings
+- model files
+- GGUF models
+- source documents
+- parsed corpora
+- generated indexes
+- PostgreSQL data if configured for it
+- large logs
+- artifacts
+
+
+============================================================
+5. TARGET DIRECTORY
+============================================================
+
+Create or normalize:
+
+CANON/
+│
+├── app/
+│   ├── backend/
+│   ├── frontend/
+│   ├── context/
+│   ├── brain/
+│   ├── validator/
+│   ├── hmi/
+│   ├── runtime/
+│   └── simulator/
+│
+├── data/
+│   ├── machine/
+│   ├── corpus/
+│   ├── sources/
+│   ├── parsed/
+│   ├── embeddings/
+│   ├── indexes/
+│   └── outputs/
+│
+├── models/
+│   ├── canon-brain/
+│   └── embeddings/
+│
+├── docker/
+├── scripts/
+├── tests/
+├── docs/
+└── .env
+
+
+IMPORTANT:
+
+If an existing repository already has a better structure,
+preserve it and adapt rather than blindly moving everything.
+
+
+============================================================
+6. ONE COMMAND EXPERIENCE
+============================================================
+
+The target developer experience should be:
+
+./canon start
+
+or:
+
+python3 canon.py start
+
+or an equivalent simple command.
+
+Support:
+
+./canon setup
+./canon start
+./canon stop
+./canon status
+./canon test
+./canon ingest
+./canon acquire
+./canon evaluate
+./canon rebuild-context
+./canon reset-demo
+
+Do not require the user to remember ten different commands
+for normal operation.
+
+
+============================================================
+7. ONE-COMMAND STARTUP
+============================================================
+
+When:
+
+./canon start
+
+is executed:
+
+1. Validate Python environment.
+2. Validate Node environment.
+3. Validate CANON_DATA_ROOT.
+4. Validate corpus.
+5. Validate model.
+6. Start PostgreSQL if needed.
+7. Start backend.
+8. Start simulator.
+9. Start OPC UA endpoint.
+10. Start Modbus endpoint.
+11. Start WebSocket runtime.
+12. Start frontend.
+13. Check health endpoints.
+14. Load TK-401 context.
+15. Load CANON Brain.
+16. Report all services.
+
+Example:
+
+CANON SYSTEM
+────────────────────────────
+✓ Data root
+✓ Corpus
+✓ PostgreSQL
+✓ CANON Context
+✓ CANON Brain
+✓ Validator
+✓ TK-401 simulator
+✓ OPC UA
+✓ Modbus
+✓ WebSocket
+✓ HMI frontend
+
+CANON READY
+
+http://localhost:5173
+
+
+============================================================
+8. CORE SERVICES
+============================================================
+
+Implement:
+
+SERVICE 1
+CANON API
+
+FastAPI
+
+SERVICE 2
+CANON CONTEXT ENGINE
+
+Loads canonical machine model.
+
+SERVICE 3
+CANON BRAIN
+
+OpenAI-compatible local inference endpoint.
+
+SERVICE 4
+VALIDATOR
+
+Deterministic.
+
+SERVICE 5
+SIMULATOR
+
+Deterministic TK-401 plant.
+
+SERVICE 6
+OPC UA
+
+Read-only runtime exposure.
+
+SERVICE 7
+MODBUS TCP
+
+Read-only runtime exposure unless an explicitly validated
+command adapter is used.
+
+SERVICE 8
+WEBSOCKET
+
+Live HMI updates.
+
+SERVICE 9
+HMI RENDERER
+
+React + TypeScript.
+
+SERVICE 10
+ACQUISITION / CORPUS ENGINE
+
+Processes engineering sources.
+
+SERVICE 11
+DATABASE
+
+PostgreSQL + pgvector where appropriate.
+
+
+============================================================
+9. CANON DATA FLOW
+============================================================
+
+Implement exactly:
+
+ENGINEERING INPUTS
+        ↓
+ACQUISITION
+        ↓
+NORMALIZATION
+        ↓
+ENTITY RESOLUTION
+        ↓
+RELATIONSHIPS
+        ↓
+EVIDENCE
+        ↓
+REVISION
+        ↓
+CONFLICT
+        ↓
+CANON MACHINE MODEL
+        ↓
+CONTEXT PACK
+        ↓
+CANON BRAIN
+        ↓
+HMI PLAN
+        ↓
+VALIDATOR
+        ↓
+HMI
+        ↓
+ENGINEER
+        ↓
+COMMAND
+        ↓
+VALIDATOR
+        ↓
+PLC / SIMULATOR
+        ↓
+RUNTIME
+        ↓
+CONTEXT UPDATE
+
+
+============================================================
+10. CANON CONTEXT MODEL
+============================================================
+
+The context model must contain:
+
+Machine
+Plant
+Area
+Cell
+Assets
+Equipment
+Controllers
+Modules
+I/O
+Signals
+Instrumentation
+Motors
+Drives
+Valves
+Commands
+Permissives
+Interlocks
+Alarms
+States
+Modes
+Sequences
+Process relationships
+HMI screens
+HMI components
+Protocols
+Products
+Standards
+Documents
+Facts
+Evidence
+Conflicts
+Unknowns
+Revisions
+Dependencies
+Change history
+
+
+============================================================
+11. CONTEXT PACK
+============================================================
+
+Never dump the entire corpus into the LLM.
+
+Create a structured:
+
+CANON_CONTEXT_PACK
+
+for each inference.
+
+Example:
+
+{
+  machine,
+  relevant_assets,
+  relevant_signals,
+  commands,
+  permissives,
+  interlocks,
+  alarms,
+  states,
+  process_relationships,
+  existing_hmi,
+  evidence,
+  conflicts,
+  unknowns,
+  revisions,
+  approved_components,
+  engineering_constraints
+}
+
+Context retrieval must be deterministic where possible.
+
+Semantic retrieval may supplement it.
+
+Canonical structured facts take precedence over vector search.
+
+
+============================================================
+12. CANON BRAIN
+============================================================
+
+Use the trained:
+
+canon-brain-3b
+
+when available.
+
+Support:
+
+GGUF / llama.cpp
+
+and optionally:
+
+Ollama
+
+The model must NOT directly access:
+
+PLC
+OPC UA writes
+Modbus writes
+database mutation
+filesystem mutation
+
+The model only produces structured proposals.
+
+AI OUTPUT:
+
+Intent
+HMI proposal
+Explanation
+Candidate bindings
+Change proposal
+Classification
+Review requirement
+
+
+============================================================
+13. MODEL LOCATION
+============================================================
+
+Search configured:
+
+CANON_MODEL_ROOT
+
+for:
+
+canon-brain-3b-Q4_K_M.gguf
+
+Do not duplicate a 2GB model unnecessarily.
+
+If unavailable:
+
+show:
+
+CANON BRAIN NOT INSTALLED
+
+and provide a clear setup message.
+
+Do NOT silently download a huge model.
+
+
+============================================================
+14. CANON BRAIN API
+============================================================
+
+Expose:
+
+POST /v1/infer
+
+Input:
+
+{
+  "request": "start pump P401",
+  "machine_id": "TK-401"
+}
+
+Output must be structured JSON.
+
+Example:
+
+{
+  "intent": "START",
+  "target": "P401",
+  "status": "PROPOSED",
+  "evidence": [...],
+  "command_contract": "...",
+  "requires_validation": true
+}
+
+
+============================================================
+15. ZERO-PROMPT HMI GENERATION
+============================================================
+
+Implement:
+
+POST /api/hmi/generate
+
+Input:
+
+machine_id
+
+No detailed HMI prompt required.
+
+CANON must inspect the machine context and generate:
+
+screen hierarchy
+overview screen
+asset screens
+faceplates
+alarms
+trends
+KPIs
+states
+commands
+navigation
+
+based on the canonical context.
+
+The model should NOT invent arbitrary widgets.
+
+Only approved HMI components may be emitted.
+
+
+============================================================
+16. HMI COMPONENT REGISTRY
+============================================================
+
+Create:
+
+component_registry.json
+
+Components:
+
+- NumericValue
+- Gauge
+- Tank
+- Pump
+- Valve
+- Motor
+- Drive
+- StatusIndicator
+- AlarmBanner
+- AlarmList
+- Trend
+- CommandButton
+- CommandGroup
+- StateIndicator
+- ModeSelector
+- KPI
+- EquipmentCard
+- Faceplate
+- Timeline
+- EventList
+- ProcessFlow
+- Topology
+
+Every component must define:
+
+component_id
+schema
+properties
+binding_schema
+supported_asset_types
+supported_signal_types
+supported_commands
+validation_rules
+
+
+============================================================
+17. HMI JSON
+============================================================
+
+Example:
+
+{
+  "screen_id": "TK401_OVERVIEW",
+  "title": "TK-401 Overview",
+  "components": [
+    {
+      "type": "Tank",
+      "entity": "TK-401",
+      "level_signal": "LT401"
+    },
+    {
+      "type": "NumericValue",
+      "entity": "PT401",
+      "signal": "PT401",
+      "unit": "bar"
+    },
+    {
+      "type": "Pump",
+      "entity": "P401"
+    },
+    {
+      "type": "Valve",
+      "entity": "XV401"
+    }
+  ]
+}
+
+This JSON is validated before rendering.
+
+
+============================================================
+18. DETERMINISTIC VALIDATOR
+============================================================
+
+Every AI proposal passes through:
+
+VALIDATOR
+
+Check:
+
+TAG_MISSING
+TYPE_MISMATCH
+RANGE_MISMATCH
+UNIT_MISMATCH
+COMMAND_MISSING
+PERMISSIVE_MISSING
+INTERLOCK_MISSING
+BINDING_INVALID
+COMPONENT_UNKNOWN
+PLC_CONTRACT_INVALID
+REVISION_STALE
+TRUTH_STATUS_BLOCK
+
+No exceptions for the AI.
+
+
+============================================================
+19. UNKNOWN HANDLING
+============================================================
+
+If model says:
+
+FT999
+
+but FT999 doesn't exist:
+
+DO NOT CREATE IT.
+
+Return:
+
+{
+  "status": "REVIEW_REQUIRED",
+  "entity": "FT999",
+  "reason": "ENTITY_NOT_FOUND"
+}
+
+The HMI must visibly show:
+
+UNKNOWN / REVIEW REQUIRED
+
+
+============================================================
+20. NATURAL LANGUAGE COMMAND FLOW
+============================================================
+
+Implement:
+
+ENGINEER INPUT
+        ↓
+CANON BRAIN
+        ↓
+INTENT JSON
+        ↓
+CANON ENTITY RESOLUTION
+        ↓
+COMMAND CONTRACT
+        ↓
+PERMISSIVE CHECK
+        ↓
+VALIDATOR
+        ↓
+ENGINEER APPROVAL
+        ↓
+PLC/SIMULATOR
+
+
+============================================================
+21. COMMAND EXAMPLES
+============================================================
+
+Support:
+
+"start pump P401"
+
+"stop pump P401"
+
+"open XV401"
+
+"close XV401"
+
+"reset P401"
+
+"show tank level"
+
+"show pressure trend"
+
+"make level the primary KPI"
+
+"add a 30 minute pressure trend"
+
+"show why P401 cannot start"
+
+"make the pump controls more compact"
+
+"show active alarms for TK-401"
+
+
+============================================================
+22. COMMAND SAFETY
+============================================================
+
+CRITICAL:
+
+Natural language must NEVER become a raw PLC command.
+
+For:
+
+"start P401"
+
+produce:
+
+PROPOSED COMMAND
+
+not:
+
+DIRECT PLC WRITE
+
+
+Engineer approval is required before an actual machine-changing
+command.
+
+Use only:
+
+*_REQ
+
+signals through an explicit command adapter.
+
+The PLC/simulator remains authoritative.
+
+
+============================================================
+23. TK-401 SIMULATOR
+============================================================
+
+The demo machine is:
+
+TK-401
+
+Assets:
+
+TK-401
+LT401
+PT401
+P401
+XV401
+
+Implement deterministic behavior.
+
+Example:
+
+P401 RUNNING
+AND
+XV401 OPEN
+
+→ tank level / pressure changes according to the deterministic
+plant model.
+
+START requires:
+
+XV401_OPEN
+LT401 < HH
+P401_FAULT = FALSE
+
+START timeout:
+
+5 seconds
+
+Expose the same machine state through:
+
+OPC UA
+Modbus TCP
+CANON runtime API
+
+
+============================================================
+24. LIVE RUNTIME
+============================================================
+
+HMI must show live:
+
+level
+pressure
+pump state
+valve state
+fault
+alarms
+machine mode
+sequence state
+
+Use WebSocket.
+
+Do not fake live values in the UI.
+
+Simulator is the runtime source for the demo.
+
+
+============================================================
+25. OPC UA
+============================================================
+
+Implement read-only OPC UA discovery/runtime.
+
+Expose:
+
+TK401
+LT401
+PT401
+P401
+XV401
+
+with:
+
+values
+types
+engineering units
+status
+relationships where appropriate
+
+CANON should be able to compare:
+
+DOCUMENTATION
+PLC MODEL
+CANON MODEL
+OPC UA RUNTIME
+
+
+============================================================
+26. MODBUS
+============================================================
+
+Implement a deterministic Modbus TCP map for TK-401.
+
+Document the map.
+
+CANON can read:
+
+level
+pressure
+pump state
+valve state
+fault
+
+No uncontrolled writes.
+
+
+============================================================
+27. CONTEXT ↔ RUNTIME RECONCILIATION
+============================================================
+
+Implement:
+
+EXPECTED
+vs
+OBSERVED
+
+Example:
+
+CANON:
+
+PT401 range = 0–16 bar
+
+Runtime:
+
+PT401 = 4.8 bar
+
+Result:
+
+✓ CONSISTENT
+
+
+If runtime reports an unexpected signal:
+
+UNKNOWN_RUNTIME_SIGNAL
+
+
+If documented signal disappears:
+
+MISSING_RUNTIME_SIGNAL
+
+
+============================================================
+28. ENGINEER PROMPT REFINEMENT
+============================================================
+
+The system must support:
+
+CURRENT HMI
++
+ENGINEER PROMPT
++
+CANON CONTEXT
+=
+REFINED HMI
+
+Examples:
+
+"make level bigger"
+
+"move alarms to the right"
+
+"add a trend"
+
+"show pump permissives"
+
+"hide the detailed diagnostics"
+
+"make the overview more compact"
+
+Do NOT regenerate unrelated parts unnecessarily.
+
+Use patch-style HMI changes where possible.
+
+
+============================================================
+29. CHANGE IMPACT ENGINE
+============================================================
+
+Implement:
+
+CHANGE
+↓
+AFFECTED ENTITY
+↓
+DEPENDENCIES
+↓
+AFFECTED SIGNALS
+↓
+AFFECTED COMMANDS
+↓
+AFFECTED ALARMS
+↓
+AFFECTED HMI
+↓
+AFFECTED VALIDATION
+↓
+REVIEW
+
+
+============================================================
+30. PT401 HERO CHANGE
+============================================================
+
+Support:
+
+PT401:
+
+old:
+0–10 bar
+
+new:
+0–16 bar
+
+
+Show:
+
+ENGINEERING CHANGE DETECTED
+
+PT401
+0–10 bar → 0–16 bar
+
+AFFECTED:
+
+✓ Gauge
+✓ Numeric range
+✓ Trend
+✓ Engineering model
+✓ Validation
+
+REVIEW:
+
+⚠ Alarm configuration
+
+
+============================================================
+31. EVIDENCE UI
+============================================================
+
+Every important entity/fact must show:
+
+SOURCE
+FACT
+EVIDENCE
+REVISION
+TRUST
+STATUS
+
+Example:
+
+PT401
+
+Engineering range
+0–16 bar
+
+Source:
+PLC project revision 17
+
+Evidence:
+scaling configuration
+
+Authority:
+MACHINE
+
+Status:
+VERIFIED
+
+
+============================================================
+32. CONTEXT UI
+============================================================
+
+Build the previously designed Context interface.
+
+Main view:
+
+Assets
+Signals
+I/O Groups
+Alarms
+Connected status
+Synced status
+Topology
+Engineering Sources
+Coverage
+Unknowns
+Conflicts
+
+Do NOT make this look like a generic SaaS dashboard.
+
+It should feel like:
+
+industrial engineering software
++
+AI intelligence layer
+
+
+============================================================
+33. CONTEXT TOPOLOGY
+============================================================
+
+Show:
+
+TK-401
+│
+├── LT401
+├── PT401
+├── P401
+└── XV401
+
+Show only canonical relationships.
+
+Examples:
+
+PT401
+MEASURES
+TK-401
+
+P401
+CONTROLS
+PROCESS
+
+P401 START
+REQUIRES
+XV401 OPEN
+
+
+============================================================
+34. MAIN PRODUCT NAVIGATION
+============================================================
+
+Create:
+
+CONTEXT
+MODEL
+HMI
+INTENT
+VALIDATION
+RUNTIME
+CHANGES
+EVIDENCE
+
+Recommended flow:
+
+CONTEXT
+→ MODEL
+→ HMI
+→ INTENT
+→ VALIDATE
+→ RUNTIME
+→ CHANGES
+
+
+============================================================
+35. HMI SCREEN EXPERIENCE
+============================================================
+
+The first generated screen must feel finished.
+
+Include:
+
+machine title
+machine state
+major KPIs
+primary process visualization
+asset status
+commands
+alarms
+trend
+navigation
+
+Avoid:
+
+generic dashboard cards
+excessive gradients
+consumer SaaS aesthetics
+random AI decoration
+fake confidence scores
+
+
+============================================================
+36. HMI GENERATION TRACEABILITY
+============================================================
+
+For every generated HMI element store:
+
+component
+semantic requirement
+entity
+signal
+command
+source
+evidence
+revision
+validator result
+
+
+Example:
+
+Pump START button
+
+↓
+Semantic requirement:
+operator_start_control
+
+↓
+Entity:
+P401
+
+↓
+Command:
+P401_START
+
+↓
+Request signal:
+P401_START_REQ
+
+↓
+Evidence:
+PLC project revision 17
+
+↓
+Validator:
+PASS
+
+
+============================================================
+37. CORPUS INTEGRATION
+============================================================
+
+Use existing:
+
+CANON_ACQUISITION/out
+
+and:
+
+CANON_RESEARCH/synthetic
+
+Do not copy the entire dataset unnecessarily.
+
+Read from:
+
+CANON_DATA_ROOT
+
+Make the corpus discoverable through the UI.
+
+Show:
+
+sources
+documents
+facts
+entities
+relationships
+evidence
+conflicts
+unknowns
+coverage
+
+
+============================================================
+38. 37 DATASETS
+============================================================
+
+Preserve all 37 datasets from the acquisition specification.
+
+They must remain compatible with:
+
+db/schema.sql
+models.py
+context engine
+validator
+HMI generator
+
+
+============================================================
+39. REAL WEB SOURCES
+============================================================
+
+Preserve:
+
+70 verified public sources
++
+7 machine sources
+
+Do not fabricate additional sources.
+
+Schneider source metadata remains evidence.
+
+Do not redistribute copyrighted Schneider documents.
+
+Where document bodies are unavailable:
+
+status =
+METADATA_ONLY
+
+
+============================================================
+40. SYNTHETIC TRAINING DATA
+============================================================
+
+Preserve:
+
+~25,698 research rows
+
+and:
+
+~48,222 training examples
+
+But do not confuse:
+
+TRAINING DATA
+with
+AUTHORITATIVE MACHINE CONTEXT.
+
+
+============================================================
+41. MODEL EVALUATION
+============================================================
+
+Integrate:
+
+eval.py
+
+Expose:
+
+JSON validity
+invented-tag rate
+refusal recall
+classification accuracy
+
+Also add HMI-specific evaluation:
+
+HMI schema validity
+binding validity
+component registry compliance
+unknown handling
+command-contract compliance
+evidence coverage
+
+
+============================================================
+42. GOLDEN EVALUATION CASES
+============================================================
+
+Must pass:
+
+CASE 1
+
+"show tank level"
+
+→ LT401
+
+
+CASE 2
+
+"start P401"
+
+→ P401_START
+
+
+CASE 3
+
+"open XV401"
+
+→ XV401_OPEN
+
+
+CASE 4
+
+"open FT999"
+
+→ REVIEW_REQUIRED
+
+
+CASE 5
+
+"show pressure"
+
+→ PT401
+
+
+CASE 6
+
+"make level the primary KPI"
+
+→ HMI refinement
+
+
+CASE 7
+
+"add a 30 minute pressure trend"
+
+→ HMI refinement
+
+
+CASE 8
+
+"show why P401 cannot start"
+
+→ explain actual permissive state
+
+
+CASE 9
+
+PT401 0–10 → 0–16
+
+→ change impact
+
+
+CASE 10
+
+unknown command
+
+→ no invented command
+
+
+============================================================
+43. HMI SAFETY
+============================================================
+
+No AI-generated component may:
+
+- invent tags
+- invent commands
+- invent PLC addresses
+- invent permissives
+- bypass validator
+- directly access PLC
+- execute arbitrary JavaScript
+- execute arbitrary code
+- create arbitrary network requests
+
+
+============================================================
+44. API SECURITY
+============================================================
+
+Architecture:
+
+Browser
+  ↓
+CANON API
+  ↓
+RBAC
+  ↓
+Schema validation
+  ↓
+CANON model
+  ↓
+Validator
+  ↓
+Adapter
+  ↓
+PLC/simulator
+
+
+NEVER:
+
+Browser → PLC
+
+NEVER:
+
+LLM → PLC
+
+
+============================================================
+45. DATABASE
+============================================================
+
+Use PostgreSQL.
+
+Use pgvector for semantic retrieval where useful.
+
+Store:
+
+entities
+facts
+relationships
+sources
+evidence
+revisions
+conflicts
+commands
+signals
+alarms
+HMI
+change impact
+
+
+============================================================
+46. LOCAL DEVELOPMENT
+============================================================
+
+Provide:
+
+requirements.txt
+pyproject.toml where useful
+package.json
+.env.example
+docker-compose.yml
+Makefile or canon CLI
+
+Provide:
+
+./canon setup
+
+./canon start
+
+./canon test
+
+./canon reset-demo
+
+
+============================================================
+47. HEALTH CHECKS
+============================================================
+
+Implement:
+
+GET /health
+GET /health/context
+GET /health/brain
+GET /health/validator
+GET /health/runtime
+
+
+============================================================
+48. OBSERVABILITY
+============================================================
+
+Every inference should have:
+
+request_id
+timestamp
+machine_id
+model
+context_revision
+prompt
+structured_intent
+validation_result
+evidence
+latency
+
+Do not log secrets.
+
+
+============================================================
+49. DEMO MODE
+============================================================
+
+Create:
+
+DEMO MODE
+
+with:
+
+TK-401 loaded automatically.
+
+The judge should be able to launch CANON and immediately see
+the machine.
+
+No setup wizard should be necessary after initial installation.
+
+
+============================================================
+50. COMPLETE DEMO SCRIPT
+============================================================
+
+The final demo must support this sequence:
+
+1.
+Open CANON.
+
+2.
+Context automatically shows TK-401.
+
+3.
+Show:
+
+24 Assets
+signals
+I/O
+alarms
+sources
+evidence
+
+using REAL loaded data.
+
+4.
+Open TK-401.
+
+5.
+Show semantic topology.
+
+6.
+Click HMI.
+
+7.
+CANON automatically generates/displays the operator HMI.
+
+8.
+Show:
+
+level
+pressure
+pump
+valve
+alarms
+trend
+machine state
+
+
+9.
+Engineer enters:
+
+"Make tank level the primary visual and add a 30-minute
+pressure trend."
+
+10.
+CANON interprets the request.
+
+11.
+HMI updates.
+
+12.
+Engineer enters:
+
+"Add a start button for P401."
+
+13.
+CANON finds the command contract.
+
+14.
+Validator validates it.
+
+15.
+HMI adds the command.
+
+16.
+Engineer enters:
+
+"Add a button to open FT999."
+
+17.
+CANON cannot resolve FT999.
+
+18.
+Validator blocks it.
+
+19.
+UI shows:
+
+REVIEW REQUIRED
+
+
+20.
+Engineer asks:
+
+"Why can't P401 start?"
+
+21.
+CANON reads current runtime permissives.
+
+22.
+Show exact reason.
+
+23.
+Engineer approves START.
+
+24.
+Command goes:
+
+HMI
+→ API
+→ validator
+→ command adapter
+→ simulator/PLC
+
+
+25.
+Simulator changes state.
+
+26.
+OPC UA / Modbus updates.
+
+27.
+WebSocket updates HMI.
+
+28.
+HMI reflects:
+
+P401 RUNNING.
+
+
+============================================================
+51. SECOND DEMO — ENGINEERING CHANGE
+============================================================
+
+Change PT401:
+
+0–10 bar
+→
+0–16 bar
+
+CANON detects revision.
+
+Show:
+
+CHANGE IMPACT
+
+Affected:
+
+Gauge
+Trend
+Scaling
+Alarm configuration
+Validation
+
+Regenerate only affected HMI components.
+
+Keep unrelated HMI unchanged.
+
+
+============================================================
+52. SOURCE ACQUISITION
+============================================================
+
+Preserve the existing:
+
+DISCOVER
+CLASSIFY
+ACQUIRE
+PARSE
+EXTRACT
+LINK
+VERIFY
+DEDUPE
+INDEX
+UPDATE CANON
+
+pipeline.
+
+Do not break:
+
+run_all.py
+
+
+============================================================
+53. FUTURE LIVE ACQUISITION
+============================================================
+
+Design connectors so P1 can add:
+
+Schneider documentation
+OPC UA
+Modbus
+Machine Expert
+Control Expert
+HMI project
+P&ID
+electrical drawings
+
+without redesigning the entire application.
+
+
+============================================================
+54. TESTING
+============================================================
+
+Implement:
+
+UNIT TESTS
+
+context
+entity resolution
+facts
+evidence
+validator
+commands
+HMI schemas
+change impact
+
+INTEGRATION TESTS
+
+context → brain
+brain → validator
+validator → HMI
+simulator → OPC UA
+simulator → Modbus
+runtime → WebSocket
+
+E2E PLAYWRIGHT
+
+launch
+context
+HMI generation
+prompt refinement
+invalid tag
+command validation
+runtime update
+change impact
+
+
+============================================================
+55. NO FAKE DATA
+============================================================
+
+Do not add fake:
+
+tags
+signals
+sources
+Schneider capabilities
+commands
+alarms
+PLC addresses
+runtime values
+
+Synthetic TK-401 runtime data is allowed ONLY inside the
+deterministic simulator and must be clearly labeled SIMULATED.
+
+
+============================================================
+56. NO-HALLUCINATION AUDIT
+============================================================
+
+Run the existing audit.
+
+It must remain:
+
+PASS
+
+The final system must be able to demonstrate:
+
+0 invented authoritative machine tags.
+
+If AI proposes something invalid:
+
+validator catches it.
+
+
+============================================================
+57. PERFORMANCE
+============================================================
+
+The Mac runtime should remain usable.
+
+Do not send the entire corpus to the model.
+
+Use:
+
+structured context
+retrieval
+small context windows
+cached canonical model
+cached embeddings
+incremental HMI updates
+
+The local 3B model may be slow.
+
+Prioritize correctness over token throughput.
+
+
+============================================================
+58. OFFLINE-FIRST
+============================================================
+
+After the corpus and model are installed, the core demo should
+work without internet.
+
+Required offline:
+
+CANON Context
+CANON Brain
+Validator
+HMI
+Simulator
+OPC UA
+Modbus
+Database
+
+Internet is only required for:
+
+new source acquisition
+optional updates
+
+
+============================================================
+59. FAILURE STATES
+============================================================
+
+If brain unavailable:
+
+show:
+
+BRAIN OFFLINE
+
+but Context/HMI from deterministic model should still work where
+possible.
+
+If validator unavailable:
+
+BLOCK commands.
+
+If simulator unavailable:
+
+show:
+
+RUNTIME OFFLINE
+
+Do not fake connected status.
+
+If corpus unavailable:
+
+show:
+
+CONTEXT UNAVAILABLE
+
+
+============================================================
+60. ENGINEER TRUST UI
+============================================================
+
+Every AI-generated change should have:
+
+PROPOSED
+VALIDATING
+VALID
+BLOCKED
+REVIEW REQUIRED
+APPROVED
+APPLIED
+
+Never make AI output appear automatically authoritative.
+
+
+============================================================
+61. FINAL ARCHITECTURE
+============================================================
+
+Final system:
+
+                    ENGINEERING SOURCES
+                           │
+                           ▼
+                    CANON ACQUISITION
+                           │
+                           ▼
+                    CANON CONTEXT
+                           │
+             ┌─────────────┼──────────────┐
+             ▼             ▼              ▼
+          EVIDENCE      MODEL          RUNTIME
+             │             │              │
+             └─────────────┼──────────────┘
+                           ▼
+                     CANON BRAIN
+                           │
+                           ▼
+                     HMI PROPOSAL
+                           │
+                           ▼
+                     VALIDATOR
+                           │
+                  ┌────────┴────────┐
+                  ▼                 ▼
+               BLOCKED            VALID
+                  │                 │
+                  ▼                 ▼
+              REVIEW           ENGINEER
+                                    │
+                                    ▼
+                              PLC / SIM
+                                    │
+                                    ▼
+                              OPC UA /
+                              MODBUS
+                                    │
+                                    ▼
+                               WEBSOCKET
+                                    │
+                                    ▼
+                                  HMI
+                                    │
+                                    ▼
+                              CONTEXT UPDATE
+
+
+============================================================
+62. FINAL ACCEPTANCE CRITERIA
+============================================================
+
+Do not declare complete until ALL are true:
+
+[ ] Mac startup works.
+[ ] Kioxia SSD data root works.
+[ ] Corpus loads.
+[ ] 37 datasets remain available.
+[ ] TK-401 loads automatically.
+[ ] Context screen works.
+[ ] Evidence works.
+[ ] Semantic topology works.
+[ ] CANON Brain loads.
+[ ] HMI auto-generation works.
+[ ] HMI renders.
+[ ] Natural-language refinement works.
+[ ] Unknown entities are blocked.
+[ ] Validator works.
+[ ] Command contracts work.
+[ ] Engineer approval works.
+[ ] Simulator works.
+[ ] OPC UA works.
+[ ] Modbus works.
+[ ] WebSocket runtime works.
+[ ] HMI updates live.
+[ ] Change impact works.
+[ ] PT401 range change works.
+[ ] Evaluation works.
+[ ] No-hallucination audit passes.
+[ ] E2E tests pass.
+[ ] No direct AI→PLC path exists.
+[ ] No Browser→PLC path exists.
+[ ] No fake authoritative data exists.
+
+
+============================================================
+63. IMPORTANT EXECUTION RULE
+============================================================
+
+DO NOT STOP AT CODE GENERATION.
+
+Actually:
+
+INSPECT
+IMPLEMENT
+WIRE
+RUN
+TEST
+DEBUG
+RE-RUN
+VERIFY
+
+If something is broken, fix it.
+
+If a dependency is missing, install/configure it where
+appropriate.
+
+If an existing implementation conflicts with this architecture,
+prefer the architecture above while preserving working code.
+
+Do not create duplicate implementations.
+
+Do not ask me to manually connect obvious pieces.
+
+Do the integration yourself.
+
+
+============================================================
+64. FINAL DELIVERABLE
+============================================================
+
+At completion provide:
+
+1. Working local CANON application.
+2. One-command startup.
+3. Kioxia SSD data-root configuration.
+4. Working Context UI.
+5. Working HMI generation.
+6. Working CANON Brain integration.
+7. Working validator.
+8. Working natural-language refinement.
+9. Working command flow.
+10. Working TK-401 simulator.
+11. Working OPC UA.
+12. Working Modbus.
+13. Working WebSocket runtime.
+14. Working change-impact flow.
+15. Working evidence/provenance.
+16. Working evaluation.
+17. Working E2E tests.
+18. FINAL_DEMO.md.
+19. ARCHITECTURE.md.
+20. IMPLEMENTATION_STATUS.md.
+
+FINAL OUTPUT MUST INCLUDE:
+
+Startup command
+Local URLs
+Data-root path configuration
+Model path
+Service status
+Test results
+Evaluation results
+Known limitations
+Exact remaining P1/P2 items
+
+============================================================
+65. THE PRODUCT TEST
+============================================================
+
+The final system must make this sentence demonstrably true:
+
+"I gave CANON the engineering reality of the machine.
+
+CANON understood the machine.
+
+CANON automatically created an operator experience.
+
+I refined that experience naturally.
+
+CANON validated every requested change against machine reality.
+
+When I asked for something that did not exist, CANON did not
+invent it.
+
+When I commanded the machine, the request passed through
+deterministic engineering validation.
+
+The machine responded.
+
+The HMI updated from runtime reality.
+
+When engineering reality changed, CANON identified the impact
+and regenerated what needed to change."
+
+BUILD THIS NOW.
+============================================================

@@ -1,0 +1,963 @@
+You are an elite industrial product designer, UX/UI designer, technical communication expert, HMI engineer, AI/automation architect, and hackathon presentation strategist.
+
+I am submitting an innovation idea for the Schneider Electric HMI Hackathon 2026.
+
+I have provided the official SRM Ideation Card template. YOU MUST DESIGN THE FINAL IDEA CARD DIRECTLY FOR THIS TEMPLATE.
+
+DO NOT redesign the overall template.
+DO NOT change the section structure.
+DO NOT remove or rename the required sections.
+DO NOT turn it into a generic startup poster.
+DO NOT overcrowd the card.
+DO NOT use childish AI graphics.
+DO NOT make it look like a SaaS dashboard.
+DO NOT create a flashy marketing poster.
+
+The final result must look like a serious, premium, industrial-engineering innovation proposal that could plausibly be presented to Schneider Electric engineers, HMI experts, automation architects, and senior judges.
+
+============================================================
+1. COMPETITION PROBLEM
+============================================================
+
+PRIMARY PROBLEM STATEMENT:
+
+PS2 — Dynamic screen at runtime and control of machines via HMI.
+
+Interpret PS2 correctly.
+
+The challenge is about reducing the dependency on manually created and maintained HMI screens as machines evolve, while enabling dynamic, machine-specific HMI experiences and machine control through the HMI.
+
+The solution must address:
+
+• PLC/controller tags
+• I/O configuration
+• asset hierarchy
+• alarms
+• communication configuration
+• machine documentation
+• dynamic HMI generation
+• runtime adaptation
+• operator interaction
+• machine control
+
+Do NOT turn the problem statement into a generic “AI is changing industry” statement.
+
+Make the problem specific to industrial HMI engineering.
+
+============================================================
+2. PRODUCT
+============================================================
+
+PRODUCT NAME:
+
+CANON
+
+FULL TITLE:
+
+CANON — Machine Context → Dynamic HMI → Verified Control
+
+OPTIONAL SUBTITLE:
+
+Engineering Context → Dynamic HMI → Verified Machine Interaction
+
+CORE PRODUCT IDEA:
+
+CANON creates a unified machine context from engineering information such as PLC/controller tags, I/O, asset hierarchy, alarms, communication configuration and machine documentation.
+
+It converts that context into a canonical machine model.
+
+Natural-language intent is interpreted against that actual machine context.
+
+CANON then dynamically composes a machine-specific HMI using validated signals, commands and reusable industrial UI primitives.
+
+The operator can visualize the machine and interact with defined controls through a PLC-authoritative command path.
+
+When the engineering context changes, CANON identifies affected HMI dependencies and can regenerate/revalidate the affected interface.
+
+THE CENTRAL MESSAGE:
+
+“We don't generate a screen from a prompt. We generate a validated interface from the machine — and keep it in sync as the machine changes.”
+
+============================================================
+3. CRITICAL POSITIONING
+============================================================
+
+DO NOT claim:
+
+• “World's first AI-generated HMI”
+• “Nobody else generates HMI with AI”
+• “No existing product can do this”
+• “AI directly controls the PLC”
+• “AI replaces the PLC”
+• “100% autonomous engineering”
+• “Safety certified AI”
+• “ISA-101 certified”
+• “Full EOTE integration” unless explicitly implemented
+• “Zero engineering”
+• Any unsupported percentage or ROI figure
+• Any unsupported patent/novelty claim
+
+The research indicates that AI-assisted and model-driven HMI generation already have significant prior art.
+
+Therefore CANON MUST NOT position itself merely as:
+
+“AI generates HMI.”
+
+Instead position the differentiation as:
+
+MACHINE CONTEXT
++
+CANONICAL ENGINEERING MODEL
++
+VALIDATED / TYPED BINDINGS
++
+PLC-AUTHORITATIVE CONTROL
++
+CHANGE-AWARE REGENERATION
++
+ENGINEERING CONTINUITY
+
+This is a GENERATION + GUARANTEE concept.
+
+Use language such as:
+
+“machine-context-driven”
+“validated”
+“PLC-authoritative”
+“change-aware”
+“engineering continuity”
+“model-driven”
+“machine-specific”
+
+Avoid unsupported legal claims about novelty.
+
+============================================================
+4. THE IDEA CARD MUST COMMUNICATE THIS IN 5–10 SECONDS
+============================================================
+
+A judge should immediately understand:
+
+INPUT:
+Machine engineering context
+
+↓
+
+UNDERSTAND:
+CANONICAL MACHINE MODEL
+
+↓
+
+GENERATE:
+DYNAMIC MACHINE-SPECIFIC HMI
+
+↓
+
+VERIFY:
+VALIDATED SIGNAL + COMMAND BINDINGS
+
+↓
+
+CONTROL:
+PLC-AUTHORITATIVE MACHINE INTERACTION
+
+↓
+
+ADAPT:
+CHANGE IMPACT → REGENERATION → VALIDATION
+
+The card must make this flow visually obvious.
+
+============================================================
+5. OFFICIAL CARD STRUCTURE
+============================================================
+
+Respect the provided template exactly.
+
+The card contains:
+
+TOP LEFT:
+PROBLEM STATEMENT
+
+TOP CENTER:
+TITLE
+
+TOP RIGHT:
+TEAM NAME & MEMBERS
+
+LARGE CENTER:
+PROPOSED SOLUTION
+
+BOTTOM LEFT:
+WHY THIS SOLUTION
+
+BOTTOM RIGHT:
+TECHNOLOGY & TOOLS
+
+The LARGE CENTER PROPOSED SOLUTION section is the HERO section.
+
+Use the largest visual storytelling effort there.
+
+The official example specifically allows diagrams and pictures in the Proposed Solution area, so use a clean architecture diagram there rather than filling the area with paragraphs.
+
+============================================================
+6. PROBLEM STATEMENT — WRITE THIS
+============================================================
+
+Create a concise, high-impact version that fits comfortably inside the small Problem Statement box.
+
+Recommended wording:
+
+“HMI engineering is heavily dependent on manually creating, binding and maintaining screens as machine configurations, PLC tags, I/O, alarms and process requirements evolve. This increases engineering effort, commissioning time and lifecycle maintenance. PS2 challenges us to dynamically generate machine-specific HMI screens at runtime while enabling machine control through the HMI.”
+
+Make it shorter if necessary to fit the physical card.
+
+Do NOT use tiny text.
+
+============================================================
+7. TITLE SECTION
+============================================================
+
+Use:
+
+CANON
+
+Machine Context → Dynamic HMI → Verified Control
+
+Make CANON visually dominant.
+
+The title must be immediately readable from a distance.
+
+Do not use a long paragraph in the title box.
+
+============================================================
+8. TEAM SECTION
+============================================================
+
+Team Name:
+
+DigiSeva
+
+Team Members:
+
+[INSERT THE ACTUAL TEAM MEMBER NAMES PROVIDED BY ME]
+
+Do not invent names.
+
+If names are unavailable, leave a clearly editable placeholder rather than fabricating them.
+
+============================================================
+9. PROPOSED SOLUTION — HERO VISUAL
+============================================================
+
+This is the MOST IMPORTANT section of the entire card.
+
+Do NOT make it a wall of text.
+
+Create a sophisticated industrial architecture / workflow diagram.
+
+Use this exact conceptual flow:
+
+┌─────────────────────────────────────┐
+│       MACHINE ENGINEERING CONTEXT   │
+│ PLC TAGS • I/O • ASSETS • ALARMS    │
+│ COMMUNICATION • DOCUMENTATION       │
+└──────────────────┬──────────────────┘
+                   ↓
+        ┌─────────────────────┐
+        │ CANONICAL MACHINE   │
+        │ MODEL               │
+        └──────────┬──────────┘
+                   ↓
+        ┌─────────────────────┐
+        │ AI INTENT           │
+        │ INTERPRETATION      │
+        └──────────┬──────────┘
+                   ↓
+        ┌─────────────────────┐
+        │ DETERMINISTIC       │
+        │ VALIDATION           │
+        └──────────┬──────────┘
+                   ↓
+      ┌───────────────────────────┐
+      │ DYNAMIC MACHINE-SPECIFIC  │
+      │ HMI                       │
+      └────────────┬──────────────┘
+                   ↓
+          ┌────────┴────────┐
+          ↓                 ↓
+    VISUALIZATION        CONTROL
+          ↓                 ↓
+     LIVE MACHINE       COMMAND CONTRACT
+                            ↓
+                       PERMISSIVE CHECK
+                            ↓
+                           PLC
+                            ↓
+                         MACHINE
+                            ↓
+                        FEEDBACK
+                            ↓
+                           HMI
+
+Then show a secondary loop:
+
+ENGINEERING CHANGE
+        ↓
+IMPACT ANALYSIS
+        ↓
+REGENERATE AFFECTED HMI
+        ↓
+VALIDATE + REGRESSION
+        ↓
+NEW APPROVED BASELINE
+
+The diagram should visually communicate:
+
+“THE MACHINE MODEL IS THE SOURCE OF TRUTH.”
+
+============================================================
+10. HERO VISUAL / HMI MOCKUP
+============================================================
+
+Inside the Proposed Solution section, include a polished miniature industrial HMI example.
+
+Show a realistic machine such as:
+
+TK-401 — PROCESS TANK
+
+Example:
+
+LEVEL
+72 %
+
+PRESSURE
+6.8 bar
+
+PUMP
+RUNNING
+
+INLET VALVE
+OPEN
+
+ALARMS
+0 ACTIVE
+
+[ START ]    [ STOP ]
+
+Use realistic industrial HMI styling.
+
+The HMI mockup must look like an industrial control interface, NOT a consumer mobile app.
+
+Use restrained colors.
+
+Normal state should primarily be neutral/gray.
+
+Use color only to communicate state, alarms or abnormal conditions.
+
+Include small visual indicators such as:
+
+LIVE
+VERIFIED
+PLC
+
+Do not make the interface overly colorful.
+
+============================================================
+11. SHOW THE MACHINE BINDING CONCEPT
+============================================================
+
+The Proposed Solution visual should subtly show that widgets are actually connected to engineering signals.
+
+For example:
+
+Pressure Gauge
+↓
+PT401
+↓
+PLC.PT401.DischargePressure
+↓
+6.8 bar
+↓
+LIVE / VERIFIED
+
+And:
+
+START
+↓
+Command Contract
+↓
+Permissive
+↓
+PLC
+↓
+Pump Feedback
+↓
+RUNNING
+
+This demonstrates that CANON is not simply creating decorative screens.
+
+============================================================
+12. SHOW THE “WOW” MOMENT
+============================================================
+
+Include a small visual sequence:
+
+ENGINEER:
+
+“Create HMI for TK-401 with level, pressure, pump, valve and alarms.”
+
+↓
+
+CANON
+
+UNDERSTAND MACHINE
+
+↓
+
+HMI APPEARS
+
+↓
+
+OPERATOR
+
+CONTROLS MACHINE
+
+This should be visually represented as:
+
+PROMPT → MACHINE MODEL → HMI
+
+Do not make the AI chatbot the center of the design.
+
+The MACHINE should be the center.
+
+============================================================
+13. CHANGE-CONTINUITY VISUAL
+============================================================
+
+Include a compact engineering-change example.
+
+Show:
+
+PT101
+0–10 bar
+↓
+0–16 bar
+
+Then:
+
+IMPACT FOUND
+
+✓ PLC SCALING
+✓ HMI RANGE
+✓ HIGH-PRESSURE ALARM
+✓ TREND
+✓ TEST
+
+↓
+
+REGENERATE
+
+↓
+
+VALIDATE
+
+This is one of CANON's strongest engineering differentiators.
+
+Do not make this dominate the card.
+
+It should support the PS2 story.
+
+============================================================
+14. IMPORTANT WORDING ABOUT SCREENS
+============================================================
+
+DO NOT write:
+
+“NO PRE-DESIGNED SCREENS”
+
+as an absolute claim.
+
+Instead use:
+
+“NO MANUALLY AUTHORED MACHINE-SPECIFIC SCREEN REQUIRED FOR THE HERO FLOW”
+
+or, preferably:
+
+“HMI composition is driven by the validated machine model.”
+
+Supporting line:
+
+“Reusable industrial UI primitives are composed dynamically from machine context.”
+
+This is more credible because industrial HMI systems already use reusable faceplates, templates and objects.
+
+============================================================
+15. WHY THIS SOLUTION
+============================================================
+
+Use 5–6 concise high-value points.
+
+Write them as strong statements, not paragraphs.
+
+Recommended content:
+
+1. MACHINE-SPECIFIC BY DESIGN
+The interface is generated from the actual machine's assets, signals, alarms and commands.
+
+2. DYNAMIC AT RUNTIME
+Operators can obtain contextual views without relying entirely on manually authored machine-specific screens.
+
+3. CONTROL, NOT JUST VISUALIZATION
+Commands follow defined contracts and PLC-authoritative execution paths.
+
+4. VERIFIED BINDINGS
+Every generated HMI signal must resolve against the canonical machine model.
+
+5. CHANGE-AWARE
+Engineering changes can identify affected HMI elements, alarms, trends and tests.
+
+6. ENGINEERING CONTINUITY
+The same machine model can drive generation, validation, diagnostics and future regeneration.
+
+============================================================
+16. ADD A SMALL “WHY CANON?” STATEMENT
+============================================================
+
+Use:
+
+“AI proposes. The machine model defines. The validator checks. The PLC controls.”
+
+This is an extremely important trust statement.
+
+============================================================
+17. TECHNOLOGY & TOOLS
+============================================================
+
+Keep this section compact.
+
+Use a structured list rather than a paragraph.
+
+Suggested:
+
+AI / LLM
+Natural-Language Intent
+Canonical Engineering Model
+OPC UA / Modbus
+PLC / PLC Simulator
+Dynamic HMI Runtime
+React / TypeScript
+Deterministic Validation
+Engineering Knowledge Graph
+Change Impact Analysis
+Regression Testing
+EOTE / EcoStruxure Workflow
+
+Only present EOTE/EcoStruxure as workflow alignment or integration-ready architecture unless actual proprietary integration has been implemented.
+
+Do not imply access to proprietary Schneider APIs that we do not have.
+
+============================================================
+18. INDUSTRIAL CREDIBILITY
+============================================================
+
+The visual and terminology should be informed by:
+
+• ISA-101 HMI design principles
+• ISA-18.2 / IEC 62682 alarm-management concepts
+• OPC UA information modeling
+• NAMUR MTP concepts
+• PackML / OMAC machine-state concepts
+• ISA-95 / ISA-88 equipment hierarchy concepts
+
+But DO NOT write:
+
+“ISA-101 COMPLIANT”
+
+“ISA-101 CERTIFIED”
+
+“IEC CERTIFIED”
+
+unless such certification has actually been obtained.
+
+Use:
+
+“ISA-101-informed”
+
+“aligned with industrial HMI design principles”
+
+“MTP-inspired”
+
+etc.
+
+============================================================
+19. VISUAL DESIGN LANGUAGE
+============================================================
+
+The design must feel like:
+
+PREMIUM INDUSTRIAL ENGINEERING SOFTWARE
+
+NOT:
+
+• generic SaaS
+• startup landing page
+• chatbot
+• gaming UI
+• cyberpunk
+• excessive gradients
+• excessive neon
+• cartoon
+• generic AI illustration
+• stock-photo presentation
+
+Visual direction:
+
+• clean white/light engineering background
+• preserve the template's green visual identity
+• dark engineering typography
+• restrained accent colors
+• thin technical lines
+• precise geometry
+• industrial schematic aesthetics
+• subtle grid/layout cues
+• high information density but excellent hierarchy
+• crisp vector-style icons
+• PLC / sensor / valve / pump / tank symbols
+• clean data-flow arrows
+• professional HMI mockup
+• minimal decorative elements
+
+Use the existing green template as the primary visual identity.
+
+Do not overpower it with another color system.
+
+============================================================
+20. VISUAL HIERARCHY
+============================================================
+
+The judge's eye should naturally follow:
+
+1. CANON
+2. Machine Context → Dynamic HMI → Verified Control
+3. MACHINE CONTEXT
+4. DYNAMIC HMI
+5. VERIFIED CONTROL
+6. CHANGE → IMPACT → REGENERATE
+7. WHY THIS SOLUTION
+8. TECHNOLOGY
+
+The center Proposed Solution area should dominate.
+
+The smaller boxes should contain only essential information.
+
+============================================================
+21. TYPOGRAPHY
+============================================================
+
+Use a highly legible modern engineering font.
+
+Prefer:
+
+Inter
+IBM Plex Sans
+Roboto
+or another clean professional sans-serif.
+
+Use:
+
+• strong section headers
+• bold product name
+• medium-weight technical labels
+• concise body text
+• consistent alignment
+• generous whitespace
+
+Never use tiny text simply to fit more information.
+
+If content doesn't fit:
+
+SHORTEN THE TEXT.
+
+Do NOT reduce readability.
+
+============================================================
+22. DIAGRAM DESIGN RULES
+============================================================
+
+The architecture diagram must be understandable without reading every word.
+
+Use:
+
+• rounded industrial blocks
+• clean arrows
+• logical grouping
+• consistent iconography
+• small labels
+• minimal crossing lines
+
+Use visual grouping:
+
+INPUT
+↓
+UNDERSTAND
+↓
+VALIDATE
+↓
+GENERATE
+↓
+CONTROL
+↓
+ADAPT
+
+The architecture should look engineered rather than decorative.
+
+============================================================
+23. TRUST / SAFETY VISUAL
+============================================================
+
+Include a small, elegant trust strip:
+
+AI
+INTERPRETS / PROPOSES
+
+↓
+
+CANONICAL MODEL
+ENGINEERING TRUTH
+
+↓
+
+VALIDATOR
+CHECKS
+
+↓
+
+ENGINEER
+APPROVES
+
+↓
+
+PLC
+CONTROLS
+
+This is important.
+
+Never visually imply:
+
+AI → Actuator
+
+Instead:
+
+AI → Proposal → Validation → PLC → Machine
+
+============================================================
+24. DATA QUALITY
+============================================================
+
+If space permits, subtly show:
+
+LIVE
+STALE
+UNKNOWN
+SIMULATED
+
+Use these as runtime data-quality concepts.
+
+Important:
+
+UNKNOWN must never be represented as verified.
+
+STALE data must not appear as current live data.
+
+SIMULATED must be clearly labeled.
+
+============================================================
+25. FINAL CONTENT DENSITY
+============================================================
+
+The card must NOT look like a research report.
+
+The research dossier is the source of intelligence.
+
+The idea card is the executive communication layer.
+
+Therefore:
+
+CUT 60–80% of unnecessary words.
+
+Keep only the strongest concepts.
+
+Every element must answer:
+
+“Why should a Schneider HMI judge care?”
+
+============================================================
+26. COMPETITIVE DIFFERENTIATION
+============================================================
+
+Do not place a large competitor table on the card.
+
+Instead, communicate the differentiator visually:
+
+Traditional:
+
+ENGINEER
+↓
+MANUAL SCREEN
+↓
+MANUAL BINDINGS
+↓
+CHANGE
+↓
+MANUAL REWORK
+
+CANON:
+
+MACHINE CONTEXT
+↓
+CANONICAL MODEL
+↓
+DYNAMIC HMI
+↓
+VALIDATED CONTROL
+↓
+CHANGE IMPACT
+↓
+REGENERATION
+
+If a tiny differentiator line is useful, use:
+
+“Not just HMI generation — validated machine-context-driven generation with control authority and change continuity.”
+
+============================================================
+27. FINAL CARD MESSAGE
+============================================================
+
+The viewer should leave with exactly this understanding:
+
+CANON does not simply ask an LLM to draw an HMI.
+
+CANON understands the machine.
+
+It builds a canonical representation of the machine.
+
+It uses natural language to express HMI intent.
+
+It dynamically composes the appropriate machine-specific HMI.
+
+It validates every signal and command binding.
+
+It keeps the PLC as runtime control authority.
+
+And when the engineering model changes, it can identify what needs to change and regenerate/revalidate the affected interface.
+
+Therefore:
+
+THE MACHINE MODEL IS THE SOURCE OF TRUTH.
+
+============================================================
+28. FINAL TAGLINE
+============================================================
+
+Use prominently:
+
+“WE DON'T GENERATE A SCREEN FROM A PROMPT.
+WE GENERATE A VALIDATED INTERFACE FROM THE MACHINE.”
+
+Optional secondary line:
+
+“AND KEEP IT IN SYNC AS THE MACHINE CHANGES.”
+
+============================================================
+29. OUTPUT REQUIREMENT
+============================================================
+
+Produce the FINAL COMPLETED IDEA CARD using the exact uploaded SRM template.
+
+Do not create a separate poster.
+
+Do not create a generic presentation slide.
+
+Do not alter the official section arrangement.
+
+Fill:
+
+PROBLEM STATEMENT
+TITLE
+TEAM NAME & MEMBERS
+PROPOSED SOLUTION
+WHY THIS SOLUTION
+TECHNOLOGY & TOOLS
+
+Use the large Proposed Solution area as the main visual storytelling canvas.
+
+The result must look:
+
+• competition-ready
+• technically credible
+• Schneider-relevant
+• industrial
+• premium
+• highly readable
+• visually impressive
+• concise
+• engineering-driven
+• AI-enabled but not AI-hype
+• realistic to prototype
+• defensible under technical questioning
+
+============================================================
+30. FINAL QUALITY CHECK — DO THIS BEFORE OUTPUT
+============================================================
+
+Before finalizing, inspect the card as if you are a Schneider Electric judge.
+
+Ask:
+
+1. Can I understand the problem in 5 seconds?
+2. Can I understand CANON in 10 seconds?
+3. Is it obviously solving PS2?
+4. Is dynamic HMI generation clearly visible?
+5. Is machine control clearly visible?
+6. Is the machine context clearly visible?
+7. Is validation clearly visible?
+8. Is PLC authority clearly visible?
+9. Is the change-continuity differentiator visible?
+10. Does the card look like industrial engineering rather than a chatbot?
+11. Is the center Proposed Solution section visually dominant?
+12. Is every text element readable at normal viewing distance?
+13. Is there enough whitespace?
+14. Are there any unsupported claims?
+15. Does anything imply AI directly controls the machine?
+16. Does anything claim certification or compliance without evidence?
+17. Does anything falsely claim CANON is the first AI-generated HMI?
+18. Does the visual hierarchy immediately communicate:
+
+MACHINE → MODEL → AI → VALIDATE → HMI → CONTROL → CHANGE
+
+If any answer is NO, improve the design before producing the final card.
+
+============================================================
+FINAL CREATIVE DIRECTIVE
+============================================================
+
+MAKE THIS LOOK LIKE A PRODUCT THAT A TOP INDUSTRIAL AUTOMATION COMPANY COULD ACTUALLY BUILD.
+
+The visual should communicate:
+
+“THIS IS NOT AN AI DEMO.”
+
+“THIS IS AN ENGINEERING SYSTEM.”
+
+The final impression should be:
+
+CANON understands the machine,
+generates the right interface,
+keeps control disciplined,
+and maintains engineering continuity.
+
+Make the final card exceptionally polished, professional, technically credible, visually clear, and competition-ready.
+
+DO NOT EXPLAIN YOUR DESIGN PROCESS.
+
+JUST PRODUCE THE COMPLETED IDEA CARD.

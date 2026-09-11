@@ -1,0 +1,12 @@
+<machine name="AHU-04" controller="Modicon M251">
+  <signal asset="FAN-701" type="motor" signal="FAN-701_SPEED" kind="analog-in" unit="rpm" min="0" max="1200" h="1150" desc="Supply fan speed"/>
+  <signal asset="FAN-701" type="motor" signal="FAN-701_RUNNING" kind="discrete-in" desc="Supply fan running"/>
+  <signal asset="FAN-701" type="motor" signal="FAN-701_FAULT" kind="discrete-in" desc="Supply fan fault"/>
+  <signal asset="FAN-701" type="motor" signal="FAN-701_START_REQ" kind="discrete-out" desc="Supply fan start"/>
+  <signal asset="FAN-701" type="motor" signal="FAN-701_STOP_REQ" kind="discrete-out" desc="Supply fan stop"/>
+  <signal asset="TT-701" type="tank" signal="TT-701" kind="analog-in" unit="degC" min="0" max="40" hh="32" h="28" ll="12" desc="Supply air temperature"/>
+  <signal asset="XV-701" type="valve" signal="XV-701_OPEN" kind="discrete-in" desc="Chilled water valve open"/>
+  <signal asset="XV-701" type="valve" signal="XV-701_CLOSED" kind="discrete-in" desc="Chilled water valve closed"/>
+  <signal asset="XV-701" type="valve" signal="XV-701_OPEN_REQ" kind="discrete-out" desc="CHW valve open"/>
+  <signal asset="XV-701" type="valve" signal="XV-701_CLOSE_REQ" kind="discrete-out" desc="CHW valve close"/>
+</machine>

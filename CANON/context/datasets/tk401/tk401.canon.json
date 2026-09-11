@@ -1,0 +1,376 @@
+{
+  "_meta": {
+    "fixture": true,
+    "sourceType": "simulator",
+    "note": "CANON demo / simulator data — NOT a real Schneider deployment"
+  },
+  "machine": {
+    "machineId": "TK-401",
+    "name": "TK-401",
+    "type": "Process Tank",
+    "plant": "DEMO",
+    "area": "PROCESS",
+    "controller": "Modicon M262",
+    "revision": "CANON v1.0",
+    "status": "CONNECTED"
+  },
+  "readiness": {
+    "assetsVerified": [
+      23,
+      24
+    ],
+    "signalsMapped": [
+      185,
+      186
+    ],
+    "commandsModeled": [
+      4,
+      4
+    ],
+    "unresolved": 1,
+    "conflicts": 0,
+    "inventedBindings": 0
+  },
+  "assets": [
+    {
+      "assetId": "TK-401",
+      "class": "process_unit",
+      "role": "tank",
+      "children": [
+        "LT401",
+        "PT401",
+        "P401",
+        "XV401"
+      ],
+      "status": "VERIFIED"
+    },
+    {
+      "assetId": "LT401",
+      "parent": "TK-401",
+      "class": "instrument",
+      "role": "level_transmitter",
+      "signals": [
+        "LT401"
+      ],
+      "status": "VERIFIED"
+    },
+    {
+      "assetId": "PT401",
+      "parent": "TK-401",
+      "class": "instrument",
+      "role": "pressure_transmitter",
+      "signals": [
+        "PT401"
+      ],
+      "status": "VERIFIED"
+    },
+    {
+      "assetId": "P401",
+      "parent": "TK-401",
+      "class": "equipment",
+      "role": "pump",
+      "signals": [
+        "P401_RUN"
+      ],
+      "commands": [
+        "P401_START"
+      ],
+      "status": "VERIFIED"
+    },
+    {
+      "assetId": "XV401",
+      "parent": "TK-401",
+      "class": "valve",
+      "role": "inlet_valve",
+      "signals": [
+        "XV401_OPEN"
+      ],
+      "status": "VERIFIED"
+    }
+  ],
+  "signals": [
+    {
+      "signalId": "PT401",
+      "tag": "PT401",
+      "name": "Discharge pressure",
+      "datatype": "REAL",
+      "meaning": "Pressure",
+      "source": "M262",
+      "opcuaNode": "ns=2;s=TK401.PT401",
+      "direction": "AI",
+      "unit": "bar",
+      "engRange": [
+        0,
+        10
+      ],
+      "quality": "GOOD",
+      "status": "VERIFIED",
+      "evidence": [
+        "EV-PT401-RANGE",
+        "EV-PT401-NODE"
+      ]
+    },
+    {
+      "signalId": "LT401",
+      "tag": "LT401",
+      "name": "Tank level",
+      "datatype": "REAL",
+      "meaning": "Level",
+      "source": "M262",
+      "direction": "AI",
+      "unit": "%",
+      "engRange": [
+        0,
+        100
+      ],
+      "quality": "GOOD",
+      "status": "VERIFIED",
+      "evidence": [
+        "EV-LT401-RANGE"
+      ]
+    },
+    {
+      "signalId": "P401_RUN",
+      "tag": "P401_RUN",
+      "name": "Pump run feedback",
+      "datatype": "BOOL",
+      "direction": "DI",
+      "status": "VERIFIED",
+      "evidence": [
+        "EV-P401-CMD"
+      ]
+    },
+    {
+      "signalId": "XV401_OPEN",
+      "tag": "XV401_OPEN_FB",
+      "name": "Valve open feedback",
+      "datatype": "BOOL",
+      "direction": "DI",
+      "status": "VERIFIED"
+    }
+  ],
+  "commands": [
+    {
+      "commandId": "P401_START",
+      "request": "P401_START_REQ",
+      "feedback": "P401_RUN",
+      "permissives": [
+        "XV401_OPEN",
+        "LT401<HH",
+        "P401_FAULT=FALSE"
+      ],
+      "timeout": 5,
+      "failure": "request accepted but feedback not achieved",
+      "authority": "A1",
+      "status": "VERIFIED",
+      "evidence": [
+        "EV-P401-CMD"
+      ]
+    }
+  ],
+  "permissives": [
+    {
+      "id": "PERM-XV401",
+      "source": "XV401_OPEN",
+      "condition": "XV401_OPEN = TRUE",
+      "expected": true,
+      "blocking": true,
+      "explanation": "Inlet valve must be open before pump start",
+      "authority": "A1"
+    },
+    {
+      "id": "PERM-LEVEL",
+      "source": "LT401",
+      "condition": "LT401 < HH",
+      "expected": true,
+      "blocking": true,
+      "authority": "A1"
+    },
+    {
+      "id": "PERM-FAULT",
+      "source": "P401_FAULT",
+      "condition": "P401_FAULT = FALSE",
+      "expected": true,
+      "blocking": true,
+      "authority": "A1"
+    }
+  ],
+  "alarms": [
+    {
+      "id": "PT401_HI",
+      "source": "PT401",
+      "condition": "PT401 >= 8",
+      "severity": "HIGH",
+      "limit": 8,
+      "unit": "bar",
+      "status": "VERIFIED"
+    },
+    {
+      "id": "LT401_HI",
+      "source": "LT401",
+      "condition": "LT401 >= 90",
+      "severity": "HIGH",
+      "limit": 90,
+      "unit": "%",
+      "status": "VERIFIED"
+    }
+  ],
+  "relationships": [
+    {
+      "source": "LT401",
+      "target": "TK-401",
+      "type": "MEASURES",
+      "authority": "A1",
+      "status": "VERIFIED"
+    },
+    {
+      "source": "PT401",
+      "target": "TK-401",
+      "type": "MEASURES",
+      "authority": "A1",
+      "status": "VERIFIED"
+    },
+    {
+      "source": "P401",
+      "target": "TK-401",
+      "type": "ACTUATES",
+      "authority": "A1",
+      "status": "VERIFIED"
+    },
+    {
+      "source": "P401_START",
+      "target": "XV401_OPEN",
+      "type": "REQUIRES",
+      "authority": "A1",
+      "status": "VERIFIED"
+    }
+  ],
+  "unresolvedReferences": [
+    {
+      "ref": "PT401.Status",
+      "reason": "No authoritative mapping found in the available engineering context.",
+      "candidates": [
+        {
+          "id": "PT401_Status",
+          "sourceType": "plc_config",
+          "status": "CANDIDATE"
+        },
+        {
+          "id": "ns=2;s=TK401.PT401/Status",
+          "sourceType": "opcua",
+          "status": "CANDIDATE"
+        }
+      ],
+      "status": "UNRESOLVED",
+      "canonResponse": "Binding not automatically created."
+    }
+  ],
+  "conflicts": [
+    {
+      "conflictId": "CF-PT401-RANGE",
+      "factType": "engRange",
+      "entity": "PT401",
+      "sources": [
+        {
+          "authority": "A1",
+          "source": "PLC configuration (R17)",
+          "value": "0-10 bar"
+        },
+        {
+          "authority": "A3",
+          "source": "Engineering document (draft)",
+          "value": "0-16 bar"
+        }
+      ],
+      "status": "CONFLICT",
+      "action": "ENGINEER REVIEW REQUIRED",
+      "note": "Golden conflict fixture — CANON does not silently choose."
+    }
+  ],
+  "runtime": {
+    "_meta": {
+      "fixture": true,
+      "sourceType": "simulator",
+      "note": "CANON demo / simulator data — NOT a real Schneider deployment"
+    },
+    "PT401": {
+      "v": 6.2,
+      "unit": "bar",
+      "quality": "GOOD"
+    },
+    "LT401": {
+      "v": 72,
+      "unit": "%",
+      "quality": "GOOD"
+    },
+    "P401_RUN": true,
+    "XV401_OPEN": true,
+    "state": "RUNNING"
+  },
+  "dependencies": [
+    {
+      "from": "PT401",
+      "edges": [
+        "PT401 -> pressure signal -> TK-401 -> HMI gauge -> PT401_HI alarm -> test:T05 -> OPR-03 doc"
+      ]
+    }
+  ],
+  "revisions": [
+    {
+      "rev": "CANON v1.0",
+      "note": "TK-401 golden baseline",
+      "author": "fixture"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "EV-PT401-RANGE",
+      "factId": "PT401.engRange",
+      "sourceType": "plc_config",
+      "sourceId": "M262/app",
+      "revision": "R17",
+      "structuredValue": "0-10 bar",
+      "authority": "A1",
+      "status": "VERIFIED",
+      "extractionMethod": "fixture"
+    },
+    {
+      "evidenceId": "EV-PT401-NODE",
+      "factId": "PT401.opcuaNode",
+      "sourceType": "opcua",
+      "sourceId": "ns=2;s=TK401.PT401",
+      "authority": "A2",
+      "status": "VERIFIED",
+      "extractionMethod": "fixture"
+    },
+    {
+      "evidenceId": "EV-LT401-RANGE",
+      "factId": "LT401.engRange",
+      "sourceType": "plc_config",
+      "revision": "R17",
+      "structuredValue": "0-100 %",
+      "authority": "A1",
+      "status": "VERIFIED",
+      "extractionMethod": "fixture"
+    },
+    {
+      "evidenceId": "EV-P401-CMD",
+      "factId": "P401.command",
+      "sourceType": "plc_config",
+      "revision": "R17",
+      "structuredValue": "P401_START_REQ -> P401_RUN",
+      "authority": "A1",
+      "status": "VERIFIED",
+      "extractionMethod": "fixture"
+    },
+    {
+      "evidenceId": "EV-PT401-STATUS",
+      "factId": "PT401.Status.binding",
+      "sourceType": "simulator",
+      "authority": null,
+      "status": "UNRESOLVED",
+      "extractedText": "No authoritative mapping found in the available engineering context.",
+      "extractionMethod": "fixture"
+    }
+  ]
+}

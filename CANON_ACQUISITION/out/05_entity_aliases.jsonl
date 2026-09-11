@@ -1,0 +1,246 @@
+{"alias":"DOCENT-SE-M580-HW-001","confidence":"OFFICIAL","entity_id":"DOCENT-SE-M580-HW-001","resolution_status":"RESOLVED"}
+{"alias":"Modicon M580 Hardware, User Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-M580-HW-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-M580-DS-002","confidence":"OFFICIAL","entity_id":"DOCENT-SE-M580-DS-002","resolution_status":"RESOLVED"}
+{"alias":"BMEP582020 - standalone processor, Modicon M580, 8MB","confidence":"INFERRED","entity_id":"DOCENT-SE-M580-DS-002","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-M340-SETUP-003","confidence":"OFFICIAL","entity_id":"DOCENT-SE-M340-SETUP-003","resolution_status":"RESOLVED"}
+{"alias":"Modicon M340 Controllers, Setup Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-M340-SETUP-003","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-M340-SERIAL-004","confidence":"OFFICIAL","entity_id":"DOCENT-SE-M340-SERIAL-004","resolution_status":"RESOLVED"}
+{"alias":"Modicon M340 - Serial Link, User Manual","confidence":"INFERRED","entity_id":"DOCENT-SE-M340-SERIAL-004","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-M340-ETH-005","confidence":"OFFICIAL","entity_id":"DOCENT-SE-M340-ETH-005","resolution_status":"RESOLVED"}
+{"alias":"Modicon M340 Ethernet Communications Modules and Controllers, User Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-M340-ETH-005","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-M340-CANOPEN-006","confidence":"OFFICIAL","entity_id":"DOCENT-SE-M340-CANOPEN-006","resolution_status":"RESOLVED"}
+{"alias":"Modicon M340 - CANopen, User Manual","confidence":"INFERRED","entity_id":"DOCENT-SE-M340-CANOPEN-006","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-M221-PROG-007","confidence":"OFFICIAL","entity_id":"DOCENT-SE-M221-PROG-007","resolution_status":"RESOLVED"}
+{"alias":"Modicon M221 Logic Controller, Programming Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-M221-PROG-007","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-M221-HW-008","confidence":"OFFICIAL","entity_id":"DOCENT-SE-M221-HW-008","resolution_status":"RESOLVED"}
+{"alias":"Modicon M221 Logic Controller, Hardware Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-M221-HW-008","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-M221-LIB-009","confidence":"OFFICIAL","entity_id":"DOCENT-SE-M221-LIB-009","resolution_status":"RESOLVED"}
+{"alias":"Modicon M221 Logic Controller, Advanced Functions Library Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-M221-LIB-009","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-M241-PROG-010","confidence":"OFFICIAL","entity_id":"DOCENT-SE-M241-PROG-010","resolution_status":"RESOLVED"}
+{"alias":"Modicon M241 Logic Controller, Programming Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-M241-PROG-010","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-M251-USER-011","confidence":"OFFICIAL","entity_id":"DOCENT-SE-M251-USER-011","resolution_status":"RESOLVED"}
+{"alias":"Modicon M251 Logic Controller, User Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-M251-USER-011","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-M251-HW-012","confidence":"OFFICIAL","entity_id":"DOCENT-SE-M251-HW-012","resolution_status":"RESOLVED"}
+{"alias":"Modicon M251 Logic Controller, Hardware Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-M251-HW-012","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-M262-PROG-013","confidence":"OFFICIAL","entity_id":"DOCENT-SE-M262-PROG-013","resolution_status":"RESOLVED"}
+{"alias":"Modicon M262 Logic/Motion Controller, Programming Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-M262-PROG-013","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-M262-HW-014","confidence":"OFFICIAL","entity_id":"DOCENT-SE-M262-HW-014","resolution_status":"RESOLVED"}
+{"alias":"Modicon M262 Logic/Motion Controller, Hardware Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-M262-HW-014","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-M262-USER-015","confidence":"OFFICIAL","entity_id":"DOCENT-SE-M262-USER-015","resolution_status":"RESOLVED"}
+{"alias":"Modicon M262 Logic/Motion Controller, User Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-M262-USER-015","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-MEXP-MODBUSTCP-016","confidence":"OFFICIAL","entity_id":"DOCENT-SE-MEXP-MODBUSTCP-016","resolution_status":"RESOLVED"}
+{"alias":"EcoStruxure Machine Expert Modbus TCP, User Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-MEXP-MODBUSTCP-016","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-CONTROLEXPERT-001","confidence":"OFFICIAL","entity_id":"DOCENT-SE-CONTROLEXPERT-001","resolution_status":"RESOLVED"}
+{"alias":"EcoStruxure Control Expert V15.0 - Complete Documentation","confidence":"INFERRED","entity_id":"DOCENT-SE-CONTROLEXPERT-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-CONTROLEXPERT-002","confidence":"OFFICIAL","entity_id":"DOCENT-SE-CONTROLEXPERT-002","resolution_status":"RESOLVED"}
+{"alias":"EcoStruxure Control Expert - Program Languages and Structure, Reference Manual","confidence":"INFERRED","entity_id":"DOCENT-SE-CONTROLEXPERT-002","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-MACHINEEXPERT-001","confidence":"OFFICIAL","entity_id":"DOCENT-SE-MACHINEEXPERT-001","resolution_status":"RESOLVED"}
+{"alias":"EcoStruxure Machine Expert, Programming Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-MACHINEEXPERT-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-MACHINEEXPERT-002","confidence":"OFFICIAL","entity_id":"DOCENT-SE-MACHINEEXPERT-002","resolution_status":"RESOLVED"}
+{"alias":"EcoStruxure Machine Expert - Basic, Operating Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-MACHINEEXPERT-002","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-OTE-001","confidence":"OFFICIAL","entity_id":"DOCENT-SE-OTE-001","resolution_status":"RESOLVED"}
+{"alias":"EcoStruxure Operator Terminal Expert, User Manual","confidence":"INFERRED","entity_id":"DOCENT-SE-OTE-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-MSCADAEXPERT-001","confidence":"OFFICIAL","entity_id":"DOCENT-SE-MSCADAEXPERT-001","resolution_status":"RESOLVED"}
+{"alias":"EcoStruxure Machine SCADA Expert - Industrial Graphic Editor, User Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-MSCADAEXPERT-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-MSCADAEXPERT-002","confidence":"OFFICIAL","entity_id":"DOCENT-SE-MSCADAEXPERT-002","resolution_status":"RESOLVED"}
+{"alias":"EcoStruxure Machine SCADA Expert, Quick Start Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-MSCADAEXPERT-002","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-HARMONY-001","confidence":"OFFICIAL","entity_id":"DOCENT-SE-HARMONY-001","resolution_status":"RESOLVED"}
+{"alias":"Harmony HMIGTO for Vijeo Designer, User Manual","confidence":"INFERRED","entity_id":"DOCENT-SE-HARMONY-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-HARMONY-002","confidence":"OFFICIAL","entity_id":"DOCENT-SE-HARMONY-002","resolution_status":"RESOLVED"}
+{"alias":"Harmony GTU, User Manual","confidence":"INFERRED","entity_id":"DOCENT-SE-HARMONY-002","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-ALTIVAR320-001","confidence":"OFFICIAL","entity_id":"DOCENT-SE-ALTIVAR320-001","resolution_status":"RESOLVED"}
+{"alias":"ATV320 Programming Manual","confidence":"INFERRED","entity_id":"DOCENT-SE-ALTIVAR320-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-ALTIVAR340-001","confidence":"OFFICIAL","entity_id":"DOCENT-SE-ALTIVAR340-001","resolution_status":"RESOLVED"}
+{"alias":"ATV340 Installation manual","confidence":"INFERRED","entity_id":"DOCENT-SE-ALTIVAR340-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-ALTIVAR630-001","confidence":"OFFICIAL","entity_id":"DOCENT-SE-ALTIVAR630-001","resolution_status":"RESOLVED"}
+{"alias":"ATV630-650 Installation manual","confidence":"INFERRED","entity_id":"DOCENT-SE-ALTIVAR630-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-ALTIVAR600-001","confidence":"OFFICIAL","entity_id":"DOCENT-SE-ALTIVAR600-001","resolution_status":"RESOLVED"}
+{"alias":"ATV600 Programming manual","confidence":"INFERRED","entity_id":"DOCENT-SE-ALTIVAR600-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-ALTIVAR930-001","confidence":"OFFICIAL","entity_id":"DOCENT-SE-ALTIVAR930-001","resolution_status":"RESOLVED"}
+{"alias":"ATV930-ATV950 Installation manual","confidence":"INFERRED","entity_id":"DOCENT-SE-ALTIVAR930-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-TESYSISLAND-001","confidence":"OFFICIAL","entity_id":"DOCENT-SE-TESYSISLAND-001","resolution_status":"RESOLVED"}
+{"alias":"TeSys island_System, Installation, and Operation Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-TESYSISLAND-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-SE-TESYST-001","confidence":"OFFICIAL","entity_id":"DOCENT-SE-TESYST-001","resolution_status":"RESOLVED"}
+{"alias":"TeSys T LTMR Motor Management Controller User Guide","confidence":"INFERRED","entity_id":"DOCENT-SE-TESYST-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-OPCUA-REF-ONLINE-001","confidence":"OFFICIAL","entity_id":"DOCENT-OPCUA-REF-ONLINE-001","resolution_status":"RESOLVED"}
+{"alias":"OPC UA Online Reference","confidence":"INFERRED","entity_id":"DOCENT-OPCUA-REF-ONLINE-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-OPCUA-SPEC-PART1-001","confidence":"OFFICIAL","entity_id":"DOCENT-OPCUA-SPEC-PART1-001","resolution_status":"RESOLVED"}
+{"alias":"OPC Unified Architecture - Part 1: Overview and Concepts","confidence":"INFERRED","entity_id":"DOCENT-OPCUA-SPEC-PART1-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-OPCUA-SPEC-PART2-001","confidence":"OFFICIAL","entity_id":"DOCENT-OPCUA-SPEC-PART2-001","resolution_status":"RESOLVED"}
+{"alias":"OPC Unified Architecture - Part 2: Security Model","confidence":"INFERRED","entity_id":"DOCENT-OPCUA-SPEC-PART2-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-OPCUA-SPEC-PART3-001","confidence":"OFFICIAL","entity_id":"DOCENT-OPCUA-SPEC-PART3-001","resolution_status":"RESOLVED"}
+{"alias":"OPC Unified Architecture - Part 3: Address Space Model","confidence":"INFERRED","entity_id":"DOCENT-OPCUA-SPEC-PART3-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-OPCUA-SPEC-PART4-001","confidence":"OFFICIAL","entity_id":"DOCENT-OPCUA-SPEC-PART4-001","resolution_status":"RESOLVED"}
+{"alias":"OPC Unified Architecture - Part 4: Services","confidence":"INFERRED","entity_id":"DOCENT-OPCUA-SPEC-PART4-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-OPCUA-SPEC-PART5-001","confidence":"OFFICIAL","entity_id":"DOCENT-OPCUA-SPEC-PART5-001","resolution_status":"RESOLVED"}
+{"alias":"OPC Unified Architecture - Part 5: Information Model","confidence":"INFERRED","entity_id":"DOCENT-OPCUA-SPEC-PART5-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-OPCUA-SPEC-PART6-001","confidence":"OFFICIAL","entity_id":"DOCENT-OPCUA-SPEC-PART6-001","resolution_status":"RESOLVED"}
+{"alias":"OPC Unified Architecture - Part 6: Mappings","confidence":"INFERRED","entity_id":"DOCENT-OPCUA-SPEC-PART6-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-OPCUA-SPEC-PART7-001","confidence":"OFFICIAL","entity_id":"DOCENT-OPCUA-SPEC-PART7-001","resolution_status":"RESOLVED"}
+{"alias":"OPC Unified Architecture - Part 7: Profiles","confidence":"INFERRED","entity_id":"DOCENT-OPCUA-SPEC-PART7-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-OPCUA-UA-LANDING-001","confidence":"OFFICIAL","entity_id":"DOCENT-OPCUA-UA-LANDING-001","resolution_status":"RESOLVED"}
+{"alias":"Unified Architecture - Landingpage","confidence":"INFERRED","entity_id":"DOCENT-OPCUA-UA-LANDING-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-MODBUS-SPECS-LANDING-001","confidence":"OFFICIAL","entity_id":"DOCENT-MODBUS-SPECS-LANDING-001","resolution_status":"RESOLVED"}
+{"alias":"Specifications and Implementation Guides","confidence":"INFERRED","entity_id":"DOCENT-MODBUS-SPECS-LANDING-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-MODBUS-SPEC-APPPROTO-001","confidence":"OFFICIAL","entity_id":"DOCENT-MODBUS-SPEC-APPPROTO-001","resolution_status":"RESOLVED"}
+{"alias":"MODBUS Application Protocol Specification V1.1b3","confidence":"INFERRED","entity_id":"DOCENT-MODBUS-SPEC-APPPROTO-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-MODBUS-GUIDE-TCPIP-001","confidence":"OFFICIAL","entity_id":"DOCENT-MODBUS-GUIDE-TCPIP-001","resolution_status":"RESOLVED"}
+{"alias":"MODBUS Messaging on TCP/IP Implementation Guide V1.0b","confidence":"INFERRED","entity_id":"DOCENT-MODBUS-GUIDE-TCPIP-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-IEC-61131-3-ABSTRACT-001","confidence":"OFFICIAL","entity_id":"DOCENT-IEC-61131-3-ABSTRACT-001","resolution_status":"RESOLVED"}
+{"alias":"IEC 61131-3:2013 Programmable controllers - Part 3: Programming languages","confidence":"INFERRED","entity_id":"DOCENT-IEC-61131-3-ABSTRACT-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-IEC-62541-1-ABSTRACT-002","confidence":"OFFICIAL","entity_id":"DOCENT-IEC-62541-1-ABSTRACT-002","resolution_status":"RESOLVED"}
+{"alias":"IEC TR 62541-1:2020 OPC Unified Architecture - Part 1: Overview and concepts","confidence":"INFERRED","entity_id":"DOCENT-IEC-62541-1-ABSTRACT-002","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-IEC-62443-3-3-ABSTRACT-003","confidence":"OFFICIAL","entity_id":"DOCENT-IEC-62443-3-3-ABSTRACT-003","resolution_status":"RESOLVED"}
+{"alias":"IEC 62443-3-3:2013 Network and system security - Part 3-3: System security requirements and security levels","confidence":"INFERRED","entity_id":"DOCENT-IEC-62443-3-3-ABSTRACT-003","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-IEC-62443-4-2-ABSTRACT-004","confidence":"OFFICIAL","entity_id":"DOCENT-IEC-62443-4-2-ABSTRACT-004","resolution_status":"RESOLVED"}
+{"alias":"IEC 62443-4-2:2019 Technical security requirements for IACS components","confidence":"INFERRED","entity_id":"DOCENT-IEC-62443-4-2-ABSTRACT-004","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-IEC-62682-ABSTRACT-005","confidence":"OFFICIAL","entity_id":"DOCENT-IEC-62682-ABSTRACT-005","resolution_status":"RESOLVED"}
+{"alias":"IEC 62682:2022 Management of alarm systems for the process industries","confidence":"INFERRED","entity_id":"DOCENT-IEC-62682-ABSTRACT-005","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-ISA-101-01-2015-PRODUCT-006","confidence":"OFFICIAL","entity_id":"DOCENT-ISA-101-01-2015-PRODUCT-006","resolution_status":"RESOLVED"}
+{"alias":"ISA-101.01-2015, Human Machine Interfaces for Process Automation Systems","confidence":"INFERRED","entity_id":"DOCENT-ISA-101-01-2015-PRODUCT-006","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-ISA-101-SERIES-007","confidence":"OFFICIAL","entity_id":"DOCENT-ISA-101-SERIES-007","resolution_status":"RESOLVED"}
+{"alias":"ISA-101 Series of Standards (Human Machine Interfaces)","confidence":"INFERRED","entity_id":"DOCENT-ISA-101-SERIES-007","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-ISA-95-STANDARD-008","confidence":"OFFICIAL","entity_id":"DOCENT-ISA-95-STANDARD-008","resolution_status":"RESOLVED"}
+{"alias":"ISA-95 Standard: Enterprise-Control System Integration","confidence":"INFERRED","entity_id":"DOCENT-ISA-95-STANDARD-008","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-ISA-88-SERIES-009","confidence":"OFFICIAL","entity_id":"DOCENT-ISA-88-SERIES-009","resolution_status":"RESOLVED"}
+{"alias":"ISA-88 Series of Standards - Batch Process Control","confidence":"INFERRED","entity_id":"DOCENT-ISA-88-SERIES-009","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-ISA-18-2-2016-PRODUCT-010","confidence":"OFFICIAL","entity_id":"DOCENT-ISA-18-2-2016-PRODUCT-010","resolution_status":"RESOLVED"}
+{"alias":"ANSI/ISA-18.2-2016, Management of Alarm Systems for the Process Industries","confidence":"INFERRED","entity_id":"DOCENT-ISA-18-2-2016-PRODUCT-010","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-EEMUA-191-DIGITAL-011","confidence":"OFFICIAL","entity_id":"DOCENT-EEMUA-191-DIGITAL-011","resolution_status":"RESOLVED"}
+{"alias":"EEMUA Publication 191 - Alarm systems: a guide to design, management and procurement","confidence":"INFERRED","entity_id":"DOCENT-EEMUA-191-DIGITAL-011","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-PLCOPEN-XML-TC6-012","confidence":"OFFICIAL","entity_id":"DOCENT-PLCOPEN-XML-TC6-012","resolution_status":"RESOLVED"}
+{"alias":"XML Exchange and PLCopen (TC6 XML for IEC 61131-3 / IEC 61131-10)","confidence":"INFERRED","entity_id":"DOCENT-PLCOPEN-XML-TC6-012","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-AUTOMATIONML-SPECS-013","confidence":"OFFICIAL","entity_id":"DOCENT-AUTOMATIONML-SPECS-013","resolution_status":"RESOLVED"}
+{"alias":"Specifications - AutomationML (IEC 62714 series)","confidence":"INFERRED","entity_id":"DOCENT-AUTOMATIONML-SPECS-013","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-NAMUR-NE107-014","confidence":"OFFICIAL","entity_id":"DOCENT-NAMUR-NE107-014","resolution_status":"RESOLVED"}
+{"alias":"NE 107 'Self-monitoring and diagnostics of field devices' has been revised","confidence":"INFERRED","entity_id":"DOCENT-NAMUR-NE107-014","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-IDTA-AAS-PART1-METAMODEL-015","confidence":"OFFICIAL","entity_id":"DOCENT-IDTA-AAS-PART1-METAMODEL-015","resolution_status":"RESOLVED"}
+{"alias":"Specification of the Asset Administration Shell Part 1: Metamodel (IDTA 01001)","confidence":"INFERRED","entity_id":"DOCENT-IDTA-AAS-PART1-METAMODEL-015","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-IDTA-AAS-PART2-API-016","confidence":"OFFICIAL","entity_id":"DOCENT-IDTA-AAS-PART2-API-016","resolution_status":"RESOLVED"}
+{"alias":"Specification of the Asset Administration Shell Part 2: Application Programming Interfaces (IDTA 01002)","confidence":"INFERRED","entity_id":"DOCENT-IDTA-AAS-PART2-API-016","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-GH-OPCFOUNDATION-NETSTD-001","confidence":"OFFICIAL","entity_id":"DOCENT-GH-OPCFOUNDATION-NETSTD-001","resolution_status":"RESOLVED"}
+{"alias":"UA-.NETStandard \u2014 OPC Unified Architecture .NET Standard","confidence":"INFERRED","entity_id":"DOCENT-GH-OPCFOUNDATION-NETSTD-001","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-GH-OPCFOUNDATION-NODESET-002","confidence":"OFFICIAL","entity_id":"DOCENT-GH-OPCFOUNDATION-NODESET-002","resolution_status":"RESOLVED"}
+{"alias":"UA-Nodeset \u2014 normative UANodeSets released with a specification","confidence":"INFERRED","entity_id":"DOCENT-GH-OPCFOUNDATION-NODESET-002","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-GH-OPCFOUNDATION-ORG-003","confidence":"OFFICIAL","entity_id":"DOCENT-GH-OPCFOUNDATION-ORG-003","resolution_status":"RESOLVED"}
+{"alias":"OPC Foundation \u2014 GitHub organization","confidence":"INFERRED","entity_id":"DOCENT-GH-OPCFOUNDATION-ORG-003","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-GH-OPENPLC-V3-004","confidence":"OFFICIAL","entity_id":"DOCENT-GH-OPENPLC-V3-004","resolution_status":"RESOLVED"}
+{"alias":"OpenPLC_v3 \u2014 OpenPLC Runtime version 3","confidence":"INFERRED","entity_id":"DOCENT-GH-OPENPLC-V3-004","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-GH-MATIEC-005","confidence":"OFFICIAL","entity_id":"DOCENT-GH-MATIEC-005","resolution_status":"RESOLVED"}
+{"alias":"matiec \u2014 IEC 61131-3 compiler (ST/IL/SFC to ANSI C)","confidence":"INFERRED","entity_id":"DOCENT-GH-MATIEC-005","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-GH-BEREMIZ-006","confidence":"OFFICIAL","entity_id":"DOCENT-GH-BEREMIZ-006","resolution_status":"RESOLVED"}
+{"alias":"beremiz \u2014 IDE for machine automation (IEC 61131)","confidence":"INFERRED","entity_id":"DOCENT-GH-BEREMIZ-006","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-GH-PLCOPEN-XML-TO-TEXT-007","confidence":"OFFICIAL","entity_id":"DOCENT-GH-PLCOPEN-XML-TO-TEXT-007","resolution_status":"RESOLVED"}
+{"alias":"PLCOpen-XML-to-Text-Parser \u2014 Convert PLCopen XML exports to readable text","confidence":"INFERRED","entity_id":"DOCENT-GH-PLCOPEN-XML-TO-TEXT-007","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-GH-PLCOPEN-XML-XCORE-008","confidence":"OFFICIAL","entity_id":"DOCENT-GH-PLCOPEN-XML-XCORE-008","resolution_status":"RESOLVED"}
+{"alias":"plcopen-xml-xcore \u2014 PLCopen XML implemented as Xcore model","confidence":"INFERRED","entity_id":"DOCENT-GH-PLCOPEN-XML-XCORE-008","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-WEB-PLCOPEN-IEC61131-10-009","confidence":"OFFICIAL","entity_id":"DOCENT-WEB-PLCOPEN-IEC61131-10-009","resolution_status":"RESOLVED"}
+{"alias":"IEC 61131-10 PLCopen XML Exchange Format","confidence":"INFERRED","entity_id":"DOCENT-WEB-PLCOPEN-IEC61131-10-009","resolution_status":"AMBIGUOUS"}
+{"alias":"DOCENT-WEB-SE-COMMUNITY-FORUMS-010","confidence":"OFFICIAL","entity_id":"DOCENT-WEB-SE-COMMUNITY-FORUMS-010","resolution_status":"RESOLVED"}
+{"alias":"Forums \u2014 Schneider Electric Community","confidence":"INFERRED","entity_id":"DOCENT-WEB-SE-COMMUNITY-FORUMS-010","resolution_status":"AMBIGUOUS"}
+{"alias":"mch_tk401_line","confidence":"OFFICIAL","entity_id":"mch_tk401_line","resolution_status":"RESOLVED"}
+{"alias":"TK-401 Transfer Line","confidence":"INFERRED","entity_id":"mch_tk401_line","resolution_status":"AMBIGUOUS"}
+{"alias":"plc_demo","confidence":"OFFICIAL","entity_id":"plc_demo","resolution_status":"RESOLVED"}
+{"alias":"TK-401 Controller","confidence":"INFERRED","entity_id":"plc_demo","resolution_status":"AMBIGUOUS"}
+{"alias":"TK-401","confidence":"OFFICIAL","entity_id":"TK-401","resolution_status":"RESOLVED"}
+{"alias":"Source Tank TK-401","confidence":"INFERRED","entity_id":"TK-401","resolution_status":"CANDIDATE"}
+{"alias":"P401","confidence":"OFFICIAL","entity_id":"P401","resolution_status":"RESOLVED"}
+{"alias":"Transfer Pump P401","confidence":"INFERRED","entity_id":"P401","resolution_status":"CANDIDATE"}
+{"alias":"XV401","confidence":"OFFICIAL","entity_id":"XV401","resolution_status":"RESOLVED"}
+{"alias":"Discharge Valve XV401","confidence":"INFERRED","entity_id":"XV401","resolution_status":"CANDIDATE"}
+{"alias":"LT401","confidence":"OFFICIAL","entity_id":"LT401","resolution_status":"RESOLVED"}
+{"alias":"Tank level transmitter","confidence":"INFERRED","entity_id":"LT401","resolution_status":"AMBIGUOUS"}
+{"alias":"PT401","confidence":"OFFICIAL","entity_id":"PT401","resolution_status":"RESOLVED"}
+{"alias":"Discharge pressure transmitter (baseline range 0-10 bar)","confidence":"INFERRED","entity_id":"PT401","resolution_status":"AMBIGUOUS"}
+{"alias":"P401_RUNNING","confidence":"OFFICIAL","entity_id":"P401_RUNNING","resolution_status":"RESOLVED"}
+{"alias":"Pump running feedback","confidence":"INFERRED","entity_id":"P401_RUNNING","resolution_status":"AMBIGUOUS"}
+{"alias":"P401_FAULT","confidence":"OFFICIAL","entity_id":"P401_FAULT","resolution_status":"RESOLVED"}
+{"alias":"Pump fault / motor overload","confidence":"INFERRED","entity_id":"P401_FAULT","resolution_status":"AMBIGUOUS"}
+{"alias":"P401_ESTOP_OK","confidence":"OFFICIAL","entity_id":"P401_ESTOP_OK","resolution_status":"RESOLVED"}
+{"alias":"E-stop circuit healthy (interlock)","confidence":"INFERRED","entity_id":"P401_ESTOP_OK","resolution_status":"AMBIGUOUS"}
+{"alias":"P401_START_REQ","confidence":"OFFICIAL","entity_id":"P401_START_REQ","resolution_status":"RESOLVED"}
+{"alias":"Start request coil","confidence":"INFERRED","entity_id":"P401_START_REQ","resolution_status":"AMBIGUOUS"}
+{"alias":"P401_STOP_REQ","confidence":"OFFICIAL","entity_id":"P401_STOP_REQ","resolution_status":"RESOLVED"}
+{"alias":"Stop request coil","confidence":"INFERRED","entity_id":"P401_STOP_REQ","resolution_status":"AMBIGUOUS"}
+{"alias":"XV401_OPEN","confidence":"OFFICIAL","entity_id":"XV401_OPEN","resolution_status":"RESOLVED"}
+{"alias":"Valve open limit switch","confidence":"INFERRED","entity_id":"XV401_OPEN","resolution_status":"AMBIGUOUS"}
+{"alias":"XV401_CLOSED","confidence":"OFFICIAL","entity_id":"XV401_CLOSED","resolution_status":"RESOLVED"}
+{"alias":"Valve closed limit switch","confidence":"INFERRED","entity_id":"XV401_CLOSED","resolution_status":"AMBIGUOUS"}
+{"alias":"XV401_OPEN_REQ","confidence":"OFFICIAL","entity_id":"XV401_OPEN_REQ","resolution_status":"RESOLVED"}
+{"alias":"Valve open request coil","confidence":"INFERRED","entity_id":"XV401_OPEN_REQ","resolution_status":"AMBIGUOUS"}
+{"alias":"XV401_CLOSE_REQ","confidence":"OFFICIAL","entity_id":"XV401_CLOSE_REQ","resolution_status":"RESOLVED"}
+{"alias":"Valve close request coil","confidence":"INFERRED","entity_id":"XV401_CLOSE_REQ","resolution_status":"AMBIGUOUS"}
+{"alias":"P401_START","confidence":"OFFICIAL","entity_id":"P401_START","resolution_status":"RESOLVED"}
+{"alias":"P401_STOP","confidence":"OFFICIAL","entity_id":"P401_STOP","resolution_status":"RESOLVED"}
+{"alias":"XV401_OPEN","confidence":"OFFICIAL","entity_id":"XV401_OPEN","resolution_status":"RESOLVED"}
+{"alias":"XV401_CLOSE","confidence":"OFFICIAL","entity_id":"XV401_CLOSE","resolution_status":"RESOLVED"}
+{"alias":"IL_P401_ESTOP","confidence":"OFFICIAL","entity_id":"IL_P401_ESTOP","resolution_status":"RESOLVED"}
+{"alias":"P401 hard interlock","confidence":"INFERRED","entity_id":"IL_P401_ESTOP","resolution_status":"AMBIGUOUS"}
+{"alias":"ALM_LT401_HH","confidence":"OFFICIAL","entity_id":"ALM_LT401_HH","resolution_status":"RESOLVED"}
+{"alias":"TK-401 level high-high","confidence":"INFERRED","entity_id":"ALM_LT401_HH","resolution_status":"AMBIGUOUS"}
+{"alias":"ALM_LT401_H","confidence":"OFFICIAL","entity_id":"ALM_LT401_H","resolution_status":"RESOLVED"}
+{"alias":"TK-401 level high","confidence":"INFERRED","entity_id":"ALM_LT401_H","resolution_status":"AMBIGUOUS"}
+{"alias":"ALM_LT401_LL","confidence":"OFFICIAL","entity_id":"ALM_LT401_LL","resolution_status":"RESOLVED"}
+{"alias":"TK-401 level low-low (pump dry-run risk)","confidence":"INFERRED","entity_id":"ALM_LT401_LL","resolution_status":"AMBIGUOUS"}
+{"alias":"ALM_PT401_HH","confidence":"OFFICIAL","entity_id":"ALM_PT401_HH","resolution_status":"RESOLVED"}
+{"alias":"P401 discharge pressure high-high","confidence":"INFERRED","entity_id":"ALM_PT401_HH","resolution_status":"AMBIGUOUS"}
+{"alias":"ALM_P401_FAULT","confidence":"OFFICIAL","entity_id":"ALM_P401_FAULT","resolution_status":"RESOLVED"}
+{"alias":"P401 motor fault","confidence":"INFERRED","entity_id":"ALM_P401_FAULT","resolution_status":"AMBIGUOUS"}
+{"alias":"ALM_P401_CMD_TIMEOUT","confidence":"OFFICIAL","entity_id":"ALM_P401_CMD_TIMEOUT","resolution_status":"RESOLVED"}
+{"alias":"P401 start command timeout","confidence":"INFERRED","entity_id":"ALM_P401_CMD_TIMEOUT","resolution_status":"AMBIGUOUS"}
+{"alias":"STATE_pump_Idle","confidence":"OFFICIAL","entity_id":"STATE_pump_Idle","resolution_status":"RESOLVED"}
+{"alias":"pump:Idle","confidence":"INFERRED","entity_id":"STATE_pump_Idle","resolution_status":"CANDIDATE"}
+{"alias":"STATE_pump_Starting","confidence":"OFFICIAL","entity_id":"STATE_pump_Starting","resolution_status":"RESOLVED"}
+{"alias":"pump:Starting","confidence":"INFERRED","entity_id":"STATE_pump_Starting","resolution_status":"CANDIDATE"}
+{"alias":"STATE_pump_Running","confidence":"OFFICIAL","entity_id":"STATE_pump_Running","resolution_status":"RESOLVED"}
+{"alias":"pump:Running","confidence":"INFERRED","entity_id":"STATE_pump_Running","resolution_status":"CANDIDATE"}
+{"alias":"STATE_pump_Stopping","confidence":"OFFICIAL","entity_id":"STATE_pump_Stopping","resolution_status":"RESOLVED"}
+{"alias":"pump:Stopping","confidence":"INFERRED","entity_id":"STATE_pump_Stopping","resolution_status":"CANDIDATE"}
+{"alias":"STATE_pump_Faulted","confidence":"OFFICIAL","entity_id":"STATE_pump_Faulted","resolution_status":"RESOLVED"}
+{"alias":"pump:Faulted","confidence":"INFERRED","entity_id":"STATE_pump_Faulted","resolution_status":"CANDIDATE"}
+{"alias":"STATE_valve_Closed","confidence":"OFFICIAL","entity_id":"STATE_valve_Closed","resolution_status":"RESOLVED"}
+{"alias":"valve:Closed","confidence":"INFERRED","entity_id":"STATE_valve_Closed","resolution_status":"CANDIDATE"}
+{"alias":"STATE_valve_Opening","confidence":"OFFICIAL","entity_id":"STATE_valve_Opening","resolution_status":"RESOLVED"}
+{"alias":"valve:Opening","confidence":"INFERRED","entity_id":"STATE_valve_Opening","resolution_status":"CANDIDATE"}
+{"alias":"STATE_valve_Open","confidence":"OFFICIAL","entity_id":"STATE_valve_Open","resolution_status":"RESOLVED"}
+{"alias":"valve:Open","confidence":"INFERRED","entity_id":"STATE_valve_Open","resolution_status":"CANDIDATE"}
+{"alias":"STATE_valve_Closing","confidence":"OFFICIAL","entity_id":"STATE_valve_Closing","resolution_status":"RESOLVED"}
+{"alias":"valve:Closing","confidence":"INFERRED","entity_id":"STATE_valve_Closing","resolution_status":"CANDIDATE"}
+{"alias":"STATE_valve_Fault","confidence":"OFFICIAL","entity_id":"STATE_valve_Fault","resolution_status":"RESOLVED"}
+{"alias":"valve:Fault","confidence":"INFERRED","entity_id":"STATE_valve_Fault","resolution_status":"CANDIDATE"}
+{"alias":"opcua","confidence":"OFFICIAL","entity_id":"opcua","resolution_status":"RESOLVED"}
+{"alias":"modbus_tcp","confidence":"OFFICIAL","entity_id":"modbus_tcp","resolution_status":"RESOLVED"}
+{"alias":"ethernet_ip","confidence":"OFFICIAL","entity_id":"ethernet_ip","resolution_status":"RESOLVED"}
+{"alias":"profinet","confidence":"OFFICIAL","entity_id":"profinet","resolution_status":"RESOLVED"}
+{"alias":"canopen","confidence":"OFFICIAL","entity_id":"canopen","resolution_status":"RESOLVED"}
+{"alias":"mqtt","confidence":"OFFICIAL","entity_id":"mqtt","resolution_status":"RESOLVED"}
+{"alias":"websocket","confidence":"OFFICIAL","entity_id":"websocket","resolution_status":"RESOLVED"}
+{"alias":"rest","confidence":"OFFICIAL","entity_id":"rest","resolution_status":"RESOLVED"}
+{"alias":"CMP_TankLevel","confidence":"OFFICIAL","entity_id":"CMP_TankLevel","resolution_status":"RESOLVED"}
+{"alias":"TankLevel","confidence":"INFERRED","entity_id":"CMP_TankLevel","resolution_status":"CANDIDATE"}
+{"alias":"CMP_PressureGauge","confidence":"OFFICIAL","entity_id":"CMP_PressureGauge","resolution_status":"RESOLVED"}
+{"alias":"PressureGauge","confidence":"INFERRED","entity_id":"CMP_PressureGauge","resolution_status":"CANDIDATE"}
+{"alias":"CMP_MotorStarter","confidence":"OFFICIAL","entity_id":"CMP_MotorStarter","resolution_status":"RESOLVED"}
+{"alias":"MotorStarter","confidence":"INFERRED","entity_id":"CMP_MotorStarter","resolution_status":"CANDIDATE"}
+{"alias":"CMP_ValveStatus","confidence":"OFFICIAL","entity_id":"CMP_ValveStatus","resolution_status":"RESOLVED"}
+{"alias":"ValveStatus","confidence":"INFERRED","entity_id":"CMP_ValveStatus","resolution_status":"CANDIDATE"}
+{"alias":"CMP_AlarmBanner","confidence":"OFFICIAL","entity_id":"CMP_AlarmBanner","resolution_status":"RESOLVED"}
+{"alias":"AlarmBanner","confidence":"INFERRED","entity_id":"CMP_AlarmBanner","resolution_status":"CANDIDATE"}
+{"alias":"CMP_AlarmList","confidence":"OFFICIAL","entity_id":"CMP_AlarmList","resolution_status":"RESOLVED"}
+{"alias":"AlarmList","confidence":"INFERRED","entity_id":"CMP_AlarmList","resolution_status":"CANDIDATE"}
+{"alias":"CMP_Trend","confidence":"OFFICIAL","entity_id":"CMP_Trend","resolution_status":"RESOLVED"}
+{"alias":"Trend","confidence":"INFERRED","entity_id":"CMP_Trend","resolution_status":"CANDIDATE"}
+{"alias":"CMP_NumericValue","confidence":"OFFICIAL","entity_id":"CMP_NumericValue","resolution_status":"RESOLVED"}
+{"alias":"NumericValue","confidence":"INFERRED","entity_id":"CMP_NumericValue","resolution_status":"CANDIDATE"}
+{"alias":"CMP_NavHeader","confidence":"OFFICIAL","entity_id":"CMP_NavHeader","resolution_status":"RESOLVED"}
+{"alias":"NavHeader","confidence":"INFERRED","entity_id":"CMP_NavHeader","resolution_status":"CANDIDATE"}
+{"alias":"CMP_PermissivePanel","confidence":"OFFICIAL","entity_id":"CMP_PermissivePanel","resolution_status":"RESOLVED"}
+{"alias":"PermissivePanel","confidence":"INFERRED","entity_id":"CMP_PermissivePanel","resolution_status":"CANDIDATE"}
+{"alias":"CMP_QualityBadge","confidence":"OFFICIAL","entity_id":"CMP_QualityBadge","resolution_status":"RESOLVED"}
+{"alias":"QualityBadge","confidence":"INFERRED","entity_id":"CMP_QualityBadge","resolution_status":"CANDIDATE"}
+{"alias":"CMP_RecipeTable","confidence":"OFFICIAL","entity_id":"CMP_RecipeTable","resolution_status":"RESOLVED"}
+{"alias":"RecipeTable","confidence":"INFERRED","entity_id":"CMP_RecipeTable","resolution_status":"CANDIDATE"}
+{"alias":"CMP_InterlockMatrix","confidence":"OFFICIAL","entity_id":"CMP_InterlockMatrix","resolution_status":"RESOLVED"}
+{"alias":"InterlockMatrix","confidence":"INFERRED","entity_id":"CMP_InterlockMatrix","resolution_status":"CANDIDATE"}
+{"alias":"CMP_TopologyView","confidence":"OFFICIAL","entity_id":"CMP_TopologyView","resolution_status":"RESOLVED"}
+{"alias":"TopologyView","confidence":"INFERRED","entity_id":"CMP_TopologyView","resolution_status":"CANDIDATE"}

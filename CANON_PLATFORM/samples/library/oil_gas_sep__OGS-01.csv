@@ -1,0 +1,50 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+TK-101,tank,LT-101,analog-in,%,0,100,90,80,20,10,level
+TK-101,tank,PT-101,analog-in,bar,0,16,14,12,,2,pressure
+TK-102,tank,LT-102,analog-in,%,0,100,90,80,20,10,level
+TK-102,tank,PT-102,analog-in,bar,0,16,14,12,,2,pressure
+P-101,pump,PT-101,analog-in,bar,0,16,14,12,,2,pressure
+P-101,pump,P-101_RUNNING,discrete-in,,,,,,,,running
+P-101,pump,P-101_FAULT,discrete-in,,,,,,,,fault
+P-101,pump,P-101_START_REQ,discrete-out,,,,,,,,start
+P-101,pump,P-101_STOP_REQ,discrete-out,,,,,,,,stop
+P-102,pump,PT-102,analog-in,bar,0,16,14,12,,2,pressure
+P-102,pump,P-102_RUNNING,discrete-in,,,,,,,,running
+P-102,pump,P-102_FAULT,discrete-in,,,,,,,,fault
+P-102,pump,P-102_START_REQ,discrete-out,,,,,,,,start
+P-102,pump,P-102_STOP_REQ,discrete-out,,,,,,,,stop
+P-103,pump,PT-103,analog-in,bar,0,16,14,12,,2,pressure
+P-103,pump,P-103_RUNNING,discrete-in,,,,,,,,running
+P-103,pump,P-103_FAULT,discrete-in,,,,,,,,fault
+P-103,pump,P-103_START_REQ,discrete-out,,,,,,,,start
+P-103,pump,P-103_STOP_REQ,discrete-out,,,,,,,,stop
+P-104,pump,PT-104,analog-in,bar,0,16,14,12,,2,pressure
+P-104,pump,P-104_RUNNING,discrete-in,,,,,,,,running
+P-104,pump,P-104_FAULT,discrete-in,,,,,,,,fault
+P-104,pump,P-104_START_REQ,discrete-out,,,,,,,,start
+P-104,pump,P-104_STOP_REQ,discrete-out,,,,,,,,stop
+P-105,pump,PT-105,analog-in,bar,0,16,14,12,,2,pressure
+P-105,pump,P-105_RUNNING,discrete-in,,,,,,,,running
+P-105,pump,P-105_FAULT,discrete-in,,,,,,,,fault
+P-105,pump,P-105_START_REQ,discrete-out,,,,,,,,start
+P-105,pump,P-105_STOP_REQ,discrete-out,,,,,,,,stop
+XV-101,valve,XV-101_OPEN,discrete-in,,,,,,,,open limit
+XV-101,valve,XV-101_CLOSED,discrete-in,,,,,,,,closed limit
+XV-101,valve,XV-101_OPEN_REQ,discrete-out,,,,,,,,open
+XV-101,valve,XV-101_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-102,valve,XV-102_OPEN,discrete-in,,,,,,,,open limit
+XV-102,valve,XV-102_CLOSED,discrete-in,,,,,,,,closed limit
+XV-102,valve,XV-102_OPEN_REQ,discrete-out,,,,,,,,open
+XV-102,valve,XV-102_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-103,valve,XV-103_OPEN,discrete-in,,,,,,,,open limit
+XV-103,valve,XV-103_CLOSED,discrete-in,,,,,,,,closed limit
+XV-103,valve,XV-103_OPEN_REQ,discrete-out,,,,,,,,open
+XV-103,valve,XV-103_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-104,valve,XV-104_OPEN,discrete-in,,,,,,,,open limit
+XV-104,valve,XV-104_CLOSED,discrete-in,,,,,,,,closed limit
+XV-104,valve,XV-104_OPEN_REQ,discrete-out,,,,,,,,open
+XV-104,valve,XV-104_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-105,valve,XV-105_OPEN,discrete-in,,,,,,,,open limit
+XV-105,valve,XV-105_CLOSED,discrete-in,,,,,,,,closed limit
+XV-105,valve,XV-105_OPEN_REQ,discrete-out,,,,,,,,open
+XV-105,valve,XV-105_CLOSE_REQ,discrete-out,,,,,,,,close

@@ -1,0 +1,111 @@
+13 — CANON Control Architecture
+
+
+
+Command contract (PROPOSED)
+
+{
+  "command": "P401_START",
+  "target": "P401",
+  "request": "P401_START_REQ",
+  "permissives": [
+    "XV401_OPEN",
+    "LT401_BELOW_HIGH_LIMIT",
+    "P401_NO_FAULT"
+  ],
+  "feedback": "P401_RUNNING",
+  "timeoutSec": 5,
+  "interlocks": ["P401_ESTOP_OK"],
+  "faults": ["P401_FAULT"]
+}
+
+The LLM may propose a contract. The engineer approves it. The PLC / simulator executes it. The LLM never becomes the interlock.
+
+
+
+Execution path
+
+Operator clicks START
+  → HMI sends {command:"P401_START"}
+    → API authenticates operator role
+      → load contract from approved model
+        → pre-check permissives from last-known runtime (UX only)
+          → write REQUEST bit via connector (OPC UA or Modbus)
+            → PLC/sim evaluates permissives + interlocks on its scan
+              → publish FEEDBACK + reject reason
+                → WS updates HMI
+                  → if timeout: CMD_TIMEOUT alarm, request auto-clears
+
+Pre-check in CANON is advisory. The PLC remains authoritative. If CANON thinks a permissive is true but the PLC disagrees, the PLC wins and the HMI shows the reject code.
+
+
+
+State model
+
+Minimal PackML-inspired device states for the demo (PROPOSED, not a claim of PackML certification):
+
+Idle → Starting → Running → Stopping → Faulted
+
+Transitions:
+
+
+
+
+
+START request + permissives OK → Starting → Running (feedback)
+
+
+
+START request + permissive fail → stay Idle + reject
+
+
+
+STOP request → Stopping → Idle
+
+
+
+Fault → Faulted (START blocked)
+
+
+
+Connector adapter
+
+PlcAdapter.write_request(signalId)
+PlcAdapter.read(signalId)
+PlcAdapter.subscribe(signalIds, callback)
+
+Implementations: OpcUaAdapter(asyncua), ModbusAdapter(pymodbus), SimAdapter(in-process).
+
+The adapter maps signalId → protocol address from canon_demo_io.json. It cannot write a signal whose access is not request.
+
+
+
+What the LLM must not do
+
+
+
+
+
+Invent P401_START_REQ if the model has no such signal
+
+
+
+Emit ladder/ST
+
+
+
+Choose Modbus addresses
+
+
+
+Bypass timeout
+
+
+
+Treat a chat confirmation as a command authorization
+
+
+
+Audit
+
+Every command attempt writes audit_event: who, commandId, revisionId, request ts, result, reject code, PLC quality.

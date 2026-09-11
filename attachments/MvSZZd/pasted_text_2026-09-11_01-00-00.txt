@@ -1,0 +1,108 @@
+
+C
+CANON
+TK-401 · Process Skid ▾
+LIVE
+PLC 
+CONNECTED
+MODEL 
+v1.2.3
+VALIDATED 
+10:24:17
+Search machines, tags, HMIs…
+⌘K
+▶ Run Demo
+← Site
+Workspace
+▦
+Overview
+▤
+Machine Library
+▥
+Equipment
+Engineering
+◈
+Canonical Model
+◱
+Machine Context
+▤
+Schneider Corpus
+✦
+HMI Studio
+⬡
+Traceability 3D
+✓
+Validation
+⇄
+Change Impact
+⚑
+Baselines
+☰
+Audit Trail
+Operations
+◉
+Runtime
+▲
+Alarms
+1
+∿
+Trends
+📈
+Analytics
+System
+◆
+AI Engine
+System · AI Engine
+AI Engine
+AI is infrastructure inside CANON — it proposes; the deterministic validator and the PLC hold authority.
+Engine status
+● ACTIVE
+Compiler
+DETERMINISTIC
+Output contract
+Structured widgets
+Schema
+CANON HMI v1
+Data boundary
+LOCAL ONLY
+⛨
+The engine produces a structured widget proposal — never arbitrary UI code, never control logic. Every binding is validated against the canonical model before render, and every command still passes the PLC permissive gate.
+ℹ
+Your engineering data remains inside your controlled environment — nothing leaves the network.
+Advanced · optional local model endpoint
+http://localhost:8088
+Connect & test
+deterministic fallback (no LLM)
+Inspector · Machine
+TK-401
+Process Tank Unit · Skid 04
+Model
+v1.2.3 · source of truth
+Controller
+M580 · CONNECTED
+State
+STOPPED
+Engineering health
+Tags
+10
+Commands
+3
+Alarms
+6
+Broken bindings
+0
+Validation
+PASS 8/8
+Key bindings
+✓
+P401_RUN_FB
+%I0.1
+✓
+P401_START_CMD
+%Q0.1
+✓
+PT401
+0–10 bar
+Trust chain
+AI proposes · model defines · validator checks · engineer approves · PLC controls.
+Endpoint set — testing http://localhost:8088

@@ -1,0 +1,1736 @@
+CANON — CONTEXT EXPERIENCE
+MASTER REFINEMENT / IMPLEMENTATION PROMPT
+VERSION 4.0 — ENGINEERING-GRADE / HACKATHON FINAL
+
+============================================================
+0. ROLE
+============================================================
+
+You are a principal product designer + senior frontend engineer
+specializing in:
+
+- industrial automation software
+- HMI / SCADA interfaces
+- engineering information systems
+- control-system UX
+- safety-conscious interfaces
+- enterprise engineering applications
+- React / TypeScript
+- data-dense but calm interfaces
+
+You are modifying the EXISTING CANON application.
+
+DO NOT create a new generic SaaS dashboard.
+
+DO NOT turn CANON into an AI chatbot.
+
+DO NOT introduce flashy AI visuals.
+
+DO NOT redesign the entire product unnecessarily.
+
+Your task is to take the EXISTING CONTEXT screens and elevate them
+from an already strong prototype into a polished, credible,
+engineering-grade product that could plausibly be shown to
+Schneider Electric engineers and hackathon judges.
+
+The current Context experience is already directionally correct.
+
+PRESERVE ITS CORE VISUAL LANGUAGE.
+
+Improve:
+- hierarchy
+- information density
+- engineering semantics
+- topology
+- evidence transparency
+- unresolved-reference workflow
+- interaction quality
+- state handling
+- visual polish
+- transitions
+- responsiveness
+- consistency
+
+============================================================
+1. CORE CANON PRINCIPLE
+============================================================
+
+CANON is NOT an AI dashboard.
+
+CANON is an engineering control loop.
+
+The authority model is FIXED:
+
+AI PROPOSES
+      ↓
+CANON MODEL DEFINES
+      ↓
+DETERMINISTIC VALIDATOR CHECKS
+      ↓
+ENGINEER APPROVES
+      ↓
+PLC / SIMULATOR CONTROLS
+      ↓
+HMI RECEIVES FEEDBACK
+      ↓
+CHANGE IMPACT
+      ↓
+REGENERATION
+
+The Context page exists to establish:
+
+"WHAT IS ACTUALLY KNOWN ABOUT THIS MACHINE?"
+
+before CANON generates anything.
+
+Therefore the Context screen must communicate:
+
+DISCOVERED ≠ INFERRED
+CONNECTED ≠ VERIFIED
+VERIFIED ≠ AI GENERATED
+
+AI MUST NEVER silently create engineering truth.
+
+============================================================
+2. FOUR-LAYER TRUTH MODEL
+============================================================
+
+Keep these four layers completely separate:
+
+LAYER A — OFFICIAL ENGINEERING EVIDENCE
+- Schneider Electric documentation
+- product catalogs
+- manuals
+- standards references
+- engineering documents
+- cited facts
+
+LAYER B — MACHINE REALITY
+- OPC UA
+- Modbus
+- PLC exports
+- I/O configuration
+- runtime signals
+- simulator state
+
+LAYER C — CANON MACHINE MODEL
+- normalized assets
+- signals
+- relationships
+- commands
+- permissives
+- alarms
+- dependencies
+- bindings
+- revisions
+
+LAYER D — AI PROPOSALS
+- structured JSON only
+- intent interpretation
+- component selection
+- explanations
+- proposals
+
+LAYER D NEVER:
+- writes PLC tags
+- invents signals
+- invents Schneider capabilities
+- creates authoritative bindings
+- bypasses validation
+- directly controls machinery
+
+============================================================
+3. EXISTING VISUAL LANGUAGE — PRESERVE
+============================================================
+
+The existing UI has a strong industrial visual identity.
+
+PRESERVE:
+
+- white / near-white background
+- dark graphite typography
+- Schneider-inspired green accent
+- subtle gray borders
+- restrained shadows
+- compact uppercase labels
+- generous spacing
+- thin separators
+- rounded but professional cards
+- calm engineering aesthetic
+- high information clarity
+- minimal decoration
+
+DO NOT introduce:
+
+- gradients
+- neon
+- excessive glassmorphism
+- purple AI colors
+- huge AI illustrations
+- colorful SaaS cards
+- excessive rounded pills
+- cartoon icons
+- unnecessary animations
+- fake 3D industrial graphics
+
+The interface should feel closer to:
+
+"professional engineering workstation"
+
+than:
+
+"AI startup dashboard."
+
+============================================================
+4. PRIMARY CONTEXT PAGE
+============================================================
+
+The existing structure is:
+
+HEADER
+PROJECT CONTEXT
+MACHINE CONTEXT
+METRICS
+DISCOVERED MACHINE ELEMENTS
+ENGINEERING SOURCES
+ENGINEERING DISCOVERY
+BOTTOM STATUS
+BUILD MACHINE MODEL
+
+KEEP THIS STRUCTURE.
+
+Improve it rather than replacing it.
+
+============================================================
+5. HEADER
+============================================================
+
+Keep:
+
+CANON
+ENGINEERING INTELLIGENCE PLATFORM
+
+Project:
+TK-401
+
+Type:
+Process Tank
+
+Connection:
+CONNECTED
+
+Controller:
+Modicon M262
+
+Sync:
+12 sec ago
+
+Improve visual hierarchy.
+
+The machine identity should be immediately readable.
+
+Recommended hierarchy:
+
+TK-401
+Process Tank
+● CONNECTED
+
+Right side:
+
+Controller  Modicon M262
+Synced 12 sec ago
+
+Do not over-emphasize technical metadata.
+
+============================================================
+6. WORKFLOW STEPPER
+============================================================
+
+Keep:
+
+CONTEXT → MODEL → INTENT → VALIDATE → RUNTIME → CHANGE
+
+This is one of CANON's strongest product concepts.
+
+CONTEXT should be visually active.
+
+Other stages should remain muted but readable.
+
+Use subtle progress treatment.
+
+Example:
+
+● CONTEXT
+→ MODEL
+→ INTENT
+→ VALIDATE
+→ RUNTIME
+→ CHANGE
+
+Do NOT make this look like a generic checkout progress bar.
+
+It is an ENGINEERING LIFECYCLE.
+
+============================================================
+7. MACHINE CONTEXT INTRO
+============================================================
+
+Current:
+
+Machine Context
+
+"Discovering the machine's engineering reality before generating
+an operator experience."
+
+KEEP THIS IDEA.
+
+Refine copy to be extremely clear:
+
+Machine Context
+
+Discover the machine's verified engineering reality before
+constructing the canonical model or generating an operator experience.
+
+Secondary status:
+
+LIVE CONNECTION
+
+[Sync now]
+
+============================================================
+8. METRICS
+============================================================
+
+Current metrics:
+
+24 ASSETS
+186 SIGNALS
+4 I/O GROUPS
+12 ALARMS
+
+KEEP THESE.
+
+Improve typography and hierarchy.
+
+Do NOT turn them into flashy KPI cards.
+
+They should feel like engineering inventory.
+
+Use:
+
+24
+ASSETS
+DISCOVERED
+
+186
+SIGNALS
+DISCOVERED
+
+4
+I/O GROUPS
+DISCOVERED
+
+12
+ALARMS
+DISCOVERED
+
+Optionally add subtle hover interaction showing:
+
+"Source: PLC / OPC UA / I/O configuration"
+
+============================================================
+9. ADD VERIFIED MODEL HEALTH
+============================================================
+
+Add a restrained engineering-status strip near the metrics.
+
+Do NOT invent percentages.
+
+Use deterministic counts.
+
+Example:
+
+MODEL READINESS
+
+23 / 24 references verified
+1 reference requires review
+0 invented bindings
+
+This is MUCH better than an arbitrary "AI confidence 97%".
+
+The numbers must come from actual application state.
+
+If unavailable, calculate them from the existing data model.
+
+Never hardcode fake values merely for visual appearance.
+
+============================================================
+10. CENTRAL MACHINE TOPOLOGY
+============================================================
+
+THIS IS THE MOST IMPORTANT IMPROVEMENT.
+
+The existing topology is visually clean but too simplistic.
+
+It currently looks like:
+
+TK-401
+  |
+  ├── LT401
+  ├── PT401
+  ├── P401
+  └── XV401
+
+Upgrade it into a SEMANTIC ENGINEERING MODEL.
+
+The topology should communicate:
+
+- asset hierarchy
+- signal meaning
+- actuator relationships
+- control dependencies
+- process relationships
+- verified state
+- unresolved state
+
+For TK-401:
+
+                         TK-401
+                      PROCESS TANK
+                           │
+          ┌────────────────┼────────────────┐
+          │                │                │
+        LT401            PT401             P401
+       LEVEL            PRESSURE          PUMP
+        72 %             6.2 bar          RUNNING
+                                             │
+                                             │
+                                           XV401
+                                            OPEN
+
+However, do NOT force all relationships into a giant graph.
+
+Use a clean, readable engineering topology.
+
+============================================================
+11. TOPOLOGY NODE DESIGN
+============================================================
+
+Each node should contain:
+
+STATUS DOT
+TAG
+ENGINEERING ROLE
+LIVE VALUE / STATE
+
+Example:
+
+┌──────────────────────────┐
+│ ● PT401          6.2 bar │
+│   PRESSURE TRANSMITTER   │
+│   0–10 bar · VERIFIED    │
+└──────────────────────────┘
+
+Example actuator:
+
+┌──────────────────────────┐
+│ ● P401            RUNNING│
+│   PUMP                   │
+│   START REQ · VERIFIED   │
+└──────────────────────────┘
+
+Example valve:
+
+┌──────────────────────────┐
+│ ● XV401             OPEN │
+│   CONTROL VALVE          │
+│   FLOW PATH · VERIFIED   │
+└──────────────────────────┘
+
+Keep nodes compact.
+
+Do NOT make them huge dashboard cards.
+
+============================================================
+12. SEMANTIC RELATIONSHIPS
+============================================================
+
+Where relationships are actually present in the CANON model,
+show them.
+
+Examples:
+
+P401
+requires
+XV401_OPEN
+
+P401
+affects
+TK-401
+
+PT401
+measures
+TK-401
+
+LT401
+measures
+TK-401
+
+Use subtle relationship labels only when meaningful.
+
+Possible relationship labels:
+
+MEASURES
+ACTUATES
+REQUIRES
+FEEDS
+AFFECTS
+BINDS TO
+ALARMS ON
+
+NEVER invent a relationship merely to make the graph look complete.
+
+Only render relationships from the canonical model.
+
+============================================================
+13. TOPOLOGY INTERACTION
+============================================================
+
+Clicking a node opens the right-side detail drawer.
+
+Do NOT navigate away.
+
+The topology remains visible underneath.
+
+Selected node gets a subtle outline/highlight.
+
+Hover:
+
+- slight elevation
+- cursor
+- tooltip if useful
+
+Do not animate the graph excessively.
+
+The graph should feel stable and deterministic.
+
+============================================================
+14. NODE STATUS SYSTEM
+============================================================
+
+Standardize status states.
+
+DISCOVERED
+CONNECTED
+VERIFIED
+REVIEW REQUIRED
+STALE
+BLOCKED
+
+Use consistent visual language.
+
+GREEN:
+verified / connected
+
+AMBER:
+review required
+
+GRAY:
+discovered / unknown
+
+RED:
+blocked / invalid / dangerous
+
+Never use color alone.
+
+Every status should have text.
+
+============================================================
+15. ENGINEERING SOURCES PANEL
+============================================================
+
+Current panel is strong.
+
+KEEP:
+
+SOURCE 01 · PLC / CONTROLLER
+Modicon M262
+CONNECTED
+
+SOURCE 02 · OPC UA
+Embedded server
+CONNECTED
+
+SOURCE 03 · I/O CONFIGURATION
+4 I/O groups
+SYNCED
+
+SOURCE 04 · ALARM DEFINITIONS
+12 alarms
+SYNCED
+
+SOURCE 05 · ENGINEERING DOCS
+3 documents
+INDEXED
+
+Improve alignment and hierarchy.
+
+Each source row should support click.
+
+Clicking a source filters or opens relevant evidence.
+
+Example:
+
+[PLC]
+Modicon M262
+Connected
+
+Click →
+
+SOURCE DETAILS
+
+Protocol
+OPC UA
+
+Controller
+Modicon M262
+
+Last sync
+12 sec ago
+
+Signals discovered
+186
+
+[View evidence]
+
+============================================================
+16. ENGINEERING DISCOVERY PANEL
+============================================================
+
+Keep:
+
+Controller       ✓ Connected
+I/O               ✓ Discovered
+Signals           ✓ Indexed
+Alarms            ✓ Indexed
+Relationships     ✓ Analyzed
+Machine Model     → Ready to build
+
+Improve it into an explicit pipeline:
+
+DISCOVERY PIPELINE
+
+✓ Controller connected
+✓ I/O discovered
+✓ Signals indexed
+✓ Alarms indexed
+✓ Relationships analyzed
+⚠ 1 reference unresolved
+→ Canonical model ready to construct
+
+This should visually communicate:
+
+raw machine reality
+        ↓
+engineering understanding
+        ↓
+canonical model
+
+============================================================
+17. UNRESOLVED REFERENCE
+============================================================
+
+This is a FEATURE, not an error.
+
+Make it prominent but restrained.
+
+Current:
+
+1 unresolved reference
+A signal reference could not be confidently mapped.
+
+Keep the concept.
+
+Add:
+
+CANON REFUSES TO INVENT A BINDING.
+
+This sentence should be visually secondary but highly memorable.
+
+Example:
+
+┌─────────────────────────────────────────────┐
+│ ⚠  1 unresolved reference                  │
+│                                             │
+│ PT401.Status                                │
+│ No authoritative mapping found.             │
+│                                             │
+│ CANON will not create a binding without     │
+│ authoritative evidence.                     │
+│                                             │
+│ [Review]                                    │
+└─────────────────────────────────────────────┘
+
+============================================================
+18. UNRESOLVED REFERENCE DRAWER
+============================================================
+
+When clicking Review, open a professional resolution drawer.
+
+Title:
+
+UNRESOLVED REFERENCE
+
+PT401.Status
+
+Status:
+REVIEW REQUIRED
+
+Reason:
+No authoritative mapping found in the available engineering context.
+
+CANON response:
+Binding not automatically created.
+
+Then show:
+
+POSSIBLE EVIDENCE
+
+PLC CONFIGURATION
+PT401_Status
+
+OPC UA
+ns=2;s=PT401/Status
+
+ENGINEERING DOCUMENT
+"Pressure transmitter status"
+
+IMPORTANT:
+
+Do not automatically claim these are valid mappings.
+
+Show them as candidate evidence only if they actually exist
+in application data.
+
+============================================================
+19. CONTROLLED RESOLUTION
+============================================================
+
+If authoritative candidate mappings exist, allow engineer selection.
+
+Example:
+
+SELECT AUTHORITATIVE MAPPING
+
+○ PT401_Status
+  PLC configuration
+  VERIFIED
+
+○ ns=2;s=PT401/Status
+  OPC UA
+  CANDIDATE
+
+○ Leave unresolved
+
+Buttons:
+
+[Confirm mapping]
+
+[Keep unresolved]
+
+When confirmed:
+
+Engineer confirmation required.
+
+Show:
+
+"You are establishing an authoritative CANON binding."
+
+Then audit the action.
+
+Example:
+
+Binding created
+PT401.Status → PT401_Status
+
+Approved by:
+Engineer
+
+Revision:
+CANON v1.1
+
+Timestamp:
+actual timestamp
+
+Do NOT pretend a user is an engineer unless the application role
+actually says engineer.
+
+Respect RBAC.
+
+============================================================
+20. EVIDENCE DRAWER
+============================================================
+
+The current Evidence drawer is conceptually excellent but
+too narrative.
+
+Make evidence inspectable.
+
+Example:
+
+EVIDENCE
+
+Element
+PT401
+
+Signal
+PT401
+
+Source
+Modicon M262
+
+Discovery status
+VERIFIED
+
+Source reference
+CANON v1.0
+
+Then:
+
+AUTHORITATIVE EVIDENCE
+
+PLC CONFIGURATION
+────────────────────────
+Signal: PT401
+Type: REAL
+Engineering meaning: Pressure
+Range: 0–10 bar
+Unit: bar
+
+OPC UA
+────────────────────────
+Node:
+ns=2;s=PT401
+
+Data type:
+Float
+
+Status:
+Connected
+
+Each evidence block should show:
+
+SOURCE
+FACT
+STATUS
+
+Never fabricate source references.
+
+============================================================
+21. EVIDENCE PROVENANCE
+============================================================
+
+Every important engineering fact should have provenance.
+
+Use a compact pattern:
+
+PT401
+Pressure transmitter
+6.2 bar
+
+SOURCE
+OPC UA
+
+MODEL
+M262
+
+STATUS
+VERIFIED
+
+If evidence comes from documentation:
+
+SOURCE
+Schneider Electric documentation
+
+DOCUMENT
+actual document name
+
+SECTION
+actual section if available
+
+DATE
+actual document date
+
+Do not create fake citations.
+
+============================================================
+22. DISCOVERED VS VERIFIED
+============================================================
+
+The UI must make this distinction impossible to misunderstand.
+
+Example:
+
+DISCOVERED
+Found in machine source.
+
+CONNECTED
+Successfully communicating.
+
+VERIFIED
+Authoritative mapping confirmed.
+
+REVIEW REQUIRED
+Evidence insufficient.
+
+STALE
+Previously verified information changed.
+
+Do not use "verified" merely because the frontend has data.
+
+Verification must correspond to actual application state.
+
+============================================================
+23. BOTTOM STATUS BAR
+============================================================
+
+Current:
+
+"CANON discovered TK-401 — one reference left unresolved rather
+than invented. Next: construct the canonical machine model."
+
+This is excellent.
+
+KEEP THIS STYLE.
+
+Refine:
+
+CANON discovered TK-401.
+23/24 references verified.
+1 remains unresolved rather than invented.
+
+Next:
+Construct the canonical machine model.
+
+Button:
+
+BUILD MACHINE MODEL →
+
+The bottom bar should feel like an engineering workflow handoff.
+
+============================================================
+24. BUILD MACHINE MODEL BUTTON
+============================================================
+
+This is a major transition.
+
+Clicking:
+
+BUILD MACHINE MODEL →
+
+must NOT simply navigate instantly with no feedback.
+
+Show a short deterministic transition:
+
+VERIFYING DISCOVERY
+↓
+NORMALIZING ASSETS
+↓
+RESOLVING SIGNAL RELATIONSHIPS
+↓
+BUILDING CANONICAL MODEL
+↓
+MODEL READY
+
+Only use actual backend state.
+
+Do not fake progress bars.
+
+Then transition to MODEL.
+
+============================================================
+25. MODEL HANDOFF
+============================================================
+
+The Context screen's job ends with:
+
+"Here is what we know."
+
+The Model screen begins:
+
+"Here is the canonical representation of what we know."
+
+The transition should make this distinction obvious.
+
+Context:
+DISCOVERY
+
+Model:
+CANONICAL TRUTH
+
+Do not mix the two.
+
+============================================================
+26. LIVE DATA
+============================================================
+
+Values such as:
+
+LT401 = 72%
+PT401 = 6.2 bar
+P401 = RUNNING
+XV401 = OPEN
+
+must come from the runtime state / WebSocket when available.
+
+Never animate fake values just for visual polish.
+
+If disconnected:
+
+show:
+
+LAST KNOWN VALUE
+
+and timestamp.
+
+If stale:
+
+show:
+
+STALE
+
+Do not display stale values as live.
+
+============================================================
+27. REALTIME BEHAVIOR
+============================================================
+
+WebSocket updates should affect:
+
+- node values
+- connection status
+- runtime indicators
+- stale state
+- alarms where applicable
+
+Do not refresh the entire page.
+
+Use localized state updates.
+
+============================================================
+28. RESPONSIVE BEHAVIOR
+============================================================
+
+Desktop is primary.
+
+The UI must remain stable at:
+
+1440px
+1600px
+1920px
+
+Side drawers must not destroy the central topology.
+
+When a drawer opens:
+
+MAIN CONTENT SHOULD REMAIN VISIBLE.
+
+Do not use a full-screen modal for normal inspection.
+
+Use a right-side inspector.
+
+============================================================
+29. DRAWER SYSTEM
+============================================================
+
+Standardize all right-side drawers.
+
+Same:
+
+width
+padding
+header
+close button
+section spacing
+divider
+status treatment
+button placement
+
+Drawer hierarchy:
+
+eyebrow
+title
+status
+metadata
+evidence / details
+actions
+
+Use a consistent close button.
+
+Do not create different drawer styles for every object.
+
+============================================================
+30. MICROINTERACTIONS
+============================================================
+
+Use subtle motion only.
+
+Allowed:
+
+- 120–200ms drawer transition
+- node selection highlight
+- hover elevation
+- connection pulse
+- value transition
+- workflow transition
+
+Avoid:
+
+- bouncing
+- spinning AI icons
+- flashy graph animations
+- excessive loading animations
+
+Motion should communicate system state.
+
+============================================================
+31. ACCESSIBILITY
+============================================================
+
+All statuses must remain understandable without color.
+
+Examples:
+
+● CONNECTED
+● VERIFIED
+⚠ REVIEW REQUIRED
+! BLOCKED
+
+Buttons must have clear labels.
+
+Keyboard navigation should work.
+
+Focus states must be visible.
+
+Tooltips should not be the only way to understand information.
+
+============================================================
+32. ENGINEERING SAFETY LANGUAGE
+============================================================
+
+Use precise wording.
+
+GOOD:
+
+"Binding not automatically created."
+
+"Authoritative mapping not found."
+
+"Review required."
+
+"PLC remains authoritative."
+
+"Request approved by contract."
+
+BAD:
+
+"AI couldn't figure this out."
+
+"AI thinks this is probably PT401."
+
+"AI generated the machine."
+
+"AI controls the pump."
+
+Never imply CANON bypasses PLC authority.
+
+============================================================
+33. NO FAKE DATA
+============================================================
+
+CRITICAL.
+
+Do not introduce:
+
+- fake Schneider SKUs
+- fake OPC UA nodes
+- fake PLC mappings
+- fake citations
+- fake documents
+- fake confidence values
+- fake engineering relationships
+- fake runtime states
+
+Use existing demo fixture data.
+
+If data is missing, show:
+
+UNKNOWN
+NOT AVAILABLE
+REVIEW REQUIRED
+
+rather than inventing.
+
+============================================================
+34. DATA ARCHITECTURE
+============================================================
+
+The frontend must consume the canonical application API.
+
+Do not hardcode engineering truth inside React components.
+
+Expected conceptual entities:
+
+Machine
+Asset
+Signal
+IOGroup
+Alarm
+Command
+Permissive
+Interlock
+Binding
+Evidence
+Revision
+Dependency
+RuntimeState
+
+The UI should be a projection of these entities.
+
+============================================================
+35. COMPONENT ARCHITECTURE
+============================================================
+
+Create reusable components where appropriate:
+
+MachineHeader
+WorkflowStepper
+MetricStrip
+ModelReadiness
+MachineTopology
+TopologyNode
+RelationshipEdge
+EngineeringSources
+DiscoveryPipeline
+UnresolvedReferenceCard
+EvidenceDrawer
+AssetInspector
+ReferenceInspector
+EvidenceBlock
+StatusBadge
+BottomWorkflowBar
+
+Do not duplicate markup unnecessarily.
+
+============================================================
+36. DESIGN TOKENS
+============================================================
+
+Centralize:
+
+spacing
+typography
+border radius
+border colors
+text colors
+surface colors
+green accent
+warning state
+error state
+shadows
+drawer width
+node dimensions
+
+Do not scatter arbitrary CSS values everywhere.
+
+============================================================
+37. TYPOGRAPHY
+============================================================
+
+Prioritize:
+
+engineering tag readability
+hierarchy
+compact metadata
+strong numerical values
+
+Example:
+
+PT401
+6.2 bar
+
+should be immediately readable.
+
+Labels should remain understated.
+
+Do not use oversized marketing typography.
+
+============================================================
+38. ICONOGRAPHY
+============================================================
+
+Use a single consistent icon system.
+
+Icons should communicate:
+
+PLC
+OPC UA
+I/O
+document
+alarm
+signal
+asset
+warning
+verified
+connection
+
+Do not mix unrelated icon styles.
+
+============================================================
+39. EMPTY / ERROR STATES
+============================================================
+
+Implement credible states.
+
+No connection:
+
+○ DISCONNECTED
+Last sync:
+2 min ago
+
+No evidence:
+
+NO AUTHORITATIVE EVIDENCE FOUND
+
+No runtime:
+
+RUNTIME NOT AVAILABLE
+
+Stale:
+
+STALE — SOURCE CHANGED
+
+Never leave blank white panels.
+
+============================================================
+40. DEMO CRITICAL PATH
+============================================================
+
+The Context experience MUST support this exact demo:
+
+STEP 1
+Open TK-401.
+
+STEP 2
+Show:
+
+24 assets
+186 signals
+4 I/O groups
+12 alarms
+
+STEP 3
+Show:
+
+Modicon M262
+OPC UA
+I/O configuration
+Engineering docs
+
+STEP 4
+Show topology:
+
+TK-401
+LT401
+PT401
+P401
+XV401
+
+STEP 5
+Click PT401.
+
+Show evidence.
+
+STEP 6
+Open unresolved:
+
+PT401.Status
+
+Show:
+
+REVIEW REQUIRED
+
+No authoritative mapping.
+
+Binding not automatically created.
+
+STEP 7
+Review candidate evidence.
+
+STEP 8
+Resolve only with engineer action if valid evidence exists.
+
+STEP 9
+Return to Context.
+
+STEP 10
+Click:
+
+BUILD MACHINE MODEL →
+
+STEP 11
+Transition into MODEL.
+
+This should feel seamless.
+
+============================================================
+41. SECOND DEMO PATH — CHANGE IMPACT
+============================================================
+
+The Context page should prepare the user for the later
+change-impact story.
+
+Example:
+
+PT401
+
+Current:
+0–10 bar
+
+Later revision:
+0–16 bar
+
+The Context / Model system must preserve enough provenance and
+dependency information that downstream HMI generation can later
+identify:
+
+HMI range affected
+alarm threshold affected
+test affected
+binding affected
+page affected
+
+Do not implement fake impact results merely for the Context screen.
+
+Prepare the data model correctly.
+
+============================================================
+42. PERFORMANCE
+============================================================
+
+Do not render hundreds of signals as giant DOM elements.
+
+The current demo may show the most important machine relationships.
+
+Use:
+
+summary
+topology
+search
+inspection drawer
+
+for scale.
+
+If there are 186 signals, don't visually dump all 186 into the
+main topology.
+
+============================================================
+43. VISUAL QUALITY BAR
+============================================================
+
+Before finishing, compare every screen against:
+
+- Apple-level spacing discipline
+- Schneider-style engineering restraint
+- modern enterprise software clarity
+- industrial HMI information hierarchy
+- professional engineering workstation density
+
+The target is:
+
+"Could a serious industrial automation company plausibly ship this?"
+
+If the answer is no, refine it.
+
+============================================================
+44. DO NOT OVERDESIGN
+============================================================
+
+This is critical.
+
+Do NOT add:
+
+AI chat panel
+AI assistant mascot
+AI sparkle effects
+fake confidence meter
+3D factory
+animated factory
+dark mode
+marketing slogans
+huge hero graphics
+unnecessary tabs
+social features
+gamification
+generic analytics charts
+
+CANON wins through ENGINEERING INTELLIGENCE.
+
+============================================================
+45. FINAL UX PRINCIPLE
+============================================================
+
+Every screen should answer one question.
+
+CONTEXT:
+"What exists?"
+
+EVIDENCE:
+"Why do we believe it exists?"
+
+MODEL:
+"What is the canonical engineering representation?"
+
+INTENT:
+"What does the engineer want?"
+
+VALIDATE:
+"Is it structurally and semantically valid?"
+
+RUNTIME:
+"What is the machine doing?"
+
+CHANGE:
+"What breaks if engineering reality changes?"
+
+Never blur these responsibilities.
+
+============================================================
+46. IMPLEMENTATION REQUIREMENTS
+============================================================
+
+First inspect the existing codebase.
+
+Do NOT rebuild everything.
+
+Identify:
+
+- existing Context route
+- existing machine data
+- existing topology implementation
+- existing drawers
+- existing status system
+- existing WebSocket state
+- existing API calls
+- existing design tokens
+- existing component registry
+
+Reuse what is already correct.
+
+Refactor only where necessary.
+
+Preserve all existing working functionality.
+
+Do not break:
+
+- project navigation
+- machine selection
+- runtime connectivity
+- API integration
+- WebSocket
+- model workflow
+- existing data
+- existing routes
+
+============================================================
+47. ACCEPTANCE TESTS
+============================================================
+
+The implementation is NOT complete until all of these work.
+
+TEST 1
+Open TK-401 Context.
+
+Expected:
+
+24 assets
+186 signals
+4 I/O groups
+12 alarms
+
+visible.
+
+TEST 2
+Topology renders:
+
+TK-401
+LT401
+PT401
+P401
+XV401
+
+with real data.
+
+TEST 3
+Click PT401.
+
+Expected:
+
+right inspector opens.
+
+TEST 4
+View evidence.
+
+Expected:
+
+actual source/provenance information appears.
+
+TEST 5
+Open PT401.Status unresolved reference.
+
+Expected:
+
+REVIEW REQUIRED.
+
+Expected:
+
+"No authoritative mapping found."
+
+Expected:
+
+"Binding not automatically created."
+
+TEST 6
+Review candidate mapping.
+
+Expected:
+
+candidate evidence is distinguishable from authoritative evidence.
+
+TEST 7
+Engineer resolves valid mapping.
+
+Expected:
+
+binding is created only through the approved workflow.
+
+TEST 8
+Close drawer.
+
+Expected:
+
+Context state preserved.
+
+TEST 9
+Change runtime value.
+
+Expected:
+
+topology updates without page refresh.
+
+TEST 10
+Disconnect runtime.
+
+Expected:
+
+CONNECTED changes appropriately.
+
+TEST 11
+Click:
+
+BUILD MACHINE MODEL →
+
+Expected:
+
+valid transition to Model.
+
+TEST 12
+No invented engineering information appears anywhere.
+
+============================================================
+48. FINAL VISUAL TARGET
+============================================================
+
+The final Context screen should communicate this in under 5 seconds:
+
+CANON knows this machine.
+
+CANON knows where that knowledge came from.
+
+CANON distinguishes verified facts from unresolved references.
+
+CANON refuses to invent engineering bindings.
+
+CANON understands machine relationships.
+
+CANON is ready to construct the canonical machine model.
+
+The screen should make an engineer think:
+
+"Finally — an AI system that doesn't pretend it knows what it
+doesn't know."
+
+============================================================
+49. FINAL IMPLEMENTATION DIRECTIVE
+============================================================
+
+BUILD THIS NOW.
+
+Do not ask for unnecessary clarification.
+
+First inspect the existing implementation.
+
+Then:
+
+1. preserve the current architecture
+2. preserve the existing visual language
+3. improve the Context topology
+4. add semantic relationships from real model data
+5. improve node information
+6. improve engineering source inspection
+7. improve evidence provenance
+8. implement the unresolved-reference review workflow
+9. standardize drawers
+10. add deterministic model-readiness information
+11. improve live-state handling
+12. improve responsive behavior
+13. add subtle professional motion
+14. preserve RBAC and authority boundaries
+15. preserve PLC authority
+16. preserve API contracts
+17. run tests
+18. fix all regressions
+19. verify the complete Context → Model transition
+20. polish every pixel before declaring completion
+
+IMPORTANT:
+
+DO NOT STOP AT VISUAL MOCKUP.
+
+The interactions must actually work.
+
+DO NOT SIMULATE BACKEND TRUTH IN THE UI.
+
+Use the existing CANON data model and APIs.
+
+DO NOT INVENT DATA.
+
+DO NOT INVENT SCHNEIDER CAPABILITIES.
+
+DO NOT INVENT PLC TAGS.
+
+DO NOT ALLOW BROWSER → RAW PLC WRITE.
+
+DO NOT ALLOW AI → PLC.
+
+The finished result must feel like:
+
+CANON
+
+ENGINEERING INTELLIGENCE PLATFORM
+
+—not an AI demo.
+
+============================================================
+END MASTER CONTEXT REFINEMENT PROMPT
+============================================================

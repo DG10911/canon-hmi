@@ -1,0 +1,1077 @@
+08 — CANON API and Protocol Evaluation
+
+
+
+A. Machine connectivity protocols
+
+OPC UA (IEC 62541) — PRIMARY industrial protocol
+
+
+
+
+
+
+
+Field
+
+
+
+Assessment
+
+
+
+
+
+Purpose
+
+
+
+Secure, modeled, subscribed access to controller variables
+
+
+
+
+
+CANON use
+
+
+
+Browse (optional), read, write command request nodes, subscribe to values/alarms
+
+
+
+
+
+Schneider relevance
+
+
+
+VERIFIED: Server Expert; M580 BMENUA0100; M262 embedded server; Machine Expert OpcUaHandling client FBs
+
+
+
+
+
+Real-time suitability
+
+
+
+Subscriptions adequate for HMI (100–1000 ms). Not motion-cycle real time.
+
+
+
+
+
+Security
+
+
+
+Certificates, policies, user tokens. Anonymous exists on some SE defaults — disable in any non-demo.
+
+
+
+
+
+Browser compatibility
+
+
+
+Do not run OPC UA in the browser.
+
+
+
+
+
+Docker
+
+
+
+Yes for open stacks
+
+Client / server libraries
+
+
+
+
+
+
+
+Library
+
+
+
+Lang
+
+
+
+Role
+
+
+
+License
+
+
+
+Docker
+
+
+
+Rec
+
+
+
+
+
+asyncua (opcua-asyncio)
+
+
+
+Python
+
+
+
+PRIMARY client + demo server
+
+
+
+LGPL (confirm at pin)
+
+
+
+yes
+
+
+
+PRIMARY
+
+
+
+
+
+node-opcua
+
+
+
+JS/TS
+
+
+
+BACKUP client/server
+
+
+
+MIT
+
+
+
+yes
+
+
+
+BACKUP
+
+
+
+
+
+open62541
+
+
+
+C
+
+
+
+Future embedded / high perf
+
+
+
+MPL-2.0
+
+
+
+yes
+
+
+
+P2
+
+
+
+
+
+OPC Foundation UA .NET
+
+
+
+C#
+
+
+
+Not our language
+
+
+
+dual / member
+
+
+
+—
+
+
+
+no
+
+
+
+
+
+Eclipse Milo
+
+
+
+Java
+
+
+
+Not our language
+
+
+
+EPL
+
+
+
+—
+
+
+
+no
+
+
+
+
+
+python-opcua (sync)
+
+
+
+Python
+
+
+
+Deprecated predecessor
+
+
+
+LGPL
+
+
+
+—
+
+
+
+no
+
+PRIMARY: asyncua
+BACKUP: node-opcua
+WHY: Backend is FastAPI. One library implements both the CANON client and the demo OPC UA server. Subscriptions, browse, read/write, timestamps, and basic security are sufficient. node-opcua is the escape hatch if a TypeScript sidecar is added. open62541 is overkill for PS2.
+
+Test client (human): UaExpert (Unified Automation freeware). Not licensed for embedding.
+
+Simulators: asyncua Server() with a frozen address space matching canon_demo_signals.json. Public demo endpoints (Sterfive, Prosys) are useful for client bring-up but must not be the graded demo.
+
+NodeSets: Optional P2. Demo server uses a custom namespace urn:canon:demo:tk401. Do not claim Schneider companion-spec compliance.
+
+Modbus TCP — PRIMARY fallback / simple I/O
+
+
+
+
+
+
+
+Field
+
+
+
+Assessment
+
+
+
+
+
+Purpose
+
+
+
+Register/coil access to PLCs and drives
+
+
+
+
+
+CANON use
+
+
+
+Read holding/input registers; write request coils; decode INT16/UINT16/FLOAT32 (byte order documented)
+
+
+
+
+
+Schneider relevance
+
+
+
+VERIFIED: OPC UA Server Expert speaks Modbus/TCP to devices; Modicon Ethernet CPUs historically expose Modbus/TCP. Do not claim a specific CPU SKU without its datasheet.
+
+
+
+
+
+Modbus RTU
+
+
+
+P2 (serial). Not needed for demo.
+
+
+
+
+
+Security
+
+
+
+None native. TLS tunnels or network isolation only. Never expose 502 to the browser.
+
+Libraries
+
+
+
+
+
+
+
+Library
+
+
+
+Lang
+
+
+
+License
+
+
+
+Rec
+
+
+
+
+
+pymodbus
+
+
+
+Python
+
+
+
+BSD
+
+
+
+PRIMARY (client + simulator server)
+
+
+
+
+
+jsmodbus
+
+
+
+Node
+
+
+
+MIT
+
+
+
+BACKUP
+
+
+
+
+
+njs-modbus
+
+
+
+Node
+
+
+
+BSL 1.1
+
+
+
+Avoid (revenue clause)
+
+Best implementation
+
+
+
+
+
+READ: pymodbus async TCP client
+
+
+
+WRITE REQUEST: same client, function 5/6/15/16 against request addresses only
+
+
+
+REGISTER MAPPING: canon_demo_io.json table (signalId, area, address, dtype, scale, endian)
+
+
+
+DATA TYPE DECODING: explicit dtype in the map; no auto-guess
+
+
+
+SIMULATION: pymodbus ModbusSimulatorContext or custom datastore bound to the plant model
+
+Protocols not in PS2 runtime
+
+
+
+
+
+
+
+Protocol
+
+
+
+Verdict
+
+
+
+
+
+EtherNet/IP
+
+
+
+ROADMAP. Do not claim SE product support without the CPU comms manual.
+
+
+
+
+
+PROFINET
+
+
+
+ROADMAP. Same rule.
+
+
+
+
+
+CANopen
+
+
+
+Common on machine controllers / drives. Not required for TK-401 demo.
+
+
+
+
+
+MQTT
+
+
+
+Optional telemetry P2. Plant bus, not HMI pipe.
+
+
+
+
+
+REST
+
+
+
+CANON’s own API is REST. There is no public Schneider PLC REST write API. NOT FOUND.
+
+
+
+
+
+WebSockets
+
+
+
+CANON API ↔ HMI only.
+
+
+
+
+
+OPC UA PubSub
+
+
+
+P3.
+
+
+
+B. CANON application APIs (PROPOSED)
+
+All browser traffic terminates on the CANON API.
+
+
+
+
+
+
+
+API
+
+
+
+Method
+
+
+
+Authz
+
+
+
+Notes
+
+
+
+
+
+/api/machines/{id}
+
+
+
+GET
+
+
+
+any role
+
+
+
+Layer C snapshot
+
+
+
+
+
+/api/machines/{id}/import
+
+
+
+POST
+
+
+
+engineer
+
+
+
+JSON/CSV import
+
+
+
+
+
+/api/intent
+
+
+
+POST
+
+
+
+engineer
+
+
+
+NL → stored proposal
+
+
+
+
+
+/api/proposals/{id}/validate
+
+
+
+POST
+
+
+
+engineer
+
+
+
+deterministic
+
+
+
+
+
+/api/proposals/{id}/approve
+
+
+
+POST
+
+
+
+engineer
+
+
+
+writes revision
+
+
+
+
+
+/api/hmi/{machineId}
+
+
+
+GET
+
+
+
+any
+
+
+
+validated UI schema
+
+
+
+
+
+/api/commands
+
+
+
+POST
+
+
+
+operator+
+
+
+
+contract execution
+
+
+
+
+
+/api/commands/{id}
+
+
+
+GET
+
+
+
+any
+
+
+
+status + feedback
+
+
+
+
+
+/api/revisions/{id}/impact
+
+
+
+GET
+
+
+
+engineer
+
+
+
+graph walk
+
+
+
+
+
+/ws/runtime/{machineId}
+
+
+
+WS
+
+
+
+any
+
+
+
+values, alarms, cmd events
+
+OpenAPI 3 generated from FastAPI. No GraphQL in the prototype.
+
+
+
+C. PLC / engineering file formats
+
+
+
+
+
+
+
+Format
+
+
+
+Contains
+
+
+
+Schneider use
+
+
+
+Public examples
+
+
+
+Parser
+
+
+
+PS2
+
+
+
+
+
+Machine Expert .export XML
+
+
+
+Project objects, devices, POUs
+
+
+
+VERIFIED help
+
+
+
+Need a project
+
+
+
+Custom lxml
+
+
+
+P1
+
+
+
+
+
+PLCopen XML
+
+
+
+POUs per PLCopen
+
+
+
+VERIFIED export option
+
+
+
+Public schema
+
+
+
+Custom
+
+
+
+P1
+
+
+
+
+
+Control Expert XEF/ZEF
+
+
+
+Application export
+
+
+
+VERIFIED procedure
+
+
+
+Need licensed software
+
+
+
+Custom
+
+
+
+P1
+
+
+
+
+
+CSV tag list
+
+
+
+Name, type, address
+
+
+
+Common practice; not a single SE standard
+
+
+
+We define demo CSV
+
+
+
+pandas
+
+
+
+P0
+
+
+
+
+
+JSON machine file
+
+
+
+CANON Layer C
+
+
+
+PROPOSED
+
+
+
+We publish schema
+
+
+
+Pydantic
+
+
+
+P0
+
+
+
+
+
+OPC UA NodeSet XML
+
+
+
+Address space
+
+
+
+Generic
+
+
+
+OPCF NodeSets
+
+
+
+asyncua importer
+
+
+
+P2
+
+
+
+
+
+EDS
+
+
+
+EtherNet/IP device
+
+
+
+Vendor files
+
+
+
+ODVA style
+
+
+
+P3
+
+
+
+skip
+
+
+
+
+
+GSD/GSDML
+
+
+
+PROFINET
+
+
+
+Vendor files
+
+
+
+P3
+
+
+
+skip
+
+
+
+
+
+
+
+
+
+IODD
+
+
+
+IO-Link
+
+
+
+Vendor files
+
+
+
+P3
+
+
+
+skip
+
+
+
+
+
+
+
+
+
+AutomationML
+
+
+
+Engineering exchange
+
+
+
+Standard
+
+
+
+P2
+
+
+
+skip
+
+
+
+
+
+
+
+
+
+AAS XML/JSON
+
+
+
+Asset shell
+
+
+
+Standard
+
+
+
+P3
+
+
+
+skip
+
+
+
+
+
+PS2 ingestion path: curated JSON + optional CSV. Treat XEF/PLCopen as a parser spike if time remains.
+
+
+
+D. Realtime architecture
+
+Simulator / PLC
+   OPC UA subscription  ──►  Connector service
+   Modbus poll (250–500 ms) ─┘
+                              │
+                              ▼
+                     Runtime cache (memory or Redis)
+                              │
+                              ├─ WebSocket fan-out → HMI
+                              └─ persist last-value + quality + ts
+
+OPC UA subscriptions are the preferred plant-side mechanism. Modbus is polled. The browser never sees either protocol.

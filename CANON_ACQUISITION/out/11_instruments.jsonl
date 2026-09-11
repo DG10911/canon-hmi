@@ -1,0 +1,2 @@
+{"asset":"TK-401","description":"Tank level transmitter","h":85,"hh":95,"l":15,"ll":5,"machine":"mch_tk401_line","range":[0,100],"source":"SRC-TK401-MACHINE","tag":"LT401","unit":"%"}
+{"asset":"P401","description":"Discharge pressure transmitter (baseline range 0-10 bar)","h":8.0,"hh":9.0,"l":null,"ll":null,"machine":"mch_tk401_line","range":[0,10],"source":"SRC-TK401-MACHINE","tag":"PT401","unit":"bar"}

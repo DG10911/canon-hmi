@@ -1,0 +1,41 @@
+{
+  "$schema": "canon.training_spec.v2",
+  "generated": "2026-09-10",
+  "authority": "PROPOSED. Fine-tune a LOCAL open model to emit CANON intent JSON. The tuned model still never becomes the source of truth: its output is re-validated by the deterministic engine, which drops any unknown identifier. Training data is synthetic + correct-by-construction (see ../synthetic/).",
+  "goal": "Teach a small local model tag discipline: bind only to signals in the machine model, refuse to invent tags/commands/products, emit valid intent JSON.",
+  "dataset": {
+    "source": "../synthetic/out/",
+    "train": "intents_train.jsonl",
+    "eval": "intents_eval.jsonl",
+    "format": "each row -> chat pair: system=intent_generate template + MACHINE_MODEL + COMPONENT_REGISTRY; user=row.input; assistant=json(row.intent)",
+    "machineContextInjection": "For each row, look up row.machineId in machines.jsonl and inject that machine's signals+commands+alarms as MACHINE_MODEL so the label is grounded.",
+    "classBalanceNote": "~70% accept, ~10% reject_expected, ~20% refuse — refusals are up-weighted 1.5x in loss to harden the anti-hallucination guarantee."
+  },
+  "baseModelCandidates": [
+    {"id": "qwen3-32b", "why": "current-gen, Apache-2.0, strong JSON, hybrid thinking off for determinism"},
+    {"id": "qwen2.5-coder:7b-instruct", "why": "laptop-runnable via Ollama for a safe live demo"},
+    {"id": "llama-3.3-70b-instruct", "why": "if DGX A100 available"}
+  ],
+  "method": {
+    "type": "QLoRA",
+    "quant": "nf4 4-bit",
+    "lora": {"r": 16, "alpha": 32, "dropout": 0.05, "targetModules": ["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"]},
+    "optim": "paged_adamw_8bit", "lr": 2e-4, "scheduler": "cosine", "warmupRatio": 0.03,
+    "epochs": 3, "maxSeqLen": 4096, "effectiveBatch": 32, "seed": 401,
+    "hardware": "1x A100 80GB (DGX) for 32B/70B; single 24GB GPU or Apple silicon for 7B"
+  },
+  "constrainedDecoding": {"required": true, "engines": ["vLLM+xgrammar", "Ollama format=json", "outlines"], "schema": "Intent.schema.json"},
+  "eval": {
+    "harness": "../synthetic/out/intents_eval.jsonl (held-out, unseen machines)",
+    "metrics": [
+      {"name": "json_valid_rate", "target": ">= 0.99", "how": "parses against Intent.schema.json"},
+      {"name": "zero_invented_tag_rate", "target": "1.00", "how": "every usedSignalId present in that row's machine model"},
+      {"name": "refusal_recall", "target": ">= 0.98", "how": "invented-tag/command/product prompts -> UNKNOWN, never a binding"},
+      {"name": "component_in_registry_rate", "target": "1.00", "how": "every component name in canon_component_registry.json"},
+      {"name": "reject_code_accuracy", "target": ">= 0.9", "how": "permissive-violation prompts -> correct rejectCode"}
+    ],
+    "reportBaseVsTuned": true,
+    "note": "Report base-model vs tuned numbers side by side — the pitch is 'the tuned model hallucinates fewer tags', re-validated by deterministic code regardless."
+  },
+  "pipelineFiles": {"gen": "../synthetic/gen_canon_dataset.py", "train": "brain/train_qlora.py (referenced)", "eval": "brain/eval.py (referenced)"}
+}

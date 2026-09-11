@@ -1,0 +1,37 @@
+{
+  "$schema": "canon.state_models.v2",
+  "generated": "2026-09-10",
+  "authority": "PROPOSED — PackML-INSPIRED, not a claim of PackML/ISA-TR88.00.02 certification. VERIFIED note: the PackML producing state is officially named 'Execute' (OPC 30050), not 'Running'. CANON's demo device model uses a simplified 'Running' label for operator clarity and documents the mapping to PackML 'Execute' below.",
+  "packmlReference": {
+    "standard": "ISA-TR88.00.02 (OMAC PackML), OPC UA companion OPC 30050",
+    "producingStateOfficialName": "Execute",
+    "fullStateList": ["Idle", "Starting", "Execute", "Completing", "Complete", "Resetting", "Holding", "Held", "Unholding", "Suspending", "Suspended", "Unsuspending", "Stopping", "Stopped", "Aborting", "Aborted", "Clearing"],
+    "note": "17 states; access is via ISA (paid). Overviews are public."
+  },
+  "deviceModels": {
+    "pump": {
+      "states": ["Idle", "Starting", "Running", "Stopping", "Faulted"],
+      "packmlMapping": {"Idle": "Idle", "Starting": "Starting", "Running": "Execute", "Stopping": "Stopping", "Faulted": "Aborted"},
+      "transitions": [
+        {"from": "Idle", "event": "START_REQ && permissivesOK", "to": "Starting"},
+        {"from": "Starting", "event": "feedback(P401_RUNNING)", "to": "Running"},
+        {"from": "Idle", "event": "START_REQ && permissiveFail", "to": "Idle", "emit": "reject(code)"},
+        {"from": "Running", "event": "STOP_REQ", "to": "Stopping"},
+        {"from": "Stopping", "event": "!feedback(P401_RUNNING)", "to": "Idle"},
+        {"from": "*", "event": "FAULT", "to": "Faulted"},
+        {"from": "Faulted", "event": "STOP_REQ && !FAULT", "to": "Idle", "note": "START blocked while Faulted"}
+      ]
+    },
+    "valve": {
+      "states": ["Closed", "Opening", "Open", "Closing", "Fault"],
+      "transitions": [
+        {"from": "Closed", "event": "OPEN_REQ", "to": "Opening"},
+        {"from": "Opening", "event": "limit(XV401_OPEN)", "to": "Open"},
+        {"from": "Open", "event": "CLOSE_REQ && !P401_RUNNING", "to": "Closing"},
+        {"from": "Open", "event": "CLOSE_REQ && P401_RUNNING", "to": "Open", "emit": "reject(PERM_PUMP_RUNNING)"},
+        {"from": "Closing", "event": "limit(XV401_CLOSED)", "to": "Closed"},
+        {"from": "*", "event": "limitTimeout", "to": "Fault"}
+      ]
+    }
+  }
+}

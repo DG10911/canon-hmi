@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CANON · PS2 · Team DigiSeva</title>
+<style>
+:root{
+  --g:#2fa06a;--g2:#1f7d50;--g3:#16613d;--gl:#e9f6ef;--glass:rgba(255,255,255,.7);
+  --ink:#0e1a16;--mut:#5f7169;--line:#e2ebe6;--line2:#eef4f0;--bg:#f4f8f6;--card:#fff;
+  --warn:#c47f17;--bad:#c0392b;--ac:#43b57e;--dk:#0b1512;--dk2:#0f1d17
+}
+*{box-sizing:border-box;font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+a{color:var(--g2);text-decoration:none}
+/* nav */
+nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;padding:11px 28px;flex-wrap:wrap}
+nav .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--g),var(--g3));display:inline-block;margin-right:6px;box-shadow:0 3px 10px rgba(31,125,80,.35)}
+nav b{font-size:14px;letter-spacing:.3px}nav .s{font-size:8px;letter-spacing:2.4px;color:var(--mut);font-weight:800;display:block}
+nav .lk{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap}
+nav a{font-size:12px;font-weight:700;color:#495b53;padding:6px 10px;border-radius:8px}
+nav a:hover{background:var(--gl);color:var(--g2)}
+nav .team{background:var(--ink);color:#fff;font-size:11px;font-weight:800;padding:6px 12px;border-radius:20px;letter-spacing:.4px}
+section{max-width:1120px;margin:0 auto;padding:64px 28px;border-bottom:1px solid var(--line2)}
+.kick{font-size:11px;letter-spacing:2.6px;font-weight:800;color:var(--g2);text-transform:uppercase}
+h1{font-size:44px;line-height:1.08;margin:12px 0 14px;letter-spacing:-1px;font-weight:800}
+h2{font-size:29px;margin:8px 0 8px;letter-spacing:-.5px;font-weight:800}
+h3{font-size:15px;margin:0 0 8px;font-weight:800}
+p{color:#33443d;font-size:15px}
+.lead{font-size:19px;color:#3b4f47;max-width:780px}
+/* hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(1200px 500px at 15% -10%,#123c2a 0%,var(--dk) 55%);color:#eaf5ef;border:none;max-width:none;padding:26px 28px 64px}
+.hero .in{max-width:1120px;margin:0 auto}
+.hbar{display:flex;align-items:center;gap:12px;padding:14px 0 30px;flex-wrap:wrap}
+.hbar .ps{background:linear-gradient(135deg,var(--g),var(--g3));color:#fff;font-weight:900;font-size:12px;letter-spacing:1px;padding:7px 14px;border-radius:9px}
+.hbar .mk{color:#a9c6ba;font-size:12px;font-weight:700;letter-spacing:.5px}
+.hbar .team{margin-left:auto;background:rgba(255,255,255,.08);border:1px solid rgba(127,224,168,.25);color:#8fe6b0;font-weight:800;font-size:12px;letter-spacing:1px;padding:8px 15px;border-radius:22px}
+.hero h1{color:#fff;font-size:52px;max-width:900px}
+.hero .lead{color:#bcd4c8}
+.hero .tag{display:inline-block;background:rgba(94,211,155,.13);color:#8fe6b0;border:1px solid rgba(94,211,155,.28);padding:6px 13px;border-radius:20px;font-size:12px;font-weight:800;letter-spacing:.5px}
+.hstat{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+.hstat .b{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:13px;padding:14px 18px;min-width:150px}
+.hstat b{font-size:27px;color:#fff;display:block;font-weight:800}
+.hstat span{font-size:10.5px;letter-spacing:1px;color:#8fb0a0;font-weight:800}
+/* grid + cards */
+.grid{display:grid;gap:16px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:20px 22px;transition:.15s}
+.card:hover{border-color:#bfe0cf;box-shadow:0 8px 26px rgba(31,125,80,.08);transform:translateY(-2px)}
+.card .ic{font-size:22px}
+.card p{font-size:13.5px;color:#4a5b53;margin:0}
+.pill{display:inline-block;background:var(--gl);color:var(--g2);padding:4px 11px;border-radius:20px;font-size:11.5px;font-weight:800;margin:0 5px 6px 0}
+/* hierarchy ladder */
+.ladder{position:relative;margin-top:8px;padding-left:26px}
+.ladder:before{content:"";position:absolute;left:9px;top:14px;bottom:14px;width:2px;background:linear-gradient(var(--g),#cfe6d8)}
+.lv{position:relative;display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:9px}
+.lv:before{content:"";position:absolute;left:-21px;top:50%;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:var(--g);box-shadow:0 0 0 4px var(--gl)}
+.lv .num{font-size:10px;font-weight:900;color:var(--g2);width:22px}
+.lv .nm{font-weight:800;font-size:14px;min-width:170px}
+.lv .ex{font-size:12.5px;color:#69796f}
+.lv.big{background:linear-gradient(90deg,#f0f9f4,#fff);border-color:#cfe6d8}
+/* tag card */
+.tagcard{background:var(--dk);color:#d6ece0;border-radius:14px;padding:18px 20px;font-size:12.5px;line-height:1.9}
+.tagcard .h{color:#7fe0a8;font-weight:800;letter-spacing:.5px;font-size:11px;text-transform:uppercase;margin-bottom:8px}
+.tagcard .r{display:flex;justify-content:space-between;border-bottom:1px solid #1c2c25;padding:3px 0}
+.tagcard .k{color:#7fa79a}.tagcard .v{color:#eafaf1;font-weight:700}
+/* i/o/o columns */
+.ioo{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:stretch;margin-top:14px}
+.ioo .col{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.ioo .col.mid{background:linear-gradient(160deg,#123c2a,var(--dk));color:#eaf5ef;border:none}
+.ioo .hd{font-size:11px;letter-spacing:1.5px;font-weight:900;text-transform:uppercase;color:var(--mut)}
+.ioo .col.mid .hd{color:#8fe6b0}
+.ioo .li{font-size:12.5px;padding:5px 0;color:#43554c;border-bottom:1px solid var(--line2)}
+.ioo .col.mid .li{color:#cfe6d8;border-color:#1c2c25}
+.ioo .ar{display:flex;align-items:center;justify-content:center;color:var(--g);font-size:22px;font-weight:900;padding:0 8px}
+/* flow */
+.flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;margin-top:14px}
+.step{flex:1;min-width:135px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 12px;text-align:center}
+.step .t{font-size:13px;font-weight:800}.step .d{font-size:11px;color:#6a7c72;margin-top:3px}
+.arrow{display:flex;align-items:center;color:var(--g);font-weight:900;padding:0 6px}
+/* metrics */
+.metric{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line2)}
+.metric .l{font-weight:700;font-size:14px}
+.barm{flex:1;height:9px;background:var(--line2);border-radius:6px;margin:0 14px;overflow:hidden;max-width:320px}
+.barm i{display:block;height:100%;background:linear-gradient(90deg,var(--g),var(--ac))}
+.barm i.proj{background:linear-gradient(90deg,#c47f17,#e0a83e)}
+.val{font-weight:800;font-size:14px;width:60px;text-align:right}
+.note{background:var(--gl);border:1px solid #cfe6d8;border-radius:12px;padding:15px 17px;font-size:13.5px;color:#264a38}
+.note.warn{background:#fbf3e5;border-color:#e6d3ad;color:#6b5220}
+.tag2{font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;background:var(--gl);color:var(--g2)}
+.tag2.sim{background:#fbf3e5;color:#8a6516}
+/* frame */
+.frame{border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 14px 44px rgba(14,40,28,.12);background:#0b1118}
+.frame .bar2{display:flex;align-items:center;gap:7px;padding:10px 13px;background:#101a15;border-bottom:1px solid #1d2b23}
+.frame .dot{width:11px;height:11px;border-radius:50%}
+.frame iframe{width:100%;height:660px;border:0;background:#fff;display:block}
+.legend{font-size:12px;color:var(--mut)}
+.foot{max-width:1120px;margin:0 auto;padding:40px 28px;color:var(--mut);font-size:12.5px}
+@media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr 1fr}.ioo{grid-template-columns:1fr}.ioo .ar{transform:rotate(90deg);padding:6px}h1,.hero h1{font-size:32px}}
+@media(max-width:520px){.g2,.g3,.g4{grid-template-columns:1fr}.lv .nm{min-width:0}}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo"></span><span><b>CANON</b><span class="s">ENGINEERING INTELLIGENCE</span></span>
+  <span class="lk">
+    <a href="#ps">Problem</a><a href="#inputs">Inputs</a><a href="#context">Context</a>
+    <a href="#outputs">Outputs</a><a href="#data">Data</a><a href="#brain">Model</a>
+    <a href="#proto">Prototype</a><a href="#features">Features</a>
+  </span>
+  <span class="team">TEAM · DIGISEVA</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero"><div class="in">
+  <div class="hbar">
+    <span class="ps">PS2</span>
+    <span class="mk">Schneider Electric · Smart HMI Innovation Marathon</span>
+    <span class="team">TEAM DIGISEVA</span>
+  </div>
+  <span class="tag">ENGINEERING INTELLIGENCE → VERIFIED OPERATOR EXPERIENCE</span>
+  <h1>Give CANON the engineering reality. It builds the operator experience.</h1>
+  <p class="lead">Real engineering inputs → a canonical machine model → an AI that interprets → a deterministic validator that guarantees truth → a live, industrial HMI. <b>AI proposes. CANON verifies. Nothing is invented.</b></p>
+  <div class="hstat">
+    <div class="b"><b>100%</b><span>MACHINE COVERAGE</span></div>
+    <div class="b"><b>0</b><span>HALLUCINATED BINDINGS</span></div>
+    <div class="b"><b>~2 GB</b><span>OUR CPU MODEL</span></div>
+    <div class="b"><b>25</b><span>INDUSTRY SECTORS</span></div>
+    <div class="b"><b>939</b><span>REAL ICS TAGS IN CORPUS</span></div>
+  </div>
+</div></div>
+
+<!-- PROBLEM -->
+<section id="ps">
+  <span class="kick">PS2 · The problem</span>
+  <h2>Operator HMIs are built by hand — slow, and AI tools hallucinate.</h2>
+  <div class="grid g3">
+    <div class="card"><div class="ic">🧩</div><h3>Manual & repetitive</h3><p>Every tag, gauge, alarm and command mapped by hand — weeks per machine, redone every project.</p></div>
+    <div class="card"><div class="ic">⚠️</div><h3>Generic AI hallucinates</h3><p>"AI dashboard" tools invent tags, ranges and controls that don't exist — unsafe on a real PLC.</p></div>
+    <div class="card"><div class="ic">🔗</div><h3>No traceability</h3><p>Screens aren't linked to the engineering truth — change-impact and verification are impossible.</p></div>
+  </div>
+  <div class="note" style="margin-top:18px"><b>Our quality bar:</b> ENGINEERING DATA → CORRECT CONTEXT → CORRECT MODEL → CORRECT HMI &nbsp;—&nbsp; <i>not</i> PROMPT → PRETTY SCREEN.</div>
+</section>
+
+<!-- INPUTS: the engineering hierarchy -->
+<section id="inputs">
+  <span class="kick">What CANON takes as input</span>
+  <h2>The full engineering hierarchy — down to every PLC tag.</h2>
+  <p class="lead">Upload a machine project (CSV · XLSX · XML · rich JSON · PDF, or PLC exports). CANON structures it into the complete engineering hierarchy — no field is guessed, every tag is real.</p>
+  <div class="grid g2" style="margin-top:22px;align-items:start">
+    <div class="ladder">
+      <div class="lv big"><span class="num">01</span><span class="nm">Machine / Plant</span><span class="ex">TK-401 Transfer Line</span></div>
+      <div class="lv"><span class="num">02</span><span class="nm">Areas / Systems</span><span class="ex">Utilities · Transfer</span></div>
+      <div class="lv"><span class="num">03</span><span class="nm">Equipment</span><span class="ex">Tank · Pump · Valve · Motor</span></div>
+      <div class="lv"><span class="num">04</span><span class="nm">Components</span><span class="ex">P401 · XV401 · TK-401</span></div>
+      <div class="lv"><span class="num">05</span><span class="nm">Signals / Tags</span><span class="ex">LT401 · PT401 · P401_RUNNING</span></div>
+      <div class="lv"><span class="num">06</span><span class="nm">Values + units + ranges</span><span class="ex">PT401 · bar · 0–16</span></div>
+      <div class="lv"><span class="num">07</span><span class="nm">Alarms + limits</span><span class="ex">ALM_PT401_HH ≥ 9.0</span></div>
+      <div class="lv"><span class="num">08</span><span class="nm">Controls / commands</span><span class="ex">P401_START · XV401_OPEN</span></div>
+      <div class="lv"><span class="num">09</span><span class="nm">Relationships / topology</span><span class="ex">P401 REQUIRES XV401_OPEN</span></div>
+    </div>
+    <div>
+      <div class="tagcard">
+        <div class="h">⛭ one canonical PLC tag — fully resolved</div>
+        <div class="r"><span class="k">tag / variable</span><span class="v">PT401</span></div>
+        <div class="r"><span class="k">PLC address</span><span class="v">%IW1.0 · holding[1]</span></div>
+        <div class="r"><span class="k">data type</span><span class="v">REAL (uint16 raw)</span></div>
+        <div class="r"><span class="k">engineering unit</span><span class="v">bar</span></div>
+        <div class="r"><span class="k">range · scaling</span><span class="v">0–16 · 0.0004</span></div>
+        <div class="r"><span class="k">asset</span><span class="v">P401 (pump discharge)</span></div>
+        <div class="r"><span class="k">alarm</span><span class="v">ALM_PT401_HH ≥ 9.0</span></div>
+        <div class="r"><span class="k">evidence</span><span class="v">machine project · rev-18</span></div>
+        <div class="r" style="border:0"><span class="k">status</span><span class="v" style="color:#7fe0a8">VERIFIED</span></div>
+      </div>
+      <div style="margin-top:12px">
+        <span class="pill">variable / PLC tags</span><span class="pill">I/O addresses</span>
+        <span class="pill">data types</span><span class="pill">units + ranges</span>
+        <span class="pill">alarm limits</span><span class="pill">command contracts</span>
+        <span class="pill">permissives + interlocks</span><span class="pill">relationships</span>
+        <span class="pill">every tag · nothing invented</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEXT -->
+<section id="context">
+  <span class="kick">Context analysis</span>
+  <h2>Not a summary — a genuine engineering understanding.</h2>
+  <p class="lead">CANON reads the model and works out what it <i>means</i>: what measures what, what controls what, what conditions are required, what's authoritative vs observed, and what is UNKNOWN — deterministically, so it's exact, never a guess.</p>
+  <div class="grid g2" style="margin-top:20px;align-items:stretch">
+    <div class="card">
+      <h3>What CANON determines</h3>
+      <div style="margin-top:6px">
+        <span class="pill">what assets exist</span><span class="pill">what measures what</span>
+        <span class="pill">what controls what</span><span class="pill">commands + contracts</span>
+        <span class="pill">required conditions</span><span class="pill">interlocks</span>
+        <span class="pill">alarms + limits</span><span class="pill">states · modes</span>
+        <span class="pill">process relationships</span><span class="pill">authoritative vs observed</span>
+        <span class="pill">what is UNKNOWN</span><span class="pill">what changed</span>
+      </div>
+      <p style="margin-top:14px;font-size:13px"><b>Super context analysis:</b> given a rich model where a signal only carries a <span class="mono">semantic</span> hint, CANON assigns it to the right asset by meaning, parses permissive conditions, and maps alarm names to real signals — automatically.</p>
+    </div>
+    <div class="tagcard">
+      <div class="h">// live context output</div>
+      <b style="color:#fff">Batch Reactor RX-05</b> · Modicon M241<br>
+      <span style="color:#9fc0b2">5 assets · 12 signals · 8 commands · 2 permissives · 8 alarms</span><br><br>
+      instrumentation: 2× pressure(bar) · level(%) · temp(°C) · speed(rpm)<br>
+      LT-501 → RX-501 <span style="color:#7fa79a">(reactor level)</span><br>
+      PT-502 → P-501 <span style="color:#7fa79a">(pump discharge)</span><br>
+      ALM_RX-501_HIGH_TEMPERATURE → TT-501<br>
+      AGT-501_START <span style="color:#f0b35b">requires</span> AGT-501_FAULT == false<br><br>
+      <span style="color:#7fe0a8">coverage 100% · evidence-linked · 0 hallucinations</span>
+    </div>
+  </div>
+</section>
+
+<!-- OUTPUTS -->
+<section id="outputs">
+  <span class="kick">What CANON gives back</span>
+  <h2>Inputs → CANON engine → verified operator experience.</h2>
+  <div class="ioo">
+    <div class="col">
+      <div class="hd">Inputs</div>
+      <div class="li">Machine / plant hierarchy</div>
+      <div class="li">Signals · I/O · PLC tags</div>
+      <div class="li">Commands · permissives</div>
+      <div class="li">Alarms · limits · ranges</div>
+      <div class="li" style="border:0">Documents · evidence</div>
+    </div>
+    <div class="ar">→</div>
+    <div class="col mid">
+      <div class="hd">CANON engine</div>
+      <div class="li">Canonical model (truth)</div>
+      <div class="li">CANON-Brain (interprets)</div>
+      <div class="li">Validator (checks)</div>
+      <div class="li">Deterministic assembler</div>
+      <div class="li" style="border:0">Simulator runtime</div>
+    </div>
+    <div class="ar">→</div>
+    <div class="col">
+      <div class="hd">Outputs</div>
+      <div class="li">Validated industrial HMI</div>
+      <div class="li">Evidence &amp; traceability graph</div>
+      <div class="li">Context pack + coverage</div>
+      <div class="li">Revisions + change-impact</div>
+      <div class="li" style="border:0">Live command + runtime feedback</div>
+    </div>
+  </div>
+  <div class="grid g3" style="margin-top:20px">
+    <div class="card"><div class="ic">🖥️</div><h3>Validated HMI</h3><p>ISA-101 faceplates + overview — every widget bound to a real signal/command with evidence.</p></div>
+    <div class="card"><div class="ic">🔎</div><h3>Traceability</h3><p>Element → signal → fact → evidence → source → VERIFIED. FT-999 → UNKNOWN.</p></div>
+    <div class="card"><div class="ic">🔁</div><h3>Revisions + change-impact</h3><p>Versioned screens; PT401 0-10→0-16 → affected widgets found → regenerated.</p></div>
+    <div class="card"><div class="ic">⚙️</div><h3>Working commands</h3><p>Permissive-gated START/STOP/OPEN/CLOSE against a deterministic SIMULATOR.</p></div>
+    <div class="card"><div class="ic">📊</div><h3>Coverage + readiness</h3><p>Coverage %, HMI readiness (READY / REVIEW / BLOCKED), conflicts, unknowns.</p></div>
+    <div class="card"><div class="ic">🧾</div><h3>Context pack</h3><p>A machine-scoped model for reasoning + HMI synthesis, fully provenance-linked.</p></div>
+  </div>
+</section>
+
+<!-- DATA SOURCES -->
+<section id="data">
+  <span class="kick">Data we acquired</span>
+  <h2>Real, verified, provenance-tracked — nothing fabricated.</h2>
+  <div class="grid g4">
+    <div class="card"><div class="ic">🏭</div><h3>70 official sources</h3><p>Web-verified Schneider docs (Modicon M580/M340/M221/M241/M251/M262, Control &amp; Machine Expert, Altivar, TeSys) + OPC UA / Modbus specs + IEC / ISA / EEMUA.</p></div>
+    <div class="card"><div class="ic">📚</div><h3>53 datasets discovered</h3><p>HuggingFace · Kaggle · GitHub — ICS security, PLC code, protocol traffic, predictive maintenance, function-calling.</p></div>
+    <div class="card"><div class="ic">🔬</div><h3>23 real ICS datasets merged</h3><p>939 genuine tags — <b>SWaT</b>, <b>CMAPSS</b>, sensor/RUL, steel faults — CANDIDATE/OBSERVED, never authoritative (§62).</p></div>
+    <div class="card"><div class="ic">🧪</div><h3>23,298 synthetic pairs</h3><p>Correct-by-construction NL→intent training data across 1,200 machines — the compiler is the teacher.</p></div>
+  </div>
+</section>
+
+<!-- MODEL -->
+<section id="brain">
+  <span class="kick">Our CANON-Brain model</span>
+  <h2>Trained once on a DGX A100 — runs CPU-only.</h2>
+  <div class="grid g2" style="margin-top:18px">
+    <div class="card">
+      <h3>v1 — measured (held-out, n=400)</h3>
+      <div class="metric"><span class="l">Zero-invented-tag</span><span class="barm"><i style="width:98%"></i></span><span class="val">98.2%</span></div>
+      <div class="metric"><span class="l">JSON-valid</span><span class="barm"><i style="width:99%"></i></span><span class="val">98.8%</span></div>
+      <div class="metric"><span class="l">Refusal recall</span><span class="barm"><i style="width:92%"></i></span><span class="val">92%</span></div>
+      <div class="metric" style="border:0"><span class="l">Classify accuracy</span><span class="barm"><i style="width:69%"></i></span><span class="val">69%</span></div>
+    </div>
+    <div class="card">
+      <h3>v2 — projected after retrain <span class="tag2 sim">TARGET</span></h3>
+      <div class="metric"><span class="l">Zero-invented-tag</span><span class="barm"><i class="proj" style="width:99%"></i></span><span class="val">~99%</span></div>
+      <div class="metric"><span class="l">JSON-valid</span><span class="barm"><i class="proj" style="width:100%"></i></span><span class="val">~100%</span></div>
+      <div class="metric"><span class="l">Refusal recall</span><span class="barm"><i class="proj" style="width:98%"></i></span><span class="val">~98%</span></div>
+      <div class="metric" style="border:0"><span class="l">Classify accuracy</span><span class="barm"><i class="proj" style="width:90%"></i></span><span class="val">~90%</span></div>
+      <p style="margin-top:10px;font-size:12px;color:var(--mut)">Rebalanced data + open function-calling sets. Projected targets — measured on the real endpoint after training.</p>
+    </div>
+  </div>
+  <div class="note warn" style="margin-top:16px"><b>Honest:</b> the model improves <i>language understanding + refusal</i>, not screen design or safety. The validator guarantees zero invented tags <b>regardless of the model</b> — <b>8/8 brain-first integration tests pass</b>.</div>
+</section>
+
+<!-- GENERATION -->
+<section id="gen">
+  <span class="kick">How a screen is generated</span>
+  <h2>Brain-first interpretation → validated deterministic assembly.</h2>
+  <div class="flow">
+    <div class="step"><div class="t">You say</div><div class="d">"watch the reactor temperature"</div></div><div class="arrow">→</div>
+    <div class="step"><div class="t">CANON-Brain</div><div class="d">intent → TT-501</div></div><div class="arrow">→</div>
+    <div class="step"><div class="t">Validator</div><div class="d">TT-501 ✓ · FT-999 ✗</div></div><div class="arrow">→</div>
+    <div class="step"><div class="t">Assembler</div><div class="d">real widget + evidence</div></div><div class="arrow">→</div>
+    <div class="step"><div class="t">Runtime</div><div class="d"><span class="tag2 sim">SIMULATOR</span></div></div>
+  </div>
+</section>
+
+<!-- PROTOTYPE -->
+<section id="proto">
+  <span class="kick">The live prototype</span>
+  <h2>Running now — embedded below.</h2>
+  <p class="legend">Live view of the CANON Platform at <span class="mono">localhost:8090</span>. Blank? Start it (<span class="mono">cd .context/CANON_PLATFORM &amp;&amp; ./run.sh</span>) and open <span class="mono">http://localhost:8090/presentation</span>.</p>
+  <div class="frame" style="margin-top:14px">
+    <div class="bar2"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span><span style="margin-left:8px;color:#7f94a3;font-size:12px" class="mono">localhost:8090 · CANON Platform · live</span></div>
+    <iframe src="http://localhost:8090" title="CANON Platform" loading="lazy"></iframe>
+  </div>
+  <p class="legend" style="margin-top:10px"><b>Demo path:</b> open TK-401 → HMI Studio → generate → click START (permissive-gated) → Change-impact PT401 → 16 bar → restore a revision.</p>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <span class="kick">Features</span>
+  <h2>Everything connected — real, not mock.</h2>
+  <div class="grid g3">
+    <div class="card"><div class="ic">📥</div><h3>Multi-format ingestion</h3><p>CSV · XLSX · XML · PDF · rich JSON → canonical model, auto-classified.</p></div>
+    <div class="card"><div class="ic">🧭</div><h3>Super context analysis</h3><p>Assets, relationships, permissives, alarms, operator needs — computed, not summarized.</p></div>
+    <div class="card"><div class="ic">🧠</div><h3>Brain-first NL</h3><p>Mandatory CANON-Brain interpretation; honest BRAIN-OFFLINE, never a silent fallback.</p></div>
+    <div class="card"><div class="ic">🖥️</div><h3>Industrial HMI</h3><p>ISA-101 faceplates, KPI header, per-asset sections, alarms, trends, permissive panels.</p></div>
+    <div class="card"><div class="ic">⚙️</div><h3>Real command pipeline</h3><p>Permissive/interlock-gated commands vs a deterministic simulator — labelled SIMULATOR.</p></div>
+    <div class="card"><div class="ic">🔁</div><h3>Revisions &amp; change-impact</h3><p>Versioned screens, restore, and engineering-reality change → regenerated HMI.</p></div>
+    <div class="card"><div class="ic">🔎</div><h3>Evidence traceability</h3><p>Element → signal → fact → evidence → source. UNKNOWNs stay UNKNOWN.</p></div>
+    <div class="card"><div class="ic">🏗️</div><h3>100-machine library</h3><p>25 sectors — water, chiller, reactor, boiler, HVAC, packaging, mining, power…</p></div>
+    <div class="card"><div class="ic">🛡️</div><h3>No-hallucination guarantee</h3><p>Validator drops any invented tag/command/permissive. Machine-checked, 0 violations.</p></div>
+  </div>
+</section>
+
+<div class="foot">
+  <b>CANON</b> · PS2 · Schneider Smart HMI Innovation Marathon · <b>Team DigiSeva</b> &nbsp;—&nbsp; AI interprets · CANON models · Evidence supports · Validator checks · Engineer approves · PLC/Simulator executes.<br>
+  Honesty: runtime is a deterministic <b>SIMULATOR</b> (labelled) until a real PLC is connected; v2 model numbers are projected targets measured after training; the reference corpus is CANDIDATE/OBSERVED, never authoritative.
+</div>
+
+</body>
+</html>

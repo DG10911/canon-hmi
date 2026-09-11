@@ -1,0 +1,39 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+TK-201,tank,LT-201,analog-in,%,0,100,90,80,20,10,level
+TK-201,tank,PT-201,analog-in,bar,0,16,14,12,,2,pressure
+TK-202,tank,LT-202,analog-in,%,0,100,90,80,20,10,level
+TK-202,tank,PT-202,analog-in,bar,0,16,14,12,,2,pressure
+P-201,pump,PT-201,analog-in,bar,0,16,14,12,,2,pressure
+P-201,pump,P-201_RUNNING,discrete-in,,,,,,,,running
+P-201,pump,P-201_FAULT,discrete-in,,,,,,,,fault
+P-201,pump,P-201_START_REQ,discrete-out,,,,,,,,start
+P-201,pump,P-201_STOP_REQ,discrete-out,,,,,,,,stop
+P-202,pump,PT-202,analog-in,bar,0,16,14,12,,2,pressure
+P-202,pump,P-202_RUNNING,discrete-in,,,,,,,,running
+P-202,pump,P-202_FAULT,discrete-in,,,,,,,,fault
+P-202,pump,P-202_START_REQ,discrete-out,,,,,,,,start
+P-202,pump,P-202_STOP_REQ,discrete-out,,,,,,,,stop
+XV-201,valve,XV-201_OPEN,discrete-in,,,,,,,,open limit
+XV-201,valve,XV-201_CLOSED,discrete-in,,,,,,,,closed limit
+XV-201,valve,XV-201_OPEN_REQ,discrete-out,,,,,,,,open
+XV-201,valve,XV-201_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-202,valve,XV-202_OPEN,discrete-in,,,,,,,,open limit
+XV-202,valve,XV-202_CLOSED,discrete-in,,,,,,,,closed limit
+XV-202,valve,XV-202_OPEN_REQ,discrete-out,,,,,,,,open
+XV-202,valve,XV-202_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-203,valve,XV-203_OPEN,discrete-in,,,,,,,,open limit
+XV-203,valve,XV-203_CLOSED,discrete-in,,,,,,,,closed limit
+XV-203,valve,XV-203_OPEN_REQ,discrete-out,,,,,,,,open
+XV-203,valve,XV-203_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-204,valve,XV-204_OPEN,discrete-in,,,,,,,,open limit
+XV-204,valve,XV-204_CLOSED,discrete-in,,,,,,,,closed limit
+XV-204,valve,XV-204_OPEN_REQ,discrete-out,,,,,,,,open
+XV-204,valve,XV-204_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-205,valve,XV-205_OPEN,discrete-in,,,,,,,,open limit
+XV-205,valve,XV-205_CLOSED,discrete-in,,,,,,,,closed limit
+XV-205,valve,XV-205_OPEN_REQ,discrete-out,,,,,,,,open
+XV-205,valve,XV-205_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-206,valve,XV-206_OPEN,discrete-in,,,,,,,,open limit
+XV-206,valve,XV-206_CLOSED,discrete-in,,,,,,,,closed limit
+XV-206,valve,XV-206_OPEN_REQ,discrete-out,,,,,,,,open
+XV-206,valve,XV-206_CLOSE_REQ,discrete-out,,,,,,,,close

@@ -1,0 +1,1076 @@
+ASSETFLOW / CANON
+
+FOUR PROBLEM STATEMENTS — DEEP RESEARCH, COMPETITIVE RED-TEAM & FINAL SELECTION
+
+You are acting as an independent industrial automation strategist, HMI/SCADA product architect, AI engineering researcher, competition judge, and technical red-team reviewer.
+
+You must conduct deep, current research before making any recommendation.
+
+Do NOT give me a generic opinion.
+
+Do NOT simply choose the problem statement with the biggest market size.
+
+Do NOT assume that the most technically sophisticated idea is the best competition entry.
+
+The objective is:
+
+Determine which of the four official problem statements gives our existing ASSETFLOW/CANON system the highest probability of producing the strongest, most credible, differentiated and demonstrable competition submission.
+
+The four problem statements are:
+
+⸻
+
+PS1 — AI-POWERED RUNTIME COPILOT FOR INDUSTRIAL HMI
+
+Problem:
+
+Industrial operators face excessive alarms and large volumes of operational data, making it difficult to identify, interpret and respond to critical events quickly.
+
+Expected use cases:
+
+1. Alarm explanation & contextual guidance
+2. Root-cause investigation
+3. Shift handover assistance
+4. Operational decision support
+5. Knowledge retrieval / SOP assistance
+
+Data sources:
+
+* Alarm logs
+* Process data logs
+* Operator action logs
+* Runtime context
+* Active screens
+* Machine state
+
+Important constraint:
+
+The AI solution must be optimized for deployment on low-end HMI hardware as well.
+
+⸻
+
+PS2 — DYNAMIC HMI SCREEN GENERATION AT RUNTIME + MACHINE CONTROL
+
+Problem:
+
+HMI engineering requires substantial manual creation and maintenance of screens, navigation and visualization logic.
+
+Expected solution:
+
+Create a unified machine representation/context from:
+
+* PLC/controller tags
+* I/O configuration
+* Asset hierarchy
+* Alarm definitions
+* Communication configuration
+* Machine documentation
+
+Then:
+
+Use AI and model-driven automation to dynamically generate machine-specific HMI screens from machine context and natural-language prompts, reducing dependence on predefined static screens.
+
+Expected capabilities:
+
+* No predesigned screens
+* Dynamic machine-specific screens
+* Automatic adaptation to machine changes
+* HMI independent of screen size
+* Reduced engineering effort
+* Faster commissioning
+* Machine-specific operator experience
+
+⸻
+
+PS3 — AI IN HMI BUILD-TIME ENGINEERING SOFTWARE
+
+Problem:
+
+HMI engineering depends heavily on manual screen development, expert configuration and tag integration, creating learning curves, errors, delays and inconsistent engineering output.
+
+Expected use cases include:
+
+* AI navigation builder
+* AI-assisted HMI project generation
+* AI script generator
+* AI design copilot
+* AI engineering mentor
+* Intelligent project validation / QA
+* AI project review assistant
+* Knowledge-based engineering assistant
+* AI migration assistant
+* AI screen generator
+* AI HMI system log analyzer
+* AI tag mapping assistant
+* AI alarm configuration generator
+
+Expected data sources:
+
+* Existing HMI project files
+* Asset libraries
+* Templates
+* Engineering artifacts
+
+⸻
+
+PS4 — LIGHTWEIGHT HMI RUNTIME
+
+Problem:
+
+HMI runtime systems can face memory, CPU and performance constraints, particularly on lower-spec hardware.
+
+Expected solution:
+
+A Linux/Windows-capable lightweight HMI runtime with efficient graphics rendering and communication.
+
+Potential technologies:
+
+* LVGL
+* OpenGL
+* HTML Canvas
+* SVG
+* Other open-source rendering technologies
+
+Goals:
+
+* Low memory
+* Low CPU
+* High reliability
+* Low-cost HMI hardware
+* Efficient graphics
+* Efficient communication
+* Low power consumption
+
+⸻
+
+OUR EXISTING SYSTEM — DO NOT IGNORE THIS
+
+We already have a substantial working concept/prototype called:
+
+ASSETFLOW / CANON
+
+Core positioning:
+
+Engineering Intent → Verified Automation
+
+The system is NOT intended to be:
+
+* a generic SaaS dashboard
+* a generic chatbot
+* a cloud-only AI assistant
+* a fake digital twin
+* a replacement for Schneider EcoStruxure
+* an autonomous PLC controller
+* an AI that directly controls actuators
+* a pure screen generator
+* a graphics-runtime rewrite
+
+The intended architecture is:
+
+ENGINEER
+   ↓
+NATURAL LANGUAGE
+   ↓
+INTENT COMPILER
+   ↓
+CANONICAL MACHINE MODEL
+   ↓
+DETERMINISTIC ENGINEERING KERNEL
+   ↓
+VALIDATION
+   ↓
+SIMULATION
+   ↓
+AUTOMATED TESTS
+   ↓
+ENGINEER APPROVAL
+   ↓
+SIGNED / HASHED BASELINE
+   ↓
+HMI / PLC / EOTE PROJECTIONS
+   ↓
+RUNTIME
+   ↓
+ENGINEERING CHANGE
+   ↓
+ECR
+   ↓
+IMPACT ANALYSIS
+   ↓
+REGRESSION
+   ↓
+NEW BASELINE
+
+The canonical model contains structured engineering information such as:
+
+* assets
+* asset types
+* asset instances
+* I/O
+* devices
+* PLC variables
+* HMI variables
+* commands
+* permissives
+* interlocks
+* alarms
+* trends
+* control contracts
+* tests
+* simulation scenarios
+* documents
+* engineering dependencies
+* provenance
+* revisions
+* approval state
+
+The engineering graph connects:
+
+Requirement
+ ↓
+Asset Type
+ ↓
+Asset Instance
+ ↓
+Device
+ ↓
+Terminal
+ ↓
+I/O
+ ↓
+PLC Variable
+ ↓
+Control Logic
+ ↓
+HMI Variable
+ ↓
+Alarm
+ ↓
+Trend
+ ↓
+Test
+ ↓
+Documentation
+ ↓
+Evidence
+
+The system uses explicit truth states:
+
+* VERIFIED
+* INFERRED
+* PROPOSED
+* UNKNOWN
+
+Important principle:
+
+No evidence = UNKNOWN.
+
+AI is allowed to:
+
+* interpret natural language
+* propose engineering structures
+* explain relationships
+* generate drafts
+* suggest reusable assets
+* generate tests
+* explain changes
+* retrieve governed knowledge
+
+AI is NOT allowed to:
+
+* directly control actuators
+* bypass PLC authority
+* bypass safety/permissives
+* approve its own work
+* silently modify approved engineering
+* fabricate runtime state
+* claim unknown information is verified
+* deploy directly to production
+
+Trust hierarchy:
+
+AI
+PROPOSES
+   ↓
+CANONICAL MODEL
+SOURCE OF ENGINEERING TRUTH
+   ↓
+DETERMINISTIC KERNEL
+VALIDATES
+   ↓
+TEST ENGINE
+VERIFIES DEFINED BEHAVIOR
+   ↓
+ENGINEER
+APPROVES
+   ↓
+PLC
+RUNTIME CONTROL AUTHORITY
+
+The strongest existing architectural feature is:
+
+ENGINEERING CONTINUITY
+
+Example:
+
+If:
+
+PT101
+0–10 bar
+
+changes to:
+
+PT101
+0–16 bar
+
+the system should identify affected artifacts such as:
+
+* PLC scaling
+* HMI range
+* alarm thresholds
+* trends
+* simulation
+* tests
+* documentation
+
+and require:
+
+CHANGE
+ ↓
+IMPACT
+ ↓
+REGRESSION
+ ↓
+ENGINEER APPROVAL
+ ↓
+NEW BASELINE
+
+The current prototype/workbench includes a strong canonical model, HMI/runtime visualization, machine context, 3D/visual demo elements, deterministic validation, simulation/test concepts, engineering graph and change-impact architecture.
+
+The current practical constraint is:
+
+We are a small team (approximately 3 people) with limited time and need to maximize the quality of the competition demo.
+
+Do NOT assume we have:
+
+* years of historian data
+* massive operator-action datasets
+* a production-scale RAG corpus
+* a fully benchmarked on-device 7B/9B model
+* a certified low-end HMI runtime
+* a complete industrial migration engine
+* complete real-world Schneider internal APIs
+
+Do not invent capabilities that are not established.
+
+⸻
+
+RESEARCH OBJECTIVE
+
+Research all four problem statements deeply and independently.
+
+The final goal is to answer:
+
+Which PS should ASSETFLOW submit, and exactly how should the existing system be shaped around it?
+
+Research current 2025–2026 evidence where available.
+
+⸻
+
+RESEARCH AREA 1 — OFFICIAL PROBLEM-STATEMENT FIT
+
+For each PS determine:
+
+1. What exactly does the problem statement require?
+2. What would a winning solution need to demonstrate?
+3. Which parts of our existing system already solve it?
+4. Which parts would require substantial new development?
+5. Which parts are merely future claims?
+6. What can we demonstrate credibly now?
+7. What would judges likely challenge?
+
+Score each PS from 0–100 for:
+
+* Existing architecture fit
+* Existing working asset fit
+* Data availability
+* Engineering credibility
+* Feasibility for 3 people
+* Demo completeness
+* Demo wow factor
+* Judge comprehension
+* Technical depth
+* Differentiation
+
+⸻
+
+RESEARCH AREA 2 — CURRENT INDUSTRIAL COMPETITIVE LANDSCAPE
+
+Research what major industrial automation vendors are actually offering in 2025–2026.
+
+At minimum investigate:
+
+Schneider Electric
+
+Research:
+
+* EcoStruxure Operator Terminal Expert
+* EcoStruxure Machine Expert
+* Schneider Industrial Copilot
+* PLC Code Generation Copilot
+* Resource Advisor Copilot
+* Augmented Operator Advisor
+* current AI/HMI engineering initiatives
+* current HMI generation capabilities
+* current runtime AI capabilities
+
+Do NOT assume older information is still current.
+
+⸻
+
+Siemens
+
+Research:
+
+* TIA Portal AI capabilities
+* Siemens Engineering Copilot
+* Siemens Eigen Engineering Agent
+* WinCC / HMI AI capabilities
+* PLC generation
+* HMI generation
+* project-model-aware AI
+* validation/testing capabilities
+
+⸻
+
+Rockwell Automation
+
+Research:
+
+* FactoryTalk Design Studio
+* FactoryTalk Optix
+* FactoryTalk Copilot
+* AI Design Assistant
+* AI project generation
+* HMI generation
+* PLC/code generation
+* runtime AI
+* project-aware AI
+
+⸻
+
+AVEVA
+
+Research:
+
+* AVEVA industrial AI
+* AI Assistant
+* engineering AI
+* HMI/SCADA AI
+* knowledge graph / semantic context
+* operator AI
+* engineering lifecycle AI
+
+⸻
+
+Tatsoft
+
+Research:
+
+* FrameworX AI
+* AI Designer
+* project object model
+* HMI generation
+* runtime AI
+* permissions
+* AI project modification
+
+⸻
+
+Other relevant competitors
+
+Search for relevant offerings from:
+
+* Honeywell
+* ABB
+* Emerson
+* Inductive Automation
+* COPA-DATA
+* Ignition ecosystem
+* NVIDIA industrial AI
+* industrial AI startups
+* HMI AI startups
+* engineering copilots
+* dynamic HMI systems
+* low-end HMI runtime vendors
+
+Only include competitors genuinely relevant to the four PSs.
+
+⸻
+
+RESEARCH AREA 3 — PS2 SPECIFICALLY
+
+Deeply investigate:
+
+AI-generated dynamic runtime HMI screens from machine context
+
+Search for:
+
+* academic research
+* patents
+* commercial products
+* industrial demonstrations
+* startups
+* dynamic HMI generation
+* natural-language HMI generation
+* semantic HMI generation
+* model-driven HMI
+* adaptive HMI
+* machine-context-driven UI
+* runtime UI generation
+* responsive industrial HMI
+* generated HMI control interfaces
+
+Determine:
+
+1. How novel is PS2 really?
+2. Who already does it?
+3. What is patented?
+4. What is commercially available?
+5. What is only research?
+6. Where is the actual whitespace?
+7. Is “AI generates the screen” enough differentiation?
+8. Is “AI generates a screen from a verified machine model” materially stronger?
+9. Is “dynamic HMI generated from a canonical engineering model with validated bindings and PLC authority” differentiated?
+10. What would make our PS2 demo defensible?
+
+⸻
+
+RESEARCH AREA 4 — PS3 SPECIFICALLY
+
+Deeply investigate:
+
+AI-assisted build-time HMI engineering
+
+Research:
+
+* AI HMI engineering
+* AI screen generation
+* AI navigation generation
+* AI script generation
+* AI tag mapping
+* AI project generation
+* AI validation
+* AI project review
+* AI engineering assistants
+* engineering copilots
+* model-driven engineering
+* digital engineering baselines
+* automated testing
+* engineering change management
+* dependency analysis
+* regression testing
+* configuration governance
+
+Determine:
+
+1. How crowded is PS3?
+2. What are vendors already doing?
+3. What remains unsolved?
+4. Is deterministic validation a meaningful differentiator?
+5. Is cross-artifact dependency tracking meaningful?
+6. Is canonical-model-based generation differentiated?
+7. Is ECR → impact → regression → approval a meaningful moat?
+8. Can this be presented as a new engineering workflow rather than another AI assistant?
+
+⸻
+
+RESEARCH AREA 5 — PS1 SPECIFICALLY
+
+Deeply investigate:
+
+* industrial alarm management
+* ISA-18.2
+* IEC 62682
+* EEMUA 191
+* alarm floods
+* operator copilots
+* AI root-cause analysis
+* industrial RAG
+* shift handover AI
+* operational decision support
+* SOP copilots
+* edge/on-device industrial AI
+* quantized SLMs
+* low-end HMI AI
+* offline industrial copilots
+
+Determine:
+
+1. How crowded is this market?
+2. What competitors exist?
+3. What data is actually needed?
+4. What evidence is needed for credible RCA?
+5. Can a 3-person team build enough evidence to demonstrate it convincingly?
+6. Is an on-device model genuinely feasible on low-end industrial HMI hardware?
+7. What hardware/model combinations are realistic?
+8. What claims can we safely make?
+9. Would PS1 force us to create a data layer we do not currently have?
+
+⸻
+
+RESEARCH AREA 6 — PS4 SPECIFICALLY
+
+Deeply investigate:
+
+* LVGL
+* LVGL Safe
+* Linux HMI
+* embedded Linux HMI
+* SVG HMI
+* HTML Canvas industrial HMI
+* OpenGL
+* low-memory HMI
+* low-CPU HMI
+* industrial embedded graphics
+* low-cost HMI hardware
+
+Determine:
+
+1. How mature is this market?
+2. Who already owns the technology?
+3. What would a winning PS4 solution require?
+4. Would PS4 require rewriting our existing runtime?
+5. Is PS4 compatible with our existing architecture?
+6. Could we support PS4 later simply by adding a renderer/projection layer?
+7. Should PS4 be avoided as the primary submission?
+
+⸻
+
+RESEARCH AREA 7 — JUDGE / COMPETITION STRATEGY
+
+Think like a Schneider Electric innovation challenge judge.
+
+Determine which idea would produce the strongest reaction:
+
+Option A
+
+“AI generates an HMI.”
+
+Option B
+
+“AI generates a machine-specific HMI from PLC/I/O/alarm context.”
+
+Option C
+
+“AI generates a machine-specific HMI from a canonical engineering model.”
+
+Option D
+
+“AI generates a machine-specific HMI from a canonical engineering model, validates bindings, preserves PLC authority, dynamically adapts to engineering changes and provides runtime operator assistance.”
+
+Rank these.
+
+Explain which one sounds:
+
+* most innovative
+* most credible
+* most demonstrable
+* most relevant to Schneider
+* least like a generic AI wrapper
+* most defensible technically
+
+⸻
+
+RESEARCH AREA 8 — LIVE DEMO REALISM
+
+Evaluate what a 3-person team can realistically demonstrate.
+
+Assume a very short build/demo timeline.
+
+For every PS identify:
+
+MUST HAVE
+
+SHOULD HAVE
+
+NICE TO HAVE
+
+DO NOT BUILD
+
+Then calculate:
+
+* implementation risk
+* integration risk
+* AI risk
+* demo failure risk
+* judge-question risk
+* credibility risk
+
+⸻
+
+RESEARCH AREA 9 — THE CANONICAL MODEL QUESTION
+
+This is critical.
+
+Determine whether:
+
+A canonical machine model that becomes the source of truth for dynamic HMI generation, PLC projection, EOTE projection, simulation, tests and change-impact analysis
+
+is actually a meaningful differentiator.
+
+Compare:
+
+GENERIC AI
+Prompt
+ ↓
+LLM
+ ↓
+Screen
+
+versus:
+
+CANON
+Prompt
+ ↓
+Intent
+ ↓
+Canonical Machine Model
+ ↓
+Deterministic Validation
+ ↓
+Screen Compiler
+ ↓
+Validated HMI
+ ↓
+PLC/EOTE
+ ↓
+Runtime
+
+Then:
+
+ENGINEERING CHANGE
+ ↓
+DEPENDENCY GRAPH
+ ↓
+IMPACT
+ ↓
+REGRESSION
+ ↓
+APPROVAL
+ ↓
+NEW BASELINE
+
+Tell me honestly whether this is a real product moat or merely architecture theater.
+
+⸻
+
+RESEARCH AREA 10 — PS2 + PS1 COMBINATION
+
+Investigate whether this is strategically coherent:
+
+PS2 = primary problem statement
+
+Dynamic HMI generation from machine context.
+
+with:
+
+PS1 = embedded supporting capability
+
+Operator Copilot inside the generated runtime HMI.
+
+Determine whether this:
+
+* strengthens the PS2 story
+* creates scope creep
+* confuses judges
+* improves differentiation
+* creates a stronger runtime experience
+
+Recommend exactly how much PS1 should appear in the demo.
+
+⸻
+
+RESEARCH AREA 11 — PS3 AS THE FOUNDATION
+
+Investigate whether PS3 should instead be the primary submission with PS2 as the downstream projection.
+
+Compare:
+
+PS3 PRIMARY
+Engineering AI
+ ↓
+Canonical Model
+ ↓
+Verified HMI
+ ↓
+Runtime
+
+versus:
+
+PS2 PRIMARY
+Machine Context
+ ↓
+Canonical Model
+ ↓
+Dynamic HMI
+ ↓
+Runtime
+
+Determine which framing gives:
+
+* better demo
+* stronger differentiation
+* stronger problem alignment
+* better judge comprehension
+* better commercial potential
+* lower competition overlap
+* better use of our existing assets
+
+⸻
+
+RESEARCH AREA 12 — RED TEAM
+
+Attack our preferred solution.
+
+Assume we choose PS2.
+
+Ask:
+
+1. “Isn’t this just an AI screen generator?”
+2. “Why can’t EOTE already do this?”
+3. “How do you guarantee the generated screen binds to the correct PLC variable?”
+4. “How do you stop AI from inventing a control?”
+5. “How does this work when the machine changes?”
+6. “What makes it safe?”
+7. “Is the HMI really dynamic or just prebuilt templates?”
+8. “Is the screen actually controlling anything?”
+9. “Where does the engineering model come from?”
+10. “How do you validate the model?”
+11. “What happens when AI is wrong?”
+12. “Can this work on real industrial hardware?”
+13. “Is this compatible with EcoStruxure?”
+14. “What exactly is novel?”
+
+Then provide strong, honest answers.
+
+⸻
+
+RESEARCH AREA 13 — FACT CHECK ALL CLAIMS
+
+Do NOT blindly trust any previous AI research.
+
+Verify independently:
+
+* market claims
+* competitor claims
+* vendor capabilities
+* Schneider capabilities
+* ISA claims
+* alarm statistics
+* patents
+* product capabilities
+* model sizes
+* edge-AI hardware feasibility
+* runtime capabilities
+* HMI standards
+
+Clearly label:
+
+VERIFIED FACT
+
+STRONG EVIDENCE
+
+REASONABLE INFERENCE
+
+UNVERIFIED / DO NOT CLAIM
+
+If a claim cannot be verified, say so.
+
+⸻
+
+SCORING FRAMEWORK
+
+Score each PS from 0–100 using these weighted criteria:
+
+Criterion	Weight
+Fit to existing live assets	20%
+Differentiation / whitespace	15%
+Demo wow factor	15%
+Feasibility for 3 people	10%
+Problem/ROI strength	10%
+Schneider/judge alignment	10%
+Technical depth	5%
+Defensibility / moat	5%
+Data availability	5%
+Demo reliability	5%
+
+Give both:
+
+1. Raw score
+2. Weighted score
+
+Do not manipulate weights to force a predetermined answer.
+
+⸻
+
+IMPORTANT: COMPARE AGAINST OUR ACTUAL SYSTEM
+
+The question is NOT:
+
+“Which problem statement is the best in the world?”
+
+The question is:
+
+“Which problem statement gives ASSETFLOW/CANON the strongest chance of winning this specific innovation challenge with what we already have and can realistically demonstrate?”
+
+A technically inferior idea with a spectacular credible demo may beat a theoretically superior idea that cannot be demonstrated.
+
+Account for that.
+
+⸻
+
+REQUIRED FINAL OUTPUT
+
+Produce the following sections:
+
+1. Executive Verdict
+
+Choose exactly ONE:
+
+* PS1
+* PS2
+* PS3
+* PS4
+
+Do not hedge.
+
+⸻
+
+2. Final Ranking
+
+Provide a table:
+
+Rank	PS	Score	Why
+
+⸻
+
+3. Weighted Scorecard
+
+Provide the complete 10-criterion scoring table.
+
+⸻
+
+4. Competitive Landscape
+
+For each PS identify:
+
+* major competitors
+* overlapping products
+* market maturity
+* whitespace
+* our differentiation
+
+⸻
+
+5. Existing Asset Reuse
+
+Show exactly what existing CANON/AssetFlow components can be reused for each PS.
+
+⸻
+
+6. Build Gap
+
+For each PS:
+
+Already built
+Needs modification
+Needs new development
+Do not attempt
+
+⸻
+
+7. Killer Demo
+
+For the recommended PS, design the strongest possible 3–5 minute demo.
+
+Give exact sequence, UI states and judge reaction moments.
+
+⸻
+
+8. Architecture
+
+Give the final architecture diagram for the chosen PS.
+
+⸻
+
+9. PS2/PS1/PS3 Expansion Strategy
+
+Explain how the other problem statements can become future layers without diluting the primary submission.
+
+⸻
+
+10. Judge Red-Team
+
+List the 15 hardest questions judges could ask and provide concise, technically honest answers.
+
+⸻
+
+11. Claims We Must NOT Make
+
+Identify dangerous/unverified claims that should be removed from the pitch.
+
+⸻
+
+12. Final Idea Card
+
+Write the exact:
+
+* Title
+* One-line value proposition
+* Problem
+* Solution
+* Architecture
+* Key capabilities
+* Differentiator
+* Benefits
+* Feasibility
+* Future roadmap
+
+that should go into the official Idea Card.
+
+⸻
+
+FINAL INSTRUCTION
+
+Be brutally honest.
+
+If the current ASSETFLOW architecture is over-engineered, say so.
+
+If PS2 is actually better than PS3, say so.
+
+If PS3 is better, say so.
+
+If PS1 is attractive but impossible to credibly demonstrate with current data, say so.
+
+If PS4 is a distraction, say so.
+
+Do not select a problem statement because it sounds futuristic.
+
+Select the one where:
+
+The problem is real.
+
+The architecture is credible.
+
+The implementation is demonstrable.
+
+The differentiation is defensible.
+
+The demo is unforgettable.
+
+And the team can actually finish it.
+
+Finally, explicitly answer:
+
+“If you were the judge and had to select only one of PS1/PS2/PS3/PS4 for ASSETFLOW, which one would you select, why, and what exact 5-minute demo would make you choose it?”

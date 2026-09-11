@@ -1,0 +1,621 @@
+Absolutely. Do not tell Claude to replace the deterministic engineering core. Tell it to make the CANON Brain the mandatory intelligence layer for every user-facing generation/interpretation flow, while deterministic CANON remains the authority/validator.
+
+Copy-paste this:
+
+CANON — MANDATORY BRAIN-FIRST INTEGRATION
+MASTER IMPLEMENTATION PROMPT
+IMPORTANT:
+I do NOT want the platform to silently fall back to deterministic generation whenever the CANON Brain is available.
+From now on, the CANON Brain must be the PRIMARY and MANDATORY intelligence layer for all user-facing natural-language interpretation, HMI generation requests, HMI refinement, recommendations, intent extraction, fuzzy signal resolution, and engineering-language understanding.
+The deterministic CANON engine MUST remain the engineering-truth, assembly, validation, safety, provenance, and runtime-authority layer.
+DO NOT replace deterministic validation with AI.
+DO NOT allow the AI to invent engineering truth.
+DO NOT bypass the canonical model.
+BUT ALSO DO NOT bypass the Brain when a Brain is configured and expected to be running.
+============================================================
+1. CORE ARCHITECTURE
+============================================================
+The architecture MUST become:
+USER / ENGINEER
+        ↓
+CANON BRAIN
+        ↓
+STRUCTURED ENGINEERING PROPOSAL
+        ↓
+CANONICAL MODEL LOOKUP
+        ↓
+DETERMINISTIC VALIDATION
+        ↓
+DETERMINISTIC HMI ASSEMBLER
+        ↓
+VALIDATED HMI
+        ↓
+RUNTIME / SIMULATOR / OPC UA / MODBUS
+        ↓
+LIVE FEEDBACK
+        ↓
+CANON BRAIN FOR EXPLANATION / REFINEMENT
+        ↓
+VALIDATED REVISION
+The Brain is the intelligence layer.
+The deterministic engine is the authority layer.
+These are NOT competing generation modes.
+The Brain interprets.
+CANON verifies.
+CANON assembles.
+CANON validates.
+The runtime controls.
+The PLC remains authoritative when connected.
+============================================================
+2. BRAIN MUST BE USED BY DEFAULT
+============================================================
+If:
+CANON_LLM_BASE
+and
+CANON_LLM_MODEL
+are configured and reachable,
+THEN:
+ALL natural-language user requests MUST go through CANON Brain.
+There must be NO silent deterministic fallback.
+Examples:
+"show me the whole reactor"
+"keep an eye on reactor temperature"
+"make the pump section more prominent"
+"add a trend for the reactor temperature"
+"show pressure and level together"
+"give me an operator screen for the cooling system"
+"make this screen easier for an operator"
+"remove unnecessary alarms"
+"show the most important process values"
+"make the pump controls easier to access"
+ALL of these must first go through CANON Brain.
+============================================================
+3. NEVER USE KEYWORD-ONLY GENERATION WHEN BRAIN IS AVAILABLE
+============================================================
+Current behavior:
+"show me the whole line"
+        ↓
+keyword = overview
+        ↓
+deterministic assembler
+THIS MUST NO LONGER BE THE PRIMARY PATH.
+Instead:
+"show me the whole line"
+        ↓
+CANON Brain
+        ↓
+structured intent
+        ↓
+canonical context
+        ↓
+validated deterministic assembly
+The UI should visibly show:
+CANON-BRAIN
+Intent interpreted
+→
+CANON VALIDATOR
+→
+HMI ASSEMBLER
+NOT:
+deterministic → scope machine
+when the Brain is connected.
+============================================================
+4. BRAIN OUTPUT MUST BE STRUCTURED
+============================================================
+Never consume free-form LLM text as engineering instructions.
+The Brain MUST return structured JSON conforming to a strict schema.
+Example:
+{
+  "intent_type": "GENERATE_HMI",
+  "scope": {
+    "machine": "batch_reactor_RX-05"
+  },
+  "requested_elements": [
+    {
+      "semantic_role": "temperature_monitor",
+      "candidate_signals": ["TT-501"]
+    },
+    {
+      "semantic_role": "level_monitor",
+      "candidate_signals": ["LT-501"]
+    }
+  ],
+  "requested_actions": [],
+  "layout_intent": "operator_overview",
+  "reasoning_summary": "User requested an overview of the reactor process.",
+  "confidence": 0.0,
+  "requires_review": false
+}
+IMPORTANT:
+The Brain may PROPOSE TT-501.
+The canonical model decides whether TT-501 actually exists.
+The Brain MUST NOT create TT-999 merely because it sounds plausible.
+============================================================
+5. FUZZY LANGUAGE MUST ACTUALLY WORK
+============================================================
+This is one of the main reasons the Brain exists.
+Test these exact prompts:
+A.
+"keep an eye on the reactor temperature"
+Expected:
+Brain resolves semantic meaning:
+reactor temperature
+→ candidate TT-501
+→ canonical validation
+→ temperature widget generated.
+B.
+"show me the level of the reactor"
+→ LT-501
+C.
+"show me the two pressures"
+→ PT-501 + PT-502
+D.
+"give me an operator page for the agitator"
+→ AGT-501
+E.
+"show the pump and its important process values"
+→ P-501
+→ appropriate canonical signals.
+F.
+"make the cooling equipment easier to operate"
+→ Brain interprets intent
+→ canonical entities
+→ proposes valid HMI changes
+→ validator
+→ deterministic assembler.
+The important thing is:
+FUZZY LANGUAGE
+→ BRAIN
+→ REAL CANONICAL ENTITY
+→ VALIDATION
+→ REAL HMI
+============================================================
+6. BRAIN + EXISTING HMI REFINEMENT
+============================================================
+The "Refine with a prompt copilot" MUST use CANON Brain.
+Current examples:
+"add a trend for LT-501"
+"remove alarms"
+"remove pressure"
+must become:
+USER
+↓
+CANON BRAIN
+↓
+EDIT PROPOSAL
+↓
+CANONICAL MODEL CHECK
+↓
+VALIDATOR
+↓
+HMI REVISION
+For example:
+"make the reactor temperature easier to monitor"
+Brain should understand:
+- existing TT-501
+- current HMI
+- current layout
+- current widget type
+- current evidence
+- current engineering context
+Then propose a structured modification.
+The deterministic system applies it only after validation.
+============================================================
+7. BRAIN MUST RECEIVE A REAL CONTEXT PACK
+============================================================
+Do NOT give the Brain the entire database blindly.
+Construct a structured Context Pack containing:
+PROJECT
+MACHINE
+ASSETS
+CONTROLLER
+SIGNALS
+SIGNAL TYPES
+UNITS
+RANGES
+I/O
+COMMANDS
+COMMAND CONTRACTS
+PERMISSIVES
+INTERLOCKS
+ALARMS
+STATES
+MODES
+SEQUENCES
+PROCESS RELATIONSHIPS
+ELECTRICAL RELATIONSHIPS
+EXISTING HMI
+CURRENT HMI REVISION
+EVIDENCE
+SOURCE REFERENCES
+CONFLICTS
+UNKNOWNS
+CHANGE HISTORY
+RUNTIME STATE
+The Brain interprets this context.
+The Brain MUST NOT be allowed to mutate it.
+============================================================
+8. BRAIN MUST BE EVIDENCE-BOUND
+============================================================
+Every proposed engineering entity must resolve against CANON.
+Example:
+Brain:
+"temperature monitor → TT-501"
+CANON:
+TT-501 EXISTS
+type = temperature
+unit = degC
+range = 0–100
+source = evidence
+status = VERIFIED
+Then allow the proposal.
+If:
+Brain:
+"temperature monitor → TT-999"
+CANON:
+TT-999 DOES NOT EXIST
+Then:
+REJECT / UNKNOWN
+Never create TT-999.
+Never silently substitute another tag.
+============================================================
+9. NO BRAIN → NO BRAIN-FIRST GENERATION
+============================================================
+If the user requests an AI-powered natural-language generation flow and the Brain is configured but unreachable:
+DO NOT silently use deterministic generation.
+Instead show:
+BRAIN OFFLINE
+CANON-BRAIN is configured but unavailable.
+Natural-language interpretation is temporarily unavailable.
+[Retry connection]
+The deterministic engineering model remains available for inspection.
+This prevents the demo from falsely claiming Brain usage.
+============================================================
+10. DETERMINISTIC MODE MAY STILL EXIST
+============================================================
+Deterministic functionality must remain available for:
+- canonical model construction
+- validation
+- evidence resolution
+- binding validation
+- command contracts
+- safety checks
+- HMI assembly
+- runtime authority
+- revisions
+- change impact
+- provenance
+- audit
+- PLC communication
+But it must NOT be presented as the Brain.
+Correct:
+BRAIN:
+CANON-BRAIN
+ASSEMBLY:
+DETERMINISTIC CANON ENGINE
+VALIDATION:
+DETERMINISTIC VALIDATOR
+RUNTIME:
+SIMULATOR / OPC UA / MODBUS
+============================================================
+11. UI MUST SHOW BRAIN STATUS
+============================================================
+Add a permanent system-status indicator.
+When connected:
+┌──────────────────────────────────────┐
+│ CANON RUNTIME                        │
+│                                      │
+│ BRAIN       ● CONNECTED              │
+│ MODEL       canon-brain              │
+│ INTERPRETER ● ACTIVE                 │
+│ VALIDATOR   ● ACTIVE                 │
+│ RUNTIME     ● SIMULATOR              │
+│ MODEL       CANON v1                 │
+└──────────────────────────────────────┘
+When unavailable:
+┌──────────────────────────────────────┐
+│ CANON RUNTIME                        │
+│                                      │
+│ BRAIN       ○ OFFLINE                │
+│ MODEL       canon-brain              │
+│ INTERPRETER ○ UNAVAILABLE            │
+│ VALIDATOR   ● ACTIVE                 │
+│ RUNTIME     ● SIMULATOR              │
+└──────────────────────────────────────┘
+Never claim Brain-connected when it isn't.
+============================================================
+12. GENERATION HEADER
+============================================================
+When Brain is used, show:
+CANON-BRAIN
+Natural-language intent interpreted
+↓
+CANON MODEL
+Engineering entities resolved
+↓
+VALIDATOR
+Bindings verified
+↓
+HMI ASSEMBLER
+Validated interface generated
+Example:
+CANON-BRAIN → CANON MODEL → VALIDATOR → HMI
+Do NOT show:
+"deterministic → scope machine"
+for a Brain-driven request.
+Instead show something like:
+✓ CANON-BRAIN → interpreted reactor overview
+✓ canonical scope → batch_reactor_RX-05
+✓ 12/12 bindings validated
+✓ 22 evidence links
+✓ HMI generated → v2
+============================================================
+13. BRAIN MUST ALSO POWER RECOMMENDATIONS
+============================================================
+Recommendations should use Brain intelligence.
+Examples:
+"PT-501 and PT-502 are both important pressure signals. Consider displaying them together."
+"AGT-501 has START/STOP commands and a permissive gate. A motor faceplate may improve operator interaction."
+"TT-501 is an important process value but is currently displayed only as a numeric value. A trend could improve monitoring."
+However:
+Recommendations must reference actual canonical entities.
+Never invent a recommendation based on nonexistent equipment.
+============================================================
+14. BRAIN MUST POWER EXPLANATIONS
+============================================================
+For user-facing natural-language questions such as:
+"Why did you put this here?"
+"Why is this button disabled?"
+"Why can't I start the pump?"
+"Why is this alarm shown?"
+"Why wasn't FT-999 added?"
+Use CANON Brain for language generation.
+BUT the factual answer MUST come from CANON evidence/model/runtime.
+Example:
+User:
+"Why can't I start P-501?"
+Brain:
+"CANON shows that P-501_START requires its permissive to be satisfied. The current permissive condition is false, so the command is blocked."
+The Brain explains.
+The canonical model provides truth.
+============================================================
+15. BRAIN MUST NEVER CONTROL THE PLC DIRECTLY
+============================================================
+ABSOLUTE RULE:
+CANON Brain
+≠
+PLC authority.
+Brain may propose:
+{
+  "command": "P-501_START"
+}
+But:
+Brain
+→ API
+→ command contract
+→ validator
+→ permissives/interlocks
+→ engineer/operator authorization
+→ PLC/simulator adapter
+→ command request
+→ runtime feedback
+Never:
+Brain → PLC
+Never:
+Browser → PLC
+Never:
+LLM → raw tag write.
+============================================================
+16. REAL RUNTIME MUST REMAIN REAL
+============================================================
+Do not confuse Brain activation with runtime simulation.
+Runtime values must come from:
+1. deterministic server-side simulator, OR
+2. OPC UA, OR
+3. Modbus TCP, OR
+4. another explicitly supported runtime adapter.
+Never generate fake runtime values in React.
+No:
+Math.random()
+fake timers
+client-side random process values
+hard-coded changing values
+fake "live" status.
+Runtime UI must say:
+SIMULATOR
+until a real PLC connection exists.
+============================================================
+17. MANDATORY TESTS
+============================================================
+Implement automated tests proving:
+TEST 1
+Brain connected.
+Prompt:
+"keep an eye on reactor temperature"
+Expected:
+CANON-BRAIN used.
+Expected candidate:
+TT-501.
+Expected:
+validated HMI proposal.
+TEST 2
+Prompt:
+"show me the whole reactor"
+Expected:
+Brain interprets scope.
+TEST 3
+Prompt:
+"show pressure"
+Expected:
+real PT signals only.
+TEST 4
+Prompt:
+"show FT-999"
+Expected:
+UNKNOWN / REJECTED.
+FT-999 must never become a valid widget.
+TEST 5
+Brain unavailable.
+Expected:
+NO silent deterministic fallback.
+Expected UI:
+BRAIN OFFLINE.
+TEST 6
+Brain produces malformed JSON.
+Expected:
+structured-output failure.
+Expected:
+proposal rejected safely.
+TEST 7
+Brain proposes nonexistent signal.
+Expected:
+validator rejects it.
+TEST 8
+Brain proposes valid signal.
+Expected:
+canonical model validates it.
+TEST 9
+HMI edit.
+"add a trend for reactor temperature"
+Expected:
+Brain → proposal → validation → HMI revision.
+TEST 10
+Runtime command.
+Expected:
+Brain may interpret language,
+but command must go through deterministic command validation.
+============================================================
+18. IMPORTANT: DO NOT DESTROY THE EXISTING SYSTEM
+============================================================
+First inspect the entire existing repository.
+Do NOT rewrite working:
+- canonical model
+- acquisition
+- evidence
+- validator
+- HMI assembler
+- simulator
+- runtime
+- change impact
+- revision system
+- tests
+Reuse existing implementation.
+Integrate the Brain into the correct existing pipeline.
+Do not create a second competing architecture.
+============================================================
+19. FINAL PRODUCT PRINCIPLE
+============================================================
+CANON must feel like:
+ENGINEERING DATA
+        ↓
+CANONICAL ENGINEERING TRUTH
+        ↓
+CANON-BRAIN
+        ↓
+ENGINEERING INTENT
+        ↓
+VALIDATED PROPOSAL
+        ↓
+DETERMINISTIC ENGINEERING SYSTEM
+        ↓
+REAL HMI
+        ↓
+REAL RUNTIME
+        ↓
+REAL FEEDBACK
+The Brain should make CANON understand humans.
+The deterministic engine should make CANON trustworthy.
+The validator should make CANON safe.
+The runtime should make CANON demonstrably real.
+============================================================
+20. DEFINITION OF DONE
+============================================================
+This task is NOT complete merely because:
+- the Brain server is reachable
+- an LLM response is returned
+- a "CANON-BRAIN" badge appears.
+It is complete only when the following end-to-end flow works:
+USER:
+"Keep an eye on the reactor temperature and show the pump status."
+↓
+CANON-BRAIN
+interprets the request.
+↓
+STRUCTURED PROPOSAL
+identifies the relevant semantic requirements.
+↓
+CANON MODEL
+resolves:
+TT-501
+P-501
+↓
+VALIDATOR
+confirms both actually exist and are valid.
+↓
+DETERMINISTIC HMI ASSEMBLER
+creates the widgets.
+↓
+HMI
+renders the validated components.
+↓
+RUNTIME
+provides actual simulator/OPC UA/Modbus values.
+↓
+USER:
+"Make the temperature easier to monitor."
+↓
+CANON-BRAIN
+interprets the refinement.
+↓
+CHANGE PROPOSAL
+↓
+VALIDATOR
+↓
+HMI REVISION
+↓
+v2
+Everything must remain evidence-backed.
+Nothing invented survives validation.
+============================================================
+FINAL COMMAND
+============================================================
+IMPLEMENT THIS NOW.
+Do not merely explain what should be changed.
+Inspect the current repository.
+Find the existing Brain integration.
+Connect the actual CANON Brain endpoint.
+Make Brain-first behavior the default whenever configured.
+Remove silent deterministic fallback from Brain-dependent user flows.
+Keep deterministic CANON as the engineering authority.
+Add explicit Brain status.
+Add Brain integration tests.
+Run the tests.
+Run the real application.
+Demonstrate at least five fuzzy prompts through CANON-BRAIN.
+Verify that the resulting HMI still uses only canonical, validated, evidence-backed entities.
+At the end report:
+BRAIN STATUS:
+MODEL:
+ENDPOINT:
+BRAIN REQUESTS:
+BRAIN SUCCESS RATE:
+FUZZY RESOLUTION TESTS:
+INVALID ENTITY REJECTION:
+HMI GENERATION:
+VALIDATION:
+RUNTIME:
+SILENT FALLBACKS:
+TEST RESULTS:
+MOST IMPORTANT:
+I want to see:
+USER LANGUAGE
+→ CANON-BRAIN
+→ REAL CANONICAL ENTITY
+→ DETERMINISTIC VALIDATION
+→ REAL HMI
+not:
+USER LANGUAGE
+→ KEYWORD MATCH
+→ DETERMINISTIC HMI
+The Brain must be the intelligence front door.
+CANON remains the engineering truth and authority.

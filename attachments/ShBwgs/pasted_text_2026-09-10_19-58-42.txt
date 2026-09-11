@@ -1,0 +1,639 @@
+CANON — MACHINE CONTEXT
+SCREEN 02 — MACHINE DISCOVERY & ENGINEERING CONTEXT
+MASTER UI GENERATION PROMPT
+
+============================================================
+CORE DIRECTIVE
+============================================================
+
+Design the second screen of CANON immediately after the engineer
+opens an existing project from the Project Hub.
+
+The engineer has selected:
+
+TK-401
+PROCESS TANK
+
+This screen must communicate one fundamental idea:
+
+CANON IS FIRST UNDERSTANDING THE MACHINE BEFORE IT GENERATES
+ANYTHING.
+
+This is NOT a generic data dashboard.
+This is NOT an analytics screen.
+This is NOT a chatbot.
+This is NOT a giant asset browser.
+
+It is a premium industrial engineering "machine discovery"
+workspace.
+
+The visual quality should feel comparable to serious industrial
+automation engineering software.
+
+============================================================
+1. APPLICATION SHELL
+============================================================
+
+Keep the exact same application shell from the Project Hub.
+
+Top-left:
+
+CANON
+
+ENGINEERING INTELLIGENCE PLATFORM
+
+Primary navigation:
+
+PROJECTS
+MACHINES
+LIBRARY
+
+Right:
+
+● SYSTEM OPERATIONAL
+
+Below the global shell, introduce the PROJECT CONTEXT BAR:
+
+TK-401
+Process Tank
+
+● CONNECTED
+
+Controller:
+Modicon M262
+
+Last synchronization:
+12 sec ago
+
+============================================================
+2. ENGINEERING WORKFLOW NAVIGATION
+============================================================
+
+Immediately below the project header create a restrained workflow
+navigation:
+
+CONTEXT  →  MODEL  →  INTENT  →  VALIDATE  →  RUNTIME  →  CHANGE
+
+Current stage:
+
+CONTEXT
+
+All future stages are visible but inactive.
+
+Do NOT make this look like a colorful progress bar.
+
+It should feel like an engineering workflow breadcrumb.
+
+============================================================
+3. PAGE TITLE
+============================================================
+
+Main heading:
+
+MACHINE CONTEXT
+
+Supporting text:
+
+Discovering the machine's engineering reality before generating
+an operator experience.
+
+On the right:
+
+● LIVE CONNECTION
+
+[ SYNC NOW ]
+
+============================================================
+4. TOP ENGINEERING SUMMARY
+============================================================
+
+Create four compact engineering metrics.
+
+Do NOT make them giant dashboard cards.
+
+Use clean horizontal information blocks:
+
+24
+ASSETS
+
+186
+SIGNALS
+
+4
+I/O GROUPS
+
+12
+ALARMS
+
+Underneath the numbers use tiny supporting labels:
+
+DISCOVERED
+DISCOVERED
+DISCOVERED
+DISCOVERED
+
+These values belong to the TK-401 demo machine.
+
+============================================================
+5. MAIN VISUAL — MACHINE DISCOVERY
+============================================================
+
+The center of the screen should be dominated by a clean
+engineering discovery visualization.
+
+Show:
+
+TK-401 PROCESS TANK
+
+with its discovered engineering elements arranged around it.
+
+Example:
+
+                    TK-401
+                 PROCESS TANK
+                       │
+       ┌───────────────┼────────────────┐
+       │               │                │
+     LT401           PT401             P401
+     LEVEL          PRESSURE            PUMP
+       │               │                │
+       └───────────────┼────────────────┘
+                       │
+                     XV401
+                      VALVE
+
+This is NOT yet the final Canonical Machine Model.
+
+Label the visualization:
+
+DISCOVERED MACHINE ELEMENTS
+
+Each element should have a subtle status:
+
+● DISCOVERED
+● CONNECTED
+● VERIFIED
+
+Do not invent unnecessary devices.
+
+============================================================
+6. SOURCE PANEL
+============================================================
+
+On the right side create a clean panel:
+
+ENGINEERING SOURCES
+
+Show the information CANON has discovered.
+
+SOURCE 01
+
+PLC / CONTROLLER
+
+Modicon M262
+
+● CONNECTED
+
+SOURCE 02
+
+OPC UA
+
+● CONNECTED
+
+SOURCE 03
+
+I/O CONFIGURATION
+
+24 I/O groups discovered
+
+● SYNCHRONIZED
+
+SOURCE 04
+
+ALARM DEFINITIONS
+
+12 alarms discovered
+
+● SYNCHRONIZED
+
+SOURCE 05
+
+ENGINEERING DOCUMENTS
+
+3 documents available
+
+● INDEXED
+
+Use subtle source icons.
+
+Do not create a huge file explorer.
+
+============================================================
+7. DISCOVERY STATUS
+============================================================
+
+Create a compact system-status section.
+
+ENGINEERING DISCOVERY
+
+Controller
+✓ Connected
+
+I/O
+✓ Discovered
+
+Signals
+✓ Indexed
+
+Alarms
+✓ Indexed
+
+Relationships
+✓ Analyzed
+
+Machine Model
+→ Ready to build
+
+The final line should be visually emphasized:
+
+READY FOR MACHINE MODEL
+
+============================================================
+8. IMPORTANT TRUST MOMENT
+============================================================
+
+Include a small "UNRESOLVED" indicator.
+
+Example:
+
+1 UNRESOLVED REFERENCE
+
+A signal reference could not be confidently mapped.
+
+[ REVIEW ]
+
+This is VERY important.
+
+Do not make CANON pretend that everything is known.
+
+Clicking REVIEW should open a small contextual drawer:
+
+UNRESOLVED REFERENCE
+
+Reference:
+PT401.Status
+
+Status:
+UNKNOWN
+
+Reason:
+No authoritative mapping found in the connected engineering
+sources.
+
+CANON will not invent a binding.
+
+[ MARK FOR REVIEW ]
+
+This demonstrates engineering integrity.
+
+============================================================
+9. LOWER INFORMATION STRIP
+============================================================
+
+At the bottom of the main workspace show:
+
+LAST SYNC
+12 sec ago
+
+DATA SOURCE
+Live machine
+
+DISCOVERY MODE
+Read / Analyze
+
+MACHINE STATE
+● RUNNING
+
+Avoid unnecessary telemetry.
+
+The purpose is machine understanding, not analytics.
+
+============================================================
+10. PRIMARY ACTION
+============================================================
+
+Bottom-right:
+
+BUILD MACHINE MODEL →
+
+This is the primary action.
+
+The engineer should understand:
+
+"We discovered the machine. Now CANON will construct the
+canonical machine representation."
+
+When clicked:
+
+transition to:
+
+MACHINE MODEL
+
+============================================================
+11. DO NOT SHOW YET
+============================================================
+
+Do NOT show:
+
+- AI chat
+- natural language prompt
+- generated HMI
+- giant trend charts
+- detailed PLC programming
+- dozens of device parameters
+- user management
+- settings
+- complex analytics
+- huge document library
+- product catalog
+- excessive tables
+- unnecessary Schneider product information
+- dozens of controls
+
+Those belong elsewhere or are unnecessary for the prototype.
+
+============================================================
+12. VISUAL HIERARCHY
+============================================================
+
+The screen must have exactly three major visual areas:
+
+1. MACHINE DISCOVERY
+2. ENGINEERING SOURCES
+3. DISCOVERY STATUS
+
+The machine visualization is the visual hero.
+
+Everything else supports it.
+
+============================================================
+13. INTERACTION
+============================================================
+
+Clicking:
+
+LT401
+
+opens:
+
+LEVEL TRANSMITTER
+LT401
+
+Signal:
+LT401.Level
+
+Type:
+REAL
+
+Unit:
+%
+
+Source:
+PLC / M262
+
+Status:
+● VERIFIED
+
+Clicking:
+
+PT401
+
+opens:
+
+PRESSURE TRANSMITTER
+PT401
+
+Signal:
+PT401.Pressure
+
+Type:
+REAL
+
+Unit:
+bar
+
+Range:
+0–10 bar
+
+Status:
+● VERIFIED
+
+Clicking:
+
+P401
+
+opens:
+
+PUMP
+P401
+
+Commands:
+START
+STOP
+
+Feedback:
+RUNNING
+
+Permissive:
+AVAILABLE
+
+Status:
+● RUNNING
+
+These should open as contextual side panels, NOT new screens.
+
+============================================================
+14. MOTION
+============================================================
+
+Keep animation extremely subtle.
+
+On initial load:
+
+CONNECTING
+↓
+DISCOVERING
+↓
+INDEXING
+↓
+ANALYZING
+↓
+READY
+
+Once complete, the machine elements appear progressively.
+
+No cinematic animation.
+
+No glowing nodes.
+
+No futuristic effects.
+
+The interaction should feel like software processing real
+engineering information.
+
+============================================================
+15. DESIGN LANGUAGE
+============================================================
+
+Use the same design system as the Project Hub:
+
+White / light neutral background.
+
+Graphite typography.
+
+Thin gray dividers.
+
+Subtle green for healthy/verified states.
+
+Amber for unresolved information.
+
+Red only for actual faults.
+
+Precise spacing.
+
+Minimal rounded corners.
+
+No gradients.
+
+No glassmorphism.
+
+No neon.
+
+No excessive shadows.
+
+No decorative illustrations.
+
+============================================================
+16. SCHNEIDER-QUALITY PRINCIPLE
+============================================================
+
+The interface should communicate:
+
+ENGINEERING FIRST.
+
+Not:
+
+AI FIRST.
+
+The AI should barely be visible on this screen.
+
+The machine is the hero.
+
+The data is the evidence.
+
+The canonical model comes next.
+
+============================================================
+17. KEY STORY
+============================================================
+
+The judge should understand this screen without explanation:
+
+CANON connected to TK-401.
+
+↓
+It discovered the controller.
+
+↓
+It discovered assets.
+
+↓
+It discovered signals.
+
+↓
+It discovered alarms.
+
+↓
+It identified relationships.
+
+↓
+It found one unresolved reference rather than inventing an answer.
+
+↓
+It is ready to build the machine model.
+
+============================================================
+18. FINAL SCREEN COPY
+
+Use this exact primary messaging:
+
+MACHINE CONTEXT
+
+"Discovering the machine's engineering reality before generating
+an operator experience."
+
+Status:
+
+● CONNECTED
+
+Summary:
+
+24 ASSETS
+186 SIGNALS
+4 I/O GROUPS
+12 ALARMS
+
+Section:
+
+DISCOVERED MACHINE ELEMENTS
+
+Sources:
+
+ENGINEERING SOURCES
+
+Status:
+
+ENGINEERING DISCOVERY
+
+Final state:
+
+READY FOR MACHINE MODEL
+
+Primary CTA:
+
+BUILD MACHINE MODEL →
+
+============================================================
+19. QUALITY BAR
+============================================================
+
+This screen should feel:
+
+QUIET
+PRECISE
+ENGINEERING-CENTRIC
+TRUSTWORTHY
+INDUSTRIAL
+ENTERPRISE-GRADE
+SCHNEIDER-INSPIRED
+ORIGINAL
+
+The screen should NOT try to impress through visual complexity.
+
+It should impress through:
+
+CLARITY
+STRUCTURE
+TRACEABILITY
+MACHINE UNDERSTANDING
+
+FINAL PRINCIPLE:
+
+DON'T SHOW EVERYTHING CANON KNOWS.
+
+SHOW THE ENGINEER EXACTLY WHAT THEY NEED TO TRUST
+THAT CANON UNDERSTANDS THE MACHINE.
+
+The final transition should be:
+
+BUILD MACHINE MODEL →

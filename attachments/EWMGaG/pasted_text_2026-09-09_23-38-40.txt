@@ -1,0 +1,3565 @@
+Yes. Below is the single consolidated copy-paste prompt with no commentary between sections. I’ve made it implementation-directed so you can paste it directly into your coding/build model.
+
+ASSETFLOW
+
+Engineering Intent → Verified Automation
+
+MASTER SYSTEM BUILD PROMPT v2.0
+
+FINAL 99/100 EXECUTION SPECIFICATION
+
+⸻
+
+0. SYSTEM DIRECTIVE
+
+Build ASSETFLOW as a credible prototype of a future AI-assisted engineering intelligence layer around the Schneider Electric EcoStruxure ecosystem.
+
+You are NOT building:
+
+* a normal hackathon HMI
+* a chatbot with industrial colors
+* an autonomous PLC
+* an AI actuator controller
+* a replacement for Schneider Electric engineering software
+* a fake digital twin
+* a generic SaaS dashboard
+* disconnected AI features
+* a visually impressive mockup with fake backend behavior
+
+You ARE building:
+
+An AI-assisted engineering compiler and traceability layer that connects engineering intent, structured engineering information, deterministic validation, simulation, automation artifacts, runtime evidence, approvals, and future engineering changes.
+
+The target judge reaction is:
+
+“This isn’t an AI HMI. This is an engineering continuity and verification layer that could plausibly sit around an industrial engineering ecosystem.”
+
+Optimize for:
+
+* engineering credibility
+* deterministic correctness
+* traceability
+* explainability
+* evidence
+* human approval
+* PLC authority
+* runtime trust
+* change intelligence
+* productization
+* visual excellence
+* demo reliability
+
+Do not optimize for feature count.
+
+If a feature cannot be implemented reliably, do not fake it. Implement the real subset, clearly label the limitation, and preserve the architecture for future integration.
+
+⸻
+
+1. NORTH STAR
+
+AssetFlow lets an engineer describe what a machine should do once and continuously connects that intent to:
+
+ENGINEERING INTENT
+        ↓
+CANONICAL ASSET MODEL
+        ↓
+ENGINEERING GRAPH
+        ↓
+I/O
+        ↓
+PLC
+        ↓
+HMI
+        ↓
+ALARMS
+        ↓
+SIMULATION
+        ↓
+TESTS
+        ↓
+DOCUMENTATION
+        ↓
+APPROVAL
+        ↓
+RUNTIME EVIDENCE
+        ↓
+CHANGE IMPACT
+        ↓
+NEW ENGINEERING BASELINE
+
+Core principle:
+
+ONE ENGINEERING DEFINITION → CONTINUOUS ENGINEERING TRACEABILITY
+
+⸻
+
+2. CANONICAL PRODUCT DEFINITION
+
+Use this as the canonical product definition:
+
+AssetFlow is an AI-assisted engineering compiler and traceability layer for EcoStruxure projects that converts natural-language engineering intent into a validated asset model, engineering artifacts, tests, documentation and change-impact intelligence while keeping deterministic control and final approval with the engineer and PLC.
+
+Short product statement:
+
+Engineering Intent → Verified Automation
+
+⸻
+
+3. THE FIVE AUTHORITIES
+
+This architecture is foundational and must appear throughout the application.
+
+                         AI
+                    PROPOSES
+                    EXPLAINS
+                    INTERPRETS
+                       │
+                       ▼
+              CANONICAL MODEL
+           SOURCE OF ENGINEERING TRUTH
+                       │
+                       ▼
+                 RULES ENGINE
+              VALIDATION AUTHORITY
+                       │
+                       ▼
+                    ENGINEER
+                APPROVAL AUTHORITY
+                       │
+                       ▼
+                      PLC
+              RUNTIME CONTROL AUTHORITY
+
+AI MAY:
+
+* interpret natural-language engineering intent
+* extract entities
+* propose engineering values
+* identify dependencies
+* generate tests
+* generate documentation
+* explain changes
+* query the engineering graph
+* identify inconsistencies
+* recommend reusable asset types
+
+AI MAY NOT:
+
+* directly control actuators
+* bypass PLC authority
+* bypass permissives
+* silently modify approved engineering
+* approve its own work
+* invent critical engineering values
+* fabricate plant state
+* override safety logic
+* claim unknown information is verified
+* deploy directly to production
+
+The architecture must make this boundary visible.
+
+⸻
+
+4. THREE HERO CAPABILITIES
+
+Everything in the prototype must support exactly three unforgettable hero capabilities.
+
+HERO 1 — INTENT COMPILER
+
+Natural language:
+
+Create a pump with pressure monitoring, high and low alarms, operator start/stop, PLC-authoritative permissives and stale-data protection.
+
+becomes:
+
+ENGINEERING INTENT
+        ↓
+AI INTERPRETATION
+        ↓
+CANONICAL ASSET MODEL
+        ↓
+DETERMINISTIC VALIDATION
+        ↓
+ENGINEERING ARTIFACTS
+
+⸻
+
+HERO 2 — ENGINEERING CONTINUITY
+
+Engineer changes:
+
+PT101
+0–10 bar
+↓
+0–16 bar
+
+AssetFlow discovers:
+
+PLC SCALING
+ALARMS
+HMI
+TRENDS
+TESTS
+SIMULATION
+DOCUMENTATION
+
+and answers:
+
+WHAT CHANGED?
+WHY?
+WHAT DEPENDS ON IT?
+WHAT IS INVALIDATED?
+WHAT MUST BE RETESTED?
+WHAT DOCUMENTS CHANGE?
+WHAT IS NOT AFFECTED?
+WHAT IS UNKNOWN?
+WHO MUST APPROVE?
+
+⸻
+
+HERO 3 — RUNTIME TRUST
+
+When telemetry becomes stale:
+
+DATA TRUST LOST
+Last valid update:
+4.2 seconds ago
+Plant state:
+STALE / UNKNOWN
+Consequential commands:
+DISABLED
+
+The HMI must visibly distinguish:
+
+WHAT WE KNOW
+WHAT WE INFER
+WHAT WE DON'T KNOW
+
+⸻
+
+5. DEMO REFERENCE SYSTEM
+
+Do NOT build a huge plant.
+
+Build one exceptionally deep reference system:
+
+PUMP STATION P100
+
+Reference dataset:
+
+1 reusable Pump Type
+1 Pump Instance: P101
+1 Pressure Transmitter: PT101
+1 PLC
+1 EOTE application/workflow representation
+43 signals
+10 alarms
+2 alarm groups
+32 HMI texts
+17 tests
+3 response ladders
+
+These numbers must be generated from the canonical dataset rather than independently hard-coded.
+
+Architecture must support:
+
+P101
+P102
+P103
+...
+P500
+
+through reusable asset types.
+
+Principle:
+
+DEFINE ONCE → INSTANTIATE MANY
+
+⸻
+
+6. PRIMARY USER
+
+Primary:
+
+Controls / Automation Engineer
+
+Secondary:
+
+* engineering reviewer
+* commissioning engineer
+* operator
+* maintenance engineer
+* project manager
+
+Do not design as generic enterprise SaaS.
+
+Target interaction model:
+
+VS Code + engineering IDE + industrial control workspace + AI engineering copilot
+
+⸻
+
+7. TECHNICAL REFERENCE ARCHITECTURE
+
+Use a simple, credible architecture.
+
+Recommended prototype stack:
+
+FRONTEND
+React
+TypeScript
+Vite
+        ↓
+API
+Python
+FastAPI
+        ↓
+ENGINEERING SERVICES
+├── Intent Compiler
+├── Canonical Model Service
+├── Validation / Rules Engine
+├── Engineering Graph
+├── Impact Engine
+├── Test Engine
+├── Simulation Engine
+├── Evidence Service
+├── Approval Service
+└── Document Generator
+        ↓
+DATA
+SQLite for rapid prototype
+or PostgreSQL if appropriate
+        ↓
+RUNTIME ADAPTER
+├── Deterministic Simulator
+├── OPC UA when genuinely available
+├── Modbus TCP when genuinely available
+└── documented EOTE workflow
+        ↓
+PLC / EOTE / SIMULATION
+
+Do NOT introduce unnecessary microservices, Kubernetes, Kafka, Redis, Neo4j, or other infrastructure unless genuinely necessary.
+
+Prototype principle:
+
+Simple architecture + correct behavior > sophisticated infrastructure + fragile demo.
+
+⸻
+
+8. NO UI-OWNED ENGINEERING TRUTH
+
+The UI must NEVER be the source of engineering truth.
+
+Correct:
+
+UI
+ ↓
+API
+ ↓
+CANONICAL MODEL
+ ↓
+RULES / GRAPH / EVIDENCE
+ ↓
+UI
+
+Incorrect:
+
+Screen A:
+PT101 = 10 bar
+Screen B:
+PT101 = 16 bar
+Screen C:
+PT101 = 12 bar
+
+All screens must derive from the same canonical model.
+
+⸻
+
+9. CANONICAL ENGINEERING MODEL
+
+Every engineering object should support:
+
+Identity
+Type
+Parameters
+Signals
+I/O
+PLC Mapping
+HMI Mapping
+Alarms
+Trends
+Logging
+Control Contract
+Permissives
+Interlocks
+Commands
+Diagnostics
+Hardware Requirements
+Wiring
+Tests
+Documentation
+Simulation
+Security
+Governance
+Provenance
+Revision
+Approval
+
+⸻
+
+10. STABLE ID CONTRACT
+
+Every engineering object must have an immutable stable ID.
+
+Examples:
+
+asset:pump:P101
+asset-type:pump:PumpType-v3
+signal:pressure:PT101
+plc-variable:P101:DischargePressure
+hmi-tag:P101:DischargePressure
+alarm:P101:HIGH_PRESSURE
+alarm:P101:LOW_PRESSURE
+test:FAT:T04
+simulation:S02
+document:OPR:03
+revision:17
+
+Relationships MUST reference IDs, not display names.
+
+⸻
+
+11. MINIMUM CANONICAL JSON CONTRACT
+
+Use a structure equivalent to:
+
+{
+  "id": "asset:pump:P101",
+  "type": "Pump",
+  "name": "P101",
+  "asset_type_id": "asset-type:pump:PumpType-v3",
+  "revision": 17,
+  "parameters": {
+    "motor_power_kw": 15,
+    "pressure_range_bar": {
+      "min": 0,
+      "max": 16
+    }
+  },
+  "signals": [
+    {
+      "id": "signal:pressure:PT101",
+      "name": "PT101",
+      "type": "analog_input",
+      "unit": "bar",
+      "range": {
+        "min": 0,
+        "max": 16
+      },
+      "status": "VERIFIED",
+      "source": "Engineering Specification Rev. 4"
+    }
+  ],
+  "plc": {
+    "variable_id": "plc-variable:P101:DischargePressure",
+    "variable": "P101.DischargePressure",
+    "address": "%MW42",
+    "authority": "PLC"
+  },
+  "hmi": {
+    "tag_id": "hmi-tag:P101:DischargePressure"
+  },
+  "alarms": [
+    {
+      "id": "alarm:P101:HIGH_PRESSURE",
+      "threshold": 12,
+      "unit": "bar",
+      "status": "PROPOSED"
+    }
+  ],
+  "provenance": {
+    "created_by": "AssetFlow",
+    "source": "Engineering Specification Rev. 4",
+    "revision": 17,
+    "approval": "REQUIRED"
+  }
+}
+
+Extend this schema as required while preserving:
+
+* stable IDs
+* relationships
+* provenance
+* revisions
+* validation
+* approval
+
+⸻
+
+12. FOUR ENGINEERING TRUTH STATES
+
+Every important engineering value must have one of four states:
+
+VERIFIED
+
+Directly supported by project evidence.
+
+INFERRED
+
+Derived from deterministic engineering rules.
+
+PROPOSED
+
+AI-generated suggestion requiring human review.
+
+UNKNOWN
+
+Insufficient evidence.
+
+Example:
+
+PT101 PLC Address
+%MW42
+VERIFIED
+PT101 Scaling
+INFERRED
+High Alarm
+12 bar
+PROPOSED
+Sensor Failure Response
+UNKNOWN
+
+Never blur these categories.
+
+⸻
+
+13. EVIDENCE CONTRACT
+
+Every important result must answer:
+
+WHAT?
+WHY?
+SOURCE?
+EVIDENCE STRENGTH?
+VALIDATION?
+APPROVAL?
+IMPACT?
+
+If evidence is unavailable:
+
+UNKNOWN
+
+Never fabricate.
+
+⸻
+
+14. PROVENANCE CONTRACT
+
+Every engineering object must expose:
+
+Created By
+Source
+Origin
+Revision
+Timestamp
+Evidence
+Validation
+Approval
+Dependencies
+
+Example:
+
+P101_HIGH_PRESSURE
+Threshold:
+12 bar
+Source:
+Engineering Specification Rev. 4
+Origin:
+AssetFlow proposal
+Status:
+PROPOSED
+Validation:
+Pending
+Approval:
+Required
+Affected Tests:
+T04
+T07
+
+⸻
+
+15. AI CONFIDENCE RULE
+
+Do not represent arbitrary LLM confidence as engineering probability.
+
+Prefer:
+
+EVIDENCE STRENGTH
+HIGH
+MEDIUM
+LOW
+
+combined with:
+
+VERIFIED
+INFERRED
+PROPOSED
+UNKNOWN
+
+If numerical confidence is shown, label it:
+
+AI suggestion confidence
+
+Never represent it as a safety probability or engineering certainty.
+
+⸻
+
+16. ENGINEERING KNOWLEDGE GRAPH
+
+The engineering graph is a core product subsystem, not a decorative visualization.
+
+Minimum relationship chain:
+
+Requirement
+ ↓
+Asset Type
+ ↓
+Asset Instance
+ ↓
+Device
+ ↓
+Terminal
+ ↓
+I/O
+ ↓
+PLC Variable
+ ↓
+Control Logic
+ ↓
+HMI Variable
+ ↓
+Alarm
+ ↓
+Trend
+ ↓
+Test
+ ↓
+Documentation
+ ↓
+Evidence
+
+Graph traversal must work in both directions.
+
+⸻
+
+17. PT101 GRAPH
+
+Selecting PT101 must reveal:
+
+PT101
+│
+├── Requirement
+├── Device
+├── Terminal
+├── I/O Channel
+├── PLC Variable
+├── Scaling
+├── HMI Tag
+├── High Alarm
+├── Low Alarm
+├── Trend
+├── FAT T04
+├── FAT T07
+├── FAT T11
+├── FAT T13
+├── Simulation S02
+├── Document OPR-03
+└── Revision 17
+
+⸻
+
+18. GRAPH UI
+
+Make the graph visually impressive and technically meaningful.
+
+Center:
+
+P101
+
+Related nodes:
+
+PT101
+M101
+PLC
+EOTE
+ALARM
+TREND
+TEST
+DOCUMENT
+REQUIREMENT
+
+Selecting a node must:
+
+* highlight dependencies
+* dim unrelated objects
+* show relationship labels
+* expose provenance
+* expose validation
+* expose revision
+* expose approval
+
+When a change occurs:
+
+impacted nodes illuminate immediately.
+
+⸻
+
+19. ENGINEERING IMPACT ENGINE
+
+This is a flagship subsystem.
+
+Example:
+
+CHANGE
+PT101
+0–10 bar
+↓
+0–16 bar
+
+Generate:
+
+CHANGE IMPACT
+DIRECT
+1 PLC scaling rule
+2 alarm thresholds
+1 HMI engineering range
+1 trend configuration
+INDIRECT
+4 FAT tests
+1 simulation scenario
+3 documents
+NOT AFFECTED
+Motor control
+Safety interlock
+Network configuration
+Operator permissions
+
+Then:
+
+RELEASE BLOCKED
+Reason:
+Approved engineering baseline changed.
+
+Actions:
+
+REVIEW IMPACT
+RUN TESTS
+REGENERATE
+CREATE CHANGE REQUEST
+APPROVE
+REJECT
+
+Impact must come from graph relationships and deterministic dependency rules.
+
+Do not generate impact solely through LLM reasoning.
+
+⸻
+
+20. IMPACT CLASSIFICATION
+
+Every impacted object must be classified:
+
+DIRECT
+INDIRECT
+NOT AFFECTED
+UNKNOWN
+
+Never claim NOT AFFECTED without evidence.
+
+⸻
+
+21. CHANGE EXPLANATION
+
+Generate:
+
+CHANGE EXPLANATION
+PT101 range changed
+0–10 bar → 0–16 bar
+WHY
+Engineering requirement updated.
+DIRECT IMPACT
+2 alarm thresholds
+1 scaling rule
+1 HMI range
+INDIRECT IMPACT
+4 FAT tests
+3 documentation references
+1 simulation scenario
+RUNTIME IMPACT
+No direct motor-control impact.
+RISK
+MEDIUM
+APPROVAL
+Controls Engineer
+
+⸻
+
+22. ENGINEERING GUARD
+
+Create a deterministic engineering linter.
+
+BLOCKER
+
+* duplicate address
+* undefined PLC variable
+* broken dependency
+* invalid datatype
+* incompatible mapping
+* missing mandatory control contract
+* invalid import structure
+
+ERROR
+
+* alarm outside engineering range
+* invalid mapping
+* missing command feedback
+* missing stale-data policy
+* missing alarm consequence
+* incompatible I/O
+
+WARNING
+
+* missing deadband
+* excessive alarm priority
+* missing cause
+* missing consequence
+* missing operator action
+* AI value awaiting approval
+
+INFO
+
+* optimization opportunity
+* documentation improvement
+* reusable asset opportunity
+
+Display:
+
+27 CHECKS
+25 PASS
+1 WARNING
+1 BLOCKER
+
+Every issue must be clickable.
+
+⸻
+
+23. ENGINEERING CONFIDENCE PANEL
+
+Create a contextual right-side panel:
+
+ENGINEERING CONFIDENCE
+PT101
+Range
+0–16 bar
+✓ Engineer supplied
+PLC Address
+%MW42
+✓ Existing project
+High Alarm
+12 bar
+✓ Approved specification
+Scaling
+AI suggested
+⚠ Review required
+HMI Binding
+P101.DischargePressure
+✓ Deterministic mapping
+
+This is the primary answer to:
+
+Why should engineers trust AI?
+
+⸻
+
+24. INTENT COMPILER
+
+The Intent Compiler converts natural language into a structured proposal.
+
+Input:
+
+Create a pump with pressure monitoring, high and low alarms, operator start/stop, PLC-authoritative permissives and stale-data protection.
+
+Output:
+
+ENGINEERING INTERPRETATION COMPLETE
+DETECTED EQUIPMENT
+✓ Pump
+✓ Pressure transmitter
+✓ PLC
+✓ HMI
+DETECTED REQUIREMENTS
+✓ Pressure monitoring
+✓ Start / stop
+✓ Permissives
+✓ High alarm
+✓ Low alarm
+✓ Trend
+✓ Stale-data handling
+ENGINEERING DECISIONS REQUIRED
+⚠ Standby transfer delay not specified
+OPTIONS
+5 sec
+10 sec
+30 sec
+Custom
+STATUS
+REVIEW REQUIRED
+
+Never silently choose an important engineering value.
+
+⸻
+
+25. INTENT PARSING ARCHITECTURE
+
+Use a hybrid approach:
+
+NATURAL LANGUAGE
+        ↓
+LLM / PARSER
+        ↓
+STRUCTURED INTENT
+        ↓
+SCHEMA VALIDATION
+        ↓
+DETERMINISTIC RULES
+        ↓
+ENGINEERING PROPOSAL
+
+The LLM must NOT directly modify the canonical model.
+
+It produces a structured proposal.
+
+⸻
+
+26. INTENT FAILURE MODE
+
+If the intent is incomplete:
+
+INTENT PARTIALLY UNDERSTOOD
+Detected:
+✓ Pump
+✓ Pressure monitoring
+✓ Start / stop
+Unknown:
+? High alarm threshold
+? Low alarm threshold
+STATUS:
+ENGINEERING DECISION REQUIRED
+
+No critical engineering value may be silently invented.
+
+⸻
+
+27. ASSETFLOW COPILOT
+
+The Copilot must NOT behave like a generic chatbot.
+
+Never answer:
+
+Sure! I can help you with that.
+
+Instead provide structured engineering results.
+
+Every response should expose:
+
+RESULT
+EVIDENCE
+SOURCE
+STATUS
+VALIDATION
+APPROVAL
+RELATED OBJECTS
+
+⸻
+
+28. COPILOT COMMANDS
+
+Support:
+
+CREATE
+MODIFY
+EXPLAIN
+TRACE
+IMPACT
+GENERATE
+VALIDATE
+SIMULATE
+DOCUMENT
+COMPARE
+REVIEW
+QUERY
+
+Examples:
+
+Create a centrifugal pump.
+Change PT101 from 0–10 bar to 0–16 bar.
+Why does this affect the high-pressure alarm?
+Show everything connected to PT101.
+What breaks if I change PT101?
+Generate FAT tests.
+Check whether this asset is engineering-complete.
+Simulate PT101 freezing at 8 bar for 5 seconds.
+Generate the pump startup procedure.
+Compare revision 17 against revision 16.
+Find unresolved engineering decisions.
+Which alarms have no documented operator response?
+
+⸻
+
+29. PROJECT QUERY ENGINE
+
+Queries must traverse structured project data.
+
+Examples:
+
+Show every asset affected by PT101.
+Show all alarms related to discharge pressure.
+Find all untested engineering changes.
+Find every AI-generated value awaiting approval.
+Show all assets using Pump Type v3.
+Which assets have stale-data protection?
+Which alarms have no operator action?
+Which tests will fail if the pressure range changes?
+
+The LLM may translate natural language into structured queries.
+
+The result must come from the engineering graph/model.
+
+⸻
+
+30. PROJECT X-RAY
+
+Create:
+
+PROJECT X-RAY
+
+Example:
+
+146 tags
+31 alarms
+12 reusable equipment patterns
+8 probable inconsistencies
+
+Show:
+
+PROJECT UNDERSTANDING
+Equipment Types
+Equipment Instances
+Signals
+Alarms
+Control Contracts
+HMI Objects
+Tests
+Dependencies
+Conflicts
+
+Then:
+
+ASK THE PROJECT
+
+All answers require evidence.
+
+⸻
+
+31. ECOSTRUXURE UPGRADE RADAR
+
+Create:
+
+ECOSTRUXURE UPGRADE RADAR
+
+Example:
+
+ENGINEERING MATURITY
+Tag consistency           91%
+Alarm consistency          74%
+Traceability               52%
+Test coverage              61%
+Documentation sync        48%
+Change impact              34%
+Asset reuse                22%
+Provenance                 18%
+
+Recommendations:
+
+01
+Create reusable Pump Type
+from P101/P102.
+02
+4 alarm definitions are duplicated
+with inconsistent thresholds.
+03
+12 HMI tags are not linked to
+documented requirements.
+04
+3 tests do not correspond to
+current alarm thresholds.
+05
+2 documents still reference
+the old PT101 range.
+
+Every recommendation must provide evidence.
+
+⸻
+
+32. ECOSTRUXURE POSITIONING
+
+Position AssetFlow as:
+
+THE INTELLIGENCE LAYER AROUND ECOSTRUXURE
+
+Architecture:
+
+                    ASSETFLOW
+AI Engineering Copilot
+Canonical Asset Model
+Engineering Graph
+Validation
+Change Impact
+Test Generation
+Documentation
+Provenance
+Governance
+                     ↓
+            ECOSTRUXURE WORKFLOW
+                     ↓
+              PLC / EOTE / HARDWARE
+                     ↓
+                   PLANT
+
+Never claim unsupported APIs.
+
+Never fabricate an EOTE connection.
+
+⸻
+
+33. ECOSTRUXURE ECOSYSTEM MESSAGE
+
+Use:
+
+EcoStruxure Automation Expert
+Advanced automation engineering
+EcoStruxure Machine Expert
+Controller / machine engineering
+MachineStruxure Configurator
+Hardware engineering
+EcoStruxure Operator Terminal Expert
+HMI buildtime + runtime
+AssetFlow
+Cross-artifact engineering intelligence
+
+Strategic message:
+
+Existing Schneider Electric engineering tools are powerful. AssetFlow explores how engineering intent and information could become continuously connected across those workflows.
+
+Never say:
+
+Schneider tools are outdated.
+
+Never say:
+
+AssetFlow replaces EcoStruxure.
+
+⸻
+
+34. EOTE INTEGRATION
+
+Where actual documented integration is available:
+
+CANONICAL MODEL
+↓
+VALIDATION
+↓
+EOTE VARIABLE PACKAGE
+↓
+ALARM / LOGGING CONFIGURATION
+↓
+TEMPLATE BINDING
+↓
+EOTE PROJECT
+
+If automatic APIs are unavailable:
+
+PROTOTYPE / DOCUMENTED INTEGRATION
+
+Do not fake APIs.
+
+⸻
+
+35. RUNTIME ADAPTER
+
+Define a runtime abstraction equivalent to:
+
+RuntimeAdapter
+read_signal()
+write_command()
+get_quality()
+get_timestamp()
+get_connection_state()
+
+Implement:
+
+SimulatorAdapter
+
+Optionally implement:
+
+OPCUAAdapter
+ModbusTCPAdapter
+
+Only show:
+
+CONNECTED
+
+when actually connected.
+
+Valid states:
+
+CONNECTED
+SIMULATED
+DOCUMENTED
+DISCONNECTED
+UNAVAILABLE
+
+⸻
+
+36. BEHAVIOURAL SIMULATOR
+
+Call it:
+
+AssetFlow Behaviour Simulator
+
+Never call it a full digital twin.
+
+Support:
+
+NORMAL
+STARTUP
+SHUTDOWN
+HIGH PRESSURE
+LOW PRESSURE
+OVERLOAD
+SENSOR FAILURE
+COMMUNICATION LOSS
+STALE DATA
+COMMAND REJECTION
+RECOVERY
+ALARM ACKNOWLEDGEMENT
+
+Allow:
+
+Freeze PT101 for 5 seconds.
+
+The simulator must produce deterministic and reproducible results.
+
+⸻
+
+37. RUNTIME TRUST MODEL
+
+Runtime states:
+
+TRUSTED
+● LIVE
+DEGRADED
+● DATA DELAYED
+STALE
+● DATA NOT TRUSTWORTHY
+UNKNOWN
+● OUTCOME UNKNOWN
+
+Each signal must have a configurable freshness policy.
+
+Example:
+
+PT101
+Expected update:
+1 second
+Stale threshold:
+3 seconds
+Unknown threshold:
+10 seconds
+
+Do not use a single arbitrary threshold for every signal.
+
+⸻
+
+38. TRUST GATE
+
+When data becomes stale:
+
+CONTROL TRUST LOST
+PT101
+Last valid update:
+4.2 s ago
+Plant state:
+STALE
+Consequential controls:
+DISABLED
+
+The HMI must never imply stale data is current.
+
+⸻
+
+39. COMMAND RESPONSE LADDER
+
+Every consequential operation must follow:
+
+DETECT
+ ↓
+CLASSIFY
+ ↓
+CHECK PERMISSIVES
+ ↓
+GUIDE
+ ↓
+REQUEST
+ ↓
+PLC AUTHORIZE
+ ↓
+ACT
+ ↓
+VERIFY
+ ↓
+LOG
+
+PLC remains authoritative.
+
+⸻
+
+40. PUMP START EXAMPLE
+
+Successful operation:
+
+PUMP START REQUEST
+Operator authorized        ✓
+Data freshness             ✓
+Permissives                ✓
+PLC authority              ✓
+Command issued             ✓
+Run feedback               ✓
+Outcome verified           ✓
+Operation logged           ✓
+
+Rejected operation:
+
+COMMAND REQUESTED
+PLC AUTHORITY
+      ↓
+REJECTED
+Reason:
+Discharge valve not open.
+Signal:
+XV101_OPEN_FB
+Last valid value:
+FALSE
+Data freshness:
+1.1 s
+
+Never allow the HMI to bypass the PLC.
+
+⸻
+
+41. OPERATOR COPILOT
+
+Create a separate:
+
+AssetFlow Operator Copilot
+
+Example:
+
+START BLOCKED
+P101 cannot start because:
+PLC permissive:
+XV101_OPEN_FB = FALSE
+Last valid feedback:
+1.1 seconds ago
+Data trust:
+LIVE
+PLC authority:
+REJECTED
+Recommended action:
+Open discharge valve and verify feedback.
+
+Buttons:
+
+SHOW PERMISSIVE
+SHOW SIGNAL
+SHOW PLC REFERENCE
+SHOW HISTORY
+
+Operator Copilot cannot:
+
+* modify engineering
+* bypass PLC
+* override safety
+* fabricate plant state
+* directly control actuators
+
+⸻
+
+42. SAFETY BOUNDARY
+
+Display explicitly:
+
+SAFETY BOUNDARY
+
+AssetFlow does not implement or replace safety-rated control functions. Safety-related logic remains within the appropriate safety PLC/device architecture.
+
+Never claim:
+
+* safety certification
+* SIL compliance
+* safety PLC replacement
+* autonomous safety control
+
+unless genuinely demonstrated and certified.
+
+⸻
+
+43. APPROVAL STATE MACHINE
+
+Use:
+
+AI DRAFT
+   ↓
+VALIDATED
+   ↓
+SIMULATED
+   ↓
+ENGINEER REVIEW
+   ↓
+APPROVED
+   ↓
+RELEASE CANDIDATE
+   ↓
+DEPLOY
+
+Never:
+
+AI → DEPLOY
+
+Approved baselines are immutable.
+
+Every approved change creates a new revision.
+
+⸻
+
+44. REVISION CONTROL
+
+Support:
+
+REVISION 14
+REVISION 15
+REVISION 16
+REVISION 17
+
+Visual diff:
+
+PT101 RANGE
+10 bar → 16 bar
+HIGH ALARM
+8 bar → 12 bar
+FAT
++2 tests
+DOCUMENTATION
+3 sections regenerated
+
+Actions:
+
+COMPARE
+APPROVE
+ROLLBACK
+CREATE CHANGE REQUEST
+
+⸻
+
+45. ENGINEERING WHAT-IF
+
+Create:
+
+ENGINEERING WHAT-IF
+
+Example:
+
+What if P101 uses a 15 kW motor?
+
+Evaluate:
+
+Motor
+Overload
+I/O
+Hardware
+Control Parameters
+Alarms
+Documentation
+Tests
+Simulation
+
+Display:
+
+SIMULATION ONLY
+No deployment
+No runtime modification
+No approved baseline change
+
+Every what-if operation must be isolated from the approved baseline.
+
+⸻
+
+46. AUTOMATIC TEST GENERATION
+
+For each asset generate:
+
+FAT
+
+* startup
+* shutdown
+* permissive failure
+* overload
+* sensor failure
+* alarm generation
+* acknowledgement
+* communication loss
+* stale telemetry
+* recovery
+
+SAT
+
+* field signal
+* device response
+* network interruption
+* permissions
+* restart behavior
+
+REGRESSION
+
+Automatically select tests affected by engineering changes.
+
+⸻
+
+47. NATURAL LANGUAGE TESTING
+
+Input:
+
+Test what happens if PT101 freezes at 8 bar and communication is lost for 5 seconds.
+
+Generate:
+
+SCENARIO
+PT101
+Frozen value = 8 bar
+Communication
+LOSS = 5 seconds
+Expected telemetry:
+STALE
+Expected HMI:
+TRUST WARNING
+Expected commands:
+CONSEQUENTIAL COMMANDS DISABLED
+Expected PLC:
+Continue deterministic control strategy
+Expected result:
+No unsafe automatic HMI action
+
+Then execute the scenario.
+
+⸻
+
+48. TEST EXECUTION MODEL
+
+Tests must be executable or deterministically simulated.
+
+Every test should contain:
+
+test_id
+asset_ids
+revision
+preconditions
+stimulus
+expected_state
+expected_signal
+expected_alarm
+expected_command_behavior
+expected_feedback
+result
+evidence
+timestamp
+
+Example:
+
+FAT:T04
+PRECONDITION
+P101 stopped
+STIMULUS
+PT101 > high threshold
+EXPECTED
+High pressure alarm active
+RESULT
+PASS
+EVIDENCE
+PT101 = 12.4 bar
+Alarm = ACTIVE
+
+⸻
+
+49. REGRESSION SELECTION
+
+When PT101 changes:
+
+CHANGE
+PT101 RANGE
+        ↓
+GRAPH TRAVERSAL
+        ↓
+DEPENDENCIES
+        ↓
+TEST SELECTION
+
+Example:
+
+AFFECTED TESTS
+T04
+T07
+T11
+T13
+
+Only affected tests are invalidated/reviewed.
+
+⸻
+
+50. RUNTIME EVIDENCE
+
+Every consequential operation must create:
+
+Operation
+Operator
+Timestamp
+Command Request
+PLC Authorization
+Permissives
+Data Freshness
+Feedback
+Outcome
+Result
+
+Example:
+
+P101 START
+REQUESTED       14:22:04
+AUTHORIZED      14:22:04
+EXECUTED        14:22:05
+RUN FEEDBACK    14:22:06
+VERIFIED        14:22:06
+
+⸻
+
+51. AUDIT TRAIL
+
+Display:
+
+REVISION 17
+10:41
+Engineer created PT101
+10:44
+AI proposed scaling
+10:47
+Engineer corrected scaling
+10:50
+Validation passed
+10:54
+Simulation passed
+11:02
+Reviewer approved
+11:06
+Release candidate created
+
+Every audit event must include:
+
+actor
+role
+timestamp
+action
+object_id
+revision
+result
+
+⸻
+
+52. ENGINEERING MEMORY
+
+Engineering Memory is NOT generic chatbot memory.
+
+It must be:
+
+* structured
+* versioned
+* governed
+* approval-aware
+* project-aware
+
+Store:
+
+Approved Asset Types
+Naming Conventions
+Alarm Conventions
+Test Patterns
+Engineering Decisions
+Known Conflicts
+Reusable Templates
+Engineer Corrections
+
+Example:
+
+AI PROPOSED
+12 bar
+ENGINEER CORRECTED
+11 bar
+REASON
+Approved process specification
+FINAL
+11 bar
+
+Use approved memory through retrieval and deterministic rules.
+
+Do not silently fine-tune the AI based on corrections.
+
+⸻
+
+53. DOCUMENT GENERATION
+
+Generate:
+
+I/O List
+Alarm List
+Asset Specification
+Operator Procedure
+FAT
+SAT
+Commissioning Checklist
+Change Report
+Traceability Report
+Revision Report
+
+Every document must state:
+
+Generated from:
+AssetFlow Model Revision 17
+
+Documents must link back to engineering object IDs.
+
+⸻
+
+54. DOCUMENT STALENESS
+
+When engineering changes:
+
+DOCUMENTATION DRIFT
+OPR-03
+Current model:
+0–16 bar
+Document:
+0–10 bar
+STATUS:
+STALE
+
+Never silently modify approved documents.
+
+Show:
+
+REGENERATION REQUIRED
+
+⸻
+
+55. DOCUMENT INGESTION
+
+Support:
+
+CSV
+XLSX
+PDF
+I/O LIST
+ALARM LIST
+EQUIPMENT DATASHEET
+WIRING SCHEDULE
+BOM
+P&ID TEXT
+ENGINEERING SPECIFICATION
+
+Pipeline:
+
+SOURCE FILE
+     ↓
+INGESTION
+     ↓
+EXTRACTION
+     ↓
+NORMALIZATION
+     ↓
+ENTITY MATCHING
+     ↓
+CONFLICT DETECTION
+     ↓
+ENGINEER REVIEW
+     ↓
+CANONICAL MODEL
+
+Example:
+
+Pump_Station_IO_List.xlsx
+42 signals discovered
+38 exact matches
+2 probable matches
+2 conflicts
+
+Conflicts require human resolution.
+
+Never silently merge conflicting engineering information.
+
+⸻
+
+56. MULTIMODAL ENGINEERING INPUT
+
+Architecture should allow future support for:
+
+P&ID
+Electrical schematic
+HMI screenshot
+Datasheet
+PDF
+Spreadsheet
+
+Do not claim advanced visual engineering understanding unless implemented.
+
+If visual extraction is unavailable:
+
+NOT ANALYZED
+
+Do not hallucinate.
+
+⸻
+
+57. WIRING TRACEABILITY
+
+Where supported:
+
+DEVICE
+ ↓
+TERMINAL
+ ↓
+WIRE
+ ↓
+I/O CHANNEL
+ ↓
+PLC VARIABLE
+ ↓
+HMI TAG
+
+Confidence states:
+
+VERIFIED
+IMPORTED
+INFERRED
+CONFLICT
+
+Example:
+
+ENGINEERING CONFLICT
+Terminal X12
+Wiring Schedule:
+PT101
+I/O List:
+PT102
+STATUS:
+ENGINEER REVIEW REQUIRED
+
+⸻
+
+58. HARDWARE INTELLIGENCE
+
+Derive:
+
+DI: 8
+DO: 6
+AI: 4
+AO: 2
+Ethernet: REQUIRED
+Modbus TCP: REQUIRED
+Safety-related signal: WARNING
+
+Then:
+
+HARDWARE MATCHING
+Candidate configurations
+        ↓
+Engineering review
+        ↓
+Engineer approval
+
+Do not claim to replace Schneider hardware configuration tools.
+
+⸻
+
+59. SECURITY MODEL
+
+Roles:
+
+ENGINEER
+REVIEWER
+OPERATOR
+ADMIN
+
+Controls:
+
+* role-based access
+* approval workflow
+* audit events
+* revision history
+* deployment authorization
+* provenance
+* access control
+* explicit command boundaries
+
+Use this statement:
+
+Security controls are enforced around the engineering workflow; underlying protocol security capabilities remain those of the connected automation system.
+
+Do not make unsupported protocol-security claims.
+
+⸻
+
+60. FAILURE CONTRACT
+
+All failure states must be explicit.
+
+AI FAILURE
+
+INTENT PROCESSING FAILED
+Required engineering information
+could not be resolved.
+STATUS:
+UNKNOWN
+No engineering change created.
+
+GRAPH FAILURE
+
+TRACEABILITY QUERY INCOMPLETE
+Dependency graph unavailable.
+RESULT:
+UNKNOWN
+No impact claim generated.
+
+PLC DISCONNECT
+
+PLC CONNECTION LOST
+Runtime authority:
+UNAVAILABLE
+Plant state:
+UNKNOWN
+Consequential commands:
+DISABLED
+
+SIMULATOR FAILURE
+
+SIMULATION INCOMPLETE
+Scenario result:
+NOT VERIFIED
+No engineering conclusion generated.
+
+DATA CONFLICT
+
+ENGINEERING CONFLICT
+Two sources disagree.
+Automatic merge:
+BLOCKED
+Engineer resolution:
+REQUIRED
+
+⸻
+
+61. ERROR SEVERITY
+
+Use:
+
+BLOCKER
+ERROR
+WARNING
+INFO
+UNKNOWN
+
+Unknown means evidence is insufficient.
+
+⸻
+
+62. GLOBAL APPLICATION SHELL
+
+Create a persistent application shell.
+
+Left navigation:
+
+ASSETFLOW
+Overview
+AI Copilot
+Engineering Model
+Assets
+I/O
+PLC
+HMI
+Alarms
+Simulation
+Tests
+Change Impact
+Engineering Graph
+Project X-Ray
+Documents
+Governance
+
+Top:
+
+PROJECT
+Pump Station P100
+REVISION
+17
+STATUS
+ENGINEERING REVIEW
+ENVIRONMENT
+PROTOTYPE
+
+Bottom:
+
+PLC
+CONNECTED / SIMULATED / DISCONNECTED
+EOTE
+CONNECTED / DOCUMENTED / UNAVAILABLE
+MODEL
+VALIDATED / INVALID
+
+⸻
+
+63. HOME — PROJECT COMMAND CENTER
+
+Build a premium engineering command center.
+
+Show:
+
+PROJECT COMMAND CENTER
+Pump Station P100
+ENGINEERING REVIEW
+
+Metrics:
+
+Assets                    12
+Signals                  312
+Alarms                    48
+Tests                     41
+Open Issues                3
+Pending Approvals          2
+
+Health:
+
+ENGINEERING HEALTH
+96%
+TRACEABILITY
+91%
+TEST COVERAGE
+88%
+DOCUMENTATION SYNC
+93%
+
+Recent change:
+
+PT101 RANGE CHANGED
+0–10 bar → 0–16 bar
+IMPACTED OBJECTS
+10
+STATUS
+APPROVAL REQUIRED
+
+Dominant input:
+
+ASK ASSETFLOW
+Describe what you want to engineer...
+
+⸻
+
+64. ENGINEERING MODEL VIEW
+
+Show:
+
+PUMP TYPE
+│
+├── Identity
+├── Motor
+├── Pressure
+├── Commands
+├── Status
+├── Alarms
+├── Permissives
+├── Interlocks
+├── Trends
+├── Diagnostics
+├── PLC
+├── HMI
+├── Tests
+└── Documentation
+
+Then:
+
+P101 = PumpType-v3
+P102 = PumpType-v3
+P103 = PumpType-v3
+
+Only parameters vary.
+
+⸻
+
+65. ASSET LIBRARY
+
+Provide reusable asset types:
+
+Pump
+Motor
+Valve
+Pressure Transmitter
+Flow Transmitter
+Level Transmitter
+Tank
+Conveyor
+Fan
+Compressor
+
+Every type can contain:
+
+Signals
+Alarms
+Control Contract
+HMI Binding
+Tests
+Documentation
+Simulation Behaviour
+Engineering Rules
+
+⸻
+
+66. PROJECT ENGINEERING HEALTH
+
+Show:
+
+PROJECT ENGINEERING HEALTH
+Engineering completeness       96%
+Traceability                   91%
+Alarm quality                  94%
+Test coverage                  88%
+Documentation sync             93%
+Change safety                 100%
+AI review completeness         97%
+Runtime trust                 100%
+
+Top issues:
+
+01
+AI-derived scaling requires approval.
+02
+One alarm has no consequence description.
+03
+Two tests require regeneration.
+
+Where practical, calculate these metrics from the canonical dataset.
+
+Do not fabricate metrics if the underlying data can be computed.
+
+⸻
+
+67. APPROVAL SCREEN
+
+Example:
+
+CHANGE REQUEST CR-017
+PT101
+0–10 bar → 0–16 bar
+IMPACT
+10 objects
+VALIDATION
+27 checks
+26 pass
+1 warning
+REGRESSION
+4 tests selected
+SIMULATION
+PASS
+DOCUMENTATION
+3 sections require regeneration
+RISK
+MEDIUM
+APPROVAL
+CONTROLS ENGINEER
+
+Actions:
+
+APPROVE
+REJECT
+REQUEST CHANGES
+
+⸻
+
+68. NO SELF-APPROVAL
+
+The actor creating an AI proposal must not automatically approve it.
+
+Maintain role separation.
+
+⸻
+
+69. DEPLOYMENT GATE
+
+Before deployment:
+
+MODEL VALIDATED
+       ✓
+SIMULATION PASSED
+       ✓
+REGRESSION PASSED
+       ✓
+ENGINEER APPROVED
+       ✓
+RELEASE CANDIDATE
+       ✓
+DEPLOYMENT AUTHORIZATION
+       REQUIRED
+
+If a critical condition fails:
+
+DEPLOYMENT BLOCKED
+
+⸻
+
+70. DEMO MODE
+
+Provide:
+
+DEMO MODE
+
+The same canonical engineering model must power Demo Mode.
+
+Demo Mode must provide deterministic scenarios:
+
+NORMAL OPERATION
+HIGH PRESSURE
+LOW PRESSURE
+PERMISSIVE FAILURE
+COMMUNICATION LOSS
+STALE DATA
+RECOVERY
+PT101 RANGE CHANGE
+REGRESSION FAILURE
+
+Results must be reproducible.
+
+If external hardware is unavailable:
+
+SIMULATION MODE
+
+Never pretend simulation is live.
+
+⸻
+
+71. PERFORMANCE TARGETS
+
+Prototype targets:
+
+UI navigation:
+<300 ms perceived response
+Graph query:
+<500 ms target
+PT101 impact calculation:
+<1 second target
+Intent compilation:
+<5 seconds target
+Simulation scenario:
+<3 seconds target
+Runtime trust transition:
+near-real-time
+
+These are prototype targets, not production guarantees.
+
+Optimize only when necessary.
+
+⸻
+
+72. CORE API CONTRACT
+
+Implement API boundaries equivalent to:
+
+POST /intent/compile
+GET /assets/{id}
+POST /assets/{id}/validate
+GET /graph/trace/{id}
+POST /impact/analyze
+POST /simulation/run
+POST /tests/generate
+POST /tests/run
+GET /revisions/{id}/diff
+POST /change-requests
+POST /approvals
+GET /evidence/{id}
+GET /audit
+GET /runtime/state
+POST /runtime/command
+
+Critical rule:
+
+/runtime/command
+
+must never grant AI direct control.
+
+Commands must pass through:
+
+Operator
+↓
+Authorization
+↓
+Data Freshness
+↓
+Permissives
+↓
+PLC
+
+⸻
+
+73. RUNTIME COMMAND CONTRACT
+
+Command requests should contain information equivalent to:
+
+{
+  "command_id": "cmd:P101:START:001",
+  "asset_id": "asset:pump:P101",
+  "requested_by": "operator:001",
+  "requested_action": "START",
+  "timestamp": "...",
+  "data_trust": "TRUSTED"
+}
+
+The control layer and PLC determine authorization.
+
+⸻
+
+74. ENGINEERING CHANGE CONTRACT
+
+Every change must contain:
+
+change_id
+object_id
+old_value
+new_value
+source
+reason
+actor
+revision
+impact
+validation
+tests
+approval
+status
+
+Example:
+
+CR-017
+Object:
+signal:pressure:PT101
+Old:
+0–10 bar
+New:
+0–16 bar
+Actor:
+Engineer
+Status:
+ENGINEER REVIEW
+
+⸻
+
+75. DATA CONSISTENCY RULE
+
+There must be exactly one canonical approved value for each engineering attribute.
+
+Example:
+
+PT101 range must NOT independently exist as:
+
+10 bar in HMI
+16 bar in PLC
+12 bar in alarm
+
+Instead:
+
+CANONICAL PT101 RANGE
+        ↓
+PLC SCALING
+HMI RANGE
+ALARM VALIDATION
+TREND
+TESTS
+DOCUMENTS
+
+⸻
+
+76. ENGINEERING QUERY EVIDENCE
+
+When asked:
+
+Show every engineering artifact affected by PT101.
+
+Return:
+
+PT101
+PLC Scaling
+High Alarm
+Low Alarm
+HMI Tag
+Trend
+FAT T04
+FAT T07
+FAT T11
+FAT T13
+Simulation S02
+Document OPR-03
+Revision 17
+
+Also:
+
+SOURCE:
+Engineering Graph
+TRAVERSAL:
+PT101 → PLC → HMI → Alarm → Test → Document
+STATUS:
+VERIFIED
+
+⸻
+
+77. EXPLAINABILITY
+
+Never expose hidden chain-of-thought.
+
+Use engineering evidence.
+
+Example:
+
+WHY THIS RESULT?
+Source:
+Pump Type v3
+Rule:
+PT_RANGE_REQUIRED
+Dependency:
+P101.HighPressureAlarm
+Change:
+PT101
+0–10 → 0–16 bar
+Result:
+Alarm threshold requires review
+
+⸻
+
+78. IMPORT CONFLICT HANDLING
+
+Any conflict must stop automatic merging.
+
+Example:
+
+SOURCE A
+PT101
+0–10 bar
+SOURCE B
+PT101
+0–16 bar
+CONFLICT DETECTED
+Automatic resolution:
+BLOCKED
+ENGINEER DECISION:
+REQUIRED
+
+⸻
+
+79. MULTI-ASSET SCALABILITY
+
+The reference demo uses P101, but the architecture must make additional instances straightforward:
+
+PumpType-v3
+      │
+ ┌────┼────┐
+ ▼    ▼    ▼
+P101 P102 P103
+
+Asset instances inherit type definitions but allow approved instance-specific parameters.
+
+⸻
+
+80. OBSERVABILITY
+
+Record system actions:
+
+request
+actor
+object
+revision
+input
+result
+duration
+validation
+evidence
+
+Use this to make the prototype debuggable.
+
+⸻
+
+81. DEMO SCRIPT — FIVE MINUTES
+
+The five-minute demo must have exactly three hero moments.
+
+⸻
+
+0:00 — THE PROBLEM
+
+Show fragmented artifacts:
+
+I/O
+PLC
+HMI
+ALARMS
+TESTS
+DOCUMENTATION
+
+Narration:
+
+Engineers don’t define a machine once. They repeatedly recreate the same information across I/O, PLC, HMI, alarms, tests and documentation.
+
+⸻
+
+0:20 — HERO #1: INTENT COMPILER
+
+Type:
+
+Create a pump with pressure monitoring, high/low alarms, operator start/stop, PLC-authoritative permissives and stale-data protection.
+
+Show:
+
+1 ASSET
+43 SIGNALS
+10 ALARMS
+32 TEXTS
+17 TESTS
+
+Then open:
+
+CANONICAL ASSET MODEL
+
+Show provenance.
+
+⸻
+
+1:10 — ENGINEERING GRAPH
+
+Select:
+
+PT101
+
+Graph expands.
+
+Show:
+
+PLC
+HMI
+ALARMS
+TREND
+TESTS
+SIMULATION
+DOCUMENTATION
+
+⸻
+
+1:30 — ECOSTRUXURE WORKFLOW
+
+Demonstrate actual documented EOTE workflow.
+
+If genuinely connected:
+
+CONNECTED
+
+Otherwise:
+
+DOCUMENTED PROTOTYPE INTEGRATION
+
+Never fake it.
+
+⸻
+
+1:50 — RUNTIME
+
+Start P101.
+
+Change pressure.
+
+Trigger alarm.
+
+Show runtime evidence.
+
+⸻
+
+2:10 — PLC AUTHORITY
+
+Invalidate:
+
+XV101_OPEN_FB
+
+Request start.
+
+Show:
+
+START BLOCKED
+PLC PERMISSIVE:
+FALSE
+PLC DECISION:
+REJECTED
+CAUSE:
+Discharge valve not confirmed open.
+
+⸻
+
+2:30 — RUNTIME TRUST
+
+Cause telemetry delay.
+
+Show:
+
+DATA TRUST LOST
+Last valid update:
+4.2 seconds ago
+Plant state:
+STALE
+Consequential controls:
+DISABLED
+
+⸻
+
+3:00 — TESTS
+
+Show:
+
+17 TESTS
+15 PASS
+1 FAIL
+1 REVIEW
+
+Run affected tests.
+
+⸻
+
+3:20 — HERO #2: ENGINEERING CONTINUITY
+
+Change:
+
+PT101
+0–10 bar
+↓
+0–16 bar
+
+Immediately show:
+
+CHANGE DETECTED
+2 alarms
+3 HMI references
+1 trend
+4 tests
+3 documents
+1 simulation scenario
+
+Then open:
+
+ENGINEERING IMPACT
+
+⸻
+
+4:00 — CHANGE REVIEW
+
+Show:
+
+RISK
+MEDIUM
+MOTOR CONTROL
+NOT AFFECTED
+SAFETY INTERLOCK
+NOT AFFECTED
+APPROVED TESTS
+4 INVALIDATED
+
+Then:
+
+REVIEW
+↓
+REGENERATE
+↓
+VALIDATE
+↓
+TEST
+↓
+APPROVE
+↓
+RELEASE
+
+⸻
+
+4:40 — PROJECT X-RAY
+
+Ask:
+
+Show every engineering artifact affected by PT101.
+
+Graph illuminates:
+
+PT101
+ ↓
+PLC
+ ↓
+HMI
+ ↓
+ALARMS
+ ↓
+TREND
+ ↓
+TESTS
+ ↓
+SIMULATION
+ ↓
+DOCUMENTATION
+
+⸻
+
+4:50 — FINAL
+
+Show:
+
+ONE ENGINEERING DEFINITION
+        ↓
+ASSET MODEL
+        ↓
+PLC
+HMI
+ALARMS
+SIMULATION
+TESTS
+DOCUMENTATION
+        ↓
+APPROVAL
+        ↓
+TRACEABILITY
+        ↓
+CHANGE IMPACT
+
+Final statement:
+
+AssetFlow doesn’t replace EcoStruxure. It gives the engineering information flowing through EcoStruxure a memory, a graph, an AI copilot and a verification layer.
+
+⸻
+
+82. THREE-LAYER TRUST MODEL
+
+Display prominently:
+
+AI LAYER
+PROPOSES
+        ↓
+ENGINEERING LAYER
+VALIDATES
+        ↓
+CONTROL LAYER
+EXECUTES
+
+Then:
+
+AI
+Proposal
+AssetFlow Model
+Truth
+Rules
+Validation
+Engineer
+Approval
+PLC
+Authority
+
+This should be understandable in seconds.
+
+⸻
+
+83. CORE PRODUCT EQUATION
+
+Display somewhere in the application:
+
+ENGINEERING INTENT
+        +
+STRUCTURED KNOWLEDGE
+        +
+DETERMINISTIC VALIDATION
+        +
+SIMULATION
+        +
+HUMAN APPROVAL
+        +
+RUNTIME EVIDENCE
+        =
+VERIFIED ENGINEERING CONTINUITY
+
+⸻
+
+84. IMPLEMENTATION PRIORITY
+
+P0 — MUST ACTUALLY WORK
+
+1. Canonical asset model
+2. Natural-language intent compiler
+3. Structured asset generation
+4. Provenance
+5. Deterministic validation
+6. Engineering graph
+7. Behaviour simulator
+8. Runtime trust gate
+9. PLC-authoritative command model
+10. Parameterized HMI
+11. Change-impact engine
+12. Generated tests
+13. Test execution
+14. Runtime evidence
+15. Approval workflow
+16. Revisioning
+17. Audit trail
+
+P1 — SHOULD WORK
+
+18. AI project queries
+19. Engineering confidence
+20. Project X-Ray
+21. Document generation
+22. Upgrade Radar
+23. What-if mode
+24. Operator Copilot
+25. Import pipeline
+
+P2 — ARCHITECT FOR, DO NOT SACRIFICE P0 FOR
+
+26. Advanced legacy ingestion
+27. Hardware intelligence
+28. Wiring graph
+29. Engineering Memory
+30. Advanced multimodal analysis
+31. Additional runtime adapters
+32. Enterprise governance
+33. Cross-project analytics
+
+⸻
+
+85. 24-HOUR SURVIVAL MODE
+
+If implementation time becomes severely constrained, immediately reduce scope.
+
+Build ONLY:
+
+P101
+PT101
+PLC
+HMI
+2 alarms
+Engineering Graph
+Simulator
+Tests
+Impact Engine
+Approval
+
+And exactly four workflows:
+
+FLOW 1
+
+Natural Language
+↓
+P101 Asset Model
+
+FLOW 2
+
+PT101
+↓
+Engineering Graph
+
+FLOW 3
+
+PT101
+0–10 → 0–16
+↓
+Impact
+↓
+Tests
+
+FLOW 4
+
+Permissive Failure
++
+Stale Telemetry
+↓
+PLC Rejection / Trust Gate
+
+Everything else becomes architecture or secondary UI.
+
+Never sacrifice these four workflows for additional features.
+
+⸻
+
+86. FAILURE-PROOF DEMO RULE
+
+Before every demo:
+
+RESET DEMO STATE
+↓
+LOAD CANONICAL REVISION
+↓
+VERIFY GRAPH
+↓
+VERIFY SIMULATOR
+↓
+VERIFY RUNTIME ADAPTER
+↓
+VERIFY TEST FIXTURES
+↓
+RUN HERO SEQUENCE
+
+Provide a backup recording.
+
+If external integration fails:
+
+SIMULATION MODE
+
+Do not improvise fake connected behavior.
+
+⸻
+
+87. QUALITY GATE
+
+FUNCTIONAL
+
+□ EOTE workflow demonstrated honestly
+□ variables work
+□ alarms work
+□ trends/logging work
+□ PLC commands work
+□ invalid PLC request rejected
+□ stale-data state works
+□ simulator works
+□ tests execute
+□ impact updates
+□ approval works
+□ revisioning works
+□ audit trail works
+
+AI
+
+□ natural language produces structured model
+□ ambiguity is surfaced
+□ no silent invention
+□ provenance visible
+□ evidence visible
+□ approval visible
+□ AI cannot directly control runtime
+
+ENGINEERING
+
+□ deterministic rules
+□ stable IDs
+□ graph dependencies
+□ canonical data
+□ revisioning
+□ impact analysis
+□ test traceability
+□ runtime evidence
+□ conflict detection
+
+PRESENTATION
+
+□ first 30 seconds understandable
+□ three hero moments obvious
+□ PT101 change flawless
+□ runtime trust flawless
+□ PLC rejection flawless
+□ AI generation flawless
+□ no contradictory demo data
+□ no unsupported integration claims
+□ backup recording available
+
+⸻
+
+88. ABSOLUTE BUILD RULES
+
+RULE 1 — DO NOT FAKE FUNCTIONALITY
+
+If a capability cannot be implemented reliably:
+
+IMPLEMENT REAL SUBSET
++
+LABEL LIMITATION
++
+SHOW ARCHITECTURE
+
+⸻
+
+RULE 2 — NEVER FABRICATE ENGINEERING EVIDENCE
+
+No evidence:
+
+UNKNOWN
+
+⸻
+
+RULE 3 — DETERMINISTIC RULES CONTROL ENGINEERING CORRECTNESS
+
+LLMs propose.
+
+Rules validate.
+
+⸻
+
+RULE 4 — AI NEVER APPROVES ITS OWN WORK
+
+Human approval is required.
+
+⸻
+
+RULE 5 — PLC REMAINS RUNTIME AUTHORITY
+
+AI does not bypass PLC control.
+
+⸻
+
+RULE 6 — STALE DATA IS NOT TRUSTED DATA
+
+The UI must visibly distinguish:
+
+LIVE
+DEGRADED
+STALE
+UNKNOWN
+
+⸻
+
+RULE 7 — APPROVED BASELINES ARE IMMUTABLE
+
+Changes create revisions.
+
+⸻
+
+RULE 8 — ONE CANONICAL DATASET
+
+Every screen derives from the same model.
+
+⸻
+
+RULE 9 — STABLE IDS
+
+All relationships use immutable IDs.
+
+⸻
+
+RULE 10 — NO UNSUPPORTED ECOSTRUXURE CLAIMS
+
+Only documented integrations may be presented as integrations.
+
+⸻
+
+RULE 11 — NO SAFETY CLAIMS WITHOUT CERTIFICATION
+
+AssetFlow is not a safety controller.
+
+⸻
+
+RULE 12 — NO HIDDEN ENGINEERING STATE
+
+Important values expose:
+
+SOURCE
+STATUS
+VALIDATION
+APPROVAL
+IMPACT
+
+⸻
+
+RULE 13 — NO UI-ONLY SIMULATION
+
+Simulation results come from the simulation engine.
+
+⸻
+
+RULE 14 — NO RANDOM DEMO RESULTS
+
+Demo Mode is deterministic.
+
+⸻
+
+RULE 15 — NO FEATURE WITHOUT PURPOSE
+
+Every feature must answer at least one:
+
+Does it reduce engineering effort?
+Does it increase engineering confidence?
+Does it preserve traceability?
+Does it improve verification?
+
+If none:
+
+REMOVE IT.
+
+⸻
+
+89. PRODUCT MOAT
+
+The moat is NOT the chatbot.
+
+The moat is:
+
+CANONICAL ASSET LIBRARY
+        +
+ENGINEERING KNOWLEDGE GRAPH
+        +
+ENGINEERING RULES
+        +
+PROVENANCE
+        +
+CHANGE HISTORY
+        +
+TEST TRACEABILITY
+        +
+APPROVED ENGINEERING MEMORY
+        +
+ECOSTRUXURE CONNECTORS
+
+The long-term value comes from structured engineering knowledge accumulated across projects.
+
+⸻
+
+90. PRODUCT MATURITY ROADMAP
+
+TODAY
+
+ONE PUMP
+Intent
+ ↓
+Asset Model
+ ↓
+Validation
+ ↓
+Graph
+ ↓
+EOTE Workflow
+ ↓
+PLC
+ ↓
+HMI
+ ↓
+Tests
+ ↓
+Impact
+
+NEXT
+
+REUSABLE EQUIPMENT LIBRARY
+Pump
+Motor
+Valve
+Tank
+Fan
+Compressor
+
+LATER
+
+PROJECT X-RAY
+LEGACY PROJECT UNDERSTANDING
+ENGINEERING MODERNIZATION
+HARDWARE INTELLIGENCE
+WIRING INTELLIGENCE
+CROSS-PROJECT ANALYTICS
+ENTERPRISE GOVERNANCE
+
+⸻
+
+91. FINAL PRODUCT ARCHITECTURE
+
+The final architecture must visually communicate:
+
+                         HUMAN ENGINEER
+                               │
+                               ▼
+                     NATURAL LANGUAGE INTENT
+                               │
+                               ▼
+                       ASSETFLOW COPILOT
+                               │
+                               ▼
+                       INTENT COMPILER
+                               │
+                               ▼
+                    CANONICAL ASSET MODEL
+                               │
+                    ┌──────────┼──────────┐
+                    ▼          ▼          ▼
+                  GRAPH    PROVENANCE   VERSION
+                    │          │          │
+                    └──────────┼──────────┘
+                               ▼
+                       ENGINEERING GUARD
+                               │
+                               ▼
+                         IMPACT ENGINE
+                               │
+                    ┌──────────┴──────────┐
+                    ▼                     ▼
+               SIMULATOR                TESTS
+                    │                     │
+                    └──────────┬──────────┘
+                               ▼
+                        ENGINEER REVIEW
+                               │
+                               ▼
+                      APPROVED BASELINE
+                               │
+                    ┌──────────┴──────────┐
+                    ▼                     ▼
+                   EOTE                  PLC
+                    │                     │
+                    └──────────┬──────────┘
+                               ▼
+                            RUNTIME
+                               │
+                       ┌───────┴───────┐
+                       ▼               ▼
+                    EVIDENCE          AUDIT
+                       │               │
+                       └───────┬───────┘
+                               ▼
+                        CHANGE DETECTION
+                               │
+                               └──────────→ IMPACT ENGINE
+
+⸻
+
+92. ULTIMATE JUDGE TEST
+
+A judge asks:
+
+What happens if I change something?
+
+AssetFlow must immediately answer:
+
+WHAT CHANGED?
+WHY?
+WHAT DEPENDS ON IT?
+WHAT IS INVALIDATED?
+WHAT MUST BE RETESTED?
+WHAT DOCUMENTS CHANGE?
+WHAT IS NOT AFFECTED?
+WHAT IS UNKNOWN?
+WHO MUST APPROVE?
+
+This is the core value proposition.
+
+⸻
+
+93. ULTIMATE ENGINEERING QUERY
+
+The system must support:
+
+Show me every engineering artifact affected by PT101.
+
+Return:
+
+PT101
+│
+├── PLC Scaling
+├── High Alarm
+├── Low Alarm
+├── HMI Tag
+├── Trend
+├── FAT T04
+├── FAT T07
+├── FAT T11
+├── FAT T13
+├── Simulation S02
+├── Document OPR-03
+└── Revision 17
+
+And:
+
+SOURCE
+Engineering Graph
+EVIDENCE
+Verified Relationships
+STATUS
+TRACEABLE
+
+⸻
+
+94. ULTIMATE RUNTIME QUERY
+
+Operator asks:
+
+Why can’t I start P101?
+
+AssetFlow answers:
+
+START BLOCKED
+PLC permissive:
+XV101_OPEN_FB = FALSE
+Data freshness:
+1.1 seconds
+Data trust:
+LIVE
+PLC decision:
+REJECTED
+CAUSE:
+Discharge valve is not confirmed open.
+RECOMMENDED ACTION:
+Verify valve position and feedback.
+AUTHORITY:
+PLC
+
+No hallucination.
+
+No bypass.
+
+No fabricated state.
+
+⸻
+
+95. ULTIMATE CHANGE DEMO
+
+Start:
+
+PT101
+0–10 bar
+APPROVED
+
+Change:
+
+0–16 bar
+
+Immediately:
+
+CHANGE DETECTED
+10 dependent objects
+2 alarms
+3 HMI references
+1 trend
+4 tests
+3 documents
+1 simulation scenario
+
+Then:
+
+ENGINEERING IMPACT
+        ↓
+REGRESSION
+        ↓
+VALIDATION
+        ↓
+ENGINEER REVIEW
+        ↓
+APPROVAL
+        ↓
+NEW BASELINE
+
+⸻
+
+96. FINAL 10-SECOND PITCH
+
+AssetFlow turns natural-language engineering intent into a verified automation model—connecting EcoStruxure configuration, HMI, alarms, tests, documentation and change impact, while AI proposes, engineers approve, and the PLC remains the authority.
+
+⸻
+
+97. FINAL 30-SECOND PITCH
+
+Today, engineers repeatedly recreate the same machine information across I/O, PLC logic, HMI, alarms, tests and documentation. AssetFlow creates one typed engineering model and uses AI to translate natural-language intent into that model. Deterministic rules validate it, EcoStruxure workflows receive the resulting engineering artifacts, tests are generated automatically, and every change produces an impact graph before release. At runtime, the HMI can guide and verify, but the PLC remains authoritative and stale data is never presented as trustworthy.
+
+⸻
+
+98. FINAL STRATEGIC MESSAGE
+
+Do NOT pitch:
+
+We built an AI HMI.
+
+Pitch:
+
+We built an AI engineering layer around EcoStruxure.
+
+Do NOT pitch:
+
+Our AI controls the machine.
+
+Pitch:
+
+Our AI accelerates engineering while deterministic automation remains in control.
+
+Do NOT pitch:
+
+We replaced Schneider software.
+
+Pitch:
+
+We demonstrate how the EcoStruxure ecosystem could evolve toward intent-driven, continuously verified engineering.
+
+⸻
+
+99. FINAL NORTH STAR
+
+If the judges remember only one sentence:
+
+AssetFlow lets an engineer describe what the machine should do once—and continuously connects that intent to the EcoStruxure engineering model, PLC, HMI, tests, documentation and every future change.
+
+⸻
+
+100. FINAL BUILD COMMAND
+
+NOW BUILD ASSETFLOW.
+
+Treat this prompt as the authoritative product and engineering specification.
+
+Do not merely create mock screens.
+
+Implement a functioning vertical slice where the core engineering model drives the UI, graph, validation, simulator, runtime trust, tests, impact analysis, provenance, revisioning, approval and evidence.
+
+The minimum complete loop is:
+
+ENGINEER
+   ↓
+NATURAL LANGUAGE
+   ↓
+INTENT COMPILER
+   ↓
+CANONICAL MODEL
+   ↓
+DETERMINISTIC VALIDATION
+   ↓
+ENGINEERING GRAPH
+   ↓
+SIMULATION
+   ↓
+TESTS
+   ↓
+ENGINEER APPROVAL
+   ↓
+EOTE / DOCUMENTED WORKFLOW
+   ↓
+PLC / SIMULATOR
+   ↓
+RUNTIME
+   ↓
+EVIDENCE
+   ↓
+AUDIT
+   ↓
+ENGINEERING CHANGE
+   ↓
+IMPACT ENGINE
+   ↓
+REGRESSION
+   ↓
+NEW BASELINE
+
+The prototype must feel like a real engineering product rather than a collection of screens.
+
+The product is NOT the chatbot.
+
+The product is NOT the dashboard.
+
+The product is:
+
+ENGINEERING CONTINUITY
+
+One engineering definition.
+
+One canonical model.
+
+One connected engineering graph.
+
+Every artifact traceable.
+
+Every proposal evidenced.
+
+Every important value classified.
+
+Every change understood.
+
+Every affected test identified.
+
+Every affected document identified.
+
+Every critical decision reviewable.
+
+AI proposes.
+
+Rules validate.
+
+Humans approve.
+
+PLC controls.
+
+Runtime produces evidence.
+
+Changes propagate through the graph.
+
+Approved engineering remains authoritative.
+
+If evidence does not exist:
+
+SHOW UNKNOWN.
+
+If engineering correctness matters:
+
+USE DETERMINISTIC RULES.
+
+If deployment is involved:
+
+REQUIRE HUMAN APPROVAL.
+
+If runtime control is involved:
+
+THE PLC REMAINS AUTHORITATIVE.
+
+If integration cannot be demonstrated:
+
+DO NOT FAKE IT.
+
+If a feature does not reduce effort, increase confidence, preserve traceability, or improve verification:
+
+REMOVE IT.
+
+The final objective is not to make the most futuristic-looking application.
+
+The objective is to make the judge believe:
+
+“This could become a real engineering product.”
+
+ASSETFLOW
+
+Engineering Intent → Verified Automation
+
+One definition.
+One model.
+Every artifact connected.
+Every change understood.
+Every decision evidenced.
+AI proposes.
+Engineering validates.
+Humans approve.
+PLC controls.
+
+This is the version I would freeze for the build. The key improvement is that it tells the builder not only what AssetFlow should look like, but what must actually be true underneath the interface.

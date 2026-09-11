@@ -1,0 +1,14 @@
+{"device":"pump","emit":null,"event":"START_REQ && permissivesOK","from":"Idle","kind":"transition","machine":"mch_tk401_line","sequence_id":"TRANS_pump_0","source":"SRC-TK401-STATEMODELS","to":"Starting"}
+{"device":"pump","emit":null,"event":"feedback(P401_RUNNING)","from":"Starting","kind":"transition","machine":"mch_tk401_line","sequence_id":"TRANS_pump_1","source":"SRC-TK401-STATEMODELS","to":"Running"}
+{"device":"pump","emit":"reject(code)","event":"START_REQ && permissiveFail","from":"Idle","kind":"transition","machine":"mch_tk401_line","sequence_id":"TRANS_pump_2","source":"SRC-TK401-STATEMODELS","to":"Idle"}
+{"device":"pump","emit":null,"event":"STOP_REQ","from":"Running","kind":"transition","machine":"mch_tk401_line","sequence_id":"TRANS_pump_3","source":"SRC-TK401-STATEMODELS","to":"Stopping"}
+{"device":"pump","emit":null,"event":"!feedback(P401_RUNNING)","from":"Stopping","kind":"transition","machine":"mch_tk401_line","sequence_id":"TRANS_pump_4","source":"SRC-TK401-STATEMODELS","to":"Idle"}
+{"device":"pump","emit":null,"event":"FAULT","from":"*","kind":"transition","machine":"mch_tk401_line","sequence_id":"TRANS_pump_5","source":"SRC-TK401-STATEMODELS","to":"Faulted"}
+{"device":"pump","emit":null,"event":"STOP_REQ && !FAULT","from":"Faulted","kind":"transition","machine":"mch_tk401_line","sequence_id":"TRANS_pump_6","source":"SRC-TK401-STATEMODELS","to":"Idle"}
+{"device":"valve","emit":null,"event":"OPEN_REQ","from":"Closed","kind":"transition","machine":"mch_tk401_line","sequence_id":"TRANS_valve_0","source":"SRC-TK401-STATEMODELS","to":"Opening"}
+{"device":"valve","emit":null,"event":"limit(XV401_OPEN)","from":"Opening","kind":"transition","machine":"mch_tk401_line","sequence_id":"TRANS_valve_1","source":"SRC-TK401-STATEMODELS","to":"Open"}
+{"device":"valve","emit":null,"event":"CLOSE_REQ && !P401_RUNNING","from":"Open","kind":"transition","machine":"mch_tk401_line","sequence_id":"TRANS_valve_2","source":"SRC-TK401-STATEMODELS","to":"Closing"}
+{"device":"valve","emit":"reject(PERM_PUMP_RUNNING)","event":"CLOSE_REQ && P401_RUNNING","from":"Open","kind":"transition","machine":"mch_tk401_line","sequence_id":"TRANS_valve_3","source":"SRC-TK401-STATEMODELS","to":"Open"}
+{"device":"valve","emit":null,"event":"limit(XV401_CLOSED)","from":"Closing","kind":"transition","machine":"mch_tk401_line","sequence_id":"TRANS_valve_4","source":"SRC-TK401-STATEMODELS","to":"Closed"}
+{"device":"valve","emit":null,"event":"limitTimeout","from":"*","kind":"transition","machine":"mch_tk401_line","sequence_id":"TRANS_valve_5","source":"SRC-TK401-STATEMODELS","to":"Fault"}
+{"device":"P401","kind":"command-sequence","knowledge_state":"KNOWN","machine":"mch_tk401_line","sequence_id":"SEQ_P401_START","source":"SRC-TK401-CMDCONTRACTS","steps":["XV401_OPEN True","LT401 < 95","LT401 > 5","P401_FAULT False","P401_ESTOP_OK True","set P401_START_REQ","await P401_RUNNING"],"timeoutSec":5}

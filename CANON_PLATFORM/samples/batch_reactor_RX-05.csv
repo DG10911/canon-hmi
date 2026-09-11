@@ -1,0 +1,22 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+RX-501,tank,LT-501,analog-in,%,0,100,92,85,,12,Reactor level
+RX-501,tank,TT-501,analog-in,degC,0,150,130,120,,,Reactor temperature
+RX-501,tank,PT-501,analog-in,bar,0,10,9,8,,,Reactor pressure
+AGT-501,motor,AGT-501_SPEED,analog-in,rpm,0,600,560,520,,,Agitator speed
+AGT-501,motor,AGT-501_RUNNING,discrete-in,,,,,,,,Agitator running
+AGT-501,motor,AGT-501_FAULT,discrete-in,,,,,,,,Agitator fault
+AGT-501,motor,AGT-501_START_REQ,discrete-out,,,,,,,,Agitator start
+AGT-501,motor,AGT-501_STOP_REQ,discrete-out,,,,,,,,Agitator stop
+P-501,pump,PT-502,analog-in,bar,0,6,5.5,5,,,Charge pump pressure
+P-501,pump,P-501_RUNNING,discrete-in,,,,,,,,Charge pump running
+P-501,pump,P-501_FAULT,discrete-in,,,,,,,,Charge pump fault
+P-501,pump,P-501_START_REQ,discrete-out,,,,,,,,Charge pump start
+P-501,pump,P-501_STOP_REQ,discrete-out,,,,,,,,Charge pump stop
+XV-501,valve,XV-501_OPEN,discrete-in,,,,,,,,Jacket steam valve open
+XV-501,valve,XV-501_CLOSED,discrete-in,,,,,,,,Jacket steam valve closed
+XV-501,valve,XV-501_OPEN_REQ,discrete-out,,,,,,,,Jacket steam valve open
+XV-501,valve,XV-501_CLOSE_REQ,discrete-out,,,,,,,,Jacket steam valve close
+XV-502,valve,XV-502_OPEN,discrete-in,,,,,,,,Discharge valve open
+XV-502,valve,XV-502_CLOSED,discrete-in,,,,,,,,Discharge valve closed
+XV-502,valve,XV-502_OPEN_REQ,discrete-out,,,,,,,,Discharge valve open
+XV-502,valve,XV-502_CLOSE_REQ,discrete-out,,,,,,,,Discharge valve close

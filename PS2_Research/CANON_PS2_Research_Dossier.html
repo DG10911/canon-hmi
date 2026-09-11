@@ -1,0 +1,110 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><style>
+@page { size: A4; margin: 16mm 14mm 16mm 14mm; }
+*{box-sizing:border-box}
+body{font-family:'Helvetica Neue',Arial,sans-serif;color:#1a2430;font-size:10.5px;line-height:1.5;margin:0}
+.cover{background:linear-gradient(135deg,#0d3320,#0a2418);color:#fff;padding:60px 44px;border-radius:0;margin:-0 0 26px 0}
+.cover h1{font-size:34px;margin:0 0 6px;color:#fff;letter-spacing:-.5px}
+.cover .g{color:#3DCD58}
+.cover .sub{font-size:14px;color:#bfe9d8;margin-top:4px}
+.cover .meta{margin-top:22px;font-size:11px;color:#9fd8bb;line-height:1.7}
+.cover .badge{display:inline-block;background:#3DCD58;color:#04160d;font-weight:800;padding:4px 12px;border-radius:20px;font-size:11px;margin-bottom:14px;letter-spacing:.5px}
+h1{font-size:19px;color:#0d3320;border-bottom:2px solid #3DCD58;padding-bottom:4px;margin:22px 0 10px}
+h2{font-size:15px;color:#12402a;margin:18px 0 8px}
+h3{font-size:12.5px;color:#1a5636;margin:14px 0 6px}
+h4{font-size:11px;color:#2a6b46;margin:10px 0 5px}
+p{margin:6px 0}
+ul{margin:6px 0 6px 18px;padding:0} li{margin:3px 0}
+strong{color:#0d3320}
+code{background:#eef3f0;border:1px solid #d5e2da;border-radius:3px;padding:0 4px;font-family:'SFMono-Regular',Consolas,monospace;font-size:9.5px;color:#0a6b3a}
+a{color:#1f7a45;text-decoration:none;word-break:break-all}
+hr{border:none;border-top:1px solid #d5e2da;margin:14px 0}
+table{border-collapse:collapse;width:100%;margin:8px 0;font-size:9.3px}
+th{background:#0d3320;color:#fff;text-align:left;padding:5px 7px;font-weight:700}
+td{border:1px solid #d5e2da;padding:5px 7px;vertical-align:top}
+tbody tr:nth-child(even){background:#f4f8f6}
+h1,h2,h3{page-break-after:avoid}
+table,tr{page-break-inside:avoid}
+</style></head><body>
+<div class="cover">
+  <div class="badge">SCHNEIDER HMI HACKATHON 2026 · PS2</div>
+  <h1>CANON<span class="g">.</span> — Master Research Dossier</h1>
+  <div class="sub">Dynamic HMI generation at runtime + machine control via HMI</div>
+  <div class="meta">
+    Team DigiSeva · Devansh Goenka · Panshul Arora · Tanmay Singh<br/>
+    Compiled from a 6-agent / 4-model deep-research swarm (Opus · Sonnet · Haiku · Fable)<br/>
+    Coverage: competitive landscape · standards &amp; machine-context models · prior-art &amp; patents ·
+    ROI &amp; market · datasets &amp; data sources · technical build stack<br/>
+    Evidence labelled VERIFIED / STRONG / INFERENCE · September 2026
+  </div>
+</div>
+<h1>CANON / PS2 — MASTER RESEARCH DOSSIER</h1>
+<p><strong>PS2 = Dynamic HMI generation at runtime + machine control via HMI.</strong> Team DigiSeva · Schneider HMI Hackathon 2026. Research by a 6-agent, 4-model swarm (Opus/Sonnet/Haiku/Fable). Labels: VERIFIED / STRONG / INFERENCE.</p>
+<hr/>
+<h2>0. THE ONE-PARAGRAPH VERDICT</h2>
+<p>Exhaustive search (all major vendors + startups + patents + academia, 2024–2026) confirms <strong>no product or paper ships the FULL LOOP</strong>: a *canonical fused machine model* → <strong>runtime, on-demand, validated</strong> HMI generation with <strong>PLC-authoritative guardrails</strong> → <strong>LLM-reasoned change-impact continuity</strong>. Every piece has prior art individually; the integrated loop is <strong>genuine whitespace (verified by absence)</strong>. CANON must therefore NOT pitch &quot;AI generates an HMI&quot; (patented since 2007) — it must pitch <strong>&quot;a generation-plus-guarantee system&quot;: validated bindings + PLC authority + change-continuity, at runtime.</strong></p>
+<hr/>
+<h2>1. COMPETITIVE LANDSCAPE (VERIFIED, multi-agent)</h2>
+<p><strong>Headline (VERIFIED by absence across Siemens, Rockwell, Schneider, AVEVA, Ignition, COPA-DATA, GE, Emerson, Honeywell, ABB, startups):</strong> *No vendor ships runtime, generative HMI creation with machine-control authority.* All generative HMI = <strong>build/design-time, human-gated.</strong> Runtime &quot;dynamic&quot; = pre-engineered faceplates/scripts/bindings.</p>
+<h3>Closest competitors (must differentiate from these by name)</h3>
+<ul>
+<li><strong>Siemens Eigen Engineering Agent</strong> — GA <strong>20 Apr 2026</strong>, TIA Portal. Agentic, <strong>self-validating</strong>, generates PLC code + <strong>WinCC Unified HMI</strong> (mostly JS behavior / VB migration, not clearly full NL screen-layout). <strong>BUILD-TIME</strong>, engineer-reviewed, no runtime, no PLC control authority. *The strongest &quot;we already do that&quot; threat.* [VERIFIED]</li>
+<li><strong>Tatsoft FrameworX AI Designer</strong> — shipping <strong>Mar 2026</strong>; <strong>MCP-based</strong> (Claude/Cursor/Copilot drive the config API: tags, alarms, <strong>screens</strong>, historian); claims 40–50% timeline cut. <strong>BUILD-TIME</strong> config generation (+ runtime AI *chat* over live data, on-prem). Architecturally the most direct analog. [VERIFIED]</li>
+<li><strong>Honeywell &quot;vibe engineering&quot; / Experion Cognition</strong> — preview, 2026; NL → HMI displays + P&amp;IDs + tests, <strong>build-time</strong>, DCS-scale, human-gated sandbox. [STRONG]</li>
+<li><strong>Siemens SiVArc</strong> — genuine model-driven HMI screen/tag generation <strong>from the PLC program via rules</strong> (NOT AI), build-time. The incumbent deterministic baseline. [VERIFIED]</li>
+<li><strong>Runtime NL machine control</strong> — research only: *arXiv 2510.11300* &quot;Beyond touch-based HMI&quot; (LLM + OPC UA tool-calling controls machines via NL); <strong>MCP-for-PLC</strong> emerging plumbing (no safety validation, no HMI gen). [STRONG]</li>
+</ul>
+<h3>Model/template-driven HMI (mature, NON-AI — do not claim as novel)</h3>
+<p>Siemens WinCC Unified faceplates(UDT) · Rockwell Optix &quot;Types&quot; · AVEVA ArchestrA templates · <strong>Ignition UDT + indirect binding</strong> (runtime *retargeting*, not generation) · <strong>COPA-DATA zenon Smart Objects</strong> (deterministic template instantiation) · GE Proficy model-based HMI · ABB 800xA aspect objects. <strong>NAMUR MTP</strong> auto-generates a module&#x27;s HMI from its package (standardized, ~70% effort cut) — the closest *standardized* precedent, but static/build-time/process-only.</p>
+<h3>Reality-check (great pitch ammo)</h3>
+<p><strong>ARC Advisory &quot;LLM-Wrapper Illusion&quot;</strong> (570 decision-makers, 100+ vendors, 40+ copilots): <strong>&gt;65% fail under real operational stress</strong>; most are chat sidecars lacking &quot;cyber-physical grounding.&quot; ARC prescribes <strong>&quot;generative UI + hardcoded execution bounds + living knowledge graph&quot;</strong> → *that is exactly CANON&#x27;s design.* [VERIFIED]</p>
+<h3>CANON whitespace (defensible): runtime + validated bindings + PLC authority + change-continuity, ingesting MTP/AAS/OPC-UA/UDT.</h3>
+<p><strong>MUST NOT claim:</strong> &quot;novel/first AI-generated HMI&quot;; &quot;nobody generates HMI with AI.&quot; <strong>SAY:</strong> differentiation = machine-context-driven generation with validated bindings, controlled interaction, change-aware regeneration — a *guarantee* layer, not a generator.</p>
+<hr/>
+<h2>2. STANDARDS / MACHINE-CONTEXT MODELS (VERIFIED) — credibility backbone</h2>
+<ul>
+<li><strong>ISA-101</strong> (HMI): 4-level hierarchy (L1 overview→L4 diagnostics), restrained color (gray normal, color only for abnormal). → <strong>hard, checkable render rule</strong> in the generator (demoable).</li>
+<li><strong>ISA-18.2 / IEC 62682 / EEMUA 191</strong> (alarms): each alarm = {tag, setpoint, priority, class, cause, consequence, required action} in a Master Alarm DB. <strong>Flood = &gt;10/10 min</strong> → live computed state.</li>
+<li><strong>ISA-95 / IEC 62264 + ISA-88</strong>: equipment hierarchy Enterprise→Site→Area→Cell→Unit→Equipment Module→Control Module → canonical-model skeleton + HMI nav.</li>
+<li><strong>OPC UA + companion specs</strong> (DI, Machinery, PackML, AML): browsable object graph (NodeSet2.xml). → ingest/expose canonical model as OPC UA info model = <strong>&quot;read the type graph → generate the screen&quot;</strong> (best live-demo credibility).</li>
+<li><strong>AutomationML / IEC 62714</strong> (CAEX+COLLADA+PLCopenXML): engineering exchange incl. HMI. → <strong>offline ingestion</strong> format.</li>
+<li><strong>AAS / IEC 63278</strong> (IDTA): asset digital-twin shell of submodels. <strong>PRECISION: NO official AAS &quot;HMI&quot;/visualization submodel</strong> → use AAS as asset-metadata envelope ONLY.</li>
+<li><strong>NAMUR MTP (VDI/VDE/NAMUR 2658 / IEC 63280)</strong> — deepest hit: <strong>Part 2 = HMI</strong>, <strong>Part 3 = DataAssembly</strong> (typed value+status+unit+limits), <strong>Part 6/7 = alarms</strong>. Frame CANON as <strong>&quot;MTP-inspired.&quot;</strong> <strong>Schneider itself publicly presents on MTP</strong> → lands with judges. <strong>MTP 2.0 released 2026.</strong></li>
+<li><strong>PackML/OMAC</strong>: standard machine-state model (17 states) → standard state widget.</li>
+<p><strong>Name-drop top 4:</strong> MTP · OPC UA(+companion) · ISA-18.2/IEC 62682 · ISA-101. <strong>Claim rule:</strong> &quot;aligned to / informed by,&quot; NEVER &quot;compliant / certified / conformant.&quot;</p>
+</ul>
+<hr/>
+<h2>3. PRIOR-ART / PATENTS (VERIFIED) — the honesty firewall</h2>
+<p>&quot;AI/model-driven HMI generation&quot; has <strong>15+ years of patents</strong>:</p>
+<table><thead><tr><th>Patent</th><th>Assignee</th><th>Date</th><th>Covers</th></tr></thead><tbody><tr><td>US8,533,619B2</td><td>Rockwell</td><td>2007/2013</td><td>context/state-driven dynamic HMI generation (ML-inferred intent)</td></tr><tr><td>US9,235,454B2</td><td>Siemens</td><td>2012/2016</td><td>server generates HMI <strong>on-demand from an engineering database + live state</strong>, role/event-based</td></tr><tr><td>US11,175,931 / US11,861,379</td><td>AVEVA</td><td>2016/21-24</td><td>runtime auto-compose GUI by traversing a navigation/metadata model (&quot;data-driven HMI&quot;)</td></tr><tr><td><strong>US20250005224A1</strong></td><td><strong>Rockwell</strong></td><td>filed 2023, pub Jan 2025 (<strong>pending</strong>)</td><td><strong>LLM generates HMI faceplates &quot;with connections to the respective logic&quot; + response validation</strong> — the closest to CANON</td></tr><tr><td>US10,281,894 / US8,798,775</td><td>(bind graphics to controller data; <strong>detect new/deleted PLC tags → add/flag HMI element</strong>)</td><td>—</td><td>deterministic change-reconciliation prior art</td></tr></tbody></table>
+<p>MTP = non-patent prior art for &quot;auto-gen HMI from canonical module model.&quot; <strong>Honest novelty:</strong> the <strong>compound</strong> {generation FROM canonical single-source model + *validated/typed* bindings + *PLC-as-authority* consistency + *change-continuity* with audit/operator-state retention}. <strong>No single prior-art hit combines all four</strong> — esp. PLC-authority invariant &amp; continuity appear <strong>unclaimed</strong>. <strong>Do FTO counsel</strong> vs US20250005224A1 &amp; US9,235,454 before any IP claim. <strong>NEVER say:</strong> &quot;first to use AI to generate HMI&quot;; &quot;no one generates HMI from NL&quot;; &quot;context/role-based dynamic HMI gen is novel.&quot; (all false.)</p>
+<hr/>
+<h2>4. ROI / MARKET / USE CASES (VERIFIED)</h2>
+<ul>
+<li>PS&#x27;s &quot;50–70% HMI lifecycle = screens&quot; has <strong>no primary source</strong> (cite as &quot;per the problem statement&quot;). Back with: <strong>MTP &quot;up to 70% engineering-effort reduction&quot;</strong> (best sourced); <strong>70% of HMI designers hand-script screens</strong> (Pro-face/Schneider); unified platforms <strong>~50%</strong> cut; commissioning cuts <strong>Siemens 70% / Rockwell 60% / Schneider ~50% (500 hrs)</strong>, ARC 15–30%.</li>
+<li><strong>SCADA market $12.9B(2025)→$13.9B(2026), ~8.5% CAGR.</strong> Digital twin <strong>$39.5B→$53.6B</strong>; 43% use ≥1 twin, 59% plan by 2028. 76% mfrs implementing AI by 2026. Boehm cost-of-change $1→$10→$100. Automation ROI 10:1–30:1, payback 12–18 mo.</li>
+<li><strong>Use cases (quantified, guarded):</strong> brownfield migration (200–400 hrs screen re-authoring; ~50% saved) · multi-machine variant scale-out (70–80% cut) · commissioning (target 40–50%) · machine-change adaptability (40–50% change-cycle cut) · size-independent HMI (~80% responsive-layout cut) · operator onboarding (train −20–30%, errors −40–60% per ISA-101).</li>
+<li><strong>Do NOT claim numerically:</strong> &quot;50-70% lifecycle is screens&quot; as fact; &quot;AI cuts commissioning 70%&quot; (that&#x27;s Siemens motion VC); universal $ rework; &quot;90% twin adoption&quot;; universal &quot;genAI cuts eng X%.&quot;</li>
+</ul>
+<hr/>
+<h2>5. DATASETS &amp; DATA SOURCES (VERIFIED free) — buildable now</h2>
+<p><strong>OPC UA servers (expose machine model as info model):</strong> node-opcua sample server ⭐ (Node.js, 5-min) · open62541 ⭐ (C, Pi) · Prosys Simulation Server (free) · Unified Automation demo + UaExpert client · digitalpetri Milo (online <code>opc.tcp://milo.digitalpetri.com:62541/milo</code>). <strong>PLC/Modbus sims (control + permissive reject):</strong> pymodbus ⭐ · ModbusPal ⭐ · OpenPLC ⭐ (IEC 61131-3 runtime, Pi) · CODESYS sim · Factory I/O (3D, trial). <strong>Canonical-model inputs:</strong> AutomationML samples (github.com/AutomationML/AMLEngine2.1, PyAutomationML) · AAS/AASX (IDTA specs, Bosch semantic stack) · MTP sample (VDI/VDE/NAMUR 2658) · ISA-5.1 tag naming (PT/TT/XV…). <strong>Live data for trends/alarms:</strong> <strong>Tennessee Eastman</strong> ⭐ (52 vars, 21 faults, Kaggle/IEEE) · <strong>Wind-Turbine SCADA</strong> (Zenodo 10958775) · <strong>Industrial Alarm Monitoring 2018–2024</strong> ⭐ (Kaggle, 6 yrs) · ICS Alarm Text (Kaggle) · beverage bottling line (Zenodo 18146866). <strong>HMI components/ref:</strong> hmilibrary.com (900+ ISA-101 SVG) · ISA-101 docs · Node-RED PLC-sim flows · Ignition/Kepware demos (benchmark). <strong>Recommended 30-min stack:</strong> node-opcua sample server + pymodbus (Tennessee-Eastman CSV playback) + minimal AML/JSON machine model (pump+3 sensors+2 valves) + Kaggle alarm CSV → CANON reads OPC UA → generates ISA-101 screen.</p>
+<hr/>
+<h2>6. TECHNICAL STACK (VERIFIED build blueprint)</h2>
+<p><strong>The safety wedge (key idea): PROPOSE → COMPILE → VALIDATE.</strong> The LLM only emits a <strong>layout proposal</strong> in a JSON schema whose <code>tag</code>/<code>widget</code>/<code>screen</code> fields are <strong><code>enum</code>s generated per-machine from the canonical model</strong> → the model <strong>physically cannot emit a tag that isn&#x27;t in the model</strong> (token-level grammar). A <strong>deterministic TS compiler</strong> then re-validates (AJV) against the model, applies ISA-101 rules, resolves bindings, and emits a flat component tree. LLM = proposer; <strong>compiler = authority.</strong> Keep a <strong>no-LLM deterministic default-layout generator</strong> as fallback so the demo never dies (also the &quot;reproducible, same-model→same-HMI&quot; credibility story).</p>
+<ul>
+<li><strong>LLM:</strong> Claude structured outputs <code>output_config.format=json_schema</code> (GA) via <code>@anthropic-ai/sdk</code> <code>messages.parse</code> + <code>zodOutputFormat</code>, model <code>claude-opus-5</code>. Limits that shape design: <strong>no recursion</strong> → <strong>flat element map</strong> (parent-id + grid slot), <strong>enums only</strong> → per-machine tag/widget enums, <strong>no numeric constraints</strong> → ranges enforced by compiler/AJV. (Optional Vercel AI SDK <code>generateObject</code> for model-swap; offline: llguidance/xgrammar grammar-constrained decoding.)</li>
+<li><strong>Canonical model (JSON, Zod-typed):</strong> borrow <strong>OPC UA for Machinery (OPC 40001)</strong> Identification/MachineryItemState + <strong>PackML/ISA-TR88</strong> 17-state machine vocabulary. Tag{path,dataType,unit,engRange,access,role,semantic,source} · Command{writesTag,preconditions,confirm,timeout,expectedFeedback} · AlarmDef{tag,condition,priority 1-4,message}. Load the model *into* the node-opcua server&#x27;s address space so <strong>&quot;canonical model&quot; and &quot;OPC UA server&quot; are literally the same thing</strong> (strong demo point).</li>
+<li><strong>UI spec + renderer:</strong> <code>@json-render/core</code>+<code>@json-render/react</code> (flat spec matches the non-recursive LLM schema; streaming render) with a <strong>custom HMI catalog</strong> (ValueTile/Gauge/Trend/StateBadge/AlarmBanner/AlarmList/CommandButton/SetpointInput/PumpSymbol/NavBar), SVG mimics, uPlot trends.</li>
+<li><strong>Size-independence:</strong> proposals carry widget <strong>priority + min-size, not pixels</strong>; compiler solves small(7&quot;/4-col)/medium(10-12&quot;/8-col)/large(12-col) with CSS Grid + <strong>container queries</strong>; below breakpoints drop priority-3 to &quot;More&quot;, keep state+alarm banner+E-stop always visible → <strong>&quot;same model, three HMIs on one screen&quot;</strong> demo.</li>
+<li><strong>Sim:</strong> port existing <code>index.html</code> physics to fixed-timestep seeded TS; drive PLC logic as a <strong>PackML statechart in XState v5</strong>; expose via <strong>node-opcua server + jsmodbus server</strong> over one in-memory tag table (flip protocol live). Modbus TCP = Schneider-native (M241/ATV630/PM5300).</li>
+<li><strong>PLC-authoritative command contract:</strong> HMI never mutates state; sends <code>Command{...}</code> → bridge checks role/preconditions/interlocks/state/range → writes command tag → PLC/sim decides → HMI shows <strong>pending → verified/REJECTED(reason)</strong> from feedback tag. Audit every command.</li>
+<li><strong>Data quality:</strong> OPC UA <code>DataValue.StatusCode</code>+timestamps (Good/Uncertain/Bad/stale); Modbus derives quality (timeout→bad, no update &gt;N·poll→stale). Bad/stale = greyed value + last-good ts; <strong>command widgets disabled when feedback not Good</strong>; 10-30 s startup grace.</li>
+<li><strong>Change-impact:</strong> build a <code>graphology</code> directed graph (tag/command/alarm/interlock/state/widget/screen/test); on <code>diff(modelV1,V2)</code> BFS in-edges → classify regenerate / re-validate / re-test / unaffected; regenerate only impacted screens (cache others by hash); visualize impacted subgraph with <strong>sigma.js</strong>; auto-generate <strong>Vitest</strong> cases from command contracts → &quot;validated HMI&quot; = schema-valid + model-consistent + ISA-101-linted + tests pass.</li>
+<li><strong>Packaging:</strong> pnpm workspace (model/compiler/bridge/sim/hmi); Vite <code>vite-plugin-singlefile</code> for the HMI + one node bridge/sim; <strong>in-process &quot;demo mode&quot;</strong> so <code>index.html</code> still runs offline like Round 1.</li>
+<li><strong>Team split:</strong> P1 model+compiler+impact-graph+tests · P2 LLM proposer+schema-gen+repair-loop+fallback · P3 sim+node-opcua/jsmodbus+bridge+React catalog.</li>
+<li><strong>Top risks/mitigations:</strong> (1) LLM quality/latency → deterministic fallback + pre-cache proposals by model-hash + streaming + warm grammar cache + ISA-101 linter w/ 1 repair round; (2) schema-subset mismatch (no recursion/numerics) → flat map + enums + AJV, test schema-gen day 1; (3) protocol plumbing eats time → <code>SecurityPolicy.None</code> (say so) + one tag table + normalized <code>{value,quality,ts}</code> frame day 1 + in-process demo mode.</li>
+<li><strong>Edge/PS4 future:</strong> compiled tree is renderer-agnostic → <strong>WPE WebKit/Cog</strong> kiosk (unchanged web HMI) or <strong>LVGL 9</strong> (has <code>lv_web_emscripten</code> browser build) → makes the &quot;size- &amp; renderer-independent&quot; claim credible. <strong>FUXA</strong> (MIT, OPC-UA/Modbus/S7) is the &quot;what exists, non-generative&quot; reference to cite.</li>
+</ul>
+<hr/>
+<h2>7. SHARPENED POSITIONING &amp; DEMO</h2>
+<p><strong>One-liner:</strong> *&quot;We don&#x27;t generate a screen from a prompt — we generate a validated interface from the machine, and keep it in sync as the machine changes.&quot;* <strong>Differentiator sentence (safe):</strong> *&quot;Automatic and even LLM-assisted HMI generation already exist; CANON&#x27;s contribution is the validation-and-continuity layer — provably-correct bindings against a canonical model, PLC-authoritative consistency, and continuity across regenerations.&quot;* <strong>5-wow demo:</strong> (1) machine context in (OPC UA/AML) → canonical model+graph; (2) NL intent → <strong>validated ISA-101 screen materializes</strong>, widgets tag-bound (hover shows binding+VERIFIED); (3) START → <strong>PLC permissive FALSE → REJECTED</strong> (open valve → authorized); (4) *&quot;diagnostics for current abnormal condition&quot;* → new contextual screen; (5) <strong>PT101 0-10→0-16 → impact map → regenerate → regression → approve → new baseline</strong> (the moment nobody else can show). <strong>Judge red-team answers:</strong> &quot;isn&#x27;t this MTP/Eigen?&quot; → those are <strong>build-time, static, human-gated</strong>; CANON is <strong>runtime + validated + PLC-authoritative + continuity, and can ingest MTP/AAS</strong>. &quot;how avoid hallucinated tags?&quot; → deterministic compiler validates against canonical model; unverified = UNKNOWN, never rendered as control. <strong>Claims firewall:</strong> aligned-to not certified · advisory AI, PLC controls · SIMULATED clearly labeled · UNKNOWN not fabricated · no &quot;first/novel AI HMI&quot; · no unsourced numbers.</p></body></html>

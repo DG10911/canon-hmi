@@ -1,0 +1,4 @@
+{"authority":"operator","command_id":"P401_START","feedback_signal":"P401_RUNNING","machine":"mch_tk401_line","request_signal":"P401_START_REQ","source":"SRC-TK401-CMDCONTRACTS","target_asset":"P401","timeoutSec":5,"truth_status":"PROPOSED"}
+{"authority":"operator","command_id":"P401_STOP","feedback_signal":"P401_RUNNING","machine":"mch_tk401_line","request_signal":"P401_STOP_REQ","source":"SRC-TK401-CMDCONTRACTS","target_asset":"P401","timeoutSec":5,"truth_status":"PROPOSED"}
+{"authority":"operator","command_id":"XV401_OPEN","feedback_signal":"XV401_OPEN","machine":"mch_tk401_line","request_signal":"XV401_OPEN_REQ","source":"SRC-TK401-CMDCONTRACTS","target_asset":"XV401","timeoutSec":8,"truth_status":"PROPOSED"}
+{"authority":"operator","command_id":"XV401_CLOSE","feedback_signal":"XV401_CLOSED","machine":"mch_tk401_line","request_signal":"XV401_CLOSE_REQ","source":"SRC-TK401-CMDCONTRACTS","target_asset":"XV401","timeoutSec":8,"truth_status":"PROPOSED"}

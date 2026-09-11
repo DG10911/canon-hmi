@@ -1,0 +1,59 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+M-201,motor,ST-201,analog-in,rpm,0,3000,2900,2800,,,compressor
+M-201,motor,PT-201,analog-in,bar,0,16,14,12,,2,refrig
+M-201,motor,TT-201,analog-in,degC,0,200,150,130,,,temp
+M-201,motor,M-201_RUNNING,discrete-in,,,,,,,,running
+M-201,motor,M-201_FAULT,discrete-in,,,,,,,,fault
+M-201,motor,M-201_START_REQ,discrete-out,,,,,,,,start
+M-201,motor,M-201_STOP_REQ,discrete-out,,,,,,,,stop
+M-202,motor,ST-202,analog-in,rpm,0,3000,2900,2800,,,compressor
+M-202,motor,PT-202,analog-in,bar,0,16,14,12,,2,refrig
+M-202,motor,TT-202,analog-in,degC,0,200,150,130,,,temp
+M-202,motor,M-202_RUNNING,discrete-in,,,,,,,,running
+M-202,motor,M-202_FAULT,discrete-in,,,,,,,,fault
+M-202,motor,M-202_START_REQ,discrete-out,,,,,,,,start
+M-202,motor,M-202_STOP_REQ,discrete-out,,,,,,,,stop
+M-203,motor,ST-203,analog-in,rpm,0,3000,2900,2800,,,compressor
+M-203,motor,PT-203,analog-in,bar,0,16,14,12,,2,refrig
+M-203,motor,TT-203,analog-in,degC,0,200,150,130,,,temp
+M-203,motor,M-203_RUNNING,discrete-in,,,,,,,,running
+M-203,motor,M-203_FAULT,discrete-in,,,,,,,,fault
+M-203,motor,M-203_START_REQ,discrete-out,,,,,,,,start
+M-203,motor,M-203_STOP_REQ,discrete-out,,,,,,,,stop
+P-201,pump,FT-201,analog-in,m3/h,0,300,,,,10,flow
+P-201,pump,P-201_RUNNING,discrete-in,,,,,,,,running
+P-201,pump,P-201_FAULT,discrete-in,,,,,,,,fault
+P-201,pump,P-201_START_REQ,discrete-out,,,,,,,,start
+P-201,pump,P-201_STOP_REQ,discrete-out,,,,,,,,stop
+P-202,pump,FT-202,analog-in,m3/h,0,300,,,,10,flow
+P-202,pump,P-202_RUNNING,discrete-in,,,,,,,,running
+P-202,pump,P-202_FAULT,discrete-in,,,,,,,,fault
+P-202,pump,P-202_START_REQ,discrete-out,,,,,,,,start
+P-202,pump,P-202_STOP_REQ,discrete-out,,,,,,,,stop
+P-203,pump,FT-203,analog-in,m3/h,0,300,,,,10,flow
+P-203,pump,P-203_RUNNING,discrete-in,,,,,,,,running
+P-203,pump,P-203_FAULT,discrete-in,,,,,,,,fault
+P-203,pump,P-203_START_REQ,discrete-out,,,,,,,,start
+P-203,pump,P-203_STOP_REQ,discrete-out,,,,,,,,stop
+P-204,pump,FT-204,analog-in,m3/h,0,300,,,,10,flow
+P-204,pump,P-204_RUNNING,discrete-in,,,,,,,,running
+P-204,pump,P-204_FAULT,discrete-in,,,,,,,,fault
+P-204,pump,P-204_START_REQ,discrete-out,,,,,,,,start
+P-204,pump,P-204_STOP_REQ,discrete-out,,,,,,,,stop
+P-205,pump,FT-205,analog-in,m3/h,0,300,,,,10,flow
+P-205,pump,P-205_RUNNING,discrete-in,,,,,,,,running
+P-205,pump,P-205_FAULT,discrete-in,,,,,,,,fault
+P-205,pump,P-205_START_REQ,discrete-out,,,,,,,,start
+P-205,pump,P-205_STOP_REQ,discrete-out,,,,,,,,stop
+XV-201,valve,XV-201_OPEN,discrete-in,,,,,,,,open limit
+XV-201,valve,XV-201_CLOSED,discrete-in,,,,,,,,closed limit
+XV-201,valve,XV-201_OPEN_REQ,discrete-out,,,,,,,,open
+XV-201,valve,XV-201_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-202,valve,XV-202_OPEN,discrete-in,,,,,,,,open limit
+XV-202,valve,XV-202_CLOSED,discrete-in,,,,,,,,closed limit
+XV-202,valve,XV-202_OPEN_REQ,discrete-out,,,,,,,,open
+XV-202,valve,XV-202_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-203,valve,XV-203_OPEN,discrete-in,,,,,,,,open limit
+XV-203,valve,XV-203_CLOSED,discrete-in,,,,,,,,closed limit
+XV-203,valve,XV-203_OPEN_REQ,discrete-out,,,,,,,,open
+XV-203,valve,XV-203_CLOSE_REQ,discrete-out,,,,,,,,close

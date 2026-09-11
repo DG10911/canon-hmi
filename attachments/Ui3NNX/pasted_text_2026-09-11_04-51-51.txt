@@ -1,0 +1,54 @@
+ authoritative machine config.
+>> ./downloads/thiagoralves_OpenPLC_v3/webserver/lib/standard_FB.txt  ->  EXT-standard_FB
+EXT-standard_FB: 0 candidate signals, 0 observed facts, 3 unknown columns -> /home/faculty/srmist2/CANON_ACQUISITION/out_external/
+NOTE: all marked CANDIDATE/REPORTED/OBSERVED — not authoritative machine config.
+>> ./downloads/thiagoralves_OpenPLC_v3/webserver/lib/standard_functions.txt  ->  EXT-standard_functions
+EXT-standard_functions: 0 candidate signals, 0 observed facts, 1 unknown columns -> /home/faculty/srmist2/CANON_ACQUISITION/out_external/
+NOTE: all marked CANDIDATE/REPORTED/OBSERVED — not authoritative machine config.
+>> ./downloads/thiagoralves_OpenPLC_v3/webserver/lib/synergy.txt  ->  EXT-synergy
+EXT-synergy: 0 candidate signals, 0 observed facts, 6 unknown columns -> /home/faculty/srmist2/CANON_ACQUISITION/out_external/
+NOTE: all marked CANDIDATE/REPORTED/OBSERVED — not authoritative machine config.
+>> ./downloads/thiagoralves_OpenPLC_v3/webserver/lib/timer.txt  ->  EXT-timer
+EXT-timer: 0 candidate signals, 0 observed facts, 6 unknown columns -> /home/faculty/srmist2/CANON_ACQUISITION/out_external/
+NOTE: all marked CANDIDATE/REPORTED/OBSERVED — not authoritative machine config.
+>> ./downloads/tjcruz-dei_ICS_PCAPS/robots.txt  ->  EXT-robots
+EXT-robots: 0 candidate signals, 0 observed facts, 0 unknown columns -> /home/faculty/srmist2/CANON_ACQUISITION/out_external/
+NOTE: all marked CANDIDATE/REPORTED/OBSERVED — not authoritative machine config.
+>> ./downloads/uciml_faulty-steel-plates/faults.csv  ->  EXT-faults
+EXT-faults: 34 candidate signals, 34 observed facts, 0 unknown columns -> /home/faculty/srmist2/CANON_ACQUISITION/out_external/
+NOTE: all marked CANDIDATE/REPORTED/OBSERVED — not authoritative machine config.
+>> ./downloads/vishala28_swat-dataset-secure-water-treatment-system/attack.csv  ->  EXT-attack
+EXT-attack: 51 candidate signals, 51 observed facts, 2 unknown columns -> /home/faculty/srmist2/CANON_ACQUISITION/out_external/
+NOTE: all marked CANDIDATE/REPORTED/OBSERVED — not authoritative machine config.
+>> ./downloads/vishala28_swat-dataset-secure-water-treatment-system/merged.csv  ->  EXT-merged
+EXT-merged: 51 candidate signals, 51 observed facts, 2 unknown columns -> /home/faculty/srmist2/CANON_ACQUISITION/out_external/
+NOTE: all marked CANDIDATE/REPORTED/OBSERVED — not authoritative machine config.
+>> ./downloads/vishala28_swat-dataset-secure-water-treatment-system/normal.csv  ->  EXT-normal
+EXT-normal: 51 candidate signals, 51 observed facts, 2 unknown columns -> /home/faculty/srmist2/CANON_ACQUISITION/out_external/
+NOTE: all marked CANDIDATE/REPORTED/OBSERVED — not authoritative machine config.
+>> ./downloads/wkirgsn_electric-motor-temperature/measures_v2.csv  ->  EXT-measures_v2
+EXT-measures_v2: 13 candidate signals, 13 observed facts, 0 unknown columns -> /home/faculty/srmist2/CANON_ACQUISITION/out_external/
+NOTE: all marked CANDIDATE/REPORTED/OBSERVED — not authoritative machine config.
+>> ./downloads/ymirsky_KitNET-py/LICENSE.txt  ->  EXT-LICENSE
+EXT-LICENSE: 0 candidate signals, 0 observed facts, 8 unknown columns -> /home/faculty/srmist2/CANON_ACQUISITION/out_external/
+NOTE: all marked CANDIDATE/REPORTED/OBSERVED — not authoritative machine config.
+>> ./downloads/zara2099_scada-pipeline-operations-dataset/scada_pipeline.csv  ->  EXT-scada_pipeline
+EXT-scada_pipeline: 11 candidate signals, 11 observed facts, 2 unknown columns -> /home/faculty/srmist2/CANON_ACQUISITION/out_external/
+NOTE: all marked CANDIDATE/REPORTED/OBSERVED — not authoritative machine config.
+>> ./downloads/zoltandobrady_modbus-tcp-syn-flood-ds-for-intrusion-detection/predicted_testing1a_with_original_ips_2.csv  ->  EXT-predicted_testing1a_with_original_ips_2
+EXT-predicted_testing1a_with_original_ips_2: 4 candidate signals, 4 observed facts, 4 unknown columns -> /home/faculty/srmist2/CANON_ACQUISITION/out_external/
+NOTE: all marked CANDIDATE/REPORTED/OBSERVED — not authoritative machine config.
+>> ./downloads/zoltandobrady_modbus-tcp-syn-flood-ds-for-intrusion-detection/testing1a.csv  ->  EXT-testing1a
+EXT-testing1a: 3 candidate signals, 3 observed facts, 4 unknown columns -> /home/faculty/srmist2/CANON_ACQUISITION/out_external/
+NOTE: all marked CANDIDATE/REPORTED/OBSERVED — not authoritative machine config.
+>> ./downloads/zoltandobrady_modbus-tcp-syn-flood-ds-for-intrusion-detection/training1a.csv  ->  EXT-training1a
+EXT-training1a: 3 candidate signals, 3 observed facts, 4 unknown columns -> /home/faculty/srmist2/CANON_ACQUISITION/out_external/
+NOTE: all marked CANDIDATE/REPORTED/OBSERVED — not authoritative machine config.
+>> ./downloads/zoltandobrady_modrtu-injectx-modbus-rtu-injection-dataset/MOdbusRTU_InjectX dataset for validation.txt  ->  EXT-MOdbusRTU_InjectX_dataset_for_validation
+EXT-MOdbusRTU_InjectX_dataset_for_validation: 0 candidate signals, 0 observed facts, 1 unknown columns -> /home/faculty/srmist2/CANON_ACQUISITION/out_external/
+NOTE: all marked CANDIDATE/REPORTED/OBSERVED — not authoritative machine config.
+>> ./downloads/zoltandobrady_modrtu-injectx-modbus-rtu-injection-dataset/ModbusRTU_InjectX dataset for validation_15.txt  ->  EXT-ModbusRTU_InjectX_dataset_for_validation_15
+EXT-ModbusRTU_InjectX_dataset_for_validation_15: 0 candidate signals, 0 observed facts, 1 unknown columns -> /home/faculty/srmist2/CANON_ACQUISITION/out_external/
+NOTE: all marked CANDIDATE/REPORTED/OBSERVED — not authoritative machine config.
+done — CANDIDATE/OBSERVED data written to ../out_external/  (never authoritative, §62)
+(canon-venv) (voxshield) srmist2@dgxa100:~/CANON_ACQUISITION/datasets$ 

@@ -1,0 +1,139 @@
+(voxshield) srmist2@dgxa100:~/CANON_ACQUISITION/model$ python3 canon_infer.py --request "close valve XV401" --url http://localhost:8000/v1 --model canon-brain
+python3 canon_infer.py --request "start pump P401"   --url http://localhost:8000/v1 --model canon-brain
+=== MODEL PROPOSED ===
+{
+  "command": "XV401_CLOSE",
+  "target": "XV401",
+  "expectedPermissives": [
+    {
+      "step": "XV401_OPEN_REQ",
+      "require": "false",
+      "cancel": "true"
+    }
+  ],
+  "unknowns": [],
+  "usedEvidenceIds": []
+}
+
+=== VALIDATOR ===
+{
+  "ok": true,
+  "dropped_invented": [],
+  "bindings_with_evidence": 0,
+  "verdict": "CLEAN"
+}
+
+=== VALIDATED (safe to render) ===
+{
+  "command": "XV401_CLOSE",
+  "target": "XV401",
+  "unknowns": [],
+  "usedEvidenceIds": [
+    "ev_3ee654c7bce6",
+    "ev_a60fc574c3b1",
+    "ev_fda1201eee7c"
+  ],
+  "usedSignalIds": [
+    "P401_RUNNING",
+    "XV401_CLOSED",
+    "XV401_CLOSE_REQ"
+  ],
+  "contract": {
+    "source": "CANON corpus (authoritative) \u2014 replaces any model-proposed permissives",
+    "request": "XV401_CLOSE_REQ",
+    "feedback": "XV401_CLOSED",
+    "permissives": [
+      {
+        "signal": "P401_RUNNING",
+        "expected": false,
+        "rejectCode": "PERM_PUMP_RUNNING",
+        "message": "Stop P401 before closing XV401 (deadhead protection)."
+      }
+    ],
+    "interlocks": []
+  }
+}
+=== MODEL PROPOSED ===
+{
+  "command": "P401_START",
+  "target": "P401",
+  "expectedPermissives": [
+    {
+      "signal": "P401_FAULT",
+      "expected": false,
+      "rejectCode": "PERM_FAULT_ACTIVE"
+    }
+  ],
+  "unknowns": [],
+  "usedEvidenceIds": []
+}
+
+=== VALIDATOR ===
+{
+  "ok": true,
+  "dropped_invented": [],
+  "bindings_with_evidence": 0,
+  "verdict": "CLEAN"
+}
+
+=== VALIDATED (safe to render) ===
+{
+  "command": "P401_START",
+  "target": "P401",
+  "unknowns": [],
+  "usedEvidenceIds": [
+    "ev_0b4fb8fe3388",
+    "ev_3ee654c7bce6",
+    "ev_5cfbe67011e1",
+    "ev_9108980b2067",
+    "ev_9809f1fc1020",
+    "ev_c088c82e5163"
+  ],
+  "usedSignalIds": [
+    "LT401",
+    "P401_ESTOP_OK",
+    "P401_FAULT",
+    "P401_RUNNING",
+    "P401_START_REQ",
+    "XV401_OPEN"
+  ],
+  "contract": {
+    "source": "CANON corpus (authoritative) \u2014 replaces any model-proposed permissives",
+    "request": "P401_START_REQ",
+    "feedback": "P401_RUNNING",
+    "permissives": [
+      {
+        "signal": "XV401_OPEN",
+        "expected": true,
+        "rejectCode": "PERM_VALVE_CLOSED",
+        "message": "Discharge valve XV401 must be OPEN before starting P401."
+      },
+      {
+        "signal": "LT401",
+        "expected": "< 95",
+        "rejectCode": "PERM_LEVEL_HIGH",
+        "message": "TK-401 level must be below high-high (95%)."
+      },
+      {
+        "signal": "LT401",
+        "expected": "> 5",
+        "rejectCode": "PERM_LEVEL_LOW",
+        "message": "TK-401 level must be above low-low (5%) to avoid dry-run."
+      },
+      {
+        "signal": "P401_FAULT",
+        "expected": false,
+        "rejectCode": "PERM_FAULT_ACTIVE",
+        "message": "P401 must be fault-free."
+      }
+    ],
+    "interlocks": [
+      {
+        "signal": "P401_ESTOP_OK",
+        "expected": true,
+        "rejectCode": "IL_ESTOP"
+      }
+    ]
+  }
+}
+(voxshield) srmist2@dgxa100:~/CANON_ACQUISITION/model$ 

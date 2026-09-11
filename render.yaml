@@ -1,0 +1,11 @@
+# One-click live deploy on Render (https://render.com) — reads this repo directly.
+# New + → Blueprint → connect this repo. Gives a public https URL running the platform.
+services:
+  - type: web
+    name: canon-platform
+    runtime: docker
+    rootDir: CANON_PLATFORM
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /
+    # Render auto-injects $PORT; app.py reads PORT first (falls back to 8090 locally).

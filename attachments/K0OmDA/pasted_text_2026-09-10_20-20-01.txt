@@ -1,0 +1,539 @@
+CANON — MACHINE MODEL SCREEN
+PRECISION REFINEMENT / FIX PROMPT
+DO NOT REDESIGN THE UI
+
+IMPORTANT:
+You are editing the EXISTING CANON Machine Model screen shown
+in the current design.
+
+DO NOT rebuild the screen from scratch.
+
+DO NOT change the overall visual language, layout, typography,
+header, navigation, colors, spacing, sidebar, inspector style,
+bottom action bar, or general composition.
+
+The current design is already strong.
+
+Make ONLY the following targeted corrections and refinements.
+
+============================================================
+1. PRESERVE THE EXISTING DESIGN
+============================================================
+
+Keep:
+
+- CANON header
+- Projects / Machines / Library navigation
+- System Operational indicator
+- TK-401 project header
+- CONTEXT → MODEL → INTENT → VALIDATE → RUNTIME → CHANGE workflow
+- left Model navigation
+- central Machine Model area
+- right selected-object inspector
+- bottom status bar
+- View Traceability button
+- green Define Engineering Intent button
+- existing typography
+- existing white / graphite / green visual language
+- existing spacing and proportions
+
+The result should look like the SAME APPLICATION,
+just more technically coherent and polished.
+
+Do not introduce new visual styles.
+
+============================================================
+2. FIX THE MACHINE TOPOLOGY
+============================================================
+
+The current topology makes LT401, PT401 and P401 appear like
+simple equivalent children of TK-401.
+
+Improve the topology so the relationships communicate actual
+engineering meaning.
+
+Use this conceptual structure:
+
+                         TK-401
+                      PROCESS TANK
+                           │
+             ┌─────────────┼─────────────┐
+             │             │             │
+           LT401         PT401          P401
+           LEVEL        PRESSURE         PUMP
+             │             │             │
+         MEASURES       MEASURES       ACTUATES
+             │             │             │
+             └─────────────┬─────────────┘
+                           │
+                         XV401
+                          VALVE
+
+However, do NOT make this look like a complicated technical
+schematic.
+
+Keep the topology visually simple.
+
+The most important requirement is that the relationships are
+clear.
+
+Use relationship labels where appropriate:
+
+LT401 → MEASURES LEVEL
+
+PT401 → MEASURES PRESSURE
+
+P401 → ACTUATES
+
+XV401 → VALVE / FLOW PATH
+
+P401 → PERMISSIVE DEPENDS ON → XV401
+
+Do NOT imply unsupported relationships beyond the demo machine
+model.
+
+============================================================
+3. MAKE XV401 FULLY VISIBLE
+============================================================
+
+This is critical.
+
+The current screen has XV401 selected in the inspector, but
+the main topology does not clearly show the XV401 node.
+
+Fix the central topology so the complete machine representation
+fits naturally inside the visible viewport.
+
+The engineer must be able to see:
+
+TK-401
+LT401
+PT401
+P401
+XV401
+
+WITHOUT scrolling.
+
+Reduce vertical spacing if necessary.
+
+Do NOT shrink everything excessively.
+
+Prioritize topology visibility.
+
+============================================================
+4. SHOW THE CONTROL / PERMISSIVE RELATIONSHIP
+============================================================
+
+Make the important relationship visually understandable:
+
+P401
+PUMP
+
+depends on:
+
+XV401
+INLET VALVE
+
+for its permissive.
+
+Represent it subtly.
+
+Example:
+
+P401
+● RUNNING
+
+       │
+       │ PERMISSIVE
+       ▼
+
+XV401
+● OPEN
+
+Do not turn this into a giant flowchart.
+
+It should be a subtle engineering relationship.
+
+This relationship will be used later in the live-control demo:
+
+XV401 OPEN
+→ START P401 permitted
+
+XV401 CLOSED
+→ START P401 rejected
+
+============================================================
+5. ADD A SMALL MODEL LEGEND
+============================================================
+
+Near the topology heading, add a very subtle legend:
+
+● VERIFIED
+○ INFERRED
+△ REVIEW
+
+Keep it small.
+
+Do not make it a large card.
+
+The purpose is to communicate that CANON distinguishes
+engineering certainty levels.
+
+============================================================
+6. CORRECT THE MODEL STATUS
+============================================================
+
+Do NOT imply that every reference is perfectly verified.
+
+The current screen should support the CANON principle:
+
+"CANON does not invent missing engineering information."
+
+Change the model integrity area to something like:
+
+MODEL INTEGRITY
+
+✓ Assets resolved
+✓ Signal references resolved
+✓ Commands mapped
+✓ Core relationships resolved
+△ 1 reference requires review
+
+Then show:
+
+23 / 24
+CORE REFERENCES VERIFIED
+
+1 REVIEW REQUIRED
+
+Overall status may remain:
+
+● MODEL READY
+
+because the unresolved reference does not prevent the core
+model from being used.
+
+Do NOT show "100% verified" if an unresolved item exists.
+
+============================================================
+7. ADD THE UNRESOLVED REFERENCE AS A TRUST SIGNAL
+============================================================
+
+Use a subtle amber review indicator.
+
+Example:
+
+△ 1 REVIEW REQUIRED
+
+Clicking it should open a contextual drawer:
+
+UNRESOLVED REFERENCE
+
+Reference:
+PT401.Status
+
+Status:
+REVIEW REQUIRED
+
+Reason:
+No authoritative mapping found in the available engineering
+context.
+
+CANON RESPONSE:
+
+Binding not automatically created.
+
+Actions:
+
+[ REVIEW ]
+
+[ DISMISS ]
+
+Do not invent a resolution.
+
+This is a product-trust demonstration.
+
+============================================================
+8. IMPROVE THE MODEL DESCRIPTION
+============================================================
+
+Keep the title:
+
+CANONICAL MACHINE MODEL
+
+Change the subtitle to:
+
+"A structured engineering representation of TK-401 derived from
+its connected machine context."
+
+Do NOT use wording that implies every element has already been
+fully verified.
+
+============================================================
+9. CHANGE THE TOPOLOGY HEADING
+============================================================
+
+Change:
+
+MACHINE TOPOLOGY · RELATIONSHIPS
+
+to:
+
+MACHINE MODEL · RELATIONSHIPS
+
+Optional supporting micro-label:
+
+SOURCE-GROUNDED MACHINE REPRESENTATION
+
+Keep it subtle.
+
+============================================================
+10. IMPROVE THE SELECTED OBJECT PANEL
+============================================================
+
+Keep the right inspector exactly where it is.
+
+For selected XV401 show:
+
+INLET VALVE
+
+XV401
+
+● OPEN
+
+Feedback
+XV401_OPEN_FB
+
+Command
+XV401_OPEN
+
+Type
+Discrete
+
+Source
+Modicon M262
+
+USED BY
+
+Valve symbol
+Permissive of P401
+
+RELATIONSHIPS
+
+TK-401
+Permissive
+HMI binding
+
+[ VIEW EVIDENCE ]
+
+Keep the inspector compact.
+
+Do not add unnecessary technical fields.
+
+============================================================
+11. IMPROVE ASSET SELECTION
+============================================================
+
+Make every asset in the topology clickable.
+
+When clicked:
+
+LT401
+→ show Level Transmitter inspector
+
+PT401
+→ show Pressure Transmitter inspector
+
+P401
+→ show Pump inspector
+
+XV401
+→ show Inlet Valve inspector
+
+The selected object should receive the same subtle green
+selection treatment already used by the interface.
+
+No flashy animations.
+
+============================================================
+12. PRESERVE TRACEABILITY
+============================================================
+
+Keep:
+
+VIEW TRACEABILITY
+
+as a secondary action.
+
+When clicked, it should conceptually show:
+
+OBJECT
+↓
+SIGNAL
+↓
+SOURCE
+↓
+RELATIONSHIP
+↓
+HMI BINDING
+↓
+VALIDATION
+↓
+REVISION
+
+Do NOT create a new permanent screen for this.
+
+Use a contextual drawer or overlay.
+
+============================================================
+13. BOTTOM STATUS BAR
+============================================================
+
+Keep the existing bottom status bar.
+
+Change its message to something precise:
+
+● MODEL READY
+
+23 / 24 CORE REFERENCES VERIFIED · 1 REVIEW REQUIRED
+
+Then keep:
+
+View Traceability
+
+and:
+
+DEFINE ENGINEERING INTENT →
+
+The green CTA remains the dominant next action.
+
+============================================================
+14. DO NOT ADD EXTRA FEATURES
+============================================================
+
+Absolutely do NOT add:
+
+- AI chatbot
+- AI assistant panel
+- giant analytics
+- trend charts
+- 3D machine
+- product catalog
+- huge tag table
+- document explorer
+- settings
+- user management
+- complex graph database visualization
+- dozens of engineering parameters
+- extra navigation screens
+- excessive toolbars
+- decorative widgets
+
+This screen is specifically:
+
+CANONICAL MACHINE MODEL.
+
+============================================================
+15. VISUAL REFINEMENT
+============================================================
+
+Make the central topology slightly more visually prominent.
+
+The hierarchy should be:
+
+1. TK-401 machine model
+2. relationships between assets
+3. selected object
+4. model integrity
+5. traceability
+6. next action
+
+Maintain generous whitespace.
+
+Keep the interface quiet and precise.
+
+No gradients.
+
+No neon.
+
+No glassmorphism.
+
+No excessive shadows.
+
+No excessive rounded cards.
+
+No unnecessary animation.
+
+============================================================
+16. ENGINEERING SEMANTICS
+============================================================
+
+The screen must communicate three things clearly:
+
+WHAT EXISTS?
+
+→ Assets / signals / commands / alarms
+
+HOW ARE THEY RELATED?
+
+→ Measurements / actuation / permissives / dependencies
+
+WHERE DID THEY COME FROM?
+
+→ Engineering source / evidence / verification state
+
+That is the purpose of this screen.
+
+============================================================
+17. FINAL SCREEN STORY
+============================================================
+
+When the engineer sees this screen, they should immediately
+understand:
+
+"CANON discovered TK-401."
+
+"CANON structured the machine."
+
+"CANON understands relationships between its components."
+
+"CANON knows what is verified and what requires review."
+
+"CANON can now safely use this model as the engineering
+foundation for HMI generation."
+
+The final screen should feel like:
+
+A PROFESSIONAL INDUSTRIAL ENGINEERING MODEL VIEW
+
+—not a generic SaaS dashboard.
+
+============================================================
+18. FINAL ACCEPTANCE CHECK
+============================================================
+
+Before finishing, verify visually:
+
+✓ XV401 is fully visible in the topology
+✓ TK-401 is clearly the machine root
+✓ LT401 / PT401 are clearly measurement assets
+✓ P401 is clearly the pump/actuator
+✓ XV401 is clearly the valve
+✓ P401 ↔ XV401 permissive relationship is visible
+✓ Model legend exists
+✓ 23/24 verified + 1 review required is represented
+✓ No false 100% verification claim
+✓ Right inspector remains compact
+✓ Traceability remains secondary
+✓ Define Engineering Intent remains the primary CTA
+✓ Existing design language is preserved
+✓ No unnecessary new screens or features
+✓ Entire machine model fits in the viewport
+
+FINAL INSTRUCTION:
+
+REFINE THE EXISTING SCREEN.
+DO NOT REDESIGN IT.
+
+Make it feel like the same CANON product,
+but one level more precise, credible and engineering-grade.

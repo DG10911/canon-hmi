@@ -1,0 +1,295 @@
+2 — CANON Validation Architecture
+
+Validation is deterministic code. The LLM may explain a failure. It may not decide validity.
+
+
+
+Pipeline
+
+Proposal (JSON)
+  → Schema validation (JSON Schema / Pydantic / Zod)
+    → Referential validation (ids exist in machine model)
+      → Type / unit / range validation
+        → Command contract validation
+          → HMI component schema validation
+            → PLC contract validation (address exists, access mode)
+              → Test presence (P1)
+                → Result object (pass/fail + codes + evidence)
+
+A single fail code blocks approval. Partial HMI generation is allowed only if the engineer explicitly accepts a proposal with droppedWidgets[].
+
+
+
+Check catalog (P0)
+
+
+
+
+
+
+
+Code
+
+
+
+Check
+
+
+
+
+
+TAG_MISSING
+
+
+
+Binding signalId not in model
+
+
+
+
+
+SIGNAL_MISSING
+
+
+
+Referenced signal absent
+
+
+
+
+
+TYPE_MISMATCH
+
+
+
+e.g. BOOL bound to PressureGauge
+
+
+
+
+
+RANGE_MISMATCH
+
+
+
+Widget range ≠ signal engMin/engMax (unless override flagged)
+
+
+
+
+
+UNIT_MISMATCH
+
+
+
+bar vs kPa without converter
+
+
+
+
+
+COMMAND_MISSING
+
+
+
+START command not in model
+
+
+
+
+
+COMMAND_TARGET_MISSING
+
+
+
+Target asset missing
+
+
+
+
+
+PERMISSIVE_MISSING
+
+
+
+Contract lists a permissive signal that is absent
+
+
+
+
+
+INTERLOCK_MISSING
+
+
+
+Required interlock not modeled
+
+
+
+
+
+ALARM_MISSING
+
+
+
+Faceplate claims an alarm that does not exist
+
+
+
+
+
+BINDING_INVALID
+
+
+
+Wrong access (write binding on a read-only signal)
+
+
+
+
+
+COMPONENT_UNKNOWN
+
+
+
+Not in registry
+
+
+
+
+
+COMPONENT_SCHEMA_INVALID
+
+
+
+Props fail component JSON Schema
+
+
+
+
+
+PLC_CONTRACT_INVALID
+
+
+
+No I/O map for a written request
+
+
+
+
+
+REVISION_STALE
+
+
+
+Proposal built on old revision
+
+
+
+
+
+EVIDENCE_MISSING
+
+
+
+Claim about a Schneider capability has no evidence id (Layer A claims only)
+
+
+
+
+
+TRUTH_STATUS_BLOCK
+
+
+
+Used an UNKNOWN identifier as if VERIFIED
+
+
+
+Implementation
+
+
+
+
+
+
+
+Layer
+
+
+
+Tool
+
+
+
+
+
+Wire schema
+
+
+
+JSON Schema draft 2020-12 generated from Pydantic
+
+
+
+
+
+Backend
+
+
+
+Pydantic v2 models + explicit rule functions in canon_validation_rules.json driven code
+
+
+
+
+
+Frontend
+
+
+
+Zod (same schema exported) to fail fast in the engineer UI
+
+
+
+
+
+OpenAPI
+
+
+
+FastAPI export; contract tests against it
+
+Formal methods (TLA+, SMT) are P3. The command contract is small enough that a truth table + pytest covers the demo.
+
+Rule files are data:
+
+{
+  "ruleId": "RANGE_MISMATCH",
+  "appliesTo": ["PressureGauge", "TankLevel", "Trend"],
+  "impl": "compare_widget_range_to_signal_eng_units"
+}
+
+No rule calls an LLM.
+
+
+
+Result object
+
+{
+  "proposalId": "...",
+  "revisionBase": "rev-18",
+  "ok": false,
+  "errors": [
+    {
+      "code": "PERMISSIVE_MISSING",
+      "path": "commands[P401_START].permissives[XV401_OPEN]",
+      "expected": "signal:XV401_OPEN",
+      "found": null
+    }
+  ],
+  "warnings": [],
+  "dropped": []
+}
+
+Store every run. Change-impact and regression compare against these snapshots.

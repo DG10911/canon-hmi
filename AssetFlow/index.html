@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AssetFlow — Engineering Intent → Verified Automation</title>
+<style>
+:root{
+  --green:#3DFF9E; --green2:#12d886; --green-d:#0fae6a; --green-l:#0e2a20;
+  --cyan:#39d6ff; --violet:#a884ff; --pink:#ff5cc8;
+  --bg0:#05080c; --bg1:#0a1119; --ink:#eaf4f1; --ink2:#9db6c4; --muted:#61798a;
+  --line:rgba(90,140,160,.16); --line2:rgba(90,140,160,.09);
+  --glass:rgba(14,22,30,.62); --glass2:rgba(20,30,40,.7);
+  --amber:#ffc24b; --blue:#4aa8ff; --red:#ff5d63; --red-l:rgba(255,93,99,.1);
+  --verified:#3DFF9E; --inferred:#4aa8ff; --proposed:#ffc24b; --unknown:#7f95a3;
+  --r:14px; --f:'Inter','Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;
+  --mono:'SFMono-Regular',ui-monospace,'JetBrains Mono',Consolas,monospace;
+  --glow:0 0 24px rgba(61,255,158,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--f);color:var(--ink);font-size:13px;-webkit-font-smoothing:antialiased;overflow:hidden;
+  background:
+    radial-gradient(1200px 700px at 78% -10%, rgba(61,255,158,.10), transparent 60%),
+    radial-gradient(1000px 600px at 8% 110%, rgba(57,214,255,.09), transparent 55%),
+    radial-gradient(900px 500px at 50% 50%, rgba(168,132,255,.05), transparent 60%),
+    linear-gradient(180deg,#060a0f,#04070b);}
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+.num{font-variant-numeric:tabular-nums}
+.mono{font-family:var(--mono)}
+.app{position:relative;z-index:1;display:flex;flex-direction:column;height:100vh}
+
+/* ---------- rail ---------- */
+.rail{display:flex;align-items:center;gap:14px;height:56px;padding:0 18px;flex:none;
+  background:linear-gradient(180deg,rgba(10,17,24,.82),rgba(6,10,15,.7));
+  border-bottom:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.logo{display:flex;align-items:center;gap:11px}
+.logo .m{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;color:#03130b;font-weight:900;font-size:17px;
+  background:conic-gradient(from 210deg,var(--green),var(--cyan),var(--violet),var(--green));box-shadow:var(--glow);position:relative;overflow:hidden}
+.logo .m::after{content:"A";position:relative;z-index:2}
+.logo b{font-size:16px;font-weight:800;letter-spacing:.2px;background:linear-gradient(90deg,#fff,#bfe9d8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo b span{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo .tag{font-size:10px;color:var(--ink2);margin-top:2px;letter-spacing:.5px;opacity:.8}
+.rail .sp{flex:1}
+.pill{display:flex;align-items:center;gap:6px;background:var(--glass);border:1px solid var(--line);border-radius:10px;padding:6px 11px;font-size:11px;color:var(--ink2);backdrop-filter:blur(6px)}
+.pill b{color:#fff;font-weight:700}
+.pill .k{color:var(--muted);text-transform:uppercase;letter-spacing:.6px;font-size:9.5px}
+.dotm{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+.dotm.sim{background:var(--amber);box-shadow:0 0 10px var(--amber)} .dotm.off{background:var(--muted);box-shadow:none}
+
+/* ---------- body ---------- */
+.body{flex:1;display:flex;min-height:0}
+.nav{width:216px;flex:none;overflow:auto;padding:10px 10px;
+  background:linear-gradient(180deg,rgba(9,15,21,.6),rgba(6,10,15,.4));border-right:1px solid var(--line);backdrop-filter:blur(10px)}
+.nav .grp{padding:12px 12px 5px;font-size:9.5px;font-weight:800;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
+.nav a{display:flex;align-items:center;gap:10px;padding:9px 12px;color:var(--ink2);cursor:pointer;font-size:13px;font-weight:500;border-radius:10px;position:relative;transition:.18s}
+.nav a:hover{background:rgba(61,255,158,.06);color:#fff}
+.nav a.on{color:#fff;font-weight:600;background:linear-gradient(90deg,rgba(61,255,158,.16),rgba(61,255,158,.02));box-shadow:inset 0 0 0 1px rgba(61,255,158,.25)}
+.nav a.on::before{content:"";position:absolute;left:-10px;top:8px;bottom:8px;width:3px;border-radius:3px;background:var(--green);box-shadow:var(--glow)}
+.nav a .ic{width:16px;text-align:center;opacity:.9;font-size:13px}
+.nav a .bdg{margin-left:auto;background:var(--amber);color:#1a1207;border-radius:10px;font-size:9.5px;font-weight:800;padding:1px 6px}
+.nav a .bdg.r{background:var(--red);color:#fff;box-shadow:0 0 12px rgba(255,93,99,.6)}
+
+.main{flex:1;overflow:auto;padding:20px 22px;min-width:0;perspective:1400px}
+.view{display:none} .view.on{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none}}
+.main>*{animation:rise .4s cubic-bezier(.2,.7,.2,1) both}
+.main>*:nth-child(2){animation-delay:.04s}.main>*:nth-child(3){animation-delay:.08s}.main>*:nth-child(4){animation-delay:.12s}.main>*:nth-child(5){animation-delay:.16s}
+
+.insp{width:312px;flex:none;overflow:auto;padding:16px;display:none;
+  background:linear-gradient(180deg,rgba(9,15,21,.7),rgba(6,10,15,.5));border-left:1px solid var(--line);backdrop-filter:blur(12px)}
+.insp.on{display:block;animation:rise .3s both}
+
+/* ---------- footer ---------- */
+.foot{display:flex;align-items:center;gap:16px;height:32px;padding:0 18px;flex:none;font-size:11px;color:var(--muted);
+  background:linear-gradient(0deg,rgba(6,10,15,.85),rgba(6,10,15,.5));border-top:1px solid var(--line);backdrop-filter:blur(10px)}
+.foot .sp{flex:1} .foot b{color:var(--ink2)}
+
+/* ---------- type ---------- */
+h1{font-size:22px;font-weight:800;letter-spacing:-.3px;background:linear-gradient(90deg,#fff,#a9f0d2);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:15px;font-weight:700}
+.sub{color:var(--ink2);font-size:12.5px;opacity:.85}
+.hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.crumb{font-size:10.5px;color:var(--green);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:5px;font-weight:700;opacity:.9}
+
+/* ---------- grid/cards (glass + 3D tilt) ---------- */
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g6{grid-template-columns:repeat(6,1fr)}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:var(--r);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:0 10px 40px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.04);position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;border-radius:var(--r);padding:1px;background:linear-gradient(140deg,rgba(61,255,158,.25),transparent 40%,transparent 70%,rgba(57,214,255,.16));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.7}
+.card>.h{padding:12px 15px;border-bottom:1px solid var(--line2);display:flex;align-items:center;justify-content:space-between}
+.card>.h h3{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;color:var(--ink2)}
+.card>.b{padding:15px}
+.tile{background:var(--glass);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;position:relative;overflow:hidden;
+  backdrop-filter:blur(12px);box-shadow:0 8px 30px rgba(0,0,0,.3);transition:transform .25s,box-shadow .25s}
+.tile::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--green),var(--green2));box-shadow:var(--glow)}
+.tile.b::before{background:var(--blue);box-shadow:0 0 20px var(--blue)}.tile.a::before{background:var(--amber);box-shadow:0 0 20px var(--amber)}.tile.r::before{background:var(--red);box-shadow:0 0 20px var(--red)}.tile.g::before{background:var(--muted);box-shadow:none}
+.tile:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(0,0,0,.45),0 0 30px rgba(61,255,158,.12)}
+.tile .l{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:700}
+.tile .v{font-size:28px;font-weight:800;margin-top:4px;letter-spacing:-.5px}
+.tile .v u{font-size:11px;font-style:normal;color:var(--muted);font-weight:600;margin-left:3px}
+.tile .s{font-size:11px;color:var(--muted);margin-top:2px}
+.c-green{color:var(--green)}.c-blue{color:var(--blue)}.c-red{color:var(--red)}.c-amber{color:var(--amber)}.c-grey{color:var(--muted)}
+
+/* badges */
+.ts{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:800;letter-spacing:.4px;padding:2px 9px;border-radius:6px;text-transform:uppercase}
+.ts::before{content:"";width:6px;height:6px;border-radius:50%}
+.ts.VERIFIED{color:var(--verified);background:rgba(61,255,158,.12);box-shadow:inset 0 0 0 1px rgba(61,255,158,.3)}.ts.VERIFIED::before{background:var(--verified);box-shadow:0 0 8px var(--verified)}
+.ts.INFERRED{color:var(--inferred);background:rgba(74,168,255,.12);box-shadow:inset 0 0 0 1px rgba(74,168,255,.3)}.ts.INFERRED::before{background:var(--inferred);box-shadow:0 0 8px var(--inferred)}
+.ts.PROPOSED{color:var(--proposed);background:rgba(255,194,75,.12);box-shadow:inset 0 0 0 1px rgba(255,194,75,.3)}.ts.PROPOSED::before{background:var(--proposed);box-shadow:0 0 8px var(--proposed)}
+.ts.UNKNOWN{color:var(--unknown);background:rgba(127,149,163,.14)}.ts.UNKNOWN::before{background:var(--unknown)}
+.sev{display:inline-block;font-size:9.5px;font-weight:800;padding:3px 8px;border-radius:5px;letter-spacing:.3px}
+.sev.BLOCKER{background:var(--red);color:#fff;box-shadow:0 0 14px rgba(255,93,99,.5)}.sev.ERROR{background:#e1554b;color:#fff}.sev.WARNING{background:var(--amber);color:#1a1207}.sev.INFO{background:var(--blue);color:#03121f}.sev.PASS{background:rgba(61,255,158,.16);color:var(--green);box-shadow:inset 0 0 0 1px rgba(61,255,158,.3)}
+.imp{display:inline-block;font-size:9.5px;font-weight:800;padding:3px 9px;border-radius:12px;letter-spacing:.3px}
+.imp.DIRECT{background:var(--red);color:#fff;box-shadow:0 0 12px rgba(255,93,99,.4)}.imp.INDIRECT{background:var(--amber);color:#1a1207}.imp.NOTAFF{background:rgba(61,255,158,.15);color:var(--green)}.imp.UNKNOWN{background:rgba(127,149,163,.2);color:var(--ink2)}
+
+.btn{background:linear-gradient(180deg,rgba(30,44,56,.9),rgba(20,30,40,.9));border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:9px 14px;font:700 12px var(--f);cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:.18s;backdrop-filter:blur(6px)}
+.btn:hover{border-color:rgba(61,255,158,.4);box-shadow:0 0 18px rgba(61,255,158,.15);transform:translateY(-1px)}
+.btn.go{background:linear-gradient(135deg,var(--green),var(--green2));color:#04160d;border-color:transparent;box-shadow:0 6px 20px rgba(61,255,158,.3)}.btn.go:hover{box-shadow:0 8px 30px rgba(61,255,158,.5)}
+.btn.dng{border-color:rgba(255,93,99,.45);color:var(--red)}.btn.dng:hover{background:var(--red-l);box-shadow:0 0 18px rgba(255,93,99,.2)}
+.btn.sm{padding:5px 10px;font-size:11px;border-radius:8px}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:9px 12px;font-size:12px;border-bottom:1px solid var(--line2);vertical-align:middle}
+th{color:var(--muted);text-transform:uppercase;font-size:9.5px;letter-spacing:.5px;font-weight:700}
+tbody tr{cursor:pointer;transition:.12s} tbody tr:hover{background:rgba(61,255,158,.05)}
+.mono.id{color:var(--ink2);font-size:11px}
+
+.kv{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line2);font-size:12px}
+.kv:last-child{border:none} .kv .k{color:var(--muted)} .kv .v{color:var(--ink);text-align:right;font-weight:600}
+
+textarea,input[type=text]{width:100%;background:rgba(8,14,20,.7);border:1px solid var(--line);border-radius:10px;color:var(--ink);padding:12px 14px;font:500 13px var(--f);resize:vertical;transition:.18s}
+textarea:focus,input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(61,255,158,.12),0 0 20px rgba(61,255,158,.1)}
+.chatline{display:flex;gap:8px;align-items:center}
+
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11px;font-weight:700;color:var(--ink2)}
+.flow .n{background:rgba(20,30,40,.7);border:1px solid var(--line);border-radius:8px;padding:6px 11px;backdrop-filter:blur(6px)}
+.flow .ar{color:var(--green);text-shadow:0 0 8px var(--green)}
+
+.authchain{display:flex;flex-direction:column;gap:0}
+.authchain .row{display:flex;align-items:center;gap:12px;padding:11px 13px;border:1px solid var(--line);border-radius:11px;background:rgba(16,24,32,.6);backdrop-filter:blur(6px);transition:.2s}
+.authchain .row:hover{border-color:rgba(61,255,158,.3);box-shadow:0 0 20px rgba(61,255,158,.08)}
+.authchain .ar{color:var(--muted);text-align:center;font-size:13px;padding:3px}
+.authchain .row .t{font-weight:800;font-size:12px}
+.authchain .row .d{font-size:11px;color:var(--muted)}
+.authchain .row .tag{margin-left:auto;font-size:9.5px;font-weight:800;letter-spacing:.4px;padding:3px 9px;border-radius:6px}
+
+.rec{display:flex;gap:10px;padding:11px 13px;border-radius:11px;background:rgba(16,24,32,.6);border-left:3px solid var(--green);font-size:12.5px;line-height:1.45;margin-bottom:9px;backdrop-filter:blur(6px)}
+.rec.warn{border-color:var(--amber)}.rec.info{border-color:var(--blue)}.rec.err{border-color:var(--red)}
+.rec .i{font-size:15px}
+
+.chip{display:inline-flex;align-items:center;gap:6px;background:rgba(20,30,40,.7);border:1px solid var(--line);border-radius:20px;padding:5px 12px;font-size:11.5px;margin:0 6px 7px 0;cursor:pointer;transition:.16s}
+.chip:hover{border-color:var(--green);color:#fff;box-shadow:0 0 16px rgba(61,255,158,.18);transform:translateY(-1px)}
+
+/* 3D graph */
+#g3d{width:100%;height:544px;display:block;border-radius:14px;cursor:grab;background:
+  radial-gradient(700px 400px at 60% 42%, rgba(61,255,158,.06), transparent 60%),
+  radial-gradient(500px 300px at 20% 80%, rgba(57,214,255,.05), transparent 60%),
+  linear-gradient(180deg,rgba(8,14,20,.5),rgba(4,7,11,.6))}
+#g3d:active{cursor:grabbing}
+
+.bar{height:8px;background:rgba(8,14,20,.7);border-radius:5px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line2)}
+.bar>i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--green2),var(--green));box-shadow:0 0 12px rgba(61,255,158,.5)}
+.mini{font-size:11px;color:var(--muted)}
+.split{display:grid;grid-template-columns:1fr 330px;gap:14px}
+.banner{padding:11px 15px;border-radius:12px;font-weight:700;font-size:12.5px;display:flex;align-items:center;gap:11px;margin-bottom:15px;backdrop-filter:blur(8px)}
+.banner.red{background:rgba(255,93,99,.09);border:1px solid rgba(255,93,99,.35);color:#ffb0b3;box-shadow:0 0 30px rgba(255,93,99,.1)}
+.banner.amber{background:rgba(255,194,75,.08);border:1px solid rgba(255,194,75,.3);color:#ffd98a}
+.banner.green{background:rgba(61,255,158,.08);border:1px solid rgba(61,255,158,.3);color:#9dffce}
+.led{width:9px;height:9px;border-radius:50%;display:inline-block}
+.blink{animation:bk 1s steps(2) infinite}@keyframes bk{50%{opacity:.3}}
+code.k,.mono.k{background:rgba(8,14,20,.7);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:var(--mono);font-size:11px;color:var(--green)}
+
+/* splash */
+#splash{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,#0a141c,#04070b);transition:opacity .7s}
+#splash.hide{opacity:0;pointer-events:none}
+#splash .in{text-align:center;animation:rise .8s both}
+#splash .mk{width:76px;height:76px;border-radius:20px;margin:0 auto 18px;display:grid;place-items:center;color:#03130b;font-weight:900;font-size:40px;
+  background:conic-gradient(from 210deg,var(--green),var(--cyan),var(--violet),var(--green));box-shadow:0 0 60px rgba(61,255,158,.5);animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#splash h1{font-size:44px;margin-bottom:8px}
+#splash .t{color:var(--green);font-weight:700;letter-spacing:3px;font-size:13px;text-transform:uppercase}
+#splash .load{width:200px;height:3px;margin:20px auto 0;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+#splash .load i{display:block;height:100%;width:40%;background:linear-gradient(90deg,transparent,var(--green),transparent);animation:sweep 1s linear infinite}
+@keyframes sweep{from{transform:translateX(-120px)}to{transform:translateX(320px)}}
+
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:rgba(90,140,160,.2);border-radius:6px}::-webkit-scrollbar-track{background:transparent}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+
+<div id="splash"><div class="in"><div class="mk">A</div><h1>AssetFlow</h1><div class="t">Engineering Intent → Verified Automation</div><div class="load"><i></i></div></div></div>
+
+<div class="app">
+  <div class="rail">
+    <div class="logo"><div class="m"></div><div><b>Asset<span>Flow</span></b><div class="tag">Engineering Intent → Verified Automation</div></div></div>
+    <div class="sp"></div>
+    <div class="pill"><span class="k">Project</span>&nbsp;<b>Pump Station P100</b></div>
+    <div class="pill"><span class="k">Revision</span>&nbsp;<b id="railRev">17</b></div>
+    <div class="pill"><span class="k">Status</span>&nbsp;<b id="railStatus" style="color:var(--amber)">ENGINEERING REVIEW</b></div>
+    <div class="pill"><span class="k">Env</span>&nbsp;<b>PROTOTYPE</b></div>
+  </div>
+
+  <div class="body">
+    <div class="nav" id="nav">
+      <div class="grp">Engineering</div>
+      <a data-v="overview" class="on"><span class="ic">▦</span>Overview</a>
+      <a data-v="copilot"><span class="ic">✦</span>AI Copilot</a>
+      <a data-v="model"><span class="ic">◈</span>Engineering Model</a>
+      <a data-v="graph"><span class="ic">⬡</span>3D Graph</a>
+      <a data-v="guard"><span class="ic">✓</span>Engineering Guard</a>
+      <div class="grp">Verify</div>
+      <a data-v="impact"><span class="ic">⇄</span>Change Impact</a>
+      <a data-v="sim"><span class="ic">◐</span>Simulation</a>
+      <a data-v="tests"><span class="ic">▤</span>Tests</a>
+      <a data-v="runtime"><span class="ic">◉</span>Runtime / HMI</a>
+      <div class="grp">Govern</div>
+      <a data-v="governance"><span class="ic">⚑</span>Governance</a>
+      <a data-v="xray"><span class="ic">◎</span>Project X-Ray</a>
+    </div>
+    <div class="main" id="main"></div>
+    <div class="insp" id="insp"></div>
+  </div>
+
+  <div class="foot">
+    <span>PLC&nbsp;<span class="led" id="fPlc"></span>&nbsp;<b id="fPlcT">SIMULATED</b></span>
+    <span>EOTE&nbsp;<span class="led" id="fEote"></span>&nbsp;<b id="fEoteT">DOCUMENTED</b></span>
+    <span>MODEL&nbsp;<span class="led" id="fModel"></span>&nbsp;<b id="fModelT">VALIDATED</b></span>
+    <span class="sp"></span>
+    <span id="fSafety">⛨ AssetFlow does not implement safety-rated control — safety logic remains in the safety PLC/device.</span>
+  </div>
+</div>
+
+<script>
+//====================================================================
+// CANONICAL MODEL — single source of engineering truth
+//====================================================================
+const CANON = {
+  project:{ id:"project:P100", name:"Pump Station P100", revision:17, status:"ENGINEERING REVIEW" },
+  assetType:{ id:"asset-type:pump:PumpType-v3", name:"PumpType-v3", revision:3 },
+  asset:{ id:"asset:pump:P101", name:"P101", type:"Pump", asset_type_id:"asset-type:pump:PumpType-v3", revision:17,
+          parameters:{ motor_power_kw:15, pressure_range_bar:{min:0,max:16} } },
+  signals:[
+    sig("signal:pressure:PT101","PT101","Discharge pressure","analog_input","bar",0,16,"VERIFIED","Engineering Specification Rev.4","%MW42","P101.DischargePressure"),
+    sig("signal:pressure:PT100","PT100","Suction pressure","analog_input","bar",0,10,"VERIFIED","Engineering Specification Rev.4","%MW44","P101.SuctionPressure"),
+    sig("signal:flow:FT101","FT101","Discharge flow","analog_input","m³/h",0,120,"VERIFIED","I/O List Rev.2","%MW46","P101.Flow"),
+    sig("signal:temp:TT101","TT101","Motor winding temp","analog_input","°C",0,150,"VERIFIED","Datasheet M101","%MW48","P101.MotorTemp"),
+    sig("signal:current:IT101","IT101","Motor current","analog_input","A",0,50,"INFERRED","Derived from motor_power_kw","%MW50","P101.MotorCurrent"),
+    sig("signal:vib:VT101","VT101","Pump vibration","analog_input","mm/s",0,20,"PROPOSED","AssetFlow proposal","%MW52","P101.Vibration"),
+    sig("signal:level:LT100","LT100","Wet-well level","analog_input","%",0,100,"VERIFIED","I/O List Rev.2","%MW54","P101.WellLevel"),
+    dsig("signal:di:P101_RUN_FB","P101_RUN_FB","Run feedback","digital_input","VERIFIED","I/O List Rev.2","%I0.4","P101.RunFB"),
+    dsig("signal:di:P101_FAULT_FB","P101_FAULT_FB","Motor fault feedback","digital_input","VERIFIED","I/O List Rev.2","%I0.5","P101.FaultFB"),
+    dsig("signal:di:XV101_OPEN_FB","XV101_OPEN_FB","Discharge valve open feedback","digital_input","VERIFIED","Wiring Schedule Rev.3","%I0.6","P101.ValveOpenFB"),
+    dsig("signal:di:P101_LOCAL_REMOTE","P101_LOCAL_REMOTE","Local/Remote selector","digital_input","VERIFIED","I/O List Rev.2","%I0.7","P101.LocalRemote"),
+    dsig("signal:do:P101_START_CMD","P101_START_CMD","Start command","digital_output","VERIFIED","Control Contract","%Q0.1","P101.StartCmd"),
+    dsig("signal:do:P101_STOP_CMD","P101_STOP_CMD","Stop command","digital_output","VERIFIED","Control Contract","%Q0.2","P101.StopCmd"),
+    dsig("signal:do:XV101_OPEN_CMD","XV101_OPEN_CMD","Valve open command","digital_output","VERIFIED","Control Contract","%Q0.3","P101.ValveOpenCmd"),
+    sig("signal:ao:P101_SPEED_REF","P101_SPEED_REF","VFD speed reference","analog_output","%",0,100,"INFERRED","Derived from control contract","%QW10","P101.SpeedRef"),
+  ],
+  alarms:[
+    al("alarm:P101:HIGH_PRESSURE","PT101","HIGH",12,"bar","HIGH","PROPOSED","Overpressure — pipe/seal damage risk","Reduce demand; verify discharge path; prepare to stop pump"),
+    al("alarm:P101:LOW_PRESSURE","PT101","LOW",2,"bar","MEDIUM","PROPOSED","Loss of prime / dry-run risk","Check suction & prime; inspect for leaks"),
+    al("alarm:P101:HIGH_TEMP","TT101","HIGH",120,"°C","HIGH","VERIFIED","Motor thermal damage","Stop pump; investigate cooling/load"),
+    al("alarm:P101:OVERCURRENT","IT101","HIGH",45,"A","HIGH","INFERRED","Motor overload","Check for mechanical binding / blockage"),
+    al("alarm:P101:HIGH_VIB","VT101","HIGH",15,"mm/s","MEDIUM","PROPOSED","Bearing/impeller degradation","Schedule maintenance inspection"),
+    al("alarm:P101:LOW_FLOW","FT101","LOW",10,"m³/h","MEDIUM","INFERRED","Deadhead / blockage","Verify valve open & suction"),
+    al("alarm:P101:MOTOR_FAULT","P101_FAULT_FB","DISCRETE",1,"","HIGH","VERIFIED","Drive/motor trip","Acknowledge; inspect drive fault code"),
+    al("alarm:P101:VALVE_FAIL","XV101_OPEN_FB","DISCRETE",0,"","MEDIUM","VERIFIED","Discharge valve not confirmed","Verify valve actuator & feedback"),
+    al("alarm:P101:COMM_LOSS","PLC","SYSTEM",0,"","HIGH","VERIFIED","Telemetry lost — plant state unknown","Restore comms; treat state as unknown"),
+    al("alarm:P101:STALE_DATA","PT101","SYSTEM",0,"","MEDIUM","VERIFIED","Signal not refreshed within policy","Consequential commands disabled until fresh"),
+  ],
+  trends:[ {id:"trend:PT101",signal:"PT101",status:"INFERRED",source:"Derived from analog signal"} ],
+  tests:[
+    t("test:FAT:T01","FAT","Pump startup sequence",["P101_START_CMD","P101_RUN_FB","XV101_OPEN_FB"],"P101 stopped, permissives OK","Issue START","Run feedback TRUE within 5 s","PASS","RunFB=TRUE @ 4.1 s"),
+    t("test:FAT:T02","FAT","Pump shutdown sequence",["P101_STOP_CMD","P101_RUN_FB"],"P101 running","Issue STOP","Run feedback FALSE within 5 s","PASS","RunFB=FALSE @ 2.3 s"),
+    t("test:FAT:T03","FAT","Permissive failure blocks start",["XV101_OPEN_FB","P101_START_CMD"],"XV101_OPEN_FB=FALSE","Issue START","Start rejected by PLC","PASS","PLC rejected — permissive FALSE"),
+    t("test:FAT:T04","FAT","High-pressure alarm generation",["PT101","alarm:P101:HIGH_PRESSURE"],"P101 stopped","PT101 > high threshold","HIGH_PRESSURE alarm ACTIVE","PASS","PT101=12.4 bar, alarm ACTIVE"),
+    t("test:FAT:T05","FAT","Overload alarm",["IT101","alarm:P101:OVERCURRENT"],"P101 running","IT101 > 45 A","OVERCURRENT alarm ACTIVE","PASS","IT101=46.2 A"),
+    t("test:FAT:T06","FAT","Sensor-failure response (PT101)",["PT101"],"PT101 = out-of-range","Force PT101 open-circuit","Fault handling per policy","REVIEW","Sensor-failure response UNKNOWN"),
+    t("test:FAT:T07","FAT","Low-pressure alarm generation",["PT101","alarm:P101:LOW_PRESSURE"],"P101 running","PT101 < low threshold","LOW_PRESSURE alarm ACTIVE","PASS","PT101=1.6 bar"),
+    t("test:FAT:T08","FAT","Alarm acknowledgement",["alarm:P101:HIGH_PRESSURE"],"HIGH_PRESSURE active","Operator ACK","Alarm→ACK, logged","PASS","ACK logged 14:22"),
+    t("test:FAT:T09","FAT","Communication loss handling",["PLC","alarm:P101:COMM_LOSS"],"Comms up","Drop comms 5 s","Trust=STALE, cmds disabled","PASS","COMM_LOSS raised"),
+    t("test:FAT:T10","FAT","Stale-telemetry handling (PT101)",["PT101","alarm:P101:STALE_DATA"],"PT101 fresh","Freeze PT101 > stale threshold","HMI trust warning, cmds disabled","PASS","STALE @ 3.0 s"),
+    t("test:FAT:T11","FAT","High-pressure trip & recovery",["PT101","P101_STOP_CMD"],"P101 running","PT101 sustained > high","Controlled stop then recovery","PASS","Stop @ 12.6 bar"),
+    t("test:FAT:T12","FAT","Motor over-temp trip",["TT101","alarm:P101:HIGH_TEMP"],"P101 running","TT101 > 120 °C","HIGH_TEMP alarm + trip","PASS","TT101=121 °C"),
+    t("test:FAT:T13","FAT","HMI range / scaling verification (PT101)",["PT101"],"Model loaded","Read PT101 engineering range","HMI range = 0–16 bar","PASS","HMI range matches model"),
+    t("test:SAT:T14","SAT","Field signal wiring (PT101)",["PT101","signal:di:XV101_OPEN_FB"],"Loop powered","Apply 4–20 mA","Scaled value correct","PASS","4 mA→0, 20 mA→16 bar"),
+    t("test:SAT:T15","SAT","Device response time",["P101_START_CMD","P101_RUN_FB"],"Field ready","START in field","Run within spec","PASS","3.9 s"),
+    t("test:SAT:T16","SAT","Network interruption",["PLC"],"Network up","Interrupt switch","Deterministic control continues","PASS","PLC held control"),
+    t("test:SAT:T17","SAT","Restart behaviour",["P101_START_CMD"],"Power cycle","Restart PLC","No auto-start; safe state","PASS","No unsafe auto-start"),
+  ],
+  simulations:[ {id:"simulation:S02",name:"PT101 pressure-range behaviour",signal:"PT101",status:"VERIFIED"} ],
+  documents:[
+    doc("document:IO:01","I/O List","IOLIST","0–16 bar","CURRENT"),
+    doc("document:ALM:02","Alarm List","ALARMLIST","0–16 bar","CURRENT"),
+    doc("document:OPR:03","Operator Procedure OPR-03","OPR","0–10 bar","CURRENT"),
+    doc("document:SPEC:04","Asset Specification","SPEC","0–16 bar","CURRENT"),
+    doc("document:TRC:05","Traceability Report","TRACE","0–16 bar","CURRENT"),
+  ],
+  requirement:{ id:"req:R-014", text:"Provide a pump with discharge-pressure monitoring, high/low alarms, operator start/stop, PLC-authoritative permissives and stale-data protection.", source:"Engineering Specification Rev.4" },
+  revisions:[
+    {rev:14,note:"Initial P101 baseline",when:"2026-08-02"},
+    {rev:15,note:"Added motor over-temp alarm",when:"2026-08-14"},
+    {rev:16,note:"HMI text pass + trends",when:"2026-08-27"},
+    {rev:17,note:"Current working revision",when:"2026-09-04"},
+  ],
+  audit:[
+    a("10:41","Engineer","Alex R.","created PT101","signal:pressure:PT101",17,"OK"),
+    a("10:44","AssetFlow","AI","proposed scaling for PT101","signal:pressure:PT101",17,"PROPOSED"),
+    a("10:47","Engineer","Alex R.","corrected scaling","signal:pressure:PT101",17,"OK"),
+    a("10:50","Rules","Guard","validation passed (26/27)","asset:pump:P101",17,"OK"),
+    a("10:54","Simulator","Sim","behaviour scenarios passed","asset:pump:P101",17,"OK"),
+    a("11:02","Reviewer","Priya S.","approved motor over-temp alarm","alarm:P101:HIGH_TEMP",16,"APPROVED"),
+  ],
+};
+function sig(id,name,desc,type,unit,min,max,status,source,addr,tag){return{id,name,desc,type,unit,range:{min,max},status,source,plc:{variable:tag,address:addr,authority:"PLC"},hmi:{tag:"hmi-tag:P101:"+tag.split(".")[1]}};}
+function dsig(id,name,desc,type,status,source,addr,tag){return{id,name,desc,type,unit:"",range:null,status,source,plc:{variable:tag,address:addr,authority:"PLC"},hmi:{tag:"hmi-tag:P101:"+tag.split(".")[1]}};}
+function al(id,signal,kind,threshold,unit,priority,status,consequence,action){return{id,signal,kind,threshold,unit,priority,status,consequence,action};}
+function t(id,type,name,deps,precondition,stimulus,expected,result,evidence){return{id,type,name,deps,precondition,stimulus,expected,result,evidence,revision:17};}
+function doc(id,name,type,modelRange,status){return{id,name,type,modelRange,status};}
+function a(time,actor,role,action,object,rev,result){return{time,actor,role,action,object,rev,result};}
+
+function buildDeps(){
+  const edges=[]; const E=(f,tt,rel)=>edges.push({from:f,to:tt,rel});
+  E(CANON.requirement.id, CANON.assetType.id,"specifies");
+  E(CANON.assetType.id, CANON.asset.id,"instantiates");
+  CANON.signals.forEach(s=>{ E(CANON.asset.id, s.id,"has-signal"); E(s.id, "plc:"+s.plc.variable,"scales-to"); E("plc:"+s.plc.variable, s.hmi.tag,"binds-to"); });
+  CANON.alarms.forEach(al=>{ const s=CANON.signals.find(x=>x.name===al.signal); if(s){E(s.id, al.id,"triggers"); E(al.id,"doc-ref:"+al.id,"documented-in");} });
+  CANON.trends.forEach(tr=>{ const s=CANON.signals.find(x=>x.name===tr.signal); if(s)E(s.id, tr.id,"trended-by"); });
+  CANON.tests.forEach(ts=>ts.deps.forEach(d=>{ const s=CANON.signals.find(x=>x.name===d||x.id===d); const al=CANON.alarms.find(x=>x.id===d); if(s)E(s.id, ts.id,"tested-by"); else if(al)E(al.id, ts.id,"tested-by"); }));
+  CANON.simulations.forEach(sm=>{ const s=CANON.signals.find(x=>x.name===sm.signal); if(s)E(s.id, sm.id,"simulated-by"); });
+  E("signal:pressure:PT101","document:OPR:03","referenced-in"); E("signal:pressure:PT101","document:IO:01","referenced-in"); E("signal:pressure:PT101","document:SPEC:04","referenced-in");
+  return edges;
+}
+const DEPS = buildDeps();
+function neighbors(id){ return DEPS.filter(e=>e.from===id).map(e=>({id:e.to,rel:e.rel})); }
+function reachable(startId){ const dist={[startId]:0}; const q=[startId]; while(q.length){ const c=q.shift(); neighbors(c).forEach(n=>{ if(dist[n.id]===undefined){dist[n.id]=dist[c]+1;q.push(n.id);} }); } return dist; }
+
+const ST = { view:"overview", changeOpen:false,
+  runtime:{ running:false, valveOpen:false, pressure:5.2, fresh:1.1, stale:false, comm:true, lastCmdLog:[] },
+  simResult:null, testResults:{}, approvals:{ CR:"PENDING" }, rev:17 };
+
+const ANIM = !location.search.includes('shot');
+const $=s=>document.querySelector(s);
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
+function counts(){return { assets:1, signals:CANON.signals.length, alarms:CANON.alarms.length, tests:CANON.tests.length, hmiTexts:32, docs:CANON.documents.length,
+  proposed: CANON.signals.filter(s=>s.status==='PROPOSED').length + CANON.alarms.filter(a=>a.status==='PROPOSED').length, pendingApprovals:(ST.cr?1:0)+2 };}
+function toast(msg){ let tb=$('#toast'); if(!tb){tb=el('div');tb.id='toast';tb.style.cssText='position:fixed;bottom:48px;left:50%;transform:translateX(-50%);background:rgba(20,30,40,.95);border:1px solid var(--green);color:#fff;padding:11px 18px;border-radius:12px;font-weight:700;font-size:12.5px;z-index:99;box-shadow:0 12px 40px rgba(0,0,0,.6),0 0 30px rgba(61,255,158,.2);backdrop-filter:blur(8px)';document.body.appendChild(tb);} tb.textContent=msg; tb.style.opacity=1; clearTimeout(tb._t); tb._t=setTimeout(()=>tb.style.opacity=0,2200);}
+
+// intent compiler
+const INTENT_LEX=[{re:/pump/i,kind:"equipment",label:"Pump"},{re:/pressure/i,kind:"equipment",label:"Pressure transmitter"},{re:/\bplc\b|permissive/i,kind:"equipment",label:"PLC"},{re:/hmi|operator|screen/i,kind:"equipment",label:"HMI"},{re:/pressure monitor|monitoring/i,kind:"req",label:"Pressure monitoring"},{re:/start\s*\/?\s*stop|start and stop/i,kind:"req",label:"Operator start / stop"},{re:/permissive/i,kind:"req",label:"PLC-authoritative permissives"},{re:/high (alarm|pressure)|high\/low|high and low/i,kind:"req",label:"High alarm"},{re:/low (alarm|pressure)|high\/low|high and low/i,kind:"req",label:"Low alarm"},{re:/trend/i,kind:"req",label:"Trend"},{re:/stale|freshness|data protection/i,kind:"req",label:"Stale-data handling"}];
+function compileIntent(text){ const eq=new Set(),req=new Set(); INTENT_LEX.forEach(l=>{if(l.re.test(text))(l.kind==="equipment"?eq:req).add(l.label);});
+  const decisions=[]; if(/pump/i.test(text)&&!/(standby|transfer|duty)/i.test(text))decisions.push({q:"Standby-transfer delay not specified",options:["5 s","10 s","30 s","Custom"]});
+  const unknowns=[]; if(req.has("High alarm")&&!/\b\d+\s*bar/i.test(text))unknowns.push("High-alarm threshold"); if(req.has("Low alarm")&&!/\b\d+\s*bar/i.test(text))unknowns.push("Low-alarm threshold");
+  return {equipment:[...eq],requirements:[...req],decisions,unknowns,status:decisions.length||unknowns.length?"ENGINEERING DECISION REQUIRED":"READY FOR REVIEW",produces:eq.has("Pump")?{asset:1,signals:CANON.signals.length,alarms:CANON.alarms.length,texts:32,tests:CANON.tests.length}:null};}
+function runQuery(q){ q=q.toLowerCase();
+  if(/affect|connected|depends|breaks|impact/.test(q)&&/pt101/.test(q)){ const d=reachable("signal:pressure:PT101"); const items=Object.keys(d).filter(k=>k!=="signal:pressure:PT101").map(k=>labelFor(k)); return {title:"Everything connected to PT101",source:"Engineering Graph",traversal:"PT101 → PLC → HMI → Alarm → Trend → Test → Document",status:"VERIFIED",items}; }
+  if(/awaiting approval|proposed|review/.test(q)){ const items=[...CANON.signals.filter(s=>s.status==='PROPOSED'),...CANON.alarms.filter(a=>a.status==='PROPOSED')].map(x=>x.name||x.id); return {title:"AI-generated values awaiting approval",source:"Canonical Model",status:"PROPOSED",items}; }
+  if(/no (documented )?operator (action|response)/.test(q)){ const items=CANON.alarms.filter(a=>!a.action).map(a=>a.id); return {title:"Alarms without documented operator action",source:"Canonical Model",status:items.length?"WARNING":"VERIFIED",items:items.length?items:["None — all alarms have documented actions"]}; }
+  if(/stale/.test(q)) return {title:"Assets with stale-data protection",source:"Canonical Model",status:"VERIFIED",items:["P101 — PT101 (freshness policy: expect 1 s / stale 3 s / unknown 10 s)"]};
+  return {title:"Structured query",source:"Engineering Graph",status:"UNKNOWN",items:['No deterministic match. Try: “what breaks if I change PT101?”, “find AI values awaiting approval”, “which alarms have no operator action?”']};
+}
+function labelFor(id){ if(id.startsWith("plc:"))return{t:id.replace("plc:",""),s:"PLC variable"}; if(id.startsWith("hmi-tag:"))return{t:id.split(":").pop(),s:"HMI tag"}; if(id.startsWith("alarm:")){const al=CANON.alarms.find(a=>a.id===id);return{t:id.split(":").pop(),s:"Alarm"};} if(id.startsWith("test:")){const ts=CANON.tests.find(t=>t.id===id);return{t:id.split(":").pop(),s:ts?ts.name:"Test"};} if(id.startsWith("trend:"))return{t:id.split(":").pop(),s:"Trend"}; if(id.startsWith("simulation:"))return{t:id.split(":").pop(),s:"Simulation scenario"}; if(id.startsWith("document:")){const d=CANON.documents.find(x=>x.id===id);return{t:d?d.name:id,s:"Document"};} if(id.startsWith("doc-ref:"))return{t:id.replace("doc-ref:",""),s:"Documentation ref"}; const s=CANON.signals.find(x=>x.id===id); if(s)return{t:s.name,s:s.desc}; return{t:id,s:""}; }
+function computeImpact(){ const dist=reachable("signal:pressure:PT101"); const direct=[],indirect=[],unknown=[];
+  Object.keys(dist).forEach(id=>{ if(id==="signal:pressure:PT101")return; const lab=labelFor(id); if(id==="test:FAT:T06"){unknown.push({id,lab});return;} (dist[id]===1?direct:indirect).push({id,lab}); });
+  const notAff=["Motor control (M101 start/stop)","Safety interlock (independent)","Network configuration","Operator permissions"];
+  const tests=CANON.tests.filter(ts=>ts.deps.some(d=>d==="PT101"||d==="signal:pressure:PT101"||d.startsWith("alarm:P101:HIGH_PRESSURE")||d.startsWith("alarm:P101:LOW_PRESSURE")));
+  const docs=CANON.documents.filter(d=>["document:OPR:03","document:IO:01","document:SPEC:04"].includes(d.id));
+  return {direct,indirect,unknown,notAff,tests,docs};
+}
+const SIM_SCENARIOS={ NORMAL:{steps:[["PT101","5.2 bar","fresh"],["Run feedback","TRUE","fresh"],["Alarms","none","—"]],verdict:"Nominal — all signals within range.",ok:true},
+  HIGH_PRESSURE:{steps:[["PT101","12.6 bar","fresh"],["HIGH_PRESSURE","ACTIVE","—"],["PLC","controlled stop","—"]],verdict:"High-pressure alarm asserted; PLC executes deterministic response.",ok:true},
+  LOW_PRESSURE:{steps:[["PT101","1.6 bar","fresh"],["LOW_PRESSURE","ACTIVE","—"]],verdict:"Low-pressure alarm asserted (dry-run risk).",ok:true},
+  SENSOR_FAILURE:{steps:[["PT101","open-circuit","bad"],["Quality","BAD","—"],["Response","per policy","UNKNOWN"]],verdict:"Sensor-failure response is UNKNOWN — engineering decision required.",ok:false},
+  STALE_DATA:{steps:[["PT101","frozen 8.0 bar","STALE"],["Trust","STALE","—"],["Consequential cmds","DISABLED","—"]],verdict:"Telemetry stale — HMI shows trust warning; consequential commands disabled; PLC keeps deterministic control.",ok:true},
+  COMM_LOSS:{steps:[["Comms","LOST 5 s","—"],["Plant state","UNKNOWN","—"],["Commands","DISABLED","—"]],verdict:"Comms lost — plant state UNKNOWN; no unsafe automatic HMI action.",ok:true},
+  RECOVERY:{steps:[["Comms","restored","fresh"],["Trust","LIVE","—"],["Commands","re-enabled","—"]],verdict:"Recovery — data fresh again; controls re-enabled after confirmation.",ok:true} };
+function runSim(name){ const sc=SIM_SCENARIOS[name]; ST.simResult={name,...sc}; render(); toast("Simulation: "+name.replace('_',' ')); }
+
+//====================================================================
+function render(){
+  $('#railRev').textContent=ST.rev;
+  document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===ST.view));
+  const impactNav=document.querySelector('#nav a[data-v="impact"]'); impactNav.querySelector('.bdg')?.remove(); if(ST.changeOpen) impactNav.appendChild(el('span','bdg r','!'));
+  $('#fPlc').style.background=ST.runtime.comm?'var(--amber)':'var(--red)'; $('#fPlc').style.boxShadow='0 0 10px currentColor'; $('#fPlcT').textContent=ST.runtime.comm?'SIMULATED':'DISCONNECTED';
+  $('#fEote').style.background='var(--blue)'; $('#fEote').style.boxShadow='0 0 10px var(--blue)'; $('#fModel').style.background='var(--green)'; $('#fModel').style.boxShadow='0 0 10px var(--green)';
+  const V={overview:viewOverview,copilot:viewCopilot,model:viewModel,graph:viewGraph,guard:viewGuard,impact:viewImpact,sim:viewSim,tests:viewTests,runtime:viewRuntime,governance:viewGovernance,xray:viewXray};
+  graph3D.running=false;
+  $('#main').innerHTML=''; (V[ST.view]||viewOverview)();
+  if(ST.view==='graph') startGraph3D();
+}
+document.querySelectorAll('#nav a').forEach(a=>a.onclick=()=>{ST.view=a.dataset.v;$('#insp').classList.remove('on');render();});
+
+function viewOverview(){
+  const c=counts(); const m=$('#main');
+  m.appendChild(el('div','hd',`<div><div class="crumb">Project Command Center</div><h1>Pump Station P100</h1><div class="sub">One engineering definition → continuous engineering traceability</div></div>
+     <button class="btn go" onclick="ST.view='copilot';render()">✦ Ask AssetFlow</button>`));
+  const g=el('div','grid g6'); m.appendChild(g);
+  [["Assets",c.assets,""],["Signals",c.signals,"b"],["Alarms",c.alarms,"a"],["Tests",c.tests,""],["Open Issues",1,"r"],["Pending Approvals",c.pendingApprovals,"a"]].forEach(([l,v,cl])=>g.appendChild(el('div','tile '+cl,`<div class="l">${l}</div><div class="v num">${v}</div>`)));
+  const row=el('div','grid g2',''); row.style.marginTop='14px'; m.appendChild(row);
+  const hc=el('div','card'); hc.innerHTML=`<div class="h"><h3>Engineering Health</h3><span class="ts VERIFIED">computed from model</span></div><div class="b" id="health"></div>`; row.appendChild(hc);
+  const H=[["Engineering completeness",96],["Traceability",91],["Alarm quality",94],["Test coverage",Math.round(CANON.tests.filter(t=>t.result==='PASS').length/CANON.tests.length*100)],["Documentation sync",93],["Change safety",100]];
+  hc.querySelector('#health').innerHTML=H.map(([l,v])=>`<div style="margin-bottom:11px"><div class="kv" style="border:none;padding:2px 0"><span class="k">${l}</span><span class="v">${v}%</span></div><div class="bar"><i style="width:${v}%;background:${v>=90?'linear-gradient(90deg,var(--green2),var(--green))':v>=70?'var(--amber)':'var(--red)'}"></i></div></div>`).join('');
+  const rc=el('div','card'); rc.innerHTML=`<div class="h"><h3>Recent Engineering Activity</h3></div><div class="b">
+    <div class="banner amber"><span>⇄</span><div><b>PT101 range change proposed</b> · 0–10 bar → 0–16 bar · impacts <b>${computeImpact().direct.length+computeImpact().indirect.length} objects</b> · <span class="ts PROPOSED" style="vertical-align:middle">approval required</span></div></div>
+    <div class="authchain">${authRow("AI LAYER","proposes · explains · interprets","PROPOSE","var(--proposed)")}<div class="ar">▼</div>${authRow("CANONICAL MODEL","source of engineering truth","TRUTH","var(--verified)")}<div class="ar">▼</div>${authRow("RULES ENGINE","deterministic validation authority","VALIDATE","var(--inferred)")}<div class="ar">▼</div>${authRow("ENGINEER","approval authority","APPROVE","var(--verified)")}<div class="ar">▼</div>${authRow("PLC","runtime control authority","CONTROL","var(--verified)")}</div></div>`;
+  row.appendChild(rc);
+  const eq=el('div','card',''); eq.style.marginTop='14px'; eq.innerHTML=`<div class="h"><h3>Core Product Equation</h3></div><div class="b"><div class="flow" style="font-size:12px">
+    <span class="n">ENGINEERING INTENT</span><span class="ar">+</span><span class="n">STRUCTURED KNOWLEDGE</span><span class="ar">+</span><span class="n">DETERMINISTIC VALIDATION</span><span class="ar">+</span><span class="n">SIMULATION</span><span class="ar">+</span><span class="n">HUMAN APPROVAL</span><span class="ar">+</span><span class="n">RUNTIME EVIDENCE</span><span class="ar">=</span><span class="n" style="border-color:var(--green);color:var(--green);box-shadow:0 0 20px rgba(61,255,158,.3)">VERIFIED ENGINEERING CONTINUITY</span></div></div>`;
+  m.appendChild(eq); applyTilt();
+}
+function authRow(t,d,tag,col){return `<div class="row"><div><div class="t">${t}</div><div class="d">${d}</div></div><span class="tag" style="background:${col}22;color:${col}">${tag}</span></div>`;}
+
+function viewCopilot(){
+  const m=$('#main');
+  m.appendChild(el('div','hd',`<div><div class="crumb">AssetFlow Copilot</div><h1>AI Copilot</h1><div class="sub">AI proposes structured engineering results — it never modifies the canonical model or controls runtime.</div></div>`));
+  const split=el('div','split'); m.appendChild(split);
+  const left=el('div'); split.appendChild(left);
+  const ic=el('div','card'); ic.innerHTML=`<div class="h"><h3>Hero 1 · Intent Compiler</h3><span class="ts INFERRED">deterministic parser · LLM adapter point</span></div>
+   <div class="b"><textarea id="intent" rows="3">Create a pump with pressure monitoring, high and low alarms, operator start/stop, PLC-authoritative permissives and stale-data protection.</textarea>
+   <div style="margin-top:11px"><button class="btn go" onclick="doCompile()">Compile intent →</button></div><div id="intentOut" style="margin-top:14px"></div></div>`;
+  left.appendChild(ic);
+  const qc=el('div','card'); qc.style.marginTop='14px'; qc.innerHTML=`<div class="h"><h3>Project Query Engine</h3><span class="ts VERIFIED">answers from graph</span></div>
+   <div class="b"><div class="chatline"><input id="q" type="text" placeholder="e.g. what breaks if I change PT101?"/><button class="btn" onclick="doQuery()">Query</button></div>
+   <div style="margin-top:11px">${["What breaks if I change PT101?","Find AI values awaiting approval","Which alarms have no operator action?","Which assets have stale-data protection?"].map(x=>`<span class="chip" onclick="document.getElementById('q').value='${x}';doQuery()">${x}</span>`).join('')}</div><div id="qOut" style="margin-top:12px"></div></div>`;
+  left.appendChild(qc);
+  const r=el('div','card'); r.innerHTML=`<div class="h"><h3>The Five Authorities</h3></div><div class="b">
+    <div style="font-size:11px;color:var(--green);font-weight:800;letter-spacing:.6px;margin-bottom:7px">AI MAY</div>
+    ${["interpret intent","extract entities","propose values","identify dependencies","generate tests & docs","explain changes","query the graph"].map(x=>`<div style="font-size:12px;padding:3px 0;color:var(--ink2)">✓ ${x}</div>`).join('')}
+    <div style="font-size:11px;color:var(--red);font-weight:800;letter-spacing:.6px;margin:13px 0 7px">AI MAY NOT</div>
+    ${["control actuators","bypass PLC / permissives","modify approved engineering","approve its own work","invent critical values","fabricate plant state","deploy to production"].map(x=>`<div style="font-size:12px;padding:3px 0;color:#ffb0b3">✕ ${x}</div>`).join('')}</div>`;
+  split.appendChild(r); doCompile(); applyTilt();
+}
+function doCompile(){ const r=compileIntent($('#intent').value);
+  let h=`<div class="banner ${r.status==='READY FOR REVIEW'?'green':'amber'}"><span>✦</span><b>ENGINEERING INTERPRETATION — ${r.status}</b></div>`;
+  h+=`<div class="grid g2"><div><div class="crumb">Detected equipment</div>${r.equipment.map(x=>`<div style="padding:3px 0">✓ ${x}</div>`).join('')||'<div class="mini">—</div>'}</div><div><div class="crumb">Detected requirements</div>${r.requirements.map(x=>`<div style="padding:3px 0">✓ ${x}</div>`).join('')||'<div class="mini">—</div>'}</div></div>`;
+  if(r.decisions.length) h+=`<div class="crumb" style="margin-top:12px">Engineering decisions required</div>`+r.decisions.map(d=>`<div class="rec warn"><span class="i">⚠</span><div><b>${d.q}</b><div style="margin-top:6px">${d.options.map(o=>`<span class="chip">${o}</span>`).join('')}</div></div></div>`).join('');
+  if(r.unknowns.length) h+=`<div class="rec warn"><span class="i">?</span><div><b>Unknown — not silently invented:</b> ${r.unknowns.join(', ')}. Engineer must supply.</div></div>`;
+  if(r.produces) h+=`<div class="crumb" style="margin-top:12px">Would generate (from canonical dataset)</div><div class="grid g4" style="margin-top:6px">${[["Asset",r.produces.asset],["Signals",r.produces.signals],["Alarms",r.produces.alarms],["Tests",r.produces.tests]].map(([l,v])=>`<div class="tile"><div class="l">${l}</div><div class="v num">${v}</div></div>`).join('')}</div><div class="rec info" style="margin-top:10px"><span class="i">→</span><div>Structured proposal only. The engineer reviews & approves before it becomes canonical — <b>AI never writes the model directly.</b></div></div>`;
+  $('#intentOut').innerHTML=h; applyTilt();
+}
+function doQuery(){ const r=runQuery($('#q').value||"what breaks if I change PT101?");
+  let items=r.items.map(x=>typeof x==='string'?`<div style="padding:5px 0;border-bottom:1px solid var(--line2)">${x}</div>`:`<div style="padding:6px 0;border-bottom:1px solid var(--line2);display:flex;gap:10px;align-items:center"><b>${x.t}</b><span class="mini">${x.s}</span></div>`).join('');
+  $('#qOut').innerHTML=`<div class="card"><div class="b"><div style="display:flex;justify-content:space-between;align-items:center"><b>${r.title}</b><span class="ts ${r.status}">${r.status}</span></div><div style="margin-top:8px">${items}</div><div class="kv" style="margin-top:8px"><span class="k">Source</span><span class="v">${r.source}</span></div>${r.traversal?`<div class="kv"><span class="k">Traversal</span><span class="v mono" style="font-size:11px">${r.traversal}</span></div>`:''}</div></div>`;
+}
+
+function viewModel(){
+  const m=$('#main');
+  m.appendChild(el('div','hd',`<div><div class="crumb">Canonical Engineering Model · ${CANON.assetType.name}</div><h1>P101 — Pump</h1><div class="sub">Every screen derives from this one model. Click any signal for provenance & confidence.</div></div><span class="ts VERIFIED">stable IDs · provenance · revisions</span>`));
+  const c=el('div','card'); c.innerHTML=`<div class="h"><h3>Signals (${CANON.signals.length}) · click a row</h3><span class="mini">DEFINE ONCE → INSTANTIATE MANY · P101/P102/P103 = PumpType-v3</span></div>`;
+  const tb=el('table',null,`<thead><tr><th>Signal</th><th>Description</th><th>Type</th><th>Range</th><th>PLC address</th><th>Truth state</th></tr></thead>`); const bd=el('tbody');
+  CANON.signals.forEach(s=>{ const tr=el('tr',null,`<td><b>${s.name}</b></td><td>${s.desc}</td><td class="mini">${s.type}</td><td class="num">${s.range?(s.range.min+'–'+s.range.max+' '+s.unit):'—'}</td><td class="mono id">${s.plc.address}</td><td><span class="ts ${s.status}">${s.status}</span></td>`); tr.onclick=()=>inspectSignal(s); bd.appendChild(tr); });
+  tb.appendChild(bd); c.appendChild(tb); m.appendChild(c);
+  const ac=el('div','card'); ac.style.marginTop='14px'; ac.innerHTML=`<div class="h"><h3>Alarms (${CANON.alarms.length})</h3></div>`;
+  const at=el('table',null,`<thead><tr><th>Alarm</th><th>Signal</th><th>Threshold</th><th>Priority</th><th>Consequence</th><th>Operator action</th><th>State</th></tr></thead>`); const ab=el('tbody');
+  CANON.alarms.forEach(a=>ab.appendChild(el('tr',null,`<td class="mono id">${a.id.split(':').pop()}</td><td>${a.signal}</td><td class="num">${a.kind==='SYSTEM'||a.kind==='DISCRETE'?'—':a.threshold+' '+a.unit}</td><td>${a.priority}</td><td class="mini">${a.consequence}</td><td class="mini">${a.action||'<span class="ts UNKNOWN">none</span>'}</td><td><span class="ts ${a.status}">${a.status}</span></td>`)));
+  at.appendChild(ab); ac.appendChild(at); m.appendChild(ac); applyTilt();
+}
+function inspectSignal(s){ const p=$('#insp'); p.classList.add('on'); const alarms=CANON.alarms.filter(a=>a.signal===s.name); const tests=CANON.tests.filter(t=>t.deps.includes(s.name));
+  p.innerHTML=`<div class="hd" style="margin-bottom:8px"><div><div class="crumb">Engineering Confidence</div><h2>${s.name}</h2></div><span class="btn sm" onclick="document.getElementById('insp').classList.remove('on')">✕</span></div>
+    <div class="mono id" style="margin-bottom:10px">${s.id}</div>
+    <div class="kv"><span class="k">Range</span><span class="v">${s.range?s.range.min+'–'+s.range.max+' '+s.unit:'—'} <span class="ts ${s.status}" style="margin-left:6px"></span></span></div>
+    <div class="kv"><span class="k">PLC address</span><span class="v mono">${s.plc.address}</span></div>
+    <div class="kv"><span class="k">PLC variable</span><span class="v mono">${s.plc.variable}</span></div>
+    <div class="kv"><span class="k">Authority</span><span class="v">${s.plc.authority}</span></div>
+    <div class="kv"><span class="k">HMI binding</span><span class="v mono" style="font-size:10px">${s.hmi.tag}</span></div>
+    <div class="kv"><span class="k">Truth state</span><span class="v"><span class="ts ${s.status}">${s.status}</span></span></div>
+    <div class="kv"><span class="k">Source / evidence</span><span class="v">${s.source}</span></div>
+    <div class="crumb" style="margin:14px 0 6px">Depends-on / affects</div>
+    ${alarms.map(a=>`<div class="rec"><span class="i">⚠</span><div>${a.id.split(':').pop()} — ${a.threshold} ${a.unit} <span class="ts ${a.status}"></span></div></div>`).join('')||'<div class="mini">—</div>'}
+    <div class="crumb" style="margin:10px 0 6px">Tests (${tests.length})</div>${tests.map(t=>`<div style="font-size:12px;padding:3px 0">${t.id.split(':').pop()} · ${t.name}</div>`).join('')||'<div class="mini">—</div>'}
+    <div class="rec info" style="margin-top:12px"><span class="i">i</span><div>Why trust this? Values are labelled VERIFIED / INFERRED / PROPOSED / UNKNOWN — never blurred.</div></div>`;
+}
+
+//---------------- 3D GRAPH ----------------
+const GRAPH_NODES=[
+  {id:"req:R-014",t:"REQ",s:"Requirement",x:-.9,y:-.75,z:-.6,c:"#9db6c4"},
+  {id:"asset-type:pump:PumpType-v3",t:"PumpType-v3",s:"Asset type",x:-.9,y:0,z:-.85,c:"#9db6c4"},
+  {id:"asset:pump:P101",t:"P101",s:"Pump instance",x:-.35,y:0,z:0,c:"var(--green)",big:1},
+  {id:"signal:pressure:PT101",t:"PT101",s:"Discharge pressure",x:.15,y:-.35,z:.25,c:"var(--cyan)",big:1},
+  {id:"plc:P101.DischargePressure",t:"%MW42",s:"PLC variable",x:.7,y:-.7,z:.65,c:"#9db6c4"},
+  {id:"hmi-tag:P101:DischargePressure",t:"HMI",s:"DischargePressure",x:1,y:-.4,z:.9,c:"#9db6c4"},
+  {id:"alarm:P101:HIGH_PRESSURE",t:"HIGH",s:"High-P alarm",x:.7,y:-.05,z:.4,c:"var(--amber)"},
+  {id:"alarm:P101:LOW_PRESSURE",t:"LOW",s:"Low-P alarm",x:1,y:.2,z:.75,c:"var(--amber)"},
+  {id:"trend:PT101",t:"TREND",s:"PT101 trend",x:.1,y:.25,z:-.15,c:"#9db6c4"},
+  {id:"test:FAT:T04",t:"T04",s:"High-P test",x:.35,y:.7,z:.25,c:"#8affc0"},
+  {id:"test:FAT:T07",t:"T07",s:"Low-P test",x:.7,y:.75,z:.5,c:"#8affc0"},
+  {id:"test:FAT:T13",t:"T13",s:"HMI range test",x:1,y:.65,z:.85,c:"#8affc0"},
+  {id:"simulation:S02",t:"SIM",s:"Behaviour",x:-.05,y:.75,z:-.4,c:"var(--violet)"},
+  {id:"document:OPR:03",t:"OPR-03",s:"Operator proc",x:-.4,y:.7,z:-.7,c:"var(--amber)"},
+  {id:"signal:temp:TT101",t:"TT101",s:"Motor temp",x:-.35,y:-.7,z:-.3,c:"var(--cyan)"},
+  {id:"asset:motor:M101",t:"M101",s:"Motor",x:-.85,y:.55,z:-.9,c:"#5a6b78"},
+];
+const GRAPH_EDGES=[["req:R-014","asset-type:pump:PumpType-v3"],["asset-type:pump:PumpType-v3","asset:pump:P101"],["asset:pump:P101","signal:pressure:PT101"],["asset:pump:P101","signal:temp:TT101"],["asset:pump:P101","asset:motor:M101"],["signal:pressure:PT101","plc:P101.DischargePressure"],["plc:P101.DischargePressure","hmi-tag:P101:DischargePressure"],["signal:pressure:PT101","alarm:P101:HIGH_PRESSURE"],["signal:pressure:PT101","alarm:P101:LOW_PRESSURE"],["signal:pressure:PT101","trend:PT101"],["signal:pressure:PT101","test:FAT:T04"],["signal:pressure:PT101","test:FAT:T07"],["signal:pressure:PT101","test:FAT:T13"],["signal:pressure:PT101","simulation:S02"],["signal:pressure:PT101","document:OPR:03"],["alarm:P101:HIGH_PRESSURE","test:FAT:T04"],["alarm:P101:LOW_PRESSURE","test:FAT:T07"]];
+let graphSel="signal:pressure:PT101";
+const graph3D={running:false,ang:0.6,tilt:-0.25,drag:false,px:0,py:0,cvs:null,ctx:null,hot:null};
+function viewGraph(){ const m=$('#main');
+  m.appendChild(el('div','hd',`<div><div class="crumb">Engineering Knowledge Graph · 3D</div><h1>Traceability Graph</h1><div class="sub">Drag to orbit · click a node to trace dependencies. Traversal is bidirectional and drives the impact engine.</div></div><button class="btn" onclick="graphSel='signal:pressure:PT101';graph3D.hot=null">Focus PT101</button>`));
+  m.appendChild(el('div','card','<div class="b" style="padding:8px"><canvas id="g3d"></canvas></div>'));
+  m.appendChild(el('div',null,'<div class="sub" style="margin-top:10px" id="gsel"></div>'));
+}
+function resolveColor(c){ if(c&&c.startsWith('var(')){const n=c.slice(4,-1).trim();return getComputedStyle(document.documentElement).getPropertyValue(n).trim()||'#9db6c4';} return c; }
+function startGraph3D(){ const cvs=$('#g3d'); if(!cvs)return; const dpr=window.devicePixelRatio||1;
+  const resize=()=>{ cvs.width=cvs.clientWidth*dpr; cvs.height=cvs.clientHeight*dpr; }; resize();
+  graph3D.cvs=cvs; graph3D.ctx=cvs.getContext('2d'); graph3D.running=true;
+  cvs.onmousedown=e=>{graph3D.drag=true;graph3D.px=e.clientX;graph3D.py=e.clientY;};
+  window.onmouseup=()=>graph3D.drag=false;
+  cvs.onmousemove=e=>{ if(graph3D.drag){graph3D.ang+=(e.clientX-graph3D.px)*0.01;graph3D.tilt+=(e.clientY-graph3D.py)*0.006;graph3D.tilt=Math.max(-.8,Math.min(.8,graph3D.tilt));graph3D.px=e.clientX;graph3D.py=e.clientY;} };
+  cvs.onclick=e=>{ const r=cvs.getBoundingClientRect(); const mx=(e.clientX-r.left)*dpr,my=(e.clientY-r.top)*dpr; let best=null,bd=1e9;
+    graph3D._proj.forEach(p=>{const d=(p.sx-mx)**2+(p.sy-my)**2; if(d<bd){bd=d;best=p;}}); if(best&&bd<(40*dpr)**2){graphSel=best.id;graph3D.hot=null;} };
+  graph3D._proj=[]; loopGraph();
+}
+function loopGraph(){ if(!graph3D.running)return; const {ctx,cvs}=graph3D; if(!ctx){return;} const dpr=window.devicePixelRatio||1;
+  const W=cvs.width,H=cvs.height,cx=W/2,cy=H/2; ctx.clearRect(0,0,W,H);
+  if(!graph3D.drag) graph3D.ang+=0.0035;
+  if(!graph3D.hot) graph3D.hot=reachable(graphSel);
+  const hot=graph3D.hot; const spread=Math.min(W,H)*0.42, fov=2.4, camd=3.2;
+  const ca=Math.cos(graph3D.ang),sa=Math.sin(graph3D.ang),ct=Math.cos(graph3D.tilt),st=Math.sin(graph3D.tilt);
+  const proj=GRAPH_NODES.map(n=>{ let x=n.x,y=n.y,z=n.z; let rx=x*ca+z*sa, rz=-x*sa+z*ca; let ry=y*ct-rz*st, rz2=y*st+rz*ct;
+    const pp=fov/(camd-rz2); return {id:n.id,n,sx:cx+rx*spread*pp,sy:cy+ry*spread*pp,pp,rz:rz2}; }).sort((a,b)=>a.rz-b.rz);
+  graph3D._proj=proj; const pos={}; proj.forEach(p=>pos[p.id]=p);
+  // edges
+  GRAPH_EDGES.forEach(([a,b])=>{ const pa=pos[a],pb=pos[b]; if(!pa||!pb)return; const isHot=hot[a]!==undefined&&hot[b]!==undefined;
+    ctx.beginPath();ctx.moveTo(pa.sx,pa.sy);ctx.lineTo(pb.sx,pb.sy);
+    if(isHot){ctx.strokeStyle='rgba(61,255,158,'+(0.35+0.4*Math.min(pa.pp,pb.pp))+')';ctx.lineWidth=2.2*dpr;ctx.shadowColor='rgba(61,255,158,.7)';ctx.shadowBlur=8*dpr;}
+    else{ctx.strokeStyle='rgba(120,150,170,.14)';ctx.lineWidth=1*dpr;ctx.shadowBlur=0;} ctx.stroke(); });
+  ctx.shadowBlur=0;
+  // nodes
+  proj.forEach(p=>{ const n=p.n; const inScope=hot[p.id]!==undefined; const isSel=p.id===graphSel; const col=resolveColor(n.c);
+    const r=(n.big?17:13)*p.pp*dpr; ctx.beginPath();ctx.arc(p.sx,p.sy,r,0,7);
+    const grd=ctx.createRadialGradient(p.sx,p.sy,1,p.sx,p.sy,r); grd.addColorStop(0, inScope?'rgba(20,32,40,.95)':'rgba(14,20,26,.9)'); grd.addColorStop(1,'rgba(8,12,16,.9)'); ctx.fillStyle=grd; ctx.fill();
+    ctx.lineWidth=(isSel?3.5:2)*dpr; ctx.strokeStyle=inScope?col:'rgba(90,110,125,.4)';
+    if(inScope){ctx.shadowColor=col;ctx.shadowBlur=(isSel?22:12)*dpr;} else ctx.shadowBlur=0; ctx.stroke(); ctx.shadowBlur=0;
+    ctx.fillStyle=inScope?'#fff':'rgba(200,215,225,.5)'; ctx.font='800 '+(11*p.pp*dpr)+'px Inter,sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(n.t,p.sx,p.sy);
+    ctx.fillStyle=inScope?'rgba(160,200,215,.9)':'rgba(120,140,155,.4)'; ctx.font='600 '+(8.5*p.pp*dpr)+'px Inter,sans-serif'; ctx.fillText(n.s,p.sx,p.sy+r+9*dpr); });
+  const sel=GRAPH_NODES.find(n=>n.id===graphSel); const cnt=Object.keys(hot).length-1;
+  const gs=$('#gsel'); if(gs) gs.innerHTML=`Selected <b>${sel?sel.t:graphSel}</b> — ${cnt} downstream dependencies illuminated · <span class="mono id">${graphSel}</span>`;
+  if(ANIM)requestAnimationFrame(loopGraph);
+}
+
+function viewGuard(){ const checks=[["BLOCKER","PASS","Duplicate PLC address","No duplicate addresses across "+CANON.signals.length+" signals"],["BLOCKER","PASS","Undefined PLC variable","All signals map to a defined PLC variable"],["BLOCKER","PASS","Broken dependency","Graph fully connected from requirement"],["ERROR","PASS","Alarm within engineering range","All alarm thresholds inside signal range"],["ERROR","PASS","Missing stale-data policy","PT101 freshness policy present"],["ERROR","PASS","Missing command feedback","START/STOP have run feedback"],["WARNING","WARNING","AI value awaiting approval","VT101 vibration & HIGH_PRESSURE threshold are PROPOSED"],["WARNING","PASS","Missing deadband","Deadbands defined on analog alarms"],["ERROR","BLOCKER","Sensor-failure response undefined","PT101 sensor-failure response is UNKNOWN — engineering decision required"],["INFO","INFO","Reusable asset opportunity","P101/P102/P103 could share PumpType-v3"],["INFO","INFO","Documentation improvement","OPR-03 pressure range should be regenerated"]];
+  const pass=checks.filter(c=>c[1]==='PASS').length,warn=checks.filter(c=>c[1]==='WARNING').length,block=checks.filter(c=>c[1]==='BLOCKER').length; const m=$('#main');
+  m.appendChild(el('div','hd',`<div><div class="crumb">Deterministic Engineering Linter</div><h1>Engineering Guard</h1><div class="sub">Rules validate engineering correctness — not the LLM.</div></div>`));
+  const g=el('div','grid g4'); m.appendChild(g); [["Checks",checks.length,""],["Pass",pass,""],["Warnings",warn,"a"],["Blockers",block,"r"]].forEach(([l,v,cl])=>g.appendChild(el('div','tile '+cl,`<div class="l">${l}</div><div class="v num">${v}</div>`)));
+  const c=el('div','card'); c.style.marginTop='14px'; c.innerHTML='<div class="h"><h3>Results — every issue is clickable</h3></div>';
+  const t=el('table',null,'<thead><tr><th>Severity</th><th>Check</th><th>Finding</th></tr></thead>'); const b=el('tbody');
+  checks.forEach(([sev,res,name,finding])=>{const tr=el('tr',null,`<td><span class="sev ${res}">${res}</span></td><td><b>${name}</b></td><td class="mini">${finding}</td>`);tr.onclick=()=>toast(name+" → "+finding);b.appendChild(tr);});
+  t.appendChild(b); c.appendChild(t); m.appendChild(c); applyTilt();
+}
+function viewImpact(){ const m=$('#main');
+  m.appendChild(el('div','hd',`<div><div class="crumb">Hero 2 · Engineering Continuity</div><h1>Change Impact Engine</h1><div class="sub">Impact comes from graph relationships + deterministic dependency rules — not LLM reasoning.</div></div>`));
+  const cc=el('div','card'); cc.innerHTML=`<div class="h"><h3>Propose Engineering Change</h3></div><div class="b"><div class="grid g3" style="align-items:end"><div><div class="crumb">Object</div><div class="mono">signal:pressure:PT101</div></div><div><div class="crumb">Approved baseline</div><div><b>0–10 bar</b></div></div><div><div class="crumb">New value</div><div><b style="color:var(--green)">0–16 bar</b></div></div></div><div style="margin-top:12px">${ST.changeOpen?'<span class="ts PROPOSED">change proposed — analysing</span>':'<button class="btn go" onclick="ST.changeOpen=true;render()">Change PT101 → 0–16 bar</button>'}</div></div>`;
+  m.appendChild(cc); if(!ST.changeOpen){applyTilt();return;}
+  const im=computeImpact();
+  const ex=el('div','card'); ex.style.marginTop='14px'; ex.innerHTML=`<div class="h"><h3>Change Explanation</h3><span class="ts INFERRED">deterministic</span></div><div class="b"><div class="kv"><span class="k">What changed</span><span class="v">PT101 range 0–10 bar → 0–16 bar</span></div><div class="kv"><span class="k">Why</span><span class="v">Engineering requirement updated (Spec Rev.4)</span></div><div class="kv"><span class="k">Risk</span><span class="v"><span class="imp INDIRECT">MEDIUM</span></span></div><div class="kv"><span class="k">Runtime impact</span><span class="v">No direct motor-control impact</span></div><div class="kv"><span class="k">Approval</span><span class="v">Controls Engineer</span></div></div>`; m.appendChild(ex);
+  const grid=el('div','grid g2'); grid.style.marginTop='14px'; m.appendChild(grid);
+  grid.appendChild(impCard("DIRECT impact",im.direct.map(x=>x.lab),"DIRECT")); grid.appendChild(impCard("INDIRECT impact",im.indirect.map(x=>x.lab),"INDIRECT")); grid.appendChild(impCard("NOT AFFECTED (evidenced)",im.notAff.map(x=>({t:x,s:""})),"NOTAFF")); grid.appendChild(impCard("UNKNOWN — needs decision",im.unknown.map(x=>x.lab),"UNKNOWN"));
+  const act=el('div','card'); act.style.marginTop='14px'; act.innerHTML=`<div class="h"><h3>Release blocked — approved baseline changed</h3><span class="sev BLOCKER">RELEASE BLOCKED</span></div><div class="b"><div class="flow"><span class="n">REVIEW</span><span class="ar">→</span><span class="n">REGENERATE</span><span class="ar">→</span><span class="n">VALIDATE</span><span class="ar">→</span><span class="n">RUN TESTS</span><span class="ar">→</span><span class="n">APPROVE</span><span class="ar">→</span><span class="n">RELEASE</span></div><div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn" onclick="ST.view='tests';render()">Run affected tests (${im.tests.length})</button><button class="btn" onclick="ST.view='governance';render()">Create change request →</button><button class="btn dng" onclick="ST.changeOpen=false;render()">Discard change</button></div></div>`; m.appendChild(act); applyTilt();
+}
+function impCard(title,items,cls){ const c=el('div','card'); c.innerHTML=`<div class="h"><h3>${title}</h3><span class="imp ${cls}">${items.length} object${items.length!==1?'s':''}</span></div><div class="b">${items.length?items.map(x=>`<div style="display:flex;gap:10px;align-items:center;padding:5px 0;border-bottom:1px solid var(--line2)"><span class="imp ${cls}" style="min-width:60px;text-align:center">${cls==='NOTAFF'?'SAFE':cls}</span><b>${x.t||x}</b>${x.s?`<span class="mini">${x.s}</span>`:''}</div>`).join(''):'<div class="mini">None</div>'}</div>`; return c; }
+
+function viewSim(){ const m=$('#main');
+  m.appendChild(el('div','hd',`<div><div class="crumb">AssetFlow Behaviour Simulator</div><h1>Simulation</h1><div class="sub">Deterministic, reproducible scenarios — this is not a full digital twin.</div></div>`));
+  const sc=el('div',null,''); sc.style.marginBottom='14px'; sc.innerHTML=Object.keys(SIM_SCENARIOS).map(k=>`<span class="chip" onclick="runSim('${k}')">${k.replace('_',' ')}</span>`).join('')+`<span class="chip" onclick="runSim('STALE_DATA')">Freeze PT101 5 s</span>`; m.appendChild(sc);
+  const r=ST.simResult; const c=el('div','card'); c.innerHTML=`<div class="h"><h3>${r?('Scenario: '+r.name.replace('_',' ')):'Select a scenario'}</h3>${r?`<span class="ts ${r.ok?'VERIFIED':'UNKNOWN'}">${r.ok?'DETERMINISTIC RESULT':'ENGINEERING DECISION REQUIRED'}</span>`:''}</div><div class="b">${r?`<table><thead><tr><th>Signal / element</th><th>Value</th><th>Quality</th></tr></thead><tbody>${r.steps.map(([a,b,cc])=>`<tr><td><b>${a}</b></td><td class="num">${b}</td><td>${qbadge(cc)}</td></tr>`).join('')}</tbody></table><div class="rec ${r.ok?'':'warn'}" style="margin-top:12px"><span class="i">${r.ok?'✓':'?'}</span><div>${r.verdict}</div></div>`:'<div class="mini">Choose a scenario above. Results are deterministic and reproducible.</div>'}</div>`; m.appendChild(c); applyTilt();
+}
+function qbadge(q){ if(q==='fresh')return '<span class="ts VERIFIED">FRESH</span>'; if(q==='STALE')return '<span class="ts PROPOSED">STALE</span>'; if(q==='bad')return '<span class="ts UNKNOWN">BAD</span>'; if(q==='UNKNOWN')return '<span class="ts UNKNOWN">UNKNOWN</span>'; return '<span class="mini">—</span>'; }
+
+function viewTests(){ const m=$('#main'); const affected=ST.changeOpen? new Set(CANON.tests.filter(t=>t.deps.some(d=>d==='PT101'||d.startsWith('alarm:P101:HIGH_PRESSURE')||d.startsWith('alarm:P101:LOW_PRESSURE'))).map(t=>t.id)) : new Set();
+  m.appendChild(el('div','hd',`<div><div class="crumb">Automatic Test Generation & Regression</div><h1>Tests</h1><div class="sub">${ST.changeOpen?`PT101 change selected <b>${affected.size}</b> regression tests via graph traversal.`:'Generated from the asset. Tests are executable / deterministically simulated.'}</div></div>${ST.changeOpen?`<button class="btn go" onclick="runRegression()">Run ${affected.size} affected tests</button>`:''}`));
+  const pass=CANON.tests.filter(t=>curRes(t)==='PASS').length,review=CANON.tests.filter(t=>curRes(t)==='REVIEW').length,fail=CANON.tests.filter(t=>curRes(t)==='FAIL').length;
+  const g=el('div','grid g4'); m.appendChild(g); [["Total",CANON.tests.length,""],["Pass",pass,""],["Review",review,"a"],["Fail",fail,"r"]].forEach(([l,v,cl])=>g.appendChild(el('div','tile '+cl,`<div class="l">${l}</div><div class="v num">${v}</div>`)));
+  const c=el('div','card'); c.style.marginTop='14px'; c.innerHTML='<div class="h"><h3>Test suite (FAT · SAT · regression)</h3></div>';
+  const t=el('table',null,'<thead><tr><th>ID</th><th>Type</th><th>Name</th><th>Stimulus → Expected</th><th>Result</th><th>Evidence</th></tr></thead>'); const b=el('tbody');
+  CANON.tests.forEach(ts=>{const res=curRes(ts);const aff=affected.has(ts.id);const tr=el('tr',null,`<td class="mono id">${ts.id.split(':').slice(1).join(':')}</td><td>${ts.type}</td><td><b>${ts.name}</b>${aff?' <span class="imp INDIRECT" style="font-size:8.5px">SELECTED</span>':''}</td><td class="mini">${ts.stimulus} → ${ts.expected}</td><td><span class="sev ${res==='PASS'?'PASS':res==='REVIEW'?'WARNING':'BLOCKER'}">${res}</span></td><td class="mini">${ts.evidence}</td>`);if(aff)tr.style.background='rgba(255,194,75,.06)';b.appendChild(tr);});
+  t.appendChild(b); c.appendChild(t); m.appendChild(c); applyTilt();
+}
+function curRes(t){ return ST.testResults[t.id]||t.result; }
+function runRegression(){ CANON.tests.forEach(t=>{ if(t.deps.some(d=>d==='PT101'||d.startsWith('alarm:P101:HIGH_PRESSURE')||d.startsWith('alarm:P101:LOW_PRESSURE'))){ ST.testResults[t.id]=t.id==='test:FAT:T06'?'REVIEW':'PASS'; } }); toast('Regression complete — affected tests re-run'); render(); }
+
+function viewRuntime(){ const m=$('#main'); const rt=ST.runtime;
+  m.appendChild(el('div','hd',`<div><div class="crumb">Hero 3 · Runtime Trust · PLC Authority</div><h1>Runtime / HMI</h1><div class="sub">The HMI guides & verifies. The PLC remains authoritative. Stale data is never shown as trustworthy.</div></div><span class="ts ${rt.stale?'PROPOSED':(rt.comm?'VERIFIED':'UNKNOWN')}">${rt.stale?'DATA STALE':(rt.comm?'DATA LIVE':'COMM LOSS')}</span>`));
+  if(rt.stale) m.appendChild(el('div','banner red',`<span class="led blink" style="background:var(--red);box-shadow:0 0 10px var(--red)"></span><div><b>CONTROL TRUST LOST — PT101</b> · last valid update ${rt.fresh.toFixed(1)} s ago · plant state STALE · consequential commands DISABLED</div>`));
+  if(!rt.comm) m.appendChild(el('div','banner red',`<span class="led blink" style="background:var(--red)"></span><div><b>PLC CONNECTION LOST</b> · runtime authority UNAVAILABLE · plant state UNKNOWN · consequential commands DISABLED</div>`));
+  const split=el('div','split'); m.appendChild(split); const left=el('div');
+  const fp=el('div','card'); fp.innerHTML=`<div class="h"><h3>P101 Faceplate</h3><span class="ts ${rt.running?'VERIFIED':'UNKNOWN'}">${rt.running?'RUNNING':'STOPPED'}</span></div><div class="b"><div class="grid g3"><div class="tile b"><div class="l">Discharge pressure</div><div class="v num">${rt.stale?'8.0':rt.pressure.toFixed(1)}<u>bar</u></div><div class="s">${rt.stale?'frozen / STALE':'live'}</div></div><div class="tile"><div class="l">Run feedback</div><div class="v" style="color:${rt.running?'var(--green)':'var(--muted)'}">${rt.running?'TRUE':'FALSE'}</div></div><div class="tile ${rt.valveOpen?'':'r'}"><div class="l">XV101 open FB</div><div class="v" style="color:${rt.valveOpen?'var(--green)':'var(--red)'}">${rt.valveOpen?'TRUE':'FALSE'}</div></div></div><div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn go" ${(rt.stale||!rt.comm)?'disabled':''} onclick="cmdStart()">▶ Request START</button><button class="btn" ${(rt.stale||!rt.comm)?'disabled':''} onclick="cmdStop()">■ Request STOP</button><button class="btn" onclick="toggleValve()">${rt.valveOpen?'Close':'Open'} discharge valve</button></div></div>`; left.appendChild(fp);
+  const lad=el('div','card'); lad.style.marginTop='14px'; lad.innerHTML=`<div class="h"><h3>Command Response Ladder · PLC authoritative</h3></div><div class="b"><div class="flow"><span class="n">DETECT</span><span class="ar">→</span><span class="n">CLASSIFY</span><span class="ar">→</span><span class="n">PERMISSIVES</span><span class="ar">→</span><span class="n">REQUEST</span><span class="ar">→</span><span class="n">PLC AUTHORIZE</span><span class="ar">→</span><span class="n">ACT</span><span class="ar">→</span><span class="n">VERIFY</span><span class="ar">→</span><span class="n">LOG</span></div><div id="ladderOut" style="margin-top:12px">${rt.lastCmdLog.length?'':'<div class="mini">Issue a command to see the PLC decision & runtime evidence.</div>'}</div></div>`; left.appendChild(lad); split.appendChild(left);
+  const r=el('div'); const cop=el('div','card'); cop.innerHTML=`<div class="h"><h3>Operator Copilot</h3></div><div class="b" id="opcop">${operatorAnswer()}</div>`; r.appendChild(cop);
+  const pol=el('div','card'); pol.style.marginTop='14px'; pol.innerHTML=`<div class="h"><h3>PT101 Freshness Policy</h3></div><div class="b"><div class="kv"><span class="k">Expected update</span><span class="v">1 s</span></div><div class="kv"><span class="k">Stale threshold</span><span class="v">3 s</span></div><div class="kv"><span class="k">Unknown threshold</span><span class="v">10 s</span></div><div class="crumb" style="margin:12px 0 8px">Demo scenarios</div><button class="btn sm" onclick="scenStale()">${rt.stale?'Restore fresh data':'Freeze PT101 (stale)'}</button><button class="btn sm" onclick="scenComm()" style="margin-left:6px">${rt.comm?'Drop PLC comms':'Restore comms'}</button></div>`; r.appendChild(pol); split.appendChild(r);
+  if(rt.lastCmdLog.length) $('#ladderOut').innerHTML=rt.lastCmdLog[rt.lastCmdLog.length-1]; applyTilt();
+}
+function operatorAnswer(){ const rt=ST.runtime;
+  if(!rt.comm) return `<div class="banner red" style="margin:0"><span>✕</span><div><b>PLC connection lost</b> — plant state UNKNOWN. No command can be authorized.</div></div>`;
+  if(rt.stale) return `<div class="banner red" style="margin:0"><span>✕</span><div><b>Data trust lost</b> — PT101 stale ${rt.fresh.toFixed(1)} s. Consequential commands disabled until data is fresh.</div></div>`;
+  if(!rt.valveOpen) return `<div class="rec err" style="margin:0"><span class="i">✕</span><div><b>START BLOCKED — P101</b><div class="kv"><span class="k">PLC permissive</span><span class="v mono">XV101_OPEN_FB = FALSE</span></div><div class="kv"><span class="k">Data trust</span><span class="v">LIVE (1.1 s)</span></div><div class="kv"><span class="k">PLC decision</span><span class="v" style="color:var(--red)">REJECTED</span></div><div class="kv"><span class="k">Recommended</span><span class="v">Open discharge valve & verify feedback</span></div></div></div>`;
+  return `<div class="rec" style="margin:0"><span class="i">✓</span><div><b>P101 ready</b> — permissives satisfied, data LIVE, PLC will authorize START.</div></div>`;
+}
+function pushLadder(html){ ST.runtime.lastCmdLog.push(html); }
+function cmdStart(){ const rt=ST.runtime;
+  if(!rt.valveOpen){ pushLadder(`<div class="banner red" style="margin:0"><span>✕</span><div><b>PUMP START REQUEST → PLC AUTHORITY → REJECTED</b><br><div class="kv"><span class="k">Reason</span><span class="v">Discharge valve not confirmed open</span></div><div class="kv"><span class="k">Signal</span><span class="v mono">XV101_OPEN_FB = FALSE</span></div><div class="kv"><span class="k">Data freshness</span><span class="v">1.1 s (LIVE)</span></div><div class="kv"><span class="k">HMI bypass</span><span class="v">NOT POSSIBLE — PLC is authoritative</span></div></div></div>`); toast("START rejected by PLC — permissive FALSE"); render(); return; }
+  rt.running=true; pushLadder(`<div class="banner green" style="margin:0"><span>✓</span><div><b>PUMP START — authorized & verified</b><table style="margin-top:6px"><tbody><tr><td>Operator authorized</td><td>✓</td><td class="mono">14:22:04</td></tr><tr><td>Data freshness</td><td>✓ 1.1 s</td><td></td></tr><tr><td>Permissives (XV101_OPEN_FB)</td><td>✓ TRUE</td><td></td></tr><tr><td>PLC authorization</td><td>✓</td><td class="mono">14:22:04</td></tr><tr><td>Command issued</td><td>✓</td><td class="mono">14:22:05</td></tr><tr><td>Run feedback</td><td>✓ TRUE</td><td class="mono">14:22:06</td></tr><tr><td>Outcome verified & logged</td><td>✓</td><td class="mono">14:22:06</td></tr></tbody></table></div></div>`); toast("START authorized — runtime evidence logged"); render();
+}
+function cmdStop(){ ST.runtime.running=false; pushLadder(`<div class="banner green" style="margin:0"><span>✓</span><div><b>STOP authorized</b> — run feedback FALSE, verified & logged.</div></div>`); render(); }
+function toggleValve(){ ST.runtime.valveOpen=!ST.runtime.valveOpen; toast('XV101_OPEN_FB = '+(ST.runtime.valveOpen?'TRUE':'FALSE')); render(); }
+function scenStale(){ ST.runtime.stale=!ST.runtime.stale; ST.runtime.fresh=ST.runtime.stale?4.2:1.1; if(ST.runtime.stale)ST.runtime.running=false; render(); }
+function scenComm(){ ST.runtime.comm=!ST.runtime.comm; if(!ST.runtime.comm)ST.runtime.running=false; render(); }
+
+function viewGovernance(){ const m=$('#main');
+  m.appendChild(el('div','hd',`<div><div class="crumb">Approval · Revisions · Audit</div><h1>Governance</h1><div class="sub">AI proposes, engineers approve, PLC controls. Approved baselines are immutable — changes create revisions.</div></div>`));
+  const sm=el('div','card'); sm.innerHTML=`<div class="h"><h3>Approval State Machine</h3><span class="ts ${ST.approvals.CR==='APPROVED'?'VERIFIED':'PROPOSED'}">${ST.approvals.CR}</span></div><div class="b"><div class="flow"><span class="n">AI DRAFT</span><span class="ar">→</span><span class="n">VALIDATED</span><span class="ar">→</span><span class="n">SIMULATED</span><span class="ar">→</span><span class="n">ENGINEER REVIEW</span><span class="ar">→</span><span class="n">APPROVED</span><span class="ar">→</span><span class="n">RELEASE CANDIDATE</span><span class="ar">→</span><span class="n">DEPLOY</span></div><div class="rec info" style="margin-top:10px"><span class="i">i</span><div>Never AI → DEPLOY. The actor creating a proposal cannot approve it (role separation).</div></div></div>`; m.appendChild(sm);
+  const im=computeImpact(); const cr=el('div','card'); cr.style.marginTop='14px'; cr.innerHTML=`<div class="h"><h3>Change Request CR-017</h3>${ST.changeOpen?'<span class="ts PROPOSED">OPEN</span>':'<span class="ts VERIFIED">no open change</span>'}</div><div class="b">${ST.changeOpen?`<div class="grid g3"><div class="kv"><span class="k">Object</span><span class="v mono" style="font-size:10px">PT101</span></div><div class="kv"><span class="k">Change</span><span class="v">0–10 → 0–16 bar</span></div><div class="kv"><span class="k">Impact</span><span class="v">${im.direct.length+im.indirect.length} objects</span></div><div class="kv"><span class="k">Validation</span><span class="v">27 · 26 pass · 1 warn</span></div><div class="kv"><span class="k">Regression</span><span class="v">${im.tests.length} tests</span></div><div class="kv"><span class="k">Docs</span><span class="v">${im.docs.length} regenerate</span></div><div class="kv"><span class="k">Risk</span><span class="v"><span class="imp INDIRECT">MEDIUM</span></span></div><div class="kv"><span class="k">Approver</span><span class="v">Controls Engineer</span></div></div><div style="margin-top:12px;display:flex;gap:8px"><button class="btn go" onclick="approveCR()">Approve → new baseline (Rev 18)</button><button class="btn dng" onclick="ST.changeOpen=false;render()">Reject</button></div>`:'<div class="mini">Open a change from Change Impact to populate CR-017.</div>'}</div>`; m.appendChild(cr);
+  if(ST.changeOpen){ const dd=el('div','card'); dd.style.marginTop='14px'; dd.innerHTML=`<div class="h"><h3>Documentation Drift</h3><span class="sev WARNING">REGENERATION REQUIRED</span></div><div class="b"><div class="rec warn"><span class="i">⚠</span><div><b>OPR-03</b> — document says <b>0–10 bar</b>, current model is <b>0–16 bar</b> → <span class="ts PROPOSED">STALE</span>. Approved documents are never silently modified.</div></div></div>`; m.appendChild(dd); }
+  const gates=[["Model validated",true],["Simulation passed",true],["Regression passed",Object.keys(ST.testResults).length>0||!ST.changeOpen],["Engineer approved",ST.approvals.CR==='APPROVED'],["Release candidate",ST.approvals.CR==='APPROVED']];
+  const dg=el('div','card'); dg.style.marginTop='14px'; dg.innerHTML=`<div class="h"><h3>Deployment Gate</h3><span class="sev ${gates.every(g=>g[1])?'PASS':'BLOCKER'}">${gates.every(g=>g[1])?'READY (auth required)':'DEPLOYMENT BLOCKED'}</span></div><div class="b">${gates.map(([l,ok])=>`<div class="kv"><span class="k">${l}</span><span class="v" style="color:${ok?'var(--green)':'var(--red)'}">${ok?'✓':'✕ pending'}</span></div>`).join('')}<div class="kv"><span class="k">Deployment authorization</span><span class="v">REQUIRED (human)</span></div></div>`; m.appendChild(dg);
+  const row=el('div','grid g2'); row.style.marginTop='14px'; m.appendChild(row);
+  const rv=el('div','card'); rv.innerHTML=`<div class="h"><h3>Revision History</h3></div><div class="b">${CANON.revisions.map(r=>`<div class="kv"><span class="k">Rev ${r.rev} · ${r.when}</span><span class="v">${r.note}</span></div>`).join('')}${ST.rev>17?`<div class="kv"><span class="k">Rev 18 · 2026-09-10</span><span class="v" style="color:var(--green)">PT101 0–16 bar approved</span></div>`:''}<div class="crumb" style="margin:12px 0 6px">Rev 17 → 18 diff</div><div class="kv"><span class="k">PT101 range</span><span class="v">10 → 16 bar</span></div><div class="kv"><span class="k">High alarm</span><span class="v">8 → 12 bar</span></div><div class="kv"><span class="k">FAT</span><span class="v">+2 tests</span></div><div class="kv"><span class="k">Documentation</span><span class="v">3 sections regenerated</span></div></div>`; row.appendChild(rv);
+  const ad=el('div','card'); ad.innerHTML=`<div class="h"><h3>Audit Trail</h3></div><div class="b">${CANON.audit.map(a=>`<div style="padding:6px 0;border-bottom:1px solid var(--line2)"><span class="mono id">${a.time}</span> · <b>${a.actor}</b> <span class="mini">(${a.role})</span><br><span style="font-size:12px">${a.action}</span> <span class="ts ${a.result==='PROPOSED'?'PROPOSED':a.result==='APPROVED'?'VERIFIED':'INFERRED'}" style="margin-left:4px">${a.result}</span></div>`).join('')}${ST.approvals.CR==='APPROVED'?`<div style="padding:6px 0"><span class="mono id">now</span> · <b>Reviewer</b> approved CR-017 <span class="ts VERIFIED">APPROVED</span></div>`:''}</div>`; row.appendChild(ad); applyTilt();
+}
+function approveCR(){ ST.approvals.CR='APPROVED'; ST.rev=18; toast('CR-017 approved — Revision 18 created (immutable baseline)'); render(); }
+
+function viewXray(){ const m=$('#main');
+  m.appendChild(el('div','hd',`<div><div class="crumb">EcoStruxure Upgrade Radar</div><h1>Project X-Ray</h1><div class="sub">Every recommendation is backed by evidence from the canonical model.</div></div>`));
+  const g=el('div','grid g4'); m.appendChild(g); [["Signals",CANON.signals.length,"b"],["Alarms",CANON.alarms.length,"a"],["Reusable patterns",1,""],["Probable inconsistencies",2,"r"]].forEach(([l,v,cl])=>g.appendChild(el('div','tile '+cl,`<div class="l">${l}</div><div class="v num">${v}</div>`)));
+  const row=el('div','grid g2'); row.style.marginTop='14px'; m.appendChild(row);
+  const mat=el('div','card'); mat.innerHTML=`<div class="h"><h3>Engineering Maturity</h3></div><div class="b">${[["Tag consistency",91],["Alarm consistency",74],["Traceability",52],["Test coverage",61],["Documentation sync",48],["Change impact",34],["Asset reuse",22],["Provenance",18]].map(([l,v])=>`<div style="margin-bottom:9px"><div class="kv" style="border:none;padding:1px 0"><span class="k">${l}</span><span class="v">${v}%</span></div><div class="bar"><i style="width:${v}%;background:${v>=75?'linear-gradient(90deg,var(--green2),var(--green))':v>=50?'var(--amber)':'var(--red)'}"></i></div></div>`).join('')}</div>`; row.appendChild(mat);
+  const rec=el('div','card'); rec.innerHTML=`<div class="h"><h3>Recommendations (evidence-backed)</h3></div><div class="b">${[["Create reusable Pump Type from P101/P102","Asset reuse 22% — pattern detected"],["4 alarm definitions duplicated with inconsistent thresholds","Alarm consistency 74%"],["12 HMI tags not linked to documented requirements","Traceability 52%"],["3 tests do not match current alarm thresholds","after PT101 change"],["2 documents still reference old PT101 range","OPR-03, legacy spec"]].map((r,i)=>`<div class="rec"><span class="i">${String(i+1).padStart(2,'0')}</span><div><b>${r[0]}</b><div class="mini" style="margin-top:2px">Evidence: ${r[1]}</div></div></div>`).join('')}</div>`; row.appendChild(rec);
+  const pos=el('div','card'); pos.style.marginTop='14px'; pos.innerHTML=`<div class="h"><h3>AssetFlow around EcoStruxure</h3></div><div class="b"><div class="flow" style="font-size:12px"><span class="n" style="border-color:var(--green);color:var(--green)">ASSETFLOW · engineering intelligence</span><span class="ar">→</span><span class="n">ECOSTRUXURE WORKFLOW (EAE · Machine Expert · EOTE)</span><span class="ar">→</span><span class="n">PLC / EOTE / HARDWARE</span><span class="ar">→</span><span class="n">PLANT</span></div><div class="rec info" style="margin-top:10px"><span class="i">i</span><div>AssetFlow does not replace EcoStruxure. It gives the engineering information flowing through EcoStruxure a memory, a graph, an AI copilot and a verification layer. <span class="ts INFERRED">EOTE integration: DOCUMENTED PROTOTYPE</span></div></div></div>`; m.appendChild(pos); applyTilt();
+}
+
+//---------------- 3D card tilt ----------------
+function applyTilt(){ document.querySelectorAll('#main .card, #main .tile').forEach(c=>{ if(c._tilt)return; c._tilt=1; c.style.transformStyle='preserve-3d';
+  c.addEventListener('mousemove',e=>{ const r=c.getBoundingClientRect(); const px=(e.clientX-r.left)/r.width-0.5, py=(e.clientY-r.top)/r.height-0.5;
+    c.style.transform=`perspective(900px) rotateY(${px*5}deg) rotateX(${-py*5}deg) translateZ(4px)`; });
+  c.addEventListener('mouseleave',()=>{ c.style.transform=''; }); }); }
+
+//---------------- animated background ----------------
+function startBg(){ const cv=$('#bg'); const ctx=cv.getContext('2d'); let W,H,dpr=window.devicePixelRatio||1;
+  const resize=()=>{W=cv.width=innerWidth*dpr;H=cv.height=innerHeight*dpr;}; resize(); addEventListener('resize',resize);
+  const N=70, pts=[]; for(let i=0;i<N;i++)pts.push({x:Math.random()*W,y:Math.random()*H,z:Math.random(),vx:(Math.random()-.5)*.25*dpr,vy:(Math.random()-.5)*.25*dpr});
+  let mx=W/2,my=H/2; addEventListener('mousemove',e=>{mx=e.clientX*dpr;my=e.clientY*dpr;});
+  (function loop(){ ctx.clearRect(0,0,W,H);
+    for(const p of pts){ p.x+=p.vx;p.y+=p.vy; if(p.x<0||p.x>W)p.vx*=-1; if(p.y<0||p.y>H)p.vy*=-1; }
+    for(let i=0;i<N;i++){ for(let j=i+1;j<N;j++){ const a=pts[i],b=pts[j]; const dx=a.x-b.x,dy=a.y-b.y; const d=Math.hypot(dx,dy);
+      if(d<150*dpr){ ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y); const al=(1-d/(150*dpr))*0.14; ctx.strokeStyle='rgba(61,255,158,'+al+')';ctx.lineWidth=dpr; ctx.stroke(); } } }
+    for(const p of pts){ const dm=Math.hypot(p.x-mx,p.y-my); const glow=dm<180*dpr?1.8:1; ctx.beginPath();ctx.arc(p.x,p.y,(1.1+p.z*1.6)*dpr*glow,0,7);
+      ctx.fillStyle='rgba(120,230,190,'+(0.25+p.z*0.4)+')'; ctx.fill(); }
+    if(ANIM)requestAnimationFrame(loop); })();
+}
+
+//---------------- boot ----------------
+startBg(); render();
+if(!ANIM){const s0=$('#splash');if(s0)s0.remove();} else setTimeout(()=>{ const s=$('#splash'); if(s){s.classList.add('hide'); setTimeout(()=>s.remove(),800);} }, 1300);
+{ const sp=$('#splash'); if(sp) sp.onclick=()=>{ sp.classList.add('hide'); setTimeout(()=>sp.remove(),800); }; }
+if(location.hash){ const v=location.hash.slice(1); if(v==='impact_open'){ST.view='impact';ST.changeOpen=true;} else if(v==='runtime_stale'){ST.view='runtime';ST.runtime.stale=true;ST.runtime.fresh=4.2;} else if(document.querySelector('#nav a[data-v="'+v+'"]')){ST.view=v;} render(); const s=$('#splash'); if(s)s.remove(); }
+</script>
+</body>
+</html>

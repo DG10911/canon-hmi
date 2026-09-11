@@ -1,0 +1,63 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+P-401,pump,PT-401,analog-in,bar,0,16,14,12,,2,pressure
+P-401,pump,FT-401,analog-in,m3/h,0,300,,,,10,flow
+P-401,pump,P-401_RUNNING,discrete-in,,,,,,,,running
+P-401,pump,P-401_FAULT,discrete-in,,,,,,,,fault
+P-401,pump,P-401_START_REQ,discrete-out,,,,,,,,start
+P-401,pump,P-401_STOP_REQ,discrete-out,,,,,,,,stop
+P-402,pump,PT-402,analog-in,bar,0,16,14,12,,2,pressure
+P-402,pump,FT-402,analog-in,m3/h,0,300,,,,10,flow
+P-402,pump,P-402_RUNNING,discrete-in,,,,,,,,running
+P-402,pump,P-402_FAULT,discrete-in,,,,,,,,fault
+P-402,pump,P-402_START_REQ,discrete-out,,,,,,,,start
+P-402,pump,P-402_STOP_REQ,discrete-out,,,,,,,,stop
+P-403,pump,PT-403,analog-in,bar,0,16,14,12,,2,pressure
+P-403,pump,FT-403,analog-in,m3/h,0,300,,,,10,flow
+P-403,pump,P-403_RUNNING,discrete-in,,,,,,,,running
+P-403,pump,P-403_FAULT,discrete-in,,,,,,,,fault
+P-403,pump,P-403_START_REQ,discrete-out,,,,,,,,start
+P-403,pump,P-403_STOP_REQ,discrete-out,,,,,,,,stop
+P-404,pump,PT-404,analog-in,bar,0,16,14,12,,2,pressure
+P-404,pump,FT-404,analog-in,m3/h,0,300,,,,10,flow
+P-404,pump,P-404_RUNNING,discrete-in,,,,,,,,running
+P-404,pump,P-404_FAULT,discrete-in,,,,,,,,fault
+P-404,pump,P-404_START_REQ,discrete-out,,,,,,,,start
+P-404,pump,P-404_STOP_REQ,discrete-out,,,,,,,,stop
+P-405,pump,PT-405,analog-in,bar,0,16,14,12,,2,pressure
+P-405,pump,FT-405,analog-in,m3/h,0,300,,,,10,flow
+P-405,pump,P-405_RUNNING,discrete-in,,,,,,,,running
+P-405,pump,P-405_FAULT,discrete-in,,,,,,,,fault
+P-405,pump,P-405_START_REQ,discrete-out,,,,,,,,start
+P-405,pump,P-405_STOP_REQ,discrete-out,,,,,,,,stop
+P-406,pump,PT-406,analog-in,bar,0,16,14,12,,2,pressure
+P-406,pump,FT-406,analog-in,m3/h,0,300,,,,10,flow
+P-406,pump,P-406_RUNNING,discrete-in,,,,,,,,running
+P-406,pump,P-406_FAULT,discrete-in,,,,,,,,fault
+P-406,pump,P-406_START_REQ,discrete-out,,,,,,,,start
+P-406,pump,P-406_STOP_REQ,discrete-out,,,,,,,,stop
+TK-401,tank,LT-401,analog-in,%,0,100,90,80,20,10,level
+TK-401,tank,DIT-401,analog-in,%,0,100,90,80,20,10,density
+TK-402,tank,LT-402,analog-in,%,0,100,90,80,20,10,level
+TK-402,tank,DIT-402,analog-in,%,0,100,90,80,20,10,density
+TK-403,tank,LT-403,analog-in,%,0,100,90,80,20,10,level
+TK-403,tank,DIT-403,analog-in,%,0,100,90,80,20,10,density
+XV-401,valve,XV-401_OPEN,discrete-in,,,,,,,,open limit
+XV-401,valve,XV-401_CLOSED,discrete-in,,,,,,,,closed limit
+XV-401,valve,XV-401_OPEN_REQ,discrete-out,,,,,,,,open
+XV-401,valve,XV-401_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-402,valve,XV-402_OPEN,discrete-in,,,,,,,,open limit
+XV-402,valve,XV-402_CLOSED,discrete-in,,,,,,,,closed limit
+XV-402,valve,XV-402_OPEN_REQ,discrete-out,,,,,,,,open
+XV-402,valve,XV-402_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-403,valve,XV-403_OPEN,discrete-in,,,,,,,,open limit
+XV-403,valve,XV-403_CLOSED,discrete-in,,,,,,,,closed limit
+XV-403,valve,XV-403_OPEN_REQ,discrete-out,,,,,,,,open
+XV-403,valve,XV-403_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-404,valve,XV-404_OPEN,discrete-in,,,,,,,,open limit
+XV-404,valve,XV-404_CLOSED,discrete-in,,,,,,,,closed limit
+XV-404,valve,XV-404_OPEN_REQ,discrete-out,,,,,,,,open
+XV-404,valve,XV-404_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-405,valve,XV-405_OPEN,discrete-in,,,,,,,,open limit
+XV-405,valve,XV-405_CLOSED,discrete-in,,,,,,,,closed limit
+XV-405,valve,XV-405_OPEN_REQ,discrete-out,,,,,,,,open
+XV-405,valve,XV-405_CLOSE_REQ,discrete-out,,,,,,,,close

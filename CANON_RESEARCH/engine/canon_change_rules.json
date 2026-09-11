@@ -1,0 +1,23 @@
+{
+  "$schema": "canon.change_rules.v2",
+  "generated": "2026-09-10",
+  "authority": "PROPOSED — deterministic change-impact. Every entity has revisionId + contentHash + explicit dependency edges. Impact = recursive CTE walk from the changed entity.",
+  "edgeTypes": ["BINDS", "READS", "WRITES", "PERMITS", "TRIGGERS", "DOCUMENTS", "TESTS", "ALARMS", "SCALES"],
+  "heroChangeScenario": {
+    "name": "PT401 range change 0-10 -> 0-16 bar",
+    "changedEntity": "signal:PT401",
+    "field": "engMax",
+    "from": 10,
+    "to": 16,
+    "impact": [
+      {"entity": "hmi_binding:w.pt401", "edge": "BINDS", "effect": "PressureGauge range must update 0-10 -> 0-16", "action": "regenerate-widget"},
+      {"entity": "alarm:ALM_PT401_HH", "edge": "ALARMS", "effect": "HH setpoint 9.0 must be re-rationalized against new 16 bar span", "action": "engineer-review", "truthStatus": "review-required"},
+      {"entity": "io:PT401@holding0", "edge": "SCALES", "effect": "raw->eng scale 0.00025 -> 0.0004 (0-40000 raw -> 0-16 bar)", "action": "update-io-map"},
+      {"entity": "trend:default_pressure", "edge": "READS", "effect": "y-axis max updates", "action": "regenerate-widget"},
+      {"entity": "test:tc_pt401_range", "edge": "TESTS", "effect": "regression fixture expected max updates", "action": "regenerate-test"},
+      {"entity": "doc:PT401_datasheet_ref", "edge": "DOCUMENTS", "effect": "evidence pointer flagged for re-verify", "action": "flag-evidence"}
+    ],
+    "resultRevision": {"from": "rev-17", "to": "rev-18", "regressionTestsMustPass": true, "engineerApprovalRequired": true}
+  },
+  "cteTemplate": "WITH RECURSIVE impact AS (SELECT to_entity, edge_type, 1 AS depth FROM dependency WHERE from_entity = :changed AND revision_id = :rev UNION ALL SELECT d.to_entity, d.edge_type, i.depth+1 FROM dependency d JOIN impact i ON d.from_entity = i.to_entity WHERE i.depth < 10) SELECT * FROM impact;"
+}

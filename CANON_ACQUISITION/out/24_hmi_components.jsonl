@@ -1,0 +1,14 @@
+{"category":"gauge","commands":[],"component":"TankLevel","extractableFromSchneider":false,"source":"SRC-TK401-COMPREG","states":["normal","warning","alarm","badQuality"],"version":"1.0.0"}
+{"category":"gauge","commands":[],"component":"PressureGauge","extractableFromSchneider":false,"source":"SRC-TK401-COMPREG","states":["normal","warning","alarm","badQuality"],"version":"1.0.0"}
+{"category":"device","commands":["start","stop"],"component":"MotorStarter","extractableFromSchneider":false,"source":"SRC-TK401-COMPREG","states":["idle","starting","running","stopping","faulted","badQuality"],"version":"1.0.0"}
+{"category":"device","commands":["open","close"],"component":"ValveStatus","extractableFromSchneider":false,"source":"SRC-TK401-COMPREG","states":["open","closed","transition","fault","badQuality"],"version":"1.0.0"}
+{"category":"alarm","commands":["ack"],"component":"AlarmBanner","extractableFromSchneider":false,"source":"SRC-TK401-COMPREG","states":["clear","active","acked"],"version":"1.0.0"}
+{"category":"alarm","commands":["ack","ackAll","shelve"],"component":"AlarmList","extractableFromSchneider":false,"source":"SRC-TK401-COMPREG","states":["clear","active"],"version":"1.0.0"}
+{"category":"trend","commands":[],"component":"Trend","extractableFromSchneider":false,"source":"SRC-TK401-COMPREG","states":["normal","badQuality"],"version":"1.0.0"}
+{"category":"value","commands":[],"component":"NumericValue","extractableFromSchneider":false,"source":"SRC-TK401-COMPREG","states":["normal","warning","alarm","badQuality"],"version":"1.0.0"}
+{"category":"nav","commands":["navigate"],"component":"NavHeader","extractableFromSchneider":false,"source":"SRC-TK401-COMPREG","states":[],"version":"1.0.0"}
+{"category":"control","commands":[],"component":"PermissivePanel","extractableFromSchneider":false,"source":"SRC-TK401-COMPREG","states":["allPermitted","blocked"],"version":"1.0.0"}
+{"category":"value","commands":[],"component":"QualityBadge","extractableFromSchneider":false,"source":"SRC-TK401-COMPREG","states":["good","uncertain","bad","stale"],"version":"1.0.0"}
+{"category":"data","commands":["load","save"],"component":"RecipeTable","extractableFromSchneider":false,"source":"SRC-TK401-COMPREG","states":["view","edit"],"version":"0.9.0"}
+{"category":"control","commands":[],"component":"InterlockMatrix","extractableFromSchneider":false,"source":"SRC-TK401-COMPREG","states":["ok","tripped"],"version":"0.9.0"}
+{"category":"diagram","commands":["selectNode"],"component":"TopologyView","extractableFromSchneider":false,"source":"SRC-TK401-COMPREG","states":[],"version":"0.9.0"}

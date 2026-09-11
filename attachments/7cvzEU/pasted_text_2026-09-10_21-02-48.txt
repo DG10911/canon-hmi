@@ -1,0 +1,1535 @@
+03 — CANON Data Acquisition Plan
+
+Rule: Download official documents. Extract facts, product identity, protocol claims, and citations. Do not redistribute copyrighted PDFs inside the product. Do not treat a catalog screenshot as a live API.
+
+Status vocabulary: FOUND · PARTIALLY_FOUND · NOT_FOUND · RESTRICTED · LICENSE_REQUIRED · UNKNOWN
+
+
+
+Priority order
+
+
+
+
+
+Official se.com product pages and download documents (catalogs, user guides).
+
+
+
+Official product-help.schneider-electric.com pages.
+
+
+
+OPC Foundation, Modbus Organization, IEC/ISA public summaries.
+
+
+
+Official GitHub/SDK docs for connectors and parsers.
+
+
+
+Reputable secondary only when official is silent — mark SECONDARY.
+
+
+
+Wave 0 — Demo machine (no Schneider login required) — DAY 1
+
+
+
+
+
+
+
+SOURCE
+
+
+
+URL
+
+
+
+RESOURCE
+
+
+
+WHAT TO DOWNLOAD
+
+
+
+WHAT TO EXTRACT
+
+
+
+PARSER
+
+
+
+NORMALIZATION
+
+
+
+TARGET DATASET
+
+
+
+EVIDENCE
+
+
+
+LICENSE
+
+
+
+STATUS
+
+
+
+
+
+CANON team
+
+
+
+local
+
+
+
+Demo tank line
+
+
+
+Create JSON
+
+
+
+Assets TK-401, P401, XV401, signals, commands
+
+
+
+n/a
+
+
+
+Layer C schema
+
+
+
+canon_demo_*.json
+
+
+
+PROPOSED
+
+
+
+CANON
+
+
+
+FOUND (we create it)
+
+
+
+
+
+OPC Foundation
+
+
+
+https://opcfoundation.org
+
+
+
+OPC UA overview + security model
+
+
+
+Public pages / Part summaries
+
+
+
+Client/server, subscriptions, certs
+
+
+
+manual
+
+
+
+protocol_registry
+
+
+
+protocol_registry.json
+
+
+
+Official
+
+
+
+OPCF copyright; no spec redistribution
+
+
+
+FOUND
+
+
+
+
+
+Modbus Organization
+
+
+
+https://www.modbus.org/specs.php
+
+
+
+Modbus Application Protocol / TCP
+
+
+
+Public spec PDFs
+
+
+
+Function codes 1–6,15,16; register classes
+
+
+
+manual
+
+
+
+protocol_registry
+
+
+
+protocol_registry.json
+
+
+
+Official
+
+
+
+Modbus Org terms
+
+
+
+FOUND
+
+
+
+Wave 1 — Schneider public product truth — DAY 1–2
+
+Acquire metadata + facts, not binaries.
+
+
+
+
+
+
+
+SOURCE
+
+
+
+URL
+
+
+
+RESOURCE
+
+
+
+WHAT TO DOWNLOAD
+
+
+
+WHAT TO EXTRACT
+
+
+
+PARSER
+
+
+
+TARGET
+
+
+
+LICENSE
+
+
+
+STATUS
+
+
+
+
+
+se.com product range
+
+
+
+https://www.se.com/us/en/product-range/66388-ecostruxure-opc-ua-server-expert/
+
+
+
+EcoStruxure OPC UA Server Expert
+
+
+
+Product page
+
+
+
+Devices: M340, M580; protocols OPC UA binary + Modbus/TCP; 72h demo; symbolic access; M580 Safety read-only
+
+
+
+manual
+
+
+
+schneider_software.json, schneider_networking.json
+
+
+
+Marketing page; facts OK
+
+
+
+FOUND
+
+
+
+
+
+se.com download
+
+
+
+https://www.se.com/us/en/download/document/MFR53158/
+
+
+
+OPC UA Server Expert User Guide
+
+
+
+PDF MFR53158.03 (2025-08)
+
+
+
+Supported profile Standard 2017 UA Server; mapping model
+
+
+
+Docling + citation
+
+
+
+schneider_documents.json
+
+
+
+SE copyright; no redistribution
+
+
+
+FOUND
+
+
+
+
+
+se.com download
+
+
+
+https://www.se.com/us/en/download/document/PHA83350/
+
+
+
+M580 BMENUA0100 guide
+
+
+
+PDF PHA83350
+
+
+
+Embedded OPC UA module capabilities
+
+
+
+Docling
+
+
+
+schneider_controllers.json, schneider_networking.json
+
+
+
+SE copyright
+
+
+
+FOUND
+
+
+
+
+
+product-help
+
+
+
+https://product-help.schneider-electric.com/Machine%20Expert/V2.0/en/m262prg/m262prg/D-SE-0099749.html
+
+
+
+M262 OPC UA
+
+
+
+HTML
+
+
+
+Onboard OPC UA server/client on M262
+
+
+
+BeautifulSoup
+
+
+
+schneider_controllers.json
+
+
+
+SE copyright
+
+
+
+FOUND
+
+
+
+
+
+product-help
+
+
+
+M251 OPC UA Server Configuration
+
+
+
+HTML
+
+
+
+Port 4840, anonymous login flag, subscription limits
+
+
+
+BeautifulSoup
+
+
+
+schneider_controllers.json
+
+
+
+SE copyright
+
+
+
+FOUND
+
+
+
+
+
+
+
+
+
+se.com download
+
+
+
+https://www.se.com/us/en/download/document/EIO0000004021/
+
+
+
+OpcUaHandling library guide
+
+
+
+PDF
+
+
+
+Controller-side OPC UA client FBs
+
+
+
+Docling
+
+
+
+schneider_libraries.json
+
+
+
+SE copyright
+
+
+
+FOUND
+
+
+
+
+
+se.com download
+
+
+
+https://www.se.com/us/en/download/document/DIA5ED2140703EN/
+
+
+
+Operator Terminal Expert catalog
+
+
+
+PDF catalog Mar 2026
+
+
+
+Harmony targets, 650+ objects claim, compound objects, Web Viewer, OPC UA notes
+
+
+
+Docling
+
+
+
+schneider_hmi.json, schneider_hmi_components.json (categories only)
+
+
+
+SE copyright
+
+
+
+FOUND
+
+
+
+
+
+se.com download
+
+
+
+https://www.se.com/us/en/download/document/DIA5ED1161001EN/
+
+
+
+HMI Product Line-up Guide 2025
+
+
+
+PDF
+
+
+
+Harmony families vs software (OTE / Machine SCADA Expert / Vijeo Designer)
+
+
+
+Docling
+
+
+
+schneider_hmi.json, schneider_software.json
+
+
+
+SE copyright
+
+
+
+FOUND
+
+
+
+
+
+se.com product range
+
+
+
+https://www.se.com/au/en/product-range/62621-ecostruxure-operator-terminal-expert/
+
+
+
+OTE range page
+
+
+
+HTML
+
+
+
+650+ objects, compound object editor, Professional license for create/edit
+
+
+
+manual
+
+
+
+schneider_hmi.json
+
+
+
+Marketing
+
+
+
+FOUND
+
+
+
+
+
+se.com download
+
+
+
+https://www.se.com/eg/en/download/document/EOTE_Compound_Object/
+
+
+
+OTE Compound Objects library
+
+
+
+File listed 236.5 KB, type Software-Data Library
+
+
+
+Do not claim contents until downloaded under account
+
+
+
+unknown
+
+
+
+schneider_libraries.json
+
+
+
+LICENSE_REQUIRED / RESTRICTED
+
+
+
+PARTIALLY_FOUND
+
+
+
+
+
+se.com download
+
+
+
+https://www.se.com/us/en/download/document/EIO0000002854/
+
+
+
+Machine Expert Programming Guide
+
+
+
+PDF EIO0000002854
+
+
+
+Project model, export, visualization
+
+
+
+Docling
+
+
+
+schneider_software.json
+
+
+
+SE copyright
+
+
+
+FOUND
+
+
+
+
+
+se.com download
+
+
+
+https://www.se.com/il/en/download/document/EIO0000004333/
+
+
+
+Machine Expert Examples
+
+
+
+PDF
+
+
+
+OPC UA client example, MQTT, Altivar/Lexium examples exist
+
+
+
+Docling
+
+
+
+schneider_documents.json
+
+
+
+SE copyright
+
+
+
+FOUND
+
+
+
+
+
+product-help
+
+
+
+Project > Export
+
+
+
+HTML
+
+
+
+.export XML; PLCopenXML export
+
+
+
+manual
+
+
+
+parser_registry
+
+
+
+SE help
+
+
+
+FOUND
+
+
+
+
+
+
+
+
+
+Control Engineering doc (secondary pointing at official flow)
+
+
+
+EcoStruxure Control Expert File > Export application
+
+
+
+XEF / ZEF
+
+
+
+Tag/application export exists
+
+
+
+n/a
+
+
+
+parser_registry
+
+
+
+SE copyright
+
+
+
+FOUND (procedure) · parser NOT built
+
+
+
+
+
+Controllers / devices — public pages to index (do not invent SKUs)
+
+Index official range pages for facts only (protocol, software, family). Do not invent part numbers.
+
+
+
+
+
+
+
+Family
+
+
+
+Role in CANON
+
+
+
+Status
+
+
+
+
+
+Modicon M580
+
+
+
+Process PAC; OPC UA via BMENUA0100 or Server Expert
+
+
+
+VERIFIED family
+
+
+
+
+
+Modicon M340
+
+
+
+Supported by OPC UA Server Expert page
+
+
+
+VERIFIED (server-expert device list)
+
+
+
+
+
+Modicon M262
+
+
+
+Embedded OPC UA server/client in Machine Expert
+
+
+
+VERIFIED
+
+
+
+
+
+Modicon M241 / M251
+
+
+
+Machine controllers; M251 OPC UA config documented on product-help
+
+
+
+PARTIALLY_FOUND (verify per CPU reference)
+
+
+
+
+
+Modicon M221 / M258
+
+
+
+Do not claim OPC UA unless a current official page says so
+
+
+
+UNKNOWN for OPC UA
+
+
+
+
+
+Harmony ST6 / STM6 / GTU / GTUX / iPC
+
+
+
+OTE targets
+
+
+
+VERIFIED in OTE catalog
+
+
+
+
+
+Altivar ATV320 / 340 / 630 / 930
+
+
+
+Drive families; ingest from official range pages
+
+
+
+FOUND as families; do not invent parameter maps
+
+
+
+
+
+Lexium / PacDrive
+
+
+
+Motion; ingest from official range pages
+
+
+
+FOUND as families
+
+
+
+
+
+TeSys
+
+
+
+Motor control
+
+
+
+FOUND as family
+
+
+
+
+
+EcoStruxure Control Expert
+
+
+
+M580/M340 programming
+
+
+
+VERIFIED
+
+
+
+
+
+EcoStruxure Machine Expert
+
+
+
+Machine controllers
+
+
+
+VERIFIED
+
+
+
+
+
+EcoStruxure Automation Expert
+
+
+
+IEC 61499 line — out of PS2 scope
+
+
+
+P3
+
+
+
+
+
+Vijeo Designer
+
+
+
+Legacy Harmony software still listed in 2025 lineup
+
+
+
+VERIFIED as current lineup entry; do not use as CANON runtime
+
+
+
+Wave 2 — HMI object corpus (HIGH PRIORITY, HONEST LIMIT)
+
+Official claim (VERIFIED marketing/catalog): EcoStruxure Operator Terminal Expert includes 650+ customizable objects, templates, vector icons, compound objects. Compound object create/edit requires Professional Buildtime license. A download named EOTE_Compound_Object exists on se.com.
+
+What CANON will actually store
+
+
+
+
+
+
+
+Allowed
+
+
+
+Forbidden
+
+
+
+
+
+Object categories cited from catalogs (gauge, trend, alarm, recipe, motor, pump, valve, tank, nav)
+
+
+
+Claiming we extracted proprietary compound-object internals
+
+
+
+
+
+CANON’s own canon_component_registry.json inspired by those categories
+
+
+
+Shipping Schneider binary libraries
+
+
+
+
+
+Screenshots used only as internal engineering reference if license allows viewing
+
+
+
+Redistributing Schneider symbols
+
+Community post (2021) lists downloadable HMI screen templates: Alarm, Recipe, Data sampling, Gauge, Graph. Treat as SECONDARY / historical; re-verify current download on se.com before citing as available.
+
+Target dataset: schneider_hmi_components.json = category catalog with status: VERIFIED|INFERRED and extractable: false unless a public, license-clear file is obtained.
+
+
+
+Wave 3 — Standards (facts + citations, not full-text copies)
+
+
+
+
+
+
+
+Standard
+
+
+
+Use in CANON
+
+
+
+Access
+
+
+
+Status
+
+
+
+
+
+IEC 62541 / OPC UA
+
+
+
+Connectivity + security posture
+
+
+
+OPC Foundation public material
+
+
+
+FOUND
+
+
+
+
+
+Modbus Application Protocol
+
+
+
+Register map + function codes
+
+
+
+modbus.org
+
+
+
+FOUND
+
+
+
+
+
+ISA-101
+
+
+
+HMI style principles (hierarchy, situation awareness)
+
+
+
+Paid standard — cite principles from public ISA summaries only
+
+
+
+PARTIALLY_FOUND
+
+
+
+
+
+ISA-18.2 / IEC 62682
+
+
+
+Alarm philosophy fields
+
+
+
+Paid — model alarm fields without copying the standard
+
+
+
+PARTIALLY_FOUND
+
+
+
+
+
+OMAC PackML
+
+
+
+State model inspiration for canon_state_models.json
+
+
+
+Public PackML overviews exist; full spec may be restricted
+
+
+
+PARTIALLY_FOUND
+
+
+
+
+
+IEC 61131-3
+
+
+
+PLC program / POU vocabulary
+
+
+
+Public summaries
+
+
+
+PARTIALLY_FOUND
+
+
+
+
+
+IEC 62443
+
+
+
+Security zones, roles, no unconstrained writes
+
+
+
+ISA/IEC pages
+
+
+
+FOUND (scope); full text paid
+
+
+
+
+
+IEC 62714 AutomationML
+
+
+
+Future engineering exchange
+
+
+
+P2
+
+
+
+ROADMAP
+
+
+
+
+
+IEC 63278 AAS
+
+
+
+Future asset shell
+
+
+
+P3
+
+
+
+ROADMAP
+
+
+
+
+
+PLCopen XML
+
+
+
+Machine Expert export option
+
+
+
+Public schema exists
+
+
+
+FOUND as format name
+
+
+
+Wave 4 — Connector / simulator source code (DAY 1)
+
+
+
+
+
+
+
+Resource
+
+
+
+Repo / docs
+
+
+
+What to vendor
+
+
+
+License
+
+
+
+Status
+
+
+
+
+
+asyncua
+
+
+
+https://github.com/FreeOpcUa/opcua-asyncio
+
+
+
+Client + demo server
+
+
+
+LGPL (confirm COPYING in repo)
+
+
+
+FOUND
+
+
+
+
+
+pymodbus
+
+
+
+https://github.com/pymodbus-dev/pymodbus
+
+
+
+Client + server simulator
+
+
+
+BSD
+
+
+
+FOUND
+
+
+
+
+
+node-opcua
+
+
+
+https://github.com/node-opcua/node-opcua
+
+
+
+Backup stack
+
+
+
+MIT
+
+
+
+FOUND
+
+
+
+
+
+open62541
+
+
+
+https://github.com/open62541/open62541
+
+
+
+Future embedded server
+
+
+
+MPL-2.0
+
+
+
+FOUND
+
+
+
+
+
+OpenPLC Runtime v4
+
+
+
+https://github.com/Autonomy-Logic/openplc-runtime
+
+
+
+Optional realistic PLC
+
+
+
+Check repo LICENSE before use
+
+
+
+FOUND (product) · license must be re-read
+
+
+
+
+
+UaExpert
+
+
+
+Unified Automation download
+
+
+
+Manual browse/test tool
+
+
+
+Freeware client; not embeddable
+
+
+
+FOUND
+
+
+
+
+
+pgvector
+
+
+
+https://github.com/pgvector/pgvector
+
+
+
+Postgres extension
+
+
+
+PostgreSQL license
+
+
+
+FOUND
+
+
+
+
+
+Docling
+
+
+
+IBM / LF AI
+
+
+
+PDF → JSON
+
+
+
+MIT
+
+
+
+FOUND
+
+
+
+
+
+pdfplumber
+
+
+
+GitHub
+
+
+
+Tables
+
+
+
+MIT
+
+
+
+FOUND
+
+
+
+Normalization rules
+
+Every extracted fact becomes:
+
+{
+  "factId": "fct_m262_opcua_server",
+  "statement": "Modicon M262 exposes a configurable OPC UA server in EcoStruxure Machine Expert.",
+  "status": "VERIFIED",
+  "product": "Modicon M262",
+  "sourceId": "src_m262_opcua_help",
+  "url": "https://product-help.schneider-electric.com/...",
+  "accessed": "2026-09-10",
+  "layer": "A"
+}
+
+Contradictions (two docs disagree) keep both facts and set conflictGroup. Retriever must return conflicts; LLM must not pick a winner silently.
+
+
+
+What not to acquire in the hackathon
+
+
+
+
+
+Full Altivar parameter dictionaries
+
+
+
+PacDrive / Lexium motion CAM tables
+
+
+
+Safety PLC SIL application libraries
+
+
+
+Entire Harmony symbol packs
+
+
+
+Historical Magelis-only archives unless a current official page still lists them
+
+
+
+Any binary that requires accepting a Schneider EULA we cannot comply with for redistribution
+

@@ -1,0 +1,768 @@
+CANON — FINAL OPENING EXPERIENCE
+LAUNCH SCREEN + ENGINEERING PROJECT HUB
+PREMIUM INDUSTRIAL ENGINEERING SOFTWARE
+MASTER REFINEMENT PROMPT
+
+============================================================
+IMPORTANT — EDIT THE EXISTING PROTOTYPE
+============================================================
+
+You are refining the EXISTING CANON prototype.
+
+Do NOT redesign the product from scratch.
+
+Preserve the current visual language, typography, spacing,
+colors, component quality and overall professional industrial
+aesthetic.
+
+Make the opening experience feel like a serious, premium
+industrial engineering application.
+
+The experience consists of:
+
+01. APPLICATION LAUNCH / LOADING
+02. ENGINEERING PROJECT HUB
+
+The launch screen transitions smoothly into the Project Hub.
+
+============================================================
+PART 01 — APPLICATION LAUNCH
+============================================================
+
+When the prototype is first opened, DO NOT immediately show
+the Project Hub.
+
+Show a short, premium application initialization experience.
+
+Duration:
+
+Approximately 1.5–2.5 seconds.
+
+It must feel fast.
+
+The purpose is to establish:
+
+CANON
+ENGINEERING INTELLIGENCE PLATFORM
+
+and communicate that the engineering environment is being
+initialized.
+
+============================================================
+LAUNCH SCREEN VISUAL
+============================================================
+
+Use an extremely clean light industrial background.
+
+No photographs.
+
+No factory illustration.
+
+No 3D machine.
+
+No AI robot.
+
+No gradients.
+
+No futuristic effects.
+
+No particle effects.
+
+No cinematic animation.
+
+No giant marketing headline.
+
+The screen should be almost empty.
+
+CENTER:
+
+A refined CANON mark.
+
+CANON
+
+Below it:
+
+ENGINEERING INTELLIGENCE PLATFORM
+
+Then a very small technical status line:
+
+INITIALIZING ENGINEERING ENVIRONMENT
+
+At the bottom or beneath the status:
+
+● CONNECTIVITY
+● MACHINE CONTEXT
+● ENGINEERING MODEL
+
+These should initialize subtly.
+
+============================================================
+LAUNCH SEQUENCE
+============================================================
+
+Animate the launch sequence with extremely restrained motion.
+
+STEP 01
+
+CANON
+
+appears.
+
+Then:
+
+ENGINEERING INTELLIGENCE PLATFORM
+
+appears with a subtle fade.
+
+Then status:
+
+INITIALIZING ENGINEERING ENVIRONMENT...
+
+STEP 02
+
+Connectivity:
+
+● CONNECTIVITY
+CONNECTED
+
+STEP 03
+
+Machine context:
+
+● MACHINE CONTEXT
+READY
+
+STEP 04
+
+Engineering model:
+
+● ENGINEERING MODEL
+READY
+
+Then:
+
+OPENING ENGINEERING PROJECTS...
+
+Transition immediately into the Project Hub.
+
+Do NOT make the user wait unnecessarily.
+
+============================================================
+PRIMARY TAGLINE
+============================================================
+
+Use this exact tagline:
+
+ENGINEERING INTENT → VERIFIED AUTOMATION
+
+Place it subtly beneath the CANON identity.
+
+It should be treated as the product philosophy,
+not as a marketing slogan.
+
+Do NOT make it huge.
+
+Suggested hierarchy:
+
+CANON
+
+ENGINEERING INTELLIGENCE PLATFORM
+
+ENGINEERING INTENT → VERIFIED AUTOMATION
+
+INITIALIZING ENGINEERING ENVIRONMENT
+
+============================================================
+OPTIONAL SECONDARY MICROCOPY
+============================================================
+
+If additional microcopy is needed, use:
+
+BUILDING CONTEXT FROM ENGINEERING REALITY
+
+This reinforces the product concept.
+
+Do not add generic AI language such as:
+
+"Powered by AI"
+"Your AI engineer"
+"Let's automate"
+"Intelligent automation starts here"
+
+CANON should feel engineering-first, not AI-first.
+
+============================================================
+LAUNCH VISUAL QUALITY
+============================================================
+
+The feeling should be:
+
+QUIET
+PRECISE
+CONFIDENT
+FAST
+TECHNICAL
+INDUSTRIAL
+TRUSTWORTHY
+
+Think:
+
+"Professional engineering software initializing."
+
+NOT:
+
+"Startup splash screen."
+
+============================================================
+PART 02 — TRANSITION TO PROJECT HUB
+============================================================
+
+After initialization, transition smoothly into:
+
+ENGINEERING PROJECTS
+
+The transition should feel like the application is opening
+the engineer's workspace.
+
+Use a subtle fade / slide.
+
+No zoom.
+
+No dramatic camera movement.
+
+No loading spinner that remains on screen.
+
+No page reload feeling.
+
+The Project Hub should appear fully populated.
+
+============================================================
+PART 03 — PROJECT HUB
+============================================================
+
+The current Project Hub is already strong.
+
+Preserve its existing layout.
+
+The page should communicate:
+
+"I have existing industrial machines."
+
+"I can open one."
+
+"Or I can create a new engineering project."
+
+============================================================
+GLOBAL APPLICATION HEADER
+============================================================
+
+Top-left:
+
+CANON
+
+ENGINEERING INTELLIGENCE PLATFORM
+
+Top navigation:
+
+PROJECTS
+
+Remove:
+
+MACHINES
+
+Remove:
+
+LIBRARY
+
+IMPORTANT:
+
+For this prototype, DO NOT show Machines or Library as
+top-level navigation items.
+
+They are unnecessary for the core demonstration.
+
+The prototype should feel focused rather than feature-heavy.
+
+Right side:
+
+● SYSTEM OPERATIONAL
+
+DG / profile indicator
+
+============================================================
+LEFT SIDEBAR
+============================================================
+
+Simplify the sidebar.
+
+Show only:
+
+PROJECTS
+
+Then a divider.
+
+SYSTEM STATUS
+
+Connectivity       OPERATIONAL
+Controllers        2 online
+Projects           3
+Environment        PROTOTYPE
+
+Do NOT show:
+
+Machines
+Library
+
+Do NOT add additional navigation items.
+
+The sidebar should be narrow and quiet.
+
+============================================================
+MAIN HEADER
+============================================================
+
+Page title:
+
+ENGINEERING PROJECTS
+
+Supporting text:
+
+Manage connected machines, engineering models and generated
+operator experiences.
+
+Top-right primary action:
+
++ NEW PROJECT
+
+Keep the button compact and professional.
+
+============================================================
+PROJECT SUMMARY STRIP
+============================================================
+
+Keep the existing horizontal summary strip.
+
+Show:
+
+03 PROJECTS
+03 CONNECTED
+02 RUNNING
+01 STOPPED
+
+Use compact engineering typography.
+
+Do NOT turn these into giant KPI cards.
+
+============================================================
+PROJECT 01 — TK-401
+============================================================
+
+Keep:
+
+TK-401
+
+PROCESS TANK
+
+Status:
+
+● RUNNING
+
+Connection:
+
+● CONNECTED
+
+Controller:
+
+Modicon M262
+
+Engineering data:
+
+24 ASSETS
+186 SIGNALS
+12 ALARMS
+
+Last synchronization:
+
+12 sec ago
+
+Primary action:
+
+OPEN PROJECT →
+
+TK-401 is the primary demonstration project.
+
+Make it visually slightly more prominent than the other projects,
+but do NOT turn it into a giant hero card.
+
+============================================================
+PROJECT 02 — PACK-07
+============================================================
+
+PACK-07
+
+PACKAGING LINE
+
+● RUNNING
+● CONNECTED
+
+Controller:
+
+Modicon M580
+
+148 ASSETS
+1,240 SIGNALS
+36 ALARMS
+
+8 sec ago
+
+OPEN PROJECT →
+
+============================================================
+PROJECT 03 — MIX-02
+============================================================
+
+MIX-02
+
+MIXING STATION
+
+● STOPPED
+● CONNECTED
+
+Controller:
+
+Modicon M241
+
+31 ASSETS
+224 SIGNALS
+18 ALARMS
+
+2 min ago
+
+OPEN PROJECT →
+
+============================================================
+NEW PROJECT AREA
+============================================================
+
+Keep the existing lower "Start new engineering project" area.
+
+Title:
+
+START NEW ENGINEERING PROJECT
+
+Supporting text:
+
+Connect a machine or import existing engineering information.
+
+Primary action:
+
++ CREATE PROJECT
+
+Make this area visually distinct through subtle border treatment,
+not a colorful card.
+
+============================================================
+NEW PROJECT INTERACTION
+============================================================
+
+When the engineer clicks:
+
++ NEW PROJECT
+
+or:
+
++ CREATE PROJECT
+
+open a clean project creation view.
+
+Title:
+
+NEW ENGINEERING PROJECT
+
+Subtitle:
+
+How would you like to begin?
+
+Provide exactly three choices:
+
+01
+
+LIVE MACHINE
+
+Connect to a controller or industrial data source.
+
+OPC UA
+Modbus TCP
+EtherNet/IP
+
+BUTTON:
+
+CONNECT MACHINE →
+
+02
+
+ENGINEERING DATA
+
+Import an existing engineering project or structured
+engineering information.
+
+BUTTON:
+
+IMPORT DATA →
+
+03
+
+DEMO MACHINE
+
+Start a deterministic CANON demonstration machine.
+
+TK-401 · PROCESS TANK
+
+BUTTON:
+
+OPEN DEMO →
+
+The DEMO MACHINE option is essential for the prototype because
+it provides a guaranteed demonstration path.
+
+============================================================
+PROJECT INTERACTION
+============================================================
+
+When hovering over a project row:
+
+Use a subtle elevation / border / background response.
+
+No dramatic animation.
+
+When clicking:
+
+TK-401
+
+transition into:
+
+MACHINE CONTEXT
+
+The engineer's journey is:
+
+PROJECT HUB
+↓
+TK-401
+↓
+MACHINE CONTEXT
+
+============================================================
+IMPORTANT — DO NOT ADD
+============================================================
+
+Do NOT add:
+
+- Machines navigation
+- Library navigation
+- AI chatbot
+- AI assistant
+- analytics dashboard
+- factory map
+- 3D factory
+- news
+- notifications center
+- user management
+- settings
+- documentation browser
+- product catalog
+- giant KPI dashboard
+- social-style activity feed
+- unnecessary search
+- excessive filters
+- unnecessary cards
+
+The first screen should remain focused.
+
+============================================================
+BRANDING
+============================================================
+
+CANON must remain an original product identity.
+
+Do NOT copy the Schneider Electric logo.
+
+Do NOT claim that CANON is an official Schneider Electric
+product.
+
+The visual language may be inspired by the restraint and
+professionalism expected in industrial engineering software,
+but CANON must remain visually original.
+
+Do not place:
+
+"Official Schneider Electric"
+"Schneider Electric CANON"
+
+or any misleading affiliation.
+
+============================================================
+COLOR SYSTEM
+============================================================
+
+Maintain the existing restrained palette.
+
+Primary:
+
+Graphite / dark neutral typography.
+
+Background:
+
+White / very light neutral.
+
+Primary action:
+
+Restrained engineering green.
+
+Status:
+
+Green = healthy / connected / running
+
+Amber = warning / attention
+
+Red = fault / critical
+
+Gray = stopped / inactive
+
+No neon.
+
+No gradients.
+
+No glassmorphism.
+
+No excessive shadows.
+
+============================================================
+TYPOGRAPHY
+============================================================
+
+Use a disciplined technical hierarchy.
+
+CANON
+→ strong
+
+ENGINEERING PROJECTS
+→ prominent but not oversized
+
+Project names
+→ strong
+
+Metadata
+→ compact
+
+Status
+→ highly legible
+
+Counts
+→ precise / tabular feeling
+
+Avoid huge marketing typography.
+
+============================================================
+MOTION SYSTEM
+============================================================
+
+The launch sequence should be the only noticeable animation.
+
+Project Hub:
+
+minimal motion.
+
+Project hover:
+
+subtle.
+
+Project opening:
+
+fast, smooth transition.
+
+No unnecessary animation anywhere else.
+
+The product should feel FAST.
+
+============================================================
+FINAL USER EXPERIENCE
+============================================================
+
+The complete opening experience should feel like:
+
+USER OPENS CANON
+
+↓
+
+CANON
+
+ENGINEERING INTELLIGENCE PLATFORM
+
+ENGINEERING INTENT → VERIFIED AUTOMATION
+
+↓
+
+INITIALIZING ENGINEERING ENVIRONMENT
+
+● CONNECTIVITY — CONNECTED
+● MACHINE CONTEXT — READY
+● ENGINEERING MODEL — READY
+
+↓
+
+OPENING ENGINEERING PROJECTS...
+
+↓
+
+ENGINEERING PROJECTS
+
+TK-401       ● RUNNING
+PACK-07      ● RUNNING
+MIX-02       ● STOPPED
+
+↓
+
+Engineer clicks:
+
+OPEN PROJECT →
+
+↓
+
+MACHINE CONTEXT
+
+============================================================
+FINAL PRODUCT IMPRESSION
+============================================================
+
+Within the first 5 seconds, the judge should understand:
+
+CANON is an engineering platform.
+
+It manages connected machine projects.
+
+It understands machine context.
+
+It is not simply an AI chatbot.
+
+It is not simply an HMI designer.
+
+It is an engineering intelligence layer.
+
+The emotional impression should be:
+
+"THIS LOOKS LIKE A REAL INDUSTRIAL ENGINEERING PRODUCT."
+
+FINAL DESIGN PRINCIPLE:
+
+QUIET CONFIDENCE.
+
+ENGINEERING FIRST.
+
+AI SECOND.
+
+PRECISION OVER DECORATION.
+
+DO NOT REDESIGN THE EXISTING PROJECT HUB.
+
+REFINE IT AND ADD THE PREMIUM CANON LAUNCH EXPERIENCE
+BEFORE IT.

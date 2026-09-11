@@ -1,0 +1,6 @@
+{"machine":"mch_tk401_line","object":"P401","predicate":"FEEDS","source":"SRC-TK401-MACHINE","subject":"TK-401"}
+{"machine":"mch_tk401_line","object":"XV401","predicate":"PUMPS","source":"SRC-TK401-MACHINE","subject":"P401"}
+{"machine":"mch_tk401_line","object":"TK-401","predicate":"MEASURES","source":"SRC-TK401-MACHINE","subject":"LT401"}
+{"machine":"mch_tk401_line","object":"P401","predicate":"MEASURES","source":"SRC-TK401-MACHINE","subject":"PT401"}
+{"machine":"mch_tk401_line","object":"P401","predicate":"STARTS","source":"SRC-TK401-MACHINE","subject":"P401_START"}
+{"machine":"mch_tk401_line","object":"XV401","predicate":"OPENS","source":"SRC-TK401-MACHINE","subject":"XV401_OPEN"}

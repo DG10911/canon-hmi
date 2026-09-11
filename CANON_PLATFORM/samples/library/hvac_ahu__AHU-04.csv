@@ -1,0 +1,37 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+M-401,motor,ST-401,analog-in,rpm,0,3000,2900,2800,,,fan
+M-401,motor,DPT-401,analog-in,Pa,0,1000,900,800,,,dp
+M-401,motor,M-401_RUNNING,discrete-in,,,,,,,,running
+M-401,motor,M-401_FAULT,discrete-in,,,,,,,,fault
+M-401,motor,M-401_START_REQ,discrete-out,,,,,,,,start
+M-401,motor,M-401_STOP_REQ,discrete-out,,,,,,,,stop
+M-402,motor,ST-402,analog-in,rpm,0,3000,2900,2800,,,fan
+M-402,motor,DPT-402,analog-in,Pa,0,1000,900,800,,,dp
+M-402,motor,M-402_RUNNING,discrete-in,,,,,,,,running
+M-402,motor,M-402_FAULT,discrete-in,,,,,,,,fault
+M-402,motor,M-402_START_REQ,discrete-out,,,,,,,,start
+M-402,motor,M-402_STOP_REQ,discrete-out,,,,,,,,stop
+M-403,motor,ST-403,analog-in,rpm,0,3000,2900,2800,,,fan
+M-403,motor,DPT-403,analog-in,Pa,0,1000,900,800,,,dp
+M-403,motor,M-403_RUNNING,discrete-in,,,,,,,,running
+M-403,motor,M-403_FAULT,discrete-in,,,,,,,,fault
+M-403,motor,M-403_START_REQ,discrete-out,,,,,,,,start
+M-403,motor,M-403_STOP_REQ,discrete-out,,,,,,,,stop
+XV-401,valve,XV-401_OPEN,discrete-in,,,,,,,,open limit
+XV-401,valve,XV-401_CLOSED,discrete-in,,,,,,,,closed limit
+XV-401,valve,XV-401_OPEN_REQ,discrete-out,,,,,,,,open
+XV-401,valve,XV-401_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-402,valve,XV-402_OPEN,discrete-in,,,,,,,,open limit
+XV-402,valve,XV-402_CLOSED,discrete-in,,,,,,,,closed limit
+XV-402,valve,XV-402_OPEN_REQ,discrete-out,,,,,,,,open
+XV-402,valve,XV-402_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-403,valve,XV-403_OPEN,discrete-in,,,,,,,,open limit
+XV-403,valve,XV-403_CLOSED,discrete-in,,,,,,,,closed limit
+XV-403,valve,XV-403_OPEN_REQ,discrete-out,,,,,,,,open
+XV-403,valve,XV-403_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-404,valve,XV-404_OPEN,discrete-in,,,,,,,,open limit
+XV-404,valve,XV-404_CLOSED,discrete-in,,,,,,,,closed limit
+XV-404,valve,XV-404_OPEN_REQ,discrete-out,,,,,,,,open
+XV-404,valve,XV-404_CLOSE_REQ,discrete-out,,,,,,,,close
+TK-401,tank,TT-401,analog-in,degC,0,200,150,130,,,temp
+TK-402,tank,TT-402,analog-in,degC,0,200,150,130,,,temp

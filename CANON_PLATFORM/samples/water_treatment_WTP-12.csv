@@ -1,0 +1,22 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+TK-201,tank,LT-201,analog-in,%,0,100,90,80,,10,Clarifier tank level
+TK-201,tank,AIT-201,analog-in,NTU,0,50,20,10,,,Turbidity
+P-201,pump,PT-201,analog-in,bar,0,6,5.5,5,,,Feed pump discharge pressure
+P-201,pump,FT-201,analog-in,m3/h,0,120,,,,,Feed flow
+P-201,pump,P-201_RUNNING,discrete-in,,,,,,,,Feed pump running feedback
+P-201,pump,P-201_FAULT,discrete-in,,,,,,,,Feed pump fault
+P-201,pump,P-201_START_REQ,discrete-out,,,,,,,,Feed pump start request
+P-201,pump,P-201_STOP_REQ,discrete-out,,,,,,,,Feed pump stop request
+P-202,pump,PT-202,analog-in,bar,0,6,5.5,5,,,Backwash pump pressure
+P-202,pump,P-202_RUNNING,discrete-in,,,,,,,,Backwash pump running
+P-202,pump,P-202_FAULT,discrete-in,,,,,,,,Backwash pump fault
+P-202,pump,P-202_START_REQ,discrete-out,,,,,,,,Backwash pump start
+P-202,pump,P-202_STOP_REQ,discrete-out,,,,,,,,Backwash pump stop
+XV-201,valve,XV-201_OPEN,discrete-in,,,,,,,,Inlet valve open limit
+XV-201,valve,XV-201_CLOSED,discrete-in,,,,,,,,Inlet valve closed limit
+XV-201,valve,XV-201_OPEN_REQ,discrete-out,,,,,,,,Inlet valve open
+XV-201,valve,XV-201_CLOSE_REQ,discrete-out,,,,,,,,Inlet valve close
+XV-202,valve,XV-202_OPEN,discrete-in,,,,,,,,Backwash valve open limit
+XV-202,valve,XV-202_CLOSED,discrete-in,,,,,,,,Backwash valve closed limit
+XV-202,valve,XV-202_OPEN_REQ,discrete-out,,,,,,,,Backwash valve open
+XV-202,valve,XV-202_CLOSE_REQ,discrete-out,,,,,,,,Backwash valve close

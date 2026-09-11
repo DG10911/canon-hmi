@@ -1,0 +1,896 @@
+CANON — CANONICAL MACHINE MODEL
+FINAL PRECISION ALIGNMENT + UI POLISH PASS
+
+IMPORTANT:
+This is a refinement of the EXISTING CANON Machine Model screen.
+
+DO NOT redesign the screen.
+
+DO NOT change the information architecture.
+
+DO NOT add new features.
+
+DO NOT introduce new components unless required for alignment.
+
+The current screen is conceptually correct.
+
+Your task is now to perform a PROFESSIONAL PIXEL-LEVEL
+ALIGNMENT, SPACING, TYPOGRAPHY AND LAYOUT CONSISTENCY PASS.
+
+The final result should feel like a finished enterprise
+industrial engineering application rather than an AI-generated
+prototype.
+
+============================================================
+1. GLOBAL RULE — STRICT GRID
+============================================================
+
+Establish one consistent desktop grid.
+
+Target viewport:
+
+1440 × 900
+and
+1920 × 1080
+
+Use a consistent:
+
+- left navigation width
+- project header height
+- workflow header height
+- content left margin
+- content right margin
+- inspector width
+- bottom action bar height
+
+Every major section must align to the same grid.
+
+No element should appear visually "almost aligned."
+
+Use consistent 8px / 4px spacing increments wherever practical.
+
+============================================================
+2. APPLICATION HEADER
+============================================================
+
+Preserve the existing CANON header.
+
+However, simplify the GLOBAL navigation for the prototype.
+
+Do NOT show:
+
+Machines
+Library
+
+The primary global navigation should be:
+
+CANON
+Projects
+
+The Project workflow itself handles:
+
+Context
+Model
+Intent
+Validate
+Runtime
+Change
+
+Do not create competing navigation systems.
+
+Keep:
+
+● SYSTEM OPERATIONAL
+
+at the far right.
+
+Keep the DG/profile indicator.
+
+Ensure the CANON logo, wordmark and subtitle have perfectly
+aligned baselines.
+
+============================================================
+3. PROJECT CONTEXT BAR
+============================================================
+
+The second horizontal bar should have one exact alignment.
+
+Left:
+
+← Context
+
+TK-401
+
+Process Tank
+
+● CONNECTED
+
+Right:
+
+Controller
+Modicon M262
+
+Ensure all elements sit on exactly the same vertical centerline.
+
+Do not allow the controller information to appear visually
+higher or lower than the project identity.
+
+Use consistent spacing between:
+
+TK-401
+Process Tank
+CONNECTED
+
+============================================================
+4. WORKFLOW NAVIGATION
+============================================================
+
+Keep:
+
+✓ CONTEXT
+→ MODEL
+→ INTENT
+→ VALIDATE
+→ RUNTIME
+→ CHANGE
+
+MODEL is the active stage.
+
+Make all workflow items share:
+
+- same font size
+- same baseline
+- same vertical alignment
+- same spacing
+- same arrow treatment
+
+Do not let arrows float independently.
+
+The workflow should look like ONE engineered navigation system.
+
+============================================================
+5. MAIN CONTENT GRID
+============================================================
+
+Use a three-column structure:
+
+COLUMN 1:
+Model navigation
+
+COLUMN 2:
+Main machine model
+
+COLUMN 3:
+Object inspector
+
+Recommended proportions:
+
+LEFT NAVIGATION:
+~15–16%
+
+MAIN CONTENT:
+~60–62%
+
+INSPECTOR:
+~22–24%
+
+Do not let the inspector become so wide that it dominates the
+machine model.
+
+The central machine topology is the visual hero.
+
+============================================================
+6. LEFT SIDEBAR ALIGNMENT
+============================================================
+
+Keep:
+
+MODEL
+
+TK-401
+
+ASSETS
+
+LT401
+PT401
+P401
+XV401
+
+MODEL ELEMENTS
+
+Signals
+Commands
+Permissives
+Alarms
+Dependencies
+
+Align every text item to one consistent left edge.
+
+Align counts:
+
+186
+4
+3
+12
+
+to one consistent right edge.
+
+Do not individually position counts.
+
+Use a proper two-column sidebar row:
+
+LABEL                         COUNT
+
+Signals                       186
+Commands                        4
+Permissives                     3
+Alarms                         12
+
+Maintain identical row heights.
+
+============================================================
+7. PAGE HEADER ALIGNMENT
+============================================================
+
+Main title:
+
+CANONICAL MACHINE MODEL
+
+Subtitle:
+
+A structured engineering representation of TK-401 derived from
+its connected machine context.
+
+Keep the title and subtitle aligned to the exact same left
+content boundary as the topology.
+
+The model status block on the right should align to the
+RIGHT EDGE of the main content area.
+
+Do not let the model status float independently.
+
+============================================================
+8. MODEL STATUS
+============================================================
+
+Keep:
+
+MODEL STATUS
+● READY
+VERSION 1.0
+
+Keep:
+
+Refresh model
+
+Align these elements vertically and horizontally.
+
+Do not make the refresh button visually compete with the
+primary workflow action.
+
+============================================================
+9. CANONICAL REPRESENTATION BAR
+============================================================
+
+Keep:
+
+CANONICAL REPRESENTATION
+
+SOURCE
+TK-401 engineering context
+
+MODEL
+CANON v1.0
+
+Make all three groups sit on the same horizontal centerline.
+
+Use consistent spacing between the groups.
+
+Do not allow the labels and values to appear at different
+vertical levels.
+
+============================================================
+10. TOPOLOGY CONTAINER
+============================================================
+
+This is the most important area.
+
+Keep:
+
+MACHINE MODEL · RELATIONSHIPS
+
+and:
+
+source-grounded machine representation
+
+Legend:
+
+● VERIFIED
+○ INFERRED
+△ REVIEW
+
+Align the heading and legend on the SAME horizontal row.
+
+Heading starts at the topology container's left padding.
+
+Legend ends at the topology container's right padding.
+
+No vertical drift.
+
+============================================================
+11. TOPOLOGY GEOMETRY
+============================================================
+
+Keep the existing topology concept.
+
+Root:
+
+TK-401
+PROCESS TANK
+
+Second level:
+
+LT401
+PT401
+P401
+
+Third level:
+
+XV401
+
+Make all node widths consistent.
+
+Recommended:
+
+TK-401 = same visual node family
+LT401 = same width
+PT401 = same width
+P401 = same width
+XV401 = same width
+
+Do not let one node look randomly larger.
+
+Use consistent:
+
+- border thickness
+- corner radius
+- internal padding
+- title position
+- status-dot position
+- subtitle position
+
+============================================================
+12. TOPOLOGY ALIGNMENT
+============================================================
+
+Center TK-401 exactly relative to the topology.
+
+Place:
+
+LT401
+PT401
+P401
+
+on one exact horizontal baseline.
+
+Their centers should be evenly distributed.
+
+Place:
+
+XV401
+
+centered beneath the relevant machine flow/control relationship.
+
+Avoid arbitrary offsets.
+
+The visual geometry should feel mathematically intentional.
+
+============================================================
+13. RELATIONSHIP LABELS
+============================================================
+
+Use concise engineering relationships:
+
+LT401
+MEASURES LEVEL
+
+PT401
+MEASURES PRESSURE
+
+P401
+ACTUATES
+
+P401 → XV401
+PERMISSIVE
+
+The relationship labels should be positioned consistently.
+
+Do not allow labels to collide with connector lines.
+
+Do not place labels too close to nodes.
+
+Maintain equal visual spacing.
+
+============================================================
+14. P401 → XV401 PERMISSIVE
+============================================================
+
+Fix the current awkward dashed-line geometry.
+
+The relationship:
+
+P401
+↓
+PERMISSIVE
+↓
+XV401
+
+should be visually obvious but subtle.
+
+Prefer a clean vertical or orthogonal connector.
+
+Do NOT use a large looping line.
+
+Do NOT allow the dashed line to visually cross unrelated
+elements.
+
+Use amber only because this is a permissive relationship,
+not because it represents a fault.
+
+============================================================
+15. NODE INFORMATION
+============================================================
+
+Inside each node:
+
+FIRST LINE:
+
+Asset ID
+
+SECOND LINE:
+
+Asset type / relationship
+
+LIVE VALUE:
+
+72 %
+6.2 bar
+RUNNING
+OPEN
+
+The live value must align consistently inside each node.
+
+Do not allow the value to collide with the subtitle.
+
+If needed, slightly increase node height.
+
+============================================================
+16. SELECTED OBJECT INSPECTOR
+============================================================
+
+The right inspector should be fixed-width and visually stable.
+
+Remove the unnecessary visible scrollbar if the content fits
+inside the viewport.
+
+The inspector should have:
+
+LEVEL TRANSMITTER
+
+LT401
+
+● HEALTHY
+
+Then:
+
+Engineering signal       LT401.Level
+Type                     REAL
+Unit                     %
+Range                    0–100 %
+Source                   Modicon M262
+
+All values must align to ONE right-side value column.
+
+For example:
+
+Engineering signal                 LT401.Level
+Type                                REAL
+Unit                                %
+Range                               0–100 %
+Source                              Modicon M262
+
+The right edge of every value must align perfectly.
+
+============================================================
+17. INSPECTOR SECTION SPACING
+============================================================
+
+Use identical vertical spacing between:
+
+Asset header
+Signal properties
+USED BY
+RELATIONSHIPS
+View evidence
+
+Section labels should use the same typography.
+
+Do not allow "USED BY" and "RELATIONSHIPS" to feel randomly
+placed.
+
+============================================================
+18. TAG / CHIP ALIGNMENT
+============================================================
+
+For:
+
+Level tile
+Level trend
+Overfill alarm
+
+and:
+
+TK-401
+Level signal
+Alarm
+HMI binding
+
+Use consistent chip height, padding and spacing.
+
+Chips should wrap naturally if necessary.
+
+Do not allow uneven chip widths or strange gaps.
+
+============================================================
+19. VIEW EVIDENCE
+============================================================
+
+Keep:
+
+VIEW EVIDENCE
+
+Make it full-width inside the inspector.
+
+Align its left and right edges to the inspector content padding.
+
+It should not visually touch the inspector border.
+
+Keep it secondary.
+
+============================================================
+20. MODEL INTEGRITY PANEL
+============================================================
+
+Keep the integrity panel below the topology.
+
+Use a clean two-level layout.
+
+FIRST ROW:
+
+✓ Assets resolved
+✓ Signal references resolved
+✓ Commands mapped
+✓ Core relationships resolved
+
+SECOND ROW:
+
+△ 1 reference requires review
+
+On the far right:
+
+● MODEL READY
+
+23 / 24 core references verified
+1 review required
+
+Do not allow these elements to collide.
+
+The left-side verification messages and right-side status block
+must have clearly separated zones.
+
+============================================================
+21. REMOVE DUPLICATED VISUAL WEIGHT
+============================================================
+
+There are currently TWO "MODEL READY" indicators:
+
+one in the integrity panel
+and one in the bottom status bar.
+
+This is acceptable conceptually, but reduce duplication.
+
+The integrity panel should communicate:
+
+23 / 24 core references verified
+△ 1 review required
+
+The bottom bar should remain the primary persistent status:
+
+● MODEL READY
+23 / 24 references verified · 1 review required
+
+Avoid making both look equally prominent.
+
+============================================================
+22. BOTTOM ACTION BAR
+============================================================
+
+Keep the bottom fixed action bar.
+
+Left:
+
+● MODEL READY
+23 / 24 references verified
+·
+1 review required
+
+Right:
+
+VIEW TRACEABILITY
+
+DEFINE ENGINEERING INTENT →
+
+Align both buttons vertically.
+
+Make them exactly the same height.
+
+Make the green primary button slightly wider.
+
+Maintain equal spacing between the buttons.
+
+The bottom bar must not overlap the content.
+
+============================================================
+23. VIEWPORT / SCROLLING
+============================================================
+
+CRITICAL:
+
+The main Machine Model screen should fit naturally within the
+desktop viewport.
+
+Do NOT create unnecessary nested scrolling.
+
+Avoid:
+
+- page scrollbar
+- topology scrollbar
+- inspector scrollbar
+
+wherever possible.
+
+The engineer should see:
+
+TK-401
+LT401
+PT401
+P401
+XV401
+model integrity
+
+without scrolling.
+
+The bottom action bar remains fixed.
+
+============================================================
+24. TYPOGRAPHIC ALIGNMENT
+============================================================
+
+Perform a complete typography consistency pass.
+
+Ensure:
+
+All page titles share the same weight.
+
+All section labels share the same uppercase treatment.
+
+All metadata labels share the same gray tone.
+
+All status values share consistent weight.
+
+All numerical values use consistent alignment.
+
+All buttons use the same text weight and height.
+
+Do not manually vary typography to fill space.
+
+============================================================
+25. SPACING SYSTEM
+============================================================
+
+Use a disciplined spacing system.
+
+Prefer:
+
+8px
+12px
+16px
+20px
+24px
+32px
+
+Avoid arbitrary spacing values.
+
+Major sections:
+
+32px
+
+Section-to-section:
+
+24px
+
+Label-to-content:
+
+8–12px
+
+Rows:
+
+36–44px
+
+Button height:
+
+40–44px
+
+Keep the visual rhythm consistent.
+
+============================================================
+26. COLORS
+============================================================
+
+Do not change the current restrained palette.
+
+Green:
+
+healthy
+connected
+verified
+running
+primary action
+
+Amber:
+
+review
+permissive
+
+Graphite:
+
+primary text
+
+Gray:
+
+secondary text
+inactive
+
+White / very light neutral:
+
+workspace
+
+No gradients.
+
+No neon.
+
+No glass.
+
+No excessive shadows.
+
+============================================================
+27. INTERACTION
+============================================================
+
+Keep interactions exactly as currently designed.
+
+Clicking:
+
+LT401
+PT401
+P401
+XV401
+
+changes the inspector.
+
+Selected asset:
+
+subtle light green selection background.
+
+No dramatic animation.
+
+No zooming.
+
+No glowing nodes.
+
+============================================================
+28. PROFESSIONAL INDUSTRIAL DETAIL
+============================================================
+
+Add subtle engineering precision through:
+
+- exact alignment
+- consistent connector geometry
+- disciplined labels
+- consistent node dimensions
+- source indicators
+- verification state
+- compact metadata
+
+Do NOT add visual decoration.
+
+The sophistication must come from information architecture
+and precision.
+
+============================================================
+29. FINAL VISUAL CHECK
+============================================================
+
+Before completing the refinement, inspect the screen as if it
+were being presented on a 1440×900 engineering workstation.
+
+Verify:
+
+✓ Header aligned
+✓ Project bar aligned
+✓ Workflow aligned
+✓ Sidebar aligned
+✓ Main content aligned
+✓ Inspector aligned
+✓ Topology centered
+✓ LT401/PT401/P401 evenly spaced
+✓ XV401 fully visible
+✓ P401 → XV401 permissive line clean
+✓ Relationship labels do not collide
+✓ Node dimensions consistent
+✓ Inspector value column aligned
+✓ Chips aligned
+✓ Model integrity panel aligned
+✓ Bottom action bar aligned
+✓ No unnecessary scrollbar
+✓ No overlapping elements
+✓ No clipped text
+✓ No duplicate visual clutter
+✓ Primary CTA clearly dominant
+
+============================================================
+30. FINAL ACCEPTANCE CRITERIA
+============================================================
+
+The finished screen must look like:
+
+A SINGLE PROFESSIONAL ENGINEERING APPLICATION.
+
+Not:
+
+A collection of individually generated cards.
+
+Every horizontal edge should feel intentional.
+
+Every column should have a consistent boundary.
+
+Every numerical value should align.
+
+Every relationship line should have purpose.
+
+Every element should have enough breathing room.
+
+============================================================
+FINAL INSTRUCTION
+============================================================
+
+DO NOT REDESIGN.
+
+DO NOT ADD FEATURES.
+
+DO NOT CHANGE THE CORE CONCEPT.
+
+DO NOT CHANGE THE INFORMATION ARCHITECTURE.
+
+PERFORM ONLY A HIGH-END PRECISION ALIGNMENT,
+SPACING, TYPOGRAPHY, GRID AND VISUAL CONSISTENCY PASS.
+
+The final result should feel like:
+
+"CANON is a real industrial engineering product."
+
+Precision over decoration.
+
+Clarity over density.
+
+Engineering over visual effects.

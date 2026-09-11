@@ -1,0 +1,102 @@
+(canon-venv) (voxshield) srmist2@dgxa100:~/CANON_ACQUISITION/model$ cd ~/CANON_ACQUISITION/model
+(canon-venv) (voxshield) srmist2@dgxa100:~/CANON_ACQUISITION/model$ python train_qlora.py --base Qwen/Qwen2.5-3B-Instruct --data data/train.jsonl --out out/canon-brain-3b
+CUDA OK: NVIDIA A100-SXM4-40GB  (torch 2.6.0+cu124, cuda 12.4)
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights: 100%|██████████████████████| 434/434 [00:01<00:00, 277.84it/s]
+trainable params: 29,933,568 || all params: 3,115,872,256 || trainable%: 0.9607
+note: SFTConfig ignoring unsupported args: ['warmup_ratio']
+[RANK 0] Padding-free training is enabled, but the attention implementation is not set to a supported Flash Attention variant. Padding-free training flattens batches into a single sequence, and only the following implementations are known to reliably support this: flash_attention_2, flash_attention_3, kernels-community/flash-attn2, kernels-community/flash-attn3, kernels-community/vllm-flash-attn3. Using other implementations may lead to unexpected behavior. To ensure compatibility, set `attn_implementation` in the model configuration to one of these supported options or verify that your attention mechanism can handle flattened sequences.
+[RANK 0] You are using packing, but the attention implementation is not set to a supported Flash Attention variant. Packing gathers multiple samples into a single sequence, and only the following implementations are known to reliably support this: flash_attention_2, flash_attention_3, kernels-community/flash-attn2, kernels-community/flash-attn3, kernels-community/vllm-flash-attn3. Using other implementations may lead to cross-contamination between samples. To avoid this, either disable packing by setting `packing=False`, or set `attn_implementation` in the model configuration to one of these supported options.
+Adding EOS to train dataset: 100%|█| 48222/48222 [00:00<00:00, 48908.76 example
+Tokenizing train dataset: 100%|█| 48222/48222 [00:29<00:00, 1659.37 examples/s]
+Building labels for train dataset: 100%|█| 48222/48222 [00:06<00:00, 6977.37 ex
+Packing train dataset: 100%|███| 48222/48222 [00:01<00:00, 34602.52 examples/s]
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None}.
+  0%|                                                   | 0/72 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/home/faculty/srmist2/CANON_ACQUISITION/model/train_qlora.py", line 133, in <module>
+    main()
+  File "/home/faculty/srmist2/CANON_ACQUISITION/model/train_qlora.py", line 124, in main
+    trainer.train()
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/transformers/trainer.py", line 1520, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/transformers/trainer.py", line 1602, in _inner_training_loop
+    self._run_epoch(
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/transformers/trainer.py", line 1842, in _run_epoch
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/trl/trainer/sft_trainer.py", line 1905, in training_step
+    return super().training_step(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/transformers/trainer.py", line 2014, in training_step
+    loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/trl/trainer/sft_trainer.py", line 1803, in compute_loss
+    (loss, outputs) = super().compute_loss(
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/transformers/trainer.py", line 2088, in compute_loss
+    outputs = model(**inputs)
+              ^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/accelerate/utils/operations.py", line 943, in forward
+    return model_forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/accelerate/utils/operations.py", line 931, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/torch/amp/autocast_mode.py", line 44, in decorate_autocast
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/peft/peft_model.py", line 2101, in forward
+    return self.base_model(
+           ^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/peft/tuners/tuners_utils.py", line 333, in forward
+    return self.model.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/trl/trainer/sft_trainer.py", line 313, in _chunked_ce_forward
+    outputs: BaseModelOutputWithPast = backbone(
+                                       ^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/transformers/utils/generic.py", line 1068, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/transformers/utils/output_capturing.py", line 286, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/transformers/models/qwen2/modeling_qwen2.py", line 378, in forward
+    "full_attention": create_causal_mask(**mask_kwargs),
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/transformers/masking_utils.py", line 981, in create_causal_mask
+    causal_mask = mask_interface(
+                  ^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/transformers/masking_utils.py", line 586, in eager_mask
+    mask = sdpa_mask(
+           ^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/transformers/utils/deprecation.py", line 171, in wrapped_func
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/transformers/masking_utils.py", line 517, in sdpa_mask
+    attention_mask = mask_function(*_non_vmap_expansion_sdpa(batch_arange, head_arange, q_arange, kv_arange))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/faculty/srmist2/canon-venv/lib/python3.11/site-packages/transformers/masking_utils.py", line 57, in and_mask
+    result = result & mask(batch_idx, head_idx, q_idx, kv_idx).to(result.device)
+             ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 14.54 GiB. GPU 0 has a total capacity of 39.49 GiB of which 5.69 GiB is free. Process 4041479 has 584.00 MiB memory in use. Including non-PyTorch memory, this process has 33.22 GiB memory in use. Of the allocated memory 32.60 GiB is allocated by PyTorch, and 140.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+  0%|                                                   | 0/72 [00:04<?, ?it/s]
+(canon-venv) (voxshield) srmist2@dgxa100:~/CANON_ACQUISITION/model$ 

@@ -1,0 +1,13 @@
+# CANON-brain training deps — needed ONLY on the DGX A100 for the one-time run.
+# build_dataset.py and eval.py are pure stdlib (no installs).
+torch>=2.3
+transformers>=4.44
+datasets>=2.20
+peft>=0.12
+trl>=0.9
+bitsandbytes>=0.43
+accelerate>=0.33
+sentencepiece>=0.2
+# GGUF conversion + CPU quantization is done by llama.cpp (cloned separately):
+#   git clone https://github.com/ggml-org/llama.cpp && cmake -B build && cmake --build build -j
+# CPU inference: Ollama (https://ollama.com) or llama.cpp's llama-server. No Python needed.

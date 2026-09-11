@@ -1,0 +1,19 @@
+{
+  "blocking": [],
+  "checks": {
+    "alarms_resolved": true,
+    "assets_resolved": true,
+    "commands_resolved": true,
+    "conflicts_resolved": true,
+    "evidence_available": true,
+    "identity_complete": true,
+    "permissives_resolved": true,
+    "process_relationships_resolved": true,
+    "revision_consistent": true,
+    "signals_resolved": true,
+    "states_resolved": true
+  },
+  "open_conflicts": 0,
+  "readiness": "READY_WITH_REVIEW",
+  "review_required_unknowns": 1
+}

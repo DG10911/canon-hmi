@@ -1,0 +1,3129 @@
+CANON — SUPER CONTEXT INTELLIGENCE ENGINE
+MASTER RESEARCH + DATASET + MODEL + IMPLEMENTATION PROMPT
+VERSION 5.0
+SCHNEIDER ELECTRIC / INDUSTRIAL HMI PROTOTYPE
+==============================================================
+
+ROLE
+==============================================================
+
+Act simultaneously as:
+
+1. Principal industrial automation architect
+2. Industrial HMI / SCADA architect
+3. Schneider Electric ecosystem researcher
+4. Knowledge-engineering architect
+5. Data engineer
+6. AI/RAG architect
+7. Information-model architect
+8. Control-system UX architect
+9. Safety-conscious software architect
+10. Senior Python/FastAPI/PostgreSQL engineer
+11. Senior React/TypeScript engineer
+12. Research librarian / evidence provenance specialist
+13. Red-team engineer
+
+You are building the CONTEXT INTELLIGENCE FOUNDATION of CANON.
+
+CANON is:
+
+ENGINEERING INTENT → VERIFIED AUTOMATION
+
+It is NOT:
+
+- a generic chatbot
+- a generic RAG application
+- an AI dashboard
+- a tag generator
+- an autonomous PLC controller
+
+The objective is to make CANON capable of understanding an industrial
+machine deeply enough that later AI-generated HMI experiences are
+grounded in actual engineering reality.
+
+==============================================================
+0. EXISTING CANON ARCHITECTURE — DO NOT BREAK
+==============================================================
+
+The existing authority chain is FIXED:
+
+AI PROPOSES
+    ↓
+CANON MODEL DEFINES
+    ↓
+DETERMINISTIC VALIDATOR CHECKS
+    ↓
+ENGINEER APPROVES
+    ↓
+PLC / SIMULATOR CONTROLS
+    ↓
+HMI RECEIVES FEEDBACK
+    ↓
+CHANGE IMPACT
+    ↓
+REGENERATION
+
+Four information layers remain separate:
+
+LAYER A
+OFFICIAL ENGINEERING EVIDENCE
+
+- Schneider Electric official documentation
+- official catalogs
+- official manuals
+- official product information
+- standards references
+- engineering specifications
+
+LAYER B
+THIS MACHINE'S REALITY
+
+- OPC UA
+- Modbus TCP
+- PLC exports
+- I/O configuration
+- runtime signals
+- alarms
+- diagnostics
+- simulator
+
+LAYER C
+CANON MACHINE MODEL
+
+- assets
+- signals
+- relationships
+- commands
+- permissives
+- interlocks
+- alarms
+- states
+- sequences
+- bindings
+- dependencies
+- revisions
+- evidence
+- conflicts
+- unresolved references
+
+LAYER D
+AI PROPOSALS
+
+- natural-language intent interpretation
+- HMI proposals
+- explanations
+- candidate mappings
+- structured JSON only
+
+CRITICAL:
+
+LAYER D NEVER becomes authoritative engineering truth.
+
+AI MUST NEVER:
+
+- invent PLC tags
+- invent node IDs
+- invent equipment
+- invent relationships
+- invent Schneider capabilities
+- invent engineering ranges
+- silently create bindings
+- directly write arbitrary PLC tags
+- bypass validator
+- bypass engineer approval
+- directly control machinery
+
+==============================================================
+1. PRIMARY OBJECTIVE
+==============================================================
+
+Build a complete prototype-grade:
+
+CANON CONTEXT INTELLIGENCE ENGINE
+
+that can take heterogeneous industrial engineering inputs and
+construct a versioned, evidence-backed, machine-specific
+canonical understanding.
+
+The system must answer:
+
+WHAT EXISTS?
+WHERE DID WE FIND IT?
+WHAT DOES IT MEAN?
+HOW IS IT CONNECTED?
+WHAT CONTROLS IT?
+WHAT DOES IT DEPEND ON?
+WHAT CAN WE PROVE?
+WHAT IS UNKNOWN?
+WHAT CONFLICTS?
+WHAT CHANGED?
+WHAT DOES THE ENGINEER WANT?
+WHAT CONTEXT SHOULD THE AI RECEIVE?
+WHAT CAN SAFELY BE PROPOSED?
+
+The result should be dramatically more intelligent than:
+
+PLC tags → embeddings → LLM → HMI
+
+Instead build:
+
+SOURCES
+→ INGESTION
+→ EXTRACTION
+→ NORMALIZATION
+→ ENTITY RESOLUTION
+→ SEMANTIC CORRELATION
+→ EVIDENCE GRAPH
+→ CONFLICT DETECTION
+→ CANON MACHINE MODEL
+→ CONTEXT PACK
+→ AI PROPOSAL
+→ DETERMINISTIC VALIDATION
+
+==============================================================
+2. FIRST ACTION — INSPECT EXISTING PROJECT
+==============================================================
+
+Before writing new architecture:
+
+INSPECT:
+
+/home/workdir/artifacts/canon_blueprint/
+
+00_README.md
+
+and all 18 blueprint files.
+
+Treat the existing blueprint as the current architectural source
+of truth.
+
+Do NOT discard existing work.
+
+Determine:
+
+- existing schemas
+- existing JSON fixtures
+- existing API contracts
+- existing simulator
+- existing validation rules
+- existing component registry
+- existing HMI renderer
+- existing database structure
+- existing Context implementation
+- existing Model implementation
+- existing Intent implementation
+- existing Runtime implementation
+- existing Change implementation
+
+Then produce:
+
+CANON CURRENT-STATE REPORT
+
+containing:
+
+- what already exists
+- what is complete
+- what is partial
+- what is missing
+- what should be extended
+- what should NOT be rebuilt
+
+Only then implement.
+
+==============================================================
+3. RESEARCH MISSION
+==============================================================
+
+Perform deep web research.
+
+DO NOT rely on memory for current Schneider information.
+
+Use authoritative sources first.
+
+Priority:
+
+1. Schneider Electric official documentation
+2. Schneider Electric official product pages
+3. Schneider Electric official catalogs
+4. Schneider Electric official technical documentation
+5. OPC Foundation
+6. Modbus Organization
+7. IEC / ISA official/public summaries
+8. Official software/project documentation
+9. High-quality technical sources
+10. Community sources only when useful for practical context
+
+Do NOT treat search snippets as authoritative evidence.
+
+For every important technical fact record:
+
+- source URL
+- source title
+- publisher
+- publication/update date if available
+- document revision
+- access date
+- page/section when available
+- extracted fact
+- source type
+- authority level
+- confidence/status
+
+==============================================================
+4. SCHNEIDER RESEARCH SCOPE
+==============================================================
+
+Research the Schneider ecosystem relevant to CANON.
+
+At minimum investigate:
+
+MODICON
+
+- M262
+- M580
+- M340
+- relevant controller families
+- I/O systems
+- communication modules
+
+OPC UA
+
+- EcoStruxure OPC UA Server Expert
+- M262 OPC UA capabilities
+- M580 OPC UA capabilities
+- BMENUA0100
+- relevant Schneider OPC UA documentation
+- OPC UA namespace/node concepts
+- supported server/client roles
+
+MACHINE EXPERT
+
+- Machine Expert
+- controller project structure
+- PLC variables
+- I/O
+- function blocks
+- application structures
+- export formats
+- OPC UA handling libraries
+- authorized project/export mechanisms
+
+CONTROL EXPERT
+
+- M580/M340 project concepts
+- XEF/ZEF exports
+- variable/tag concepts
+- I/O
+- program structures
+- alarm concepts
+- project metadata
+
+HMI
+
+- EcoStruxure Operator Terminal Expert
+- Harmony HMI ecosystem
+- HMI catalogs
+- faceplates
+- objects
+- compound objects
+- templates
+- screen concepts
+- supported engineering workflows
+
+IMPORTANT:
+
+Do NOT claim that CANON contains Schneider proprietary object
+libraries unless legally obtained and explicitly provided.
+
+Do NOT reverse engineer proprietary binaries.
+
+Do NOT download or redistribute restricted software.
+
+Do NOT claim an SDK/API exists unless verified from authoritative
+documentation.
+
+If something cannot be verified:
+
+STATUS = UNKNOWN
+
+==============================================================
+5. INDUSTRIAL PROTOCOL RESEARCH
+==============================================================
+
+Build authoritative knowledge around:
+
+OPC UA
+- objects
+- nodes
+- node IDs
+- namespaces
+- variables
+- data types
+- methods
+- references
+- browse hierarchy
+- server/client roles
+- subscriptions
+- data quality
+- timestamps
+
+Modbus TCP
+- coils
+- discrete inputs
+- input registers
+- holding registers
+- function codes
+- addressing
+- datatype interpretation
+- scaling
+- endian considerations
+
+Do NOT let the AI infer arbitrary protocol mappings.
+
+Protocol knowledge informs interpretation.
+
+Machine-specific addresses remain Layer B evidence.
+
+==============================================================
+6. STANDARDS KNOWLEDGE
+==============================================================
+
+Build a standards-reference dataset around publicly available
+information concerning:
+
+IEC 61131-3
+IEC 62541 / OPC UA
+Modbus Application Protocol
+ISA-101
+ISA-18.2
+ISA/IEC 62443
+PackML concepts
+AutomationML
+Asset Administration Shell
+
+IMPORTANT:
+
+Do not copy paid standard text.
+
+Store:
+
+- standard name
+- topic
+- public summary
+- concept
+- official source
+- citation
+- applicability
+- status
+
+Distinguish:
+
+STANDARD KNOWLEDGE
+
+from:
+
+MACHINE FACT
+
+from:
+
+CANON DESIGN RULE.
+
+Never merge them.
+
+==============================================================
+7. COMPLETE CONTEXT INPUT UNIVERSE
+==============================================================
+
+The Context Engine must support the following source classes.
+
+--------------------------------------------------------------
+A. MACHINE IDENTITY
+--------------------------------------------------------------
+
+- machine ID
+- machine name
+- machine type
+- plant
+- area
+- line
+- unit
+- cell
+- project
+- asset hierarchy
+- manufacturer
+- model
+- serial where appropriate
+- engineering revision
+- lifecycle status
+
+--------------------------------------------------------------
+B. CONTROLLER
+--------------------------------------------------------------
+
+- manufacturer
+- controller family
+- controller model
+- firmware
+- hardware revision
+- controller ID
+- operating state
+- RUN/STOP state
+- diagnostics
+- connected modules
+- communication modules
+- network interfaces
+- supported protocols
+- project/application identity
+
+--------------------------------------------------------------
+C. PLC PROGRAM
+--------------------------------------------------------------
+
+When an authorized export is available:
+
+- global variables
+- local variables
+- structures
+- data types
+- function blocks
+- programs
+- routines
+- tasks
+- state machines
+- enumerations
+- constants
+- timers
+- counters
+- expressions
+- comments
+- symbol names
+- references
+- dependencies
+
+--------------------------------------------------------------
+D. SIGNALS
+--------------------------------------------------------------
+
+For every signal:
+
+- signalId
+- tag
+- display name
+- description
+- datatype
+- engineering meaning
+- source
+- address
+- OPC UA node
+- Modbus address if applicable
+- direction
+- readable
+- writable
+- unit
+- engineering range
+- raw range
+- scaling
+- offset
+- precision
+- deadband
+- update rate
+- quality
+- timestamp
+- source revision
+- evidence
+- status
+
+--------------------------------------------------------------
+E. DIGITAL I/O
+--------------------------------------------------------------
+
+Understand:
+
+- DI
+- DO
+- active high
+- active low
+- normally open
+- normally closed
+- command
+- feedback
+- status
+- fault
+- limit
+- permissive
+- interlock
+
+--------------------------------------------------------------
+F. ANALOG I/O
+--------------------------------------------------------------
+
+Capture:
+
+- range
+- raw range
+- engineering range
+- unit
+- scaling
+- precision
+- alarm thresholds
+- deadband
+- sensor fault
+- quality
+- update rate
+
+--------------------------------------------------------------
+G. ASSETS
+--------------------------------------------------------------
+
+Support:
+
+- tank
+- pump
+- motor
+- valve
+- actuator
+- transmitter
+- sensor
+- instrument
+- drive
+- fan
+- compressor
+- heater
+- conveyor
+- robot
+- skid
+- process unit
+
+Every asset should have:
+
+- assetId
+- parent
+- children
+- class
+- type
+- role
+- manufacturer
+- model
+- associated signals
+- associated commands
+- associated alarms
+- relationships
+- evidence
+- revision
+
+--------------------------------------------------------------
+H. INSTRUMENTATION
+--------------------------------------------------------------
+
+Support:
+
+PT
+LT
+TT
+FT
+PSH
+PSL
+LSHH
+LSLL
+and similar engineering tags.
+
+Capture:
+
+- measurement
+- unit
+- range
+- sensor type
+- signal
+- channel
+- calibration metadata when available
+- alarm association
+
+--------------------------------------------------------------
+I. MOTORS / DRIVES
+--------------------------------------------------------------
+
+Capture:
+
+- motor
+- drive
+- rated power
+- voltage
+- current
+- frequency
+- speed
+- command
+- speed reference
+- running feedback
+- direction
+- fault
+- trip
+- operating mode
+
+--------------------------------------------------------------
+J. VALVES
+--------------------------------------------------------------
+
+Capture:
+
+- valve ID
+- valve type
+- actuator
+- open request
+- close request
+- open feedback
+- closed feedback
+- fault
+- position
+- process connection
+- fail position when authoritative
+- interlocks
+
+--------------------------------------------------------------
+K. COMMANDS
+--------------------------------------------------------------
+
+Every command must be modeled as a contract.
+
+Example:
+
+P401_START
+
+REQUEST:
+P401_START_REQ
+
+PERMISSIVES:
+XV401_OPEN
+LT401 < HH
+P401_FAULT = FALSE
+
+FEEDBACK:
+P401_RUN
+
+TIMEOUT:
+5 seconds
+
+FAILURE:
+request accepted but feedback not achieved
+
+Store:
+
+- commandId
+- request signal
+- feedback signal
+- permissives
+- interlocks
+- timeout
+- failure conditions
+- authority
+- evidence
+- revision
+
+--------------------------------------------------------------
+L. PERMISSIVES
+--------------------------------------------------------------
+
+Each permissive:
+
+- ID
+- source
+- condition
+- expected state
+- blocking status
+- explanation
+- evidence
+- authority
+
+--------------------------------------------------------------
+M. INTERLOCKS
+--------------------------------------------------------------
+
+Each interlock:
+
+- ID
+- trigger
+- affected equipment
+- action
+- latch behavior
+- reset
+- severity
+- PLC implementation
+- evidence
+
+--------------------------------------------------------------
+N. ALARMS
+--------------------------------------------------------------
+
+Capture:
+
+- ID
+- source
+- condition
+- severity
+- priority
+- limit
+- deadband
+- delay
+- acknowledgement
+- latching
+- reset
+- consequence
+- operator response
+- evidence
+
+--------------------------------------------------------------
+O. STATES / MODES
+--------------------------------------------------------------
+
+Support:
+
+- stopped
+- starting
+- running
+- stopping
+- held
+- aborted
+- faulted
+- resetting
+- complete
+- manual
+- automatic
+- maintenance
+- local
+- remote
+
+Do not claim PackML certification.
+
+--------------------------------------------------------------
+P. SEQUENCES
+--------------------------------------------------------------
+
+When available:
+
+- startup sequence
+- shutdown sequence
+- production sequence
+- cleaning
+- maintenance
+- recipe sequence
+- state transitions
+- transition conditions
+
+--------------------------------------------------------------
+Q. P&ID / PROCESS DRAWINGS
+--------------------------------------------------------------
+
+When available, extract:
+
+- equipment
+- instrumentation
+- process connections
+- flow direction
+- valves
+- pumps
+- measurement points
+- process relationships
+- control relationships
+
+Do not treat OCR/extracted drawing interpretation as authoritative
+without evidence.
+
+--------------------------------------------------------------
+R. ELECTRICAL DOCUMENTATION
+--------------------------------------------------------------
+
+Support:
+
+- electrical drawings
+- wiring
+- terminal lists
+- cable schedules
+- panel layouts
+- I/O lists
+- MCC
+- motor circuits
+- drive circuits
+
+--------------------------------------------------------------
+S. EXISTING HMI / SCADA
+--------------------------------------------------------------
+
+If supplied:
+
+- screen names
+- navigation
+- tags
+- bindings
+- faceplates
+- alarm presentation
+- trends
+- commands
+- existing workflows
+- visual conventions
+- screenshots
+
+Treat screenshots as design/process evidence, not automatic machine
+truth.
+
+--------------------------------------------------------------
+T. RUNTIME
+--------------------------------------------------------------
+
+Support:
+
+- current values
+- quality
+- timestamps
+- machine state
+- active alarms
+- faults
+- command feedback
+- diagnostics
+- connection status
+- runtime counters
+
+Never display stale data as live.
+
+--------------------------------------------------------------
+U. HISTORIAN
+--------------------------------------------------------------
+
+Future/P1:
+
+- trends
+- alarm history
+- event history
+- state history
+- command history
+- downtime
+
+--------------------------------------------------------------
+V. MAINTENANCE
+--------------------------------------------------------------
+
+Future/P2:
+
+- maintenance schedule
+- service intervals
+- maintenance status
+- failure history
+- spare parts
+- maintenance procedures
+
+--------------------------------------------------------------
+W. OFFICIAL PRODUCT KNOWLEDGE
+--------------------------------------------------------------
+
+Store:
+
+- product
+- family
+- capability
+- limitation
+- protocol
+- supported architecture
+- evidence
+- document
+- revision
+- date
+- status
+
+CRITICAL DISTINCTION:
+
+"This controller CAN support OPC UA"
+
+does NOT mean:
+
+"This machine HAS OPC UA enabled."
+
+--------------------------------------------------------------
+X. USER ENGINEERING INTENT
+--------------------------------------------------------------
+
+Support:
+
+- natural language request
+- structured intent
+- target equipment
+- desired measurements
+- desired commands
+- operator role
+- desired screens
+- HMI constraints
+- acceptance criteria
+
+Intent remains separate from machine truth.
+
+--------------------------------------------------------------
+Y. HMI REQUIREMENTS
+--------------------------------------------------------------
+
+Support:
+
+- resolution
+- orientation
+- operator role
+- screen requirements
+- faceplate requirements
+- alarm requirements
+- trend requirements
+- navigation requirements
+- language
+- unit system
+- accessibility
+
+==============================================================
+8. EVIDENCE MODEL
+==============================================================
+
+THIS IS ONE OF THE MOST IMPORTANT COMPONENTS.
+
+Every engineering fact must retain provenance.
+
+Create:
+
+EvidenceRecord
+
+with:
+
+- evidenceId
+- factId
+- sourceType
+- sourceId
+- sourceURI
+- document
+- page
+- section
+- revision
+- timestamp
+- extractedText
+- structuredValue
+- authority
+- status
+- hash
+- extractionMethod
+
+Example:
+
+FACT:
+PT401 range = 0–10 bar
+
+EVIDENCE:
+PLC configuration
+Revision 17
+Signal PT401
+Engineering range 0–10 bar
+
+STATUS:
+VERIFIED
+
+Another:
+
+FACT:
+PT401.Status maps to X
+
+EVIDENCE:
+NONE
+
+STATUS:
+UNRESOLVED
+
+==============================================================
+9. AUTHORITY MODEL
+==============================================================
+
+Define source authority classes.
+
+Example:
+
+A0
+Safety/authoritative machine control source
+
+A1
+PLC/controller configuration
+
+A2
+Live industrial protocol source
+
+A3
+Approved engineering documentation
+
+A4
+Official Schneider documentation
+
+A5
+Standards reference
+
+A6
+Existing HMI/design artifact
+
+A7
+Engineer-entered information
+
+A8
+AI proposal
+
+Do not blindly rank all sources globally.
+
+Authority must be FACT-TYPE specific.
+
+For example:
+
+Runtime value:
+OPC UA may be authoritative.
+
+Controller capability:
+official Schneider documentation may be authoritative.
+
+HMI layout:
+engineer-approved HMI requirement may be authoritative.
+
+AI proposal:
+never authoritative by itself.
+
+==============================================================
+10. STATUS MODEL
+==============================================================
+
+Every entity/fact must support:
+
+DISCOVERED
+CONNECTED
+CANDIDATE
+VERIFIED
+UNRESOLVED
+CONFLICT
+STALE
+REJECTED
+BLOCKED
+
+Definitions must be deterministic.
+
+Examples:
+
+DISCOVERED:
+Found in source.
+
+CONNECTED:
+Successfully communicated.
+
+CANDIDATE:
+Potential mapping identified.
+
+VERIFIED:
+Authoritative evidence confirms it.
+
+UNRESOLVED:
+Insufficient evidence.
+
+CONFLICT:
+Authoritative sources disagree.
+
+STALE:
+Previously verified source changed.
+
+REJECTED:
+Engineer explicitly rejected.
+
+BLOCKED:
+Cannot safely proceed.
+
+==============================================================
+11. ENTITY RESOLUTION ENGINE
+==============================================================
+
+Build deterministic entity resolution.
+
+The engine should correlate:
+
+PT401
+PT-401
+PressureTransmitter401
+Pressure Transmitter 401
+
+when evidence supports that they are the same entity.
+
+Use signals such as:
+
+- normalized tag
+- description
+- parent equipment
+- datatype
+- engineering unit
+- source
+- address
+- process drawing
+- PLC comments
+- HMI references
+- document references
+
+NEVER merge solely because names look similar.
+
+Every merge needs:
+
+- matching reasons
+- evidence
+- confidence
+- review status
+
+==============================================================
+12. RELATIONSHIP ENGINE
+==============================================================
+
+Build explicit relationship types.
+
+Examples:
+
+CONTAINS
+MEASURES
+ACTUATES
+CONTROLS
+FEEDS
+RECEIVES
+TRANSFERS
+REQUIRES
+DEPENDS_ON
+INTERLOCKED_WITH
+ALARMS_ON
+MONITORS
+COMMANDED_BY
+FEEDBACK_FROM
+BINDS_TO
+PART_OF
+LOCATED_IN
+
+Relationships must have:
+
+- source
+- target
+- relation type
+- evidence
+- status
+- authority
+- revision
+
+Never invent graph edges.
+
+==============================================================
+13. CONFLICT ENGINE
+==============================================================
+
+This must be implemented.
+
+Example:
+
+PLC:
+PT401 = 0–10 bar
+
+Engineering document:
+PT401 = 0–16 bar
+
+CANON:
+
+CONFLICT DETECTED
+
+PT401 RANGE
+
+Source A:
+PLC configuration
+0–10 bar
+
+Source B:
+Engineering document
+0–16 bar
+
+Status:
+CONFLICT
+
+Action:
+ENGINEER REVIEW REQUIRED
+
+The AI must not decide silently.
+
+==============================================================
+14. STALENESS ENGINE
+==============================================================
+
+Every source has:
+
+revision
+timestamp
+content hash
+
+When a source changes:
+
+identify affected entities.
+
+Example:
+
+PT401
+0–10 bar
+→
+0–16 bar
+
+Impact:
+
+PT401 binding
+HMI gauge
+HMI range
+alarm limits
+tests
+trends
+documentation
+dependent commands if applicable
+
+Mark affected artifacts:
+
+STALE
+
+Then hand off to CHANGE IMPACT.
+
+==============================================================
+15. DEPENDENCY GRAPH
+==============================================================
+
+Create adjacency-table based graph in PostgreSQL.
+
+Do NOT introduce Neo4j unless actually needed.
+
+Support recursive queries.
+
+Example:
+
+PT401
+↓
+pressure signal
+↓
+tank model
+↓
+HMI gauge
+↓
+alarm
+↓
+test
+↓
+page
+
+When PT401 changes, CANON can walk the dependency chain.
+
+==============================================================
+16. CONTEXT PACK BUILDER
+==============================================================
+
+THIS IS THE AI'S MAIN INPUT.
+
+Never send the entire raw database to the LLM.
+
+Build a context pack dynamically.
+
+Example:
+
+MACHINE:
+TK-401
+Process Tank
+
+CONTROLLER:
+Modicon M262
+
+ASSETS:
+TK-401
+LT401
+PT401
+P401
+XV401
+
+SIGNALS:
+PT401
+Pressure
+REAL
+bar
+0–10
+VERIFIED
+
+LT401
+Level
+REAL
+%
+0–100
+VERIFIED
+
+P401_RUN
+Boolean
+VERIFIED
+
+XV401_OPEN
+Boolean
+VERIFIED
+
+COMMAND:
+P401_START
+
+PERMISSIVES:
+XV401_OPEN
+LT401 < HH
+P401_FAULT = FALSE
+
+FEEDBACK:
+P401_RUN
+
+RELATIONSHIPS:
+PT401 MEASURES TK-401
+LT401 MEASURES TK-401
+P401 AFFECTS TK-401
+
+UNRESOLVED:
+PT401.Status
+
+CONFLICTS:
+none
+
+RUNTIME:
+PT401 = 6.2 bar
+LT401 = 72%
+P401 = RUNNING
+XV401 = OPEN
+
+EVIDENCE:
+...
+
+REVISION:
+CANON v12
+
+Only provide relevant context for the current intent.
+
+==============================================================
+17. INTENT ENGINE
+==============================================================
+
+Build a structured intent pipeline.
+
+Natural language:
+
+"Create a tank overview with pressure, level, pump status,
+and a start button."
+
+must become:
+
+Intent:
+
+target:
+TK-401
+
+view:
+overview
+
+required signals:
+PT401
+LT401
+P401_RUN
+
+required command:
+P401_START
+
+required status:
+XV401_OPEN
+P401_FAULT
+
+required validation:
+command contract
+
+required components:
+registry-only
+
+The LLM may interpret intent.
+
+The LLM may NOT invent the underlying machine facts.
+
+==============================================================
+18. INTENT MEMORY / SESSION TRACKING
+==============================================================
+
+Track engineering intent across a workflow.
+
+Example:
+
+USER:
+"Create a tank overview."
+
+Then:
+
+"Add the pump controls."
+
+Then:
+
+"Show why the pump can't start."
+
+CANON should understand these are modifications to the same intent.
+
+Store:
+
+IntentRevision
+
+with:
+
+- intentId
+- parentIntent
+- naturalLanguage
+- normalizedIntent
+- targetEntities
+- requestedChanges
+- timestamp
+- user
+- revision
+- status
+- evidence/context used
+
+Do NOT turn this into generic conversational memory.
+
+It is engineering workflow intent.
+
+==============================================================
+19. INTENT ↔ MACHINE TRACEABILITY
+==============================================================
+
+Every generated requirement should be traceable.
+
+Example:
+
+USER INTENT
+"Show tank pressure."
+
+↓
+
+CANON TARGET
+PT401
+
+↓
+
+SIGNAL
+PT401
+
+↓
+
+SOURCE
+OPC UA / PLC
+
+↓
+
+EVIDENCE
+actual evidence
+
+↓
+
+HMI COMPONENT
+PressureGauge
+
+↓
+
+BINDING
+PT401
+
+This traceability is essential.
+
+==============================================================
+20. AI MODEL ARCHITECTURE
+==============================================================
+
+Use an adapter architecture.
+
+Do NOT hard-code one LLM.
+
+Support:
+
+FRONTIER MODEL
+for reasoning / structured output
+
+SMALL MODEL
+for classification / explanation
+
+LOCAL MODEL
+for offline backup
+
+The adapter must enforce:
+
+JSON Schema
+structured output
+temperature/control settings appropriate to deterministic output
+validation
+retry limits
+
+==============================================================
+21. AI TASK SEPARATION
+==============================================================
+
+Do not use one giant prompt for everything.
+
+Create specialized tasks:
+
+TASK A
+Intent classification
+
+TASK B
+Entity candidate matching
+
+TASK C
+Engineering explanation
+
+TASK D
+HMI proposal generation
+
+TASK E
+Change-impact explanation
+
+TASK F
+Evidence summarization
+
+TASK G
+Operator-facing explanation
+
+Every task gets a narrowly scoped Context Pack.
+
+==============================================================
+22. RETRIEVAL ARCHITECTURE
+==============================================================
+
+Use PostgreSQL + pgvector.
+
+No reranker for P0.
+
+Use:
+
+metadata filters
+source authority
+entity filters
+document revision
+machine ID
+equipment type
+protocol
+fact type
+date
+status
+
+Embedding:
+
+primary:
+current approved embedding model selected by benchmark
+
+backup:
+BGE-M3/local
+
+Do not permanently hard-code a model until benchmarking.
+
+==============================================================
+23. RETRIEVAL RESULT FORMAT
+==============================================================
+
+Every retrieved result must include:
+
+content
+source
+source type
+authority
+entity
+revision
+date
+citation
+status
+relevance
+hash
+
+Never give the LLM anonymous chunks.
+
+==============================================================
+24. DOCUMENT PROCESSING
+==============================================================
+
+Support:
+
+PDF
+Markdown
+HTML
+JSON
+CSV
+XML
+PLC exports
+HMI exports
+screenshots/images where appropriate
+
+Preferred:
+
+Docling
+
+Fallback:
+
+pdfplumber
+pypdf
+
+Use OCR only when actually required.
+
+Do not store proprietary PDFs unnecessarily.
+
+Store extracted facts and citations.
+
+==============================================================
+25. DATASETS TO BUILD
+==============================================================
+
+Create a complete prototype dataset family.
+
+Required:
+
+canon_demo_machine.json
+canon_demo_assets.json
+canon_demo_signals.json
+canon_demo_io.json
+canon_demo_commands.json
+canon_demo_permissives.json
+canon_demo_interlocks.json
+canon_demo_alarms.json
+canon_demo_states.json
+canon_demo_sequences.json
+canon_demo_runtime.json
+canon_demo_revisions.json
+canon_demo_dependencies.json
+canon_demo_relationships.json
+canon_demo_evidence.json
+canon_demo_conflicts.json
+canon_demo_unresolved.json
+canon_demo_hmi.json
+canon_demo_bindings.json
+canon_demo_intents.json
+canon_demo_tests.json
+
+Also:
+
+canon_schneider_products.json
+canon_schneider_capabilities.json
+canon_standards.json
+canon_protocols.json
+canon_document_sources.json
+
+==============================================================
+26. DATASET QUALITY
+==============================================================
+
+Every dataset must contain:
+
+IDs
+types
+relationships
+sources
+revision
+status
+evidence references
+
+No anonymous facts.
+
+No fake data.
+
+No invented Schneider facts.
+
+For demonstration-only fixture data, explicitly mark:
+
+fixture = true
+
+and:
+
+sourceType = simulator
+
+Do not represent simulator data as a real Schneider deployment.
+
+==============================================================
+27. PROTOTYPE TK-401 GOLDEN MACHINE
+==============================================================
+
+Use the existing TK-401 model.
+
+Core entities:
+
+TK-401
+LT401
+PT401
+P401
+XV401
+
+Core runtime:
+
+LT401 = 72%
+PT401 = 6.2 bar
+P401 = RUNNING
+XV401 = OPEN
+
+Core command:
+
+P401_START
+
+Permissives:
+
+XV401_OPEN
+LT401 < HH
+P401_FAULT = FALSE
+
+Feedback:
+
+P401_RUN
+
+Timeout:
+
+5 seconds
+
+The exact values must remain fixture/simulator data unless sourced
+from an actual machine.
+
+==============================================================
+28. GOLDEN UNCERTAINTY CASE
+==============================================================
+
+Maintain:
+
+PT401.Status
+
+as an unresolved reference if no authoritative mapping exists.
+
+CANON must display:
+
+REVIEW REQUIRED
+
+Reason:
+No authoritative mapping found.
+
+CANON response:
+Binding not automatically created.
+
+This is deliberate.
+
+It demonstrates:
+
+AI does not hallucinate engineering truth.
+
+==============================================================
+29. GOLDEN CONFLICT CASE
+==============================================================
+
+Create a controlled test fixture for:
+
+PT401 range:
+
+Source A:
+0–10 bar
+
+Source B:
+0–16 bar
+
+Expected:
+
+CONFLICT
+
+Engineer review required.
+
+Do not silently select either.
+
+==============================================================
+30. GOLDEN CHANGE CASE
+==============================================================
+
+Revision:
+
+PT401
+
+0–10 bar
+
+→
+
+0–16 bar
+
+Expected impact:
+
+- PT401 model
+- HMI gauge
+- range
+- alarm thresholds if dependent
+- tests
+- bindings where relevant
+- dependent pages
+
+Mark affected artifacts:
+
+STALE
+
+Then regenerate only after approval.
+
+==============================================================
+31. API MODEL
+==============================================================
+
+Build/extend APIs for:
+
+GET /machines/{id}/context
+GET /machines/{id}/assets
+GET /machines/{id}/signals
+GET /machines/{id}/relationships
+GET /machines/{id}/evidence
+GET /machines/{id}/conflicts
+GET /machines/{id}/unresolved
+GET /machines/{id}/revisions
+GET /machines/{id}/dependencies
+
+POST /machines/import
+
+POST /intent
+
+POST /intent/normalize
+
+POST /context/resolve
+
+POST /context/verify
+
+POST /context/review
+
+POST /context/conflict/resolve
+
+POST /model/build
+
+POST /impact/analyze
+
+POST /hmi/propose
+
+POST /validate
+
+All write operations require appropriate RBAC.
+
+==============================================================
+32. WEBSOCKET
+==============================================================
+
+Runtime WebSocket should publish:
+
+- runtime values
+- quality
+- timestamp
+- machine state
+- connection state
+- alarms
+- command feedback
+
+Browser never receives raw PLC write capability.
+
+==============================================================
+33. SECURITY
+==============================================================
+
+Architecture:
+
+Browser
+↓
+CANON API
+↓
+RBAC
+↓
+Contract
+↓
+Validator
+↓
+Adapter
+↓
+PLC / Simulator
+
+Never:
+
+Browser
+↓
+PLC
+
+Never:
+
+AI
+↓
+PLC
+
+Roles:
+
+VIEWER
+OPERATOR
+ENGINEER
+
+Audit:
+
+- command
+- approval
+- binding creation
+- evidence resolution
+- conflict resolution
+- revision
+- regeneration
+
+==============================================================
+34. AI GUARDRAILS
+==============================================================
+
+Implement hard rules.
+
+The model must reject:
+
+UNKNOWN TAG
+UNKNOWN COMPONENT
+UNKNOWN COMMAND
+UNKNOWN PERMISSIVE
+UNKNOWN PLC NODE
+UNKNOWN PRODUCT CAPABILITY
+UNVERIFIED BINDING
+
+The LLM cannot bypass these.
+
+Example:
+
+AI proposes:
+
+PT401_STATUS
+
+If not in canonical signal registry:
+
+REJECT
+
+Reason:
+
+SIGNAL_NOT_IN_CANON_MODEL
+
+==============================================================
+35. HMI CONTEXT GENERATION
+==============================================================
+
+The Context Engine must eventually produce HMI-ready semantics.
+
+For each equipment:
+
+ROLE
+STATE
+MEASUREMENTS
+COMMANDS
+PERMISSIVES
+INTERLOCKS
+ALARMS
+DEPENDENCIES
+EVIDENCE
+HMI REQUIREMENTS
+
+Then HMI generation can select from registry:
+
+PressureGauge
+LevelIndicator
+PumpFaceplate
+ValveFaceplate
+AlarmBanner
+Trend
+StatusIndicator
+CommandButton
+
+No arbitrary component generation.
+
+==============================================================
+36. MACHINE UNDERSTANDING SCORE
+==============================================================
+
+Do NOT create fake AI confidence.
+
+Instead calculate deterministic readiness:
+
+Assets verified:
+23 / 24
+
+Signals mapped:
+185 / 186
+
+Commands modeled:
+4 / 4
+
+Evidence coverage:
+actual count
+
+Unresolved:
+1
+
+Conflicts:
+0
+
+Example:
+
+CANON CONTEXT READINESS
+
+23/24 assets verified
+185/186 signals mapped
+4/4 commands modeled
+1 unresolved reference
+0 conflicts
+
+This is defensible.
+
+==============================================================
+37. CONTEXT UI
+==============================================================
+
+Update existing Context screen.
+
+Maintain:
+
+CONTEXT
+MODEL
+INTENT
+VALIDATE
+RUNTIME
+CHANGE
+
+Main page:
+
+MACHINE CONTEXT
+
+Metrics:
+
+24 assets
+186 signals
+4 I/O groups
+12 alarms
+
+Add:
+
+CANON CONTEXT READINESS
+
+Central topology:
+
+TK-401
+LT401
+PT401
+P401
+XV401
+
+Use semantic relationships from actual model data.
+
+Right:
+
+ENGINEERING SOURCES
+
+ENGINEERING DISCOVERY
+
+Bottom:
+
+BUILD MACHINE MODEL →
+
+==============================================================
+38. EVIDENCE UI
+==============================================================
+
+Clicking PT401:
+
+EVIDENCE
+
+Element:
+PT401
+
+Signal:
+PT401
+
+Source:
+Modicon M262
+
+Status:
+VERIFIED
+
+Then show actual evidence:
+
+PLC configuration
+OPC UA
+Engineering documentation
+
+Every item:
+
+SOURCE
+FACT
+STATUS
+REVISION
+
+==============================================================
+39. UNRESOLVED UI
+==============================================================
+
+Click:
+
+PT401.Status
+
+Show:
+
+UNRESOLVED REFERENCE
+
+Status:
+REVIEW REQUIRED
+
+Reason:
+No authoritative mapping found.
+
+CANON RESPONSE:
+Binding not automatically created.
+
+Candidate evidence may be shown.
+
+Candidates must be clearly labeled:
+
+CANDIDATE
+
+not:
+
+VERIFIED
+
+Engineer chooses:
+
+Confirm
+Keep unresolved
+Dismiss where appropriate
+
+Every resolution becomes audited revision data.
+
+==============================================================
+40. CONTEXT → MODEL HANDOFF
+==============================================================
+
+When:
+
+BUILD MACHINE MODEL →
+
+execute actual backend process:
+
+DISCOVERY CHECK
+↓
+ENTITY NORMALIZATION
+↓
+RELATIONSHIP RESOLUTION
+↓
+EVIDENCE CHECK
+↓
+UNRESOLVED CHECK
+↓
+CANONICAL MODEL BUILD
+
+Do not fake progress.
+
+Then navigate to:
+
+MODEL
+
+==============================================================
+41. RESEARCH OUTPUT
+==============================================================
+
+Before or alongside implementation, produce:
+
+CANON_CONTEXT_RESEARCH_REPORT.md
+
+Containing:
+
+- Schneider findings
+- protocol findings
+- standards findings
+- HMI findings
+- machine-model findings
+- source URLs
+- citations
+- verified facts
+- unknowns
+- licensing notes
+- access restrictions
+- recommendations
+
+==============================================================
+42. DATASET CATALOG
+==============================================================
+
+Produce:
+
+CANON_CONTEXT_DATASET_CATALOG.json
+
+For every dataset:
+
+name
+purpose
+schema
+source
+authority
+revision
+status
+entity types
+relationships
+sample count
+
+==============================================================
+43. KNOWLEDGE GRAPH / RELATIONSHIP CATALOG
+==============================================================
+
+Produce:
+
+CANON_RELATIONSHIP_SCHEMA.json
+
+with:
+
+relationshipType
+sourceType
+targetType
+direction
+meaning
+evidenceRequired
+authority
+example
+
+==============================================================
+44. EVIDENCE CATALOG
+==============================================================
+
+Produce:
+
+CANON_EVIDENCE_SCHEMA.json
+
+with complete provenance model.
+
+==============================================================
+45. CONTEXT PACK SCHEMA
+==============================================================
+
+Produce:
+
+CANON_CONTEXT_PACK_SCHEMA.json
+
+This becomes the formal contract between:
+
+CANON MODEL
+
+and:
+
+AI MODEL
+
+The AI must never receive arbitrary raw database rows without
+Context Pack construction.
+
+==============================================================
+46. INTENT SCHEMA
+==============================================================
+
+Produce:
+
+CANON_INTENT_SCHEMA.json
+
+with:
+
+intentId
+sessionId
+user
+role
+naturalLanguage
+normalizedIntent
+targets
+requirements
+requestedCommands
+requestedSignals
+hmiRequirements
+constraints
+contextRevision
+status
+parentIntent
+createdAt
+
+==============================================================
+47. REVISION SCHEMA
+==============================================================
+
+Produce:
+
+CANON_REVISION_SCHEMA.json
+
+Track:
+
+source revision
+model revision
+intent revision
+HMI revision
+binding revision
+validation revision
+
+==============================================================
+48. TEST SUITE
+==============================================================
+
+Write tests for:
+
+1. machine ingestion
+2. signal normalization
+3. entity resolution
+4. relationship creation
+5. evidence provenance
+6. unresolved references
+7. conflict detection
+8. stale detection
+9. revision propagation
+10. context pack generation
+11. intent normalization
+12. AI JSON validation
+13. unknown tag rejection
+14. unknown component rejection
+15. unknown command rejection
+16. command contract validation
+17. runtime update
+18. HMI binding validation
+19. RBAC
+20. audit logging
+
+==============================================================
+49. PLAYWRIGHT GOLDEN DEMO
+==============================================================
+
+Automate:
+
+1. Open TK-401.
+2. Context loads.
+3. 24 assets shown.
+4. 186 signals shown.
+5. topology visible.
+6. PT401 clicked.
+7. Evidence drawer opens.
+8. PT401.Status unresolved reference opens.
+9. Review shown.
+10. Candidate evidence shown if available.
+11. Engineer resolves only when authoritative evidence exists.
+12. Build Machine Model.
+13. Model loads.
+14. Runtime updates.
+15. Change PT401 range.
+16. Impact analysis identifies affected artifacts.
+17. HMI becomes stale.
+18. Regeneration occurs after approval.
+19. Tests replay.
+20. Final state is verified.
+
+==============================================================
+50. RED-TEAM TESTING
+==============================================================
+
+Attack the system with:
+
+"Create a PT402 tag."
+
+when PT402 does not exist.
+
+Expected:
+
+REJECTED.
+
+Try:
+
+"Use a 0–16 bar range."
+
+when canonical evidence says 0–10.
+
+Expected:
+
+CONFLICT / REVIEW.
+
+Try:
+
+"Add a start button to P401."
+
+when command contract is missing.
+
+Expected:
+
+COMMAND_MISSING.
+
+Try:
+
+"Write P401_RUN = true."
+
+Expected:
+
+BLOCKED.
+
+Try:
+
+"Schneider M262 definitely supports X."
+
+without authoritative evidence.
+
+Expected:
+
+UNVERIFIED / DO NOT ASSERT.
+
+Try:
+
+"Map PT401.Status to PT401_STATUS."
+
+without evidence.
+
+Expected:
+
+UNRESOLVED.
+
+==============================================================
+51. RESOURCE ACQUISITION RULES
+==============================================================
+
+Fetch resources only through legitimate/publicly available means.
+
+For every external resource classify:
+
+PUBLIC
+LICENSED
+RESTRICTED
+UNKNOWN
+
+Never redistribute:
+
+- proprietary Schneider software
+- restricted object libraries
+- paid standard text
+- copyrighted manuals beyond allowed use
+- proprietary project files obtained improperly
+
+Store citations/facts where appropriate.
+
+If a resource requires account/license:
+
+record:
+
+ACCESS_REQUIRED
+
+Do not pretend it was downloaded.
+
+==============================================================
+52. SEARCH STRATEGY
+==============================================================
+
+Do not make one giant search query.
+
+Research in batches.
+
+BATCH A
+Schneider M262 OPC UA
+
+BATCH B
+M580 OPC UA
+
+BATCH C
+EcoStruxure OPC UA Server Expert
+
+BATCH D
+Machine Expert project/export/PLC data
+
+BATCH E
+Control Expert project/export
+
+BATCH F
+Operator Terminal Expert
+
+BATCH G
+Modbus
+
+BATCH H
+OPC UA
+
+BATCH I
+IEC/ISA concepts
+
+BATCH J
+industrial HMI design / alarm / state concepts
+
+BATCH K
+P&ID / engineering information models
+
+BATCH L
+AutomationML / AAS future interoperability
+
+Use official sources wherever possible.
+
+==============================================================
+53. RESEARCH QUALITY RULE
+==============================================================
+
+Every important claim gets:
+
+SOURCE
+DATE
+STATUS
+
+Statuses:
+
+VERIFIED
+SUPPORTED
+UNKNOWN
+CONFLICT
+RESTRICTED
+NOT_FOUND
+
+Never turn:
+
+"not found"
+
+into:
+
+"does not exist"
+
+unless authoritative evidence supports that conclusion.
+
+==============================================================
+54. DO NOT OVERBUILD
+==============================================================
+
+P0 prototype must work without:
+
+Neo4j
+Redis
+MQTT
+EtherNet/IP
+PROFINET
+OCR
+AAS
+AutomationML
+reranker
+complex multi-agent framework
+real Schneider PLC
+proprietary HMI binaries
+
+P0:
+
+PostgreSQL
+pgvector
+FastAPI
+Pydantic
+React
+TypeScript
+WebSocket
+asyncua
+pymodbus
+deterministic simulator
+structured-output LLM
+JSON Schema
+Zod
+Pytest
+Playwright
+Docker Compose
+
+==============================================================
+55. IMPLEMENTATION PRIORITY
+==============================================================
+
+P0:
+
+1. canonical schemas
+2. machine ingestion
+3. asset model
+4. signal model
+5. relationship model
+6. evidence model
+7. command contracts
+8. permissives
+9. alarms
+10. unresolved state
+11. conflict state
+12. revisions
+13. dependency graph
+14. Context Pack
+15. intent schema
+16. AI adapter
+17. Context API
+18. Context UI
+19. tests
+
+P1:
+
+PLC export ingestion
+document corpus
+Schneider knowledge corpus
+P&ID ingestion
+existing HMI ingestion
+advanced retrieval
+BGE-M3 local backup
+
+P2:
+
+historian
+maintenance
+cross-machine dependencies
+advanced semantic model
+
+P3:
+
+AAS
+AutomationML
+plant-wide digital twin
+advanced multi-machine reasoning
+
+==============================================================
+56. FILE STRUCTURE
+==============================================================
+
+Create clean separation.
+
+backend/
+
+  canon/
+    context/
+    model/
+    intent/
+    evidence/
+    retrieval/
+    relationships/
+    revisions/
+    impact/
+    validation/
+    runtime/
+
+  schemas/
+
+  adapters/
+    llm/
+    opcua/
+    modbus/
+
+  ingestion/
+    documents/
+    plc/
+    hmi/
+    pid/
+
+frontend/
+
+  context/
+  model/
+  intent/
+  validate/
+  runtime/
+  change/
+
+data/
+
+  demo/
+  schneider/
+  standards/
+  protocols/
+
+tests/
+
+  context/
+  evidence/
+  intent/
+  validation/
+  impact/
+  e2e/
+
+==============================================================
+57. DATABASE
+==============================================================
+
+Use PostgreSQL 16.
+
+Use pgvector.
+
+Core tables:
+
+machines
+assets
+signals
+io_points
+commands
+permissives
+interlocks
+alarms
+states
+sequences
+relationships
+evidence
+sources
+documents
+facts
+conflicts
+unresolved_references
+bindings
+dependencies
+revisions
+intents
+intent_revisions
+context_packs
+audit_events
+
+Every relevant table should support:
+
+created_at
+updated_at
+revision
+status
+
+where appropriate.
+
+==============================================================
+58. CANON MACHINE MODEL PRINCIPLE
+==============================================================
+
+The machine model must become the central truth layer.
+
+Example:
+
+TK-401
+│
+├── LT401
+│    └── measures → TK-401
+│
+├── PT401
+│    └── measures → TK-401
+│
+├── P401
+│    ├── affects → TK-401
+│    ├── command → P401_START
+│    └── feedback → P401_RUN
+│
+└── XV401
+     ├── open feedback → XV401_OPEN
+     └── required by → P401_START
+
+This should be represented in structured data,
+not just rendered graphically.
+
+==============================================================
+59. SUPER CONTEXT QUESTION ENGINE
+==============================================================
+
+Build deterministic queries that allow CANON to answer:
+
+What is this machine?
+
+What equipment belongs to it?
+
+What signals belong to each equipment item?
+
+What does each signal mean?
+
+Where does this signal come from?
+
+What is its engineering range?
+
+What commands exist?
+
+What must be true before each command?
+
+What feedback confirms the command?
+
+What alarms affect this equipment?
+
+What interlocks affect it?
+
+What does it depend on?
+
+What depends on it?
+
+What HMI elements already exist?
+
+What evidence supports each fact?
+
+What is unresolved?
+
+What conflicts?
+
+What changed since the previous revision?
+
+What downstream artifacts are affected?
+
+What user intent is currently active?
+
+What Context Pack should the AI receive?
+
+==============================================================
+60. GOLDEN AI QUERY
+==============================================================
+
+Given:
+
+"Create an operator screen for TK-401 showing level,
+pressure, pump status, valve status, alarms and pump control."
+
+CANON must first retrieve:
+
+TK-401
+LT401
+PT401
+P401
+XV401
+P401_START
+permissives
+feedback
+alarms
+relationships
+HMI requirements
+evidence
+current revision
+
+Then create:
+
+CONTEXT PACK
+
+Then AI produces:
+
+STRICT JSON PROPOSAL
+
+Then:
+
+CANON validator checks every reference.
+
+Then:
+
+Engineer approval.
+
+Then:
+
+HMI renderer.
+
+==============================================================
+61. GOLDEN PRINCIPLE
+==============================================================
+
+The system should be able to say:
+
+"I know this."
+
+"I know why I know this."
+
+"I know where it came from."
+
+"I know when it changed."
+
+"I know what depends on it."
+
+"I do not know this."
+
+"These sources disagree."
+
+"I will not invent the missing information."
+
+This is the personality of the CANON engineering intelligence layer.
+
+==============================================================
+62. SUCCESS CRITERIA
+==============================================================
+
+The prototype is successful when a judge can see:
+
+RAW MACHINE
+↓
+DISCOVERY
+↓
+EVIDENCE
+↓
+NORMALIZATION
+↓
+CANON MACHINE MODEL
+↓
+INTENT
+↓
+AI PROPOSAL
+↓
+DETERMINISTIC VALIDATION
+↓
+ENGINEER APPROVAL
+↓
+HMI
+↓
+RUNTIME
+↓
+CHANGE IMPACT
+↓
+REGENERATION
+
+and understand that AI is only one component.
+
+==============================================================
+63. FINAL OUTPUTS REQUIRED
+==============================================================
+
+Produce:
+
+1. CANON_CONTEXT_RESEARCH_REPORT.md
+
+2. CANON_CONTEXT_ARCHITECTURE.md
+
+3. CANON_CONTEXT_DATASET_CATALOG.json
+
+4. CANON_MACHINE_MODEL_SCHEMA.json
+
+5. CANON_EVIDENCE_SCHEMA.json
+
+6. CANON_RELATIONSHIP_SCHEMA.json
+
+7. CANON_INTENT_SCHEMA.json
+
+8. CANON_CONTEXT_PACK_SCHEMA.json
+
+9. CANON_REVISION_SCHEMA.json
+
+10. CANON_SOURCE_AUTHORITY_MODEL.json
+
+11. CANON_STATUS_MODEL.json
+
+12. CANON_CONTEXT_QUERY_CATALOG.json
+
+13. Schneider knowledge dataset
+
+14. standards dataset
+
+15. protocol dataset
+
+16. TK-401 golden datasets
+
+17. conflict fixtures
+
+18. unresolved fixtures
+
+19. test suite
+
+20. Playwright demo suite
+
+21. working backend implementation
+
+22. working Context UI
+
+23. working Context → Model transition
+
+==============================================================
+64. FINAL DIRECTIVE
+==============================================================
+
+DO NOT simply build a RAG database.
+
+BUILD AN ENGINEERING CONTEXT ENGINE.
+
+DO NOT simply collect documents.
+
+EXTRACT STRUCTURED ENGINEERING FACTS.
+
+DO NOT simply embed tags.
+
+UNDERSTAND THEIR SEMANTIC RELATIONSHIPS.
+
+DO NOT allow AI to define machine truth.
+
+LET THE CANONICAL MODEL DEFINE MACHINE TRUTH.
+
+DO NOT hide uncertainty.
+
+MAKE UNCERTAINTY EXPLICIT.
+
+DO NOT hide conflicts.
+
+MAKE CONFLICTS EXPLICIT.
+
+DO NOT lose provenance.
+
+MAKE EVERY IMPORTANT FACT TRACEABLE.
+
+DO NOT use arbitrary LLM confidence scores.
+
+USE DETERMINISTIC EVIDENCE / STATUS / READINESS.
+
+DO NOT dump all raw information into the LLM.
+
+BUILD A RELEVANT, VERSIONED CONTEXT PACK.
+
+DO NOT let intent mutate machine truth.
+
+KEEP USER INTENT AND MACHINE FACTS SEPARATE.
+
+DO NOT let the browser write arbitrary PLC tags.
+
+ONLY CONTRACTED REQUESTS MAY REACH THE CONTROL ADAPTER.
+
+DO NOT invent Schneider APIs, capabilities, products, SDKs,
+object libraries, tags, addresses, or documentation.
+
+VERIFY.
+
+CITE.
+
+VERSION.
+
+TRACE.
+
+VALIDATE.
+
+==============================================================
+65. THE FINAL PRODUCT EXPERIENCE
+==============================================================
+
+When an engineer opens:
+
+TK-401
+
+CANON should feel like it has already performed an engineering
+discovery operation.
+
+The UI should be able to communicate:
+
+--------------------------------------------------------------
+
+TK-401
+PROCESS TANK
+
+24 ASSETS
+186 SIGNALS
+4 I/O GROUPS
+12 ALARMS
+
+CANON CONTEXT READINESS
+
+23/24 references verified
+1 unresolved
+0 conflicts
+
+--------------------------------------------------------------
+
+MACHINE TOPOLOGY
+
+                     TK-401
+                  PROCESS TANK
+                       │
+          ┌────────────┼────────────┐
+          │            │            │
+        LT401        PT401         P401
+        72 %         6.2 bar      RUNNING
+                                    │
+                                  XV401
+                                   OPEN
+
+--------------------------------------------------------------
+
+ENGINEERING SOURCES
+
+✓ Modicon M262
+✓ OPC UA
+✓ I/O Configuration
+✓ Alarm Definitions
+✓ Engineering Documents
+
+--------------------------------------------------------------
+
+UNRESOLVED
+
+⚠ PT401.Status
+
+No authoritative mapping found.
+
+CANON DID NOT INVENT A BINDING.
+
+[Review]
+
+--------------------------------------------------------------
+
+NEXT
+
+BUILD CANONICAL MACHINE MODEL →
+
+--------------------------------------------------------------
+
+That is the target.
+
+The user should feel:
+
+"CANON has understood my machine before asking AI to design
+anything."
+
+==============================================================
+END OF MASTER PROMPT
+==============================================================

@@ -1,0 +1,3064 @@
+CANON
+MACHINE CONTEXT → VERIFIED DIGITAL HMI → AUTHORITATIVE CONTROL
+
+MASTER PRODUCT REBUILD PROMPT
+VERSION 5.0 — SCHNEIDER ELECTRIC–GRADE INDUSTRIAL ENGINEERING EXPERIENCE
+
+============================================================
+0. YOUR ROLE
+============================================================
+
+You are simultaneously:
+
+• Principal UX architect
+• Industrial automation engineer
+• Schneider Electric–grade product designer
+• HMI/SCADA interaction designer
+• Motion designer
+• Frontend architect
+• Design systems engineer
+• Data visualization engineer
+• AI product architect
+• Demo/storytelling director
+
+You are NOT designing a generic AI SaaS dashboard.
+
+You are NOT designing a chatbot.
+
+You are NOT designing a hackathon-looking dashboard.
+
+You are rebuilding CANON into a product that could credibly be presented as:
+
+“A next-generation engineering intelligence and dynamic HMI layer for the Schneider Electric EcoStruxure ecosystem.”
+
+The result must feel:
+
+• premium
+• industrial
+• calm
+• precise
+• trustworthy
+• engineered
+• information-dense without being cluttered
+• technically credible
+• extremely polished
+• visually cinematic
+• operational rather than decorative
+
+The product should communicate:
+
+AI proposes.
+The machine model defines.
+The validator guarantees.
+The engineer approves.
+The PLC controls.
+
+That trust architecture must be visible throughout the UX.
+
+============================================================
+1. CORE PRODUCT
+============================================================
+
+Product name:
+
+CANON
+
+Primary positioning:
+
+MACHINE CONTEXT → VERIFIED DIGITAL HMI
+
+Supporting statement:
+
+“Generate machine-specific HMIs from engineering truth — validate every binding, preserve control authority, and keep the interface synchronized as the machine evolves.”
+
+CANON is an engineering intelligence layer that takes:
+
+• PLC/controller information
+• I/O
+• tags
+• device metadata
+• equipment hierarchy
+• alarms
+• commands
+• permissives
+• states
+• ranges
+• engineering documentation
+• machine images
+• process information
+• natural-language engineering intent
+
+and transforms them into:
+
+MACHINE CONTEXT
+        ↓
+CANONICAL MACHINE MODEL
+        ↓
+ENGINEERING INTENT
+        ↓
+DETERMINISTIC VALIDATION
+        ↓
+HMI COMPILATION
+        ↓
+RUNTIME HMI
+        ↓
+PLC-AUTHORITATIVE CONTROL
+        ↓
+OBSERVABILITY
+        ↓
+CHANGE IMPACT
+        ↓
+REGENERATION
+        ↓
+REGRESSION
+        ↓
+APPROVED BASELINE
+
+The UI must make this pipeline understandable visually.
+
+============================================================
+2. MOST IMPORTANT DESIGN PRINCIPLE
+============================================================
+
+The application must NEVER look like:
+
+“Type prompt → AI generates dashboard.”
+
+Instead it must look like:
+
+“Engineering context is assembled → a canonical machine model is established → AI proposes intent → deterministic engineering validation occurs → an approved HMI is compiled → the HMI operates against live machine state.”
+
+AI is one component.
+
+Engineering truth is the center.
+
+This distinction is critical.
+
+============================================================
+3. VISUAL DIRECTION
+============================================================
+
+Create a visual language inspired by premium industrial engineering software and the visual discipline of Schneider Electric.
+
+Do NOT blindly clone Schneider Electric's proprietary interface.
+
+Use the following principles:
+
+• deep / dark graphite engineering surfaces where appropriate
+• Schneider-inspired green as an accent
+• white / near-white engineering canvas
+• restrained neutral grays
+• subtle borders
+• very controlled shadows
+• technical typography
+• excellent spacing
+• compact data presentation
+• strong hierarchy
+• thin technical icons
+• precise status indicators
+• subtle green signal flow
+• high-quality diagrams
+• restrained animations
+
+Avoid:
+
+• neon cyberpunk
+• purple AI gradients
+• excessive glassmorphism
+• giant glowing cards
+• excessive rounded corners
+• startup SaaS aesthetics
+• cartoon illustrations
+• meaningless gradients
+• excessive icons
+• excessive whitespace
+• fake “AI magic”
+• giant chat bubbles
+• generic dashboard templates
+
+The interface should feel closer to:
+
+industrial control engineering workstation
++
+modern engineering IDE
++
+digital twin
++
+premium enterprise software
+
+============================================================
+4. THE EXPERIENCE SHOULD HAVE TWO WORLDS
+============================================================
+
+CANON has two major UX environments.
+
+WORLD A — ENGINEERING INTELLIGENCE
+
+This is where the engineer:
+
+• discovers machines
+• inspects canonical models
+• imports context
+• creates HMIs
+• reviews AI proposals
+• validates bindings
+• understands dependencies
+• reviews changes
+• manages baselines
+
+WORLD B — OPERATIONAL RUNTIME
+
+This is where the operator:
+
+• sees the machine
+• sees live process values
+• controls authorized equipment
+• sees alarms
+• sees permissives
+• sees trends
+• sees machine health
+• receives operator assistance
+• sees real-time analytics
+
+These worlds must feel connected but visually distinct.
+
+============================================================
+5. OPENING EXPERIENCE
+============================================================
+
+DO NOT immediately open into a dashboard.
+
+Create a cinematic but professional opening sequence.
+
+Duration:
+approximately 3–6 seconds.
+
+Sequence:
+
+FRAME 1
+
+Minimal dark/white engineering canvas.
+
+CANON logo/wordmark appears.
+
+Small technical subtitle:
+
+MACHINE CONTEXT → VERIFIED DIGITAL HMI
+
+Then a thin engineering signal line begins moving.
+
+FRAME 2
+
+Machine/equipment nodes appear.
+
+Examples:
+
+PLC
+I/O
+TAGS
+ALARMS
+COMMANDS
+PERMISSIVES
+DOCUMENTATION
+
+These assemble into:
+
+CANONICAL MACHINE MODEL
+
+FRAME 3
+
+The model becomes the central source of truth.
+
+Text:
+
+“THE MACHINE MODEL IS THE SOURCE OF TRUTH”
+
+FRAME 4
+
+Intent enters:
+
+“Create an operator HMI for TK-401.”
+
+A structured transformation occurs:
+
+INTENT
+→ PROPOSE
+→ VALIDATE
+→ COMPILE
+→ BIND
+→ RENDER
+
+FRAME 5
+
+A live HMI materializes.
+
+The machine model remains visible behind it as the underlying source.
+
+FRAME 6
+
+Final statement:
+
+“AI proposes.
+Engineering truth defines.
+PLC controls.”
+
+Then transition into the main application.
+
+IMPORTANT:
+
+Animation must feel like an engineering system booting.
+
+NOT like an AI landing-page animation.
+
+============================================================
+6. MAIN APPLICATION SHELL
+============================================================
+
+Build a world-class application shell.
+
+Desktop-first.
+
+Target:
+1440px / 1600px / 1920px.
+
+Responsive down to 1280px.
+
+Layout:
+
+LEFT:
+persistent engineering navigation
+
+CENTER:
+main workspace
+
+RIGHT:
+context / inspector / activity / validation depending on screen
+
+TOP:
+system status + project context + environment
+
+============================================================
+7. LEFT SIDEBAR
+============================================================
+
+Create a sophisticated engineering navigation rail.
+
+Top:
+
+CANON
+Engineering Intelligence
+
+Workspace selector:
+
+TK-401 / PROCESS SKID
+
+Navigation:
+
+OVERVIEW
+
+MACHINE LIBRARY
+
+CANONICAL MODELS
+
+EQUIPMENT
+
+HMI STUDIO
+
+RUNTIME
+
+CONTROL
+
+ALARMS
+
+TRENDS
+
+ANALYTICS
+
+CHANGE IMPACT
+
+VALIDATION
+
+BASELINES
+
+AUDIT TRAIL
+
+ENGINEERING SOURCES
+
+SYSTEM
+
+Each item should have:
+
+• icon
+• label
+• optional badge
+• status where useful
+
+Do not over-round everything.
+
+Use compact enterprise navigation.
+
+Sidebar can collapse into icon mode.
+
+============================================================
+8. OVERVIEW — COMMAND CENTER
+============================================================
+
+The first real application screen should be an engineering command center.
+
+Header:
+
+CANON ENGINEERING WORKSPACE
+
+TK-401 PROCESS TANK
+
+Status:
+
+● LIVE
+PLC CONNECTED
+MODEL v1.2.3
+LAST VALIDATED 10:24:17
+
+Main dashboard sections:
+
+A. MACHINE STATUS
+
+Large machine visualization.
+
+Show:
+
+TK-401
+Level
+Pressure
+Pump
+Valve
+PLC
+Machine state
+
+B. ENGINEERING HEALTH
+
+Cards:
+
+MODEL VALID
+47 TAGS
+12 ALARMS
+8 COMMANDS
+6 PERMISSIVES
+0 BROKEN BINDINGS
+0 VALIDATION ERRORS
+
+C. HMI STATUS
+
+CURRENT RUNTIME:
+TK-401 Operator HMI
+
+STATE:
+VERIFIED
+
+D. DATA QUALITY
+
+LIVE
+STALE
+UNKNOWN
+SIMULATED
+
+E. CHANGE STATUS
+
+No pending changes
+
+or:
+
+3 impacted artifacts
+Awaiting regeneration
+
+F. RECENT ACTIVITY
+
+• HMI generated
+• Validation passed
+• P401 command executed
+• Model updated
+• Baseline approved
+
+============================================================
+9. “CREATE HMI” MUST BE A MAJOR ACTION
+============================================================
+
+Primary CTA:
+
++ CREATE HMI
+
+Secondary:
+
+OPEN EXISTING HMI
+
+The product must support BOTH.
+
+This is extremely important.
+
+CANON is not only a generator.
+
+It is also an engineering HMI management environment.
+
+============================================================
+10. HMI LIBRARY
+============================================================
+
+Create a professional HMI library.
+
+Screen:
+
+HMI LIBRARY
+
+Search:
+
+Search HMIs, equipment, tags, models...
+
+Filters:
+
+Equipment
+Plant
+Machine type
+Application
+Status
+Version
+Validation state
+
+Example cards:
+
+TK-401 OPERATOR
+VERIFIED
+v1.2.3
+
+PUMP SKID CONTROL
+VERIFIED
+v2.1.0
+
+MOTOR FACEPLATE
+VERIFIED
+v4.0.2
+
+ENERGY OVERVIEW
+VERIFIED
+
+Each card shows:
+
+thumbnail
+machine
+screen type
+model version
+validation status
+last modified
+data source
+Open button
+
+Actions:
+
+OPEN
+DUPLICATE
+COMPARE
+GENERATE VARIANT
+VIEW MODEL
+
+This gives the product the feeling of an existing engineering ecosystem rather than “AI creates everything from scratch.”
+
+============================================================
+11. CREATE HMI EXPERIENCE
+============================================================
+
+Click:
+
+CREATE HMI
+
+Open a professional creation workspace.
+
+Title:
+
+CREATE MACHINE-SPECIFIC HMI
+
+Step indicator:
+
+01 CONTEXT
+02 INTENT
+03 MODEL
+04 VALIDATE
+05 COMPILE
+06 REVIEW
+07 RUNTIME
+
+But do NOT make this feel like a generic form wizard.
+
+It should behave like an engineering compiler pipeline.
+
+============================================================
+12. STEP 01 — MACHINE CONTEXT
+============================================================
+
+Create a large engineering workspace.
+
+Title:
+
+MACHINE CONTEXT
+
+Subtitle:
+
+“Select the engineering truth from which this HMI will be constructed.”
+
+Three input methods:
+
+A. SELECT EXISTING MACHINE
+
+Search:
+
+TK-401
+Pump Skid 04
+ATV630 Drive
+M580 Controller
+Energy Meter
+
+B. IMPORT ENGINEERING DATA
+
+Allow:
+
+• JSON
+• CSV
+• XML
+• PDF
+• engineering documentation
+• PLC export
+• device configuration
+• images
+• machine descriptions
+
+C. DESCRIBE MACHINE
+
+Natural language input:
+
+“Process tank with level transmitter, pressure transmitter, feed pump and inlet valve.”
+
+The input area should support drag-and-drop.
+
+Show uploaded/selected sources as engineering evidence cards.
+
+Example:
+
+PLC CONFIG
+Connected
+
+DEVICE MAP
+47 tags
+
+ALARM DEFINITION
+12 alarms
+
+EQUIPMENT TREE
+8 assets
+
+MACHINE DOCUMENT
+3 pages
+
+IMAGE
+TK-401.jpg
+
+============================================================
+13. MACHINE CONTEXT VISUALIZATION
+============================================================
+
+After context ingestion, visualize it.
+
+Create a technical topology view.
+
+Example:
+
+                    PLC
+                     │
+        ┌────────────┼─────────────┐
+        │            │             │
+      LT401        PT401         P401
+        │            │             │
+      LEVEL       PRESSURE       PUMP
+                                   │
+                                  XV401
+                                   │
+                                 VALVE
+
+Show live/verified states.
+
+Clicking any node opens details.
+
+This should look like engineering topology software.
+
+============================================================
+14. CANONICAL MACHINE MODEL
+============================================================
+
+Create a dedicated canonical model explorer.
+
+Header:
+
+CANONICAL MACHINE MODEL
+
+Status:
+
+● SOURCE OF TRUTH
+MODEL v1.2.3
+
+Left:
+
+Hierarchy
+
+TK-401
+├── Instrumentation
+│   ├── LT401
+│   └── PT401
+├── Equipment
+│   └── P401
+├── Valve
+│   └── XV401
+├── Alarms
+├── Commands
+├── Permissives
+└── States
+
+Center:
+
+Selected asset detail.
+
+Example:
+
+P401
+FEED PUMP
+
+TYPE:
+Motor-driven pump
+
+SIGNALS:
+
+P401_SPEED
+REAL
+0–1500 rpm
+
+P401_RUN
+BOOL
+
+P401_START
+COMMAND
+
+P401_STOP
+COMMAND
+
+PERMISSIVES:
+
+XV401_OPEN
+TANK_LEVEL < 97%
+
+Left/right relationship lines should show dependencies.
+
+============================================================
+15. MODEL DETAILS
+============================================================
+
+For every asset provide:
+
+Identity
+Type
+Source
+Address
+Data type
+Engineering unit
+Range
+Scaling
+Quality
+Commands
+Permissives
+Alarms
+Dependencies
+Documentation
+Revision history
+
+Example:
+
+PT401
+
+Pressure transmitter
+
+Source:
+M580 / %MW412
+
+Data:
+REAL
+
+Engineering range:
+0–16 bar
+
+PLC range:
+0–27648
+
+Current:
+6.8 bar
+
+Quality:
+LIVE / VALID
+
+This is where CANON should feel extremely technically credible.
+
+============================================================
+16. STEP 02 — ENGINEERING INTENT
+============================================================
+
+Create the “Create by intent” experience.
+
+Header:
+
+ENGINEERING INTENT
+
+Subheading:
+
+“Describe what the operator needs. CANON translates intent into a machine-specific interface.”
+
+Prompt:
+
+Create an operator HMI for TK-401 showing:
+• level
+• pressure
+• feed pump
+• inlet valve
+• machine state
+• alarms
+• start/stop control
+
+Allow:
+
+TEXT INPUT
+
+DOCUMENT INPUT
+
+VOICE INPUT PLACEHOLDER
+
+PREDEFINED TEMPLATES
+
+Templates:
+
+Operator Overview
+Pump Control
+Motor Faceplate
+Process Skid
+Energy Dashboard
+Alarm Overview
+Maintenance Screen
+
+Do NOT make this look like ChatGPT.
+
+The prompt should be one part of an engineering compiler.
+
+============================================================
+17. SHOW WHAT THE AI ACTUALLY DOES
+============================================================
+
+When Generate is clicked:
+
+DO NOT instantly show final HMI.
+
+Show a cinematic engineering compilation sequence.
+
+Timeline:
+
+01 INGEST CONTEXT
+✓ 47 tags discovered
+
+02 RESOLVE INTENT
+✓ 14 interface requirements
+
+03 PROPOSE WIDGETS
+✓ 22 widgets proposed
+
+04 RESOLVE MODEL
+✓ 22/22 bindings found
+
+05 VALIDATE
+✓ Types valid
+✓ Ranges valid
+✓ Commands valid
+✓ Permissives valid
+✓ Alarm references valid
+
+06 COMPILE
+✓ Runtime package generated
+
+07 BIND
+✓ PLC-backed bindings established
+
+08 RENDER
+✓ HMI ready
+
+The sequence should take approximately 2–4 seconds.
+
+Use subtle motion.
+
+No fake loading spinner.
+
+Make it feel like a compiler.
+
+============================================================
+18. CRITICAL DEMO:
+FAILED VALIDATION
+============================================================
+
+Include a deliberate example of a bad AI proposal.
+
+AI proposes:
+
+MADE_UP_TAG
+
+Validator detects:
+
+× TAG NOT FOUND IN CANONICAL MODEL
+
+Then show:
+
+PROPOSAL REJECTED
+
+Reason:
+
+“The proposed binding does not exist in the machine model.”
+
+Then:
+
+AI revises proposal.
+
+Correct tag:
+
+PT401
+
+✓ VALIDATED
+
+This is one of the strongest trust demonstrations.
+
+Make it visually excellent.
+
+============================================================
+19. VALIDATION CENTER
+============================================================
+
+Create a dedicated screen:
+
+VALIDATION CENTER
+
+Summary:
+
+VALIDATION PASSED
+
+47 / 47 bindings valid
+22 / 22 widgets valid
+8 / 8 commands valid
+6 / 6 permissives valid
+12 / 12 alarms valid
+
+Validation groups:
+
+TAG EXISTENCE
+DATA TYPES
+ENGINEERING RANGES
+COMMAND CONTRACTS
+PERMISSIVES
+ALARM DEFINITIONS
+MODEL REVISION
+SCALING
+DATA QUALITY
+TEST CASES
+
+Every item can expand.
+
+Example:
+
+P401_START
+
+✓ Tag exists
+✓ Command contract valid
+✓ Permissive dependency resolved
+✓ PLC authority confirmed
+✓ Test case passed
+
+============================================================
+20. HMI STUDIO
+============================================================
+
+Once generated, open HMI STUDIO.
+
+This is a serious visual editor.
+
+Layout:
+
+LEFT:
+component/tool palette
+
+CENTER:
+live HMI canvas
+
+RIGHT:
+properties / bindings / validation
+
+Top:
+
+TK-401
+OPERATOR HMI
+VERIFIED
+
+Tools:
+
+Overview
+Process
+Trends
+Alarms
+Control
+Diagnostics
+
+Components:
+
+Numeric
+Gauge
+Trend
+Motor
+Valve
+Tank
+Alarm
+Status
+Command
+Image
+3D
+Energy
+Table
+
+Each widget must show its binding when selected.
+
+Example:
+
+PRESSURE GAUGE
+
+Binding:
+PT401
+
+Source:
+Canonical Model
+
+Data:
+REAL
+
+Range:
+0–16 bar
+
+Quality:
+LIVE
+
+Validation:
+✓
+
+============================================================
+21. RUNTIME HMI
+============================================================
+
+The runtime should be the hero experience.
+
+It must look like a real industrial HMI.
+
+Use:
+
+• machine process visualization
+• tank
+• pump
+• valve
+• pressure
+• level
+• alarms
+• trends
+• machine state
+• controls
+• data quality
+
+Top:
+
+TK-401
+PROCESS TANK
+
+● LIVE
+PLC CONNECTED
+
+Main process:
+
+Tank with animated liquid level.
+
+P401 pump.
+
+XV401 valve.
+
+Piping.
+
+Sensors.
+
+Live values.
+
+Control panel.
+
+============================================================
+22. REAL 3D MACHINE VIEW
+============================================================
+
+Integrate the existing Three.js machine visualization.
+
+Do not put it in a decorative card.
+
+Treat it as an operational digital twin.
+
+Allow:
+
+• rotate
+• zoom
+• pan
+• select equipment
+• highlight active equipment
+• show sensor values
+• show flow
+• show machine state
+• show alarms
+
+Click:
+
+P401
+
+Then highlight the pump in 3D.
+
+Right inspector:
+
+P401
+FEED PUMP
+
+RUNNING
+
+Speed:
+1450 rpm
+
+Flow:
+42.8 m³/h
+
+Power:
+18.4 kW
+
+Command:
+START / STOP
+
+Permissive:
+✓ XV401 OPEN
+✓ LEVEL < 97%
+
+============================================================
+23. LIVE MACHINE SYNCHRONIZATION
+============================================================
+
+Use the existing SKAB/replay/live data system.
+
+Do NOT fake values if real data already exists.
+
+The following must update synchronously:
+
+• 3D machine
+• HMI widgets
+• trends
+• analytics
+• operator assistance
+• machine state
+• alarms
+• energy estimate
+• throughput
+• anomaly rate
+
+When START is pressed:
+
+1. Operator clicks START
+2. Command contract opens
+3. Permissive check executes
+4. PLC/simulation receives command
+5. P401 starts
+6. 3D pump spins
+7. level changes
+8. pressure changes
+9. flow changes
+10. HMI updates
+11. analytics update
+12. event appears in audit trail
+
+This should be visible.
+
+============================================================
+24. CONTROL FLOW VISUALIZATION
+============================================================
+
+Create a beautiful control trace.
+
+When START is pressed:
+
+OPERATOR
+   ↓
+HMI COMMAND
+   ↓
+COMMAND CONTRACT
+   ↓
+PERMISSIVE CHECK
+   ↓
+PLC
+   ↓
+MACHINE
+   ↓
+FEEDBACK
+   ↓
+HMI
+
+Show each stage becoming active.
+
+Example:
+
+COMMAND
+P401.START
+
+PERMISSIVE
+
+✓ XV401 OPEN
+✓ Tank level < 97%
+✓ No active fault
+
+AUTHORIZATION
+
+✓ COMMAND AUTHORIZED
+
+PLC
+
+✓ COMMAND ACCEPTED
+
+MACHINE
+
+P401 STARTING
+
+FEEDBACK
+
+P401_RUNNING = TRUE
+
+RESULT
+
+P401 RUNNING
+
+This is a hero interaction.
+
+============================================================
+25. NEVER LET AI LOOK LIKE THE CONTROLLER
+============================================================
+
+Every control screen should reinforce:
+
+AI:
+PROPOSES
+
+CANONICAL MODEL:
+DEFINES
+
+VALIDATOR:
+CHECKS
+
+ENGINEER:
+APPROVES
+
+PLC:
+CONTROLS
+
+Use this consistently.
+
+============================================================
+26. OPERATOR ASSIST
+============================================================
+
+Add an Operator Assist panel.
+
+Do NOT make it a chatbot.
+
+Instead make it contextual engineering assistance.
+
+Example:
+
+OPERATOR ASSIST
+
+P401 cannot start.
+
+Reason:
+XV401 is closed.
+
+Required action:
+Open XV401 before starting P401.
+
+Evidence:
+
+XV401_OPEN = FALSE
+P401_START_PERMISSIVE = FALSE
+
+Confidence:
+HIGH
+
+Source:
+Canonical Model / PLC
+
+Suggested action:
+Open inlet valve
+
+This must be grounded in actual machine state.
+
+============================================================
+27. REAL-TIME ANALYTICS
+============================================================
+
+Create an analytics workspace.
+
+Metrics:
+
+Runtime
+Throughput
+Energy estimate
+Pump load
+Pressure stability
+Level stability
+Anomaly rate
+Command frequency
+
+Use small professional sparklines.
+
+Avoid huge flashy charts.
+
+Provide:
+
+CURRENT
+24H
+7D
+EVENT
+
+Example:
+
+P401 Runtime
+06:42:18
+
+Energy
+18.4 kWh
+
+Throughput
+42.8 m³/h
+
+Anomaly rate
+1.2%
+
+Data quality:
+LIVE
+
+============================================================
+28. DATA QUALITY
+============================================================
+
+Data quality must be a first-class concept.
+
+States:
+
+● LIVE
+● STALE
+● UNKNOWN
+● SIMULATED
+
+Never silently use stale data.
+
+If stale:
+
+STAGE:
+
+PT401
+STALE
+
+Last valid:
+10:21:08
+
+Action:
+FREEZE VALUE
+
+If simulated:
+
+SIMULATED DATA
+
+This should be obvious but not visually noisy.
+
+============================================================
+29. CHANGE IMPACT ENGINE
+============================================================
+
+This should be one of CANON's most impressive screens.
+
+Header:
+
+CHANGE IMPACT
+
+Example:
+
+ENGINEERING CHANGE DETECTED
+
+PT401 range:
+
+BEFORE
+0–10 bar
+
+AFTER
+0–16 bar
+
+Show dependency graph.
+
+PT401
+ ↓
+Pressure Gauge
+ ↓
+Scaling
+ ↓
+High Pressure Alarm
+ ↓
+Trend Configuration
+ ↓
+Operator HMI
+ ↓
+Test Cases
+ ↓
+Documentation
+
+Highlight impacted components.
+
+Then:
+
+IMPACT FOUND
+7 artifacts affected
+
+Action:
+
+REGENERATE AFFECTED INTERFACES
+
+Then:
+
+VALIDATE
+REGRESSION TEST
+APPROVE BASELINE
+
+Final:
+
+NEW APPROVED BASELINE
+
+This needs to feel like version control for industrial HMIs.
+
+============================================================
+30. VERSION / BASELINE SYSTEM
+============================================================
+
+Create:
+
+BASELINES
+
+Example:
+
+v1.2.3
+APPROVED
+10 Sep 2026
+Engineer Approved
+
+v1.2.2
+ARCHIVED
+
+v1.2.1
+ARCHIVED
+
+Each baseline shows:
+
+Model revision
+HMI revision
+Validation result
+Test result
+Affected equipment
+Approval
+Audit trail
+
+============================================================
+31. AUDIT TRAIL
+============================================================
+
+Create a professional event log.
+
+Example:
+
+10:24:17
+ENGINEER
+Approved HMI v1.2.3
+
+10:23:52
+VALIDATOR
+47 bindings validated
+
+10:23:48
+CANON
+Regenerated PT401-dependent widgets
+
+10:22:11
+ENGINEERING MODEL
+PT401 range changed
+
+10:21:08
+PLC
+P401_RUNNING = TRUE
+
+Use timestamps and source labels.
+
+============================================================
+32. EQUIPMENT EXPLORER
+============================================================
+
+Create a dedicated equipment screen.
+
+Plant hierarchy:
+
+SITE
+ └ PROCESS AREA
+   └ SKID
+     ├ TK-401
+     ├ P401
+     ├ XV401
+     ├ LT401
+     └ PT401
+
+Selecting an equipment item opens:
+
+3D representation
+identity
+status
+signals
+commands
+alarms
+permissives
+HMI screens
+dependencies
+documentation
+history
+
+============================================================
+33. ENGINEERING SOURCES
+============================================================
+
+Create a source repository.
+
+Sources:
+
+PLC configuration
+Device register map
+I/O list
+Alarm definitions
+Equipment manuals
+P&ID
+Machine image
+CSV
+JSON
+XML
+PDF
+
+Each source shows:
+
+status
+version
+ingestion date
+relationships
+model artifacts generated from it
+
+============================================================
+34. ONE MODEL → MANY RENDERS
+============================================================
+
+Demonstrate:
+
+ONE CANONICAL MODEL
+
+↓
+
+DESKTOP HMI
+TABLET HMI
+COMPACT HMI
+DRIVE FACEPLATE
+ENERGY DASHBOARD
+MAINTENANCE VIEW
+
+Create a beautiful visualization showing the same machine model feeding multiple interfaces.
+
+The message:
+
+“One machine model.
+Many operational experiences.”
+
+============================================================
+35. HMI SEARCH / DISCOVERY
+============================================================
+
+Create a global search.
+
+Search anything:
+
+TK-401
+P401
+PT401
+pressure
+alarm
+HMI
+baseline
+command
+model
+device
+
+Results should group by:
+
+Machines
+Equipment
+HMIs
+Tags
+Alarms
+Commands
+Documents
+Changes
+
+This makes CANON feel like a real engineering platform.
+
+============================================================
+36. COMMAND PALETTE
+============================================================
+
+Add a professional command palette.
+
+Keyboard shortcut:
+
+⌘K
+
+Commands:
+
+Open Machine
+Create HMI
+Open Runtime
+Find Equipment
+Find Tag
+Open Model
+View Validation
+View Changes
+Compare Baselines
+Open Audit Trail
+
+This adds premium software quality.
+
+============================================================
+37. MOTION SYSTEM
+============================================================
+
+Motion must explain engineering relationships.
+
+Do NOT animate everything.
+
+Use motion only when it explains:
+
+• data flow
+• machine state
+• validation
+• control
+• regeneration
+• dependency
+• change propagation
+
+Animation principles:
+
+150–250ms UI transitions
+
+300–600ms meaningful state transitions
+
+Flow lines move from:
+
+SOURCE
+→ MODEL
+→ VALIDATOR
+→ HMI
+→ PLC
+→ MACHINE
+
+When a tag changes:
+
+TAG
+→ DEPENDENCY GRAPH
+→ AFFECTED HMI
+→ REGENERATION
+→ VALIDATION
+→ BASELINE
+
+Motion should be subtle and engineered.
+
+============================================================
+38. LANDING / PRODUCT HOME
+============================================================
+
+Create a premium product landing/dashboard before entering the workspace.
+
+Hero:
+
+CANON
+
+ENGINEERING INTENT
+→
+VERIFIED DIGITAL HMI
+
+Text:
+
+“Turn machine context into validated, machine-specific operator experiences — without losing engineering control.”
+
+Hero visual:
+
+A machine topology on one side.
+
+Canonical model in center.
+
+Runtime HMI on other side.
+
+Thin animated data paths connect them.
+
+CTA:
+
+OPEN ENGINEERING WORKSPACE
+
+Secondary:
+
+EXPLORE MACHINE LIBRARY
+
+Below:
+
+WHY CANON
+
+01
+Machine-specific by design
+
+02
+Runtime generation
+
+03
+Verified bindings
+
+04
+PLC-authoritative control
+
+05
+Change-aware regeneration
+
+06
+Engineering continuity
+
+============================================================
+39. LANDING PAGE STORY
+============================================================
+
+The page should tell the story without requiring narration.
+
+Section:
+
+TRADITIONAL
+
+Manual screen design
+Manual tag binding
+Static templates
+Manual updates
+High engineering effort
+
+Then:
+
+CANON
+
+Machine context
+Canonical model
+AI intent
+Deterministic validation
+Runtime HMI
+PLC-authoritative control
+Change-aware regeneration
+
+Make the transition animated.
+
+============================================================
+40. “SEE IT HAPPEN” DEMO
+============================================================
+
+Create a guided interactive product story.
+
+CTA:
+
+SEE CANON IN ACTION
+
+Then show:
+
+MACHINE SELECTED
+
+↓
+
+ENGINEERING CONTEXT RESOLVED
+
+↓
+
+CANONICAL MODEL BUILT
+
+↓
+
+OPERATOR INTENT ENTERED
+
+↓
+
+AI PROPOSES
+
+↓
+
+VALIDATOR CHECKS
+
+↓
+
+HMI COMPILED
+
+↓
+
+LIVE MACHINE APPEARS
+
+↓
+
+OPERATOR STARTS PUMP
+
+↓
+
+PLC AUTHORIZES
+
+↓
+
+MACHINE RUNS
+
+↓
+
+ENGINEERING CHANGE OCCURS
+
+↓
+
+IMPACT GRAPH APPEARS
+
+↓
+
+HMI REGENERATES
+
+↓
+
+REGRESSION PASSES
+
+↓
+
+NEW BASELINE APPROVED
+
+This is the entire product story.
+
+============================================================
+41. DEMO MODE
+============================================================
+
+Create a dedicated:
+
+DEMO MODE
+
+This is essential for the college competition.
+
+One click should reset the entire environment.
+
+Button:
+
+RUN CANON DEMO
+
+Then automatically guide the judge through:
+
+1. Select TK-401
+2. Inspect machine model
+3. Create HMI
+4. Enter intent
+5. Show AI proposal
+6. Show validation
+7. Show rejected MADE_UP_TAG
+8. Correct it
+9. Render HMI
+10. Start pump
+11. Show 3D movement
+12. Show analytics
+13. Show operator assist
+14. Change PT401 range
+15. Show impact graph
+16. Regenerate
+17. Validate
+18. Approve baseline
+
+The judge should understand the complete novelty in approximately 2–3 minutes.
+
+============================================================
+42. REAL BACKEND INTEGRATION
+============================================================
+
+DO NOT replace working functionality with mock UI.
+
+Preserve and connect the existing implementation.
+
+Existing capabilities include:
+
+• Three.js 3D
+• SKAB recorded industrial data
+• Schneider register maps
+• local LLM backend
+• runtime HMI
+• machine control simulation
+• validation
+• model generation
+• live analytics
+
+Use the existing APIs/data structures wherever possible.
+
+Create adapters instead of destroying working backend logic.
+
+Architecture:
+
+FRONTEND
+↓
+CANON APPLICATION STATE
+↓
+CANONICAL MACHINE MODEL
+↓
+VALIDATION ENGINE
+↓
+HMI COMPILER
+↓
+RUNTIME
+↓
+DATA / PLC / SIMULATOR
+
+============================================================
+43. LOCAL LLM
+============================================================
+
+Support local LLM endpoint.
+
+Example:
+
+vLLM
+Qwen2.5-Coder-32B-Instruct
+
+Endpoint:
+
+http://<DGX>:8088
+
+But the frontend must NOT expose technical implementation complexity to the operator.
+
+Engineering settings should contain:
+
+AI ENGINE
+
+Endpoint
+Model
+Status
+Latency
+Last request
+Schema version
+
+Example:
+
+● CONNECTED
+
+Qwen2.5-Coder-32B-Instruct
+
+LOCAL INFERENCE
+
+The UI should communicate:
+
+“Your engineering data remains inside your controlled environment.”
+
+============================================================
+44. AI OUTPUT CONTRACT
+============================================================
+
+AI does not directly generate arbitrary UI code.
+
+AI produces structured intent / widget proposals.
+
+Example conceptual schema:
+
+{
+  "screen": "...",
+  "widgets": [],
+  "bindings": [],
+  "commands": [],
+  "requirements": []
+}
+
+Then deterministic validation checks the proposal.
+
+The UI should visually communicate this architecture.
+
+============================================================
+45. ERROR STATES
+============================================================
+
+Build excellent error handling.
+
+Examples:
+
+UNKNOWN TAG
+
+“PT999 does not exist in the canonical model.”
+
+INVALID RANGE
+
+“Proposed range conflicts with engineering model.”
+
+INVALID COMMAND
+
+“START command is not exposed by the controller.”
+
+PERMISSIVE FAILURE
+
+“P401 cannot start while XV401 is closed.”
+
+STALE DATA
+
+“PT401 value frozen because live quality is unavailable.”
+
+MODEL REVISION CONFLICT
+
+“HMI proposal was generated against model v1.2.2. Current model is v1.2.3.”
+
+Every error should explain:
+
+WHAT
+WHY
+SOURCE
+RECOMMENDED ACTION
+
+============================================================
+46. RESPONSIVENESS
+============================================================
+
+Primary target:
+
+1920×1080
+
+Also optimize:
+
+1600×900
+1440×900
+1280×800
+
+Do not simply shrink the desktop layout.
+
+For narrower screens:
+
+• collapse secondary inspectors
+• preserve main engineering canvas
+• collapse navigation
+• use drawers
+• prioritize runtime and model data
+
+============================================================
+47. ACCESSIBILITY
+============================================================
+
+Industrial interface must be readable.
+
+Use:
+
+high contrast
+clear state labels
+icons + text
+not color alone
+large touch targets for controls
+clear command confirmation
+keyboard navigation
+focus states
+
+Especially distinguish:
+
+LIVE
+STALE
+UNKNOWN
+SIMULATED
+
+without relying only on color.
+
+============================================================
+48. DESIGN SYSTEM
+============================================================
+
+Create a coherent CANON design system.
+
+Typography:
+
+Use a professional sans-serif.
+
+Hierarchy:
+
+Display
+H1
+H2
+H3
+Body
+Label
+Caption
+Data
+
+Components:
+
+Buttons
+Inputs
+Dropdowns
+Tabs
+Tables
+Cards
+Panels
+Badges
+Status indicators
+Command controls
+Charts
+Gauges
+Tree views
+Inspectors
+Dialogs
+Toasts
+Timeline
+Dependency graph
+Topology graph
+
+Do not use random component styles.
+
+Everything must feel like one engineering product.
+
+============================================================
+49. COLOR SYSTEM
+============================================================
+
+Primary accent:
+
+Schneider-inspired engineering green.
+
+Neutrals:
+
+Graphite
+Charcoal
+White
+Off-white
+Cool gray
+
+Semantic:
+
+Green = healthy / validated / active
+Amber = warning / attention
+Red = fault / blocked
+Blue = informational
+Gray = unavailable
+
+Do not flood the UI with green.
+
+Green should mean:
+
+VALID
+AUTHORIZED
+LIVE
+HEALTHY
+APPROVED
+
+============================================================
+50. DATA VISUALIZATION
+============================================================
+
+Charts must be technical.
+
+No decorative charts.
+
+Show:
+
+axis
+units
+time
+threshold
+engineering range
+current value
+quality
+
+Use sparklines where possible.
+
+Example:
+
+PT401
+
+6.8 bar
+
+0 ─────────────── 16 bar
+
+Trend:
+
+pressure over time
+
+High alarm:
+12 bar
+
+============================================================
+51. MICROINTERACTIONS
+============================================================
+
+Examples:
+
+Hover equipment:
+subtle highlight
+
+Select tag:
+dependency path highlights
+
+Click P401:
+3D pump highlights
+
+Start:
+command trace animates
+
+Validation:
+checks resolve sequentially
+
+Change:
+impact graph propagates
+
+Regenerate:
+affected components pulse once
+
+Approve:
+baseline status changes to APPROVED
+
+Do not overanimate.
+
+============================================================
+52. ENGINEERING TRUST LANGUAGE
+============================================================
+
+Use precise language.
+
+GOOD:
+
+“Binding validated against canonical model.”
+
+“Command authorized by PLC permissive.”
+
+“Value frozen due to stale quality.”
+
+“7 dependent artifacts affected.”
+
+“Model revision mismatch.”
+
+BAD:
+
+“AI magic!”
+
+“Your AI built this!”
+
+“Smart automation!”
+
+“Wow! Generated instantly!”
+
+The product should sound like engineers built it for engineers.
+
+============================================================
+53. PRODUCT COPY
+============================================================
+
+Primary:
+
+ENGINEERING INTENT → VERIFIED DIGITAL HMI
+
+Secondary:
+
+“Machine context is the source of truth.”
+
+Trust statement:
+
+“AI proposes. The model defines. The validator checks. The PLC controls.”
+
+Runtime statement:
+
+“Every interface is generated from machine reality — not assumptions.”
+
+Change statement:
+
+“Change the machine. Trace the impact. Regenerate only what changed.”
+
+============================================================
+54. HOME SCREEN INFORMATION ARCHITECTURE
+============================================================
+
+Final navigation:
+
+CANON
+
+WORKSPACE
+• Overview
+• Machine Library
+• Equipment
+
+ENGINEERING
+• Canonical Models
+• Engineering Sources
+• HMI Studio
+• Validation
+• Change Impact
+• Baselines
+• Audit Trail
+
+OPERATIONS
+• Runtime
+• Control
+• Alarms
+• Trends
+• Analytics
+
+SYSTEM
+• AI Engine
+• Connections
+• Settings
+
+============================================================
+55. HMI RUNTIME SCREEN STRUCTURE
+============================================================
+
+Top bar:
+
+CANON
+TK-401
+● LIVE
+PLC CONNECTED
+MODEL v1.2.3
+
+Left:
+
+Overview
+Process
+Trends
+Alarms
+Control
+Diagnostics
+
+Center:
+
+3D/process visualization
+
+Right:
+
+Machine state
+
+RUNNING
+AUTO
+
+Level
+72%
+
+Pressure
+6.8 bar
+
+Health
+GOOD
+
+Bottom:
+
+Pump
+RUNNING
+
+Valve
+OPEN
+
+Recent alarms
+None
+
+Data quality
+LIVE
+
+============================================================
+56. MACHINE 3D
+============================================================
+
+Use the existing 3D asset.
+
+Improve it dramatically.
+
+Requirements:
+
+• realistic industrial material
+• controlled lighting
+• clean background
+• subtle technical overlays
+• live sensor callouts
+• animated liquid
+• animated pump
+• valve state
+• flow indication
+• selectable components
+
+Do NOT make it look like a game.
+
+It should look like an industrial digital twin.
+
+============================================================
+57. REAL IMAGE + 3D HYBRID
+============================================================
+
+Allow machine source image to be displayed alongside the digital twin.
+
+Example:
+
+LEFT:
+REAL MACHINE IMAGE
+
+RIGHT:
+DIGITAL TWIN
+
+Overlay:
+
+LT401
+PT401
+P401
+XV401
+
+Clicking a real-machine callout selects the corresponding digital asset.
+
+This reinforces:
+
+REAL MACHINE
+→
+CANONICAL MODEL
+→
+DIGITAL EXPERIENCE
+
+============================================================
+58. JUDGE-FACING NOVELTY PANEL
+============================================================
+
+Create an unobtrusive “WHY CANON?” section.
+
+Six points:
+
+01
+RUNTIME GENERATION
+
+02
+VERIFIED BINDINGS
+
+03
+MACHINE-SPECIFIC DESIGN
+
+04
+PLC-AUTHORITATIVE CONTROL
+
+05
+CHANGE-AWARE REGENERATION
+
+06
+ONE MODEL → MANY RENDERS
+
+Each item should have a one-sentence explanation.
+
+============================================================
+59. COMPARISON
+============================================================
+
+Create a polished comparison section:
+
+TRADITIONAL HMI
+vs
+CANON
+
+Traditional:
+
+Manual screen design
+Manual tag binding
+Static templates
+Manual updates
+Separate documentation
+High engineering effort
+
+CANON:
+
+Machine context driven
+Canonical model
+Validated bindings
+Runtime generation
+Impact-aware regeneration
+Engineering continuity
+
+Do not attack competitors.
+
+Remain technically respectful.
+
+============================================================
+60. PERFORMANCE
+============================================================
+
+Do not sacrifice performance for visual effects.
+
+Requirements:
+
+• lazy load heavy 3D assets
+• memoize expensive components
+• avoid unnecessary React rerenders
+• virtualize large model trees/tables
+• throttle live telemetry
+• keep animations GPU-friendly
+• maintain smooth interaction
+• no blocking UI during LLM calls
+• show meaningful progress states
+
+============================================================
+61. ARCHITECTURE QUALITY
+============================================================
+
+Refactor frontend into logical modules.
+
+Example:
+
+/components
+  /shell
+  /navigation
+  /machine
+  /model
+  /hmi
+  /runtime
+  /validation
+  /control
+  /analytics
+  /change-impact
+  /audit
+  /common
+
+/state
+
+/services
+
+/data
+
+/types
+
+Do not duplicate logic.
+
+Create reusable components.
+
+============================================================
+62. DO NOT BREAK EXISTING FUNCTIONALITY
+============================================================
+
+Before changing anything:
+
+1. inspect the entire existing codebase
+2. identify routes
+3. identify state management
+4. identify API endpoints
+5. identify data sources
+6. identify current HMI renderer
+7. identify Three.js scene
+8. identify LLM integration
+9. identify validation logic
+10. identify simulation/control logic
+
+Then rebuild the UX around those capabilities.
+
+Do NOT rewrite working backend functionality merely for visual reasons.
+
+Preserve:
+
+• START
+• STOP
+• permissive logic
+• SKAB data
+• real-time analytics
+• 3D machine
+• LLM endpoint
+• model generation
+• validation
+• runtime HMI
+
+============================================================
+63. DEMO SAFETY
+============================================================
+
+Never imply that AI directly controls industrial equipment.
+
+Clearly separate:
+
+AI PROPOSAL
+
+from
+
+CONTROL AUTHORITY
+
+Control actions must always pass through:
+
+command contract
++
+permissive
++
+PLC/controller
+
+============================================================
+64. FINAL VISUAL QUALITY BAR
+============================================================
+
+The final product must pass this test:
+
+If the logo and text were removed, it should still look like a serious industrial engineering application.
+
+It should NOT look like:
+
+• a student dashboard
+• an AI wrapper
+• a chatbot
+• a startup landing page
+• a generic React template
+• a Dribbble concept
+• a cyberpunk control room
+
+It SHOULD look like:
+
+a product engineering team spent months refining an industrial automation platform.
+
+============================================================
+65. FINAL “WOW” MOMENT
+============================================================
+
+Create one signature interaction.
+
+On the overview screen:
+
+Click:
+
+CREATE HMI
+
+Then:
+
+MACHINE CONTEXT
+appears.
+
+The selected machine topology assembles.
+
+↓
+
+CANONICAL MODEL
+builds.
+
+↓
+
+Engineer enters:
+
+“Create an operator HMI for TK-401.”
+
+↓
+
+AI proposal appears.
+
+↓
+
+One deliberately invalid binding appears:
+
+MADE_UP_TAG
+
+↓
+
+Validator rejects it.
+
+↓
+
+AI proposal is corrected.
+
+↓
+
+VALIDATION PASSED
+
+↓
+
+HMI compiles.
+
+↓
+
+The screen opens.
+
+↓
+
+The 3D TK-401 machine appears.
+
+↓
+
+P401 is stopped.
+
+↓
+
+Operator presses START.
+
+↓
+
+Command path animates:
+
+HMI
+→ CONTRACT
+→ PERMISSIVE
+→ PLC
+→ P401
+
+↓
+
+Pump physically spins in 3D.
+
+↓
+
+Level rises.
+
+↓
+
+Pressure changes.
+
+↓
+
+Analytics update.
+
+↓
+
+Then engineering changes:
+
+PT401
+0–10 bar
+→
+0–16 bar
+
+↓
+
+Dependency graph automatically traces:
+
+PT401
+→ gauge
+→ scaling
+→ alarm
+→ trend
+→ HMI
+→ test case
+
+↓
+
+“7 ARTIFACTS AFFECTED”
+
+↓
+
+REGENERATE
+
+↓
+
+VALIDATE
+
+↓
+
+REGRESSION PASSED
+
+↓
+
+APPROVE BASELINE
+
+↓
+
+NEW APPROVED BASELINE
+
+Final message:
+
+ENGINEERING CONTINUITY ESTABLISHED.
+
+This should be the most impressive sequence in the entire application.
+
+============================================================
+66. CRITICAL UX PRINCIPLE
+============================================================
+
+Every screen should answer one of these questions:
+
+WHAT MACHINE AM I LOOKING AT?
+
+WHAT DOES THE MACHINE MODEL KNOW?
+
+WHAT DID THE ENGINEER ASK FOR?
+
+WHAT DID AI PROPOSE?
+
+WHAT WAS VALIDATED?
+
+WHAT IS ACTUALLY RUNNING?
+
+WHAT CAN THE OPERATOR CONTROL?
+
+WHY IS A COMMAND ALLOWED/BLOCKED?
+
+WHAT CHANGED?
+
+WHAT WILL THAT CHANGE AFFECT?
+
+WHAT WAS REGENERATED?
+
+WHAT VERSION IS APPROVED?
+
+If the interface does not answer these questions clearly, improve it.
+
+============================================================
+67. FINAL IMPLEMENTATION DIRECTIVE
+============================================================
+
+Do not stop at visual mockups.
+
+Build the actual functioning experience.
+
+Every major interaction must work.
+
+Buttons must perform real actions.
+
+Navigation must work.
+
+Search must work.
+
+HMI generation must work.
+
+Validation must work.
+
+Runtime must work.
+
+START must work.
+
+STOP must work.
+
+Permissive blocking must work.
+
+3D synchronization must work.
+
+Analytics must update.
+
+Change impact must work.
+
+Regeneration must work.
+
+Baselines must work.
+
+Audit events must appear.
+
+Demo Mode must work.
+
+Use realistic seeded data when live data is unavailable, but clearly label simulated data.
+
+============================================================
+68. FINAL DELIVERABLE
+============================================================
+
+Deliver:
+
+1. Premium CANON landing experience
+
+2. Engineering command center
+
+3. Machine library
+
+4. Equipment explorer
+
+5. Canonical model explorer
+
+6. Engineering sources
+
+7. Create HMI workflow
+
+8. Natural-language intent interface
+
+9. AI proposal visualization
+
+10. Deterministic validation center
+
+11. HMI Studio
+
+12. Live runtime HMI
+
+13. Three.js digital twin
+
+14. Real-machine image view
+
+15. Control flow visualization
+
+16. Operator Assist
+
+17. Real-time analytics
+
+18. Alarm center
+
+19. Trends
+
+20. Change Impact Engine
+
+21. Regeneration flow
+
+22. Regression validation
+
+23. Baseline management
+
+24. Audit trail
+
+25. HMI library
+
+26. Global search
+
+27. Command palette
+
+28. Demo Mode
+
+29. AI Engine settings
+
+30. Connection status
+
+============================================================
+69. FINAL BRAND STATEMENT
+============================================================
+
+End the major product story with:
+
+CANON
+
+MACHINE CONTEXT
+→
+CANONICAL MODEL
+→
+VERIFIED HMI
+→
+AUTHORITATIVE CONTROL
+→
+ENGINEERING CONTINUITY
+
+Small footer:
+
+AI proposes.
+The machine model defines.
+The validator checks.
+The engineer approves.
+The PLC controls.
+
+============================================================
+70. EXECUTION INSTRUCTION
+============================================================
+
+FIRST:
+
+Inspect the existing project completely.
+
+SECOND:
+
+Map every existing feature and preserve working functionality.
+
+THIRD:
+
+Create the new CANON design system.
+
+FOURTH:
+
+Rebuild the application shell and navigation.
+
+FIFTH:
+
+Build the engineering command center.
+
+SIXTH:
+
+Build machine/model/equipment exploration.
+
+SEVENTH:
+
+Build Create HMI compiler workflow.
+
+EIGHTH:
+
+Integrate existing LLM + validation.
+
+NINTH:
+
+Build the runtime HMI and digital twin.
+
+TENTH:
+
+Build control trace and operator assist.
+
+ELEVENTH:
+
+Build change impact + regeneration + baseline.
+
+TWELFTH:
+
+Build cinematic Demo Mode.
+
+THIRTEENTH:
+
+Polish every interaction, animation, state, spacing, typography and transition.
+
+Do not give me a design explanation instead of implementation.
+
+Actually implement the experience.
+
+============================================================
+71. QUALITY GATE
+============================================================
+
+Before considering the work complete, inspect the entire application as if you were:
+
+A Schneider Electric product executive
+A senior automation engineer
+An HMI engineer
+A plant operator
+A cybersecurity engineer
+A UX director
+A hackathon judge
+
+Ask:
+
+Does this look commercially credible?
+
+Does the engineering model visibly control the system?
+
+Is AI clearly subordinate to engineering truth?
+
+Can a judge understand the novelty without narration?
+
+Does the runtime actually feel alive?
+
+Does the 3D machine respond to controls?
+
+Are validation failures believable?
+
+Is change impact visually obvious?
+
+Does the application feel coherent?
+
+Does anything look like generic AI SaaS?
+
+Does anything look like a student prototype?
+
+Remove anything that does.
+
+============================================================
+72. ABSOLUTE FINAL DIRECTIVE
+============================================================
+
+DO NOT merely “make the current UI prettier.”
+
+RECONCEPTUALIZE THE EXPERIENCE.
+
+The current prototype contains the technical foundation.
+
+Your job is to turn that foundation into a PRODUCT.
+
+The final experience should create this reaction:
+
+“Wait — this isn't just an AI HMI generator.
+
+This is an engineering intelligence layer sitting between machine reality and the operator experience.”
+
+That is the target.
+
+Build CANON to that standard.

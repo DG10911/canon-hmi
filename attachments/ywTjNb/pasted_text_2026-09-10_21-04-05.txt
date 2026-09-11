@@ -1,0 +1,240 @@
+11 — CANON HMI Generation Architecture
+
+
+
+Principle
+
+The LLM never emits React, HTML, or SVG source.
+The LLM emits a UI specification that names components from a registry and bindings from the machine model.
+The renderer is deterministic.
+
+machine semantic
+  → component selection (LLM proposes, registry constrains)
+    → component schema (Zod/Pydantic)
+      → layout (grid / faceplate slots)
+        → validator (bindings, ranges, units, commands)
+          → approved UI document (revisioned)
+            → runtime HMI
+
+
+
+Why not Schneider Operator Terminal Expert as the renderer
+
+OTE is the commercial Harmony configuration environment. Catalogs document 650+ objects, compound objects, templates, Web Viewer. Create/edit of compound objects requires Professional Buildtime. There is no public embeddable SDK found that lets CANON generate a native OTE project from JSON.
+
+CANON therefore ships its own industrial HMI runtime and treats Schneider catalogs as Layer A evidence for what an operator screen should contain.
+
+
+
+Component registry (PROPOSED)
+
+canon_component_registry.json entries look like:
+
+{
+  "component": "PressureGauge",
+  "category": "gauge",
+  "version": "1.0.0",
+  "propsSchema": {
+    "binding": { "type": "signalRef", "valueType": "REAL" },
+    "unit": { "enum": ["bar", "kPa", "psi"] },
+    "range": { "type": "tuple2", "min": "binding.engMin", "max": "binding.engMax" }
+  },
+  "states": ["normal", "warning", "alarm", "badQuality"],
+  "commands": [],
+  "inspiredBy": ["OTE gauge category — catalog DIA5ED2140703EN"],
+  "extractableFromSchneider": false
+}
+
+P0 components:
+
+
+
+
+
+TankLevel (bar + numeric + HH/H/L/LL marks)
+
+
+
+PressureGauge
+
+
+
+MotorStarter (P401 START/STOP, running, fault)
+
+
+
+ValveStatus (open/closed/transition)
+
+
+
+AlarmBanner / AlarmList
+
+
+
+Trend
+
+
+
+NumericValue
+
+
+
+NavHeader
+
+
+
+PermissivePanel
+
+
+
+QualityBadge
+
+P1: recipe table, interlock matrix, topology (ReactFlow view, separate from process graphic).
+
+
+
+UI document
+
+{
+  "pageId": "hmi.tk401.operator",
+  "title": "TK-401 Operator",
+  "layout": "faceplate-grid",
+  "revisionId": "rev-18",
+  "widgets": [
+    {
+      "id": "w.pt401",
+      "component": "PressureGauge",
+      "binding": "PT401",
+      "value": "PT401.VALUE",
+      "unit": "bar",
+      "range": [0, 10]
+    },
+    {
+      "id": "w.p401",
+      "component": "MotorStarter",
+      "target": "P401",
+      "startCommand": "P401_START",
+      "stopCommand": "P401_STOP",
+      "running": "P401_RUNNING",
+      "fault": "P401_FAULT"
+    }
+  ]
+}
+
+
+
+Rendering stack
+
+
+
+
+
+
+
+Concern
+
+
+
+Choice
+
+
+
+
+
+App shell
+
+
+
+React + TypeScript + Vite
+
+
+
+
+
+Process graphic
+
+
+
+SVG symbols + CSS variables for state colors
+
+
+
+
+
+Trends / analog
+
+
+
+ECharts
+
+
+
+
+
+Topology
+
+
+
+React Flow (secondary page)
+
+
+
+
+
+Schema
+
+
+
+Zod on the client, Pydantic on the server (shared JSON Schema)
+
+
+
+
+
+Theming
+
+
+
+Dark industrial palette, 4 states: run / idle / warn / fault
+
+
+
+
+
+Responsiveness
+
+
+
+CSS grid faceplates; 16:9 operator, 4:3 optional
+
+Avoid: LLM-written JSX, iframe of a random SCADA, dragging OTE runtime.
+
+
+
+Layout algorithm (deterministic)
+
+
+
+
+
+Group widgets by asset.
+
+
+
+Place analog faceplates left, commands right, alarms top.
+
+
+
+One primary asset page per request unless the intent names a line overview.
+
+
+
+If the validator strips a widget, layout reflows; it does not leave a hole with a guessed tag.
+
+
+
+Binding runtime
+
+Each widget subscribes by signalId. The WS payload is {signalId, value, quality, ts}. Quality bad forces the widget into badQuality and disables command buttons on that faceplate.
+
+Command buttons send {commandId} to /api/commands, not a raw node id.

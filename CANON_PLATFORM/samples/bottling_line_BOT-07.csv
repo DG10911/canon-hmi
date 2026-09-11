@@ -1,0 +1,22 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+CONV-301,motor,CONV-301_SPEED,analog-in,rpm,0,1500,1450,1400,,,Infeed conveyor speed
+CONV-301,motor,CONV-301_RUNNING,discrete-in,,,,,,,,Infeed conveyor running
+CONV-301,motor,CONV-301_FAULT,discrete-in,,,,,,,,Infeed conveyor fault
+CONV-301,motor,CONV-301_START_REQ,discrete-out,,,,,,,,Infeed conveyor start
+CONV-301,motor,CONV-301_STOP_REQ,discrete-out,,,,,,,,Infeed conveyor stop
+FILL-301,pump,PT-301,analog-in,bar,0,4,3.5,3,,,Filler manifold pressure
+FILL-301,pump,FT-301,analog-in,L/min,0,60,,,,,Filler flow
+FILL-301,pump,FILL-301_RUNNING,discrete-in,,,,,,,,Filler pump running
+FILL-301,pump,FILL-301_FAULT,discrete-in,,,,,,,,Filler pump fault
+FILL-301,pump,FILL-301_START_REQ,discrete-out,,,,,,,,Filler pump start
+FILL-301,pump,FILL-301_STOP_REQ,discrete-out,,,,,,,,Filler pump stop
+TK-301,tank,LT-301,analog-in,%,0,100,95,85,,8,Product buffer tank level
+XV-301,valve,XV-301_OPEN,discrete-in,,,,,,,,Fill valve open limit
+XV-301,valve,XV-301_CLOSED,discrete-in,,,,,,,,Fill valve closed limit
+XV-301,valve,XV-301_OPEN_REQ,discrete-out,,,,,,,,Fill valve open
+XV-301,valve,XV-301_CLOSE_REQ,discrete-out,,,,,,,,Fill valve close
+CAP-301,motor,CAP-301_SPEED,analog-in,rpm,0,900,850,800,,,Capper spindle speed
+CAP-301,motor,CAP-301_RUNNING,discrete-in,,,,,,,,Capper running
+CAP-301,motor,CAP-301_FAULT,discrete-in,,,,,,,,Capper fault
+CAP-301,motor,CAP-301_START_REQ,discrete-out,,,,,,,,Capper start
+CAP-301,motor,CAP-301_STOP_REQ,discrete-out,,,,,,,,Capper stop

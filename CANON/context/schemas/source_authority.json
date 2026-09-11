@@ -1,0 +1,77 @@
+{
+  "_meta": {
+    "note": "Authority is FACT-TYPE specific, not a global ranking. AI (A8) is never authoritative by itself. CANON demo — no real Schneider deployment."
+  },
+  "classes": [
+    {
+      "id": "A0",
+      "name": "Safety/authoritative control source",
+      "authoritativeFor": [
+        "safety interlock state"
+      ]
+    },
+    {
+      "id": "A1",
+      "name": "PLC / controller configuration",
+      "authoritativeFor": [
+        "signal address",
+        "engineering range",
+        "command contract"
+      ]
+    },
+    {
+      "id": "A2",
+      "name": "Live industrial protocol (OPC UA / Modbus)",
+      "authoritativeFor": [
+        "runtime value",
+        "quality",
+        "timestamp",
+        "connection state"
+      ]
+    },
+    {
+      "id": "A3",
+      "name": "Approved engineering documentation",
+      "authoritativeFor": [
+        "process relationship",
+        "P&ID connection"
+      ]
+    },
+    {
+      "id": "A4",
+      "name": "Official Schneider documentation",
+      "authoritativeFor": [
+        "product capability",
+        "protocol support"
+      ]
+    },
+    {
+      "id": "A5",
+      "name": "Standards reference",
+      "authoritativeFor": [
+        "standard concept"
+      ]
+    },
+    {
+      "id": "A6",
+      "name": "Existing HMI / design artifact",
+      "authoritativeFor": [
+        "HMI layout intent"
+      ]
+    },
+    {
+      "id": "A7",
+      "name": "Engineer-entered",
+      "authoritativeFor": [
+        "engineer decision",
+        "approved binding"
+      ]
+    },
+    {
+      "id": "A8",
+      "name": "AI proposal",
+      "authoritativeFor": [],
+      "note": "NEVER authoritative alone; proposals require validation + engineer approval"
+    }
+  ]
+}

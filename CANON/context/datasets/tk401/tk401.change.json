@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "fixture": true,
+    "sourceType": "simulator",
+    "note": "CANON demo / simulator data — NOT a real Schneider deployment"
+  },
+  "change": {
+    "entity": "PT401",
+    "factType": "engRange",
+    "from": "0-10 bar",
+    "to": "0-16 bar",
+    "proposedRevision": "CANON v1.1"
+  },
+  "impact": [
+    "PT401 model",
+    "HMI pressure gauge",
+    "gauge scaling",
+    "PT401_HI alarm threshold",
+    "trend config",
+    "test:T05",
+    "OPR-03 doc"
+  ],
+  "markStale": true,
+  "requiresApproval": true
+}

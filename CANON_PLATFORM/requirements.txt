@@ -1,0 +1,10 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9
+pydantic>=2.6
+openpyxl>=3.1          # .xlsx ingestion
+httpx>=0.27            # optional: call the trained CANON-brain (set CANON_LLM_BASE)
+# pdfplumber>=0.11     # OPTIONAL — enable .pdf tag-table ingestion (uncomment + pip install)
+# platform_core.py is pure stdlib. Optional: point at the trained CANON-brain
+# (llama-server on :8000) later to add fuzzy intent parsing on top of the
+# deterministic assembler.

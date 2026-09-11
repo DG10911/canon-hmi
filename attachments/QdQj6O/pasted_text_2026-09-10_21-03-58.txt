@@ -1,0 +1,567 @@
+10 — CANON Simulator Evaluation
+
+The demo lives or dies on a deterministic, reproducible plant that speaks the same contracts as a PLC.
+
+Required observable behavior:
+
+
+
+
+
+P401 START / STOP
+
+
+
+XV401 OPEN / CLOSE
+
+
+
+Permissive checks
+
+
+
+Faults / alarms
+
+
+
+Feedback
+
+
+
+Changing process values (level, pressure)
+
+
+
+Options
+
+
+
+
+
+
+
+Option
+
+
+
+Realism
+
+
+
+Effort
+
+
+
+License
+
+
+
+Schneider-relevant
+
+
+
+Docker
+
+
+
+Verdict
+
+
+
+
+
+Custom Python plant + pymodbus + asyncua
+
+
+
+Medium (contracts are real; scan cycle is simple)
+
+
+
+Low
+
+
+
+BSD + LGPL stacks
+
+
+
+Speaks the same protocols SE products use
+
+
+
+yes
+
+
+
+P0 BEST SIMPLE + BEST DEMO
+
+
+
+
+
+OpenPLC Runtime v4
+
+
+
+High (IEC 61131-3)
+
+
+
+Medium
+
+
+
+Verify repo license
+
+
+
+Not a Modicon, but a real PLC runtime
+
+
+
+yes
+
+
+
+P1 BEST REALISTIC
+
+
+
+
+
+CODESYS Control Win / Linux SL
+
+
+
+High
+
+
+
+High
+
+
+
+2 h demo without paid runtime
+
+
+
+SoftPLC, not SE
+
+
+
+mixed
+
+
+
+P2
+
+
+
+
+
+EcoStruxure Machine Expert emulator + onboard OPC UA
+
+
+
+Highest SE relevance
+
+
+
+High
+
+
+
+SE license + Windows
+
+
+
+BEST SCHNEIDER-RELEVANT
+
+
+
+poor
+
+
+
+P2 if a licensed seat exists
+
+
+
+
+
+Node-RED Modbus/OPC flows
+
+
+
+Low-medium
+
+
+
+Low
+
+
+
+Apache-2.0
+
+
+
+Weak
+
+
+
+yes
+
+
+
+Reject as authority (fine as a probe)
+
+
+
+
+
+Public OPC UA demo servers
+
+
+
+Low
+
+
+
+Zero
+
+
+
+various
+
+
+
+None
+
+
+
+n/a
+
+
+
+Client bring-up only
+
+
+
+
+
+pymodbus simulator alone
+
+
+
+Low
+
+
+
+Very low
+
+
+
+BSD
+
+
+
+Protocol only
+
+
+
+yes
+
+
+
+Insufficient without process model
+
+
+
+
+
+Beremiz
+
+
+
+Medium
+
+
+
+Medium
+
+
+
+GPL
+
+
+
+No
+
+
+
+possible
+
+
+
+Skip
+
+BEST REALISTIC DEMO OPTION
+
+OpenPLC Runtime v4 running a small ST program that implements the command contracts, with CANON talking Modbus TCP and/or OPC UA.
+
+BEST SIMPLE OPTION
+
+Custom deterministic simulator (below). This is the graded path.
+
+BEST SCHNEIDER-RELEVANT OPTION
+
+A licensed Machine Expert project on M262 emulator or a real M262/M580 with OPC UA enabled. Out of band for a 5-day team that does not already have the seat and hardware.
+
+
+
+P0 plant model (PROPOSED)
+
+Assets: TK-401, P401, XV401
+Signals: LT401, PT401, P401_RUNNING, P401_FAULT, P401_START_REQ, P401_STOP_REQ, XV401_OPEN, XV401_CLOSED, XV401_OPEN_REQ, XV401_CLOSE_REQ
+
+Discrete-time tick dt = 0.2 s.
+
+if P401_RUNNING and XV401_OPEN:
+    level += inflow_rate * dt
+    pressure = f(level, pump_curve)
+else:
+    level += leak_or_hold
+    pressure decays toward atmospheric_head(level)
+
+if level >= LT401_HIGH: HIGH_ALARM
+if pressure >= PT401_HIGH: PRESSURE_ALARM
+if P401_START_REQ:
+    if XV401_OPEN and level < LT401_HIGH and not P401_FAULT:
+        P401_RUNNING = true
+        P401_START_REQ clears after ack
+    else:
+        reject (reason code)
+if XV401_CLOSE_REQ:
+    XV401_OPEN = false
+    if P401_RUNNING: optional interlock trip (configurable)
+
+Seed + tick count → bit-identical traces. Record traces as regression fixtures.
+
+Command timeout: if START_REQ asserted and RUNNING not true within 5 s → CMD_TIMEOUT alarm.
+
+
+
+Address space (shared by OPC UA and Modbus)
+
+Keep one RuntimeState object. Both servers are facades.
+
+Modbus map example (PROPOSED, not a Schneider map):
+
+
+
+
+
+
+
+Signal
+
+
+
+Area
+
+
+
+Address
+
+
+
+Dtype
+
+
+
+
+
+P401_START_REQ
+
+
+
+coil
+
+
+
+0
+
+
+
+bool
+
+
+
+
+
+P401_STOP_REQ
+
+
+
+coil
+
+
+
+1
+
+
+
+bool
+
+
+
+
+
+XV401_OPEN_REQ
+
+
+
+coil
+
+
+
+2
+
+
+
+bool
+
+
+
+
+
+XV401_CLOSE_REQ
+
+
+
+coil
+
+
+
+3
+
+
+
+bool
+
+
+
+
+
+P401_RUNNING
+
+
+
+discrete input
+
+
+
+0
+
+
+
+bool
+
+
+
+
+
+XV401_OPEN
+
+
+
+discrete input
+
+
+
+1
+
+
+
+bool
+
+
+
+
+
+P401_FAULT
+
+
+
+discrete input
+
+
+
+2
+
+
+
+bool
+
+
+
+
+
+LT401
+
+
+
+holding
+
+
+
+0
+
+
+
+uint16 0.01%
+
+
+
+
+
+PT401
+
+
+
+holding
+
+
+
+1
+
+
+
+uint16 0.01 bar
+
+OPC UA nodes: ns=2;s=TK401.LT401.VALUE etc.
+
+
+
+What not to simulate
+
+
+
+
+
+Motion trajectories
+
+
+
+Safety PLC dual-channel
+
+
+
+Network storms
+
+
+
+Full Harmony runtime
+
+Those do not serve the 17-step demo.

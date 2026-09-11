@@ -1,0 +1,87 @@
+{
+  "$schema": "canon.component_registry.v2",
+  "generated": "2026-09-10",
+  "authority": "PROPOSED — CANON's own HMI component registry. inspiredBy names Schneider OTE catalog categories (DIA5ED2140703EN, 650+ objects, VERIFIED) but NO Schneider proprietary object internals are copied. extractableFromSchneider=false everywhere.",
+  "note": "The LLM may only SELECT components from this registry. It never invents a component or emits React/HTML/SVG source.",
+  "components": [
+    {
+      "component": "TankLevel", "category": "gauge", "version": "1.0.0",
+      "propsSchema": {"binding": {"type": "signalRef", "valueType": "REAL"}, "unit": {"enum": ["%", "mm", "L"]}, "range": {"type": "tuple2", "source": "binding.eng"}, "marks": {"enum": ["HH", "H", "L", "LL"], "source": "binding.marks"}},
+      "states": ["normal", "warning", "alarm", "badQuality"], "commands": [],
+      "inspiredBy": ["OTE tank/level object category — catalog DIA5ED2140703EN"], "extractableFromSchneider": false
+    },
+    {
+      "component": "PressureGauge", "category": "gauge", "version": "1.0.0",
+      "propsSchema": {"binding": {"type": "signalRef", "valueType": "REAL"}, "unit": {"enum": ["bar", "kPa", "psi"]}, "range": {"type": "tuple2", "source": "binding.eng"}},
+      "states": ["normal", "warning", "alarm", "badQuality"], "commands": [],
+      "inspiredBy": ["OTE analog gauge category"], "extractableFromSchneider": false
+    },
+    {
+      "component": "MotorStarter", "category": "device", "version": "1.0.0",
+      "propsSchema": {"target": {"type": "assetRef"}, "running": {"type": "signalRef", "valueType": "BOOL"}, "fault": {"type": "signalRef", "valueType": "BOOL"}, "startCommand": {"type": "commandRef"}, "stopCommand": {"type": "commandRef"}},
+      "states": ["idle", "starting", "running", "stopping", "faulted", "badQuality"], "commands": ["start", "stop"],
+      "inspiredBy": ["OTE motor/pump object category"], "extractableFromSchneider": false
+    },
+    {
+      "component": "ValveStatus", "category": "device", "version": "1.0.0",
+      "propsSchema": {"target": {"type": "assetRef"}, "open": {"type": "signalRef", "valueType": "BOOL"}, "closed": {"type": "signalRef", "valueType": "BOOL"}, "openCommand": {"type": "commandRef"}, "closeCommand": {"type": "commandRef"}},
+      "states": ["open", "closed", "transition", "fault", "badQuality"], "commands": ["open", "close"],
+      "inspiredBy": ["OTE valve object category"], "extractableFromSchneider": false
+    },
+    {
+      "component": "AlarmBanner", "category": "alarm", "version": "1.0.0",
+      "propsSchema": {"scope": {"enum": ["machine", "asset"]}, "target": {"type": "assetRef", "optional": true}, "maxRows": {"type": "int", "default": 1}},
+      "states": ["clear", "active", "acked"], "commands": ["ack"],
+      "inspiredBy": ["OTE alarm object category; ISA-18.2/IEC 62682 alarm presentation principles (aligned to, not compliant)"], "extractableFromSchneider": false
+    },
+    {
+      "component": "AlarmList", "category": "alarm", "version": "1.0.0",
+      "propsSchema": {"scope": {"enum": ["machine", "asset"]}, "sort": {"enum": ["priority", "time"]}, "priorityFilter": {"enum": ["all", "high", "medium", "low"]}},
+      "states": ["clear", "active"], "commands": ["ack", "ackAll", "shelve"],
+      "inspiredBy": ["OTE alarm summary; EEMUA-191-style flood context"], "extractableFromSchneider": false
+    },
+    {
+      "component": "Trend", "category": "trend", "version": "1.0.0",
+      "propsSchema": {"series": {"type": "signalRefArray", "min": 1, "max": 4}, "windowSec": {"type": "int", "default": 300}, "yAxes": {"type": "int", "enum": [1, 2]}},
+      "states": ["normal", "badQuality"], "commands": [], "renderer": "ECharts",
+      "inspiredBy": ["OTE trend/graph object category"], "extractableFromSchneider": false
+    },
+    {
+      "component": "NumericValue", "category": "value", "version": "1.0.0",
+      "propsSchema": {"binding": {"type": "signalRef"}, "unit": {"type": "string", "source": "binding.unit"}, "decimals": {"type": "int", "default": 1}},
+      "states": ["normal", "warning", "alarm", "badQuality"], "commands": [], "extractableFromSchneider": false
+    },
+    {
+      "component": "NavHeader", "category": "nav", "version": "1.0.0",
+      "propsSchema": {"title": {"type": "string"}, "breadcrumb": {"type": "stringArray"}}, "states": [], "commands": ["navigate"], "extractableFromSchneider": false
+    },
+    {
+      "component": "PermissivePanel", "category": "control", "version": "1.0.0",
+      "propsSchema": {"command": {"type": "commandRef"}, "showInterlocks": {"type": "bool", "default": true}},
+      "states": ["allPermitted", "blocked"], "commands": [],
+      "note": "Renders live permissive/interlock state from the command contract; read-only.", "extractableFromSchneider": false
+    },
+    {
+      "component": "QualityBadge", "category": "value", "version": "1.0.0",
+      "propsSchema": {"binding": {"type": "signalRef"}}, "states": ["good", "uncertain", "bad", "stale"], "commands": [], "extractableFromSchneider": false
+    },
+    {
+      "component": "RecipeTable", "category": "data", "version": "0.9.0", "priority": "P1",
+      "propsSchema": {"parameters": {"type": "signalRefArray"}, "editable": {"type": "bool", "default": false}}, "states": ["view", "edit"], "commands": ["load", "save"],
+      "inspiredBy": ["OTE recipe object category; ISA-88 recipe concept"], "extractableFromSchneider": false
+    },
+    {
+      "component": "InterlockMatrix", "category": "control", "version": "0.9.0", "priority": "P1",
+      "propsSchema": {"target": {"type": "assetRef"}}, "states": ["ok", "tripped"], "commands": [], "extractableFromSchneider": false
+    },
+    {
+      "component": "TopologyView", "category": "diagram", "version": "0.9.0", "priority": "P1", "renderer": "ReactFlow",
+      "propsSchema": {"machine": {"type": "machineRef"}}, "states": [], "commands": ["selectNode"],
+      "note": "Secondary page only — NOT the process graphic canvas.", "extractableFromSchneider": false
+    }
+  ],
+  "layoutAlgorithm": {
+    "rule": "deterministic",
+    "steps": ["group widgets by asset", "analog faceplates left, commands right, alarms top", "one primary asset page per request unless intent names a line overview", "if validator strips a widget, reflow — never leave a hole with a guessed tag"]
+  }
+}

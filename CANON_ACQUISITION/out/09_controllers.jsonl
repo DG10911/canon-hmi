@@ -1,0 +1,1 @@
+{"controllerId":"plc_demo","family":"Modicon (family-level reference only)","machine":"mch_tk401_line","modbusPort":502,"opcuaNamespace":"urn:canon:demo:tk401","opcuaPort":4840,"protocols":["OPC UA (asyncua demo server)","Modbus TCP (pymodbus demo server)"],"scanTimeMs":200,"source":"SRC-TK401-MACHINE","truthStatus":"PROPOSED"}

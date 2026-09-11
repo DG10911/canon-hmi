@@ -1,0 +1,33 @@
+{
+  "$schema": "canon.prompt_templates.v2",
+  "generated": "2026-09-10",
+  "authority": "Prompts are DATA, not code. Each returns JSON only. 'Unknown stays unknown.'",
+  "templates": {
+    "intent_generate": {
+      "system": "You are CANON's intent compiler. You translate an operator/engineer request into a structured intent JSON. HARD RULES: (1) Use ONLY signalIds present in MACHINE_MODEL. (2) Use ONLY component names present in COMPONENT_REGISTRY. (3) NEVER invent a tag, product, SKU, or Schneider capability. (4) If a required signal/command/evidence is absent, do not guess — set it in unknowns[] with status UNKNOWN. (5) Output valid JSON against Intent.schema.json and nothing else.",
+      "inputs": ["MACHINE_MODEL", "COMPONENT_REGISTRY", "USER_REQUEST"],
+      "outputSchemaRef": "Intent.schema.json",
+      "mustReturn": ["intentType", "widgets|command|change", "usedSignalIds", "usedEvidenceIds", "unknowns"]
+    },
+    "retrieve_explain": {
+      "system": "Answer ONLY from the provided EVIDENCE quotes. Cite sourceIds. If evidence conflicts (conflictGroup present), report BOTH and do not pick a winner. If no evidence supports the answer, say so.",
+      "inputs": ["EVIDENCE_CHUNKS", "QUESTION"],
+      "mustReturn": ["answer", "usedEvidenceIds", "conflicts", "unknowns"]
+    },
+    "change_impact_narrate": {
+      "system": "The impact graph is ALREADY COMPUTED. Narrate it in plain engineering language. Do not add or remove impacted entities.",
+      "inputs": ["COMPUTED_IMPACT"],
+      "mustReturn": ["narrative", "reviewRequired"]
+    },
+    "validation_explain": {
+      "system": "The validator has ALREADY DECIDED. Explain each error code for an engineer and suggest the concrete fix. Do not overturn the verdict.",
+      "inputs": ["VALIDATION_RESULT"],
+      "mustReturn": ["explanations"]
+    },
+    "utterance_classify": {
+      "system": "Classify the request into exactly one of: generate_hmi | explain_alarm | change_impact | command_request | question. Return JSON {type}.",
+      "inputs": ["USER_REQUEST"],
+      "model": "BEST_VALUE"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+M-101,motor,ST-101,analog-in,rpm,0,3000,2900,2800,,,fan
+M-101,motor,DPT-101,analog-in,Pa,0,1000,900,800,,,dp
+M-101,motor,M-101_RUNNING,discrete-in,,,,,,,,running
+M-101,motor,M-101_FAULT,discrete-in,,,,,,,,fault
+M-101,motor,M-101_START_REQ,discrete-out,,,,,,,,start
+M-101,motor,M-101_STOP_REQ,discrete-out,,,,,,,,stop
+M-102,motor,ST-102,analog-in,rpm,0,3000,2900,2800,,,fan
+M-102,motor,DPT-102,analog-in,Pa,0,1000,900,800,,,dp
+M-102,motor,M-102_RUNNING,discrete-in,,,,,,,,running
+M-102,motor,M-102_FAULT,discrete-in,,,,,,,,fault
+M-102,motor,M-102_START_REQ,discrete-out,,,,,,,,start
+M-102,motor,M-102_STOP_REQ,discrete-out,,,,,,,,stop
+M-103,motor,ST-103,analog-in,rpm,0,3000,2900,2800,,,fan
+M-103,motor,DPT-103,analog-in,Pa,0,1000,900,800,,,dp
+M-103,motor,M-103_RUNNING,discrete-in,,,,,,,,running
+M-103,motor,M-103_FAULT,discrete-in,,,,,,,,fault
+M-103,motor,M-103_START_REQ,discrete-out,,,,,,,,start
+M-103,motor,M-103_STOP_REQ,discrete-out,,,,,,,,stop
+M-104,motor,ST-104,analog-in,rpm,0,3000,2900,2800,,,fan
+M-104,motor,DPT-104,analog-in,Pa,0,1000,900,800,,,dp
+M-104,motor,M-104_RUNNING,discrete-in,,,,,,,,running
+M-104,motor,M-104_FAULT,discrete-in,,,,,,,,fault
+M-104,motor,M-104_START_REQ,discrete-out,,,,,,,,start
+M-104,motor,M-104_STOP_REQ,discrete-out,,,,,,,,stop
+XV-101,valve,XV-101_OPEN,discrete-in,,,,,,,,open limit
+XV-101,valve,XV-101_CLOSED,discrete-in,,,,,,,,closed limit
+XV-101,valve,XV-101_OPEN_REQ,discrete-out,,,,,,,,open
+XV-101,valve,XV-101_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-102,valve,XV-102_OPEN,discrete-in,,,,,,,,open limit
+XV-102,valve,XV-102_CLOSED,discrete-in,,,,,,,,closed limit
+XV-102,valve,XV-102_OPEN_REQ,discrete-out,,,,,,,,open
+XV-102,valve,XV-102_CLOSE_REQ,discrete-out,,,,,,,,close
+TK-101,tank,TT-101,analog-in,degC,0,200,150,130,,,temp
+TK-102,tank,TT-102,analog-in,degC,0,200,150,130,,,temp
+TK-103,tank,TT-103,analog-in,degC,0,200,150,130,,,temp

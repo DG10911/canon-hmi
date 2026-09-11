@@ -1,0 +1,635 @@
+CANON — CANONICAL MACHINE MODEL
+SCREEN 03 — MACHINE MODEL
+MASTER UI GENERATION PROMPT
+============================================================
+
+CORE DIRECTIVE
+============================================================
+
+Design the third screen of CANON after:
+
+PROJECT HUB
+→ MACHINE CONTEXT
+→ MACHINE MODEL
+
+The engineer has already connected TK-401 and CANON has discovered
+its engineering context.
+
+Now show the engineer the most important transformation:
+
+DISCOVERED MACHINE DATA
+        ↓
+CANONICAL MACHINE MODEL
+
+The screen must communicate:
+
+"CANON has turned the machine's engineering reality into a
+structured, connected model that can safely drive everything
+that comes next."
+
+This is one of the HERO SCREENS of the entire product.
+
+It must feel like premium industrial engineering software.
+
+NOT a generic dashboard.
+NOT a database browser.
+NOT a chatbot.
+NOT a mind map.
+NOT a futuristic AI visualization.
+
+============================================================
+1. APPLICATION SHELL
+============================================================
+
+Maintain the exact same shell as the previous screens.
+
+Top-left:
+
+CANON
+
+ENGINEERING INTELLIGENCE PLATFORM
+
+Global navigation:
+
+PROJECTS
+MACHINES
+LIBRARY
+
+Right:
+
+● SYSTEM OPERATIONAL
+
+Project context:
+
+TK-401
+PROCESS TANK
+
+● CONNECTED
+
+============================================================
+2. ENGINEERING WORKFLOW
+============================================================
+
+Show:
+
+CONTEXT → MODEL → INTENT → VALIDATE → RUNTIME → CHANGE
+
+Current stage:
+
+MODEL
+
+CONTEXT should appear completed.
+
+MODEL should be active.
+
+INTENT / VALIDATE / RUNTIME / CHANGE remain inactive.
+
+Keep this extremely restrained.
+
+============================================================
+3. PAGE HEADER
+============================================================
+
+Title:
+
+CANONICAL MACHINE MODEL
+
+Subtitle:
+
+A verified engineering representation of TK-401.
+
+Right side:
+
+MODEL STATUS
+● READY
+
+VERSION
+1.0
+
+Small action:
+
+[ REFRESH MODEL ]
+
+============================================================
+4. HERO VISUAL — MACHINE TOPOLOGY
+============================================================
+
+The majority of the screen should be a large, beautiful,
+interactive engineering topology.
+
+Center:
+
+TK-401
+PROCESS TANK
+
+Around it, show the actual machine hierarchy.
+
+Use a clean industrial schematic rather than a colorful
+node graph.
+
+Structure:
+
+PLANT
+  ↓
+AREA
+  ↓
+PROCESS UNIT
+  ↓
+TK-401 PROCESS TANK
+  ├── LT401 LEVEL TRANSMITTER
+  ├── PT401 PRESSURE TRANSMITTER
+  ├── P401 PUMP
+  └── XV401 VALVE
+
+Show relationships clearly.
+
+For example:
+
+                    TK-401
+                 PROCESS TANK
+                      │
+          ┌───────────┼───────────┐
+          │           │           │
+        LT401        PT401       P401
+        LEVEL       PRESSURE      PUMP
+          │           │           │
+          └───────────┼───────────┘
+                      │
+                    XV401
+                     VALVE
+
+The topology should look like a professional engineering model,
+not a software architecture diagram.
+
+============================================================
+5. MACHINE ASSET STATES
+============================================================
+
+Each asset should show only essential information.
+
+LT401
+LEVEL TRANSMITTER
+● HEALTHY
+72 %
+
+PT401
+PRESSURE TRANSMITTER
+● HEALTHY
+6.2 bar
+
+P401
+PUMP
+● RUNNING
+
+XV401
+VALVE
+● OPEN
+
+Use compact status indicators.
+
+Do not turn every node into a card.
+
+============================================================
+6. RELATIONSHIP VISUALIZATION
+============================================================
+
+Relationships are extremely important.
+
+Show subtle directional connections:
+
+LT401
+    ↓
+LEVEL SIGNAL
+    ↓
+TK-401
+
+PT401
+    ↓
+PRESSURE SIGNAL
+    ↓
+TK-401
+
+P401
+    ↓
+START / STOP
+    ↓
+PLC
+
+XV401
+    ↓
+OPEN / CLOSED
+    ↓
+PERMISSIVE
+
+The engineer should be able to understand that CANON knows
+not only WHAT exists, but HOW the machine elements relate.
+
+============================================================
+7. LEFT SIDE — MODEL TREE
+============================================================
+
+Add a narrow contextual tree on the left.
+
+MODEL
+
+TK-401
+  Process Tank
+  ├─ Assets
+  │   ├─ LT401
+  │   ├─ PT401
+  │   ├─ P401
+  │   └─ XV401
+  │
+  ├─ Signals
+  ├─ Commands
+  ├─ Permissives
+  ├─ Alarms
+  └─ Dependencies
+
+Keep this compact.
+
+Do NOT show hundreds of signals.
+
+Show counts beside collapsed groups.
+
+Example:
+
+Signals              186
+Commands               4
+Permissives             3
+Alarms                 12
+
+============================================================
+8. RIGHT SIDE — SELECTED OBJECT
+============================================================
+
+When no object is selected, show:
+
+MACHINE MODEL
+
+TK-401 PROCESS TANK
+
+24 Assets
+186 Signals
+4 I/O Groups
+12 Alarms
+
+MODEL HEALTH
+
+● 100% CORE REFERENCES RESOLVED
+
+SOURCE COVERAGE
+
+● Engineering sources linked
+
+MODEL VERSION
+
+1.0
+
+============================================================
+9. OBJECT SELECTION
+============================================================
+
+Clicking PT401 must open a contextual inspector.
+
+Example:
+
+PT401
+
+PRESSURE TRANSMITTER
+
+STATUS
+● HEALTHY
+
+ENGINEERING SIGNAL
+
+PT401.Pressure
+
+TYPE
+REAL
+
+UNIT
+bar
+
+RANGE
+0–10 bar
+
+SOURCE
+
+Modicon M262
+
+USED BY
+
+Pressure Gauge
+Pressure Trend
+High Pressure Alarm
+
+RELATIONSHIPS
+
+TK-401
+Pressure Signal
+Alarm
+HMI Binding
+
+[ VIEW EVIDENCE ]
+
+This panel must appear without leaving the Machine Model screen.
+
+============================================================
+10. SOURCE TRACEABILITY
+============================================================
+
+Every important model element should have a small traceability
+indicator.
+
+Example:
+
+PT401
+● VERIFIED
+
+Clicking "VERIFIED" opens:
+
+SOURCE
+
+PLC / Engineering Data
+
+REFERENCE
+
+PT401.Pressure
+
+STATUS
+
+VERIFIED
+
+Do not invent documentation.
+
+If something is not known, clearly show:
+
+UNKNOWN
+
+or
+
+UNRESOLVED
+
+Never silently fabricate relationships.
+
+============================================================
+11. MODEL HEALTH
+============================================================
+
+Add a compact validation strip.
+
+MODEL INTEGRITY
+
+✓ Assets resolved
+✓ Signal references resolved
+✓ Controller references resolved
+✓ Core relationships resolved
+✓ Command targets resolved
+
+Overall:
+
+● MODEL READY
+
+This is not the full validation screen.
+
+It only confirms that the machine model itself is structurally
+usable.
+
+============================================================
+12. IMPORTANT DIFFERENTIATION
+============================================================
+
+Make it visually obvious that this is NOT simply a copy of the
+Machine Context screen.
+
+MACHINE CONTEXT showed:
+
+"What did CANON discover?"
+
+MACHINE MODEL now shows:
+
+"How does CANON understand the machine?"
+
+This distinction is critical.
+
+============================================================
+13. CANONICAL MODEL BADGE
+============================================================
+
+Near the machine title add:
+
+CANONICAL REPRESENTATION
+
+SOURCE
+TK-401 ENGINEERING CONTEXT
+
+MODEL
+CANON v1.0
+
+This establishes the canonical model as the source of truth for
+the rest of the workflow.
+
+============================================================
+14. DO NOT SHOW
+============================================================
+
+Do NOT add:
+
+- AI chat
+- giant analytics charts
+- document explorer
+- product catalog
+- 3D factory
+- dozens of tags
+- giant JSON
+- raw database tables
+- unnecessary configuration panels
+- user management
+- settings
+- futuristic graphics
+- excessive node animations
+
+The model itself is the hero.
+
+============================================================
+15. INTERACTION DESIGN
+============================================================
+
+The topology should support:
+
+CLICK ASSET
+→ inspect asset
+
+CLICK SIGNAL
+→ inspect signal
+
+CLICK RELATIONSHIP
+→ inspect dependency
+
+CLICK SOURCE
+→ inspect evidence
+
+CLICK ALARM
+→ inspect alarm definition
+
+CLICK COMMAND
+→ inspect command contract
+
+But everything happens contextually.
+
+Do not create unnecessary screens.
+
+============================================================
+16. PRIMARY ACTION
+============================================================
+
+Bottom-right primary CTA:
+
+DEFINE ENGINEERING INTENT →
+
+This takes the engineer to:
+
+ENGINEERING INTENT
+
+The meaning is:
+
+"The machine model is ready. Now tell CANON what operator
+experience you want."
+
+============================================================
+17. SECONDARY ACTIONS
+============================================================
+
+Small secondary actions:
+
+[ REFRESH MODEL ]
+
+[ VIEW CHANGES ]
+
+Do not overload the footer.
+
+============================================================
+18. VISUAL STYLE
+============================================================
+
+Use:
+
+- white / light neutral workspace
+- graphite typography
+- thin engineering lines
+- subtle gray borders
+- restrained green status indicators
+- amber only for unresolved information
+- red only for faults
+- precise grid
+- minimal shadows
+- subtle radius
+- excellent whitespace
+- highly disciplined alignment
+
+No gradients.
+
+No neon.
+
+No glassmorphism.
+
+No excessive rounded cards.
+
+No glowing nodes.
+
+No decorative effects.
+
+============================================================
+19. MOTION
+============================================================
+
+When entering this screen:
+
+Machine topology should build progressively:
+
+TK-401
+↓
+Assets
+↓
+Signals
+↓
+Relationships
+↓
+Model ready
+
+Use fast, subtle transitions.
+
+The feeling should be:
+
+CANON is constructing the machine model.
+
+Not:
+
+A cinematic animation is playing.
+
+============================================================
+20. SCREEN COMPOSITION
+============================================================
+
+Recommended layout:
+
+┌──────────────────────────────────────────────────────────────┐
+│ CANON                         PROJECTS MACHINES LIBRARY      │
+├──────────────────────────────────────────────────────────────┤
+│ TK-401 · PROCESS TANK     CONTEXT MODEL INTENT VALIDATE...  │
+├──────────────┬─────────────────────────────────┬─────────────┤
+│              │                                 │             │
+│ MODEL TREE   │        MACHINE TOPOLOGY         │  INSPECTOR  │
+│              │                                 │             │
+│ TK-401       │             TK-401              │  PT401      │
+│ ├ Assets     │               │                 │ PRESSURE   │
+│ ├ Signals    │       ┌───────┼───────┐         │            │
+│ ├ Commands   │       │       │       │         │ ● HEALTHY  │
+│ ├ Permissive │     LT401   PT401    P401       │            │
+│ ├ Alarms     │       │       │       │         │ 6.2 bar    │
+│              │       └───────┼───────┘         │            │
+│              │             XV401               │ SOURCE     │
+│              │                                 │ VERIFIED   │
+│              │                                 │             │
+├──────────────┴─────────────────────────────────┴─────────────┤
+│ ● MODEL READY                         DEFINE INTENT →       │
+└──────────────────────────────────────────────────────────────┘
+
+============================================================
+21. FINAL QUALITY BAR
+============================================================
+
+This must be one of the screens where a Schneider judge thinks:
+
+"Okay. This is not just an HMI generator."
+
+The visual message should be:
+
+CANON has created an engineering representation of the machine.
+
+The machine model becomes the foundation for:
+
+AI intent
+↓
+HMI generation
+↓
+control contracts
+↓
+validation
+↓
+change impact
+↓
+regeneration
+
+FINAL PRINCIPLE:
+
+THE MACHINE MODEL IS THE SOURCE OF TRUTH.
+
+AI DOES NOT DEFINE THE MACHINE.
+
+CANON'S MACHINE MODEL DEFINES THE MACHINE.
+
+The next screen begins only after this model is ready:
+
+DEFINE ENGINEERING INTENT →

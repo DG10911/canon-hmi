@@ -1,0 +1,880 @@
+CANON — MACHINE CONTEXT
+FINAL VIEWPORT + ALIGNMENT + UX REFINEMENT
+DO NOT REDESIGN — POLISH THE EXISTING SCREEN
+
+============================================================
+IMPORTANT
+============================================================
+
+You are editing the EXISTING CANON Machine Context screen.
+
+The current design is already conceptually correct.
+
+DO NOT rebuild it from scratch.
+
+DO NOT change the overall visual language.
+
+DO NOT add new features.
+
+DO NOT add new screens.
+
+DO NOT turn this into a dashboard.
+
+Perform a professional final refinement focused on:
+
+- viewport composition
+- alignment
+- spacing
+- information hierarchy
+- topology visibility
+- right-panel density
+- scrolling
+- typography
+- CTA positioning
+
+The goal is to make this feel like a finished,
+enterprise-grade industrial engineering application.
+
+============================================================
+1. CORE SCREEN PURPOSE
+============================================================
+
+This screen represents:
+
+MACHINE CONTEXT
+
+The engineer has opened:
+
+TK-401
+PROCESS TANK
+
+CANON is discovering and structuring the machine's
+engineering reality BEFORE constructing the canonical
+machine model.
+
+The screen must communicate:
+
+CONNECTED MACHINE
+↓
+DISCOVERED ENGINEERING DATA
+↓
+MACHINE ELEMENTS
+↓
+ENGINEERING SOURCES
+↓
+DISCOVERY STATUS
+↓
+READY TO BUILD MACHINE MODEL
+
+============================================================
+2. CRITICAL VIEWPORT REQUIREMENT
+============================================================
+
+THIS IS THE MOST IMPORTANT CHANGE.
+
+The complete primary Machine Context experience should fit
+inside ONE desktop viewport.
+
+Target:
+
+1440 × 900
+
+Also support:
+
+1920 × 1080
+
+The engineer should NOT need to scroll to understand the
+main discovery story.
+
+The following must be visible simultaneously:
+
+✓ TK-401
+✓ LT401
+✓ PT401
+✓ P401
+✓ XV401
+✓ Engineering Sources
+✓ Engineering Discovery status
+✓ 1 unresolved reference
+✓ Build Machine Model CTA
+
+Do NOT push XV401 below the primary viewport.
+
+Do NOT require the judge to scroll to discover the valve.
+
+============================================================
+3. REMOVE UNNECESSARY PAGE SCROLL
+============================================================
+
+Optimize the vertical layout so the primary content fits.
+
+Reduce:
+
+- excessive vertical padding
+- excessive card height
+- excessive spacing between source rows
+- excessive topology whitespace
+- oversized headings
+- oversized metric blocks
+
+Do NOT make the UI cramped.
+
+The goal is:
+
+DENSE BUT BREATHABLE.
+
+Use professional enterprise software spacing.
+
+============================================================
+4. GLOBAL APPLICATION HEADER
+============================================================
+
+Preserve the existing CANON header.
+
+Use:
+
+CANON
+
+ENGINEERING INTELLIGENCE PLATFORM
+
+Global navigation for this prototype should remain minimal.
+
+Show:
+
+Projects
+
+Do NOT show:
+
+Machines
+Library
+
+The project workflow is sufficient.
+
+Right:
+
+● SYSTEM OPERATIONAL
+
+DG/profile indicator.
+
+Maintain exact vertical alignment.
+
+============================================================
+5. PROJECT CONTEXT BAR
+============================================================
+
+Keep:
+
+← Projects
+
+TK-401
+
+Process Tank
+
+● CONNECTED
+
+Right side:
+
+Controller
+Modicon M262
+
+Synced
+12 sec ago
+
+Everything must sit on one exact horizontal centerline.
+
+Use consistent spacing.
+
+Do not allow the project identity and controller metadata
+to appear at different vertical positions.
+
+============================================================
+6. ENGINEERING WORKFLOW
+============================================================
+
+Keep:
+
+CONTEXT → MODEL → INTENT → VALIDATE → RUNTIME → CHANGE
+
+Current:
+
+CONTEXT
+
+The workflow must be compact.
+
+CONTEXT should be visually active.
+
+MODEL and later stages should be subdued.
+
+Do not make this look like a colorful progress bar.
+
+============================================================
+7. MAIN PAGE HEADER
+============================================================
+
+Title:
+
+MACHINE CONTEXT
+
+Subtitle:
+
+Discovering the machine's engineering reality before generating
+an operator experience.
+
+Right:
+
+● LIVE CONNECTION
+
+[ SYNC NOW ]
+
+Align the title and subtitle perfectly with the main content
+column.
+
+Align LIVE CONNECTION and SYNC NOW to the same header row.
+
+============================================================
+8. DISCOVERY METRICS
+============================================================
+
+Keep the current four metrics:
+
+24
+ASSETS
+
+186
+SIGNALS
+
+4
+I/O GROUPS
+
+12
+ALARMS
+
+Use one horizontal compact strip.
+
+Do NOT turn them into four large floating dashboard cards.
+
+All four columns must have equal width.
+
+Numbers must align vertically.
+
+Labels must align vertically.
+
+Secondary text:
+
+DISCOVERED
+
+should be subtle.
+
+============================================================
+9. MAIN CONTENT — TWO COLUMN GRID
+============================================================
+
+Below the metrics, use a clean two-column layout.
+
+LEFT:
+
+DISCOVERED MACHINE ELEMENTS
+
+RIGHT:
+
+ENGINEERING SOURCES
+
+The left topology should be approximately 70%.
+
+The right information panel approximately 30%.
+
+Do not make the right panel wider than necessary.
+
+The topology is the visual hero.
+
+============================================================
+10. DISCOVERED MACHINE ELEMENTS
+============================================================
+
+Keep the existing container.
+
+Header:
+
+DISCOVERED MACHINE ELEMENTS
+
+Right:
+
+CLICK AN ELEMENT
+
+Make both perfectly aligned.
+
+============================================================
+11. MACHINE TOPOLOGY
+============================================================
+
+The topology must fit inside the visible container.
+
+Use:
+
+                         TK-401
+                      PROCESS TANK
+                           │
+             ┌─────────────┼─────────────┐
+             │             │             │
+           LT401         PT401          P401
+            LEVEL        PRESSURE        PUMP
+             │             │             │
+             │             │             │
+             └─────────────┼─────────────┘
+                           │
+                         XV401
+                          VALVE
+
+This is a conceptual visualization.
+
+Keep it simple.
+
+Do NOT create a complex graph.
+
+Do NOT add dozens of nodes.
+
+============================================================
+12. NODE ALIGNMENT
+============================================================
+
+TK-401:
+
+center horizontally in the topology.
+
+LT401 / PT401 / P401:
+
+same horizontal baseline.
+
+Same width.
+
+Same height.
+
+Same internal padding.
+
+XV401:
+
+fully visible below the three assets.
+
+Center XV401 beneath the relevant flow/control relationship.
+
+All connector lines must be clean.
+
+No overlapping lines.
+
+No labels touching lines.
+
+No nodes cut off by the viewport.
+
+============================================================
+13. LIVE VALUES
+============================================================
+
+Keep the machine context screen mostly structural.
+
+Do not turn it into a live dashboard.
+
+You may show:
+
+LT401
+LEVEL
+
+PT401
+PRESSURE
+
+P401
+PUMP
+
+XV401
+VALVE
+
+If live values are shown, keep them subtle.
+
+The purpose of this screen is DISCOVERY, not runtime monitoring.
+
+============================================================
+14. TOPOLOGY STATUS LEGEND
+============================================================
+
+Keep a small legend:
+
+● DISCOVERED
+● CONNECTED
+● VERIFIED
+
+Align all three items horizontally.
+
+Use subtle gray/green status treatment.
+
+Do not make this a large component.
+
+============================================================
+15. ENGINEERING SOURCES PANEL
+============================================================
+
+Keep:
+
+ENGINEERING SOURCES
+
+Use compact rows.
+
+SOURCE 01
+PLC / CONTROLLER
+Modicon M262
+● CONNECTED
+
+SOURCE 02
+OPC UA
+Embedded server
+● CONNECTED
+
+SOURCE 03
+I/O CONFIGURATION
+4 I/O groups
+● SYNCED
+
+SOURCE 04
+ALARM DEFINITIONS
+12 alarms
+● SYNCED
+
+SOURCE 05
+ENGINEERING DOCS
+3 documents
+● INDEXED
+
+Reduce row height slightly so all five fit comfortably.
+
+All source icons must have identical dimensions.
+
+All status indicators must align to one right column.
+
+All source labels must align to one left column.
+
+============================================================
+16. ENGINEERING DISCOVERY PANEL
+============================================================
+
+Directly below Engineering Sources.
+
+Keep:
+
+ENGINEERING DISCOVERY
+
+Use a compact checklist:
+
+Controller        ✓ Connected
+I/O               ✓ Discovered
+Signals           ✓ Indexed
+Alarms            ✓ Indexed
+Relationships     ✓ Analyzed
+
+Then:
+
+Machine Model     → Ready to build
+
+Do not make this panel excessively tall.
+
+============================================================
+17. UNRESOLVED REFERENCE
+============================================================
+
+Keep the excellent trust feature:
+
+△ 1 unresolved reference
+
+Supporting text:
+
+A signal reference could not be confidently mapped.
+
+Button:
+
+REVIEW
+
+This should remain amber.
+
+Do NOT make it look like a machine fault.
+
+It is an engineering review condition.
+
+============================================================
+18. IMPORTANT — DON'T CLAIM EVERYTHING IS VERIFIED
+============================================================
+
+The screen should communicate:
+
+CANON is confident about the discovered machine context,
+but one reference remains unresolved.
+
+This is intentional.
+
+The product principle is:
+
+CANON DOES NOT INVENT MISSING ENGINEERING INFORMATION.
+
+Keep this principle visible subtly.
+
+============================================================
+19. REMOVE DUPLICATED INFORMATION
+============================================================
+
+Avoid repeating:
+
+Connected
+Live Connection
+Last Sync
+Machine State
+
+more times than necessary.
+
+Each piece of information should have one primary location.
+
+The project header can handle connection/synchronization.
+
+The source panel can handle source-specific status.
+
+The discovery panel can handle discovery progress.
+
+============================================================
+20. LOWER MACHINE INFORMATION STRIP
+============================================================
+
+If the existing:
+
+LAST SYNC
+DATA SOURCE
+DISCOVERY MODE
+MACHINE STATE
+
+strip is retained, compress it substantially.
+
+Use a single compact horizontal strip:
+
+LAST SYNC
+12 sec ago
+
+DATA SOURCE
+Live machine
+
+MODE
+Read / Analyze
+
+STATE
+● RUNNING
+
+Do NOT give it excessive height.
+
+If viewport height is still too large, prioritize the main
+discovery visualization and remove this strip.
+
+============================================================
+21. FIXED BOTTOM ACTION BAR
+============================================================
+
+Keep the bottom action bar fixed.
+
+Left:
+
+CANON discovered the machine — one reference left unresolved
+rather than invented.
+
+Right:
+
+BUILD MACHINE MODEL →
+
+The green CTA is the only dominant action.
+
+The CTA must always remain visible.
+
+Do not allow content to overlap it.
+
+============================================================
+22. BUTTON ALIGNMENT
+============================================================
+
+SYNC NOW:
+
+compact secondary button.
+
+REVIEW:
+
+compact amber secondary action.
+
+BUILD MACHINE MODEL:
+
+primary green action.
+
+All buttons:
+
+same vertical alignment system.
+
+Same corner radius.
+
+Same typography.
+
+Do not create oversized buttons.
+
+============================================================
+23. TYPOGRAPHY
+============================================================
+
+Use a consistent typography system.
+
+Page title:
+
+MACHINE CONTEXT
+
+Section titles:
+
+DISCOVERED MACHINE ELEMENTS
+ENGINEERING SOURCES
+ENGINEERING DISCOVERY
+
+Metadata:
+
+SOURCE 01
+PLC / CONTROLLER
+
+Primary values:
+
+TK-401
+Modicon M262
+24
+186
+
+Do not randomly change font sizes.
+
+Maintain consistent baselines.
+
+============================================================
+24. GRID ALIGNMENT
+============================================================
+
+Everything must follow one grid.
+
+Left edge of:
+
+MACHINE CONTEXT
+metrics
+topology
+
+must align.
+
+Right edge of:
+
+LIVE CONNECTION
+Engineering Sources
+Discovery panel
+
+must align.
+
+All source rows share the same left and right boundaries.
+
+All metric columns have equal widths.
+
+============================================================
+25. COLOR SYSTEM
+============================================================
+
+Preserve the current restrained industrial palette.
+
+Green:
+
+connected
+healthy
+ready
+running
+primary CTA
+
+Amber:
+
+unresolved reference
+review required
+
+Gray:
+
+secondary information
+inactive
+
+No gradients.
+
+No neon.
+
+No glassmorphism.
+
+No glowing effects.
+
+No excessive shadows.
+
+============================================================
+26. INTERACTION
+============================================================
+
+Clicking:
+
+TK-401
+LT401
+PT401
+P401
+XV401
+
+may open a compact contextual inspector.
+
+Do NOT navigate to a new page.
+
+The screen remains Machine Context.
+
+The engineer can inspect an element without losing context.
+
+============================================================
+27. LOADING / DISCOVERY ANIMATION
+============================================================
+
+When entering Machine Context from Project Hub:
+
+show a very subtle sequence:
+
+CONNECTING
+↓
+DISCOVERING
+↓
+INDEXING
+↓
+ANALYZING
+↓
+READY
+
+Then show the completed screen.
+
+Keep it fast.
+
+No cinematic effects.
+
+No spinning loaders that remain indefinitely.
+
+============================================================
+28. CRITICAL CONTENT HIERARCHY
+============================================================
+
+The visual hierarchy must be:
+
+1. MACHINE CONTEXT
+2. TK-401 machine topology
+3. discovered engineering elements
+4. engineering sources
+5. discovery status
+6. unresolved reference
+7. BUILD MACHINE MODEL
+
+Do not let secondary metadata overpower the machine topology.
+
+============================================================
+29. FINAL SCREEN COMPOSITION
+============================================================
+
+The target visual composition should resemble:
+
+┌──────────────────────────────────────────────────────────────┐
+│ CANON                              Projects   ● OPERATIONAL   │
+├──────────────────────────────────────────────────────────────┤
+│ ← Projects   TK-401   Process Tank ● Connected      M262    │
+├──────────────────────────────────────────────────────────────┤
+│ CONTEXT → MODEL → INTENT → VALIDATE → RUNTIME → CHANGE     │
+├──────────────────────────────────────────────────────────────┤
+│ MACHINE CONTEXT                         ● LIVE CONNECTION    │
+│ Discovering the machine's engineering reality...             │
+│                                                              │
+│ 24 ASSETS | 186 SIGNALS | 4 I/O GROUPS | 12 ALARMS          │
+│                                                              │
+├──────────────────────────────────────┬───────────────────────┤
+│ DISCOVERED MACHINE ELEMENTS          │ ENGINEERING SOURCES   │
+│                                      │                       │
+│             ┌─────────┐              │ PLC        ● CONNECTED│
+│             │ TK-401  │              │ OPC UA     ● CONNECTED│
+│             └────┬────┘              │ I/O        ● SYNCED   │
+│          ┌───────┼───────┐           │ Alarms     ● SYNCED   │
+│          │       │       │           │ Docs       ● INDEXED │
+│        LT401   PT401    P401         │                       │
+│          │       │       │            ├───────────────────────┤
+│          └───────┼───────┘            │ ENGINEERING DISCOVERY│
+│                  │                    │                       │
+│                XV401                  │ ✓ Controller          │
+│                 VALVE                 │ ✓ I/O                 │
+│                                      │ ✓ Signals             │
+│                                      │ ✓ Alarms              │
+│                                      │ ✓ Relationships       │
+│                                      │                       │
+│                                      │ → Ready to build      │
+│                                      │                       │
+│                                      │ △ 1 unresolved        │
+├──────────────────────────────────────┴───────────────────────┤
+│ CANON discovered the machine...             BUILD MODEL →   │
+└──────────────────────────────────────────────────────────────┘
+
+This is a REFERENCE COMPOSITION.
+Do not copy it literally if it conflicts with the existing
+design system.
+
+============================================================
+30. FINAL ACCEPTANCE TEST
+============================================================
+
+Before finishing, verify all of the following:
+
+✓ Screen fits 1440×900 comfortably
+✓ No unnecessary page scrolling
+✓ XV401 is fully visible
+✓ TK-401 is fully visible
+✓ LT401/PT401/P401 are aligned
+✓ Topology is centered
+✓ Connector lines are clean
+✓ Engineering Sources fits in one compact panel
+✓ Engineering Discovery fits below it
+✓ Unresolved reference is visible
+✓ No false "everything verified" claim
+✓ Metrics are aligned
+✓ Header is aligned
+✓ Workflow is aligned
+✓ Bottom CTA is always visible
+✓ No overlapping elements
+✓ No clipped text
+✓ No unnecessary duplicate information
+✓ No unnecessary nested scrollbars
+✓ No visual clutter
+
+============================================================
+FINAL DESIGN PRINCIPLE
+============================================================
+
+DO NOT TRY TO SHOW EVERYTHING CANON KNOWS.
+
+SHOW THE ENGINEER EXACTLY ENOUGH TO TRUST THAT CANON
+UNDERSTANDS THE MACHINE.
+
+The screen should communicate:
+
+"THE MACHINE HAS BEEN DISCOVERED."
+
+"THE ENGINEERING SOURCES ARE KNOWN."
+
+"THE MACHINE ELEMENTS HAVE BEEN IDENTIFIED."
+
+"ONE REFERENCE NEEDS REVIEW."
+
+"CANON IS READY TO BUILD THE CANONICAL MACHINE MODEL."
+
+Primary action:
+
+BUILD MACHINE MODEL →
+
+FINAL INSTRUCTION:
+
+PRECISION REFINEMENT ONLY.
+
+DO NOT REDESIGN THE PRODUCT.
+
+DO NOT ADD FEATURES.
+
+DO NOT ADD SCREENS.
+
+MAKE THE EXISTING MACHINE CONTEXT SCREEN FIT,
+ALIGN AND FEEL FINISHED.

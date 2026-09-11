@@ -1,0 +1,443 @@
+CANON — BRAND MARK + APPLICATION HEADER
+PREMIUM INDUSTRIAL ENGINEERING PRODUCT IDENTITY
+FINAL VISUAL REFINEMENT
+
+Use the EXISTING CANON logo shown in the reference image as the
+starting point.
+
+Do NOT replace the CANON identity with a generic logo.
+
+Do NOT copy the Schneider Electric logo.
+
+Do NOT make it look like a consumer startup.
+
+The goal is to make CANON feel like a premium, enterprise-grade
+industrial engineering software product.
+
+============================================================
+1. CORE BRAND
+============================================================
+
+Primary wordmark:
+
+CANON
+
+Secondary descriptor:
+
+ENGINEERING INTELLIGENCE PLATFORM
+
+Product philosophy / tagline:
+
+ENGINEERING INTENT → VERIFIED AUTOMATION
+
+IMPORTANT:
+
+The wordmark should remain the dominant identity.
+
+The descriptor should remain secondary.
+
+The tagline should NOT be permanently placed in the global
+application header if it makes the header crowded.
+
+Use the tagline primarily on the launch screen / product
+introduction.
+
+============================================================
+2. CANON MARK
+============================================================
+
+Keep the existing green square mark.
+
+Refine it into a highly precise product mark.
+
+Use:
+
+- perfectly rounded corners
+- mathematically consistent proportions
+- clean internal spacing
+- subtle engineering precision
+- centered "C"
+
+The C should be optically centered, not merely mathematically
+centered.
+
+Do NOT use:
+
+- gradients
+- shadows
+- 3D effects
+- glow
+- bevels
+- excessive decoration
+
+The mark should look excellent at:
+
+32px
+40px
+48px
+56px
+
+============================================================
+3. LOGO PROPORTIONS
+============================================================
+
+The current reference has a slightly oversized vertical
+relationship between the mark and wordmark.
+
+Refine the proportion so:
+
+[ CANON MARK ]   CANON
+
+The mark should be approximately equal to the visual height
+of the CANON wordmark rather than dramatically taller.
+
+Recommended application-header mark:
+
+32–36px square.
+
+Recommended standalone / launch mark:
+
+48–56px square.
+
+============================================================
+4. WORDMARK
+============================================================
+
+CANON should use a strong modern grotesk / engineering-style
+sans-serif.
+
+Characteristics:
+
+- bold
+- clean
+- highly legible
+- slightly condensed if appropriate
+- professional
+- not futuristic
+
+Use:
+
+CANON
+
+with strong visual weight.
+
+Avoid:
+
+thin futuristic typography
+rounded playful typography
+serif typography
+excessively geometric startup fonts
+
+The wordmark should feel established.
+
+============================================================
+5. WORDMARK LETTER SPACING
+============================================================
+
+Keep:
+
+CANON
+
+tight and confident.
+
+Do NOT excessively letter-space the wordmark.
+
+The word should read as one strong product name.
+
+============================================================
+6. DESCRIPTOR
+============================================================
+
+Under CANON:
+
+ENGINEERING INTELLIGENCE PLATFORM
+
+Use:
+
+- uppercase
+- small size
+- restrained gray
+- moderate letter spacing
+- precise alignment
+
+The descriptor should be clearly subordinate.
+
+The left edge of:
+
+ENGINEERING
+
+must align with the left edge of:
+
+CANON
+
+Do not center the descriptor independently.
+
+============================================================
+7. LOGO LOCKUP
+============================================================
+
+The final lockup should feel like:
+
+┌──────┐
+│  C   │   CANON
+│      │   ENGINEERING INTELLIGENCE PLATFORM
+└──────┘
+
+The vertical center of the icon should align with the overall
+visual center of the two-line wordmark.
+
+Do NOT align the icon only to the first line.
+
+Optical alignment is more important.
+
+============================================================
+8. APPLICATION HEADER VERSION
+============================================================
+
+For the CANON application header:
+
+Use a compact lockup:
+
+[ C ]  CANON
+       ENGINEERING INTELLIGENCE PLATFORM
+
+Recommended:
+
+Icon:
+32–36px
+
+CANON:
+18–22px
+
+Descriptor:
+8–10px
+
+Keep approximately:
+
+8–12px
+
+between icon and wordmark.
+
+Do not make the header logo consume too much horizontal space.
+
+============================================================
+9. APPLICATION HEADER SPACING
+============================================================
+
+The header should have generous but disciplined whitespace.
+
+Example:
+
+┌────────────────────────────────────────────────────────────┐
+│  [ C ]  CANON                         Projects             │
+│         ENGINEERING INTELLIGENCE PLATFORM       ● SYSTEM   │
+└────────────────────────────────────────────────────────────┘
+
+The CANON identity should sit comfortably inside the header.
+
+No cramped positioning.
+
+No excessive empty space.
+
+============================================================
+10. LAUNCH SCREEN VERSION
+============================================================
+
+On the CANON launch screen, use the larger identity.
+
+Center:
+
+[ GREEN CANON MARK ]
+
+CANON
+
+ENGINEERING INTELLIGENCE PLATFORM
+
+Then:
+
+ENGINEERING INTENT → VERIFIED AUTOMATION
+
+Then subtle system initialization.
+
+The launch identity should feel premium and calm.
+
+============================================================
+11. LAUNCH SCREEN HIERARCHY
+============================================================
+
+Use this hierarchy:
+
+CANON
+
+ENGINEERING INTELLIGENCE PLATFORM
+
+ENGINEERING INTENT → VERIFIED AUTOMATION
+
+INITIALIZING ENGINEERING ENVIRONMENT...
+
+Do not make the tagline larger than CANON.
+
+The product name remains the hero.
+
+============================================================
+12. GREEN
+============================================================
+
+Use a restrained engineering green.
+
+It should feel:
+
+industrial
+precise
+trustworthy
+professional
+
+Avoid neon green.
+
+Avoid overly bright startup green.
+
+The green should work consistently across:
+
+logo
+primary buttons
+healthy indicators
+verified states
+
+============================================================
+13. HEADER CONSISTENCY
+============================================================
+
+The same CANON identity must appear consistently across:
+
+Project Hub
+Machine Context
+Machine Model
+Engineering Intent
+Validation
+Runtime
+Engineering Change
+
+Do NOT slightly redesign the logo on different screens.
+
+One CANON identity.
+
+One lockup.
+
+One visual system.
+
+============================================================
+14. DO NOT ADD SCHNEIDER BRANDING
+============================================================
+
+CANON must remain an original product identity.
+
+Do NOT use:
+
+Schneider Electric logo
+Schneider Electric wordmark
+official Schneider branding
+"Schneider CANON"
+
+Do not imply CANON is an official Schneider product.
+
+The design may feel appropriate for professional industrial
+engineering software, but CANON remains its own product identity.
+
+============================================================
+15. PREMIUM BRAND FEEL
+============================================================
+
+The desired impression is:
+
+"CANON could be a serious industrial engineering software
+product."
+
+Not:
+
+"AI startup."
+
+Not:
+
+"hackathon project."
+
+Not:
+
+"generic SaaS dashboard."
+
+Not:
+
+"consumer technology."
+
+The sophistication should come from:
+
+precision
+typography
+spacing
+proportion
+restraint
+consistency
+
+============================================================
+16. MICRO-DETAIL
+============================================================
+
+Make the following pixel-perfect:
+
+✓ Icon dimensions
+✓ Corner radius
+✓ C optical centering
+✓ Icon-to-wordmark spacing
+✓ CANON baseline
+✓ Descriptor baseline
+✓ Descriptor left alignment
+✓ Header vertical centering
+✓ Header padding
+✓ Logo scaling between screens
+
+No element should look accidentally positioned.
+
+============================================================
+17. FINAL REFERENCE FEEL
+============================================================
+
+The identity should communicate:
+
+CANON
+
+ENGINEERING INTELLIGENCE PLATFORM
+
+Engineering-first.
+AI-enabled.
+Industrial.
+Precise.
+Trustworthy.
+
+The product philosophy:
+
+ENGINEERING INTENT → VERIFIED AUTOMATION
+
+should feel like a serious engineering principle.
+
+============================================================
+FINAL INSTRUCTION
+============================================================
+
+REFINE THE EXISTING CANON IDENTITY.
+
+DO NOT REDESIGN THE BRAND.
+
+DO NOT CHANGE THE NAME.
+
+DO NOT ADD DECORATION.
+
+DO NOT ADD GRADIENTS.
+
+DO NOT COPY SCHNEIDER BRANDING.
+
+MAKE THE LOGO PROPORTIONS, TYPOGRAPHY, SPACING,
+OPTICAL ALIGNMENT AND APPLICATION HEADER FEEL
+PREMIUM AND PRODUCTION-READY.
+
+The final reaction should be:
+
+"CANON looks like a real industrial engineering product."

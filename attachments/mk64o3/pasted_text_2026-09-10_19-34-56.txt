@@ -1,0 +1,1906 @@
+# CANON — MASTER RESOURCE ACQUISITION + ENGINEERING DATA + AI STACK RESEARCH PROMPT
+# VERSION 2.0
+# PURPOSE: Build the complete resource blueprint for the CANON PS2 prototype
+
+============================================================
+MISSION
+============================================================
+
+You are the lead architect, industrial automation researcher,
+data engineer, AI engineer, and systems engineer responsible for
+specifying EVERY RESOURCE required to build:
+
+CANON
+
+Machine Context → Canonical Machine Model → AI Intent
+→ Deterministic Validation → Dynamic HMI
+→ PLC-Authoritative Control → Feedback
+→ Engineering Change Impact → Regeneration
+
+CANON is being developed as a PS2 prototype for a Schneider Electric
+HMI innovation challenge.
+
+The prototype must feel like a credible industrial engineering product,
+NOT a generic AI SaaS dashboard.
+
+The goal of this research is NOT merely to find information.
+
+The goal is to produce a complete, implementation-ready RESOURCE BLUEPRINT
+covering:
+
+1. APIs
+2. SDKs
+3. protocols
+4. data sources
+5. Schneider Electric datasets
+6. Schneider documentation
+7. HMI libraries
+8. engineering libraries
+9. PLC/device data
+10. standards
+11. AI models
+12. embedding models
+13. reranking models
+14. databases
+15. vector search
+16. graph/data-model infrastructure
+17. PLC simulators
+18. OPC UA simulators/servers
+19. Modbus simulators
+20. file parsers
+21. frontend technologies
+22. backend technologies
+23. runtime technologies
+24. testing frameworks
+25. validation infrastructure
+26. change-impact infrastructure
+27. observability
+28. deployment
+29. security
+30. licensing/access constraints
+
+Do NOT recommend technology merely because it is popular.
+
+Every recommendation must be justified against CANON's actual architecture.
+
+============================================================
+0. CORE CANON PRINCIPLE
+============================================================
+
+CANON has FOUR fundamentally different knowledge layers:
+
+LAYER A — EXTERNAL ENGINEERING KNOWLEDGE
+
+What Schneider / standards / manufacturers officially document.
+
+Examples:
+
+Schneider products
+controllers
+I/O
+HMI
+drives
+motion
+motor control
+safety
+networking
+software
+libraries
+documents
+standards
+
+LAYER B — MACHINE CONTEXT
+
+What the ACTUAL machine contains.
+
+Examples:
+
+PLC
+tags
+I/O
+assets
+signals
+alarms
+commands
+permissives
+interlocks
+relationships
+runtime values
+
+LAYER C — CANON ENGINEERING MODEL
+
+CANON's normalized representation of the machine.
+
+Examples:
+
+Asset
+Signal
+Controller
+I/O
+Command
+Permissive
+Interlock
+Alarm
+HMI binding
+Dependency
+Revision
+Evidence
+
+LAYER D — AI / GENERATION
+
+AI may:
+
+understand natural language
+retrieve engineering knowledge
+propose an HMI
+propose structured intent
+suggest mappings
+explain engineering context
+
+BUT:
+
+AI MUST NOT become the source of truth.
+
+AI MUST NOT directly invent PLC bindings.
+
+AI MUST NOT directly control machinery.
+
+AI MUST NOT silently create tags.
+
+AI MUST NOT fabricate Schneider capabilities.
+
+AI MUST NOT override deterministic validation.
+
+The architecture must be:
+
+AI PROPOSES
+↓
+CANON MODEL DEFINES
+↓
+VALIDATOR CHECKS
+↓
+ENGINEER APPROVES
+↓
+PLC CONTROLS
+↓
+HMI RECEIVES FEEDBACK
+
+============================================================
+1. PRIMARY RESEARCH QUESTION
+============================================================
+
+Determine:
+
+"What exact technical resources, datasets, APIs, models,
+software libraries, protocols, infrastructure and engineering
+knowledge are required to build the strongest possible CANON
+prototype?"
+
+Do not stop at obvious resources.
+
+Perform deep research.
+
+Follow:
+
+official documentation
+SDK pages
+GitHub repositories
+developer documentation
+Schneider documentation
+Schneider downloads
+OPC Foundation documentation
+Modbus specifications
+IEC/ISA/OMAC documentation
+simulation frameworks
+open-source industrial software
+AI model documentation
+database documentation
+HMI frameworks
+industrial cybersecurity documentation
+
+============================================================
+2. SOURCE AUTHORITY
+============================================================
+
+SOURCE PRIORITY:
+
+PRIORITY 1
+Official Schneider Electric
+
+*.se.com
+*.schneider-electric.com
+
+PRIORITY 2
+Official standards organizations
+
+OPC Foundation
+IEC
+ISA
+ISO
+OMAC
+AutomationML
+Asset Administration Shell
+NAMUR
+VDI/VDE
+
+PRIORITY 3
+Official software/project documentation
+
+GitHub repositories
+official SDK repositories
+official API documentation
+official model documentation
+
+PRIORITY 4
+Reputable secondary sources
+
+Use only when necessary.
+
+Clearly mark secondary sources.
+
+NEVER treat a random blog as authoritative Schneider documentation
+when Schneider has an official source.
+
+============================================================
+3. RESOURCE CATEGORIES TO RESEARCH
+============================================================
+
+Research ALL of the following.
+
+------------------------------------------------------------
+A. MACHINE CONNECTIVITY
+------------------------------------------------------------
+
+Investigate:
+
+OPC UA
+OPC UA Client SDKs
+OPC UA Server SDKs
+OPC UA PubSub
+OPC UA information models
+OPC UA NodeSets
+Modbus TCP
+Modbus RTU
+EtherNet/IP
+PROFINET
+CANopen
+MQTT where relevant
+industrial Ethernet
+REST
+WebSockets
+
+For every technology determine:
+
+name
+purpose
+CANON use
+client libraries
+server libraries
+SDKs
+language support
+Node.js support
+Python support
+TypeScript support
+browser compatibility
+Docker support
+licensing
+commercial restrictions
+security
+authentication
+TLS support
+subscriptions
+real-time suitability
+industrial suitability
+Schneider relevance
+official documentation
+GitHub repository
+implementation difficulty
+
+DO NOT claim Schneider supports a protocol on a specific product
+unless verified.
+
+------------------------------------------------------------
+B. OPC UA
+------------------------------------------------------------
+
+Research:
+
+OPC UA client libraries
+OPC UA server libraries
+Node.js OPC UA libraries
+Python OPC UA libraries
+TypeScript OPC UA libraries
+open62541
+node-opcua
+asyncua
+OPC Foundation SDKs
+UAExpert
+open-source OPC UA simulators
+OPC UA test servers
+NodeSet tooling
+
+Determine the BEST choice for CANON prototype.
+
+Evaluate:
+
+stability
+performance
+ease of integration
+subscription support
+browsing
+read/write
+data types
+quality
+timestamps
+alarms/events
+security
+certificate handling
+Docker
+license
+
+Recommended output:
+
+PRIMARY
+BACKUP
+WHY
+
+------------------------------------------------------------
+C. MODBUS
+------------------------------------------------------------
+
+Research:
+
+Modbus TCP libraries
+Modbus RTU libraries
+Node.js libraries
+Python libraries
+simulators
+testing tools
+register mapping tools
+Schneider documentation
+
+Determine the best implementation for:
+
+READ
+WRITE REQUEST
+REGISTER MAPPING
+DATA TYPE DECODING
+SIMULATION
+
+------------------------------------------------------------
+D. PLC / ENGINEERING DATA INGESTION
+------------------------------------------------------------
+
+Research ways to ingest:
+
+PLC exports
+CSV
+JSON
+XML
+IODD
+EDS
+GSD/GSDML
+OPC UA NodeSet
+device descriptions
+I/O configuration
+tag exports
+alarm exports
+engineering documentation
+machine documentation
+
+Investigate relevant formats such as:
+
+EDS
+GSD
+GSDML
+IODD
+AutomationML
+AAS
+OPC UA NodeSet
+
+For each:
+
+what it contains
+whether Schneider uses it
+whether public examples exist
+parser libraries
+license
+CANON relevance
+
+------------------------------------------------------------
+E. SCHNEIDER ELECTRIC KNOWLEDGE CORPUS
+------------------------------------------------------------
+
+Build a complete acquisition plan for:
+
+Controllers
+PLC
+PAC
+M580
+M340
+M262
+M241
+M251
+M221
+M258
+X80
+TM3
+TM5
+TM7
+
+HMI:
+
+Harmony
+EcoStruxure Operator Terminal Expert
+Machine SCADA Expert
+Magelis where relevant/currently documented
+
+Drives:
+
+Altivar
+ATV320
+ATV340
+ATV630
+ATV930
+other relevant current families
+
+Motion:
+
+Lexium
+PacDrive
+servo drives
+servo motors
+motion controllers
+
+Motor control:
+
+TeSys
+contactors
+motor starters
+overload
+motor management
+soft starters
+
+Safety:
+
+safety PLC
+safety I/O
+safety relays
+emergency stop
+guarding
+light curtains
+safety controllers
+
+Networking:
+
+Modbus
+Ethernet
+OPC UA
+EtherNet/IP
+CANopen
+PROFINET where actually supported
+
+Software:
+
+EcoStruxure Machine Expert
+EcoStruxure Control Expert
+EcoStruxure Automation Expert
+EcoStruxure Operator Terminal Expert
+EcoStruxure Machine SCADA Expert
+EcoStruxure Process Expert
+EcoStruxure OPC UA Server Expert
+other relevant official software
+
+Libraries:
+
+device libraries
+application libraries
+function block libraries
+HMI libraries
+compound objects
+templates
+sample projects
+application examples
+
+For each resource identify:
+
+official URL
+download URL
+document URL
+version
+date
+product
+product family
+type
+status
+license
+public/private
+access requirement
+CANON relevance
+data extractable
+machine-model relevance
+HMI relevance
+control relevance
+
+------------------------------------------------------------
+F. SCHNEIDER HMI CORPUS
+------------------------------------------------------------
+
+This is HIGH PRIORITY.
+
+Search for official:
+
+HMI objects
+compound objects
+templates
+faceplates
+symbols
+icons
+controls
+buttons
+switches
+gauges
+meters
+trends
+charts
+alarm objects
+recipe objects
+tables
+navigation
+motor objects
+pump objects
+valve objects
+tank objects
+process graphics
+diagnostic objects
+status objects
+
+For every discovered item:
+
+name
+software
+version
+category
+purpose
+properties
+states
+inputs
+outputs
+bindings
+parameters
+download
+source
+license
+public/private
+extractable/not extractable
+
+NEVER claim a proprietary library was acquired if it is not publicly accessible.
+
+------------------------------------------------------------
+G. SOFTWARE / SDK CORPUS
+------------------------------------------------------------
+
+Research:
+
+Schneider engineering software
+OPC UA SDKs
+Modbus SDKs
+React
+TypeScript
+Node.js
+Python
+FastAPI
+Express
+WebSockets
+PostgreSQL
+pgvector
+graph databases
+Redis
+object storage
+Docker
+
+For every candidate:
+
+purpose
+advantages
+disadvantages
+license
+commercial restrictions
+prototype suitability
+production suitability
+integration difficulty
+recommended/not recommended
+
+------------------------------------------------------------
+H. AI MODELS
+------------------------------------------------------------
+
+Research the minimum AI stack required.
+
+Evaluate:
+
+1. LLM
+
+Purpose:
+
+natural language
+→ engineering intent
+→ structured proposal
+
+Requirements:
+
+structured JSON output
+function/tool calling
+long context
+reliable instruction following
+low hallucination
+good technical reasoning
+API availability
+latency
+cost
+privacy
+deployment options
+
+Evaluate appropriate current models.
+
+DO NOT automatically recommend the largest model.
+
+Determine:
+
+BEST
+BEST VALUE
+LOCAL/OPEN-SOURCE BACKUP
+
+------------------------------------------------------------
+I. EMBEDDING MODELS
+------------------------------------------------------------
+
+Research current embedding models.
+
+Evaluate:
+
+OpenAI
+Cohere
+Voyage
+BGE
+E5
+Nomic
+other strong models
+
+Metrics:
+
+retrieval quality
+technical-document retrieval
+dimension
+speed
+cost
+API
+local deployment
+license
+
+Choose:
+
+PRIMARY EMBEDDING MODEL
+BACKUP EMBEDDING MODEL
+
+------------------------------------------------------------
+J. RERANKERS
+------------------------------------------------------------
+
+Research:
+
+Cohere rerank
+BGE reranker
+cross-encoders
+other strong reranking systems
+
+Determine whether CANON actually needs a reranker
+for the prototype.
+
+Do not add unnecessary complexity.
+
+------------------------------------------------------------
+K. VECTOR DATABASE
+------------------------------------------------------------
+
+Compare:
+
+PostgreSQL + pgvector
+Qdrant
+Weaviate
+Milvus
+Pinecone
+Chroma
+
+Evaluate:
+
+cost
+simplicity
+metadata filtering
+hybrid retrieval
+local deployment
+Docker
+scale
+prototype speed
+
+Prefer the simplest architecture that can become production-capable.
+
+------------------------------------------------------------
+L. RELATIONAL DATABASE
+------------------------------------------------------------
+
+Evaluate:
+
+PostgreSQL
+SQLite
+other options
+
+CANON must store:
+
+machines
+assets
+signals
+I/O
+commands
+permissives
+alarms
+HMI bindings
+revisions
+evidence
+documents
+validation results
+users/projects
+
+Recommend the best database.
+
+------------------------------------------------------------
+M. GRAPH MODEL
+------------------------------------------------------------
+
+Research whether CANON requires:
+
+Neo4j
+PostgreSQL graph representation
+Apache AGE
+NetworkX
+custom adjacency tables
+other graph systems
+
+The graph must support:
+
+ASSET
+→ SIGNAL
+→ I/O
+→ PLC VARIABLE
+→ COMMAND
+→ PERMISSIVE
+→ ALARM
+→ HMI
+→ TEST
+→ REVISION
+
+Determine whether PostgreSQL alone is sufficient for the prototype.
+
+------------------------------------------------------------
+N. DOCUMENT PROCESSING
+------------------------------------------------------------
+
+Research tools for:
+
+PDF
+HTML
+DOCX
+CSV
+XLSX
+XML
+JSON
+technical manuals
+catalogs
+tables
+
+Investigate:
+
+PyMuPDF
+pdfplumber
+Apache Tika
+Unstructured
+Docling
+Pandas
+BeautifulSoup
+other high-quality tools
+
+Need:
+
+text extraction
+table extraction
+metadata
+page numbers
+source references
+document version
+product references
+
+Source provenance must survive extraction.
+
+------------------------------------------------------------
+O. OCR
+------------------------------------------------------------
+
+Determine whether CANON needs OCR.
+
+Research:
+
+Tesseract
+PaddleOCR
+cloud OCR
+document AI
+
+Only recommend OCR if genuinely needed.
+
+------------------------------------------------------------
+P. HMI RENDERING
+------------------------------------------------------------
+
+Research:
+
+React
+TypeScript
+SVG
+Canvas
+HTML/CSS
+React Flow
+D3
+ECharts
+Plotly
+other chart/graph libraries
+
+CANON runtime needs:
+
+industrial process graphics
+dynamic components
+trends
+alarms
+status
+navigation
+responsive layout
+machine topology
+command controls
+state visualization
+
+Determine the best stack.
+
+------------------------------------------------------------
+Q. DYNAMIC HMI GENERATOR
+------------------------------------------------------------
+
+Design the architecture for:
+
+machine semantic
+→ component selection
+→ component schema
+→ layout
+→ validated binding
+→ runtime HMI
+
+Research whether CANON should use:
+
+JSON UI schema
+component registry
+React component registry
+schema-driven UI
+DSL
+custom rendering engine
+
+Recommend one.
+
+Example:
+
+{
+  "component": "PressureGauge",
+  "binding": "PT401",
+  "value": "PT401.VALUE",
+  "unit": "bar",
+  "range": [0,10]
+}
+
+The AI must generate structured specifications,
+NOT arbitrary frontend code.
+
+------------------------------------------------------------
+R. PLC SIMULATION
+------------------------------------------------------------
+
+HIGH PRIORITY.
+
+Research:
+
+PLC simulators
+OPC UA simulators
+Modbus simulators
+industrial process simulators
+
+Evaluate:
+
+CODESYS
+OpenPLC
+Beremiz
+Node-RED
+Python simulators
+custom deterministic simulator
+OPC UA simulation servers
+Modbus simulation servers
+
+Determine:
+
+BEST REALISTIC DEMO OPTION
+BEST SIMPLE OPTION
+BEST SCHNEIDER-RELEVANT OPTION
+
+CANON should be able to demonstrate:
+
+P401 START
+P401 STOP
+XV401 OPEN
+XV401 CLOSE
+permissive checks
+faults
+alarms
+feedback
+changing process values
+
+------------------------------------------------------------
+S. PROCESS SIMULATION
+------------------------------------------------------------
+
+Design a deterministic simulated process for:
+
+TK-401
+LT401
+PT401
+P401
+XV401
+
+Model:
+
+level
+pressure
+pump state
+valve state
+fault
+alarm
+
+Example:
+
+P401 running
++
+XV401 open
+→ tank level changes
+
+XV401 closed
+→ start request rejected
+
+pressure exceeds threshold
+→ alarm activates
+
+The simulation must be deterministic and reproducible.
+
+------------------------------------------------------------
+T. REAL-TIME COMMUNICATION
+------------------------------------------------------------
+
+Research:
+
+WebSockets
+Server-Sent Events
+MQTT
+OPC UA subscriptions
+
+Determine the best runtime architecture.
+
+Need live:
+
+PLC state
+sensor values
+alarms
+commands
+HMI updates
+validation progress
+
+------------------------------------------------------------
+U. VALIDATION ENGINE
+------------------------------------------------------------
+
+This must NOT be AI.
+
+Design deterministic validation.
+
+Checks:
+
+tag exists
+signal exists
+type matches
+range matches
+unit matches
+command exists
+command target exists
+permissive exists
+interlock exists
+alarm exists
+binding valid
+component schema valid
+PLC contract valid
+test exists
+revision valid
+
+Research useful technologies:
+
+JSON Schema
+Zod
+Pydantic
+TypeScript schemas
+OpenAPI
+formal validation approaches
+
+Recommend implementation.
+
+------------------------------------------------------------
+V. COMMAND CONTRACT SYSTEM
+------------------------------------------------------------
+
+Design a machine-control contract.
+
+Example:
+
+{
+  "command": "P401_START",
+  "target": "P401",
+  "request": "P401_START_REQ",
+  "permissives": [
+    "XV401_OPEN",
+    "LT401_BELOW_HIGH_LIMIT",
+    "P401_NO_FAULT"
+  ],
+  "feedback": "P401_RUNNING",
+  "timeout": 5
+}
+
+Research how to model:
+
+commands
+permissives
+interlocks
+feedback
+timeouts
+faults
+state transitions
+
+DO NOT let the LLM invent executable control logic.
+
+------------------------------------------------------------
+W. CHANGE IMPACT ENGINE
+------------------------------------------------------------
+
+Design:
+
+REV 18
+PT401 range = 0–10 bar
+
+↓
+
+REV 19
+PT401 range = 0–16 bar
+
+The engine should identify:
+
+affected HMI
+affected gauge
+affected trend
+affected alarms
+affected tests
+affected documentation
+affected bindings
+
+Research:
+
+dependency graphs
+content hashes
+revision systems
+event sourcing
+change-data tracking
+
+Recommend a simple prototype architecture.
+
+------------------------------------------------------------
+X. TESTING
+------------------------------------------------------------
+
+Research:
+
+unit testing
+integration testing
+end-to-end testing
+simulation testing
+contract testing
+regression testing
+
+Potential tools:
+
+Vitest
+Jest
+Pytest
+Playwright
+Cypress
+Postman/Newman
+k6
+
+CANON should test:
+
+invalid tag
+invalid type
+invalid range
+invalid command
+missing permissive
+blocked command
+successful command
+PLC feedback
+HMI regeneration
+engineering change
+
+------------------------------------------------------------
+Y. OBSERVABILITY
+------------------------------------------------------------
+
+Research:
+
+structured logging
+OpenTelemetry
+Prometheus
+Grafana
+Sentry
+other tools
+
+Track:
+
+AI requests
+retrieval
+validation
+commands
+PLC responses
+HMI generation
+errors
+latency
+revisions
+
+Recommend only what is needed for the prototype.
+
+------------------------------------------------------------
+Z. SECURITY
+------------------------------------------------------------
+
+Research requirements for:
+
+OPC UA certificates
+authentication
+authorization
+role-based access
+command authorization
+audit logs
+secrets
+API security
+PLC write protection
+network isolation
+
+CANON must NEVER expose unrestricted PLC writes from the frontend.
+
+------------------------------------------------------------
+4. DATASETS — COMPLETE RESOURCE MAP
+============================================================
+
+Produce a master dataset inventory.
+
+At minimum:
+
+SCHNEIDER KNOWLEDGE
+
+schneider_products.json
+schneider_product_families.json
+schneider_controllers.json
+schneider_io.json
+schneider_hmi.json
+schneider_drives.json
+schneider_motion.json
+schneider_motor_control.json
+schneider_safety.json
+schneider_networking.json
+schneider_sensors.json
+schneider_software.json
+schneider_libraries.json
+schneider_hmi_components.json
+schneider_documents.json
+schneider_machine_patterns.json
+schneider_commands.json
+schneider_alarms.json
+schneider_standards.json
+schneider_relationships.json
+schneider_evidence.json
+schneider_lifecycle.json
+
+CANON MACHINE
+
+canon_demo_machine.json
+canon_demo_assets.json
+canon_demo_signals.json
+canon_demo_io.json
+canon_demo_commands.json
+canon_demo_permissives.json
+canon_demo_interlocks.json
+canon_demo_alarms.json
+canon_demo_runtime.json
+canon_demo_revisions.json
+canon_demo_dependencies.json
+canon_demo_tests.json
+canon_demo_hmi.json
+canon_demo_bindings.json
+
+CANON ENGINE
+
+canon_component_registry.json
+canon_validation_rules.json
+canon_command_contracts.json
+canon_state_models.json
+canon_change_rules.json
+canon_truth_status.json
+
+AI
+
+ai_models.json
+embedding_models.json
+rerank_models.json
+prompt_templates.json
+retrieval_config.json
+
+INFRASTRUCTURE
+
+api_registry.json
+protocol_registry.json
+software_registry.json
+sdk_registry.json
+parser_registry.json
+simulator_registry.json
+database_registry.json
+
+============================================================
+5. MASTER RESOURCE MANIFEST
+============================================================
+
+Create:
+
+CANON_RESOURCE_MANIFEST.json
+
+Every resource must have:
+
+{
+  "resourceId": "",
+  "name": "",
+  "category": "",
+  "subcategory": "",
+  "purpose": "",
+  "CANONLayer": "",
+  "officialSource": "",
+  "documentation": "",
+  "repository": "",
+  "version": "",
+  "license": "",
+  "commercialUse": "",
+  "authenticationRequired": false,
+  "publicAccess": true,
+  "language": [],
+  "platform": [],
+  "dockerAvailable": false,
+  "prototypePriority": "",
+  "productionSuitability": "",
+  "recommended": false,
+  "reason": "",
+  "alternatives": [],
+  "status": "VERIFIED|INFERRED|PROPOSED|UNKNOWN"
+}
+
+============================================================
+6. RESOURCE PRIORITY
+============================================================
+
+Assign:
+
+P0 — absolutely required for prototype
+P1 — strongly recommended
+P2 — useful enhancement
+P3 — future / production
+
+Do NOT allow the resource list to become an unprioritized shopping list.
+
+============================================================
+7. FINAL RECOMMENDED STACK
+============================================================
+
+After researching alternatives, produce ONE recommended stack.
+
+Example format:
+
+FRONTEND
+React
+TypeScript
+SVG
+ECharts
+React Flow
+
+BACKEND
+FastAPI / Node
+
+DATABASE
+PostgreSQL
+
+VECTOR
+pgvector
+
+AI
+[recommended LLM]
+
+EMBEDDING
+[recommended embedding]
+
+RERANKER
+[recommended reranker or NONE]
+
+MACHINE CONNECTIVITY
+OPC UA
+Modbus TCP
+
+REALTIME
+WebSocket
+
+SIMULATION
+[recommended simulator]
+
+VALIDATION
+Zod/Pydantic/JSON Schema
+
+TESTING
+Vitest/Pytest/Playwright
+
+DEPLOYMENT
+Docker
+
+Do NOT simply copy this example.
+Research and decide.
+
+============================================================
+8. MINIMUM VIABLE PROTOTYPE
+============================================================
+
+Define the absolute minimum stack capable of demonstrating:
+
+STEP 1
+Import machine context
+
+STEP 2
+Build machine model
+
+STEP 3
+User enters:
+
+"Create an operator HMI for TK-401 with level,
+pressure, pump control, valve status and alarms."
+
+STEP 4
+LLM creates structured intent
+
+STEP 5
+Retriever provides verified engineering context
+
+STEP 6
+Deterministic validator checks proposal
+
+STEP 7
+Dynamic HMI is generated
+
+STEP 8
+Operator presses START P401
+
+STEP 9
+PLC simulator evaluates permissives
+
+STEP 10
+Pump starts
+
+STEP 11
+Feedback appears on HMI
+
+STEP 12
+Valve is closed
+
+STEP 13
+START request is rejected
+
+STEP 14
+PT401 range changes
+
+STEP 15
+Change-impact engine identifies affected components
+
+STEP 16
+HMI regenerates
+
+STEP 17
+Regression tests pass
+
+This entire flow must be executable with the recommended resources.
+
+============================================================
+9. DATA ACQUISITION PLAN
+============================================================
+
+Create:
+
+CANON_DATA_ACQUISITION_PLAN.md
+
+Include:
+
+SOURCE
+URL
+RESOURCE
+WHAT TO DOWNLOAD
+WHAT TO EXTRACT
+PARSER
+NORMALIZATION
+TARGET DATASET
+EVIDENCE
+LICENSE
+STATUS
+
+Prioritize:
+
+Schneider official product pages
+Schneider catalogs
+Schneider manuals
+Schneider software documentation
+Schneider downloads
+Schneider application examples
+Schneider libraries
+Schneider HMI resources
+OPC Foundation resources
+standards resources
+
+============================================================
+10. SOURCE INDEX
+============================================================
+
+Create:
+
+CANON_SOURCE_INDEX.csv
+
+Columns:
+
+sourceId
+publisher
+title
+url
+resourceType
+product
+family
+version
+date
+language
+access
+license
+authority
+topics
+downloadAvailable
+datasetTarget
+notes
+
+============================================================
+11. ACQUISITION STATUS
+============================================================
+
+Every resource must have:
+
+FOUND
+PARTIALLY_FOUND
+NOT_FOUND
+RESTRICTED
+LICENSE_REQUIRED
+UNKNOWN
+
+Never silently treat missing data as available.
+
+============================================================
+12. SCHNEIDER PRODUCT TRUTH
+============================================================
+
+For every Schneider-specific claim:
+
+VERIFIED
+INFERRED
+UNKNOWN
+
+For CANON-created:
+
+PROPOSED
+
+For future features:
+
+ROADMAP
+
+Never turn inference into fact.
+
+============================================================
+13. DO NOT FABRICATE
+============================================================
+
+Absolutely forbidden:
+
+invented Schneider APIs
+invented Schneider SDKs
+invented HMI objects
+invented libraries
+invented PLC variables
+invented product capabilities
+invented communication support
+invented standards compliance
+invented datasets
+invented downloads
+invented GitHub repositories
+invented part numbers
+invented Schneider machine hierarchies
+invented integrations
+
+If not found:
+
+NOT FOUND
+
+If uncertain:
+
+UNKNOWN
+
+============================================================
+14. LICENSING
+============================================================
+
+For EVERY resource determine:
+
+open source?
+commercial?
+free for prototype?
+redistribution allowed?
+data redistribution allowed?
+API usage allowed?
+download allowed?
+authentication?
+account required?
+Schneider license required?
+standard copyrighted?
+document redistribution restrictions?
+
+CANON should store:
+
+metadata
+facts
+references
+citations
+
+rather than unnecessarily redistributing copyrighted documents.
+
+============================================================
+15. ARCHITECTURE DIAGRAM
+============================================================
+
+Produce a final architecture:
+
+                    CANON
+                      │
+        ┌─────────────┼─────────────┐
+        ▼             ▼             ▼
+   MACHINE DATA   KNOWLEDGE       AI
+        │             │             │
+    OPC UA        Schneider       LLM
+    Modbus        Documents       Embeddings
+    PLC Export    Libraries       Reranker
+    Simulator     Standards
+        │             │             │
+        └─────────────┼─────────────┘
+                      ▼
+             CANON MACHINE MODEL
+                      │
+                      ▼
+             DETERMINISTIC ENGINE
+                 │           │
+                 ▼           ▼
+             HMI ENGINE    CONTROL
+                 │           │
+                 ▼           ▼
+                HMI          PLC
+                              │
+                              ▼
+                           MACHINE
+                              │
+                              ▼
+                           FEEDBACK
+                              │
+                              ▼
+                       CHANGE IMPACT
+                              │
+                              ▼
+                         REGENERATION
+
+Explain every component and resource.
+
+============================================================
+16. SECURITY ARCHITECTURE
+============================================================
+
+Design:
+
+Browser
+↓
+CANON API
+↓
+Authorization
+↓
+Command Contract
+↓
+Validation
+↓
+PLC interface
+
+NEVER:
+
+Browser
+↓
+raw PLC write
+
+Explain why.
+
+============================================================
+17. FINAL OUTPUTS
+============================================================
+
+Produce ALL of these:
+
+01_CANON_RESOURCE_ARCHITECTURE.md
+
+02_CANON_RECOMMENDED_STACK.md
+
+03_CANON_DATA_ACQUISITION_PLAN.md
+
+04_CANON_SCHNEIDER_SOURCE_INDEX.csv
+
+05_CANON_RESOURCE_MANIFEST.json
+
+06_CANON_DATASET_CATALOG.json
+
+07_CANON_AI_MODEL_EVALUATION.md
+
+08_CANON_API_PROTOCOL_EVALUATION.md
+
+09_CANON_DATABASE_EVALUATION.md
+
+10_CANON_SIMULATOR_EVALUATION.md
+
+11_CANON_HMI_GENERATION_ARCHITECTURE.md
+
+12_CANON_VALIDATION_ARCHITECTURE.md
+
+13_CANON_CONTROL_ARCHITECTURE.md
+
+14_CANON_CHANGE_IMPACT_ARCHITECTURE.md
+
+15_CANON_SECURITY_ARCHITECTURE.md
+
+16_CANON_IMPLEMENTATION_ROADMAP.md
+
+17_CANON_UNKNOWN_AND_GAPS.md
+
+18_CANON_LICENSING_AND_ACCESS.md
+
+============================================================
+18. IMPLEMENTATION ROADMAP
+============================================================
+
+Produce:
+
+DAY 1
+DAY 2
+DAY 3
+DAY 4
+DAY 5
+FINAL DEMO
+
+For every day:
+
+what to build
+what resources to acquire
+what APIs to integrate
+what data to create
+what can be mocked
+what must be real
+what can be simulated
+what should NOT be attempted
+
+Optimize for a hackathon prototype.
+
+============================================================
+19. DEMO-CRITICAL VS NICE-TO-HAVE
+============================================================
+
+Create this table:
+
+RESOURCE
+REQUIRED FOR DEMO?
+REAL OR MOCK?
+PRIORITY
+REASON
+
+The prototype must prioritize:
+
+Machine model
+Dynamic HMI
+Deterministic validation
+PLC-authoritative control
+Command contracts
+Permissives
+Live feedback
+Change impact
+Schneider evidence
+
+Do not spend excessive time acquiring irrelevant historical product data.
+
+============================================================
+20. FINAL RED-TEAM
+============================================================
+
+Before finalizing the research, attack the architecture.
+
+Ask:
+
+Can the LLM hallucinate a tag?
+
+Can the LLM invent a Schneider product?
+
+Can the HMI bypass validation?
+
+Can the browser directly write to PLC?
+
+Can a stale document override a current product?
+
+Can a legacy product be mistaken for current?
+
+Can a missing signal be silently invented?
+
+Can a command execute without a permissive?
+
+Can an engineering change leave the HMI stale?
+
+Can evidence be lost?
+
+Can two documents contradict each other?
+
+Can the system distinguish:
+
+VERIFIED
+INFERRED
+PROPOSED
+UNKNOWN
+ROADMAP
+
+For every vulnerability:
+
+identify it
+explain it
+provide mitigation
+
+============================================================
+21. FINAL ANSWER FORMAT
+============================================================
+
+Start with:
+
+EXECUTIVE ARCHITECTURE
+
+Then:
+
+1. Required resources
+2. Recommended APIs
+3. Recommended protocols
+4. Recommended AI models
+5. Recommended embedding
+6. Recommended reranker
+7. Recommended databases
+8. Recommended vector database
+9. Recommended graph approach
+10. Recommended document processing
+11. Recommended simulators
+12. Recommended HMI stack
+13. Recommended validation stack
+14. Recommended testing stack
+15. Schneider corpus
+16. Standards corpus
+17. CANON datasets
+18. Machine simulator
+19. Control architecture
+20. Change-impact architecture
+21. Security
+22. Licensing
+23. P0/P1/P2/P3 priorities
+24. Implementation roadmap
+25. Unknowns
+26. Risks
+27. Final recommended stack
+
+============================================================
+22. MOST IMPORTANT RULE
+============================================================
+
+Do not optimize for the largest possible database.
+
+Optimize for:
+
+ENGINEERING CONTEXT
++
+PROVENANCE
++
+STRUCTURED MACHINE MODEL
++
+DETERMINISTIC VALIDATION
++
+DYNAMIC HMI
++
+PLC AUTHORITY
++
+CHANGE CONTINUITY
+
+The final question is not:
+
+"How much data did we collect?"
+
+The final question is:
+
+"Can CANON reliably understand a machine,
+generate a useful HMI,
+prove that its bindings are valid,
+request machine actions without bypassing PLC authority,
+receive feedback,
+and survive engineering changes?"
+
+If the answer is YES,
+the resource architecture is successful.
+
+============================================================
+START NOW
+============================================================
+
+Perform deep research.
+
+Use authoritative sources.
+
+Follow official documentation and downloads.
+
+Compare alternatives.
+
+Verify licenses.
+
+Find actual SDKs and APIs.
+
+Find actual simulators.
+
+Find actual Schneider resources.
+
+Find actual datasets.
+
+Find actual libraries.
+
+Find actual documentation.
+
+Do not fabricate.
+
+Do not stop after finding a few product pages.
+
+Produce the complete CANON resource blueprint.

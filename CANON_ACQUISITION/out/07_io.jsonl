@@ -1,0 +1,11 @@
+{"address":0,"area":"holding","dtype":"uint16","endian":"big","machine":"mch_tk401_line","note":"0-40000 raw -> 0-100 %","scale":0.0025,"signalId":"LT401","source":"SRC-TK401-MACHINE"}
+{"address":1,"area":"holding","dtype":"uint16","endian":"big","machine":"mch_tk401_line","note":"0-40000 raw -> 0-10 bar at rev-17","scale":0.00025,"signalId":"PT401","source":"SRC-TK401-MACHINE"}
+{"address":0,"area":"discrete-input","dtype":"bool","endian":"n/a","machine":"mch_tk401_line","scale":1,"signalId":"P401_RUNNING","source":"SRC-TK401-MACHINE"}
+{"address":2,"area":"discrete-input","dtype":"bool","endian":"n/a","machine":"mch_tk401_line","scale":1,"signalId":"P401_FAULT","source":"SRC-TK401-MACHINE"}
+{"address":4,"area":"discrete-input","dtype":"bool","endian":"n/a","machine":"mch_tk401_line","scale":1,"signalId":"P401_ESTOP_OK","source":"SRC-TK401-MACHINE"}
+{"address":0,"area":"coil","dtype":"bool","endian":"n/a","machine":"mch_tk401_line","scale":1,"signalId":"P401_START_REQ","source":"SRC-TK401-MACHINE"}
+{"address":1,"area":"coil","dtype":"bool","endian":"n/a","machine":"mch_tk401_line","scale":1,"signalId":"P401_STOP_REQ","source":"SRC-TK401-MACHINE"}
+{"address":1,"area":"discrete-input","dtype":"bool","endian":"n/a","machine":"mch_tk401_line","scale":1,"signalId":"XV401_OPEN","source":"SRC-TK401-MACHINE"}
+{"address":3,"area":"discrete-input","dtype":"bool","endian":"n/a","machine":"mch_tk401_line","scale":1,"signalId":"XV401_CLOSED","source":"SRC-TK401-MACHINE"}
+{"address":2,"area":"coil","dtype":"bool","endian":"n/a","machine":"mch_tk401_line","scale":1,"signalId":"XV401_OPEN_REQ","source":"SRC-TK401-MACHINE"}
+{"address":3,"area":"coil","dtype":"bool","endian":"n/a","machine":"mch_tk401_line","scale":1,"signalId":"XV401_CLOSE_REQ","source":"SRC-TK401-MACHINE"}

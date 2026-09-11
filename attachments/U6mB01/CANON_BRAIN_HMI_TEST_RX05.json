@@ -1,0 +1,214 @@
+{
+  "package_name": "CANON_BRAIN_HMI_TEST_RX05",
+  "schema_version": "1.0",
+  "project": {
+    "id": "batch_reactor_RX-05",
+    "name": "Batch Reactor RX-05",
+    "controller": "Modicon M241"
+  },
+  "test_type": "brain_first_hmi_generation",
+  "instruction": "Use CANON-BRAIN as the mandatory natural-language interpretation layer. Resolve semantic requests only against the supplied canonical engineering model. Do not invent signals, assets, commands, alarms, permissives, or process values. Return a structured HMI proposal for deterministic validation and assembly.",
+  "canonical_model": {
+    "assets": [
+      {
+        "id": "RX-501",
+        "type": "tank",
+        "name": "Batch Reactor"
+      },
+      {
+        "id": "AGT-501",
+        "type": "motor",
+        "name": "Agitator"
+      },
+      {
+        "id": "P-501",
+        "type": "pump",
+        "name": "Process Pump"
+      },
+      {
+        "id": "XV-501",
+        "type": "valve",
+        "name": "Inlet Valve"
+      },
+      {
+        "id": "XV-502",
+        "type": "valve",
+        "name": "Outlet Valve"
+      }
+    ],
+    "signals": [
+      {
+        "id": "LT-501",
+        "semantic": "reactor level",
+        "type": "analog",
+        "unit": "%",
+        "range": [
+          0,
+          100
+        ]
+      },
+      {
+        "id": "TT-501",
+        "semantic": "reactor temperature",
+        "type": "analog",
+        "unit": "degC",
+        "range": [
+          0,
+          100
+        ]
+      },
+      {
+        "id": "PT-501",
+        "semantic": "reactor pressure",
+        "type": "analog",
+        "unit": "bar",
+        "range": [
+          0,
+          10
+        ]
+      },
+      {
+        "id": "PT-502",
+        "semantic": "pump discharge pressure",
+        "type": "analog",
+        "unit": "bar",
+        "range": [
+          0,
+          6
+        ]
+      },
+      {
+        "id": "AGT-501_SPEED",
+        "semantic": "agitator speed",
+        "type": "analog",
+        "unit": "rpm",
+        "range": [
+          0,
+          600
+        ]
+      },
+      {
+        "id": "AGT-501_FAULT",
+        "semantic": "agitator fault",
+        "type": "boolean"
+      },
+      {
+        "id": "P-501_FLOW",
+        "semantic": "pump flow",
+        "type": "analog",
+        "unit": "m3/h",
+        "range": [
+          0,
+          200
+        ]
+      },
+      {
+        "id": "P-501_FAULT",
+        "semantic": "pump fault",
+        "type": "boolean"
+      },
+      {
+        "id": "XV-501_OPEN",
+        "semantic": "inlet valve open",
+        "type": "boolean"
+      },
+      {
+        "id": "XV-501_CLOSED",
+        "semantic": "inlet valve closed",
+        "type": "boolean"
+      },
+      {
+        "id": "XV-502_OPEN",
+        "semantic": "outlet valve open",
+        "type": "boolean"
+      },
+      {
+        "id": "XV-502_CLOSED",
+        "semantic": "outlet valve closed",
+        "type": "boolean"
+      }
+    ],
+    "commands": [
+      {
+        "id": "AGT-501_START",
+        "asset": "AGT-501",
+        "type": "start"
+      },
+      {
+        "id": "AGT-501_STOP",
+        "asset": "AGT-501",
+        "type": "stop"
+      },
+      {
+        "id": "P-501_START",
+        "asset": "P-501",
+        "type": "start"
+      },
+      {
+        "id": "P-501_STOP",
+        "asset": "P-501",
+        "type": "stop"
+      },
+      {
+        "id": "XV-501_OPEN",
+        "asset": "XV-501",
+        "type": "open"
+      },
+      {
+        "id": "XV-501_CLOSE",
+        "asset": "XV-501",
+        "type": "close"
+      },
+      {
+        "id": "XV-502_OPEN",
+        "asset": "XV-502",
+        "type": "open"
+      },
+      {
+        "id": "XV-502_CLOSE",
+        "asset": "XV-502",
+        "type": "close"
+      }
+    ],
+    "permissives": [
+      {
+        "id": "AGT-501_START_PERM",
+        "command": "AGT-501_START",
+        "condition": "AGT-501_FAULT == false"
+      },
+      {
+        "id": "P-501_START_PERM",
+        "command": "P-501_START",
+        "condition": "P-501_FAULT == false"
+      }
+    ],
+    "alarms": [
+      "ALM_AGT-501_FAULT",
+      "ALM_P-501_FAULT",
+      "ALM_RX-501_HIGH_LEVEL",
+      "ALM_RX-501_HIGH_HIGH_LEVEL",
+      "ALM_RX-501_HIGH_PRESSURE",
+      "ALM_RX-501_HIGH_TEMPERATURE",
+      "ALM_PT-502_HIGH",
+      "ALM_AGT-501_SPEED_HH"
+    ]
+  },
+  "brain_test_prompts": [
+    "Keep an eye on the reactor temperature and show the pump status.",
+    "Give me an operator overview of the whole reactor.",
+    "Show the most important process values for the reactor.",
+    "Make the agitator easier for an operator to control.",
+    "Show the two pressures together and add the pump flow.",
+    "I want a trend for the reactor temperature.",
+    "Show me the cooling equipment.",
+    "Show FT-999 and make it a live flow widget."
+  ],
+  "expected_behavior": {
+    "valid_fuzzy_prompts": "Resolve to real canonical entities such as TT-501, P-501, LT-501, PT-501, PT-502, P-501_FLOW, AGT-501.",
+    "invalid_entity_prompt": "FT-999 must be rejected or marked UNKNOWN. It must never become a valid HMI binding.",
+    "assembly": "HMI widgets must be created only after canonical validation.",
+    "commands": "Only the listed commands may become actionable controls, and command execution must remain behind deterministic validation and permissive checks.",
+    "runtime": "Runtime values must come from the server-side simulator or an actual runtime adapter, never client-side random values.",
+    "evidence": "Every engineering binding should remain traceable to canonical evidence where evidence metadata is available."
+  }
+}

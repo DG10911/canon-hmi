@@ -1,0 +1,520 @@
+07 — CANON AI Model Evaluation
+
+CANON uses AI for four jobs only:
+
+
+
+
+
+Natural language → structured intent JSON
+
+
+
+Retrieval over Layer A evidence + approved Layer C excerpts
+
+
+
+Explanation of validation failures and change impact
+
+
+
+Component selection suggestions from the registry (not new component invention)
+
+AI is never the source of truth.
+
+
+
+Requirements that actually matter
+
+
+
+
+
+
+
+Requirement
+
+
+
+Why
+
+
+
+
+
+Structured JSON / schema adherence
+
+
+
+Intent must parse into Command / Binding / Component specs
+
+
+
+
+
+Tool / function calling
+
+
+
+Optional retrieve-then-generate; not an autonomous agent
+
+
+
+
+
+Long context
+
+
+
+32k+ is enough; manuals are chunked
+
+
+
+
+
+Low hallucination
+
+
+
+Industrial tags and product names
+
+
+
+
+
+Instruction following
+
+
+
+“Only use signals present in MACHINE_MODEL”
+
+
+
+
+
+Latency
+
+
+
+Operator HMI generation < 15 s target
+
+
+
+
+
+Cost
+
+
+
+Hackathon + later few-hundred queries/day
+
+
+
+
+
+Privacy
+
+
+
+Plant models may be confidential — local backup required
+
+
+
+
+
+Deployment
+
+
+
+API now; local fallback documented
+
+Largest model is not the default. Reliability of JSON + obedience to the machine model beats raw IQ.
+
+
+
+LLM evaluation
+
+Public model cards and APIs change. Pin a model at implementation time and record modelId + date in ai_models.json. The roles below are stable.
+
+BEST (structured industrial intent)
+
+A current frontier model with native JSON schema / structured output and strong instruction following.
+
+Candidates to bench on a 20-prompt CANON suite (tag discipline, permissive listing, refusal to invent products):
+
+
+
+
+
+Anthropic Claude Sonnet class with structured outputs
+
+
+
+OpenAI GPT-4.1 / GPT-4o class with response_format: json_schema
+
+
+
+Google Gemini 2.5 Pro class with JSON schema
+
+
+
+xAI Grok class if the deployment already has that API and structured output is reliable
+
+Selection rule: pick the model that scores highest on:
+
+
+
+
+
+Zero invented tags when the machine model is in context
+
+
+
+Valid JSON against Intent.schema.json
+
+
+
+Correct component names drawn only from canon_component_registry.json
+
+
+
+Refusal when evidence is missing (status: UNKNOWN)
+
+Do not hard-wire a single vendor in code. Use an adapter.
+
+BEST VALUE
+
+Smaller structured-output model (GPT-4.1-mini / Claude Haiku / Gemini Flash class) for:
+
+
+
+
+
+Classification of utterance type (generate HMI / explain alarm / change impact)
+
+
+
+Rephrase of validator errors
+
+
+
+Cheap embedding-adjacent tasks
+
+Use the BEST model only for intent generation and conflict explanation.
+
+LOCAL / OPEN-SOURCE BACKUP
+
+Run via Ollama / vLLM when the plant model cannot leave the laptop:
+
+
+
+
+
+Qwen2.5-32B-Instruct or successor
+
+
+
+Llama 3.3 70B-Instruct if GPU allows
+
+
+
+Smaller 14B only if JSON tests pass
+
+Local models hallucinate product SKUs more. Mitigate by:
+
+
+
+
+
+Putting the full machine model in context
+
+
+
+Constrained decoding against the JSON schema
+
+
+
+Post-parse validator that drops unknown identifiers
+
+
+
+Embedding models
+
+Corpus for PS2: hundreds to low thousands of chunks (catalogs + demo machine + command contracts). Domain: English technical manuals, tables, product names.
+
+
+
+
+
+
+
+Model
+
+
+
+Role
+
+
+
+Dim (typical)
+
+
+
+Deploy
+
+
+
+License / access
+
+
+
+Notes
+
+
+
+
+
+OpenAI text-embedding-3-small
+
+
+
+PRIMARY
+
+
+
+1536 (MRL truncatable)
+
+
+
+API
+
+
+
+OpenAI ToS
+
+
+
+Best cost/quality for small English tech corpus
+
+
+
+
+
+Voyage voyage-3 / voyage-3-large
+
+
+
+Quality option
+
+
+
+1024+
+
+
+
+API
+
+
+
+Voyage/MongoDB ToS
+
+
+
+Often leads retrieval benches; use if retrieval QA fails
+
+
+
+
+
+Cohere embed-v3
+
+
+
+Alt API
+
+
+
+1024
+
+
+
+API
+
+
+
+Cohere ToS
+
+
+
+Pairs with Cohere Rerank if we add one later
+
+
+
+
+
+BGE-M3
+
+
+
+BACKUP local
+
+
+
+1024
+
+
+
+Hugging Face
+
+
+
+MIT
+
+
+
+Dense+sparse; good multilingual; prototype offline path
+
+
+
+
+
+Nomic embed text v2
+
+
+
+Local CPU
+
+
+
+768
+
+
+
+local
+
+
+
+Apache-2.0
+
+
+
+Fast on CPU if no GPU
+
+
+
+
+
+E5 family
+
+
+
+Legacy local
+
+
+
+varies
+
+
+
+local
+
+
+
+MIT
+
+
+
+Acceptable; BGE-M3 preferred
+
+PRIMARY EMBEDDING: text-embedding-3-small
+BACKUP EMBEDDING: BGE-M3
+
+Re-embed is cheap at this corpus size. Store embeddingModelId on every chunk so a swap is a batch job, not a rewrite.
+
+
+
+Rerankers
+
+
+
+
+
+
+
+Option
+
+
+
+Verdict
+
+
+
+
+
+Cohere Rerank
+
+
+
+Strong but extra cost/latency
+
+
+
+
+
+BGE reranker / cross-encoder
+
+
+
+Good local option
+
+
+
+
+
+None
+
+
+
+Recommended for prototype
+
+The retrieved set will be 5–20 chunks over a tiny corpus. Metadata filters (productFamily, docType, status=VERIFIED) do more than a cross-encoder. Add a reranker only if measured recall@5 is poor after hybrid search.
+
+Recommended reranker: NONE (prototype). P2: BGE reranker local.
+
+
+
+Prompt architecture (not a model)
+
+Keep prompts as data in prompt_templates.json:
+
+
+
+
+
+intent_generate — system: machine model + registry + “unknown stays unknown”
+
+
+
+retrieve_explain — evidence quotes with sourceIds
+
+
+
+change_impact_narrate — graph result is computed first; LLM only narrates
+
+
+
+validation_explain — validator codes are computed first; LLM only explains
+
+Every LLM response includes usedSignalIds[], usedEvidenceIds[], unknowns[].
+
+
+
+Minimum AI stack
+
+LLM adapter (schema-constrained)
+  + embedding API or BGE-M3
+  + pgvector + tsvector
+  + no reranker
+  + no autonomous tools that write the model
+
+That is enough for steps 3–6 of the demo.

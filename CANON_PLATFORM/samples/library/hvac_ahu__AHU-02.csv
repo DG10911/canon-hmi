@@ -1,0 +1,25 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+M-201,motor,ST-201,analog-in,rpm,0,3000,2900,2800,,,fan
+M-201,motor,DPT-201,analog-in,Pa,0,1000,900,800,,,dp
+M-201,motor,M-201_RUNNING,discrete-in,,,,,,,,running
+M-201,motor,M-201_FAULT,discrete-in,,,,,,,,fault
+M-201,motor,M-201_START_REQ,discrete-out,,,,,,,,start
+M-201,motor,M-201_STOP_REQ,discrete-out,,,,,,,,stop
+M-202,motor,ST-202,analog-in,rpm,0,3000,2900,2800,,,fan
+M-202,motor,DPT-202,analog-in,Pa,0,1000,900,800,,,dp
+M-202,motor,M-202_RUNNING,discrete-in,,,,,,,,running
+M-202,motor,M-202_FAULT,discrete-in,,,,,,,,fault
+M-202,motor,M-202_START_REQ,discrete-out,,,,,,,,start
+M-202,motor,M-202_STOP_REQ,discrete-out,,,,,,,,stop
+M-203,motor,ST-203,analog-in,rpm,0,3000,2900,2800,,,fan
+M-203,motor,DPT-203,analog-in,Pa,0,1000,900,800,,,dp
+M-203,motor,M-203_RUNNING,discrete-in,,,,,,,,running
+M-203,motor,M-203_FAULT,discrete-in,,,,,,,,fault
+M-203,motor,M-203_START_REQ,discrete-out,,,,,,,,start
+M-203,motor,M-203_STOP_REQ,discrete-out,,,,,,,,stop
+XV-201,valve,XV-201_OPEN,discrete-in,,,,,,,,open limit
+XV-201,valve,XV-201_CLOSED,discrete-in,,,,,,,,closed limit
+XV-201,valve,XV-201_OPEN_REQ,discrete-out,,,,,,,,open
+XV-201,valve,XV-201_CLOSE_REQ,discrete-out,,,,,,,,close
+TK-201,tank,TT-201,analog-in,degC,0,200,150,130,,,temp
+TK-202,tank,TT-202,analog-in,degC,0,200,150,130,,,temp

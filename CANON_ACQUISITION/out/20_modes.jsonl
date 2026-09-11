@@ -1,0 +1,4 @@
+{"knowledge_state":"INFERRED","machine":"mch_tk401_line","mode":"AUTO","mode_id":"MODE_AUTO","note":"Standard operator mode vocabulary; not asserted present in TK-401 project unless bound to a signal."}
+{"knowledge_state":"INFERRED","machine":"mch_tk401_line","mode":"MANUAL","mode_id":"MODE_MANUAL","note":"Standard operator mode vocabulary; not asserted present in TK-401 project unless bound to a signal."}
+{"knowledge_state":"INFERRED","machine":"mch_tk401_line","mode":"LOCAL","mode_id":"MODE_LOCAL","note":"Standard operator mode vocabulary; not asserted present in TK-401 project unless bound to a signal."}
+{"knowledge_state":"INFERRED","machine":"mch_tk401_line","mode":"REMOTE","mode_id":"MODE_REMOTE","note":"Standard operator mode vocabulary; not asserted present in TK-401 project unless bound to a signal."}

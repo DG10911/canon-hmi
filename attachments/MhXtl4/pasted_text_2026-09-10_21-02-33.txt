@@ -1,0 +1,553 @@
+02 — CANON Recommended Stack
+
+Every choice is justified against the four-layer architecture, hackathon time, and the ban on AI-as-truth.
+
+
+
+FINAL RECOMMENDED STACK (PS2)
+
+
+
+
+
+
+
+Layer
+
+
+
+Choice
+
+
+
+Why
+
+
+
+
+
+Frontend
+
+
+
+React 18 + TypeScript + Vite
+
+
+
+Industrial HMI needs a component registry, not a page builder. TypeScript makes the UI schema and Zod contracts shareable.
+
+
+
+
+
+HMI primitives
+
+
+
+SVG + CSS + HTML
+
+
+
+Process graphics, state colors, ISA-ish symbols. Canvas is worse for accessibility and hit-testing of controls.
+
+
+
+
+
+Trends / gauges
+
+
+
+Apache ECharts
+
+
+
+Mature gauges, trends, alarms-as-series. Apache-2.0. Avoid Plotly extra weight. D3 is too low-level for 5 days.
+
+
+
+
+
+Topology view
+
+
+
+React Flow
+
+
+
+Machine topology (TK-401 → P401 → XV401) is a graph. Do not use it as the process graphic canvas.
+
+
+
+
+
+UI schema
+
+
+
+JSON Schema + Zod (frontend) + Pydantic (backend)
+
+
+
+LLM emits JSON. Both ends validate the same contract.
+
+
+
+
+
+Backend
+
+
+
+Python 3.12 + FastAPI
+
+
+
+Validation, OPC UA (asyncua), Modbus (pymodbus), document parsers, pytest, and Pydantic live in one process.
+
+
+
+
+
+Realtime
+
+
+
+FastAPI WebSocket (+ optional Redis pub/sub)
+
+
+
+HMI needs push of values, alarms, command results. SSE is one-way and weaker for command ack. MQTT is a plant bus, not a browser bus.
+
+
+
+
+
+Relational DB
+
+
+
+PostgreSQL 16
+
+
+
+Machines, assets, signals, commands, revisions, evidence, users.
+
+
+
+
+
+Vector
+
+
+
+pgvector
+
+
+
+Corpus is small. One database. Hybrid = SQL FTS + vector.
+
+
+
+
+
+Graph
+
+
+
+PostgreSQL adjacency tables + recursive CTE
+
+
+
+Prototype graph is tens-to-hundreds of nodes. Neo4j is extra ops. Apache AGE is optional P3.
+
+
+
+
+
+Cache
+
+
+
+Redis (P1)
+
+
+
+Live tag fan-out and command idempotency keys. Can be skipped Day 1 by keeping state in the simulator process.
+
+
+
+
+
+LLM
+
+
+
+Structured-output frontier model (see 07)
+
+
+
+JSON intent only.
+
+
+
+
+
+Embedding
+
+
+
+OpenAI text-embedding-3-small (primary)
+
+
+
+Cost/quality for a small technical corpus.
+
+
+
+
+
+Embedding backup
+
+
+
+BGE-M3 local (MIT)
+
+
+
+Offline / privacy fallback.
+
+
+
+
+
+Reranker
+
+
+
+NONE for prototype
+
+
+
+Corpus too small to justify another moving part.
+
+
+
+
+
+OPC UA
+
+
+
+asyncua (LGPL) client + server
+
+
+
+Same library for CANON client and demo server.
+
+
+
+
+
+OPC UA backup
+
+
+
+node-opcua (MIT)
+
+
+
+If a Node sidecar is later required.
+
+
+
+
+
+Modbus
+
+
+
+pymodbus (BSD) client + simulator server
+
+
+
+Read, write request coils/registers, decode types, simulate.
+
+
+
+
+
+Process sim
+
+
+
+Custom deterministic Python plant model
+
+
+
+Reproducible TK-401 / P401 / XV401 demo.
+
+
+
+
+
+Realistic PLC option
+
+
+
+OpenPLC Runtime v4 (P1)
+
+
+
+IEC 61131-3 + Modbus/OPC UA. Not required for Day-5 demo.
+
+
+
+
+
+Validation
+
+
+
+Pydantic v2 + JSON Schema + Zod
+
+
+
+Deterministic. No LLM in the loop.
+
+
+
+
+
+Testing
+
+
+
+Pytest + Vitest + Playwright
+
+
+
+Contracts, API, HMI regen, command reject path.
+
+
+
+
+
+Observability
+
+
+
+Structured JSON logs + request IDs
+
+
+
+OTel/Prometheus are P2.
+
+
+
+
+
+Deploy
+
+
+
+Docker Compose
+
+
+
+API, Postgres, simulator, frontend.
+
+
+
+
+
+Auth
+
+
+
+Session JWT + RBAC roles engineer / operator / viewer
+
+
+
+Operators can request commands; only engineers apply revisions.
+
+
+
+Rejected alternatives (and why)
+
+
+
+
+
+
+
+Rejected
+
+
+
+Reason
+
+
+
+
+
+Node.js / Express as primary backend
+
+
+
+Weaker story for Pydantic-grade validation, PDF/table extraction, and asyncua/pymodbus in one process. Node is fine as a future HMI BFF.
+
+
+
+
+
+Next.js
+
+
+
+SSR adds nothing to a local industrial HMI; Vite SPA is simpler.
+
+
+
+
+
+Canvas-first HMI
+
+
+
+Harder hit-testing, worse print/export, worse a11y.
+
+
+
+
+
+React Flow as the process graphic
+
+
+
+It is a node editor, not an operator faceplate system.
+
+
+
+
+
+Pinecone / Weaviate / Milvus / Qdrant
+
+
+
+Second system for <10k vectors. pgvector is enough.
+
+
+
+
+
+Neo4j
+
+
+
+Extra license/ops. Prototype graph fits SQL.
+
+
+
+
+
+Chroma
+
+
+
+Prototype-only; weaker path to production with relational truth.
+
+
+
+
+
+CODESYS SoftPLC as P0
+
+
+
+2-hour demo license without paid runtime; extra Windows/IDE friction. Keep as P2 “looks like a PLC” option.
+
+
+
+
+
+EcoStruxure software embedded
+
+
+
+Account + license + Windows. Use documents as evidence; do not embed.
+
+
+
+
+
+Kafka
+
+
+
+Overkill. WebSocket + in-process bus.
+
+
+
+
+
+Kubernetes
+
+
+
+Compose is the prototype unit.
+
+
+
+
+
+LLM-generated React/JSX
+
+
+
+Undebuggable, unvalidatable, unsafe. Schema only.
+
+
+
+
+
+Direct OPC UA from the browser
+
+
+
+Certificate and write-path disaster. Violates PLC authority.
+
+
+
+
+
+MQTT as the HMI pipe
+
+
+
+Useful later for plant integration; not the browser protocol.
+
+
+
+Language split
+
+
+
+
+
+TypeScript: frontend, UI schema types, Zod, Playwright.
+
+
+
+Python: API, model, validator, connectors, simulator, ingestion, tests.
+
+
+
+SQL: persistence, impact queries, hybrid retrieval.
+
+
+
+JSON: machine files, component registry, command contracts, intent payloads.
+
+No third language in the prototype.

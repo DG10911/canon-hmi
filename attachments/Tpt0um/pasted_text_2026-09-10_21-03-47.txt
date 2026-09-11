@@ -1,0 +1,434 @@
+09 — CANON Database Evaluation
+
+
+
+Relational database
+
+CANON stores machines, assets, signals, I/O, commands, permissives, alarms, HMI bindings, revisions, evidence pointers, documents metadata, validation results, users, projects.
+
+
+
+
+
+
+
+Option
+
+
+
+Verdict
+
+
+
+
+
+PostgreSQL 16
+
+
+
+PRIMARY. JSONB, constraints, CTEs, FTS, pgvector, mature Docker.
+
+
+
+
+
+SQLite
+
+
+
+Acceptable for a laptop spike only. No concurrent WS writers, no pgvector-class ops. Not the demo target.
+
+
+
+
+
+MySQL / MariaDB
+
+
+
+Weaker JSON + CTE + vector story.
+
+
+
+
+
+MongoDB
+
+
+
+Document-flexible but poor relational integrity for contracts and revisions.
+
+Recommendation: PostgreSQL.
+
+Suggested schemas (logical):
+
+
+
+
+
+project, machine, revision
+
+
+
+asset, signal, io_point, controller
+
+
+
+command, command_permissive, interlock, alarm
+
+
+
+hmi_page, hmi_binding, component_type
+
+
+
+evidence, document, chunk
+
+
+
+validation_run, test_case, test_result
+
+
+
+dependency (from_id, to_id, edge_type)
+
+
+
+audit_event
+
+
+
+app_user, role, grant
+
+Use UUIDs. Every mutable row has revision_id, content_hash, truth_status (VERIFIED|INFERRED|PROPOSED|UNKNOWN|ROADMAP).
+
+
+
+Vector database
+
+
+
+
+
+
+
+Option
+
+
+
+Cost
+
+
+
+Simplicity
+
+
+
+Metadata filter
+
+
+
+Hybrid
+
+
+
+Local/Docker
+
+
+
+Scale
+
+
+
+Prototype
+
+
+
+
+
+Postgres + pgvector
+
+
+
+infra already paid
+
+
+
+highest
+
+
+
+SQL WHERE
+
+
+
+FTS + vector RRF
+
+
+
+yes
+
+
+
+to low tens of millions
+
+
+
+YES
+
+
+
+
+
+Qdrant
+
+
+
+extra service
+
+
+
+medium
+
+
+
+excellent payload filter
+
+
+
+sparse+dense
+
+
+
+yes
+
+
+
+high
+
+
+
+no need
+
+
+
+
+
+Weaviate
+
+
+
+extra
+
+
+
+medium
+
+
+
+good
+
+
+
+first-class hybrid
+
+
+
+yes
+
+
+
+high
+
+
+
+no need
+
+
+
+
+
+Milvus
+
+
+
+heavy
+
+
+
+low
+
+
+
+good
+
+
+
+plugin
+
+
+
+yes
+
+
+
+very high
+
+
+
+no
+
+
+
+
+
+Pinecone
+
+
+
+SaaS $$
+
+
+
+easy
+
+
+
+good
+
+
+
+yes
+
+
+
+no local
+
+
+
+managed
+
+
+
+privacy + extra vendor
+
+
+
+
+
+Chroma
+
+
+
+easy
+
+
+
+easy
+
+
+
+basic
+
+
+
+partial
+
+
+
+yes
+
+
+
+proto only
+
+
+
+weak production path
+
+Recommendation: pgvector. Chunks join to document and evidence in one query with role filters.
+
+
+
+Graph model
+
+Required walks:
+
+ASSET → SIGNAL → I/O → PLC VARIABLE
+      → COMMAND → PERMISSIVE → ALARM
+      → HMI BINDING → TEST → REVISION
+
+
+
+
+
+
+
+Option
+
+
+
+Verdict
+
+
+
+
+
+Neo4j
+
+
+
+Excellent DX, extra ops + license consideration. P3.
+
+
+
+
+
+Apache AGE
+
+
+
+Postgres graph extension. P2 if SQL CTEs become painful.
+
+
+
+
+
+NetworkX
+
+
+
+In-process for impact algorithms; persist edges in SQL. Good companion.
+
+
+
+
+
+Custom adjacency table
+
+
+
+PRIMARY for prototype.
+
+CREATE TABLE dependency (
+  from_entity UUID NOT NULL,
+  to_entity   UUID NOT NULL,
+  edge_type   TEXT NOT NULL, -- BINDS, READS, WRITES, PERMITS, TRIGGERS, DOCUMENTS, TESTS
+  revision_id UUID NOT NULL
+);
+
+Impact query = recursive CTE from the changed entity. For the demo machine this is < 200 edges.
+
+PostgreSQL alone is sufficient for the prototype.
+
+
+
+Object storage
+
+Not required for PS2. PDFs stay on disk under data/evidence/ with metadata in Postgres. MinIO is P3.
+
+
+
+Redis
+
+P1, not P0. Use when WebSocket fan-out or multi-worker API appears. Single-process FastAPI + in-memory runtime cache is enough for the demo.

@@ -1,0 +1,102 @@
+{
+  "$schema": "canon.machine.v2",
+  "generated": "2026-09-10",
+  "authority": "PROPOSED — CANON-authored deterministic demo machine. No Schneider proprietary internals. Tags, addresses, and physics are CANON's own.",
+  "machineId": "mch_tk401_line",
+  "name": "TK-401 Transfer Line",
+  "description": "Single-tank transfer line: source tank TK-401 fed through motor-driven pump P401 across on/off valve XV401. The canonical hero machine for the CANON PS2 demo.",
+  "site": "CANON Demo Plant",
+  "area": "Utilities / Transfer",
+  "controller": {
+    "controllerId": "plc_demo",
+    "vendorClaim": "Modeled after a Modicon-class PAC. Simulator is authoritative in PS2; no real CPU SKU is asserted.",
+    "family": "Modicon (family-level reference only)",
+    "protocols": ["OPC UA (asyncua demo server)", "Modbus TCP (pymodbus demo server)"],
+    "opcuaNamespace": "urn:canon:demo:tk401",
+    "opcuaPort": 4840,
+    "modbusPort": 502,
+    "scanTimeMs": 200,
+    "truthStatus": "PROPOSED"
+  },
+  "revision": {
+    "revisionId": "rev-17",
+    "contentHash": "sha256:seed-rev17",
+    "author": "engineer",
+    "createdAt": "2026-09-10T00:00:00Z",
+    "note": "Baseline before PT401 range change demo (0-10 -> 0-16 bar)."
+  },
+  "assets": [
+    {
+      "assetId": "TK-401",
+      "type": "tank",
+      "name": "Source Tank TK-401",
+      "capacityLiters": 5000,
+      "geometry": {"heightMm": 3000, "diameterMm": 1500},
+      "truthStatus": "PROPOSED"
+    },
+    {
+      "assetId": "P401",
+      "type": "pump",
+      "name": "Transfer Pump P401",
+      "driveType": "fixed-speed motor starter",
+      "ratedFlowM3h": 12.0,
+      "truthStatus": "PROPOSED"
+    },
+    {
+      "assetId": "XV401",
+      "type": "valve",
+      "name": "Discharge Valve XV401",
+      "valveType": "on/off (open/close), spring-return fail-closed",
+      "truthStatus": "PROPOSED"
+    }
+  ],
+  "signals": [
+    {"signalId": "LT401", "asset": "TK-401", "kind": "analog-in", "dataType": "REAL", "engUnit": "%", "engMin": 0, "engMax": 100, "hh": 95, "h": 85, "l": 15, "ll": 5, "description": "Tank level transmitter", "access": "read", "truthStatus": "PROPOSED"},
+    {"signalId": "PT401", "asset": "P401", "kind": "analog-in", "dataType": "REAL", "engUnit": "bar", "engMin": 0, "engMax": 10, "hh": 9.0, "h": 8.0, "l": null, "ll": null, "description": "Discharge pressure transmitter (baseline range 0-10 bar)", "access": "read", "truthStatus": "PROPOSED"},
+    {"signalId": "P401_RUNNING", "asset": "P401", "kind": "discrete-in", "dataType": "BOOL", "description": "Pump running feedback", "access": "read", "truthStatus": "PROPOSED"},
+    {"signalId": "P401_FAULT", "asset": "P401", "kind": "discrete-in", "dataType": "BOOL", "description": "Pump fault / motor overload", "access": "read", "truthStatus": "PROPOSED"},
+    {"signalId": "P401_ESTOP_OK", "asset": "P401", "kind": "discrete-in", "dataType": "BOOL", "description": "E-stop circuit healthy (interlock)", "access": "read", "truthStatus": "PROPOSED"},
+    {"signalId": "P401_START_REQ", "asset": "P401", "kind": "discrete-out", "dataType": "BOOL", "description": "Start request coil", "access": "request", "truthStatus": "PROPOSED"},
+    {"signalId": "P401_STOP_REQ", "asset": "P401", "kind": "discrete-out", "dataType": "BOOL", "description": "Stop request coil", "access": "request", "truthStatus": "PROPOSED"},
+    {"signalId": "XV401_OPEN", "asset": "XV401", "kind": "discrete-in", "dataType": "BOOL", "description": "Valve open limit switch", "access": "read", "truthStatus": "PROPOSED"},
+    {"signalId": "XV401_CLOSED", "asset": "XV401", "kind": "discrete-in", "dataType": "BOOL", "description": "Valve closed limit switch", "access": "read", "truthStatus": "PROPOSED"},
+    {"signalId": "XV401_OPEN_REQ", "asset": "XV401", "kind": "discrete-out", "dataType": "BOOL", "description": "Valve open request coil", "access": "request", "truthStatus": "PROPOSED"},
+    {"signalId": "XV401_CLOSE_REQ", "asset": "XV401", "kind": "discrete-out", "dataType": "BOOL", "description": "Valve close request coil", "access": "request", "truthStatus": "PROPOSED"}
+  ],
+  "io": [
+    {"signalId": "P401_START_REQ", "area": "coil", "address": 0, "dtype": "bool", "endian": "n/a", "scale": 1},
+    {"signalId": "P401_STOP_REQ", "area": "coil", "address": 1, "dtype": "bool", "endian": "n/a", "scale": 1},
+    {"signalId": "XV401_OPEN_REQ", "area": "coil", "address": 2, "dtype": "bool", "endian": "n/a", "scale": 1},
+    {"signalId": "XV401_CLOSE_REQ", "area": "coil", "address": 3, "dtype": "bool", "endian": "n/a", "scale": 1},
+    {"signalId": "P401_RUNNING", "area": "discrete-input", "address": 0, "dtype": "bool", "endian": "n/a", "scale": 1},
+    {"signalId": "XV401_OPEN", "area": "discrete-input", "address": 1, "dtype": "bool", "endian": "n/a", "scale": 1},
+    {"signalId": "P401_FAULT", "area": "discrete-input", "address": 2, "dtype": "bool", "endian": "n/a", "scale": 1},
+    {"signalId": "XV401_CLOSED", "area": "discrete-input", "address": 3, "dtype": "bool", "endian": "n/a", "scale": 1},
+    {"signalId": "P401_ESTOP_OK", "area": "discrete-input", "address": 4, "dtype": "bool", "endian": "n/a", "scale": 1},
+    {"signalId": "LT401", "area": "holding", "address": 0, "dtype": "uint16", "endian": "big", "scale": 0.0025, "note": "0-40000 raw -> 0-100 %"},
+    {"signalId": "PT401", "area": "holding", "address": 1, "dtype": "uint16", "endian": "big", "scale": 0.00025, "note": "0-40000 raw -> 0-10 bar at rev-17"}
+  ],
+  "commands": ["P401_START", "P401_STOP", "XV401_OPEN", "XV401_CLOSE"],
+  "commandContracts": "see canon_command_contracts.json",
+  "permissives": "see canon_command_contracts.json",
+  "interlocks": [
+    {"interlockId": "IL_P401_ESTOP", "signal": "P401_ESTOP_OK", "appliesTo": "P401", "type": "hard", "onFail": "block-start-and-stop-running", "truthStatus": "PROPOSED"}
+  ],
+  "alarms": [
+    {"alarmId": "ALM_LT401_HH", "signal": "LT401", "condition": ">= 95", "priority": "high", "class": "level", "message": "TK-401 level high-high", "truthStatus": "PROPOSED"},
+    {"alarmId": "ALM_LT401_H", "signal": "LT401", "condition": ">= 85", "priority": "medium", "class": "level", "message": "TK-401 level high", "truthStatus": "PROPOSED"},
+    {"alarmId": "ALM_LT401_LL", "signal": "LT401", "condition": "<= 5", "priority": "high", "class": "level", "message": "TK-401 level low-low (pump dry-run risk)", "truthStatus": "PROPOSED"},
+    {"alarmId": "ALM_PT401_HH", "signal": "PT401", "condition": ">= 9.0", "priority": "high", "class": "pressure", "message": "P401 discharge pressure high-high", "truthStatus": "PROPOSED"},
+    {"alarmId": "ALM_P401_FAULT", "signal": "P401_FAULT", "condition": "== true", "priority": "high", "class": "device", "message": "P401 motor fault", "truthStatus": "PROPOSED"},
+    {"alarmId": "ALM_P401_CMD_TIMEOUT", "signal": "P401_START_REQ", "condition": "req held 5s without P401_RUNNING", "priority": "medium", "class": "command", "message": "P401 start command timeout", "truthStatus": "PROPOSED"}
+  ],
+  "runtimeSeed": {
+    "dtSec": 0.2,
+    "seed": 401,
+    "initial": {"LT401": 72.0, "PT401": 6.2, "P401_RUNNING": true, "XV401_OPEN": true, "P401_FAULT": false, "P401_ESTOP_OK": true},
+    "inflowRatePctPerSec": 0.15,
+    "leakRatePctPerSec": 0.02,
+    "pumpCurve": "pressure = 0.9 * (level/100) * 8.0 + 1.0  (bar, clamped to engMax)"
+  },
+  "referenceIntegrity": {"coreReferences": 24, "verified": 23, "reviewRequired": 1, "note": "1 reference (PT401 alarm rationalization vs new 0-16 range) requires engineer review after the range-change demo."}
+}

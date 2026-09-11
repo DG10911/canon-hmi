@@ -1,0 +1,196 @@
+CANON Resource Blueprint — file index
+
+Research date: 2026-09-10. Schneider claims are tagged VERIFIED / INFERRED / UNKNOWN. No invented SE APIs, SKUs, or HMI object internals.
+
+
+
+
+
+
+
+File
+
+
+
+Contents
+
+
+
+
+
+01_CANON_RESOURCE_ARCHITECTURE.md
+
+
+
+Layers, authority split, component map
+
+
+
+
+
+02_CANON_RECOMMENDED_STACK.md
+
+
+
+Single stack + rejected alternatives
+
+
+
+
+
+03_CANON_DATA_ACQUISITION_PLAN.md
+
+
+
+What to download, extract, refuse
+
+
+
+
+
+04_CANON_SCHNEIDER_SOURCE_INDEX.csv
+
+
+
+Official URLs and access
+
+
+
+
+
+05_CANON_RESOURCE_MANIFEST.json
+
+
+
+Resource records with licenses
+
+
+
+
+
+06_CANON_DATASET_CATALOG.json
+
+
+
+Dataset inventory + status
+
+
+
+
+
+07_CANON_AI_MODEL_EVALUATION.md
+
+
+
+LLM / embed / rerank
+
+
+
+
+
+08_CANON_API_PROTOCOL_EVALUATION.md
+
+
+
+OPC UA, Modbus, CANON APIs
+
+
+
+
+
+09_CANON_DATABASE_EVALUATION.md
+
+
+
+Postgres, pgvector, graph
+
+
+
+
+
+10_CANON_SIMULATOR_EVALUATION.md
+
+
+
+Plant + protocol facades
+
+
+
+
+
+11_CANON_HMI_GENERATION_ARCHITECTURE.md
+
+
+
+Registry + JSON UI
+
+
+
+
+
+12_CANON_VALIDATION_ARCHITECTURE.md
+
+
+
+Deterministic checks
+
+
+
+
+
+13_CANON_CONTROL_ARCHITECTURE.md
+
+
+
+Command contracts
+
+
+
+
+
+14_CANON_CHANGE_IMPACT_ARCHITECTURE.md
+
+
+
+Revisions + CTE
+
+
+
+
+
+15_CANON_SECURITY_ARCHITECTURE.md
+
+
+
+No browser-to-PLC
+
+
+
+
+
+16_CANON_IMPLEMENTATION_ROADMAP.md
+
+
+
+Day 1–5 + demo table
+
+
+
+
+
+17_CANON_UNKNOWN_AND_GAPS.md
+
+
+
+Gaps + red team
+
+
+
+
+
+18_CANON_LICENSING_AND_ACCESS.md
+
+
+
+Licenses and redistribution
+

@@ -1,0 +1,49 @@
+asset,type,signal,kind,unit,min,max,hh,h,l,ll,desc
+M-301,motor,ST-301,analog-in,rpm,0,3000,2900,2800,,,roller
+M-301,motor,M-301_RUNNING,discrete-in,,,,,,,,running
+M-301,motor,M-301_FAULT,discrete-in,,,,,,,,fault
+M-301,motor,M-301_START_REQ,discrete-out,,,,,,,,start
+M-301,motor,M-301_STOP_REQ,discrete-out,,,,,,,,stop
+M-302,motor,ST-302,analog-in,rpm,0,3000,2900,2800,,,roller
+M-302,motor,M-302_RUNNING,discrete-in,,,,,,,,running
+M-302,motor,M-302_FAULT,discrete-in,,,,,,,,fault
+M-302,motor,M-302_START_REQ,discrete-out,,,,,,,,start
+M-302,motor,M-302_STOP_REQ,discrete-out,,,,,,,,stop
+M-303,motor,ST-303,analog-in,rpm,0,3000,2900,2800,,,roller
+M-303,motor,M-303_RUNNING,discrete-in,,,,,,,,running
+M-303,motor,M-303_FAULT,discrete-in,,,,,,,,fault
+M-303,motor,M-303_START_REQ,discrete-out,,,,,,,,start
+M-303,motor,M-303_STOP_REQ,discrete-out,,,,,,,,stop
+XV-301,valve,ZT-301,analog-in,%,0,100,90,80,20,10,position
+XV-301,valve,XV-301_OPEN,discrete-in,,,,,,,,open limit
+XV-301,valve,XV-301_CLOSED,discrete-in,,,,,,,,closed limit
+XV-301,valve,XV-301_OPEN_REQ,discrete-out,,,,,,,,open
+XV-301,valve,XV-301_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-302,valve,ZT-302,analog-in,%,0,100,90,80,20,10,position
+XV-302,valve,XV-302_OPEN,discrete-in,,,,,,,,open limit
+XV-302,valve,XV-302_CLOSED,discrete-in,,,,,,,,closed limit
+XV-302,valve,XV-302_OPEN_REQ,discrete-out,,,,,,,,open
+XV-302,valve,XV-302_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-303,valve,ZT-303,analog-in,%,0,100,90,80,20,10,position
+XV-303,valve,XV-303_OPEN,discrete-in,,,,,,,,open limit
+XV-303,valve,XV-303_CLOSED,discrete-in,,,,,,,,closed limit
+XV-303,valve,XV-303_OPEN_REQ,discrete-out,,,,,,,,open
+XV-303,valve,XV-303_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-304,valve,ZT-304,analog-in,%,0,100,90,80,20,10,position
+XV-304,valve,XV-304_OPEN,discrete-in,,,,,,,,open limit
+XV-304,valve,XV-304_CLOSED,discrete-in,,,,,,,,closed limit
+XV-304,valve,XV-304_OPEN_REQ,discrete-out,,,,,,,,open
+XV-304,valve,XV-304_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-305,valve,ZT-305,analog-in,%,0,100,90,80,20,10,position
+XV-305,valve,XV-305_OPEN,discrete-in,,,,,,,,open limit
+XV-305,valve,XV-305_CLOSED,discrete-in,,,,,,,,closed limit
+XV-305,valve,XV-305_OPEN_REQ,discrete-out,,,,,,,,open
+XV-305,valve,XV-305_CLOSE_REQ,discrete-out,,,,,,,,close
+XV-306,valve,ZT-306,analog-in,%,0,100,90,80,20,10,position
+XV-306,valve,XV-306_OPEN,discrete-in,,,,,,,,open limit
+XV-306,valve,XV-306_CLOSED,discrete-in,,,,,,,,closed limit
+XV-306,valve,XV-306_OPEN_REQ,discrete-out,,,,,,,,open
+XV-306,valve,XV-306_CLOSE_REQ,discrete-out,,,,,,,,close
+TK-301,tank,TT-301,analog-in,degC,0,200,150,130,,,furnace-temp
+TK-302,tank,TT-302,analog-in,degC,0,200,150,130,,,furnace-temp
+TK-303,tank,TT-303,analog-in,degC,0,200,150,130,,,furnace-temp

@@ -1,0 +1,32 @@
+# CANON_ACQUISITION — the P0 pipeline itself runs on PURE STDLIB (python3, no installs).
+# `python3 run_all.py` needs nothing below. These are the section-69 recommended
+# deps for the PRODUCTION build (real acquisition, DB, extraction, embeddings).
+
+# API + models
+fastapi>=0.115
+uvicorn[standard]>=0.34
+pydantic>=2.9
+
+# storage
+psycopg[binary]>=3.2        # PostgreSQL
+pgvector>=0.3               # vector index (section 52)
+sqlalchemy>=2.0
+
+# live protocol intelligence (section 48) — read-only discovery
+asyncua>=1.1.8              # OPC UA (LGPL-3.0-or-later)
+pymodbus>=3.13              # Modbus TCP/RTU (BSD-3-Clause)
+
+# document processing (section 44/45)
+docling>=2.0               # structured PDF/table extraction
+pypdf>=5.0
+pdfplumber>=0.11
+
+# discovery + acquisition
+httpx>=0.27                # authorized HTTP GET of PUBLIC docs only (respect robots/ToS)
+
+# embeddings (section 52) — replace the placeholder-hash vectors
+sentence-transformers>=3.0
+# or an API embedding model; see ../CANON_RESEARCH/ai/embedding_and_rerank_models.json
+
+# background jobs (section 60 discovery loop)
+# celery>=5.4 / redis, or arq — pick per deployment

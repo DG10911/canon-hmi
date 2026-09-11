@@ -1,0 +1,1218 @@
+CANON — PROJECT HUB
+FINAL PROJECT ARCHITECTURE + NAVIGATION + DATA CONSISTENCY
+DO NOT REDESIGN THE VISUAL STYLE
+
+============================================================
+CORE DIRECTIVE
+============================================================
+
+You are editing the EXISTING CANON Project Hub.
+
+The current visual design is already strong.
+
+DO NOT redesign the visual language.
+
+DO NOT change the overall layout unnecessarily.
+
+DO NOT add decorative elements.
+
+DO NOT add unnecessary navigation.
+
+The purpose of this refinement is:
+
+1. Remove the redundant bottom Create Project area.
+2. Make ALL existing projects fully interactive.
+3. Ensure every project opens into the SAME CANON engineering
+   workflow.
+4. Ensure every project uses its OWN machine-specific data.
+5. Make project navigation consistent and credible.
+6. Keep the Project Hub extremely clean.
+
+============================================================
+1. REMOVE THE BOTTOM CREATE PROJECT SECTION
+============================================================
+
+REMOVE THE ENTIRE bottom section currently containing:
+
+START NEW ENGINEERING PROJECT
+
+Connect a machine or import existing engineering information.
+
++ CREATE PROJECT
+
+Delete this section completely.
+
+There should NOT be a second project-creation CTA at the
+bottom of the Project Hub.
+
+============================================================
+2. KEEP ONLY ONE NEW PROJECT ACTION
+============================================================
+
+Keep the top-right button:
+
++ NEW PROJECT
+
+This is the SINGLE primary project-creation action on the
+Project Hub.
+
+Do not show another "+ Create Project" button anywhere on
+this screen.
+
+The opening screen should therefore end naturally after the
+third project row.
+
+This creates a much cleaner enterprise engineering workspace.
+
+============================================================
+3. FINAL PROJECT HUB STRUCTURE
+============================================================
+
+The page should be:
+
+CANON
+
+Projects
+
+────────────────────────────────────────────────────────
+
+ENGINEERING PROJECTS
+
+Manage connected machines, engineering models and generated
+operator experiences.
+
+                                      + NEW PROJECT
+
+────────────────────────────────────────────────────────
+
+03 PROJECTS
+03 CONNECTED
+02 RUNNING
+01 STOPPED
+
+────────────────────────────────────────────────────────
+
+TK-401
+PROCESS TANK
+
+● RUNNING
+● CONNECTED
+
+Controller
+Modicon M262
+
+24 Assets
+186 Signals
+12 Alarms
+Synced 12 sec ago
+
+OPEN PROJECT →
+
+────────────────────────────────────────────────────────
+
+PACK-07
+PACKAGING LINE
+
+● RUNNING
+● CONNECTED
+
+Controller
+Modicon M580
+
+148 Assets
+1,240 Signals
+36 Alarms
+Synced 8 sec ago
+
+OPEN PROJECT →
+
+────────────────────────────────────────────────────────
+
+MIX-02
+MIXING STATION
+
+● STOPPED
+● CONNECTED
+
+Controller
+Modicon M241
+
+31 Assets
+224 Signals
+18 Alarms
+Synced 2 min ago
+
+OPEN PROJECT →
+
+END OF PAGE.
+
+Do NOT add another project creation panel.
+
+============================================================
+4. ALL PROJECTS MUST BE REAL INTERACTIVE PROJECTS
+============================================================
+
+CRITICAL.
+
+The Project Hub must NOT behave as though TK-401 is the only
+real project.
+
+Every:
+
+OPEN PROJECT →
+
+button must work.
+
+The following projects must all open into CANON:
+
+PROJECT 01
+TK-401 — Process Tank
+
+PROJECT 02
+PACK-07 — Packaging Line
+
+PROJECT 03
+MIX-02 — Mixing Station
+
+Each project must have its own complete project state.
+
+============================================================
+5. SHARED CANON WORKFLOW
+============================================================
+
+Every project must use the same engineering workflow:
+
+PROJECT HUB
+↓
+MACHINE CONTEXT
+↓
+CANONICAL MACHINE MODEL
+↓
+ENGINEERING INTENT
+↓
+VALIDATION
+↓
+GENERATED HMI
+↓
+LIVE CONTROL
+↓
+ENGINEERING CHANGE
+↓
+REGENERATION
+
+Do NOT create a different workflow for different projects.
+
+The workflow is CANON's core product behavior.
+
+Only the MACHINE DATA changes between projects.
+
+============================================================
+6. PROJECT-SPECIFIC DATA
+============================================================
+
+IMPORTANT:
+
+Do NOT simply duplicate TK-401 and rename it.
+
+Each project must have its own machine-specific:
+
+- machine name
+- machine type
+- controller
+- assets
+- signals
+- I/O
+- commands
+- permissives
+- interlocks
+- alarms
+- relationships
+- engineering context
+- canonical model
+- engineering intent
+- generated HMI
+- runtime state
+- engineering changes
+- revision history
+
+The UI structure remains identical.
+
+The engineering content changes.
+
+============================================================
+7. PROJECT 01 — TK-401
+============================================================
+
+Preserve the existing TK-401 demo.
+
+Name:
+
+TK-401
+
+Type:
+
+PROCESS TANK
+
+Controller:
+
+Modicon M262
+
+Existing demo data:
+
+24 assets
+186 signals
+4 I/O groups
+12 alarms
+
+Key assets:
+
+LT401
+LEVEL TRANSMITTER
+
+PT401
+PRESSURE TRANSMITTER
+
+P401
+PUMP
+
+XV401
+VALVE
+
+The current TK-401 Machine Context,
+Machine Model,
+Engineering Intent,
+Validation,
+Generated HMI,
+Control,
+and Engineering Change flows remain intact.
+
+============================================================
+8. PROJECT 02 — PACK-07
+============================================================
+
+Create a DISTINCT packaging-line demo project.
+
+Name:
+
+PACK-07
+
+Type:
+
+PACKAGING LINE
+
+Controller:
+
+Modicon M580
+
+Summary:
+
+148 assets
+1,240 signals
+36 alarms
+
+The Machine Context screen must reflect PACK-07,
+NOT TK-401.
+
+Use a coherent packaging-line machine model.
+
+Example machine elements:
+
+PACK-07
+Packaging Line
+
+INFEED
+Conveyor / infeed section
+
+CV401
+Conveyor
+
+PE401
+Product detection sensor
+
+PK401
+Packaging unit
+
+SEAL401
+Sealing station
+
+OUT401
+Outfeed conveyor
+
+Only use these as CANON DEMO MACHINE DATA.
+
+Do NOT claim these are actual Schneider device structures.
+
+The generated HMI should automatically change to reflect
+the PACK-07 machine.
+
+For example:
+
+Packaging line overview
+Conveyor state
+Product detection
+Packaging station state
+Outfeed state
+Relevant alarms
+Relevant controls
+
+Do NOT show TK-401 assets on the PACK-07 project.
+
+============================================================
+9. PROJECT 03 — MIX-02
+============================================================
+
+Create a DISTINCT mixing-station demo project.
+
+Name:
+
+MIX-02
+
+Type:
+
+MIXING STATION
+
+Controller:
+
+Modicon M241
+
+Summary:
+
+31 assets
+224 signals
+18 alarms
+
+Use a coherent mixing-station machine model.
+
+Example CANON DEMO MACHINE DATA:
+
+MIX-02
+Mixing Station
+
+TANK-02
+Mixing vessel
+
+LT201
+Level transmitter
+
+TT201
+Temperature transmitter
+
+P201
+Mixer motor
+
+XV201
+Inlet valve
+
+XV202
+Outlet valve
+
+Only use these as CANON DEMO MACHINE DATA.
+
+Do NOT claim these are official Schneider machine structures.
+
+The generated HMI must automatically reflect MIX-02.
+
+For example:
+
+Tank level
+Temperature
+Mixer state
+Valve states
+Start / Stop
+Relevant alarms
+Relevant permissives
+
+Do NOT show TK-401 assets on MIX-02.
+
+============================================================
+10. PROJECT DATA ISOLATION
+============================================================
+
+CRITICAL.
+
+Each project must maintain isolated state.
+
+If the engineer opens:
+
+TK-401
+
+they see TK-401.
+
+If they then return to Projects and open:
+
+PACK-07
+
+they must see PACK-07.
+
+If they then open:
+
+MIX-02
+
+they must see MIX-02.
+
+Never leak:
+
+TK-401 assets
+into PACK-07.
+
+Never leak:
+
+PACK-07 signals
+into MIX-02.
+
+Never leak:
+
+MIX-02 alarms
+into TK-401.
+
+Each project is its own engineering context.
+
+============================================================
+11. PROJECT-SPECIFIC MACHINE CONTEXT
+============================================================
+
+The Machine Context page should dynamically use the selected
+project.
+
+For TK-401:
+
+MACHINE CONTEXT
+
+TK-401
+PROCESS TANK
+
+24 ASSETS
+186 SIGNALS
+4 I/O GROUPS
+12 ALARMS
+
+For PACK-07:
+
+MACHINE CONTEXT
+
+PACK-07
+PACKAGING LINE
+
+148 ASSETS
+1,240 SIGNALS
+appropriate I/O count
+36 ALARMS
+
+For MIX-02:
+
+MACHINE CONTEXT
+
+MIX-02
+MIXING STATION
+
+31 ASSETS
+224 SIGNALS
+appropriate I/O count
+18 ALARMS
+
+Do NOT use the same numbers across all projects.
+
+============================================================
+12. PROJECT-SPECIFIC MACHINE MODEL
+============================================================
+
+The Canonical Machine Model must dynamically render the
+selected machine.
+
+TK-401:
+
+TK-401
+├── LT401
+├── PT401
+├── P401
+└── XV401
+
+PACK-07:
+
+PACK-07
+├── Infeed
+├── CV401
+├── PE401
+├── PK401
+├── SEAL401
+└── OUT401
+
+MIX-02:
+
+MIX-02
+├── TANK-02
+├── LT201
+├── TT201
+├── P201
+├── XV201
+└── XV202
+
+These are demo structures.
+
+Clearly treat them as CANON demonstration data.
+
+============================================================
+13. PROJECT-SPECIFIC ENGINEERING INTENT
+============================================================
+
+The Engineering Intent screen must adapt to the selected
+machine.
+
+TK-401 example:
+
+"Create an operator HMI for TK-401 with level, pressure,
+pump control, valve status and alarms."
+
+PACK-07 example:
+
+"Create an operator HMI for PACK-07 with line status,
+conveyor state, packaging station status, controls and alarms."
+
+MIX-02 example:
+
+"Create an operator HMI for MIX-02 with tank level,
+temperature, mixer control, valve status and alarms."
+
+The AI proposal must use the selected machine model.
+
+Do NOT hard-code the TK-401 intent into every project.
+
+============================================================
+14. PROJECT-SPECIFIC VALIDATION
+============================================================
+
+Validation must validate against the CURRENT project's model.
+
+TK-401:
+
+Validate TK-401 signals and commands.
+
+PACK-07:
+
+Validate PACK-07 signals and commands.
+
+MIX-02:
+
+Validate MIX-02 signals and commands.
+
+The validator must reject a reference from another project.
+
+Example:
+
+PACK-07 proposal:
+
+CV401.Speed
+
+✓ valid if CV401.Speed exists in PACK-07.
+
+But:
+
+PT401.Pressure
+
+✕ invalid in PACK-07 if PT401 does not exist.
+
+This demonstrates that CANON validates against machine reality.
+
+============================================================
+15. PROJECT-SPECIFIC GENERATED HMI
+============================================================
+
+This is CRITICAL.
+
+The Generated HMI must be dynamically generated from the
+selected project's machine model and engineering intent.
+
+TK-401:
+
+Tank
+Level
+Pressure
+Pump
+Valve
+Alarms
+
+PACK-07:
+
+Packaging line
+Conveyors
+Product detection
+Packaging station
+Outfeed
+Alarms
+
+MIX-02:
+
+Mixing tank
+Level
+Temperature
+Mixer
+Inlet / outlet valves
+Alarms
+
+Do NOT show a generic identical HMI for all three projects.
+
+The HMI must visibly change according to the machine.
+
+This is one of CANON's most important demonstrations.
+
+============================================================
+16. PROJECT-SPECIFIC CONTROL
+============================================================
+
+Control interactions must also use the selected project's
+command contracts.
+
+TK-401:
+
+START P401
+
+with its machine-specific permissive logic.
+
+PACK-07:
+
+START / STOP packaging line or relevant machine component.
+
+MIX-02:
+
+START / STOP mixer.
+
+Every command must follow:
+
+HMI REQUEST
+↓
+PLC / CONTROL LOGIC
+↓
+PERMISSIVE CHECK
+↓
+COMMAND ACCEPTED / REJECTED
+↓
+MACHINE FEEDBACK
+
+Never allow:
+
+HMI → direct unsafe machine write.
+
+============================================================
+17. PROJECT-SPECIFIC ENGINEERING CHANGE
+============================================================
+
+The Engineering Change screen must also change according to
+the selected project.
+
+TK-401 example:
+
+PT401 range
+0–10 bar
+→
+0–16 bar
+
+PACK-07 example:
+
+A packaging-line parameter / signal definition changes.
+
+MIX-02 example:
+
+A mixing temperature or tank-level engineering parameter
+changes.
+
+The exact change must affect actual dependencies in that
+project's demo model.
+
+Show:
+
+CHANGE
+↓
+IMPACT ANALYSIS
+↓
+AFFECTED HMI COMPONENTS
+↓
+AFFECTED ALARMS
+↓
+AFFECTED BINDINGS
+↓
+VALIDATION
+↓
+NEW REVISION
+
+============================================================
+18. PROJECT REVISION ISOLATION
+============================================================
+
+Each project must have its own revision history.
+
+Example:
+
+TK-401
+Revision 18
+Revision 19
+
+PACK-07
+Revision 7
+Revision 8
+
+MIX-02
+Revision 4
+Revision 5
+
+Do not use one global revision counter.
+
+============================================================
+19. PROJECT HUB STATUS CONSISTENCY
+============================================================
+
+The Project Hub must remain synchronized with each project's
+runtime state.
+
+TK-401:
+
+● RUNNING
+
+PACK-07:
+
+● RUNNING
+
+MIX-02:
+
+● STOPPED
+
+If the demo runtime changes the state of a project, the Project
+Hub status should update accordingly when returning to Projects.
+
+For example:
+
+MIX-02
+STOPPED → RUNNING
+
+should be reflected in the Project Hub.
+
+============================================================
+20. OPEN PROJECT BEHAVIOR
+============================================================
+
+Click:
+
+OPEN PROJECT →
+
+The transition should be:
+
+Project Hub
+↓
+Selected Project
+↓
+Machine Context
+
+The project header should update dynamically.
+
+For TK-401:
+
+← Projects
+TK-401
+Process Tank
+● Connected
+
+For PACK-07:
+
+← Projects
+PACK-07
+Packaging Line
+● Connected
+
+For MIX-02:
+
+← Projects
+MIX-02
+Mixing Station
+● Connected
+
+Controller information must update dynamically.
+
+============================================================
+21. BACK TO PROJECTS
+============================================================
+
+The project header should contain:
+
+← Projects
+
+Clicking it returns to:
+
+ENGINEERING PROJECTS
+
+Do NOT reset the project data.
+
+The engineer should be able to:
+
+Open TK-401
+↓
+Return to Projects
+↓
+Open PACK-07
+↓
+Return to Projects
+↓
+Open MIX-02
+
+smoothly.
+
+============================================================
+22. NEW PROJECT
+============================================================
+
+Keep only:
+
++ NEW PROJECT
+
+at the top-right.
+
+Clicking it opens:
+
+NEW ENGINEERING PROJECT
+
+with:
+
+LIVE MACHINE
+ENGINEERING DATA
+DEMO MACHINE
+
+Do not permanently display these options on the Project Hub.
+
+============================================================
+23. VISUAL DESIGN
+============================================================
+
+Preserve the existing visual language.
+
+Keep:
+
+- white background
+- graphite typography
+- restrained green
+- thin borders
+- compact engineering rows
+- subtle status indicators
+- clean alignment
+- minimal shadows
+- restrained radius
+- professional enterprise layout
+
+No:
+
+- gradients
+- neon
+- glassmorphism
+- AI robot
+- giant illustrations
+- excessive cards
+- flashy animations
+
+============================================================
+24. PROJECT ROW INTERACTION
+============================================================
+
+Each project row should feel clickable.
+
+On hover:
+
+very subtle background / border change.
+
+On click:
+
+smooth transition into that project's Machine Context.
+
+No dramatic animation.
+
+============================================================
+25. PROJECT HUB MUST REMAIN SIMPLE
+============================================================
+
+Do NOT add:
+
+- project analytics
+- project charts
+- activity feeds
+- notifications
+- user management
+- machine library
+- AI chat
+- documents browser
+- settings
+- giant filters
+- project creation wizard directly on the page
+- bottom Create Project panel
+
+The Project Hub has one purpose:
+
+SHOW ENGINEERING PROJECTS.
+
+============================================================
+26. FINAL PROJECT HUB
+============================================================
+
+The final screen should visually end approximately here:
+
+ENGINEERING PROJECTS
+
+Manage connected machines, engineering models and generated
+operator experiences.
+
+                                        + NEW PROJECT
+
+
+03 PROJECTS     03 CONNECTED     02 RUNNING     01 STOPPED
+
+
+TK-401
+PROCESS TANK
+
+● RUNNING
+● CONNECTED
+
+Modicon M262
+
+24 ASSETS
+186 SIGNALS
+12 ALARMS
+12 sec ago
+
+OPEN PROJECT →
+
+
+PACK-07
+PACKAGING LINE
+
+● RUNNING
+● CONNECTED
+
+Modicon M580
+
+148 ASSETS
+1,240 SIGNALS
+36 ALARMS
+8 sec ago
+
+OPEN PROJECT →
+
+
+MIX-02
+MIXING STATION
+
+● STOPPED
+● CONNECTED
+
+Modicon M241
+
+31 ASSETS
+224 SIGNALS
+18 ALARMS
+2 min ago
+
+OPEN PROJECT →
+
+END.
+
+There is NO bottom Create Project area.
+
+============================================================
+27. FINAL PRODUCT BEHAVIOR
+============================================================
+
+The judge should be able to demonstrate:
+
+OPEN CANON
+↓
+PROJECTS
+↓
+OPEN TK-401
+↓
+MACHINE CONTEXT
+↓
+MACHINE MODEL
+↓
+INTENT
+↓
+VALIDATION
+↓
+HMI
+
+Then:
+
+← PROJECTS
+
+↓
+OPEN PACK-07
+
+↓
+Machine Context changes
+
+↓
+Machine Model changes
+
+↓
+Intent changes
+
+↓
+Generated HMI changes
+
+Then:
+
+← PROJECTS
+
+↓
+OPEN MIX-02
+
+↓
+Machine Context changes
+
+↓
+Machine Model changes
+
+↓
+Generated HMI changes
+
+This demonstrates:
+
+CANON IS A PLATFORM,
+NOT A SINGLE HARD-CODED DEMO.
+
+============================================================
+28. IMPORTANT DATA PRINCIPLE
+============================================================
+
+Separate:
+
+CANON DEMO MACHINE DATA
+
+from:
+
+SCHNEIDER / INDUSTRIAL KNOWLEDGE DATA.
+
+The three machines are demonstration projects.
+
+Do not claim:
+
+"These are official Schneider machine templates."
+
+Do not fabricate Schneider-specific product capabilities.
+
+The prototype may use clearly labeled CANON demo machine data
+to demonstrate the architecture.
+
+============================================================
+29. FINAL ACCEPTANCE TEST
+============================================================
+
+Test all three projects.
+
+TEST 01:
+
+Open TK-401.
+
+Expected:
+
+TK-401 data everywhere.
+
+TEST 02:
+
+Return to Projects.
+
+Open PACK-07.
+
+Expected:
+
+PACK-07 data everywhere.
+
+No TK-401 data.
+
+TEST 03:
+
+Return to Projects.
+
+Open MIX-02.
+
+Expected:
+
+MIX-02 data everywhere.
+
+No TK-401 or PACK-07 data.
+
+TEST 04:
+
+Return to Projects.
+
+Verify:
+
+03 PROJECTS
+03 CONNECTED
+02 RUNNING
+01 STOPPED
+
+TEST 05:
+
+Verify there is NO bottom:
+
+START NEW ENGINEERING PROJECT
+
+section.
+
+TEST 06:
+
+Verify there is only one project creation entry point:
+
++ NEW PROJECT
+
+TEST 07:
+
+Open each project and verify the workflow remains:
+
+CONTEXT
+→ MODEL
+→ INTENT
+→ VALIDATE
+→ RUNTIME
+→ CHANGE
+
+TEST 08:
+
+Generate HMI for each project.
+
+Verify each HMI is visibly different and uses the selected
+machine's assets.
+
+============================================================
+FINAL DESIGN PRINCIPLE
+============================================================
+
+THE PROJECT HUB SHOULD SAY:
+
+"THESE ARE MY ENGINEERING PROJECTS."
+
+NOT:
+
+"THIS IS A DEMO OF TK-401."
+
+TK-401 is the primary hero demonstration.
+
+PACK-07 and MIX-02 prove that CANON is a reusable engineering
+platform.
+
+The same CANON intelligence operates across different
+machines.
+
+FINAL INSTRUCTION:
+
+REMOVE THE BOTTOM CREATE PROJECT AREA.
+
+KEEP ONLY + NEW PROJECT.
+
+MAKE ALL THREE PROJECTS FULLY FUNCTIONAL.
+
+MAKE THEIR DATA MACHINE-SPECIFIC.
+
+KEEP THE SAME CANON WORKFLOW.
+
+DO NOT REDESIGN THE UI.
+
+DO NOT ADD UNNECESSARY FEATURES.
+
+MAKE THE PRODUCT FEEL LIKE ONE REAL ENGINEERING PLATFORM
+WITH MULTIPLE CONNECTED MACHINE PROJECTS.

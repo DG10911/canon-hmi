@@ -1,0 +1,23 @@
+{
+  "$schema": "canon.embedding_rerank.v2",
+  "generated": "2026-09-10",
+  "verifiedAsOf": "2026-09 web verification",
+  "corpus": "hundreds to low thousands of chunks; English technical manuals, tables, product names",
+  "storeEmbeddingModelIdOnEveryChunk": true,
+  "embedding": {
+    "PRIMARY": {"id": "text-embedding-3-small", "vendor": "OpenAI", "dims": 1536, "matryoshka": [1536, 512, 256, 128], "price": "~$0.02/1M tok (2026-04)", "note": "OpenAI has not refreshed embeddings since Jan 2024; 3-small/3-large remain current", "status": "VERIFIED"},
+    "QUALITY_OPTION": {"id": "voyage-3-large", "vendor": "Voyage AI (MongoDB)", "dims": [2048, 1024, 512, 256], "context": "32K", "note": "MongoDB acquired Voyage; ~9.7% avg over OpenAI-v3-large on retrieval benches", "status": "VERIFIED (lineup CHANGED from voyage-3 -> voyage-3-large)"},
+    "ALT_API": {"id": "embed-v4.0", "vendor": "Cohere", "dims": [256, 512, 1024, 1536], "context": "128K", "multimodal": true, "released": "2025-04-15", "status": "VERIFIED (embed v4 supersedes v3)"},
+    "BACKUP_LOCAL": {"id": "BAAI/bge-m3", "dims": {"dense": 1024, "sparse": "vocab", "multiVector": "ColBERT-style"}, "maxTokens": 8192, "license": "MIT", "status": "VERIFIED"},
+    "CPU_LOCAL": {"id": "nomic-embed-text-v1.5", "dims": "768 (matryoshka 64-768)", "license": "Apache-2.0", "note": "v2-moe (Feb 2025) is MoE, 8 experts, ~100 langs, Apache-2.0", "status": "VERIFIED"}
+  },
+  "reranker": {
+    "recommendation": "NONE for prototype",
+    "why": "retrieved set is 5-20 chunks over a tiny corpus; metadata filters (productFamily, docType, status=VERIFIED) beat a cross-encoder. Add only if measured recall@5 is poor.",
+    "ifNeeded": [
+      {"id": "cohere-rerank-4-fast", "note": "rerank-v3.5 deprecated 2026-07-01; v4 line current", "status": "VERIFIED (CHANGED)"},
+      {"id": "BAAI/bge-reranker-v2-m3", "note": "open cross-encoder, self-hostable, multilingual", "status": "VERIFIED"}
+    ]
+  },
+  "retrieval": {"strategy": "hybrid: Postgres tsvector FTS + pgvector, Reciprocal Rank Fusion", "metadataFilters": ["productFamily", "docType", "truthStatus", "layer"]}
+}
