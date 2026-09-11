@@ -30,7 +30,7 @@ KIND_TOKENS = {
     "flow":        ("flow", "fit", "gpm", "m3h"),
     "temperature": ("temp", "◦r", "[k]", "coolant", "winding", "stator", "tooth", "yoke", "thermo"),
     "speed":       ("speed", "rpm", "fan speed", "core speed", "motor_speed"),
-    "current":     ("i_d", "i_q", "current", "amp", "amperage"),
+    "current":     ("i_d", "i_q", "phase current", "line current", "ampere"),
     "torque":      ("torque", "nm"),
     "vibration":   ("vib", "accel"),
     "power":       ("power", "energy", "kw", "watt", "consumption"),
@@ -56,8 +56,9 @@ def measure_of(sig: dict):
         return "flow"
     if pre in ("LT", "LIT", "LI", "LSH", "LSL") or "level" in desc:
         return "level"
-    if unit in ("a", "amp", "ma") or pre in ("IT", "II") or "current" in desc:
-        return "current"
+    if unit in ("a", "amp", "ma") or pre in ("IT", "II") or any(
+            k in desc for k in ("motor current", "phase current", "line current", "winding current")):
+        return "current"          # electrical current only — not "current payment/value"
     if unit in ("kw", "w", "kwh", "mw") or "power" in desc or "energy" in desc:
         return "power"
     return None
