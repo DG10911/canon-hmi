@@ -23,6 +23,7 @@ from pydantic import BaseModel
 
 import platform_core as core
 import platform_sim as sim
+import platform_reference as ref
 
 SIM_STATES: Dict[str, dict] = {}      # per-project deterministic SIMULATOR runtime
 SCREENS: Dict[str, dict] = {}         # per-project CURRENT hmi screen (server-owned)
@@ -46,8 +47,14 @@ def _rev_list(pid: str):
     return [{k: r[k] for k in ("rev", "ts", "note", "widgets", "changed", "approved")}
             for r in REVISIONS.get(pid, [])]
 
-# Optional: wire the trained CANON-brain in. Empty -> deterministic engine only.
-LLM_BASE = os.getenv("CANON_LLM_BASE", "")          # e.g. http://localhost:8000/v1 (via SSH tunnel)
+# Part A — wire the trained CANON-brain (v2 GGUF) in. If CANON_LLM_BASE is set we use
+# it; otherwise the platform AUTO-DETECTS a llama.cpp/Ollama server on the default port
+# (start the DGX tunnel and it just works). Auto-detect only marks the brain "configured"
+# when it is actually reachable, so a laptop with no brain runs the deterministic engine
+# cleanly — but once wired, a mid-session drop correctly surfaces BRAIN OFFLINE (§9, no
+# silent fallback).
+LLM_DEFAULT = os.getenv("CANON_LLM_DEFAULT", "http://localhost:8000/v1")   # DGX tunnel target
+LLM_BASE = os.getenv("CANON_LLM_BASE", "")          # explicit override
 LLM_MODEL = os.getenv("CANON_LLM_MODEL", "canon-brain")
 
 
@@ -55,20 +62,36 @@ class BrainOffline(Exception):
     """Brain is configured but unreachable — spec §9: never silently fall back."""
 
 
+def _probe(base: str) -> bool:
+    if not base:
+        return False
+    try:
+        import httpx
+        r = httpx.get(base.rstrip("/") + "/models", timeout=3,
+                      headers={"Authorization": "Bearer local"})
+        return r.status_code == 200
+    except Exception:
+        return False
+
+
+def detect_brain() -> dict:
+    """Bind LLM_BASE: explicit env wins; else auto-detect the default endpoint if live."""
+    global LLM_BASE
+    if os.getenv("CANON_LLM_BASE"):
+        LLM_BASE = os.getenv("CANON_LLM_BASE")
+    elif _probe(LLM_DEFAULT):
+        LLM_BASE = LLM_DEFAULT               # v2 brain found on the default port
+    elif not os.getenv("CANON_LLM_BASE"):
+        LLM_BASE = ""                        # nothing serving -> deterministic engine
+    return _brain_status()
+
+
 def brain_configured() -> bool:
     return bool(LLM_BASE)
 
 
 def brain_reachable() -> bool:
-    if not LLM_BASE:
-        return False
-    try:
-        import httpx
-        r = httpx.get(LLM_BASE.rstrip("/") + "/models", timeout=3,
-                      headers={"Authorization": "Bearer local"})
-        return r.status_code == 200
-    except Exception:
-        return False
+    return _probe(LLM_BASE)
 
 
 def _context_pack(model: dict, current: dict = None) -> str:
@@ -474,6 +497,7 @@ def _brain_status():
     configured = brain_configured()
     reachable = brain_reachable() if configured else False
     return {"configured": configured, "connected": reachable,
+            "base": LLM_BASE or None, "default_endpoint": LLM_DEFAULT,
             "model": LLM_MODEL if configured else None,
             "interpreter": "ACTIVE" if reachable else ("UNAVAILABLE" if configured else "OFF · deterministic"),
             "validator": "ACTIVE", "assembly": "DETERMINISTIC CANON ENGINE", "runtime": "SIMULATOR"}
@@ -482,6 +506,27 @@ def _brain_status():
 @app.get("/api/brain/status")
 def brain_status():
     return _brain_status()
+
+
+@app.post("/api/brain/connect")
+def brain_connect():
+    """Re-probe for the CANON-brain (start the DGX tunnel, then click Connect)."""
+    return detect_brain()
+
+
+# ---- Part B: reference corpus grounding -----------------------------------
+@app.get("/api/reference")
+def reference_corpus():
+    """The real ICS/sensor datasets backing the platform (OBSERVED · CANDIDATE, §62)."""
+    return ref.stats()
+
+
+@app.get("/api/projects/{pid}/grounding")
+def grounding(pid: str):
+    """OBSERVED ranges from comparable real-world sensors for this machine's signals."""
+    if pid not in PROJECTS:
+        raise HTTPException(404, "no such project")
+    return ref.ground(PROJECTS[pid])
 
 
 @app.get("/api/audit")
@@ -509,6 +554,10 @@ def presentation():
 def _startup():
     _load_all()
     _seed()
+    st = detect_brain()
+    print(f"CANON-BRAIN: {'CONNECTED ' + str(st['base']) if st['connected'] else 'offline (deterministic engine)'}")
+    r = ref.stats()
+    print(f"REFERENCE CORPUS: {r['signals']} signals / {r['datasets']} datasets" if r.get("loaded") else "REFERENCE CORPUS: not loaded (run sync_reference.sh)")
 
 
 if __name__ == "__main__":

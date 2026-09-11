@@ -116,6 +116,8 @@ h1{font-size:24px;margin:0 0 3px}
     <div class="st"><span>Environment</span><b>PROTOTYPE</b></div>
     <div class="lbl">CANON RUNTIME</div>
     <div id="brainbox"><div class="st"><span>Brain</span><b>—</b></div></div>
+    <div class="lbl">REFERENCE CORPUS</div>
+    <div id="refbox"><div class="st"><span>Datasets</span><b>—</b></div></div>
   </aside>
   <main id="main"><div class="empty">Loading…</div></main>
 </div>
@@ -129,15 +131,28 @@ async function api(path, opts){ const r = await fetch(API+path, opts); if(!r.ok)
 const el = (t, c, h) => { const e=document.createElement(t); if(c)e.className=c; if(h!=null)e.innerHTML=h; return e; };
 const esc = s => (s==null?'':String(s)).replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
 
-async function boot(){ await refreshProjects(); refreshBrain(); go('projects'); setInterval(refreshBrain, 8000); }
+async function boot(){ await refreshProjects(); refreshBrain(); refreshReference(); go('projects'); setInterval(refreshBrain, 8000); }
 async function refreshBrain(){ try{ BRAIN=await api('/api/brain/status'); }catch(e){ BRAIN=null; } renderBrainStatus(); }
 function renderBrainStatus(){ const b=document.getElementById('brainbox'); if(!b)return; if(!BRAIN){b.innerHTML='<div class="st"><span>Brain</span><b>—</b></div>';return;}
   const line=(k,v,on)=>`<div class="st"><span>${k}</span><b style="${on===false?'color:#c47f17':''}">${v}</b></div>`;
   b.innerHTML=line('Brain', BRAIN.connected?'● CONNECTED':(BRAIN.configured?'○ OFFLINE':'○ off'), BRAIN.connected)
-    + line('Model', esc(BRAIN.model||'—'))
+    + line('Model', esc(BRAIN.connected?(BRAIN.model||'canon-brain'):'—'))
     + line('Interpreter', esc(BRAIN.interpreter), BRAIN.connected)
     + line('Validator', '● '+esc(BRAIN.validator), true)
-    + line('Runtime', '● '+esc(BRAIN.runtime), true);
+    + line('Runtime', '● '+esc(BRAIN.runtime), true)
+    + (BRAIN.connected?'':`<button class="btn o sm" style="width:100%;margin-top:6px" id="cbtn" onclick="connectBrain()">Connect v2 brain</button>`);
+}
+async function connectBrain(){ const btn=document.getElementById('cbtn'); if(btn){btn.textContent='Connecting…';btn.disabled=true;}
+  try{ BRAIN=await api('/api/brain/connect',{method:'POST'}); }catch(e){}
+  renderBrainStatus(); }
+async function refreshReference(){ let r=null; try{ r=await api('/api/reference'); }catch(e){} renderReference(r); }
+function renderReference(r){ const b=document.getElementById('refbox'); if(!b)return;
+  const line=(k,v)=>`<div class="st"><span>${k}</span><b>${v}</b></div>`;
+  if(!r||!r.loaded){ b.innerHTML=line('Datasets','not loaded')+`<div class="sub" style="font-size:10.5px;margin-top:4px">run sync_reference.sh</div>`; return; }
+  const top=(r.sources||[]).slice(0,3).map(s=>s.title).join(', ');
+  b.innerHTML=line('Datasets', r.datasets)+line('Obs. signals', r.signals)
+    +`<div class="sub" style="font-size:10.5px;margin-top:4px">${esc(top)}…</div>`
+    +`<div class="sub" style="font-size:10px;margin-top:3px;color:var(--g2)">OBSERVED · CANDIDATE · §62</div>`;
 }
 async function refreshProjects(){ PROJECTS = await api('/api/projects');
   document.getElementById('s_proj').textContent = PROJECTS.length;
@@ -229,6 +244,8 @@ function paint(){ document.querySelectorAll('.tab').forEach((b,i)=>b.classList.t
 function paintModel(b){
   b.appendChild(el('div','card','<h3>Context · what this document means</h3><div id="cxbody" class="sub">Reading the uploaded document…</div>'));
   api('/api/projects/'+CUR.projectId+'/context').then(renderContext).catch(()=>{});
+  b.appendChild(el('div','card','<h3>Reference grounding · real-world corroboration</h3><div id="groundbody" class="sub">Cross-referencing against the ICS reference corpus…</div>'));
+  api('/api/projects/'+CUR.projectId+'/grounding').then(renderGrounding).catch(()=>{});
   const mk=(title,items)=>{ const c=el('div','card',`<h3>${title}</h3>`); const g=el('div',null,'');
     items.slice(0,60).forEach(it=>g.appendChild(el('div',null,`<div class="mono" style="font-size:11.5px;padding:3px 0;border-bottom:1px solid var(--line2)">${it}</div>`)));
     if(items.length>60)g.appendChild(el('div','sub','… +'+(items.length-60)+' more')); c.appendChild(g); return c; };
@@ -250,6 +267,20 @@ function renderContext(cx){ const t=document.getElementById('cxbody'); if(!t)ret
     <div style="margin-top:5px;font-size:12.5px"><b>Control</b> · ${cx.control.starts} motor start/stop · ${cx.control.valves} valve open/close · ${cx.control.permissives} permissives · ${cx.control.interlocks} interlocks</div>
     ${(cx.operator_needs&&cx.operator_needs.length)?`<div style="margin-top:9px;font-size:12.5px"><b>Operators need to</b> · ${cx.operator_needs.map(esc).join(' · ')}</div>`:''}
     ${(cx.recommended_screens&&cx.recommended_screens.length)?`<div style="margin-top:9px;font-size:12.5px"><b>Recommended screens</b><div style="margin-top:5px">${cx.recommended_screens.map(r=>`<span class="cmd" style="cursor:pointer;color:var(--g2);background:var(--gl);border-color:var(--gl)" onclick="TAB='studio';paint();setTimeout(()=>doGen('${esc(r.screen).replace(/'/g,'')}'),50)">${esc(r.screen)}</span>`).join('')}</div></div>`:''}`;
+}
+function renderGrounding(g){ const t=document.getElementById('groundbody'); if(!t)return;
+  if(!g||!g.loaded){ t.innerHTML=`Reference corpus not loaded. Run <span class="mono">sync_reference.sh</span> to pull 939 OBSERVED signals from the acquisition corpus.`; return; }
+  if(!g.grounded||!g.grounded.length){ t.innerHTML=`No analog signals on this machine map to the reference corpus (discrete states only). Corpus: ${g.corpus.datasets} datasets · ${g.corpus.signals} observed signals.`; return; }
+  let h=`<div style="font-size:12.5px">Grounded <b>${g.grounded_signals}</b> of ${g.total_signals} signals against <b>${g.corpus.datasets}</b> real ICS/sensor datasets (${g.corpus.signals} observed series). <span style="color:var(--g2)">OBSERVED · CANDIDATE — corroboration only, never authoritative (§62).</span></div>`;
+  h+=`<div style="margin-top:10px;display:grid;gap:8px">`;
+  g.grounded.slice(0,10).forEach(r=>{
+    const eng=r.engRange?`${r.engRange[0]}–${r.engRange[1]} ${esc(r.unit||'')}`:'no eng. range';
+    const obs=r.observations.slice(0,3).map(o=>`<div class="mono" style="font-size:11px;padding:2px 0;color:#4a5b53">↳ ${esc(o.title)}·${esc(o.column)}: [${o.observedMin}, ${o.observedMax}] <span style="color:var(--mut)">n=${o.samples}</span></div>`).join('');
+    h+=`<div style="border:1px solid var(--line);border-radius:9px;padding:9px 11px">
+      <div style="font-size:12.5px"><b class="mono">${esc(r.signalId)}</b> <span style="font-size:10px;font-weight:800;padding:1px 7px;border-radius:20px;background:var(--gl);color:var(--g2)">${esc(r.measure)}</span> <span class="sub">eng ${eng}</span></div>${obs}</div>`;
+  });
+  if(g.grounded.length>10)h+=`<div class="sub">… +${g.grounded.length-10} more grounded signals</div>`;
+  h+=`</div>`; t.innerHTML=h;
 }
 function paintStudio(b){
   const chips=CUR.assets.slice(0,6).map(a=>`<button class="btn o sm" style="margin:4px 4px 0 0" onclick="doGen('page for ${a.asset_id}')">${a.asset_id}</button>`).join('');

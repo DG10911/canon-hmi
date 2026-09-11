@@ -41,7 +41,30 @@ run.sh             one-command launch
 ## How it reuses the "brain"
 - The **canonical model** is the brain's knowledge for a machine — the same evidence-first model the acquisition pipeline produces.
 - **Screen generation + edits are deterministic and validated**, exactly like `../CANON_ACQUISITION/model/canon_screen.py` and `canon_hmi.py`, so a screen can never bind a hallucinated tag.
-- **Optional:** point it at the trained CANON-brain (`llama-server` on :8000) to add fuzzy natural-language intent parsing on top of the deterministic assembler — the validator still holds authority.
+
+## Part A — wire the trained CANON-brain (v2) in
+The platform is **brain-first and auto-detecting**. Serve the v2 GGUF and it connects itself:
+```bash
+# on the DGX (after training/export):
+llama-server -m out/canon-brain-3b-v2-Q4_K_M.gguf --port 8000 &
+# from the laptop running the platform, tunnel the endpoint to localhost:8000:
+ssh -N -L 8000:localhost:8000 dgx
+```
+The platform probes `http://localhost:8000/v1` on startup (override with `CANON_LLM_BASE`).
+If it's live, the sidebar shows **Brain ● CONNECTED** and NL requests are interpreted by the
+model; if not, it runs the deterministic engine and shows a **Connect v2 brain** button. A
+mid-session drop correctly surfaces **BRAIN OFFLINE** — never a silent fallback (§9).
+
+## Part B — reference corpus grounding
+The acquisition run merges **23 real ICS/sensor datasets → 939 OBSERVED signal series**
+(SWaT, NASA C-MAPSS, steel-plate faults, SCADA pipeline, motor telemetry…). Pull them in:
+```bash
+bash sync_reference.sh          # copies seed/reference_signals.jsonl (+sources, meta)
+```
+Then the **Model tab → Reference grounding** panel cross-references each machine signal
+(by measure: pressure/level/temperature/flow/speed…) against comparable real-world sensors,
+showing their OBSERVED ranges. This is **CANDIDATE / OBSERVED corroboration only — never
+authoritative machine truth (§62)**. Endpoints: `GET /api/reference`, `GET /api/projects/{id}/grounding`.
 
 ## Guarantee
 Upload → model → generate → edit, and at every step: **the model proposes, the

@@ -1,0 +1,77 @@
+{
+ "dropped_low_quality_sources": 7885,
+ "filter": "10-120 cols AND >=200 rows",
+ "kept": [
+  {
+   "signals": 111,
+   "source": "EXT-NN5"
+  },
+  {
+   "signals": 107,
+   "source": "EXT-Fred-MD"
+  },
+  {
+   "signals": 88,
+   "source": "EXT-Quarterly-train"
+  },
+  {
+   "signals": 52,
+   "source": "EXT-sensor"
+  },
+  {
+   "signals": 52,
+   "source": "EXT-SWAT_Dataset"
+  },
+  {
+   "signals": 52,
+   "source": "EXT-rul_hrs"
+  },
+  {
+   "signals": 51,
+   "source": "EXT-normal"
+  },
+  {
+   "signals": 51,
+   "source": "EXT-merged"
+  },
+  {
+   "signals": 51,
+   "source": "EXT-attack"
+  },
+  {
+   "signals": 48,
+   "source": "EXT-Hourly-test"
+  },
+  {
+   "signals": 34,
+   "source": "EXT-faults"
+  },
+  {
+   "signals": 30,
+   "source": "EXT-Pedestrian"
+  },
+  {
+   "signals": 29,
+   "source": "EXT-Yearly-train"
+  },
+  {
+   "signals": 27,
+   "source": "EXT-NASA_turbofan_train_FD001"
+  },
+  {
+   "signals": 27,
+   "source": "EXT-NASA_turbofan_train_engine_2_FD001"
+  }
+ ],
+ "present": true,
+ "reference_facts": 939,
+ "reference_signals": 939,
+ "reference_sources": 23,
+ "rows": {
+  "01_sources": 23,
+  "06_signals": 939,
+  "29_facts": 939,
+  "31_evidence": 939,
+  "33_unknowns": 1640
+ }
+}
